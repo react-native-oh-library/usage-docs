@@ -53,7 +53,7 @@ import Slider from '@react-native-community/slider';
 首先需要使用DevEco Studio打开项目里的鸿蒙工程 `harmony`
 
 #### 引入原生端代码
-打开 `entry/oh-package.json5`，添加以下依赖，引入
+打开 `entry/oh-package.json5`，添加以下依赖，引入鸿蒙原生端的代码
 
 ```json
 "dependencies": {
@@ -159,10 +159,8 @@ struct Index {
 
 点击右上角的 `sync` 按钮
 
-或者
-
-在终端执行：
-```
+或者在终端执行：
+```bash
 cd entry
 ohpm install
 ```
@@ -172,11 +170,17 @@ ohpm install
 
 
 ## 兼容性
-要使用此库，需要使用正确的React-Native和RNOH版本.
+要使用此库，需要使用正确的React-Native和RNOH版本。另外，还需要使用配套的 DevEco Studio 和 手机ROM。
 
-| `@react-native-oh-library/slider` Version | Required React Native Version | Required RNOH Version |
-| ---------------------------------------- | ----------------------------- | ----------------------------- |
-| `4.4.3-0.1.0`                                  | `>=0.72.5`                    | `>=0.72.6` |
+| `@react-native-oh-library/slider` Version | Required React Native Version | Required RNOH Version | Required DevEco Studio Version | Required ROM Version |
+| ---------------------------------------- | ----------------------------- | ----------------------------- | ----------------------------- | ----------------------------- |
+| `4.4.3-0.1.0`                                  | `>=0.72.5`                    | `>=0.72.6` | `>=4.0.3.501`                    | `>=OpenHarmony 4.10.10` |
+
+
+
+
+
+
 
 ## 属性
 
@@ -213,3 +217,7 @@ ohpm install
 - [ ] 问题1
 - [x] 问题2: pr2
 - [x] 问题3: pr3
+
+## 其他
+
+### 贡献

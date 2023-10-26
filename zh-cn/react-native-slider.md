@@ -171,14 +171,14 @@ ohpm install
 
 
 
-### 兼容性
+## 兼容性
 要使用此库，需要使用正确的React-Native和RNOH版本.
 
 | `@react-native-oh-library/slider` Version | Required React Native Version | Required RNOH Version |
 | ---------------------------------------- | ----------------------------- | ----------------------------- |
 | `4.4.3-0.1.0`                                  | `>=0.72.5`                    | `>=0.72.6` |
 
-### 属性
+## 属性
 
 | 属性 | 说明 | 类型 | 是否必填 | 平台 | 鸿蒙支持 |
 | -------- | ----------- | ---- | -------- | -------- | -------- |
@@ -208,7 +208,7 @@ ohpm install
 | `View` | [Inherited `View` props...](https://github.com/facebook/react-native-website/blob/master/docs/view.md#props) | | | |
 
 
-### 遗留问题
+## 遗留问题
 
 - [ ] 问题1
 - [x] 问题2: pr2

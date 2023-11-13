@@ -1,0 +1,228 @@
+<p align="center">
+  <h1 align="center"> <code>@react-native-community/checkbox</code> </h1>
+</p>
+<p align="center">
+    <a href="https://github.com/callstack/react-native-checkbox">
+        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20windows%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
+    </a>
+    <a href="https://github.com/react-native-checkbox/react-native-checkbox/blob/develop/LICENSE">
+        <img src="https://img.shields.io/npm/l/@react-native-community/checkbox.svg" alt="License" />
+    </a>
+</p>
+
+## 安装与使用
+
+目前 React-Native-OpenHarmony(RNOH) 三方库的npm包部署在私仓，需要通过github token来获取访问权限。
+
+在与 `package.json` 文件相同的目录中，创建或编辑 `.npmrc` 文件以包含指定 GitHub Packages URL 和托管包的命名空间的行。 将TOKEN替换为RNOH三方库指定的token。
+```json
+@react-native-oh-library:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=TOKEN
+```
+
+进入到工程目录并输入以下命令：
+
+```bash
+yarn add rnoh-checkbox@npm:@react-native-oh-library/checkbox@0.5.16-0.0.1
+```
+
+或者
+
+```bash
+npm install rnoh-checkbox@npm:@react-native-oh-library/checkbox@0.5.16-0.0.1
+```
+
+下面的代码展示了这个库的基本使用场景：
+
+```js
+import CheckBox from '@react-native-community/checkbox';
+
+<CheckBox
+                disabled={false}
+                value={toggleCheckBox}
+                style={{ width: 70, height: 70 }}
+                tintColor={'red'}
+                onCheckColor={'green'}
+                onChange={(event) => {
+                    console.log("" + event.nativeEvent.value)
+                    setMsg2("onChange" + event.nativeEvent.target)
+                    setValue(event.nativeEvent.value)
+                }}
+                markSize={70}
+                strokeColor={'yellow'}
+                strokeWidth={5}
+                onValueChange={(newValue) => {
+                    setToggleCheckBox(newValue)
+                    setMsg("onValueChange----")
+                }}
+            />
+```
+
+### Link
+
+目前鸿蒙暂不支持 AutoLink，所以Link步骤需要手动配置。
+
+首先需要使用DevEco Studio打开项目里的鸿蒙工程 `harmony`
+
+#### 引入原生端代码
+打开 `entry/oh-package.json5`，添加以下依赖，引入鸿蒙原生端的代码
+
+```json
+"dependencies": {
+    "rnoh": "file:../rnoh",
+    "rnoh-checkbox": "file:../../node_modules/rnoh-checkbox/harmony/checkbox.har"
+  }
+```
+
+#### 配置CMakeLists和引入CheckboxPackge
+
+打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
+
+```diff
+project(rnapp)
+cmake_minimum_required(VERSION 3.4.1)
+set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
+set(OH_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
+
+add_subdirectory("${RNOH_CPP_DIR}" ./rn)
+
+# RNOH_BEGIN: add_package_subdirectories
+add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
++ add_subdirectory("${OH_MODULE_DIR}/rnoh-checkbox/src/main/cpp" ./checkbox)
+# RNOH_END: add_package_subdirectories
+
+add_library(rnoh_app SHARED
+    "./PackageProvider.cpp"
+    "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
+)
+
+target_link_libraries(rnoh_app PUBLIC rnoh)
+
+# RNOH_BEGIN: link_packages
+target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
++ target_link_libraries(rnoh_app PUBLIC rnoh_checkbox)
+# RNOH_END: link_packages
+```
+
+打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
+
+```diff
+#include "RNOH/PackageProvider.h"
+#include "SamplePackage.h"
++ #include "CheckboxPackage.h"
+
+using namespace rnoh;
+
+std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
+    return {
+      std::make_shared<SamplePackage>(ctx),
++     std::make_shared<CheckboxPackage>(ctx)
+    };
+}
+```
+
+
+#### 在ArkTs侧引入Checkbox组件
+
+打开 `entry/src/main/ets/pages/index.ets`，添加：
+
+```diff
+import {
+  RNApp,
+  ComponentBuilderContext,
+  RNAbility,
+  AnyJSBundleProvider,
+  MetroJSBundleProvider,
+  ResourceJSBundleProvider,
+} from 'rnoh'
+import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-package"
+import { createRNPackages } from '../RNPackagesFactory'
++ import { RNCCheckbox, CHECKBOX_TYPE } from "rnoh-checkbox"
+
+@Entry
+@Component
+struct Index {
+  @StorageLink('RNAbility') rnAbility: RNAbility | undefined = undefined
+
+  @Builder
+  buildCustomComponent(ctx: ComponentBuilderContext) {
+    if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
+      SampleView({
+        ctx: ctx.rnohContext,
+        tag: ctx.descriptor.tag,
+        buildCustomComponent: this.buildCustomComponent.bind(this)
+      })
+    } 
++   else if (ctx.descriptor.type === CHECKBOX_TYPE) {
++     RNCCheckbox({
++       ctx: ctx.rnohContext,
++       tag: ctx.descriptor.tag,
++       buildCustomComponent: this.buildCustomComponent.bind(this)
++     })
++   } 
+    ...
+  }
+  ...
+}
+```
+
+#### 运行
+
+点击右上角的 `sync` 按钮
+
+或者在终端执行：
+```bash
+cd entry
+ohpm install
+```
+
+然后编译、运行即可。
+
+
+
+## 兼容性
+要使用此库，需要使用正确的React-Native和RNOH版本。另外，还需要使用配套的 DevEco Studio 和 手机ROM。
+
+| `@react-native-oh-library/checkbox` Version | Required React Native Version | Required RNOH Version | Required DevEco Studio Version | Required ROM Version |
+| ---------------------------------------- | ----------------------------- | ----------------------------- | ----------------------------- | ----------------------------- |
+| `0.5.16-0.0.1`                                  | `>=0.72.5`                    | `>=0.72.6` | `>=4.0.3.501`                    | `>=OpenHarmony 4.10.10` |
+
+
+
+
+
+
+
+## 属性
+
+## Common Props
+
+[View props...](https://reactnative.dev/docs/view#props)
+
+| Prop name     | Type     | Description                                                                                                                                                                                                           |
+| ------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| onChange      | function | Invoked on change with the native event.                                                                                                                                                                              |
+| onValueChange | function | Invoked with the new boolean value when it changes.                                                                                                                                                                   |
+| value         | boolean  | The value of the checkbox. If true the checkbox will be turned on. Default value is false.                                                                                                                            |
+| testID        | string   | Used to locate this view in end-to-end tests.
+| disabled      | boolean | If true the user won't be able to toggle the checkbox. Default value is false.
+
+
+## Harmony Props
+
+
+
+| Prop name     | Type     | Description                                                                                                                                                                                                           |
+| ------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| onCheckColor      | Color |   Color of the check box when it is selected.                                                                                                                                                             |
+| tintColor         | Color |   Border color of the check box when it is not selected.                                                                                                                                                                              |   
+| markSize      | number |   Size of the internal mark. The default size is the same as the width of the check box.This parameter cannot be set in percentage. If it is set to an invalid value, the default value is used.                                                                                                                                                           |
+| strokeWidth      | number |   Stroke width of the internal mark. This parameter cannot be set in percentage. If it is set to an invalid value, the default value is used.                                                                                                                                                            |
+| strokeColor      | Color |   Color of the internal mark.                                                                                                                                                                                 |
+
+
+
+## 其他
+
+### 贡献

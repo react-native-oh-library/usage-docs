@@ -6,4 +6,10 @@
 
 该文档旨在帮助开发者在OpenHarmony平台使用React Native OpenHarmony的第三方库，并呈现每个三方库的信息。
 
+## RNOH 三方库总览
+
+| 序号 | 原库名 | 原库基线版本 | 原库是否支持新架构 | 鸿蒙化进度 | 已发布的最新版本 | 文档链接
+| :----------: | :----------: | :----------: | :----------: | :----------: | :----------: | :----------: |
+| 1 | @react-native-community/slider | 4.4.3 | 是 | 90% | [@react-native-oh-library/slider@4.4.3-0.1.1](https://github.com/react-native-oh-library/react-native-slider/releases/tag/4.4.3-0.1.1) | [链接](zh-cn/react-native-slider.md) |
+
 ## 社区

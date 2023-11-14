@@ -174,7 +174,7 @@ ohpm install
 
 | `@react-native-oh-library/slider` Version | Required React Native Version | Required RNOH Version | Required DevEco Studio Version | Required ROM Version |
 | ---------------------------------------- | ----------------------------- | ----------------------------- | ----------------------------- | ----------------------------- |
-| `4.4.3-0.1.0`                                  | `>=0.72.5`                    | `>=0.72.6` | `>=4.0.3.501`                    | `>=OpenHarmony 4.10.10` |
+| `4.4.3-0.1.1`                                  | `0.72.5`                    | `0.72.10` | `4.0.3.601`                    | `OpenHarmony 4.10.10` |
 
 
 
@@ -214,10 +214,12 @@ ohpm install
 
 ## 遗留问题
 
-- [ ] 问题1
-- [x] 问题2: pr2
-- [x] 问题3: pr3
+- [ ] upperLimit和lowerLimit只对数值生效，滑动限制不生效: [issue#2](https://github.com/react-native-oh-library/react-native-slider/issues/2)
+- [ ] 不支持滑轨设置图片: [issue#3](https://github.com/react-native-oh-library/react-native-slider/issues/3)
+- [ ] 未适配无障碍
 
 ## 其他
 
-### 贡献
+## 开源协议
+
+本项目基于 [The MIT License (MIT)](https://github.com/callstack/react-native-slider/blob/main/LICENSE.md) ，请自由地享受和参与开源。

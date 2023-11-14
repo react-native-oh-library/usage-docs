@@ -15,7 +15,8 @@
 目前 React-Native-OpenHarmony(RNOH) 三方库的npm包部署在私仓，需要通过github token来获取访问权限。
 
 在与 `package.json` 文件相同的目录中，创建或编辑 `.npmrc` 文件以包含指定 GitHub Packages URL 和托管包的命名空间的行。 将TOKEN替换为RNOH三方库指定的token。
-```json
+
+```bash
 @react-native-oh-library:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:_authToken=TOKEN
 ```
@@ -23,13 +24,13 @@
 进入到工程目录并输入以下命令：
 
 ```bash
-yarn add rnoh-slider@npm:@react-native-oh-library/slider@4.4.3-0.1.0
+yarn add @react-native-community/slider@npm:@react-native-oh-library/slider
 ```
 
 或者
 
 ```bash
-npm install rnoh-slider@npm:@react-native-oh-library/slider@4.4.3-0.1.0
+npm install @react-native-community/slider@npm:@react-native-oh-library/slider
 ```
 
 下面的代码展示了这个库的基本使用场景：
@@ -58,7 +59,7 @@ import Slider from '@react-native-community/slider';
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-slider": "file:../../node_modules/rnoh-slider/harmony/slider.har"
+    "rnoh-slider": "file:../../node_modules/@react-native-community/slider/harmony/slider.har"
   }
 ```
 

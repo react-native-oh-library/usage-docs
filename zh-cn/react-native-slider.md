@@ -55,13 +55,45 @@ import Slider from "@react-native-community/slider";
 
 ### 引入原生端代码
 
-打开 `entry/oh-package.json5`，添加以下依赖，引入鸿蒙原生端的代码
+目前有两种方法：
+
+1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
+2. 直接链接源码。
+
+方法一：通过 har 包引入
+打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-slider": "file:../../node_modules/@react-native-community/slider/harmony/slider.har"
+    "rnoh-slider": "file:../../node_modules/@react-native-community/slider/harmony/picker.har"
   }
+```
+
+点击右上角的 `sync` 按钮
+
+或者在终端执行：
+
+```bash
+cd entry
+ohpm install
+```
+
+方法二：直接链接源码
+打开 `entry/oh-package.json5`，添加以下依赖
+
+```json
+"dependencies": {
+    "rnoh": "file:../rnoh",
+    "rnoh-slider": "file:../../node_modules/@react-native-community/slider/harmony/slider"
+  }
+```
+
+打开终端，执行：
+
+```bash
+cd entry
+ohpm install --no-link
 ```
 
 ### 配置 CMakeLists 和引入 SliderPackge

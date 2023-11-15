@@ -66,7 +66,7 @@ import Slider from "@react-native-community/slider";
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-slider": "file:../../node_modules/@react-native-community/slider/harmony/picker.har"
+    "rnoh-slider": "file:../../node_modules/@react-native-community/slider/harmony/slider.har"
   }
 ```
 

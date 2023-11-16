@@ -7,11 +7,10 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<meta name="description" content="Description">
 		<!-- 设置浏览器图标 -->
-		<link rel="icon" href="https://librarycodes.gitee.io/docsify-plus/img/logo.ico" type="image/x-icon" />
+		<link rel="icon" href="/img/logo.ico" type="image/x-icon" />
 		<link rel="shortcut icon" href="https://librarycodes.gitee.io/docsify-plus/img/logo.ico" type="image/x-icon" />
 		<!-- 默认主题 -->
 		<meta name="theme-color" content="#f2f4f6">
-
 		<link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
 		<link rel="stylesheet" href="css/card.min.css" type="text/css" >
@@ -79,6 +78,26 @@
 					scroll: false, // 启用滚动
 					height: 300 // 折叠高度
 				},
+				plugins: [
+					function (hook, vm) {
+					// load livere
+					hook.beforeEach(function(content) {
+						var comment = "<div id='lv-container' data-id='city' data-uid='MTAyMC81OTIwMy8zNTY2NQ=='></div>\n\n----\n"
+						return content + comment;
+					});
+
+					hook.doneEach(function() {
+						(function(d, s) {
+							var j, e = d.getElementsByTagName(s)[0];
+							if (typeof LivereTower === 'function') { return; }
+							j = d.createElement(s);
+							j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+							j.async = true;
+							e.parentNode.insertBefore(j, e);
+						})(document, 'script');
+					});
+					},
+				],
 			}
 		</script>
 		<!-- docsify的js依赖 -->
@@ -95,16 +114,11 @@
 		<script src="//fastly.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
 		<!-- 外部脚本 如果页面上的脚本是外部脚本（通过src属性导入 js 文件） -->
 		<script src="//fastly.jsdelivr.net/npm/docsify/lib/plugins/external-script.min.js"></script>
-		<!-- 插件列表 -->
-		<script src="//fastly.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
-		<script src="//fastly.jsdelivr.net/npm/prismjs@1/components/prism-php.min.js"></script>
-		<script src="//fastly.jsdelivr.net/npm/prismjs@1.24.1/components/prism-java.min.js"></script>
-		<script src="//fastly.jsdelivr.net/npm/prismjs@1.24.1/components/prism-python.min.js"></script>
 		<!-- docsify-tabs (latest v1.x.x) -->
 		<script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
 		<!-- 代码折叠 -->
 		<script src="https://unpkg.com/docsify-hide-code"></script>
-		<!-- 代码高亮 -->>
+		<!-- 代码高亮 -->
 		<script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
 		<script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-java.min.js"></script>
 		<script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-typescript.min.js"></script>
@@ -114,5 +128,7 @@
 		<script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-json.min.js"></script>
 		<script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-markdown.min.js"></script>
 		<script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-diff.min.js"></script>
+		<!-- 文本高亮 -->
+		<script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
 	</body>
 </html>

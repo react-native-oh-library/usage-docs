@@ -14,6 +14,7 @@
 | 2 | @react-native-picker/picker | 2.5.1 | 否 | 90% | [@react-native-oh-library/picker@2.5.1-0.0.1](https://github.com/react-native-oh-library/picker/releases/tag/2.5.1-0.0.1) | [链接](zh-cn/picker.md) |
 | 3 | @react-native-community/checkbox | 0.5.16 | 否 | 100% | [@react-native-oh-library/checkbox@0.5.16-0.0.1](https://github.com/react-native-oh-library/react-native-checkbox/releases/tag/0.5.16-0.0.1) | [链接](zh-cn/react-native-checkbox.md) |
 | 4 | @react-native-community/slider | 4.4.3 | 是 | 90% | [@react-native-oh-library/slider@4.4.3-0.1.1](https://github.com/react-native-oh-library/react-native-slider/releases/tag/4.4.3-0.1.1) | [链接](zh-cn/react-native-slider.md) |
+| 4 | @react-native-masked-view/masked-view | 0.2.9 | 否 | 90% | [@react-native-oh-library/masked-view@0.2.9-0.0.1](https://github.com/react-native-oh-library/masked-view/releases/tag/0.2.9-0.0.1) | [链接](zh-cn/react-native-masked-view.md) |
 
 ## 社区
 

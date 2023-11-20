@@ -23,13 +23,13 @@
 进入到工程目录并输入以下命令：
 
 ```bash
-yarn add rnoh-checkbox@npm:@react-native-oh-library/checkbox@0.5.16-0.0.1
+yarn add @react-native-community/checkbox@npm:@react-native-oh-library/checkbox
 ```
 
 或者
 
 ```bash
-npm install rnoh-checkbox@npm:@react-native-oh-library/checkbox@0.5.16-0.0.1
+npm install @react-native-community/checkbox@npm:@react-native-oh-library/checkbox
 ```
 
 下面的代码展示了这个库的基本使用场景：
@@ -58,14 +58,21 @@ import CheckBox from '@react-native-community/checkbox';
             />
 ```
 
-### Link
+## Link
 
 目前鸿蒙暂不支持 AutoLink，所以Link步骤需要手动配置。
 
 首先需要使用DevEco Studio打开项目里的鸿蒙工程 `harmony`
 
-#### 引入原生端代码
-打开 `entry/oh-package.json5`，添加以下依赖，引入鸿蒙原生端的代码
+### 引入原生端代码
+
+目前有两种方法：
+
+1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
+2. 直接链接源码。
+
+方法一：通过 har 包引入
+打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
@@ -74,7 +81,33 @@ import CheckBox from '@react-native-community/checkbox';
   }
 ```
 
-#### 配置CMakeLists和引入CheckboxPackge
+点击右上角的 `sync` 按钮
+
+或者在终端执行：
+
+```bash
+cd entry
+ohpm install
+```
+
+方法二：直接链接源码
+打开 `entry/oh-package.json5`，添加以下依赖
+
+```json
+"dependencies": {
+    "rnoh": "file:../rnoh",
+    "rnoh-slider": "file:../../node_modules/rnoh-checkbox/harmony/checkbox"
+  }
+```
+
+打开终端，执行：
+
+```bash
+cd entry
+ohpm install --no-link
+```
+
+### 配置CMakeLists和引入CheckboxPackge
 
 打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
 
@@ -123,7 +156,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 ```
 
 
-#### 在ArkTs侧引入Checkbox组件
+### 在ArkTs侧引入 Checkbox 组件
 
 打开 `entry/src/main/ets/pages/index.ets`，添加：
 
@@ -167,7 +200,7 @@ struct Index {
 }
 ```
 
-#### 运行
+### 运行
 
 点击右上角的 `sync` 按钮
 
@@ -186,43 +219,28 @@ ohpm install
 
 | `@react-native-oh-library/checkbox` Version | Required React Native Version | Required RNOH Version | Required DevEco Studio Version | Required ROM Version |
 | ---------------------------------------- | ----------------------------- | ----------------------------- | ----------------------------- | ----------------------------- |
-| `0.5.16-0.0.1`                                  | `>=0.72.5`                    | `>=0.72.6` | `>=4.0.3.501`                    | `>=OpenHarmony 4.10.10` |
-
-
-
-
-
+| `0.5.16-0.0.2`                                  | `>=0.72.5`                    | `>=0.72.6` | `>=4.0.3.501`                    | `>=OpenHarmony 4.10.10` |
 
 
 ## 属性
 
-## Common Props
 
-[View props...](https://reactnative.dev/docs/view#props)
+| 名称                    | 说明                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | 类型                                         | 是否必填 | 原库平台     | 鸿蒙支持 |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- | -------- | ------------ | -------- |
+| `onChange`              | Invoked on change with the native event.                                                                                                                                                                                                                                                                                                                                                                                                     | function                                         | No       | All          | yes      |
+| `onValueChange`              | Invoked with the new boolean value when it changes.                                                                                                                                                                                                                                                                                                                                                                                                     | function                                         | No       | All          | yes      |
+| `value`              |  The value of the checkbox. If true the checkbox will be turned on. Default value is false.                                                                                                                                                                                                                                                                                                                                                                                                    | boolean                                         | No       | All          | yes      |
+| `testID`              | Used to locate this view in end-to-end tests.                                                                                                                                                                                                                                                                                                                                                                                                     | string                                         | No       | All          | yes      |
+| `disabled`              | If true the user won't be able to toggle the checkbox. Default value is false.                                                                                                                                                                                                                                                                                                                                                                                                     | bool                                         | No       | All          | yes      |
+| `onCheckColor`              | Color of the check box when it is selected.                                                                                                                                                                                                                                                                                                                                                                                                     | Color                                         | No       | ios & harmony          | yes      |
+| `tintColor`              | Border color of the check box when it is not selected.                                                                                                                                                                                                                                                                                                                                                                                                     | Color                                         | No       | ios & harmony          | yes      |
+| `markSize`              | Size of the internal mark. The default size is the same as the width of the check box.This parameter cannot be set in percentage. If it is set to an invalid value, the default value is used.                                                                                                                                                                                                                                                                                                                                                                                                     | number                                         | No       | harmony          | yes      |
+| `strokeWidth`              | Stroke width of the internal mark. This parameter cannot be set in percentage. If it is set to an invalid value, the default value is used.                                                                                                                                                                                                                                                                                                                                                                                                     | number                                         | No       | harmony          | yes      |
+| `strokeColor`              | Color of the internal mark.                                                                                                                                                                                                                                                                                                                                                                                                     | Color                                         | No       | harmony          | yes      |
 
-| Prop name     | Type     | Description                                                                                                                                                                                                           |
-| ------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| onChange      | function | Invoked on change with the native event.                                                                                                                                                                              |
-| onValueChange | function | Invoked with the new boolean value when it changes.                                                                                                                                                                   |
-| value         | boolean  | The value of the checkbox. If true the checkbox will be turned on. Default value is false.                                                                                                                            |
-| testID        | string   | Used to locate this view in end-to-end tests.
-| disabled      | boolean | If true the user won't be able to toggle the checkbox. Default value is false.
-
-
-## Harmony Props
-
-
-
-| Prop name     | Type     | Description                                                                                                                                                                                                           |
-| ------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| onCheckColor      | Color |   Color of the check box when it is selected.                                                                                                                                                             |
-| tintColor         | Color |   Border color of the check box when it is not selected.                                                                                                                                                                              |   
-| markSize      | number |   Size of the internal mark. The default size is the same as the width of the check box.This parameter cannot be set in percentage. If it is set to an invalid value, the default value is used.                                                                                                                                                           |
-| strokeWidth      | number |   Stroke width of the internal mark. This parameter cannot be set in percentage. If it is set to an invalid value, the default value is used.                                                                                                                                                            |
-| strokeColor      | Color |   Color of the internal mark.                                                                                                                                                                                 |
-
-
+## 遗留问题
 
 ## 其他
 
-### 贡献
+## 开源协议
+本项目基于 [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-checkbox/blob/harmony/LICENSE) ，请自由地享受和参与开源。

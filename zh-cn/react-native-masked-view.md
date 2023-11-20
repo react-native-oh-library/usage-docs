@@ -232,7 +232,7 @@ ohpm install
 
 | `@react-native-oh-library/masked-view` Version | Required React Native Version | Required RNOH Version | Required DevEco Studio Version | Required ROM Version  |
 | ----------------------------------------- | ----------------------------- | --------------------- | ------------------------------ | --------------------- |
-| `4.4.3-0.1.1`                             | `0.72.5`                      | `0.72.10`             | `4.0.3.601`                    | `OpenHarmony 4.10.10` |
+| `0.2.9-0.0.1`                             | `0.72.5`                      | `0.72.10`             | `4.0.3.601`                    | `OpenHarmony 4.10.10` |
 
 ## 属性
 

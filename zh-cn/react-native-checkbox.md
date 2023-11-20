@@ -96,7 +96,7 @@ ohpm install
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-slider": "file:../../node_modules/rnoh-checkbox/harmony/checkbox"
+    "rnoh-checkbox": "file:../../node_modules/rnoh-checkbox/harmony/checkbox"
   }
 ```
 

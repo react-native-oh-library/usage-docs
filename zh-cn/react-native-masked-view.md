@@ -245,7 +245,7 @@ ohpm install
 
 ## 遗留问题
 
-- [ ] 现在鸿蒙测未实现遮罩效果，只是讲maskElement和children绘制出来
+- [ ] 鸿蒙侧未实现遮罩效果[issue#1](https://github.com/react-native-oh-library/masked-view/issues/1)
 
 ## 其他
 

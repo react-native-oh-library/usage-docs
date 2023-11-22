@@ -7,11 +7,7 @@
     <a href="https://github.com/react-native-linear-gradient/react-native-linear-gradient">
         <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20windows%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
-    <a href="https://github.com/react-native-oh-library/react-native-linear-gradient/blob/harmony/LICENSE">
-        <img src="https://img.shields.io/npm/l/@react-native-community/checkbox.svg" alt="License" />
-    </a>
-</p>
-
+    </p>
 
 ## 安装与使用
 
@@ -26,13 +22,13 @@
 进入到工程目录并输入以下命令：
 
 ```bash
-yarn add @react-native-linear-gradient@npm:@react-native-oh-library/react-native-linear-gradient
+yarn add react-native-linear-gradient@npm:@react-native-oh-library/react-native-linear-gradient
 ```
 
 或者
 
 ```bash
-npm install @react-native-linear-gradient@npm:@react-native-oh-library/react-native-linear-gradient
+npm install react-native-linear-gradient@npm:@react-native-oh-library/react-native-linear-gradient
 ```
 
 快速使用：
@@ -172,19 +168,19 @@ struct Index {
   @StorageLink('RNAbility') rnAbility: RNAbility | undefined = undefined
 
   @Builder
-  buildCustomComponent(ctx: ComponentBuilderContext) {
-    if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
+  function CustomComponentBuilder(ctx: ComponentBuilderContext) {
+    if (ctx.componentName === SAMPLE_VIEW_TYPE) {
       SampleView({
         ctx: ctx.rnohContext,
         tag: ctx.descriptor.tag,
-        buildCustomComponent: this.buildCustomComponent.bind(this)
+        buildCustomComponent: CustomComponentBuilder
       })
-    } 
-+   else if (ctx.descriptor.type === LINEAR_GRADIENT_TYPE) {
+    }
++   else if (ctx.componentName === LINEAR_GRADIENT_TYPE) {
 +     RNLinearGradient({
 +       ctx: ctx.rnohContext,
 +       tag: ctx.descriptor.tag,
-+       buildCustomComponent: this.buildCustomComponent.bind(this)
++       buildCustomComponent: CustomComponentBuilder
 +     })
 +   } 
     ...
@@ -224,9 +220,9 @@ ohpm install
 | locations   | Color for unknown array (length 0 or the same as colors) | number[]               | NO       | All      | yes      |
 | useAngle    | Use angle (default false)                                | boolean                | NO       | All      | yes      |
 | angle       | Angle (useAngle=true valid)                              | number                 | NO       | All      | yes      |
-| angleCenter | Middle angle coordinate                                  | { x: number,y: number} | NO       | All      | yes      |
-| start       | Starting point coordinates (default value: {x: 0.5,1})   | { x: number,y: number} | NO       | All      | yes      |
-| end         | End point coordinates (default value: {x: 0.5,1})        | { x: number,y: number} | NO       | All      | yes      |
+| angleCenter | Middle angle coordinate                                  | { x: number,y: number} | NO       | All      | no       |
+| start       | Starting point coordinates (default value: {x: 0.5,1})   | { x: number,y: number} | NO       | All      | partial  |
+| end         | End point coordinates (default value: {x: 0.5,1})        | { x: number,y: number} | NO       | All      | partial  |
 
 ## 遗留问题
 

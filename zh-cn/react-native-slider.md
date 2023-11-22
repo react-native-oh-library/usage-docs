@@ -161,31 +161,25 @@ import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-packag
 import { createRNPackages } from '../RNPackagesFactory'
 + import { RNCSlider, SLIDER_TYPE } from "rnoh-slider"
 
-@Entry
-@Component
-struct Index {
-  @StorageLink('RNAbility') rnAbility: RNAbility | undefined = undefined
-
-  @Builder
-  buildCustomComponent(ctx: ComponentBuilderContext) {
-    if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
-      SampleView({
-        ctx: ctx.rnohContext,
-        tag: ctx.descriptor.tag,
-        buildCustomComponent: this.buildCustomComponent.bind(this)
-      })
-    }
-+   else if (ctx.descriptor.type === SLIDER_TYPE) {
-+     RNCSlider({
-+       ctx: ctx.rnohContext,
-+       tag: ctx.descriptor.tag,
-+       buildCustomComponent: this.buildCustomComponent.bind(this)
-+     })
-+   }
-    ...
+@Builder
+function CustomComponentBuilder(ctx: ComponentBuilderContext) {
+  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
+    SampleView({
+      ctx: ctx.rnohContext,
+      tag: ctx.descriptor.tag,
+      buildCustomComponent: CustomComponentBuilder
+    })
   }
-  ...
++ else if (ctx.componentName === SLIDER_TYPE) {
++   RNCSlider({
++     ctx: ctx.rnohContext,
++     tag: ctx.descriptor.tag,
++     buildCustomComponent: CustomComponentBuilder
++   })
++ }
+ ...
 }
+...
 ```
 
 ### 运行

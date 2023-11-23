@@ -173,31 +173,25 @@ import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-packag
 import { createRNPackages } from '../RNPackagesFactory'
 + import { RNCCheckbox, CHECKBOX_TYPE } from "rnoh-checkbox"
 
-@Entry
-@Component
-struct Index {
-  @StorageLink('RNAbility') rnAbility: RNAbility | undefined = undefined
-
   @Builder
-  buildCustomComponent(ctx: ComponentBuilderContext) {
+  function CustomComponentBuilder(ctx: ComponentBuilderContext) {
     if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
       SampleView({
         ctx: ctx.rnohContext,
         tag: ctx.descriptor.tag,
-        buildCustomComponent: this.buildCustomComponent.bind(this)
+        buildCustomComponent: CustomComponentBuilder
       })
     } 
 +   else if (ctx.descriptor.type === CHECKBOX_TYPE) {
 +     RNCCheckbox({
 +       ctx: ctx.rnohContext,
 +       tag: ctx.descriptor.tag,
-+       buildCustomComponent: this.buildCustomComponent.bind(this)
++       buildCustomComponent: CustomComponentBuilder
 +     })
 +   } 
     ...
   }
   ...
-}
 ```
 
 ### 运行

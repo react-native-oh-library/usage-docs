@@ -16,6 +16,7 @@
 | 4 | @react-native-community/slider | 4.4.3 | 是 | 90% | [@react-native-oh-library/slider@4.4.3-0.1.1](https://github.com/react-native-oh-library/react-native-slider/releases/tag/4.4.3-0.1.1) | [链接](zh-cn/react-native-slider.md) |
 | 5 | @react-native-masked-view/masked-view | 0.2.9 | 否 | 90% | [@react-native-oh-library/masked-view@0.2.9-0.0.1](https://github.com/react-native-oh-library/masked-view/releases/tag/0.2.9-0.0.1) | [链接](zh-cn/react-native-masked-view.md) |
 | 6 | @react-native-community/checkbox | 0.5.16 | 否 | 100% | [@react-native-oh-library/checkbox@0.5.16-0.0.2](https://github.com/react-native-oh-library/react-native-checkbox/releases/tag/0.5.16-0.0.2) | [链接](zh-cn/react-native-checkbox.md) |
+| 7 | react-native-linear-gradient | 3.0.0-alpha.1 | 是 | 90% | [@react-native-oh-library/react-native-linear-gradient@3.0.0-alpha.1-0.2.4](https://github.com/react-native-oh-library/react-native-linear-gradient/releases/tag/3.0.0-alpha.1-0.2.4) | [链接](zh-cn/react-native-linear-gradient.md) |
 ## 社区
 
 [react-native-oh-library](https://github.com/react-native-oh-library)

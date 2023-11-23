@@ -109,7 +109,7 @@ cd entry
 ohpm install --no-link
 ```
 
-### 配置 CMakeLists 和引入 SliderPackge
+### 配置 CMakeLists 和引入 AsynStoragePackge
 
 打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
 
@@ -157,7 +157,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 在 ArkTs 侧引入 slider 组件
+### 在 ArkTs 侧引入 AsynStorage 组件
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 

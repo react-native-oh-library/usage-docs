@@ -179,19 +179,19 @@ struct Index {
   @StorageLink('RNAbility') rnAbility: RNAbility | undefined = undefined
 
   @Builder
-  buildCustomComponent(ctx: ComponentBuilderContext) {
+  function CustomComponentBuilder(ctx: ComponentBuilderContext) {
     if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
       SampleView({
         ctx: ctx.rnohContext,
         tag: ctx.descriptor.tag,
-        buildCustomComponent: this.buildCustomComponent.bind(this)
+        buildCustomComponent: CustomComponentBuilder
       })
     } 
 +   else if (ctx.descriptor.type === CHECKBOX_TYPE) {
 +     RNCCheckbox({
 +       ctx: ctx.rnohContext,
 +       tag: ctx.descriptor.tag,
-+       buildCustomComponent: this.buildCustomComponent.bind(this)
++       buildCustomComponent: CustomComponentBuilder
 +     })
 +   } 
     ...

@@ -162,11 +162,6 @@ import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-packag
 import { createRNPackages } from '../RNPackagesFactory'
 + import { RNLinearGradient, LINEAR_GRADIENT_TYPE, LinearGradientDescriptor } from "rnoh-linear-gradient"
 
-@Entry
-@Component
-struct Index {
-  @StorageLink('RNAbility') rnAbility: RNAbility | undefined = undefined
-
   @Builder
   function CustomComponentBuilder(ctx: ComponentBuilderContext) {
     if (ctx.componentName === SAMPLE_VIEW_TYPE) {
@@ -186,7 +181,6 @@ struct Index {
     ...
   }
   ...
-}
 ```
 
 ### 运行

@@ -163,11 +163,6 @@ import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-packag
 import { createRNPackages } from '../RNPackagesFactory'
 + import { RNCHarmonyPicker, HARMONY_PICKER_TYPE } from "rnoh-picker"
 
-@Entry
-@Component
-struct Index {
-  @StorageLink('RNAbility') rnAbility: RNAbility | undefined = undefined
-
   @Builder
   function CustomComponentBuilder(ctx: ComponentBuilderContext) {
     if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
@@ -187,7 +182,6 @@ struct Index {
     ...
   }
   ...
-}
 ```
 
 ### 运行

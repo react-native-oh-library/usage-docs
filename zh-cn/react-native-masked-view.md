@@ -186,11 +186,6 @@ import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-packag
 import { createRNPackages } from '../RNPackagesFactory'
 + import { MaskedView, MASKED_VIEW_TYPE } from "rnoh-masked-view"
 
-@Entry
-@Component
-struct Index {
-  @StorageLink('RNAbility') rnAbility: RNAbility | undefined = undefined
-
   @Builder
   function CustomComponentBuilder(ctx: ComponentBuilderContext) {
     if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
@@ -210,7 +205,6 @@ struct Index {
     ...
   }
   ...
-}
 ```
 
 ### 运行

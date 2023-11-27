@@ -7,4 +7,5 @@
     - [@react-native-community/slider](zh-cn/react-native-slider.md)
     - [@react-native-community/checkbox](zh-cn/react-native-checkbox.md)
     - [@react-native-picker/picker](zh-cn/picker.md)
+    - [@react-native-community/progress-bar-android](zh-cn/progress-bar-android.md)
 

@@ -6,7 +6,7 @@
         <img src="https://img.shields.io/badge/platforms-android%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
     <a href="https://github.com/react-native-progress-view/progress-bar-android/blob/master/LICENSE">
-        <img src="https://img.shields.io/npm/l/@react-native-community/slider.svg" alt="License" />
+        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
 
@@ -24,13 +24,13 @@
 进入到工程目录并输入以下命令：
 
 ```bash
-yarn add @react-native-oh-library/progress-bar-android
+yarn add @react-native-community/progress-bar-android@npm:@react-native-oh-library/progress-bar-android
 ```
 
 或者
 
 ```bash
-npm install @react-native-oh-library/progress-bar-android
+npm install @react-native-community/progress-bar-android@npm:@react-native-oh-library/progress-bar-android
 ```
 
 下面的代码展示了这个库的基本使用场景：

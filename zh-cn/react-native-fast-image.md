@@ -5,9 +5,6 @@
     <a href="https://github.com/DylanVann/react-native-fast-image">
         <img src="https://img.shields.io/badge/platforms-android%20%7C%20ios%20%7C%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
-    <a href="https://github.com/DylanVann/react-native-fast-image/blob/main/LICENSE">
-        <img src="https://img.shields.io/npm/l/@react-native-community/slider.svg" alt="License" />
-    </a>
 </p>
 
 ## 安装与使用
@@ -15,13 +12,13 @@
 进入到工程目录并输入以下命令：
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-fast-image
+yarn add react-native-fast-image@npm:@react-native-oh-tpl/react-native-fast-image
 ```
 
 或者
 
 ```bash
-npm install @react-native-oh-tpl/react-native-fast-image
+npm install react-native-fast-image@npm:@react-native-oh-tpl/react-native-fast-image
 ```
 
 下面的代码展示了这个库的基本使用场景：
@@ -189,33 +186,33 @@ ohpm install
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
 | `@react-native-oh-tpl/react-native-fast-image` Version | Required React Native Version | Required RNOH Version | Required DevEco Studio Version | Required ROM Version  |
-| ----------------------------------------- | ----------------------------- | --------------------- | ------------------------------ | --------------------- |
-| `8.6.3-0.0.2`                             | `0.72.5`                      | `0.72.10`             | `4.0.3.601`                    | `OpenHarmony 4.10.10` |
+| ------------------------------------------------------ | ----------------------------- | --------------------- | ------------------------------ | --------------------- |
+| `8.6.3-0.0.2`                                          | `0.72.5`                      | `0.72.10`             | `4.0.3.601`                    | `OpenHarmony 4.10.10` |
 
 ## 属性
 
-| 名称                    | 说明                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | 类型                                         | 是否必填 | 原库平台     | 鸿蒙支持 |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- | -------- | ------------ | -------- |
-| `source.uri`                 | Source for the remote image to load.                                                                                                                                                                                                                                                                                                                                                                           | string                                   | Yes       | All          | yes      |
-| `source.headers?`              | Headers to load the image with. e.g. { Authorization: 'someAuthToken' }.                                                                                                                                                                                                                                                                                                                                                                                                     | object                                         | No       | All          | yes      |
-| `source.priority?`          | loading url priority                                                                                                                                                                                                                                                                                                                               | enum                                       | No       | All          | no      |
-| `source.cache?` | setting loading url cache mode                                                                                                                                                                                                                                                                                                                                         | enum | No       | All          | no      |
-| `defaultSource?`          |   An asset loaded with require(...).                                                                                                                                                                                                                                                                                                                                                                                                                     | number                                       | No       | All          | yes      |
-| `resizeMode?`            | loading image for scale mode                                                                                                                                                                                                                                                                                                                                                                                                               | enum                                       | No       | ALL | yes       |
-| `onLoadStart?: () => void`            | Called when the image starts to load.                                                                                                                                                                                                                                                                                                                                                                                                               | function                                       | No       | ALL | yes       |
-| `onProgress?: (event) => void`        | Called when the image is loading.                                                                                                                                                                                                                                                                                                                                                 | function                                     | No       | All          | yes      |
-| `onLoad?: (event) => void`     | Called on a successful image fetch. Called with the width and height of the loaded image.                                                                                                                                                                                                                                                                                                            | function                                     | No       | All          | yes      |
-| `onError?: () => void`         | Called on an image fetching error.                                                                                                                                                                                                                                                                                                                                                                                                                | function                                     | No       | All          | yes      |
-| `onLoadEnd?: () => void`                  | Called when the image finishes loading, whether it was successful or an error.                                                                                                                                                                                                                                                                | function                                       | No       | All          | yes      |
-| `tintColor?` | If supplied, changes the color of all the non-transparent pixels to the given color. | number \| string| No       | All          | yes      |
+| 名称                           | 说明                                                                                      | 类型             | 是否必填 | 原库平台 | 鸿蒙支持 |
+| ------------------------------ | ----------------------------------------------------------------------------------------- | ---------------- | -------- | -------- | -------- |
+| `source.uri`                   | Source for the remote image to load.                                                      | string           | Yes      | All      | yes      |
+| `source.headers?`              | Headers to load the image with. e.g. { Authorization: 'someAuthToken' }.                  | object           | No       | All      | yes      |
+| `source.priority?`             | loading url priority                                                                      | enum             | No       | All      | no       |
+| `source.cache?`                | setting loading url cache mode                                                            | enum             | No       | All      | no       |
+| `defaultSource?`               | An asset loaded with require(...).                                                        | number           | No       | All      | yes      |
+| `resizeMode?`                  | loading image for scale mode                                                              | enum             | No       | ALL      | yes      |
+| `onLoadStart?: () => void`     | Called when the image starts to load.                                                     | function         | No       | ALL      | yes      |
+| `onProgress?: (event) => void` | Called when the image is loading.                                                         | function         | No       | All      | yes      |
+| `onLoad?: (event) => void`     | Called on a successful image fetch. Called with the width and height of the loaded image. | function         | No       | All      | yes      |
+| `onError?: () => void`         | Called on an image fetching error.                                                        | function         | No       | All      | yes      |
+| `onLoadEnd?: () => void`       | Called when the image finishes loading, whether it was successful or an error.            | function         | No       | All      | yes      |
+| `tintColor?`                   | If supplied, changes the color of all the non-transparent pixels to the given color.      | number \| string | No       | All      | yes      |
 
 ## 静态方法
 
-| 名称                    | 说明                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | 类型                                         | 是否必填 | 原库平台     | 鸿蒙支持 |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- | -------- | ------------ | -------- |
-| `FastImage.preload: (source[]) => void`                 | Preload images to display later. e.g.                                                                                                                                                                                                                                                                                                                                                                           | function                                   | no       | All          | No      |
-| `FastImage.clearMemoryCache: () => Promise<void>`              | Clear all images from memory cache.                                                                                                                                                                                                                                                                                                                                                                                                     | function                                         | No       | All          | no      |
-| `FastImage.clearDiskCache: () => Promise<void>`          | Clear all images from disk cache. priority | function                                       | No       | All          | no      |
+| 名称                                              | 说明                                       | 类型     | 是否必填 | 原库平台 | 鸿蒙支持 |
+| ------------------------------------------------- | ------------------------------------------ | -------- | -------- | -------- | -------- |
+| `FastImage.preload: (source[]) => void`           | Preload images to display later. e.g.      | function | no       | All      | No       |
+| `FastImage.clearMemoryCache: () => Promise<void>` | Clear all images from memory cache.        | function | No       | All      | no       |
+| `FastImage.clearDiskCache: () => Promise<void>`   | Clear all images from disk cache. priority | function | No       | All      | no       |
 
 ## 遗留问题
 

@@ -52,7 +52,7 @@ import FastImage from 'react-native-fast-image';
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-fast-image": "file:../../node_modules/reac-native-fast-image/harmony/fast_image.har"
+    "rnoh-fast-image": "file:../../node_modules/react-native-fast-image/harmony/fast_image.har"
   }
 ```
 
@@ -71,7 +71,7 @@ ohpm install
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-slider": "file:../../node_modules/reac-native-fast-image/harmony/fast_image"
+    "rnoh-fast-image": "file:../../node_modules/react-native-fast-image/harmony/fast_image"
   }
 ```
 

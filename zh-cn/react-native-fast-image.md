@@ -193,24 +193,24 @@ ohpm install
 
 | 名称                           | 说明                                                                                      | 类型             | 是否必填 | 原库平台 | 鸿蒙支持 |
 | ------------------------------ | ----------------------------------------------------------------------------------------- | ---------------- | -------- | -------- | -------- |
-| `source.uri`                   | Source for the remote image to load.                                                      | string           | Yes      | All      | yes      |
-| `source.headers?`              | Headers to load the image with. e.g. { Authorization: 'someAuthToken' }.                  | object           | No       | All      | yes      |
+| `source.uri`                   | Source for the remote image to load.                                                      | string           | yes      | All      | yes      |
+| `source.headers?`              | Headers to load the image with. e.g. { Authorization: 'someAuthToken' }.                  | object           | yes      | All      | yes      |
 | `source.priority?`             | loading url priority                                                                      | enum             | No       | All      | no       |
 | `source.cache?`                | setting loading url cache mode                                                            | enum             | No       | All      | no       |
-| `defaultSource?`               | An asset loaded with require(...).                                                        | number           | No       | All      | yes      |
-| `resizeMode?`                  | loading image for scale mode                                                              | enum             | No       | ALL      | yes      |
-| `onLoadStart?: () => void`     | Called when the image starts to load.                                                     | function         | No       | ALL      | yes      |
-| `onProgress?: (event) => void` | Called when the image is loading.                                                         | function         | No       | All      | yes      |
-| `onLoad?: (event) => void`     | Called on a successful image fetch. Called with the width and height of the loaded image. | function         | No       | All      | yes      |
-| `onError?: () => void`         | Called on an image fetching error.                                                        | function         | No       | All      | yes      |
-| `onLoadEnd?: () => void`       | Called when the image finishes loading, whether it was successful or an error.            | function         | No       | All      | yes      |
-| `tintColor?`                   | If supplied, changes the color of all the non-transparent pixels to the given color.      | number \| string | No       | All      | yes      |
+| `defaultSource?`               | An asset loaded with require(...).                                                        | number           | yes      | All      | yes      |
+| `resizeMode?`                  | loading image for scale mode                                                              | enum             | yes      | ALL      | yes      |
+| `onLoadStart?: () => void`     | Called when the image starts to load.                                                     | function         | yes      | ALL      | yes      |
+| `onProgress?: (event) => void` | Called when the image is loading.                                                         | function         | yes      | All      | yes      |
+| `onLoad?: (event) => void`     | Called on a successful image fetch. Called with the width and height of the loaded image. | function         | yes      | All      | yes      |
+| `onError?: () => void`         | Called on an image fetching error.                                                        | function         | yes      | All      | yes      |
+| `onLoadEnd?: () => void`       | Called when the image finishes loading, whether it was successful or an error.            | function         | yes      | All      | yes      |
+| `tintColor?`                   | If supplied, changes the color of all the non-transparent pixels to the given color.      | number \| string | yes      | All      | yes      |
 
 ## 静态方法
 
 | 名称                                              | 说明                                       | 类型     | 是否必填 | 原库平台 | 鸿蒙支持 |
 | ------------------------------------------------- | ------------------------------------------ | -------- | -------- | -------- | -------- |
-| `FastImage.preload: (source[]) => void`           | Preload images to display later. e.g.      | function | no       | All      | No       |
+| `FastImage.preload: (source[]) => void`           | Preload images to display later. e.g.      | function | No       | All      | No       |
 | `FastImage.clearMemoryCache: () => Promise<void>` | Clear all images from memory cache.        | function | No       | All      | no       |
 | `FastImage.clearDiskCache: () => Promise<void>`   | Clear all images from disk cache. priority | function | No       | All      | no       |
 

@@ -18,6 +18,7 @@
 |  6  | @react-native-community/checkbox |    0.5.16     | 否 | 100% | [@react-native-oh-library/checkbox@0.5.16-0.0.2](https://github.com/react-native-oh-library/react-native-checkbox/releases/tag/0.5.16-0.0.2) | [链接](zh-cn/react-native-checkbox.md) |
 |  7  | react-native-linear-gradient | 3.0.0-alpha.1 | 是 | 90% | [@react-native-oh-library/react-native-linear-gradient@3.0.0-alpha.1-0.2.4](https://github.com/react-native-oh-library/react-native-linear-gradient/releases/tag/3.0.0-alpha.1-0.2.4) | [链接](zh-cn/react-native-linear-gradient.md) |
 |  8  | @react-native-community/progress-bar-android |     1.0.4     | 是 | 90% | [@react-native-community/progress-bar-android@1.0.4-0.0.3](https://github.com/react-native-oh-library/progress-bar-android/releases/tag/1.0.4-0.0.3) | [链接](zh-cn/progress-bar-android.md) |
+|  9  | react-native-fast-image |     8.6.3     | 否 | 70% | [@react-native-oh-tpl/react-native-fast-image@8.6.3-0.0.2](https://github.com/react-native-oh-library/react-native-fast-image/releases/tag/8.6.3-0.0.2) | [链接](zh-cn/react-native-fast-image.md) |
 ## 社区
 
 [react-native-oh-library](https://github.com/react-native-oh-library)

@@ -8,4 +8,5 @@
     - [@react-native-community/checkbox](zh-cn/react-native-checkbox.md)
     - [@react-native-picker/picker](zh-cn/picker.md)
     - [@react-native-community/progress-bar-android](zh-cn/progress-bar-android.md)
+    - [react-native-fast-image](zh-cn/react-native-fast-image.md)
 

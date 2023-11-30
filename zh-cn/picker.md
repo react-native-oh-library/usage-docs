@@ -1,3 +1,5 @@
+> 模板版本：v0.0.1
+
 <p align="center">
   <h1 align="center"> <code>@react-native-picker/picker</code> </h1>
 </p>
@@ -12,7 +14,7 @@
 
 ## 安装与使用
 
-> [!tip] 目前 React-Native-OpenHarmony(RNOH) 三方库的 npm 包部署在私仓，需要通过 github token 来获取访问权限。
+> [!tip] 目前部分 React-Native-OpenHarmony(RNOH) 三方库的 npm 包部署在私仓，需要通过 github token 来获取访问权限。
 
 在与 `package.json` 文件相同的目录中，创建或编辑 `.npmrc` 文件以包含指定 GitHub Packages URL 和托管包的命名空间的行。 将 TOKEN 替换为 RNOH 三方库指定的 token。
 
@@ -23,15 +25,21 @@
 
 进入到工程目录并输入以下命令：
 
+<!-- tabs:start -->
+
+#### **yarn**
+
 ```bash
 yarn add @react-native-picker/picker@npm:@react-native-oh-library/picker
 ```
 
-或者
+#### **npm**
 
 ```bash
 npm install @react-native-picker/picker@npm:@react-native-oh-library/picker
 ```
+
+<!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：
 
@@ -68,7 +76,7 @@ const [selectedLanguage, setSelectedLanguage] = useState();
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-slider": "file:../../node_modules/'@react-native-picker/picker/harmony/picker.har"
+    "rnoh-slider": "file:../../node_modules/@react-native-picker/picker/harmony/picker.har"
   }
 ```
 
@@ -87,7 +95,7 @@ ohpm install
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-slider": "file:../../node_modules/'@react-native-picker/picker/harmony/picker"
+    "rnoh-slider": "file:../../node_modules/@react-native-picker/picker/harmony/picker"
   }
 ```
 
@@ -192,9 +200,7 @@ import { createRNPackages } from '../RNPackagesFactory'
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-| `@react-native-oh-library/picker` Version | Required React Native Version | Required RNOH Version | Required DevEco Studio Version | Required ROM Version  |
-| ----------------------------------------- | ----------------------------- | --------------------- | ------------------------------ | --------------------- |
-| `2.5.1-0.0.1`                             | `0.72.5`                      | `0.72.10`             | `4.0.3.601`                    | `OpenHarmony 4.10.10` |
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-picker/picker Releases](https://github.com/react-native-oh-library/picker/releases)
 
 ## 属性
 
@@ -231,7 +237,7 @@ import { createRNPackages } from '../RNPackagesFactory'
 | `enabled`            | If set to false, the specific item will be disabled, i.e. the user will not be able to make a selection. | boolean       | no       | Android | no       |
 | `contentDescription` | Sets the content description to the Picker Item.                                                         | string        | no       | Android | no       |
 
-## 方法
+## 静态方法
 
 | 名称    | 说明                            | 平台    | 鸿蒙支持 |
 | ------- | ------------------------------- | ------- | -------- |

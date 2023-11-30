@@ -1,3 +1,5 @@
+> 模板版本：v0.0.1
+
 <p align="center">
   <h1 align="center"> <code>@react-native-community/slider</code> </h1>
 </p>
@@ -23,15 +25,21 @@
 
 进入到工程目录并输入以下命令：
 
+<!-- tabs:start -->
+
+#### **yarn**
+
 ```bash
 yarn add @react-native-community/slider@npm:@react-native-oh-library/slider
 ```
 
-或者
+#### **npm**
 
 ```bash
 npm install @react-native-community/slider@npm:@react-native-oh-library/slider
 ```
+
+<!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：
 
@@ -199,9 +207,7 @@ ohpm install
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-| `@react-native-oh-library/slider` Version | Required React Native Version | Required RNOH Version | Required DevEco Studio Version | Required ROM Version  |
-| ----------------------------------------- | ----------------------------- | --------------------- | ------------------------------ | --------------------- |
-| `4.4.3-0.1.1`                             | `0.72.5`                      | `0.72.10`             | `4.0.3.601`                    | `OpenHarmony 4.10.10` |
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-library/slider Releases](https://github.com/react-native-oh-library/react-native-slider/releases)
 
 ## 属性
 

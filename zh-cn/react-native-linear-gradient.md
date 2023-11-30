@@ -1,4 +1,4 @@
-
+> 模板版本：v0.0.1
 
 <p align="center">
   <h1 align="center"> <code>react-native-linear-gradient</code> </h1>
@@ -7,13 +7,16 @@
     <a href="https://github.com/react-native-linear-gradient/react-native-linear-gradient">
         <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20windows%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
-    </p>
+        <a href="https://github.com/react-native-oh-library/react-native-linear-gradient/blob/harmony/LICENSE">
+        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
+        <!-- <img src="https://img.shields.io/badge/license-Apache-blue.svg" alt="License" /> -->
+    </a>
+</p>
 
 ## 安装与使用
 
-目前 React-Native-OpenHarmony(RNOH) 三方库的npm包部署在私仓，需要通过github token来获取访问权限。
+进入到工程目录并输入以下命令：
 
-在与 `package.json` 文件相同的目录中，创建或编辑 `.npmrc` 文件以包含指定 GitHub Packages URL 和托管包的命名空间的行。 将TOKEN替换为RNOH三方库指定的token。
 ```json
 @react-native-oh-library:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:_authToken=TOKEN
@@ -21,37 +24,59 @@
 
 进入到工程目录并输入以下命令：
 
-```bash
-yarn add react-native-linear-gradient@npm:@react-native-oh-library/react-native-linear-gradient
-```
+<!-- tabs:start -->
 
-或者
+#### **yarn**
 
 ```bash
-npm install react-native-linear-gradient@npm:@react-native-oh-library/react-native-linear-gradient
+yarn add react-native-linear-gradient@npm:@react-native-oh-tpl/react-native-linear-gradient
 ```
+
+#### **npm**
+
+```bash
+npm install react-native-linear-gradient@npm:@react-native-oh-tpl/react-native-linear-gradient
+```
+
+<!-- tabs:end -->
 
 快速使用：
 
 ```js
-import LinearGradient from 'react-native-linear-gradient';
-  <LinearGradient
-      angleCenter={{ x: 0.5, y: 0.5}}
-      colors={['green', 'bule', 'red']}
-      start={{x: 0, y: 0}} 
-      end={{x: 1, y: 0}}
-      style={styles.gradient}>
-        <Text style={styles.buttonText}>1111</Text>
-        <Text style={styles.buttonText}>2222</Text>
-        <Text style={styles.buttonText}>3333</Text>
-  </LinearGradient>
+import LinearGradient from "react-native-linear-gradient";
+
+// Within your render function
+<LinearGradient
+  colors={["#4c669f", "#3b5998", "#192f6a"]}
+  style={styles.linearGradient}
+>
+  <Text style={styles.buttonText}>Sign in with Facebook</Text>
+</LinearGradient>;
+
+// Later on in your styles..
+var styles = StyleSheet.create({
+  linearGradient: {
+    flex: 1,
+    paddingLeft: 15,
+    paddingRight: 15,
+    borderRadius: 5,
+  },
+  buttonText: {
+    fontSize: 18,
+    fontFamily: "Gill Sans",
+    textAlign: "center",
+    margin: 10,
+    color: "#ffffff",
+    backgroundColor: "transparent",
+  },
+});
 ```
 
 ## Link
 
-目前鸿蒙暂不支持 AutoLink，所以Link步骤需要手动配置。
+目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
 
-首先需要使用DevEco Studio打开项目里的鸿蒙工程 `harmony`
+首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
 
 ### 引入原生端代码
 
@@ -96,7 +121,7 @@ cd entry
 ohpm install --no-link
 ```
 
-### 配置CMakeLists和引入LinearGradientPackage
+### 配置 CMakeLists 和引入 LinearGradientPackage
 
 打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
 
@@ -144,8 +169,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-
-### 在ArkTs侧引入 linear-gradient 组件
+### 在 ArkTs 侧引入 linear-gradient 组件
 
 打开 `entry/src/main/ets/pages/index.ets`，添加：
 
@@ -177,7 +201,7 @@ import { createRNPackages } from '../RNPackagesFactory'
 +       tag: ctx.descriptor.tag,
 +       buildCustomComponent: CustomComponentBuilder
 +     })
-+   } 
++   }
     ...
   }
   ...
@@ -188,6 +212,7 @@ import { createRNPackages } from '../RNPackagesFactory'
 点击右上角的 `sync` 按钮
 
 或者在终端执行：
+
 ```bash
 cd entry
 ohpm install
@@ -195,18 +220,13 @@ ohpm install
 
 然后编译、运行即可。
 
-
-
 ## 兼容性
-要使用此库，需要使用正确的React-Native和RNOH版本。另外，还需要使用配套的 DevEco Studio 和 手机ROM。
 
-| `@react-native-oh-library/react-native-linear-gradient` Version | Required React Native Version | Required RNOH Version | Required DevEco Studio Version | Required ROM Version    |
-| ------------------------------------------------------------ | ----------------------------- | --------------------- | ------------------------------ | ----------------------- |
-| 3.0.0-alpha.1-0.2.4                                          | `>=0.72.5`                    | `>=0.72.6`            | `>=4.0.3.501`                  | `>=OpenHarmony 4.10.10` |
+要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-linear-gradient Releases](https://github.com/react-native-oh-library/react-native-linear-gradient/releases)
 
 ## 属性
-
 
 | 名称        | 说明                                                     | 类型                   | 是否必填 | 原库平台 | 鸿蒙支持 |
 | ----------- | -------------------------------------------------------- | ---------------------- | -------- | -------- | -------- |
@@ -223,4 +243,5 @@ ohpm install
 ## 其他
 
 ## 开源协议
+
 本项目基于 [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-linear-gradient/blob/harmony/LICENSE) ，请自由地享受和参与开源。

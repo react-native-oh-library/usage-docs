@@ -1,3 +1,5 @@
+> 模板版本：v0.0.1
+
 <p align="center">
   <h1 align="center"> <code>@react-native-masked-view/masked-view</code> </h1>
 </p>
@@ -10,11 +12,9 @@
     </a>
 </p>
 
-
-
 ## 安装与使用
 
-> [!tip] 目前 React-Native-OpenHarmony(RNOH) 三方库的 npm 包部署在私仓，需要通过 github token 来获取访问权限。
+> [!tip] 目前部分 React-Native-OpenHarmony(RNOH) 三方库的 npm 包部署在私仓，需要通过 github token 来获取访问权限。
 
 在与 `package.json` 文件相同的目录中，创建或编辑 `.npmrc` 文件以包含指定 GitHub Packages URL 和托管包的命名空间的行。 将 TOKEN 替换为 RNOH 三方库指定的 token。
 
@@ -25,51 +25,57 @@
 
 进入到工程目录并输入以下命令：
 
+<!-- tabs:start -->
+
+#### **yarn**
+
 ```bash
 yarn add @react-native-masked-view/masked-view@npm:@react-native-oh-library/masked-view
 ```
 
-或者
+#### **npm**
 
 ```bash
 npm install @react-native-masked-view/masked-view@npm:@react-native-oh-library/masked-view
 ```
 
+<!-- tabs:end -->
+
 下面的代码展示了这个库的基本使用场景：
 
 ```js
-import MaskedView from '@react-native-masked-view/masked-view';
+import MaskedView from "@react-native-masked-view/masked-view";
 
 <MaskedView
-      style={{ flex: 1, flexDirection: 'row', height: '100%' }}
-      maskElement={
-        <View
-          style={{
-            // Transparent background because mask is based off alpha channel.
-            backgroundColor: 'transparent',
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          <Text
-            style={{
-              fontSize: 60,
-              color: 'black',
-              fontWeight: 'bold',
-            }}
-          >
-            Basic Mask
-          </Text>
-        </View>
-      }
+  style={{ flex: 1, flexDirection: "row", height: "100%" }}
+  maskElement={
+    <View
+      style={{
+        // Transparent background because mask is based off alpha channel.
+        backgroundColor: "transparent",
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+      }}
     >
-      {/* Shows behind the mask, you can put anything here, such as an image */}
-      <View style={{ flex: 1, height: '100%', backgroundColor: '#324376' }} />
-      <View style={{ flex: 1, height: '100%', backgroundColor: '#F5DD90' }} />
-      <View style={{ flex: 1, height: '100%', backgroundColor: '#F76C5E' }} />
-      <View style={{ flex: 1, height: '100%', backgroundColor: '#e1e1e1' }} />
-    </MaskedView>
+      <Text
+        style={{
+          fontSize: 60,
+          color: "black",
+          fontWeight: "bold",
+        }}
+      >
+        Basic Mask
+      </Text>
+    </View>
+  }
+>
+  {/* Shows behind the mask, you can put anything here, such as an image */}
+  <View style={{ flex: 1, height: "100%", backgroundColor: "#324376" }} />
+  <View style={{ flex: 1, height: "100%", backgroundColor: "#F5DD90" }} />
+  <View style={{ flex: 1, height: "100%", backgroundColor: "#F76C5E" }} />
+  <View style={{ flex: 1, height: "100%", backgroundColor: "#e1e1e1" }} />
+</MaskedView>;
 ```
 
 ## Link
@@ -224,18 +230,14 @@ ohpm install
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-| `@react-native-oh-library/masked-view` Version | Required React Native Version | Required RNOH Version | Required DevEco Studio Version | Required ROM Version  |
-| ----------------------------------------- | ----------------------------- | --------------------- | ------------------------------ | --------------------- |
-| `0.2.9-0.0.1`                             | `0.72.5`                      | `0.72.10`             | `4.0.3.601`                    | `OpenHarmony 4.10.10` |
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-library/masked-view Releases](https://github.com/react-native-oh-library/masked-view/releases)
 
 ## 属性
 
-| 名称                    | 说明                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | 类型                                         | 是否必填 | 原库平台     | 鸿蒙支持 |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- | -------- | ------------ | -------- |
-| `maskElement`                 | 遮罩元素                                                                                                                                                                                                                                                                                                                                                                               | element                                   | yes       | All          | yes      |
-`androidRenderingMode`                 | 安卓渲染模式                                                                                                                                                                                                                                                                                                                                                                               | software, hardware                                   | no       | android          | no      |
-
-
+| 名称                   | 说明         | 类型               | 是否必填 | 原库平台 | 鸿蒙支持 |
+| ---------------------- | ------------ | ------------------ | -------- | -------- | -------- |
+| `maskElement`          | 遮罩元素     | element            | yes      | All      | yes      |
+| `androidRenderingMode` | 安卓渲染模式 | software, hardware | no       | android  | no       |
 
 ## 遗留问题
 

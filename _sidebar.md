@@ -1,6 +1,8 @@
 <!-- _sidebar.md -->
 - [首页](README.md)
 
+- [文档模板](zh-cn/model.md)
+
 - 三方库说明文档合集
 
     - [@react-native-async-storage/async-storage](zh-cn/async-storage.md)

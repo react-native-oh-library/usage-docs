@@ -9,6 +9,7 @@
     <a href="https://github.com/react-native-studio/react-native-SmartRefreshLayout/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-Apache%202.0-blue.svg" alt="License" />
     </a>
+
 </p>
 
 ## 安装与使用
@@ -28,35 +29,37 @@ npm install xxx
 下面的代码展示了这个库的基本使用场景：
 
 ```js
-import { SmartRefreshControl,AnyHeader} from 'react-native-smartrefreshlayout';
+import {
+  SmartRefreshControl,
+  AnyHeader,
+} from "react-native-smartrefreshlayout";
 
 <SmartRefreshControl
-ref={(ref)=>smartRefreshControlRef=ref}
-  primaryColor='#f3f3f3'
+  ref={(ref) => (smartRefreshControlRef = ref)}
+  primaryColor="#f3f3f3"
   headerHeight={66}
-  style={{ height:500,width:'100%',backgroundColor:"#ffcc00"}}
+  style={{ height: 500, width: "100%", backgroundColor: "#ffcc00" }}
   enableRefresh
   enableLoadMore
-  onHeaderMoving={(e)=>{
-	setText('onHeaderMoving' + JSON.stringify(e.nativeEvent))
+  onHeaderMoving={(e) => {
+    setText("onHeaderMoving" + JSON.stringify(e.nativeEvent));
   }}
-  onRefresh={
-	()=>{
-	  setText("onRefresh")
-	}
-  }
+  onRefresh={() => {
+    setText("onRefresh");
+  }}
   HeaderComponent={
-	<AnyHeader style={{height:0}} ><Text style={{height:66,width:'100%'}}>{text}</Text></AnyHeader>
+    <AnyHeader style={{ height: 0 }}>
+      <Text style={{ height: 66, width: "100%" }}>{text}</Text>
+    </AnyHeader>
   }
 >
   <FlatList
-  style={{ flex: 1 ,height:'100%',width:'100%'}}
-
-	data={data}
-	renderItem={renderItem}
-	keyExtractor={item => item.id.toString()}
+    style={{ flex: 1, height: "100%", width: "100%" }}
+    data={data}
+    renderItem={renderItem}
+    keyExtractor={(item) => item.id.toString()}
   />
-</SmartRefreshControl>
+</SmartRefreshControl>;
 ```
 
 ## Link
@@ -156,7 +159,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 在 ArkTs 侧引入 SmartRefresh组件
+### 在 ArkTs 侧引入 SmartRefresh 组件
 
 打开 `entry/src/main/ets/pages/index.ets`，添加：
 
@@ -224,62 +227,60 @@ ohpm install
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
 | ` react-native-SmartRefreshLayout` Version | Required React Native Version | Required RNOH Version | Required DevEco Studio Version | Required ROM Version  | Required SDK Version    |
-| ---------------------------------------- | ----------------------------- | --------------------- | ------------------------------ | --------------------- | ----------------------- |
-| `0.6.7-0.0.8`                            | `0.72.5`                      | `0.72.10`             | `4.0.3.700`                    | `OpenHarmony 4.10.10` | `OpenHarmony 4.0.10.15` |
+| ------------------------------------------ | ----------------------------- | --------------------- | ------------------------------ | --------------------- | ----------------------- |
+| `0.6.7-0.0.8`                              | `0.72.5`                      | `0.72.10`             | `4.0.3.700`                    | `OpenHarmony 4.10.10` | `OpenHarmony 4.0.10.15` |
 
 ## 属性
 
-**组件SmartRefreshControl**
+**组件 SmartRefreshControl**
 
-| 名称                    | 说明                                       | 类型                                       | 是否必填 | 原库平台    | 鸿蒙支持 |
-| --------------------- | ---------------------------------------- | ---------------------------------------- | ---- | ------- | ---- |
-| `HeaderComponent`     | 用于渲染SmartRefreshLayout组件的header,默认为DefaultHeader。 | Element                                  | No   | Android | yes  |
-| `renderHeader`        | 用于渲染SmartRefreshLayout组件的header,默认为DefaultHeader。 | Element/func                             | No   | Android | No   |
-| `enableRefresh`       | 是否启用下拉刷新,默认为true                         | boolean                                  | No   | Android | No   |
-| `headerHeight`        | 设定header的高度                              | number                                   | No   | Android | yes  |
-| `primaryColor`        | 设置刷新组件的主调色                               | string                                   | No   | Android | yes  |
-| `autoRefresh`         | 是否自动刷新                                   | object:{refresh:boolean, time:number}    | No   | Android | No   |
-| `pureScroll`          | 是否启用纯滚动                                  | boolean                                  | No   | Android | No   |
-| `overScrollBounce`    | 是否启用越界拖动，类似IOS样式。                        | boolean                                  | No   | Android | No   |
-| `dragRate`            | 设置组件下拉高度与手指真实下拉高度的比值,默认为0.5。             | number                                   | No   | Android | No   |
-| `maxDragRate`         | 设置最大显示下拉高度与header标准高度的比值，默认为2.0。         | number                                   | No   | Android | No   |
-| `onPullDownToRefresh` | 可下拉刷新时触发                                 | function                                 | No   | Android | yes  |
-| `onReleaseToRefresh`  | 可释放刷新时触发                                 | function                                 | No   | Android | yes  |
-| `onRefresh`           | 刷新时触发                                    | function                                 | No   | Android | yes  |
-| `onHeaderReleased`    | Header释放时触发                              | function                                 | No   | Android | No   |
-| `onHeaderMoving`      | header移动过程中触发,包括下拉过程和释放过程。               | ({nativeEvent: {percent:number, offset:number, headerHeight:number}})=>void; | No   | Android | yes  |
-| `finishRefresh`       | 完成刷新                                     | Methods                                  | No   | Android | yes  |
+| 名称                  | 说明                                                             | 类型                                                                         | 是否必填 | 原库平台 | 鸿蒙支持 |
+| --------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------- | -------- | -------- | -------- |
+| `HeaderComponent`     | 用于渲染 SmartRefreshLayout 组件的 header,默认为 DefaultHeader。 | Element                                                                      | No       | Android  | yes      |
+| `renderHeader`        | 用于渲染 SmartRefreshLayout 组件的 header,默认为 DefaultHeader。 | Element/func                                                                 | No       | Android  | No       |
+| `enableRefresh`       | 是否启用下拉刷新,默认为 true                                     | boolean                                                                      | No       | Android  | No       |
+| `headerHeight`        | 设定 header 的高度                                               | number                                                                       | No       | Android  | yes      |
+| `primaryColor`        | 设置刷新组件的主调色                                             | string                                                                       | No       | Android  | yes      |
+| `autoRefresh`         | 是否自动刷新                                                     | object:{refresh:boolean, time:number}                                        | No       | Android  | No       |
+| `pureScroll`          | 是否启用纯滚动                                                   | boolean                                                                      | No       | Android  | No       |
+| `overScrollBounce`    | 是否启用越界拖动，类似 IOS 样式。                                | boolean                                                                      | No       | Android  | No       |
+| `dragRate`            | 设置组件下拉高度与手指真实下拉高度的比值,默认为 0.5。            | number                                                                       | No       | Android  | No       |
+| `maxDragRate`         | 设置最大显示下拉高度与 header 标准高度的比值，默认为 2.0。       | number                                                                       | No       | Android  | No       |
+| `onPullDownToRefresh` | 可下拉刷新时触发                                                 | function                                                                     | No       | Android  | yes      |
+| `onReleaseToRefresh`  | 可释放刷新时触发                                                 | function                                                                     | No       | Android  | yes      |
+| `onRefresh`           | 刷新时触发                                                       | function                                                                     | No       | Android  | yes      |
+| `onHeaderReleased`    | Header 释放时触发                                                | function                                                                     | No       | Android  | No       |
+| `onHeaderMoving`      | header 移动过程中触发,包括下拉过程和释放过程。                   | ({nativeEvent: {percent:number, offset:number, headerHeight:number}})=>void; | No       | Android  | yes      |
+| `finishRefresh`       | 完成刷新                                                         | Methods                                                                      | No       | Android  | yes      |
 
-**组件AnyHeader**
+**组件 AnyHeader**
 
-| 名称             | 说明             | 类型     | 是否必填 | 原库平台    | 鸿蒙支持 |
-| -------------- | -------------- | ------ | ---- | ------- | ---- |
-| `primaryColor` | 刷新组件Header的主调色 | string | No   | Android | 支持   |
+| 名称           | 说明                     | 类型   | 是否必填 | 原库平台 | 鸿蒙支持 |
+| -------------- | ------------------------ | ------ | -------- | -------- | -------- |
+| `primaryColor` | 刷新组件 Header 的主调色 | string | No       | Android  | 支持     |
 
-**组件DefaultHeader/ClassicsHeader**
-
-当前组件不支持
-
-| 名称             | 说明             | 类型     | 是否必填 | 原库平台    | 鸿蒙支持 |
-| -------------- | -------------- | ------ | ---- | ------- | ---- |
-| `primaryColor` | 刷新组件Header的主调色 | string | No   | Android | 不支持  |
-| `accentColor`  | 刷新组件Header的强调色 | string | No   | Android | 不支持  |
-
-**组件StoreHouseHeader**
+**组件 DefaultHeader/ClassicsHeader**
 
 当前组件不支持
 
-| 名称          | 说明                    | 类型     | 是否必填 | 原库平台    | 鸿蒙支持 |
-| ----------- | --------------------- | ------ | ---- | ------- | ---- |
-| `text`      | StoreHouseHeader的文字   | string | No   | Android | 不支持  |
-| `textColor` | StoreHouseHeader的文字颜色 | string | No   | Android | 不支持  |
-| `lineWidth` | StoreHouseHeader的文字线宽 | number | No   | Android | 不支持  |
+| 名称           | 说明                     | 类型   | 是否必填 | 原库平台 | 鸿蒙支持 |
+| -------------- | ------------------------ | ------ | -------- | -------- | -------- |
+| `primaryColor` | 刷新组件 Header 的主调色 | string | No       | Android  | 不支持   |
+| `accentColor`  | 刷新组件 Header 的强调色 | string | No       | Android  | 不支持   |
 
-****
+**组件 StoreHouseHeader**
+
+当前组件不支持
+
+| 名称        | 说明                        | 类型   | 是否必填 | 原库平台 | 鸿蒙支持 |
+| ----------- | --------------------------- | ------ | -------- | -------- | -------- |
+| `text`      | StoreHouseHeader 的文字     | string | No       | Android  | 不支持   |
+| `textColor` | StoreHouseHeader 的文字颜色 | string | No       | Android  | 不支持   |
+| `lineWidth` | StoreHouseHeader 的文字线宽 | number | No       | Android  | 不支持   |
+
+---
 
 ## 遗留问题
-
-
 
 ## 其他
 

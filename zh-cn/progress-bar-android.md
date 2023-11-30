@@ -194,24 +194,24 @@ ohpm install
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
 | ` @react-native-oh-library/progress-bar-android` Version | Required React Native Version | Required RNOH Version | Required DevEco Studio Version | Required ROM Version  | Required SDK Version    |
-| ---------------------------------------- | ----------------------------- | --------------------- | ------------------------------ | --------------------- | ----------------------- |
-| `1.0.4-0.0.3`                            | `0.72.5`                      | `0.72.10`             | `4.0.3.700`                    | `OpenHarmony 4.10.10` | `OpenHarmony 4.0.10.15` |
+| -------------------------------------------------------- | ----------------------------- | --------------------- | ------------------------------ | --------------------- | ----------------------- |
+| `1.0.4-0.0.3`                                            | `0.72.5`                      | `0.72.10`             | `4.0.3.700`                    | `OpenHarmony 4.10.10` | `OpenHarmony 4.0.10.15` |
 
 ## 属性
 
 Inherits [View Props](https://reactnative.dev/docs/view#props).
 
-| 名称              | 说明                                       | 类型                                       | 是否必填 | 原库平台    | 鸿蒙支持 |
-| --------------- | ---------------------------------------- | ---------------------------------------- | ---- | ------- | ---- |
-| `animating`     | Whether to show the ProgressBar (true, the default) or hide it (false). | bool                                     | No   | Android | yes  |
-| `color`         | Color of the progress bar.               | [color](https://reactnative.dev/docs/colors) | No   | Android | yes  |
-| `indeterminate` | If the progress bar will show indeterminate progress. Note that this can only be false if styleAttr is Horizontal, and requires a `progress` value. | indeterminateType                        | No   | Android | yes  |
-| `progress`      | The progress value (between 0 and 1).    | number                                   | No   | Android | yes  |
-| `styleAttr`     | Style of the ProgressBar.                | One of:<br />Horizontal <br />Normal (default) <br />Small <br />Large <br />Inverse <br />SmallInverse <br />LargeInverse | No   | Android | yes  |
+| 名称            | 说明                                                                                                                                                | 类型                                                                                                                       | 是否必填 | 原库平台 | 鸿蒙支持 |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- |
+| `animating`     | Whether to show the ProgressBar (true, the default) or hide it (false).                                                                             | bool                                                                                                                       | No       | Android  | yes      |
+| `color`         | Color of the progress bar.                                                                                                                          | [color](https://reactnative.dev/docs/colors)                                                                               | No       | Android  | yes      |
+| `indeterminate` | If the progress bar will show indeterminate progress. Note that this can only be false if styleAttr is Horizontal, and requires a `progress` value. | indeterminateType                                                                                                          | No       | Android  | yes      |
+| `progress`      | The progress value (between 0 and 1).                                                                                                               | number                                                                                                                     | No       | Android  | yes      |
+| `styleAttr`     | Style of the ProgressBar.                                                                                                                           | One of:<br />Horizontal <br />Normal (default) <br />Small <br />Large <br />Inverse <br />SmallInverse <br />LargeInverse | No       | Android  | yes      |
 
 ## 遗留问题
 
-- [ ] styleAttr为Horizontal 时无法铺满全屏 [issues#4](https://github.com/react-native-oh-library/progress-bar-android/issues/4)。
+- [ ] styleAttr 为 Horizontal 时无法铺满全屏 [issues#4](https://github.com/react-native-oh-library/progress-bar-android/issues/4)。
 
 ## 其他
 

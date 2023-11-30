@@ -1,3 +1,5 @@
+> 模板版本：v0.0.1
+
 <p align="center">
   <h1 align="center"> <code>@react-native-clipboard/clipboard</code> </h1>
 </p>
@@ -12,28 +14,34 @@
 
 ## 安装与使用
 
-> [!tip] 目前 React-Native-OpenHarmony(RNOH) 三方库的 npm 包部署在私仓，需要通过 github token 来获取访问权限。
+> [!tip] 目前部分 React-Native-OpenHarmony(RNOH) 三方库的 npm 包部署在私仓，需要通过 github token 来获取访问权限。
 
 在与 `package.json` 文件相同的目录中，创建或编辑 `.npmrc` 文件以包含指定 GitHub Packages URL 和托管包的命名空间的行。 将 TOKEN 替换为 RNOH 三方库指定的 token。
 
-```json
+```bash
 @react-native-oh-library:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:_authToken=TOKEN
 ```
 
 进入到工程目录并输入以下命令：
 
+<!-- tabs:start -->
+
+#### **yarn**
+
 ```bash
 yarn add @react-native-clipboard/clipboard@npm:@react-native-oh-library/clipboard
 ```
 
-或者
+#### **npm**
 
 ```bash
 npm install @react-native-clipboard/clipboard@npm:@react-native-oh-library/clipboard
 ```
 
-快速使用：
+<!-- tabs:end -->
+
+下面的代码展示了这个库的基本使用场景：
 
 ```js
 import Clipboard from "@react-native-clipboard/clipboard";
@@ -158,7 +166,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 在 ArkTs 侧引入 Clipboard 组件
+### 在 ArkTs 侧引入 Clipboard Package
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
@@ -193,9 +201,7 @@ ohpm install
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-| `@react-native-oh-library/clipboard` Version | Required React Native Version | Required RNOH Version | Required DevEco Studio Version | Required ROM Version  |
-| -------------------------------------------- | ----------------------------- | --------------------- | ------------------------------ | --------------------- |
-| 1.12.1-0.0.1                                 | `0.72.5`                      | `0.72.9`              | `4.0.3.601`                    | `OpenHarmony 4.10.11` |
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-library/clipboard Releases](https://github.com/react-native-oh-library/clipboard/releases)
 
 ## 属性
 

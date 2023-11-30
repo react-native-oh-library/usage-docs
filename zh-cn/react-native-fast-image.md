@@ -1,9 +1,14 @@
+> 模板版本：v0.0.1
+
 <p align="center">
-  <h1 align="center"> <code>@react-native-oh-tpl/react-native-fast-image</code> </h1>
+  <h1 align="center"> <code>react-native-fast-image</code> </h1>
 </p>
 <p align="center">
     <a href="https://github.com/DylanVann/react-native-fast-image">
         <img src="https://img.shields.io/badge/platforms-android%20%7C%20ios%20%7C%20harmony%20-lightgrey.svg" alt="Supported platforms" />
+    </a>
+    <a href="https://github.com/react-native-oh-library/react-native-fast-image/blob/harmony/LICENSE">
+        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
 
@@ -11,26 +16,38 @@
 
 进入到工程目录并输入以下命令：
 
+<!-- tabs:start -->
+
+#### **yarn**
+
 ```bash
 yarn add react-native-fast-image@npm:@react-native-oh-tpl/react-native-fast-image
 ```
 
-或者
+#### **npm**
 
 ```bash
 npm install react-native-fast-image@npm:@react-native-oh-tpl/react-native-fast-image
 ```
 
+<!-- tabs:end -->
+
 下面的代码展示了这个库的基本使用场景：
 
 ```js
-import FastImage from 'react-native-fast-image';
+import FastImage from "react-native-fast-image";
 
-<FastImage
-    style={ width: 200, height: 40}
-    source={{uri: 'https://res.vmallres.com/cmscdn/CN/2023-05/b3cb7e6502854d49bb0e23e11b778ffe.webp'}}
+const YourImage = () => (
+  <FastImage
+    style={{ width: 200, height: 200 }}
+    source={{
+      uri: "https://unsplash.it/400/400?image=1",
+      headers: { Authorization: "someAuthToken" },
+      priority: FastImage.priority.normal,
+    }}
     resizeMode={FastImage.resizeMode.contain}
-/>
+  />
+);
 ```
 
 ## Link
@@ -97,7 +114,7 @@ add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
 # RNOH_BEGIN: add_package_subdirectories
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/rnoh-fast-image/src/main/cpp" ./fast_image)
++ add_subdirectory("${OH_MODULE_DIR}/rnoh-fast-image/src/main/cpp" ./fast-image)
 # RNOH_END: add_package_subdirectories
 
 add_library(rnoh_app SHARED
@@ -185,9 +202,7 @@ ohpm install
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-| `@react-native-oh-tpl/react-native-fast-image` Version | Required React Native Version | Required RNOH Version | Required DevEco Studio Version | Required ROM Version  |
-| ------------------------------------------------------ | ----------------------------- | --------------------- | ------------------------------ | --------------------- |
-| `8.6.3-0.0.2`                                          | `0.72.5`                      | `0.72.10`             | `4.0.3.601`                    | `OpenHarmony 4.10.10` |
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl Releases](https://github.com/react-native-oh-library/react-native-fast-image/releases)
 
 ## 属性
 

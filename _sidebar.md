@@ -15,6 +15,7 @@
     - [@react-native-masked-view/masked-view](zh-cn/react-native-masked-view.md)
     - [@react-native-community/slider](zh-cn/react-native-slider.md)
     - [react-native-SmartRefreshLayout](zh-cn/react-native-SmartRefreshLayout.md)
+    - [lottie-react-native](zh-cn/lottie-react-native.md)
     
     
     

@@ -247,35 +247,35 @@ ohpm install
 
 **G**：该元素是用于对其他 SVG 元素进行分组的容器
 
-|  属性   |      类型       |   释义   | 默认值 |
-| :-----: | :-------------: | :------: | :----: |
+| 属性 | 类型 | 释义 | 默认值 |
+| :--: | :--: | :--: | :----: |
 
 **Path**： 路径绘制组件，根据绘制路径生成封闭的自定义形状
 
-|    属性     |  类型   |                  释义                  | 默认值 |
-| :---------: | :-----: | :------------------------------------: | :----: |
-|      d      | string  |          路径绘制的命令字符串          |   ''   |
+| 属性 |  类型  |         释义         | 默认值 |
+| :--: | :----: | :------------------: | :----: |
+|  d   | string | 路径绘制的命令字符串 |   ''   |
 
 **Rect**： 矩形绘制组件，根据角位置和宽高生成矩形形状
 
-|  属性   |      类型       |       释义        | 默认值 |
-| :-----: | :-------------: | :---------------: | :----: |
-|    x    | number\| string | 在 x 轴上平移距离 |   0    |
-|    y    | number\| string | 在 y 轴上平移距离 |   0    |
-|  width  | number\| string |     元素宽度      |   0    |
-| height  | number\| string |     元素高度      |   0    |
-|   rx    | number\| string | 定义 x 轴上的半径 | 'none' |
-|   rx    | number\| string | 定义 y 轴上的半径 | 'none' |
+|  属性  |      类型       |       释义        | 默认值 |
+| :----: | :-------------: | :---------------: | :----: |
+|   x    | number\| string | 在 x 轴上平移距离 |   0    |
+|   y    | number\| string | 在 y 轴上平移距离 |   0    |
+| width  | number\| string |     元素宽度      |   0    |
+| height | number\| string |     元素高度      |   0    |
+|   rx   | number\| string | 定义 x 轴上的半径 | 'none' |
+|   rx   | number\| string | 定义 y 轴上的半径 | 'none' |
 
 **Image**： 图像元素，支持 JPEG、PNG 格式
 
-|  属性   |      类型       |       释义        | 默认值 |
-| :-----: | :-------------: | :---------------: | :----: |
-|    x    | number\| string | 在 x 轴上平移距离 |   0    |
-|    y    | number\| string | 在 y 轴上平移距离 |   0    |
-|  width  | number\| string |     元素宽度      |   0    |
-| height  | number\| string |     元素高度      |   0    |
-|  href   | source\| string |   图像资源引用    | 'none' |
+|  属性  |      类型       |       释义        | 默认值 |
+| :----: | :-------------: | :---------------: | :----: |
+|   x    | number\| string | 在 x 轴上平移距离 |   0    |
+|   y    | number\| string | 在 y 轴上平移距离 |   0    |
+| width  | number\| string |     元素宽度      |   0    |
+| height | number\| string |     元素高度      |   0    |
+|  href  | source\| string |   图像资源引用    | 'none' |
 
 **公共属性**：Common props 组件属性支持情况
 

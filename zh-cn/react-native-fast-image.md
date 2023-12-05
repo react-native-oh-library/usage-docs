@@ -185,6 +185,23 @@ function CustomComponentBuilder(ctx: ComponentBuilderContext) {
 ...
 ```
 
+### 在 ArkTs 侧引入 FastImagePackage
+
+打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+
+```diff
+import type {RNPackageContext, RNPackage} from 'rnoh/ts';
+import {SamplePackage} from 'rnoh-sample-package/ts';
++ import { FastImagePackage } from 'rnoh-fast-image/ts';
+
+export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
+  return [
+    new SamplePackage(ctx),
++   new FastImagePackage(ctx)
+  ];
+}
+```
+
 ### 运行
 
 点击右上角的 `sync` 按钮
@@ -231,7 +248,7 @@ ohpm install
 
 ## 遗留问题
 
-- [ ] 部分涉及使用缓存能力的接口，未适配
+- [ ] 部分涉及使用缓存能力的接口[issue#8](https://github.com/react-native-oh-library/react-native-fast-image/issues/8)
 
 ## 其他
 

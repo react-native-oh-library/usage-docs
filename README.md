@@ -25,6 +25,8 @@
 |  9  | @react-native-community/slider |     4.4.3     | 是 | 90% | [@react-native-oh-library/slider](https://github.com/react-native-oh-library/react-native-slider/releases) | [链接](zh-cn/react-native-slider.md) |
 |  10  | react-native-SmartRefreshLayout |     0.6.7     | 否 | 70% | [@react-native-oh-library/react-native-SmartRefreshLayout](https://github.com/react-native-oh-library/react-native-SmartRefreshLayout/releases) | [链接](zh-cn/react-native-SmartRefreshLayout.md) |
 |  11  | lottie-react-native |     6.4.1     | 是 | 50% | [@react-native-oh-library/lottie-react-native](https://github.com/react-native-oh-library/lottie-react-native/releases) | [链接](zh-cn/lottie-react-native.md) |
+|  12  | react-native-webview |     13.6.2     | 是 | 15% | [@react-native-oh-library/react-native-webview](https://github.com/react-native-oh-library/react-native-webview) | [链接](zh-cn/react-native-webview.md) |
+|  13  | react-native-svg |     13.14.0     | 是 | 10% | [@react-native-oh-library/react-native-svg](https://github.com/react-native-oh-library/react-native-svg) | [链接](zh-cn/react-native-svg.md) |
 
 ## 社区
 

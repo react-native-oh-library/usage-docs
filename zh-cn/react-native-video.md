@@ -293,7 +293,7 @@ ohpm install
 
 ## 属性
 
-详情请查看[react-native-video 官方文档]([react-native-video/README.md at support/5.2.X · react-native-video/react-native-video (github.com)](https://github.com/react-native-video/react-native-video/blob/support/5.2.X/README.md))
+详情请查看[react-native-video 官方文档](https://github.com/react-native-video/react-native-video/blob/support/5.2.X/README.md)
 
 如下是 react-native-video 已经鸿蒙化的属性：
 

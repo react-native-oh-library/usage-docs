@@ -1,5 +1,3 @@
-> 模板版本：v0.0.1
-
 <p align="center">
   <h1 align="center"> <code>react-native-exception-handler</code> </h1>
 </p>
@@ -21,13 +19,13 @@
 #### **yarn**
 
 ```bash
-yarn add react-native-exception-handler@npm:@react-native-oh-library/react-native-exception-handler
+yarn add react-native-exception-handler@npm:@react-native-oh-tpl/react-native-exception-handler
 ```
 
 #### **npm**
 
 ```bash
-npm install react-native-exception-handler@npm:@react-native-oh-library/react-native-exception-handler
+npm install react-native-exception-handler@npm:@react-native-oh-tpl/react-native-exception-handler
 ```
 
 <!-- tabs:end -->
@@ -35,8 +33,12 @@ npm install react-native-exception-handler@npm:@react-native-oh-library/react-na
 下面的代码展示了这个库的基本使用场景：
 
 To catch <b>JS_Exceptions</b>
+
 ```typescript
-import {setJSExceptionHandler, getJSExceptionHandler} from 'react-native-exception-handler';
+import {
+  setJSExceptionHandler,
+  getJSExceptionHandler,
+} from "react-native-exception-handler";
 
 // For most use cases:
 // registering the error handler (maybe u can do this in the index.android.js or index.ios.js)
@@ -60,7 +62,9 @@ setJSExceptionHandler(exceptionhandler, allowInDevMode);
 // getJSExceptionHandler gives the currently set JS exception handler
 const currentHandler = getJSExceptionHandler();
 ```
+
 To catch <b>Native_Exceptions</b>
+
 ```typescript
 import { setNativeExceptionHandler } from "react-native-exception-handler";
 
@@ -205,8 +209,11 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   ];
 }
 ```
+
 ### 异常信息页面配置
+
 在 `YourProject/entry/src/main/ets/pages` 目录下,新建文件`ExceptionView.ets`
+
 ```typescript
 import { ExceptionComopnent } from 'rnoh-exception-handler';
 import router from '@ohos.router';
@@ -235,7 +242,9 @@ struct ExceptionView {
   }
 }
 ```
-在 `YourProject/entry/src/main/resources/base/profile/main_pages.json5`补上配置 
+
+在 `YourProject/entry/src/main/resources/base/profile/main_pages.json5`补上配置
+
 ```diff
 {
   "src": [
@@ -246,24 +255,28 @@ struct ExceptionView {
 ```
 
 ### 应用重启使能
+
 在 `YourProject/entry/src/main/ets/app` 目录下,新建文件`MyAbilityStage.ets`
+
 ```typescript
-import AbilityStage from '@ohos.app.ability.AbilityStage';
-import appRecovery from '@ohos.app.ability.appRecovery';
-import Want from '@ohos.app.ability.Want';
+import AbilityStage from "@ohos.app.ability.AbilityStage";
+import appRecovery from "@ohos.app.ability.appRecovery";
+import Want from "@ohos.app.ability.Want";
 
 export default class MyAbilityStage extends AbilityStage {
   onCreate() {
     appRecovery.enableAppRecovery();
     let want: Want = {
       bundleName: this.context.applicationInfo.name,
-      abilityName: this.context.currentHapModuleInfo.mainElementName
-    }
+      abilityName: this.context.currentHapModuleInfo.mainElementName,
+    };
     appRecovery.setRestartWant(want);
   }
 }
 ```
-在 `YourProject/entry/src/main/module.json5`补上配置 
+
+在 `YourProject/entry/src/main/module.json5`补上配置
+
 ```diff
 {
   "module": {
@@ -319,25 +332,24 @@ ohpm install
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-library/reace-native-exception-handler Releases](https://github.com/react-native-oh-library/react-native-exception-handler/releases)
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/reace-native-exception-handler Releases](https://github.com/react-native-oh-library/react-native-exception-handler/releases)
 
 ## 静态方法
 
-| 名称                   | 说明         | 类型               | 是否必填 | 原库平台 | 鸿蒙支持 |
-| ---------------------- | ------------ | ------------------ | -------- | -------- | -------- |
-| `setJSExceptionHandler` | 设置JS异常处理方法 | function | no | All  | yes       |
-| `getJSExceptionHandler` | 获取JS异常处理方法 | function | no | All  | yes       |
-
+| 名称                    | 说明                 | 类型     | 是否必填 | 原库平台 | 鸿蒙支持 |
+| ----------------------- | -------------------- | -------- | -------- | -------- | -------- |
+| `setJSExceptionHandler` | 设置 JS 异常处理方法 | function | no       | All      | yes      |
+| `getJSExceptionHandler` | 获取 JS 异常处理方法 | function | no       | All      | yes      |
 
 ## API
 
-| 名称 | 说明 | 类型 | 是否必填 | 原库平台 | 鸿蒙支持 |
-| ---- | ---- | ---- | -------- | -------- | -------- |
-| `setNativeExceptionHandler` | 设置native异常处理方法 | function | no | android，ios | yes |
+| 名称                        | 说明                     | 类型     | 是否必填 | 原库平台     | 鸿蒙支持 |
+| --------------------------- | ------------------------ | -------- | -------- | ------------ | -------- |
+| `setNativeExceptionHandler` | 设置 native 异常处理方法 | function | no       | android，ios | yes      |
 
 ## 遗留问题
 
-- [ ]  Harmony没有异常默认处理机制
+- [ ] Harmony 没有异常默认处理机制
 
 ## 其他
 

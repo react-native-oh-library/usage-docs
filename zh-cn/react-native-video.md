@@ -1,4 +1,4 @@
-
+> 模板版本：v0.0.1
 
 <p align="center">
   <h1 align="center"> <code>react-native-video</code> </h1>
@@ -15,15 +15,6 @@
 
 ## 安装与使用
 
-> [!tip] 目前 React-Native-OpenHarmony(RNOH) 三方库的 npm 包部署在私仓，需要通过 github token 来获取访问权限。
-
-在与 `package.json` 文件相同的目录中，创建或编辑 `.npmrc` 文件以包含指定 GitHub Packages URL 和托管包的命名空间的行。 将 TOKEN 替换为 RNOH 三方库指定的 token。
-
-```bash
-@react-native-oh-library:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=TOKEN
-```
-
 进入到工程目录并输入以下命令：
 
 <!-- tabs:start -->
@@ -31,13 +22,13 @@
 #### **yarn**
 
 ```bash
-yarn add react-native-video@npm:@react-native-oh-library/react-native-video
+yarn add react-native-video@npm:@react-native-oh-tpl/react-native-video
 ```
 
 #### **npm**
 
 ```bash
-npm install react-native-video@npm:@react-native-oh-library/react-native-video
+npm install react-native-video@npm:@react-native-oh-tpl/react-native-video
 ```
 
 <!-- tabs:end -->
@@ -50,6 +41,7 @@ import {View, ScrollView, StyleSheet, Text,TextInput} from 'react-native';
 import RNCVideo from 'react-native-video'
 
 function RNCVideoDemo() {
+  const videoRef = React.useRef<typeof RNCVideo>(null);
     
   const [muted, setMuted] = useState(true);
   const [paused, setPaused] = useState(false);
@@ -72,6 +64,15 @@ function RNCVideoDemo() {
     
   return (
 
+      <View
+              style={{
+                flexDirection: "row",
+                flexWrap:"wrap",
+                padding: 0
+              }}
+            >
+       <Text style={styles.button} onPress={() => {  videoRef.current?.seek(5)}} >seek:5s</Text>
+	 </View>
 	<RNCVideo
         style={styles.video}
         ref={videoRef}
@@ -119,6 +120,18 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 260,
 	},
+  button: {
+    paddingHorizontal: 8,
+    paddingVertical: 6,
+    borderRadius: 4,
+    backgroundColor: "oldlace",
+    alignSelf: "flex-start",
+    marginHorizontal: "1%",
+    marginBottom: 6,
+    minWidth: "25%",
+    minHeight:20,
+    textAlign: "center",
+  },
  });
 
 export default RNCVideoDemo;
@@ -221,7 +234,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 在 ArkTs 侧引入 slider 组件
+### 在 ArkTs 侧引入 RNCVideo 组件
 
 打开 `entry/src/main/ets/pages/index.ets`，添加：
 
@@ -279,6 +292,10 @@ ohpm install
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-library/react-native-video Releases](https://github.com/react-native-oh-library/react-native-video/releases)
 
 ## 属性
+
+详情请查看[react-native-video 官方文档]([react-native-video/README.md at support/5.2.X · react-native-video/react-native-video (github.com)](https://github.com/react-native-video/react-native-video/blob/support/5.2.X/README.md))
+
+如下是 react-native-video 已经鸿蒙化的属性：
 
 | 名称                    | 说明                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | 类型          | 是否必填 | 原库平台     | 鸿蒙支持 |
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------- | -------- | ------------ | -------- |

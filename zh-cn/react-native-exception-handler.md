@@ -196,13 +196,52 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 ```diff
 import type {RNPackageContext, RNPackage} from 'rnoh/ts';
 import {SamplePackage} from 'rnoh-sample-package/ts';
-+ import {ExceptionHandlerPackage} from 'rnoh-async-storage/ts';
++ import {ExceptionHandlerPackage} from 'rnoh-exception-handler/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
     new SamplePackage(ctx),
 +   new ExceptionHandlerPackage(ctx)
   ];
+}
+```
+### 异常信息页面配置
+在 `YourProject/entry/src/main/ets/pages` 目录下,新建文件`ExceptionView.ets`
+```typescript
+import { ExceptionComopnent } from 'rnoh-exception-handler';
+import router from '@ohos.router';
+
+interface RouterParam {
+  errMsg: string
+}
+
+@Entry
+@Component
+struct ExceptionView {
+  @State errMsg: string = ''
+
+  aboutToAppear() {
+    let params = router.getParams() as RouterParam
+    this.errMsg = params.errMsg
+    router.clear()
+  }
+
+  build() {
+    Column() {
+      ExceptionComponent({ errMsg: this.errMsg })
+    }
+    .width('100%')
+    .height('100%')
+  }
+}
+```
+在 `YourProject/entry/src/main/resources/base/profile/main_pages.json5`补上配置 
+```diff
+{
+  "src": [
+    "pages/Index",
++   "pages/ExceptionView"
+  ]
 }
 ```
 
@@ -259,6 +298,8 @@ export default class MyAbilityStage extends AbilityStage {
         ]
       }
     ]
+  }
+}
 ```
 
 ### 运行

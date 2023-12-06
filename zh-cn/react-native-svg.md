@@ -93,7 +93,7 @@ cd entry
 ohpm install --no-link
 ```
 
-### 配置 CMakeLists 和引入 LottieAnimationViewPackage
+### 配置 CMakeLists 和引入 SVGPackage
 
 打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
 
@@ -238,52 +238,52 @@ ohpm install
 
 **Svg**：绘制组件的父组件
 
-|  属性   |      类型       |   释义   |
-| :-----: | :-------------: | :------: |
-|  width  | number\| string | 组件宽度 |
-| height  | number\| string | 组件高度 |
-| viewBox |     string      | 组件视区 |
-|  color  |     string      |   颜色   |
+|  名称   |   说明   |      类型       | 是否必填 | 原库平台 | 鸿蒙支持 |
+| :-----: | :------: | :-------------: | -------- | -------- | -------- |
+|  width  | 组件宽度 | number\| string | Yes      | All      | Yes      |
+| height  | 组件高度 | number\| string | Yes      | All      | Yes      |
+| viewBox | 组件视区 |     string      | No       | All      | Yes      |
+|  color  |   颜色   |     string      | No       | All      | Yes      |
 
 **G**：该元素是用于对其他 SVG 元素进行分组的容器
 
-| 属性 | 类型 | 释义 | 默认值 |
-| :--: | :--: | :--: | :----: |
+| 名称 | 说明 | 类型 | 是否必填 | 原库平台 | 鸿蒙支持 |
+| :--: | :--: | :--: | -------- | -------- | -------- |
 
 **Path**： 路径绘制组件，根据绘制路径生成封闭的自定义形状
 
-| 属性 |  类型  |         释义         | 默认值 |
-| :--: | :----: | :------------------: | :----: |
-|  d   | string | 路径绘制的命令字符串 |   ''   |
+| 名称 |         说明         |  类型  | 是否必填 | 原库平台 | 鸿蒙支持 |
+| :--: | :------------------: | :----: | -------- | -------- | -------- |
+|  d   | 路径绘制的命令字符串 | string | Yes      | All      | Yes      |
 
 **Rect**： 矩形绘制组件，根据角位置和宽高生成矩形形状
 
-|  属性  |      类型       |       释义        | 默认值 |
-| :----: | :-------------: | :---------------: | :----: |
-|   x    | number\| string | 在 x 轴上平移距离 |   0    |
-|   y    | number\| string | 在 y 轴上平移距离 |   0    |
-| width  | number\| string |     元素宽度      |   0    |
-| height | number\| string |     元素高度      |   0    |
-|   rx   | number\| string | 定义 x 轴上的半径 | 'none' |
-|   rx   | number\| string | 定义 y 轴上的半径 | 'none' |
+|  名称  |       说明        |      类型       | 是否必填 | 原库平台 | 鸿蒙支持 |
+| :----: | :---------------: | :-------------: | -------- | -------- | -------- |
+|   x    | 在 x 轴上平移距离 | number\| string | No       | All      | Yes      |
+|   y    | 在 y 轴上平移距离 | number\| string | No       | All      | Yes      |
+| width  |     元素宽度      | number\| string | Yes      | All      | Yes      |
+| height |     元素高度      | number\| string | Yes      | All      | Yes      |
+|   rx   | 定义 x 轴上的半径 | number\| string | No       | All      | Yes      |
+|   rx   | 定义 y 轴上的半径 | number\| string | No       | All      | Yes      |
 
 **Image**： 图像元素，支持 JPEG、PNG 格式
 
-|  属性  |      类型       |       释义        | 默认值 |
-| :----: | :-------------: | :---------------: | :----: |
-|   x    | number\| string | 在 x 轴上平移距离 |   0    |
-|   y    | number\| string | 在 y 轴上平移距离 |   0    |
-| width  | number\| string |     元素宽度      |   0    |
-| height | number\| string |     元素高度      |   0    |
-|  href  | source\| string |   图像资源引用    | 'none' |
+|  名称  |       说明        |      类型       | 是否必填 | 原库平台 | 鸿蒙支持 |
+| :----: | :---------------: | :-------------: | -------- | -------- | -------- |
+|   x    | 在 x 轴上平移距离 | number\| string | No       | All      | Yes      |
+|   y    | 在 y 轴上平移距离 | number\| string | No       | All      | Yes      |
+| width  |     元素宽度      | number\| string | Yes      | All      | Yes      |
+| height |     元素高度      | number\| string | Yes      | All      | Yes      |
+|  href  |   图像资源引用    | source\| string | Yes      | All      | Yes      |
 
 **公共属性**：Common props 组件属性支持情况
 
-|    属性     |  类型   |                 释义                 | 默认值 |  G  | Path | Rect |
-| :---------: | :-----: | :----------------------------------: | :----: | :-: | ---- | ---- |
-|    fill     | boolean |           设置填充区域颜色           | '#000' |  √  | √    | √    |
-|   stroke    | string  | 设置边框颜色，不设置时，默认没有边框 | 'none' |  √  | √    | √    |
-| strokeWidth | number  |             设置线条宽度             |   1    |     | √    | √    |
+|    属性     |                 说明                 |  类型  | 默认值 | 是否必填 | 原库平台 | G   | Path | Rect |
+| :---------: | :----------------------------------: | :----: | :----: | :------: | -------- | --- | ---- | ---- |
+|    fill     |           设置填充区域颜色           | string | '#000' |    No    | All      |     | √    | √    |
+|   stroke    | 设置边框颜色，不设置时，默认没有边框 | string | 'none' |    No    | All      |     | √    | √    |
+| strokeWidth |             设置边框宽度             | number |   1    |    No    | All      |     | √    | √    |
 
 ## 遗留问题
 

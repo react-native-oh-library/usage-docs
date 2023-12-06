@@ -224,9 +224,7 @@ ohpm install
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-| `@react-native-oh-library/datetimepicker` Version | Required React Native Version | Required RNOH Version | Required DevEco Studio Version | Required ROM Version  |
-| ------------------------------------------------- | ----------------------------- | --------------------- | ------------------------------ | --------------------- |
-| `7.6.2-0.0.2`                                     | `0.72.5`                      | `0.72.9`              | `4.0.3.601`                    | `OpenHarmony 4.10.11` |
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[<@react-native-oh-library/datetimepicker> Releases](https://github.com/react-native-oh-library/datetimepicker/releases/tag/7.6.2-0.0.2)
 
 ## 属性
 

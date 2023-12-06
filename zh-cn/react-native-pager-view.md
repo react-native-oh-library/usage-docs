@@ -14,7 +14,7 @@
 
 ## 安装与使用
 
-进入到工程目录并输入以下命令（待发布到 npm，当前使用请在[Release](https://github.com/react-native-oh-library/react-native-pager-view/releases)中获取）：
+**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/react-native-pager-view/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
 
 ```bash
 yarn add xxx

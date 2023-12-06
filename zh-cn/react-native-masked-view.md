@@ -27,16 +27,18 @@
 
 <!-- tabs:start -->
 
+**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/masked-view/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
+
 #### **yarn**
 
 ```bash
-yarn add @react-native-masked-view/masked-view@npm:@react-native-oh-library/masked-view
+yarn add xxx
 ```
 
 #### **npm**
 
 ```bash
-npm install @react-native-masked-view/masked-view@npm:@react-native-oh-library/masked-view
+npm install xxx
 ```
 
 <!-- tabs:end -->

@@ -23,12 +23,12 @@
 |  7  | react-native-linear-gradient | 3.0.0-alpha.1 | 是 | 90% | [@react-native-oh-tpl/react-native-linear-gradient](https://github.com/react-native-oh-library/react-native-linear-gradient/releases) | [链接](zh-cn/react-native-linear-gradient.md) |
 |  8  | @react-native-masked-view/masked-view |     0.2.9     | 否 | 90% | [@react-native-oh-library/masked-view](https://github.com/react-native-oh-library/masked-view/releases) | [链接](zh-cn/react-native-masked-view.md) |
 |  9  | @react-native-community/slider |     4.4.3     | 是 | 90% | [@react-native-oh-library/slider](https://github.com/react-native-oh-library/react-native-slider/releases) | [链接](zh-cn/react-native-slider.md) |
-|  10  | react-native-SmartRefreshLayout |     0.6.7     | 否 | 70% | [@react-native-oh-tpl/react-native-SmartRefreshLayout](https://github.com/react-native-oh-library/react-native-SmartRefreshLayout/releases) | [链接](zh-cn/react-native-SmartRefreshLayout.md) |
-|  11  | lottie-react-native |     6.4.1     | 是 | 50% | [@react-native-oh-tpl/lottie-react-native](https://github.com/react-native-oh-library/lottie-react-native/releases) | [链接](zh-cn/lottie-react-native.md) |
-|  12  | react-native-webview |     13.6.2     | 是 | 15% | [@react-native-oh-tpl/react-native-webview](https://github.com/react-native-oh-library/react-native-webview/releases) | [链接](zh-cn/react-native-webview.md) |
-|  13  | react-native-svg |     13.14.0     | 是 | 10% | [@react-native-oh-tpl/react-native-svg](https://github.com/react-native-oh-library/react-native-svg/releases) | [链接](zh-cn/react-native-svg.md) |
-|  14  | react-native-exception-handler |     2.10.10     | 否 | 100% | [@react-native-oh-tpl/react-native-exception-handler](https://github.com/react-native-oh-library/react-native-exception-handler/releases) | [链接](zh-cn/react-native-exception-handler.md) |
-
+| 10  | react-native-SmartRefreshLayout |     0.6.7     | 否 | 70% | [@react-native-oh-tpl/react-native-SmartRefreshLayout](https://github.com/react-native-oh-library/react-native-SmartRefreshLayout/releases) | [链接](zh-cn/react-native-SmartRefreshLayout.md) |
+| 11  | lottie-react-native |     6.4.1     | 是 | 50% | [@react-native-oh-tpl/lottie-react-native](https://github.com/react-native-oh-library/lottie-react-native/releases) | [链接](zh-cn/lottie-react-native.md) |
+| 12  | react-native-webview |     13.6.2     | 是 | 15% | [@react-native-oh-tpl/react-native-webview](https://github.com/react-native-oh-library/react-native-webview/releases) | [链接](zh-cn/react-native-webview.md) |
+| 13  | react-native-svg |     13.14.0     | 是 | 10% | [@react-native-oh-tpl/react-native-svg](https://github.com/react-native-oh-library/react-native-svg/releases) | [链接](zh-cn/react-native-svg.md) |
+| 14  | react-native-exception-handler |     2.10.10     | 否 | 100% | [@react-native-oh-tpl/react-native-exception-handler](https://github.com/react-native-oh-library/react-native-exception-handler/releases) | [链接](zh-cn/react-native-exception-handler.md) |
+| 15  |           react-native-pager-view            |     6.2.2     | 是 | 100% | [@react-native-oh-tpl/react-native-pager-view](https://github.com/react-native-oh-library/react-native-pager-view/releases) | [链接](zh-cn/react-native-pager-view.md) |
 ## 社区
 
 [react-native-oh-library](https://github.com/react-native-oh-library)

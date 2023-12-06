@@ -18,16 +18,18 @@
 
 <!-- tabs:start -->
 
+**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/react-native-fast-image/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
+
 #### **yarn**
 
 ```bash
-yarn add react-native-fast-image@npm:@react-native-oh-tpl/react-native-fast-image
+yarn add xxx
 ```
 
 #### **npm**
 
 ```bash
-npm install react-native-fast-image@npm:@react-native-oh-tpl/react-native-fast-image
+npm install xxx
 ```
 
 <!-- tabs:end -->

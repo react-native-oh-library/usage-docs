@@ -12,23 +12,24 @@
     </a>
 </p>
 
-
 ## 安装与使用
 
 进入到工程目录并输入以下命令：
 
 <!-- tabs:start -->
 
+**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/react-native-video/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
+
 #### **yarn**
 
 ```bash
-yarn add react-native-video@npm:@react-native-oh-tpl/react-native-video
+yarn add xxx
 ```
 
 #### **npm**
 
 ```bash
-npm install react-native-video@npm:@react-native-oh-tpl/react-native-video
+npm install xxx
 ```
 
 <!-- tabs:end -->
@@ -42,7 +43,7 @@ import RNCVideo from 'react-native-video'
 
 function RNCVideoDemo() {
   const videoRef = React.useRef<typeof RNCVideo>(null);
-    
+
   const [muted, setMuted] = useState(true);
   const [paused, setPaused] = useState(false);
   const [repeat, setRepeat] = useState(true);
@@ -61,7 +62,7 @@ function RNCVideoDemo() {
   const [onVideoBuffer, setOnVideoBuffer] = useState("onVideoBuffer");
   const [onPlaybackStalled, setOnPlaybackStalled] = useState("onPlaybackStalled");
   const [onPlaybackResume, setOnPlaybackResume] = useState("onPlaybackResume");
-    
+
   return (
 
       <View
@@ -297,41 +298,41 @@ ohpm install
 
 如下是 react-native-video 已经鸿蒙化的属性：
 
-| 名称                    | 说明                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | 类型          | 是否必填 | 原库平台     | 鸿蒙支持 |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------- | -------- | ------------ | -------- |
-| `source` | Sets the media source. You can pass an asset loaded via require or an object with a uri.                                                                                                                                                                                                                                                                                      | object            | Yes    | All          | yes      |
-| `disableFocus`  | Determines whether video audio should override background music/audio in Android devices.<br/>**false (default)**                                                                                                                                                                                                                                                                     | bool                                         | No       | Android Exoplayer | yes      |
-| `muted`     | Controls whether the audio is muted.<br/>**false (default)** - Don't mute audio                                                                                                                                                                                                                                                                                                                                     | bool                                   | No       | All          | yes      |
-| `paused` | Controls whether the media is paused.<br/>**false (default)** - Don't pause the media                                                                                                                                                                                                                                                                                 | bool | No       | All          | yes      |
-| `repeat`    | Determine whether to repeat the video when the end is reached.<br/>**false (default)** - Don't repeat the video                                                                                                                                                                                                                                | bool                                   | No       | All          | yes      |
-| `resizeMode`  | Determines how to resize the video when the frame doesn't match the raw video dimensions.<br/>**"none" (default)** - Don't apply resize                                                                                                                                                                                                                                                                        | string                                 | No       | Android ExoPlayer, Android MediaPlayer, iOS, Windows UWP | yes    |
-| `volume`      | Adjust the volume.<br/>**1.0 (default)** - Play at full volume                                                                                                                                                                                                                                                                                                                                                 | number                                       | No       | All                                                          | yes    |
-| `poster`  | An image to display while the video is loading<br/>Value: string with a URL for the poster, e.g. "<https://baconmockup.com/300/200/>"                                                                                                                                                                                                            | string                               | No       | All          | yes      |
-| `posterResizeMode` | Determines how to resize the poster image when the frame doesn't match the raw video dimensions..<br/>**"contain" (default)**- Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or less than the corresponding dimension of the view (minus padding). | string                               | No       | All          | yes      |
+| 名称               | 说明                                                                                                                                                                                                                                                                                                                                        | 类型   | 是否必填 | 原库平台                                                 | 鸿蒙支持 |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----- | -------- | -------------------------------------------------------- | -------- |
+| `source`           | Sets the media source. You can pass an asset loaded via require or an object with a uri.                                                                                                                                                                                                                                                    | object | Yes      | All                                                      | yes      |
+| `disableFocus`     | Determines whether video audio should override background music/audio in Android devices.<br/>**false (default)**                                                                                                                                                                                                                           | bool   | No       | Android Exoplayer                                        | yes      |
+| `muted`            | Controls whether the audio is muted.<br/>**false (default)** - Don't mute audio                                                                                                                                                                                                                                                             | bool   | No       | All                                                      | yes      |
+| `paused`           | Controls whether the media is paused.<br/>**false (default)** - Don't pause the media                                                                                                                                                                                                                                                       | bool   | No       | All                                                      | yes      |
+| `repeat`           | Determine whether to repeat the video when the end is reached.<br/>**false (default)** - Don't repeat the video                                                                                                                                                                                                                             | bool   | No       | All                                                      | yes      |
+| `resizeMode`       | Determines how to resize the video when the frame doesn't match the raw video dimensions.<br/>**"none" (default)** - Don't apply resize                                                                                                                                                                                                     | string | No       | Android ExoPlayer, Android MediaPlayer, iOS, Windows UWP | yes      |
+| `volume`           | Adjust the volume.<br/>**1.0 (default)** - Play at full volume                                                                                                                                                                                                                                                                              | number | No       | All                                                      | yes      |
+| `poster`           | An image to display while the video is loading<br/>Value: string with a URL for the poster, e.g. "<https://baconmockup.com/300/200/>"                                                                                                                                                                                                       | string | No       | All                                                      | yes      |
+| `posterResizeMode` | Determines how to resize the poster image when the frame doesn't match the raw video dimensions..<br/>**"contain" (default)**- Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or less than the corresponding dimension of the view (minus padding). | string | No       | All                                                      | yes      |
 
 ## 事件回调
 
-| 名称                | 说明                                                         | 类型     | 是否必填 | 原库平台                                         | 鸿蒙支持 |
-| ------------------- | ------------------------------------------------------------ | :------- | -------- | ------------------------------------------------ | -------- |
-| `onLoad`            | Callback function that is called when the media is loaded and ready to play. | function | No       | All                                              | yes      |
-| `onLoadStart`       | Callback function that is called when the media starts loading. | function | No       | All                                              | yes      |
-| `onReadyForDisplay` | Callback function that is called when the first video frame is ready for display. This is when the poster is removed. | function | No       | Android ExoPlayer, Android MediaPlayer, iOS, Web | yes      |
+| 名称                | 说明                                                                                                                                 | 类型     | 是否必填 | 原库平台                                         | 鸿蒙支持 |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | :------- | -------- | ------------------------------------------------ | -------- |
+| `onLoad`            | Callback function that is called when the media is loaded and ready to play.                                                         | function | No       | All                                              | yes      |
+| `onLoadStart`       | Callback function that is called when the media starts loading.                                                                      | function | No       | All                                              | yes      |
+| `onReadyForDisplay` | Callback function that is called when the first video frame is ready for display. This is when the poster is removed.                | function | No       | Android ExoPlayer, Android MediaPlayer, iOS, Web | yes      |
 | `onProgress`        | Callback function that is called every progressUpdateInterval seconds with info about which position the media is currently playing. | function | No       | All                                              | yes      |
-| `onEnd`             | Callback function that is called when the player reaches the end of the media. | function | No       | All                                              | yes      |
-| `onError`           | Callback function that is called when the player experiences a playback error. | function | No       | All                                              | yes      |
-| `onBuffer`          | Callback function that is called when the player buffers.    | function | No       | Android, iOS                                     | yes      |
-| `onPlaybackStalled` | Callback function that is MediaPlayer MEDIA_INFO_BUFFERING_START | function | No       | Android MediaPlayer                              | yes      |
-| `onPlaybackResume`  | Callback function that is MediaPlayer MEDIA_INFO_BUFFERING_END | function | No       | Android MediaPlayer                              | yes      |
+| `onEnd`             | Callback function that is called when the player reaches the end of the media.                                                       | function | No       | All                                              | yes      |
+| `onError`           | Callback function that is called when the player experiences a playback error.                                                       | function | No       | All                                              | yes      |
+| `onBuffer`          | Callback function that is called when the player buffers.                                                                            | function | No       | Android, iOS                                     | yes      |
+| `onPlaybackStalled` | Callback function that is MediaPlayer MEDIA_INFO_BUFFERING_START                                                                     | function | No       | Android MediaPlayer                              | yes      |
+| `onPlaybackResume`  | Callback function that is MediaPlayer MEDIA_INFO_BUFFERING_END                                                                       | function | No       | Android MediaPlayer                              | yes      |
 
 ## 静态方法
 
-| 名称     | 说明                                                         | 类型     | 是否必填 | 原库平台 | 鸿蒙支持 |
-| -------- | ------------------------------------------------------------ | :------- | -------- | -------- | -------- |
+| 名称     | 说明                                                                             | 类型     | 是否必填 | 原库平台 | 鸿蒙支持 |
+| -------- | -------------------------------------------------------------------------------- | :------- | -------- | -------- | -------- |
 | `seek()` | Seek to the specified position represented by seconds. seconds is a float value. | function | No       | All      | yes      |
 
 ## 遗留问题
 
-- [ ] source暂时只支持在线URL资源。
+- [ ] source 暂时只支持在线 URL 资源。
 - [ ] 未适配无障碍
 
 ## 其他

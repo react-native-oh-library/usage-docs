@@ -114,7 +114,7 @@ add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
 # RNOH_BEGIN: add_package_subdirectories
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/rnoh-fast-image/src/main/cpp" ./fast-image)
++ add_subdirectory("${OH_MODULE_DIR}/rnoh-fast-image/src/main/cpp" ./fast_image)
 # RNOH_END: add_package_subdirectories
 
 add_library(rnoh_app SHARED
@@ -185,6 +185,23 @@ function CustomComponentBuilder(ctx: ComponentBuilderContext) {
 ...
 ```
 
+### 在 ArkTs 侧引入 FastImagePackage
+
+打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+
+```diff
+import type {RNPackageContext, RNPackage} from 'rnoh/ts';
+import {SamplePackage} from 'rnoh-sample-package/ts';
++ import { FastImagePackage } from 'rnoh-fast-image/ts';
+
+export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
+  return [
+    new SamplePackage(ctx),
++   new FastImagePackage(ctx)
+  ];
+}
+```
+
 ### 运行
 
 点击右上角的 `sync` 按钮
@@ -231,7 +248,7 @@ ohpm install
 
 ## 遗留问题
 
-- [ ] 部分涉及使用缓存能力的接口，未适配
+- [ ] 部分涉及使用缓存能力的接口[issue#8](https://github.com/react-native-oh-library/react-native-fast-image/issues/8)
 
 ## 其他
 

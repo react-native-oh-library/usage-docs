@@ -150,14 +150,14 @@ import { createRNPackages } from '../RNPackagesFactory'
 
 @Builder
 function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
+  if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
     SampleView({
       ctx: ctx.rnohContext,
       tag: ctx.descriptor.tag,
       buildCustomComponent: CustomComponentBuilder
     })
   }
-+ else if (ctx.componentName === WEB_VIEW) {
++ else if (ctx.descriptor.type === WEB_VIEW) {
 +   WebView({
 +     ctx: ctx.rnohContext,
 +     tag: ctx.descriptor.tag,

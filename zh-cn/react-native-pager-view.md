@@ -169,14 +169,14 @@ import { createRNPackages } from '../RNPackagesFactory'
 
 @Builder
 function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
+  if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
     SampleView({
       ctx: ctx.rnohContext,
       tag: ctx.descriptor.tag,
       buildCustomComponent: CustomComponentBuilder
     })
   }
-+ else if (ctx.componentName === PAGER_VIEW_TYPE) {
++ else if (ctx.descriptor.type === PAGER_VIEW_TYPE) {
 +   RNCViewPager({
 +     ctx: ctx.rnohContext,
 +     tag: ctx.descriptor.tag,

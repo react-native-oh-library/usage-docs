@@ -238,17 +238,18 @@ ohpm install
 
 ## 属性
 
-| 名称        | 说明                                                                      | 类型     | 是否必填 | 原库平台                 | 鸿蒙支持                                            |
-| ----------- | ------------------------------------------------------------------------- | -------- | -------- | ------------------------ | --------------------------------------------------- |
-| mode        | Defines the type of the picker                                            | string   | 否       | All                      | yes (仅支持 date/time 模式)                         |
-| style       | Sets style directly on picker component.                                  | object   | 否       | IOS only                 | yes                                                 |
-| display     | Defines the visual display of the picker. The default value is "default". | string   | 否       | All                      | yes (支持"default"，"spinner"，"compact"，"inline") |
-| onChange    | Date change handler.                                                      | function | 否       | All                      | yes (仅支持 type 为 set)                            |
-| value       | Defines the date or time value used in the component.                     | Date     | 是       | All                      | yes                                                 |
-| is24Hour    | Allows changing of the time picker to a 24-hour format.                   | bool     | 否       | Windows and Android only | yes                                                 |
-| maximumDate | Defines the maximum date that can be selected                             | Date     | 否       | All                      | yes                                                 |
-| minimumDate | Defines the minimum date that can be selected.                            | Date     | 否       | All                      | yes                                                 |
-| disabled    | If true, the user won't be able to interact with the view.                | bool     | 否       | IOS only                 | yes                                                 |
+| 名称        | 说明                                                                      | 类型     | 是否必填 | 原库平台                 | 鸿蒙支持                                             |
+| ----------- | ------------------------------------------------------------------------- | -------- | -------- | ------------------------ | ---------------------------------------------------- |
+| mode        | Defines the type of the picker                                            | string   | 否       | All                      | yes (仅支持 date/time 模式)                          |
+| style       | Sets style directly on picker component.                                  | object   | 否       | IOS only                 | yes                                                  |
+| display     | Defines the visual display of the picker. The default value is "default". | string   | 否       | All                      | yes (支持"default"，"spinner"，"compact"，"inline")  |
+| onChange    | Date change handler.                                                      | function | 否       | All                      | yes (仅支持 type 为 set 类型)                        |
+| value       | Defines the date or time value used in the component.                     | Date     | 是       | All                      | yes (仅 mode=date 且 display=spinner 时支持动态设置) |
+| is24Hour    | Allows changing of the time picker to a 24-hour format.                   | bool     | 否       | Windows and Android only | yes                                                  |
+| maximumDate | Defines the maximum date that can be selected                             | Date     | 否       | All                      | yes (仅支持在 mode=date 且 display=spinner 时设置)   |
+| minimumDate | Defines the minimum date that can be selected.                            | Date     | 否       | All                      | yes (仅支持在 mode=date 且 display=spinner 时设置)   |
+| disabled    | If true, the user won't be able to interact with the view.                | bool     | 否       | IOS only                 | yes                                                  |
+| textColor   | Allows changing of the textColor of the date picker.                      | string   | 否       | IOS only                 | yes (仅支持在 mode=date 且 display=compact 时设置)   |
 
 ## 遗留问题
 

@@ -171,14 +171,14 @@ import { createRNPackages } from '../RNPackagesFactory'
 
 @Builder
 function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
+  if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
     SampleView({
       ctx: ctx.rnohContext,
       tag: ctx.descriptor.tag,
       buildCustomComponent: CustomComponentBuilder
     })
   }
-+ else if (ctx.componentName === SLIDER_TYPE) {
++ else if (ctx.descriptor.type === SLIDER_TYPE) {
 +   RNCSlider({
 +     ctx: ctx.rnohContext,
 +     tag: ctx.descriptor.tag,

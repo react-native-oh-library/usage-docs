@@ -168,14 +168,14 @@ import { createRNPackages } from '../RNPackagesFactory'
 
 @Builder
 function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
+  if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
     SampleView({
       ctx: ctx.rnohContext,
       tag: ctx.descriptor.tag,
       buildCustomComponent: CustomComponentBuilder
     })
   }
-+ else if (ctx.componentName === FAST_IMAGE_TYPE) {
++ else if (ctx.descriptor.type === FAST_IMAGE_TYPE) {
 +   RNFastImage({
 +     ctx: ctx.rnohContext,
 +     tag: ctx.descriptor.tag,

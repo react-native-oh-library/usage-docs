@@ -173,36 +173,36 @@ import { createRNPackages } from '../RNPackagesFactory'
 
 @Builder
 function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
+  if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
     SampleView({
       ctx: ctx.rnohContext,
       tag: ctx.descriptor.tag,
       buildCustomComponent: CustomComponentBuilder
     })
   }
-+ else if (ctx.componentName === SVG_VIEW_TYPE_NAME) {
++ else if (ctx.descriptor.type === SVG_VIEW_TYPE_NAME) {
 +   SVGView({
 +     ctx: ctx.rnohContext,
 +     tag: ctx.descriptor.tag,
 +     buildCustomComponent: CustomComponentBuilder
 +   })
-+ } else if (ctx.componentName === SVG_GROUP_TYPE_NAME) {
++ } else if (ctx.descriptor.type === SVG_GROUP_TYPE_NAME) {
 +   SVGGroup({
 +     ctx: ctx.rnohContext,
 +     tag: ctx.descriptor.tag,
 +     buildCustomComponent: CustomComponentBuilder
 +   })
-+ } else if (ctx.componentName === SVG_PATH_TYPE_NAME) {
++ } else if (ctx.descriptor.type === SVG_PATH_TYPE_NAME) {
 +   SVGPath({
 +     ctx: ctx.rnohContext,
 +     tag: ctx.descriptor.tag
 +   })
-+ } else if (ctx.componentName === SVG_RECT_TYPE_NAME) {
++ } else if (ctx.descriptor.type === SVG_RECT_TYPE_NAME) {
 +   SVGRect({
 +     ctx: ctx.rnohContext,
 +     tag: ctx.descriptor.tag
 +   })
-+ } else if (ctx.componentName === SVG_IMAGE_TYPE_NAME) {
++ } else if (ctx.descriptor.type === SVG_IMAGE_TYPE_NAME) {
 +   SVGImage({
 +     ctx: ctx.rnohContext,
 +     tag: ctx.descriptor.tag

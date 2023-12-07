@@ -16,15 +16,23 @@
 
 进入到工程目录并输入以下命令：
 
+<!-- tabs:start -->
+
+**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/datetimepicker/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
+
+#### **yarn**
+
 ```bash
-yarn add @react-native-community/datetimepicker@npm:@react-native-oh-tpl/datetimepicker
+yarn add xxx
 ```
 
-或者
+#### **npm**
 
 ```bash
-npm install @react-native-community/datetimepicker@npm:@react-native-oh-tpl/datetimepicker
+npm install xxx
 ```
+
+<!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：
 
@@ -230,17 +238,17 @@ ohpm install
 
 ## 属性
 
-| 名称        | 说明                                                                      | 类型     | 是否必填 | 原库平台                 | 鸿蒙支持 |
-| ----------- | ------------------------------------------------------------------------- | -------- | -------- | ------------------------ | -------- |
-| mode        | Defines the type of the picker                                            | string   | 否       | All                      | yes      |
-| style       | Sets style directly on picker component.                                  | object   | 否       | All                      | yes      |
-| display     | Defines the visual display of the picker. The default value is "default". | string   | 否       | All                      | yes      |
-| onChange    | Date change handler.                                                      | function | 否       | All                      | yes      |
-| value       | Defines the date or time value used in the component.                     | Date     | 是       | All                      | yes      |
-| is24Hour    | Allows changing of the time picker to a 24-hour format.                   | bool     | 否       | Windows and Android only | yes      |
-| maximumDate | Defines the maximum date that can be selected                             | Date     | 否       | All                      | yes      |
-| minimumDate | Defines the minimum date that can be selected.                            | Date     | 否       | All                      | yes      |
-| disabled    | If true, the user won't be able to interact with the view.                | bool     | 否       | All                      | yes      |
+| 名称        | 说明                                                                      | 类型     | 是否必填 | 原库平台                 | 鸿蒙支持                    |
+| ----------- | ------------------------------------------------------------------------- | -------- | -------- | ------------------------ | --------------------------- |
+| mode        | Defines the type of the picker                                            | string   | 否       | All                      | yes (仅支持 date/time 模式) |
+| style       | Sets style directly on picker component.                                  | object   | 否       | IOS only                 | yes                         |
+| display     | Defines the visual display of the picker. The default value is "default". | string   | 否       | All                      | yes                         |
+| onChange    | Date change handler.                                                      | function | 否       | All                      | yes (仅支持 type 为 set)    |
+| value       | Defines the date or time value used in the component.                     | Date     | 是       | All                      | yes                         |
+| is24Hour    | Allows changing of the time picker to a 24-hour format.                   | bool     | 否       | Windows and Android only | yes                         |
+| maximumDate | Defines the maximum date that can be selected                             | Date     | 否       | All                      | yes                         |
+| minimumDate | Defines the minimum date that can be selected.                            | Date     | 否       | All                      | yes                         |
+| disabled    | If true, the user won't be able to interact with the view.                | bool     | 否       | IOS only                 | yes                         |
 
 ## 遗留问题
 

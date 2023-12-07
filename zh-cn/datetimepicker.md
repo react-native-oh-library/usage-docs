@@ -198,14 +198,14 @@ import { createRNPackages } from '../RNPackagesFactory'
 
 @Builder
 function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
+  if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
     SampleView({
       ctx: ctx.rnohContext,
       tag: ctx.descriptor.tag,
       buildCustomComponent: CustomComponentBuilder
     })
   }
-+ else if (ctx.componentName === DATETIME_PICKER_VIEW_TYPE) {
++ else if (ctx.descriptor.type === DATETIME_PICKER_VIEW_TYPE) {
 +   RNDateTimePicker({
 +     ctx: ctx.rnohContext,
 +     tag: ctx.descriptor.tag,

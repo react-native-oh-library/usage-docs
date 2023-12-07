@@ -90,8 +90,6 @@ const App = () => {
         primaryColor={"#f3f3f3"}
         headerHeight={66}
         style={{ height: 500, width: "100%", backgroundColor: "#ffcc00" }}
-        enableRefresh
-        enableLoadMore
         onHeaderMoving={(e) => {
           setText("onHeaderMoving" + JSON.stringify(e.nativeEvent));
         }}

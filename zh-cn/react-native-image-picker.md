@@ -242,10 +242,17 @@ ohpm install
 | fileSize     | The file size                                                                                                                                                                                                                                                              | number | yes      | iOS Android     | yes      |
 | type         | The file type                                                                                                                                                                                                                                                              | string | yes      | iOS Android     | yes      |
 | fileName     | The file name                                                                                                                                                                                                                                                              | string | yes      | iOS Android     | yes      |
-| duration     | The selected video duration in seconds                                                                                                                                                                                                                                     | number | no       | iOS Android     | yes      |
+| duration     | The selected video duration in seconds                                                                                                                                                                                                                                     | number | no       | iOS Android     | no       |
 | bitrate      | The average bitrate (in bits/sec) of the selected video, if available. (Android only)                                                                                                                                                                                      | number | no       | Android         | no       |
-| timestamp    | Timestamp of the asset. Only included if 'includeExtra' is true                                                                                                                                                                                                            | string | no       | iOS Android     | yes      |
+| timestamp    | Timestamp of the asset. Only included if 'includeExtra' is true                                                                                                                                                                                                            | string | no       | iOS Android     | no       |
 | id           | local identifier of the photo or video. On Android, this is the same as fileName                                                                                                                                                                                           | string | no       | iOS Android     | yes      |
+
+## 静态方法
+
+| 名称               | 说明                                   | 类型     | 是否必填 | 原库平台        | 鸿蒙支持 |
+| ------------------ | -------------------------------------- | -------- | -------- | --------------- | -------- |
+| launchCamera       | Launch camera to take photo or video.  | function | yes      | iOS Android Web | no       |
+| launchImageLibrary | Launch gallery to pick image or video. | function | yes      | iOS Android Web | yes      |
 
 ## 遗留问题
 

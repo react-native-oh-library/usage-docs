@@ -38,7 +38,7 @@
 
 // 未发布的代码加上如下描述（删除）
 
-**正在 npm 发布中，当前请先从仓库[Release]()中获取库 tgz，通过使用本地依赖来安装本库。**
+**正在 npm 发布中，当前请先从仓库[Release](https://)中获取库 tgz，通过使用本地依赖来安装本库。**
 
 #### **yarn**
 
@@ -272,13 +272,19 @@ ohpm install
 
 然后编译、运行即可。
 
-## 兼容性
+## 约束与限制
+
+### 兼容性
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[<xxx> Releases](https://github.com/<仓库地址>/releases)
 
 提示：[@react-native-oh-library/slider releases](https://github.com/react-native-oh-library/react-native-slider/releases)（删除）
+
+### 权限要求（如有）
+
+（填入相关权限配置）
 
 ## 属性（如有）
 

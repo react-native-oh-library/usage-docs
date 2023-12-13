@@ -323,22 +323,22 @@ ohpm install
 
 | 名称                  | 说明                                                                                                   | 类型     | 是否必填 | 原库平台    | 鸿蒙支持 |
 | --------------------- | ------------------------------------------------------------------------------------------------------ | -------- | -------- | ----------- | -------- |
-| `onIndexChange`       | Callback which is called on tab change, receives the index of the new tab as argument                  | function | No       | iOS,android | yes      |
-| `renderScene`         | Callback which returns a react element to render as the page for the tab.                              | function | No       | iOS,android | yes      |
-| `renderTabBar`        | Callback which returns a custom React Element to use as the tab bar.                                   | function | No       | iOS,android | yes      |
-| `tabBarPosition`      | Position of the tab bar in the tab view.                                                               | string   | No       | iOS,android | yes      |
-| `keyboardDismissMode` | String indicating whether the keyboard gets dismissed in response to a drag gesture.                   | string   | No       | iOS,android | yes      |
-| `swipeEnabled`        | Passing false will disable swipe gestures, but the user can still switch tabs by pressing the tab bar. | boolean  | No       | iOS,android | yes      |
-| `style`               | Style to apply to the pager view wrapping all the scenes.                                              | boolean  | No       | iOS,android | yes      |
-| `tabStyle`            | Style to apply to the individual tab items in the tab bar.                                             | boolean  | No       | iOS,android | yes      |
-| `indicatorStyle`      | Style to apply to the active indicator.                                                                | boolean  | No       | iOS,android | yes      |
-| `labelStyle`          | Style to apply to the tab item label.                                                                  | boolean  | No       | iOS,android | yes      |
-| `style`               | Style to apply to the tab bar container.                                                               | boolean  | No       | iOS,android | yes      |
-| `activeColor`         | Custom color for icon and label in the active tab.                                                     | string   | No       | iOS,android | yes      |
-| `inactiveColor`       | Custom color for icon and label in the inactive tab.                                                   | string   | No       | iOS,android | yes      |
-| `scrollEnabled`       | Boolean indicating whether to make the tab bar scrollable.                                             | boolean  | No       | iOS,android | yes      |
-| `bounces`             | Function that is invoked when the webview calls window.ReactNativeWebView.postMessage.                 | boolean  | No       | iOS,android | yes      |
-| `gap`                 | Define a spacing between tabs.                                                                         | number   | No       | iOS,android | yes      |
+| `onIndexChange`       | Callback which is called on tab change, receives the index of the new tab as argument                  | function | No       | All         | yes      |
+| `renderScene`         | Callback which returns a react element to render as the page for the tab.                              | function | No       | All         | yes      |
+| `renderTabBar`        | Callback which returns a custom React Element to use as the tab bar.                                   | function | No       | All         | yes      |
+| `tabBarPosition`      | Position of the tab bar in the tab view.                                                               | string   | No       | All         | yes      |
+| `keyboardDismissMode` | String indicating whether the keyboard gets dismissed in response to a drag gesture.                   | string   | No       | All         | yes      |
+| `swipeEnabled`        | Passing false will disable swipe gestures, but the user can still switch tabs by pressing the tab bar. | boolean  | No       | All         | yes      |
+| `style`               | Style to apply to the pager view wrapping all the scenes.                                              | boolean  | No       | All         | yes      |
+| `tabStyle`            | Style to apply to the individual tab items in the tab bar.                                             | boolean  | No       | All         | yes      |
+| `indicatorStyle`      | Style to apply to the active indicator.                                                                | boolean  | No       | All         | yes      |
+| `labelStyle`          | Style to apply to the tab item label.                                                                  | boolean  | No       | All         | yes      |
+| `style`               | Style to apply to the tab bar container.                                                               | boolean  | No       | All         | yes      |
+| `activeColor`         | Custom color for icon and label in the active tab.                                                     | string   | No       | All         | yes      |
+| `inactiveColor`       | Custom color for icon and label in the inactive tab.                                                   | string   | No       | All         | yes      |
+| `scrollEnabled`       | Boolean indicating whether to make the tab bar scrollable.                                             | boolean  | No       | All         | yes      |
+| `bounces`             | Function that is invoked when the webview calls window.ReactNativeWebView.postMessage.                 | boolean  | No       | All         | yes      |
+| `gap`                 | Define a spacing between tabs.                                                                         | number   | No       | All         | yes      |
 
 ## 遗留问题
 

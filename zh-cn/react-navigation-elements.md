@@ -18,29 +18,17 @@
 
 <!-- tabs:start -->
 
-<<<<<<< HEAD
 **正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/react-navigation/releases?q=elements&expanded=true)中获取库 tgz，通过使用本地依赖来安装本库。**
-
 #### **yarn**
 
 ```bash
 yarn add xxx
-=======
-#### **yarn**
-
-```bash
-yarn add @react-navigation/elements@npm:@react-native-oh-tpl/elements
->>>>>>> 9b13f3257598515583ce93032d79edd9a203aa00
 ```
 
 #### **npm**
 
 ```bash
-<<<<<<< HEAD
 npm install xxx
-=======
-npm install @react-navigation/elements@npm:@react-native-oh-tpl/elements
->>>>>>> 9b13f3257598515583ce93032d79edd9a203aa00
 ```
 
 <!-- tabs:end -->
@@ -49,11 +37,7 @@ npm install @react-navigation/elements@npm:@react-native-oh-tpl/elements
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-<<<<<<< HEAD
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-navigation Releases](https://github.com/react-native-oh-library/react-navigation/releases?q=elements&expanded=true)
-=======
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-navigation Releases](https://github.com/react-native-oh-library/react-navigation/releases)
->>>>>>> 9b13f3257598515583ce93032d79edd9a203aa00
 
 ## 属性
 

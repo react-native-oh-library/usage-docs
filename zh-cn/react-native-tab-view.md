@@ -4,17 +4,17 @@
   <h1 align="center"> <code>react-native-tab-view</code> </h1>
 </p>
 <p align="center">
-    <a href="https://github.com/satya164/react-native-tab-view">
-        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
+    <a href="https://github.com/react-navigation/react-navigation/tree/main/packages/react-native-tab-view">
+        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20macos%20|%20web%20|%20windows%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
-    <a href="https://github.com/satya164/react-native-tab-view/blob/main/LICENSE.md">
+    <a href="https://github.com/react-navigation/react-navigation/blob/main/packages/react-native-tab-view/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
 
 ## 安装与使用
 
-进入到工程目录并输入以下命令（等待 npm 发布中）：
+正在 npm 发布中，当前请先从仓库Release中获取库 tgz，通过使用本地依赖来安装本库。
 
 ```bash
 yarn add xxx
@@ -165,11 +165,9 @@ const styles = StyleSheet.create({
 
 ## Link
 
-目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+tabview是js库，依赖pagerview，原生不需要配置，只需配置好pagerview的link相关配置即可
 
-首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
-
-### 引入原生端代码
+### 引入pagerview代码
 
 目前有两种方法：
 
@@ -275,7 +273,7 @@ import {
 } from 'rnoh'
 import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-package"
 import { createRNPackages } from '../RNPackagesFactory'
-+ import { RNCViewPager,PAGER_VIEW_TYPE } from 'rnoh-pager-view'
++ import { RNCViewPager, PAGER_VIEW_TYPE } from 'rnoh-pager-view'
 
 @Builder
 function CustomComponentBuilder(ctx: ComponentBuilderContext) {
@@ -319,7 +317,7 @@ ohpm install
 
 ## 属性
 
-详情请查看[tabview 官方文档](https://github.com/satya164/react-native-tab-view/blob/main/README.md)
+详情请查看[tabview 官方文档](https://github.com/react-navigation/react-navigation/blob/main/packages/react-native-tab-view/README.md)
 
 如下是 tabview 已经鸿蒙化的属性：
 
@@ -331,7 +329,11 @@ ohpm install
 | `tabBarPosition`      | Position of the tab bar in the tab view.                                                               | string   | No       | iOS,android | yes      |
 | `keyboardDismissMode` | String indicating whether the keyboard gets dismissed in response to a drag gesture.                   | string   | No       | iOS,android | yes      |
 | `swipeEnabled`        | Passing false will disable swipe gestures, but the user can still switch tabs by pressing the tab bar. | boolean  | No       | iOS,android | yes      |
-| `animationEnabled`    | Enables animation when changing tab. By default it's true.                                             | boolean  | No       | iOS,android | yes      |
+| `style`               | Style to apply to the pager view wrapping all the scenes.                                              | boolean  | No       | iOS,android | yes      |
+| `tabStyle`            | Style to apply to the individual tab items in the tab bar.                                             | boolean  | No       | iOS,android | yes      |
+| `indicatorStyle`      | Style to apply to the active indicator.                                                                | boolean  | No       | iOS,android | yes      |
+| `labelStyle`          | Style to apply to the tab item label.                                                                  | boolean  | No       | iOS,android | yes      |
+| `style`               | Style to apply to the tab bar container.                                                               | boolean  | No       | iOS,android | yes      |
 | `activeColor`         | Custom color for icon and label in the active tab.                                                     | string   | No       | iOS,android | yes      |
 | `inactiveColor`       | Custom color for icon and label in the inactive tab.                                                   | string   | No       | iOS,android | yes      |
 | `scrollEnabled`       | Boolean indicating whether to make the tab bar scrollable.                                             | boolean  | No       | iOS,android | yes      |

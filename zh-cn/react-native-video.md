@@ -12,23 +12,24 @@
     </a>
 </p>
 
-
 ## 安装与使用
 
 进入到工程目录并输入以下命令：
 
 <!-- tabs:start -->
 
+**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/react-native-video/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
+
 #### **yarn**
 
 ```bash
-yarn add react-native-video@npm:@react-native-oh-tpl/react-native-video
+yarn add xxx
 ```
 
 #### **npm**
 
 ```bash
-npm install react-native-video@npm:@react-native-oh-tpl/react-native-video
+npm install xxx
 ```
 
 <!-- tabs:end -->
@@ -42,7 +43,7 @@ import RNCVideo from 'react-native-video'
 
 function RNCVideoDemo() {
   const videoRef = React.useRef<typeof RNCVideo>(null);
-    
+
   const [muted, setMuted] = useState(true);
   const [paused, setPaused] = useState(false);
   const [repeat, setRepeat] = useState(true);
@@ -61,7 +62,7 @@ function RNCVideoDemo() {
   const [onVideoBuffer, setOnVideoBuffer] = useState("onVideoBuffer");
   const [onPlaybackStalled, setOnPlaybackStalled] = useState("onPlaybackStalled");
   const [onPlaybackResume, setOnPlaybackResume] = useState("onPlaybackResume");
-    
+
   return (
 
       <View
@@ -253,14 +254,14 @@ import { createRNPackages } from '../RNPackagesFactory'
 
 @Builder
 function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
+  if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
     SampleView({
       ctx: ctx.rnohContext,
       tag: ctx.descriptor.tag,
       buildCustomComponent: CustomComponentBuilder
     })
   }
-+ else if (ctx.componentName === RNC_VIDEO_TYPE) {
++ else if (ctx.descriptor.type === RNC_VIDEO_TYPE) {
 +   RNCVideo({
 +     ctx: ctx.rnohContext,
 +     tag: ctx.descriptor.tag,
@@ -331,7 +332,7 @@ ohpm install
 
 ## 遗留问题
 
-- [ ] source暂时只支持在线URL资源。
+- [ ] source 暂时只支持在线 URL 资源。
 - [ ] 未适配无障碍
 
 ## 其他

@@ -17,25 +17,20 @@
 
 进入到工程目录并输入以下命令：
 
-```json
-@react-native-oh-library:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=TOKEN
-```
-
-进入到工程目录并输入以下命令：
-
 <!-- tabs:start -->
+
+**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/react-native-linear-gradient/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
 
 #### **yarn**
 
 ```bash
-yarn add react-native-linear-gradient@npm:@react-native-oh-tpl/react-native-linear-gradient
+yarn add xxx
 ```
 
 #### **npm**
 
 ```bash
-npm install react-native-linear-gradient@npm:@react-native-oh-tpl/react-native-linear-gradient
+npm install xxx
 ```
 
 <!-- tabs:end -->
@@ -188,14 +183,14 @@ import { createRNPackages } from '../RNPackagesFactory'
 
   @Builder
   function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-    if (ctx.componentName === SAMPLE_VIEW_TYPE) {
+    if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
       SampleView({
         ctx: ctx.rnohContext,
         tag: ctx.descriptor.tag,
         buildCustomComponent: CustomComponentBuilder
       })
     }
-+   else if (ctx.componentName === LINEAR_GRADIENT_TYPE) {
++   else if (ctx.descriptor.type === LINEAR_GRADIENT_TYPE) {
 +     RNLinearGradient({
 +       ctx: ctx.rnohContext,
 +       tag: ctx.descriptor.tag,

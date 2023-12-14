@@ -36,10 +36,15 @@
 
 <!-- tabs:start -->
 
+// 未发布的代码加上如下描述（删除）
+
+**正在 npm 发布中，当前请先从仓库[Release](https://)中获取库 tgz，通过使用本地依赖来安装本库。**
+
 #### **yarn**
 
 ```bash
 yarn add <原库 npm 包名>@npm:@react-native-oh-library/<xxx>
+// 未发布的请使用 yarn add xxx,待发布后修改
 // 提示：yarn add @react-native-community/slider@npm:@react-native-oh-library/slider（删除）
 // 提示：yarn add react-native-translucent-modal@npm:@react-native-oh-library/（删除）react-native-translucent-modal
 ```
@@ -48,6 +53,7 @@ yarn add <原库 npm 包名>@npm:@react-native-oh-library/<xxx>
 
 ```bash
 npm install <原库 npm 包名>@npm:@react-native-oh-library/<xxx>
+// 未发布的请使用 npm install xxx,待发布后修改
 // 提示：npm install @react-native-community/slider@npm:@react-native-oh-library/slider（删除）
 // 提示：npm install react-native-translucent-modal@npm:@react-native-oh-library/react-native-translucent-modal（删除）
 ```
@@ -215,14 +221,14 @@ import { createRNPackages } from '../RNPackagesFactory'
 
 @Builder
 function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
+  if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
     SampleView({
       ctx: ctx.rnohContext,
       tag: ctx.descriptor.tag,
       buildCustomComponent: CustomComponentBuilder
     })
   }
-+ else if (ctx.componentName === SLIDER_TYPE) {
++ else if (ctx.descriptor.type === SLIDER_TYPE) {
 +   RNCSlider({
 +     ctx: ctx.rnohContext,
 +     tag: ctx.descriptor.tag,
@@ -266,13 +272,19 @@ ohpm install
 
 然后编译、运行即可。
 
-## 兼容性
+## 约束与限制
+
+### 兼容性
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[<xxx> Releases](https://github.com/<仓库地址>/releases)
 
 提示：[@react-native-oh-library/slider releases](https://github.com/react-native-oh-library/react-native-slider/releases)（删除）
+
+### 权限要求（如有）
+
+（填入相关权限配置）
 
 ## 属性（如有）
 

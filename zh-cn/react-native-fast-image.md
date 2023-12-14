@@ -18,16 +18,18 @@
 
 <!-- tabs:start -->
 
+**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/react-native-fast-image/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
+
 #### **yarn**
 
 ```bash
-yarn add react-native-fast-image@npm:@react-native-oh-tpl/react-native-fast-image
+yarn add xxx
 ```
 
 #### **npm**
 
 ```bash
-npm install react-native-fast-image@npm:@react-native-oh-tpl/react-native-fast-image
+npm install xxx
 ```
 
 <!-- tabs:end -->
@@ -114,7 +116,7 @@ add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
 # RNOH_BEGIN: add_package_subdirectories
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/rnoh-fast-image/src/main/cpp" ./fast-image)
++ add_subdirectory("${OH_MODULE_DIR}/rnoh-fast-image/src/main/cpp" ./fast_image)
 # RNOH_END: add_package_subdirectories
 
 add_library(rnoh_app SHARED
@@ -166,14 +168,14 @@ import { createRNPackages } from '../RNPackagesFactory'
 
 @Builder
 function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
+  if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
     SampleView({
       ctx: ctx.rnohContext,
       tag: ctx.descriptor.tag,
       buildCustomComponent: CustomComponentBuilder
     })
   }
-+ else if (ctx.componentName === FAST_IMAGE_TYPE) {
++ else if (ctx.descriptor.type === FAST_IMAGE_TYPE) {
 +   RNFastImage({
 +     ctx: ctx.rnohContext,
 +     tag: ctx.descriptor.tag,

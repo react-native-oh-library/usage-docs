@@ -14,7 +14,7 @@
 
 ### 禁用 `react-native-screens`
 
-因为没有鸿蒙原生实现 react-native-screens，需要禁用鸿蒙原生屏幕，使用 react-native views，请在您的入口文件中添加以下代码。 (例如. `App.js`):
+因为 ArkUI(Navigation、NavRouter、NavDestination)没有代理任何独特功能，且无法映射到 main_page 通过页面容器优化性能，所以 react-native-screens 禁用鸿蒙原生屏幕使用 react-native views 即可，请在您的入口文件中添加以下代码。 (例如. `App.js`):
 
 ```js
 import { enableScreens } from "react-native-screens";
@@ -22,7 +22,11 @@ import { enableScreens } from "react-native-screens";
 enableScreens(false);
 ```
 
-您还可以通过[`detachInactiveScreens`](https://reactnavigation.org/docs/stack-navigator#detachinactivescreens)在每个导航器中禁用使用原生屏幕
+您还可以通过[`detachInactiveScreens`](https://reactnavigation.org/docs/stack-navigator#detachinactivescreens)在每个导航器中禁用使用原生屏幕。后续待补充各个接口验证情况。
+
+## 属性
+
+[原库接口文档](https://github.com/software-mansion/react-native-screens/blob/main/guides/GUIDE_FOR_LIBRARY_AUTHORS.md) 由于使用 RN 的 view 实现相关功能，理论上接口均支持，若有不可用部分欢迎提交 [issue](https://gitee.com/react-native-oh-library/usage-docs/issues).
 
 ## 开源协议
 

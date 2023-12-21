@@ -18,7 +18,9 @@
     - [lottie-react-native](zh-cn/lottie-react-native.md)
     - [react-native-webview](zh-cn/react-native-webview.md)
     - [react-native-exception-handler](zh-cn/react-native-exception-handler.md)
-    
+    - [react-native-image-picker](zh-cn/react-native-image-picker.md)
+    - [react-native-safe-area-context](zh-cn/react-native-safe-area-context.md)
+    - [@react-native-community/netinfo](zh-cn/react-native-netinfo.md)
     
     
     

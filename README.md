@@ -30,6 +30,10 @@
 |  14  | [react-native-exception-handler](https://github.com/a7ul/react-native-exception-handler) |     2.10.10     | 否 | 100% | [@react-native-oh-tpl/react-native-exception-handler](https://github.com/react-native-oh-library/react-native-exception-handler/releases) | [链接](zh-cn/react-native-exception-handler.md) |
 | 15  | [react-native-pager-view](https://github.com/callstack/react-native-pager-view) |     6.2.2     | 是 | 100% | [@react-native-oh-tpl/react-native-pager-view](https://github.com/react-native-oh-library/react-native-pager-view/releases) | [链接](zh-cn/react-native-pager-view.md) |
 | 16  | [react-native-screens](https://github.com/software-mansion/react-native-screens) |     3.29.0     | 是 | 0% | [react-native-screens](https://github.com/software-mansion/react-native-screens/releases) | [链接](zh-cn/react-native-screens.md) |
+| 17  | [react-native-image-picker](https://github.com/react-native-image-picker/react-native-image-picker) |     7.0.3    | 是 | 50% | [@react-native-oh-tpl/react-native-image-picker](https://github.com/react-native-oh-library/react-native-image-picker/releases) | [链接](zh-cn/react-native-image-picker.md) |
+| 18  | [react-native-safe-area-context](https://github.com/th3rdwave/react-native-safe-area-context) |   4.7.4     | 是 |100% | [@react-native-oh-tpl/react-native-safe-area-context](https://github.com/react-native-oh-library/react-native-safe-area-context/releases) | [链接](zh-cn/react-native-safe-area-context.md) |
+| 19  | [@react-native-community/netinfo](https://github.com/react-native-netinfo/react-native-netinfo) |     11.1.0     | 是 | 70% | [@react-native-oh-library/netinfo](https://github.com/react-native-oh-library/react-native-netinfo/releases) | [链接](zh-cn/react-native-netinfo.md) |
+
 
 ## 社区
 

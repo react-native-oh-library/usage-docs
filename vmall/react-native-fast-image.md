@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.1
 
 <p align="center">
   <h1 align="center"> <code>react-native-fast-image</code> </h1>
@@ -23,13 +23,13 @@
 #### **yarn**
 
 ```bash
-yarn add xxx
+yarn add @react-native-oh-tpl/react-native-fast-image
 ```
 
 #### **npm**
 
 ```bash
-npm install xxx
+npm install @react-native-oh-tpl/react-native-fast-image
 ```
 
 <!-- tabs:end -->
@@ -71,7 +71,7 @@ const YourImage = () => (
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-fast-image": "file:../../node_modules/react-native-fast-image/harmony/fast_image.har"
+    "rnoh-fast-image": "file:../../node_modules/@react-native-oh-tpl/react-native-fast-image/harmony/fast_image.har"
   }
 ```
 
@@ -90,7 +90,7 @@ ohpm install
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-fast-image": "file:../../node_modules/react-native-fast-image/harmony/fast_image"
+    "rnoh-fast-image": "file:../../node_modules/@react-native-oh-tpl/react-native-fast-image/harmony/fast_image"
   }
 ```
 
@@ -154,16 +154,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 打开 `entry/src/main/ets/pages/index.ets`，添加：
 
 ```diff
-import {
-  RNApp,
-  ComponentBuilderContext,
-  RNAbility,
-  AnyJSBundleProvider,
-  MetroJSBundleProvider,
-  ResourceJSBundleProvider,
-} from 'rnoh'
-import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-package"
-import { createRNPackages } from '../RNPackagesFactory'
+...
 + import { RNFastImage, FAST_IMAGE_TYPE } from "rnoh-fast-image"
 
 @Builder
@@ -178,8 +169,7 @@ function CustomComponentBuilder(ctx: ComponentBuilderContext) {
 + else if (ctx.descriptor.type === FAST_IMAGE_TYPE) {
 +   RNFastImage({
 +     ctx: ctx.rnohContext,
-+     tag: ctx.descriptor.tag,
-+     buildCustomComponent: CustomComponentBuilder
++     tag: ctx.tag,
 +   })
 + }
  ...

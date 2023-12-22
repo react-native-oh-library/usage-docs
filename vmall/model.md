@@ -96,7 +96,6 @@ var styles = StyleSheet.create({
 "dependencies": {
     "rnoh": "file:../rnoh",
     "rnoh-xxx": "file:../../node_modules/@react-native-oh-tpl/<Package_Name>/harmony/<xxx>.har"
-    // 提示: (私仓)"rnoh-slider": "file:../../node_modules/@react-native-oh-tpl/slider/harmony/slider.har"（删除）
     // 提示: （公仓）"rnoh-linear-gradient": "file:../../node_modules/@react-native-oh-tpl/react-native-linear-gradient/harmony/linear_gradient.har"（删除）
   }
 ```
@@ -117,7 +116,6 @@ ohpm install
 "dependencies": {
     "rnoh": "file:../rnoh",
     "rnoh-xxx": "file:../../node_modules/@react-native-oh-tpl/<Package_Name>/harmony/<xxx>"
-    // 提示: (私仓)"rnoh-slider": "file:../../node_modules/@react-native-oh-tpl/slider/harmony/slider"（删除）
     // 提示: （公仓）"rnoh-linear-gradient": "file:../../node_modules/@react-native-oh-tpl/react-native-linear-gradient/harmony/linear_gradient"（删除）
   }
 ```

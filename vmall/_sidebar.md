@@ -10,7 +10,7 @@
   - [lottie-react-native](vmall/lottie-react-native.md)
   - [react-native-exception-handler](vmall/react-native-exception-handler.md)
   - [react-native-fast-image](vmall/react-native-fast-image.md)
-  - [react-native-gesture-handler]()
+  - [react-native-gesture-handler](vmall/react-native-gesture-handler.md)
   - [react-native-image-picker](vmall/react-native-image-picker.md)
   - [react-native-linear-gradient](vmall/react-native-linear-gradient.md)
   - [@react-native-masked-view/masked-view](vmall/react-native-masked-view.md)

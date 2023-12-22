@@ -1,4 +1,4 @@
-> 模板版本：v0.1.1
+> 模板版本：v0.0.1
 
 <p align="center">
   <h1 align="center"> <code>react-native-gesture-handler</code> </h1>
@@ -13,9 +13,28 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-gesture-handler)
-
 ## 安装与使用
+
+**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/react-native-gesture-handler/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
+
+打开 `package.json`，添加：
+
+```json
+...
+"dependencies": {
+  ...
+  "@react-native-oh-tpl/react-native-gesture-handler": "xxx.tgz",
+},
+...
+```
+
+然后再终端运行
+
+```bash
+npm i
+```
+
+发布到 npm 之后可以正常使用命令安装（暂未发布）
 
 进入到工程目录并输入以下命令：
 

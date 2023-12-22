@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.1
 
 <p align="center">
   <h1 align="center"> <code>@react-native-community/datetimepicker</code> </h1>
@@ -12,24 +12,24 @@
     </a>
 </p>
 
+> [!tip] [Github 地址](https://github.com/react-native-oh-library/datetimepicker)
+
 ## 安装与使用
 
 进入到工程目录并输入以下命令：
 
 <!-- tabs:start -->
 
-**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/datetimepicker/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
-
 #### **yarn**
 
 ```bash
-yarn add xxx
+yarn add @react-native-oh-tpl/datetimepicker
 ```
 
 #### **npm**
 
 ```bash
-npm install xxx
+npm install @react-native-oh-tpl/datetimepicker
 ```
 
 <!-- tabs:end -->
@@ -101,7 +101,7 @@ export const App = () => {
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-datetimepicker": "file:../../node_modules/@react-native-community/datetimepicker/harmony/datetimepicker.har"
+    "rnoh-datetimepicker": "file:../../node_modules/@react-native-oh-tpl/datetimepicker/harmony/datetimepicker.har"
   }
 ```
 
@@ -120,7 +120,7 @@ ohpm install
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-   "rnoh-datetimepicker": "file:../../node_modules/@react-native-community/datetimepicker/harmony/datetimepicker"
+   "rnoh-datetimepicker": "file:../../node_modules/@react-native-oh-tpl/datetimepicker/harmony/datetimepicker"
   }
 ```
 
@@ -184,31 +184,23 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 打开 `entry/src/main/ets/pages/index.ets`，添加：
 
 ```diff
-import {
-  RNApp,
-  ComponentBuilderContext,
-  RNAbility,
-  AnyJSBundleProvider,
-  MetroJSBundleProvider,
-  ResourceJSBundleProvider,
-} from 'rnoh'
+...
 import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-package"
-import { createRNPackages } from '../RNPackagesFactory'
 + import { RNDateTimePicker, DATETIME_PICKER_VIEW_TYPE } from "rnoh-datetimepicker"
 
 @Builder
 function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-  if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
+  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
     SampleView({
       ctx: ctx.rnohContext,
-      tag: ctx.descriptor.tag,
+      tag: ctx.tag,
       buildCustomComponent: CustomComponentBuilder
     })
   }
-+ else if (ctx.descriptor.type === DATETIME_PICKER_VIEW_TYPE) {
++ else if (ctx.componentName === DATETIME_PICKER_VIEW_TYPE) {
 +   RNDateTimePicker({
 +     ctx: ctx.rnohContext,
-+     tag: ctx.descriptor.tag,
++     tag: ctx.tag,
 +     buildCustomComponent: CustomComponentBuilder
 +   })
 + }
@@ -234,7 +226,7 @@ ohpm install
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[<@react-native-oh-library/datetimepicker> Releases](https://github.com/react-native-oh-library/datetimepicker/releases/tag/7.6.2-0.0.2)
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[<@react-native-oh-library/datetimepicker> Releases](https://github.com/react-native-oh-library/datetimepicker/releases)
 
 ## 属性
 

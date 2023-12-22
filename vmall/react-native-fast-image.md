@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.1
 
 <p align="center">
   <h1 align="center"> <code>react-native-fast-image</code> </h1>
@@ -23,13 +23,13 @@
 #### **yarn**
 
 ```bash
-yarn add xxx
+yarn add @react-native-oh-tpl/react-native-fast-image
 ```
 
 #### **npm**
 
 ```bash
-npm install xxx
+npm install @react-native-oh-tpl/react-native-fast-image
 ```
 
 <!-- tabs:end -->
@@ -71,7 +71,7 @@ const YourImage = () => (
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-fast-image": "file:../../node_modules/react-native-fast-image/harmony/fast_image.har"
+    "rnoh-fast-image": "file:../../node_modules/@react-native-oh-tpl/react-native-fast-image/harmony/fast_image.har"
   }
 ```
 
@@ -90,7 +90,7 @@ ohpm install
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-fast-image": "file:../../node_modules/react-native-fast-image/harmony/fast_image"
+    "rnoh-fast-image": "file:../../node_modules/@react-native-oh-tpl/react-native-fast-image/harmony/fast_image"
   }
 ```
 
@@ -179,7 +179,6 @@ function CustomComponentBuilder(ctx: ComponentBuilderContext) {
 +   RNFastImage({
 +     ctx: ctx.rnohContext,
 +     tag: ctx.descriptor.tag,
-+     buildCustomComponent: CustomComponentBuilder
 +   })
 + }
  ...

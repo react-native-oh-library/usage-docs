@@ -10,20 +10,20 @@
     </a>
 </p>
 
+>[!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-webview)
+
 ## 安装与使用
 
 进入到工程目录并输入以下命令：
 
-**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/react-native-webview/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
-
 ```bash
-yarn add xxx
+yarn add @react-native-oh-tpl/react-native-webview
 ```
 
 或者
 
 ```bash
-npm install xxx
+npm install @react-native-oh-tpl/react-native-webview
 ```
 
 下面的代码展示了这个库的基本使用场景：
@@ -53,7 +53,7 @@ import { WebView } from "react-native-webview";
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-webview": "file:../../node_modules/react-native-webview/harmony/rn_webview.har"
+    "rnoh-webview": "file:../../node_modules/@react-native-oh-tpl/react-native-webview/harmony/rn_webview.har"
   }
 ```
 
@@ -72,7 +72,7 @@ ohpm install
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-webview": "file:../../node_modules/react-native-webview/harmony/rn_webview"
+    "rnoh-webview": "file:../../node_modules/@react-native-oh-tpl/react-native-webview/harmony/rn_webview"
   }
 ```
 
@@ -150,14 +150,14 @@ import { createRNPackages } from '../RNPackagesFactory'
 
 @Builder
 function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-  if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
+  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
     SampleView({
       ctx: ctx.rnohContext,
       tag: ctx.descriptor.tag,
       buildCustomComponent: CustomComponentBuilder
     })
   }
-+ else if (ctx.descriptor.type === WEB_VIEW) {
++ else if (ctx.componentName === WEB_VIEW) {
 +   WebView({
 +     ctx: ctx.rnohContext,
 +     tag: ctx.descriptor.tag,
@@ -232,6 +232,7 @@ ohpm install
 | ` onShouldStartLoadWithRequest?: (event) => void` | Function that allows custom handling of any web view requests.                                                              | function                                                                                            | No       | iOS,android,macOS | yes      |
 
 ## 遗留问题
+- [ ] webview部分属性未实现鸿蒙化[issue#17](https://github.com/react-native-oh-library/react-native-webview/issues/17)
 
 ## 其他
 

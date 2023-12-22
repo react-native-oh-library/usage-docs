@@ -178,7 +178,7 @@ function CustomComponentBuilder(ctx: ComponentBuilderContext) {
 + else if (ctx.descriptor.type === FAST_IMAGE_TYPE) {
 +   RNFastImage({
 +     ctx: ctx.rnohContext,
-+     tag: ctx.descriptor.tag,
++     tag: ctx.tag,
 +   })
 + }
  ...

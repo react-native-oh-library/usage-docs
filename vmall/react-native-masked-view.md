@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.1
 
 <p align="center">
   <h1 align="center"> <code>@react-native-masked-view/masked-view</code> </h1>
@@ -12,33 +12,24 @@
     </a>
 </p>
 
+[!tip] [Github 地址](https://github.com/react-native-oh-library/masked-view)
+
 ## 安装与使用
-
-> [!tip] 目前部分 React-Native-OpenHarmony(RNOH) 三方库的 npm 包部署在私仓，需要通过 github token 来获取访问权限。
-
-在与 `package.json` 文件相同的目录中，创建或编辑 `.npmrc` 文件以包含指定 GitHub Packages URL 和托管包的命名空间的行。 将 TOKEN 替换为 RNOH 三方库指定的 token。
-
-```bash
-@react-native-oh-library:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=TOKEN
-```
 
 进入到工程目录并输入以下命令：
 
 <!-- tabs:start -->
 
-**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/masked-view/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
-
 #### **yarn**
 
 ```bash
-yarn add xxx
+yarn add @react-native-oh-tpl/masked-view
 ```
 
 #### **npm**
 
 ```bash
-npm install xxx
+npm install @react-native-oh-tpl/masked-view
 ```
 
 <!-- tabs:end -->
@@ -99,7 +90,7 @@ import MaskedView from "@react-native-masked-view/masked-view";
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-masked-view": "file:../../node_modules/@react-native-masked-view/masked-view/harmony/masked_view.har",
+    "rnoh-masked-view": "file:../../node_modules/@react-native-oh-tpl/masked-view/harmony/masked_view.har",
   }
 ```
 
@@ -118,7 +109,7 @@ ohpm install
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-masked-view": "file:../../node_modules/@react-native-masked-view/masked-view/harmony/masked_view"
+    "rnoh-masked-view": "file:../../node_modules/@react-native-oh-tpl/masked-view/harmony/masked_view"
   }
 ```
 
@@ -203,10 +194,10 @@ import { createRNPackages } from '../RNPackagesFactory'
         buildCustomComponent: CustomComponentBuilder
       })
     }
-+   else if (ctx.descriptor.type === MASKED_VIEW_TYPE) {
++   else if (ctx.componentName === MASKED_VIEW_TYPE) {
 +     MaskedView({
 +       ctx: ctx.rnohContext,
-+       tag: ctx.descriptor.tag,
++       tag: ctx.tag,
 +       buildCustomComponent: CustomComponentBuilder
 +     })
 +   }

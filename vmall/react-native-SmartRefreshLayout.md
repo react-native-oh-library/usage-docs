@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.1
 
 <p align="center">
   <h1 align="center"> <code>react-native-SmartRefreshLayout</code> </h1>
@@ -23,13 +23,13 @@
 #### **yarn**
 
 ```bash
-yarn add xxx
+yarn add  @react-native-oh-tpl/react-native-smartrefreshlayout
 ```
 
 #### **npm**
 
 ```bash
-npm install xxx
+npm install  @react-native-oh-tpl/react-native-smartrefreshlayout
 ```
 
 <!-- tabs:end -->
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-smart-refresh-layout": "file:../../node_modules/react-native-smartrefreshlayout/harmony/smart_refresh_layout.har"
+    "rnoh-smart-refresh-layout": "file:../../node_modules/@react-native-oh-tpl/react-native-smartrefreshlayout/harmony/smart_refresh_layout.har"
   }
 ```
 
@@ -158,7 +158,7 @@ ohpm install
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-smart-refresh-layout": "file:../../node_modules/react-native-smartrefreshlayout/harmony/smart_refresh_layout"
+    "rnoh-smart-refresh-layout": "file:../../node_modules/@react-native-oh-tpl/react-native-smartrefreshlayout/harmony/smart_refresh_layout"
   }
 ```
 
@@ -246,19 +246,19 @@ function CustomComponentBuilder(ctx: ComponentBuilderContext) {
 + else if (ctx.descriptor.type == SMART_REFRESH_CONTROL_TYPE){
 +    SmartRefreshControl({
 +      ctx: ctx.rnohContext,
-+      tag: ctx.descriptor.tag,
++      tag: ctx.tag,
 +      buildCustomComponent: CustomComponentBuilder
 +    })
 +  } else if (ctx.descriptor.type == ANY_HEADER_TYPE){
 +    RNCAnyHeader({
 +      ctx: ctx.rnohContext,
-+      tag: ctx.descriptor.tag,
++      tag: ctx.tag,
 +      buildCustomComponent: CustomComponentBuilder
 +    })
 +  } else if (ctx.descriptor.type == DEFAULT_HEADER_TYPE) {
 +    RNCDefaultHeader({
 +      ctx: ctx.rnohContext,
-+      tag: ctx.descriptor.tag,
++      tag: ctx.tag,
 +      buildCustomComponent: CustomComponentBuilder
 +    })
 +  }

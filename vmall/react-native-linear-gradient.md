@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.1
 
 <p align="center">
   <h1 align="center"> <code>react-native-linear-gradient</code> </h1>
@@ -13,24 +13,24 @@
     </a>
 </p>
 
+>[!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-linear-gradient)
 ## 安装与使用
 
 进入到工程目录并输入以下命令：
 
 <!-- tabs:start -->
 
-**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/react-native-linear-gradient/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
 
 #### **yarn**
 
 ```bash
-yarn add xxx
+yarn add @react-native-oh-tpl/react-native-linear-gradient
 ```
 
 #### **npm**
 
 ```bash
-npm install xxx
+npm install @react-native-oh-tpl/react-native-linear-gradient
 ```
 
 <!-- tabs:end -->
@@ -86,7 +86,7 @@ var styles = StyleSheet.create({
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-linear-gradient": "file:../../node_modules/react-native-linear-gradient/harmony/linear_gradient.har"
+    "rnoh-linear-gradient": "file:../../node_modules/@react-native-oh-tpl/react-native-linear-gradient/harmony/linear_gradient.har"
   }
 ```
 
@@ -105,7 +105,7 @@ ohpm install
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-linear-gradient": "file:../../node_modules/react-native-linear-gradient/harmony/linear_gradient"
+    "rnoh-linear-gradient": "file:../../node_modules/@react-native-oh-tpl/react-native-linear-gradient/harmony/linear_gradient"
   }
 ```
 
@@ -169,31 +169,21 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 打开 `entry/src/main/ets/pages/index.ets`，添加：
 
 ```diff
-import {
-  RNApp,
-  ComponentBuilderContext,
-  RNAbility,
-  AnyJSBundleProvider,
-  MetroJSBundleProvider,
-  ResourceJSBundleProvider,
-} from 'rnoh'
-import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-package"
-import { createRNPackages } from '../RNPackagesFactory'
 + import { RNLinearGradient, LINEAR_GRADIENT_TYPE, LinearGradientDescriptor } from "rnoh-linear-gradient"
 
   @Builder
   function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-    if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
+    if (ctx.componentName === SAMPLE_VIEW_TYPE) {
       SampleView({
         ctx: ctx.rnohContext,
-        tag: ctx.descriptor.tag,
+        tag: ctx.tag,
         buildCustomComponent: CustomComponentBuilder
       })
     }
-+   else if (ctx.descriptor.type === LINEAR_GRADIENT_TYPE) {
++   else if (ctx.componentName === LINEAR_GRADIENT_TYPE) {
 +     RNLinearGradient({
 +       ctx: ctx.rnohContext,
-+       tag: ctx.descriptor.tag,
++       tag: ctx.tag,
 +       buildCustomComponent: CustomComponentBuilder
 +     })
 +   }

@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.1
 
 <p align="center">
   <h1 align="center"> <code>react-native-video</code> </h1>
@@ -23,13 +23,13 @@
 #### **yarn**
 
 ```bash
-yarn add xxx
+yarn add @react-native-oh-tpl/react-native-video
 ```
 
 #### **npm**
 
 ```bash
-npm install xxx
+npm install @react-native-oh-tpl/react-native-video
 ```
 
 <!-- tabs:end -->
@@ -157,7 +157,7 @@ export default RNCVideoDemo;
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-video": "file:../../node_modules/react-native-video/harmony/rn_video.har"
+    "rnoh-video": "file:../../node_modules/@react-native-oh-tpl/react-native-video/harmony/rn_video.har"
   }
 ```
 
@@ -176,7 +176,7 @@ ohpm install
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-slider": "file:../../node_modules/react-native-video/harmony/rn_video"
+    "rnoh-slider": "file:../../node_modules/@react-native-oh-tpl/react-native-video/harmony/rn_video"
   }
 ```
 
@@ -264,7 +264,7 @@ function CustomComponentBuilder(ctx: ComponentBuilderContext) {
 + else if (ctx.descriptor.type === RNC_VIDEO_TYPE) {
 +   RNCVideo({
 +     ctx: ctx.rnohContext,
-+     tag: ctx.descriptor.tag,
++     tag: ctx.tag,
 +     buildCustomComponent: CustomComponentBuilder
 +   })
 + }

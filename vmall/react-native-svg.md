@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.1
 
 <p align="center">
   <h1 align="center"> <code>react-native-svg</code> </h1>
@@ -12,24 +12,24 @@
     </a>
 </p>
 
+> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-svg)
+
 ## 安装与使用
 
 进入到工程目录并输入以下命令：
 
 <!-- tabs:start -->
 
-**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/react-native-svg/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
-
 #### **yarn**
 
 ```bash
-yarn add react-native-svg@npm:@react-native-oh-tpl/react-native-svg
+yarn add @react-native-oh-tpl/react-native-svg
 ```
 
 #### **npm**
 
 ```bash
-npm install react-native-svg@npm:@react-native-oh-tpl/react-native-svg
+npm install @react-native-oh-tpl/react-native-svg
 ```
 
 <!-- tabs:end -->
@@ -37,12 +37,10 @@ npm install react-native-svg@npm:@react-native-oh-tpl/react-native-svg
 下面的代码展示了这个库的基本使用场景：
 
 ```js
-import Svg, { Path, G } from "react-native-svg";
-
-const TRIANGLE_PATH_DATA = "M90 0 L0 180 L180 180 Z";
+import Svg, { Path } from "react-native-svg";
 
 <Svg width="100" height="100">
-  <Path d={TRIANGLE_PATH_DATA} fill="red" />
+  <Path d="M90 0 L0 180 L180 180 Z" fill="red" />
 </Svg>;
 ```
 
@@ -65,7 +63,7 @@ const TRIANGLE_PATH_DATA = "M90 0 L0 180 L180 180 Z";
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-svg": "file:../../node_modules/react-native-svg/harmony/svg.har"
+    "rnoh-svg": "file:../../node_modules/@react-native-oh-tpl/react-native-svg/harmony/svg.har"
   }
 ```
 
@@ -84,7 +82,7 @@ ohpm install
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-svg": "file:../../node_modules/react-native-svg/harmony/svg"
+    "rnoh-svg": "file:../../node_modules/@react-native-oh-tpl/react-native-svg/harmony/svg"
   }
 ```
 
@@ -148,64 +146,22 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 打开 `entry/src/main/ets/pages/index.ets`，添加：
 
 ```diff
-import {
-  RNApp,
-  ComponentBuilderContext,
-  RNAbility,
-  AnyJSBundleProvider,
-  MetroJSBundleProvider,
-  ResourceJSBundleProvider,
-} from 'rnoh'
-import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-package"
-import { createRNPackages } from '../RNPackagesFactory'
-+ import {
-+   SVG_VIEW_TYPE_NAME,
-+   SVGView,
-+   SVG_GROUP_TYPE_NAME,
-+   SVGGroup,
-+   SVG_PATH_TYPE_NAME,
-+   SVGPath,
-+   SVG_RECT_TYPE_NAME,
-+   SVGRect,
-+   SVG_IMAGE_TYPE_NAME,
-+   SVGImage
-+  } from "rnoh-svg"
++ import { SVG_VIEW_TYPE_NAME, SVGView } from "rnoh-svg"
 
 @Builder
 function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-  if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
+  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
     SampleView({
       ctx: ctx.rnohContext,
-      tag: ctx.descriptor.tag,
+      tag: ctx.tag,
       buildCustomComponent: CustomComponentBuilder
     })
   }
-+ else if (ctx.descriptor.type === SVG_VIEW_TYPE_NAME) {
++ else if (ctx.componentName === SVG_VIEW_TYPE_NAME) {
 +   SVGView({
 +     ctx: ctx.rnohContext,
-+     tag: ctx.descriptor.tag,
++     tag: ctx.tag,
 +     buildCustomComponent: CustomComponentBuilder
-+   })
-+ } else if (ctx.descriptor.type === SVG_GROUP_TYPE_NAME) {
-+   SVGGroup({
-+     ctx: ctx.rnohContext,
-+     tag: ctx.descriptor.tag,
-+     buildCustomComponent: CustomComponentBuilder
-+   })
-+ } else if (ctx.descriptor.type === SVG_PATH_TYPE_NAME) {
-+   SVGPath({
-+     ctx: ctx.rnohContext,
-+     tag: ctx.descriptor.tag
-+   })
-+ } else if (ctx.descriptor.type === SVG_RECT_TYPE_NAME) {
-+   SVGRect({
-+     ctx: ctx.rnohContext,
-+     tag: ctx.descriptor.tag
-+   })
-+ } else if (ctx.descriptor.type === SVG_IMAGE_TYPE_NAME) {
-+   SVGImage({
-+     ctx: ctx.rnohContext,
-+     tag: ctx.descriptor.tag
 +   })
 + }
  ...
@@ -288,6 +244,8 @@ ohpm install
 | strokeWidth |             设置边框宽度             | number |   1    |    No    | All      |     | √    | √    |
 
 ## 遗留问题
+
+- [ ] svg 当前仅实现少部分属性（具体见上面已列出的属性），其余还未实现鸿蒙化
 
 ## 其他
 

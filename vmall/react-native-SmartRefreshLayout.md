@@ -259,26 +259,26 @@ import { createRNPackages } from '../RNPackagesFactory'
 
 @Builder
 function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-  if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
+  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
     SampleView({
       ctx: ctx.rnohContext,
-      tag: ctx.descriptor.tag,
+      tag: ctx.tag,
       buildCustomComponent: CustomComponentBuilder
     })
   }
-+ else if (ctx.descriptor.type == SMART_REFRESH_CONTROL_TYPE){
++ else if (ctx.componentName == SMART_REFRESH_CONTROL_TYPE){
 +    SmartRefreshControl({
 +      ctx: ctx.rnohContext,
 +      tag: ctx.tag,
 +      buildCustomComponent: CustomComponentBuilder
 +    })
-+  } else if (ctx.descriptor.type == ANY_HEADER_TYPE){
++  } else if (ctx.componentName == ANY_HEADER_TYPE){
 +    RNCAnyHeader({
 +      ctx: ctx.rnohContext,
 +      tag: ctx.tag,
 +      buildCustomComponent: CustomComponentBuilder
 +    })
-+  } else if (ctx.descriptor.type == DEFAULT_HEADER_TYPE) {
++  } else if (ctx.componentName == DEFAULT_HEADER_TYPE) {
 +    RNCDefaultHeader({
 +      ctx: ctx.rnohContext,
 +      tag: ctx.tag,

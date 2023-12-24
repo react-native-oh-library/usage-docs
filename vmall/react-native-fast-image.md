@@ -157,14 +157,14 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 @Builder
 function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-  if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
+  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
     SampleView({
       ctx: ctx.rnohContext,
-      tag: ctx.descriptor.tag,
+      tag: ctx.tag,
       buildCustomComponent: CustomComponentBuilder
     })
   }
-+ else if (ctx.descriptor.type === FAST_IMAGE_TYPE) {
++ else if (ctx.componentName === FAST_IMAGE_TYPE) {
 +   RNFastImage({
 +     ctx: ctx.rnohContext,
 +     tag: ctx.tag,

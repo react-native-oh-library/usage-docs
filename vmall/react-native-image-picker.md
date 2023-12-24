@@ -12,6 +12,8 @@
     </a>
 </p>
 
+> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-image-picker)
+
 ## 安装与使用
 
 <!-- tabs:start -->

@@ -280,11 +280,11 @@ function CustomComponentBuilder(ctx: ComponentBuilderContext) {
   if (ctx.componentName === SAMPLE_VIEW_TYPE) {
     SampleView({
       ctx: ctx.rnohContext,
-      tag: ctx.descriptor.tag,
+      tag: ctx.tag,
       buildCustomComponent: CustomComponentBuilder
     })
   }
-+ else if(ctx.descriptor.type === PAGER_VIEW_TYPE){
++ else if(ctx.componentName === PAGER_VIEW_TYPE){
 +   RNCViewPager({
 +     tag:ctx.descriptor.tag,
 +     ctx:ctx.rnohContext,

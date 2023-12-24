@@ -1,4 +1,4 @@
-> 模板版本：v0.1.1
+> 模板版本：v0.0.1
 
 <p align="center">
   <h1 align="center"> <code>@react-navigation/elements</code> </h1>
@@ -18,16 +18,17 @@
 
 <!-- tabs:start -->
 
+**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/react-navigation/releases?q=elements&expanded=true)中获取库 tgz，通过使用本地依赖来安装本库。**
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/elements
+yarn add xxx
 ```
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/elements
+npm install xxx
 ```
 
 <!-- tabs:end -->

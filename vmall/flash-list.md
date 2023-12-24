@@ -12,6 +12,8 @@
     </a>
 </p>
 
+>[!tip] [Github 地址](https://github.com/react-native-oh-library/flash-list)
+
 ## 安装与使用
 
 进入到工程目录并输入以下命令：
@@ -77,7 +79,7 @@ const MyList = () => {
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-xxx": "file:../../node_modules/@react-native-oh-tpl/flash-list/harmony/flash_list.har"
+    "rnoh-flash-list": "file:../../node_modules/@react-native-oh-tpl/flash-list/harmony/flash_list.har"
   }
 ```
 

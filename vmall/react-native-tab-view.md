@@ -12,6 +12,8 @@
     </a>
 </p>
 
+> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-navigation/tree/master/packages/react-native-tab-view)
+
 ## 安装与使用
 
 ```bash

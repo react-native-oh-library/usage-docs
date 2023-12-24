@@ -12,6 +12,8 @@
     </a>
 </p>
 
+> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-fast-image)
+
 ## 安装与使用
 
 进入到工程目录并输入以下命令：

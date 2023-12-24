@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.1
 
 <p align="center">
   <h1 align="center"> <code>react-native-exception-handler</code> </h1>
@@ -18,18 +18,14 @@
 
 <!-- tabs:start -->
 
-**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/react-native-exception-handler/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
-
-#### **yarn**
-
 ```bash
-yarn add xxx
+yarn add @react-native-oh-tpl/react-native-exception-handler
 ```
 
 #### **npm**
 
 ```bash
-npm install xxx
+npm install @react-native-oh-tpl/react-native-exception-handler
 ```
 
 <!-- tabs:end -->
@@ -119,7 +115,7 @@ setNativeExceptionHandler(
 ```diff
 "dependencies": {
     "rnoh": "file:../rnoh",
-+   "rnoh-exception-handler": "file:../../node_modules/react-native-exception-handler/harmony/exception_handler.har",
++   "rnoh-exception-handler": "file:../../node_modules/@react-native-oh-tpl/react-native-exception-handler/harmony/exception_handler.har",
   }
 ```
 
@@ -138,7 +134,7 @@ ohpm install
 ```diff
 "dependencies": {
     "rnoh": "file:../rnoh",
-+   "rnoh-exception-handler": "file:../../node_modules/react-native-exception-handler/harmony/exception_handler"
++   "rnoh-exception-handler": "file:../../node_modules/@react-native-oh-tpl/react-native-exception-handler/harmony/exception_handler"
   }
 ```
 
@@ -219,7 +215,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 在 `YourProject/entry/src/main/ets/pages` 目录下,新建文件`ExceptionView.ets`
 
 ```typescript
-import { ExceptionComopnent } from 'rnoh-exception-handler';
+import { ExceptionComponent } from 'rnoh-exception-handler';
 import router from '@ohos.router';
 
 interface RouterParam {

@@ -17,6 +17,7 @@
 进入到工程目录并输入以下命令：
 
 <!-- tabs:start -->
+#### **yarn**
 
 ```bash
 yarn add @react-native-oh-tpl/react-native-exception-handler

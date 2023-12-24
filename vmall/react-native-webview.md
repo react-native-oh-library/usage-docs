@@ -224,6 +224,7 @@ ohpm install
 
 ## 遗留问题
 - [ ] webview部分属性未实现鸿蒙化[issue#17](https://github.com/react-native-oh-library/react-native-webview/issues/17)
+- [ ] 中文乱码[issue#18](https://github.com/react-native-oh-library/react-native-webview/issues/18)
 
 ## 其他
 

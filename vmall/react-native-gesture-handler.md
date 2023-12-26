@@ -251,6 +251,22 @@ react-native-gesture-handler 在 2.x 版本里，不再从原生端引入 `<Gest
   }
 ```
 
+### 在 ArkTs 侧引入 Gesture Handler Package
+
+打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+
+```diff
+...
++ import { GestureHandlerPackage } from 'rnoh-gesture-handler/ts';
+
+export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
+  return [
+    new SamplePackage(ctx),
++   new GestureHandlerPackage(ctx),
+  ];
+}
+```
+
 ### 运行
 
 点击右上角的 `sync` 按钮

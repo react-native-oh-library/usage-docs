@@ -1,4 +1,4 @@
-> 模板版本：v0.1.1
+> 模板版本：v0.1.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-exception-handler</code> </h1>
@@ -339,16 +339,18 @@ ohpm install
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/reace-native-exception-handler Releases](https://github.com/react-native-oh-library/react-native-exception-handler/releases)
 
 ## 静态方法
+>[!tip] "鸿蒙支持"列为 yes 的方法表示支持鸿蒙平台，并且效果对标"原库平台"列中的 ios 或 android 的效果。
 
-| 名称                    | 说明                 | 类型     | 是否必填 | 原库平台 | 鸿蒙支持 |
-| ----------------------- | -------------------- | -------- | -------- | -------- | -------- |
+| Name | Description | Type | Required | Platform | Harmony |
+| ---- | ----------- | ---- | -------- | -------- | ------- |
 | `setJSExceptionHandler` | 设置 JS 异常处理方法 | function | no       | All      | yes      |
 | `getJSExceptionHandler` | 获取 JS 异常处理方法 | function | no       | All      | yes      |
 
 ## API
+>[!tip] "鸿蒙支持"列为 yes 的方法表示支持鸿蒙平台，并且效果对标"原库平台"列中的 ios 或 android 的效果。
 
-| 名称                        | 说明                     | 类型     | 是否必填 | 原库平台     | 鸿蒙支持 |
-| --------------------------- | ------------------------ | -------- | -------- | ------------ | -------- |
+| Name | Description | Type | Required | Platform | Harmony |
+| ---- | ----------- | ---- | -------- | -------- | ------- |
 | `setNativeExceptionHandler` | 设置 native 异常处理方法 | function | no       | android，ios | yes      |
 
 ## 遗留问题

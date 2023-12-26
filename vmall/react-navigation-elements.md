@@ -1,4 +1,4 @@
-> 模板版本：v0.1.1
+> 模板版本：v0.1.2
 
 <p align="center">
   <h1 align="center"> <code>@react-navigation/elements</code> </h1>
@@ -44,11 +44,12 @@ npm install @react-native-oh-tpl/elements
 
 详细请查看 [react-navigation/elements 的文档介绍](https://reactnavigation.org/docs/elements/#resourcesavingview)
 
+>[!tip] "鸿蒙支持"列为 yes 的属性表示支持鸿蒙平台，并且效果对标"原库平台"列中的 ios 或 android 的效果。
 
 **Header**：用作标头的组件
 
-|  名称   |   说明   |      类型       | 是否必填 | 原库平台 | 鸿蒙支持 |
-| :-----: | :------: | :-------------: | -------- | -------- | -------- |
+| Name | Description | Type | Required | Platform | Harmony |
+| ---- | ----------- | ---- | -------- | -------- | ------- |
 |  headerTitle  | 场景标题，或者返回一个React元素用作标题 | string \| React.reactNode | No      | All      | 未验证      |
 | headerTitleAlign  | 标题对齐方式 | left \| center | No      | All      | 未验证      |
 | headerTitleAllowFontScaling | 标题是否缩放 |     boolean      | No       | All      | 未验证      |
@@ -74,8 +75,8 @@ npm install @react-native-oh-tpl/elements
 
 **HeaderBackButton**：用于显示后退按钮标题的组件
 
-|  名称   |   说明   |      类型       | 是否必填 | 原库平台 | 鸿蒙支持 |
-| :-----: | :------: | :-------------: | -------- | -------- | -------- |
+| Name | Description | Type | Required | Platform | Harmony |
+| ---- | ----------- | ---- | -------- | -------- | ------- |
 |  disabled   | 是否可用 | boolean | No      | All      | 未验证      |
 | onPress   | 点击事件 | function | No      | All      | 未验证      |
 | pressColor  | 点击时的颜色 |     string    | No     | All    | 未验证    |
@@ -97,8 +98,8 @@ npm install @react-native-oh-tpl/elements
 
 **MissingIcon**：渲染丢失的图标符号的组件。它可以用作图标的回退，以显示缺少图标
 
-|  名称   |   说明   |      类型       | 是否必填 | 原库平台 | 鸿蒙支持 |
-| :-----: | :------: | :-------------: | -------- | -------- | -------- |
+| Name | Description | Type | Required | Platform | Harmony |
+| ---- | ----------- | ---- | -------- | -------- | ------- |
 |  color  | icon的颜色 | string | No      | All      | 未验证      |
 | size   | icon的大小 | number | No      | All      | 未验证      |
 | style  | icon的样式 | TextStyle | No     | All    | 未验证    |
@@ -121,8 +122,10 @@ npm install @react-native-oh-tpl/elements
 
 ## 方法
 
-| 名称                    | 说明                 | 类型     | 是否必填 | 原库平台 | 鸿蒙支持 |
-| ----------------------- | -------------------- | -------- | -------- | -------- | -------- |
+>[!tip] "鸿蒙支持"列为 yes 的属性表示支持鸿蒙平台，并且效果对标"原库平台"列中的 ios 或 android 的效果。
+
+| Name | Description | Type | Required | Platform | Harmony |
+| ---- | ----------- | ---- | -------- | -------- | ------- |
 | `useHeaderHeight` | 返回父屏幕中最近的可见页眉的高度 | function | no       | All      | 未验证      |
 | `getDefaultHeaderHeight` | 返回默认页眉高度 | function | no       | All      | yes      |
 | `getHeaderTitle` | 返回页眉标题文本 | function | no       | All      | 未验证      |

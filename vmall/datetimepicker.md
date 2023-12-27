@@ -247,7 +247,7 @@ ohpm install
 
 ## 遗留问题
 
-- [ ] datetimepicker 部分属性未实现鸿蒙化[issue#17](https://github.com/react-native-oh-library/datetimepicker/issues/17)
+- [ ] textColor属性在compact和inline模式改变值后使用禁用操作，颜色会变白色[issue#17](https://github.com/react-native-oh-library/datetimepicker/issues/17)
 
 - [ ] 部分接口，未适配
 

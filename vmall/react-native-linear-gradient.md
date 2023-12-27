@@ -1,4 +1,4 @@
-> 模板版本：v0.1.1
+> 模板版本：v0.1.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-linear-gradient</code> </h1>
@@ -13,13 +13,13 @@
     </a>
 </p>
 
->[!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-linear-gradient)
+> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-linear-gradient)
+
 ## 安装与使用
 
 进入到工程目录并输入以下命令：
 
 <!-- tabs:start -->
-
 
 #### **yarn**
 
@@ -205,6 +205,8 @@ ohpm install
 
 然后编译、运行即可。
 
+## 约束与限制
+
 ## 兼容性
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
@@ -213,15 +215,19 @@ ohpm install
 
 ## 属性
 
-| 名称        | 说明                                                     | 类型                   | 是否必填 | 原库平台 | 鸿蒙支持 |
-| ----------- | -------------------------------------------------------- | ---------------------- | -------- | -------- | -------- |
-| colors      | Color Array                                              | (string\|number)[]     | NO       | All      | yes      |
-| locations   | Color for unknown array (length 0 or the same as colors) | number[]               | NO       | All      | yes      |
-| useAngle    | Use angle (default false)                                | boolean                | NO       | All      | yes      |
-| angle       | Angle (useAngle=true valid)                              | number                 | NO       | All      | yes      |
-| angleCenter | Middle angle coordinate                                  | { x: number,y: number} | NO       | All      | no       |
-| start       | Starting point coordinates (default value: {x: 0.5,1})   | { x: number,y: number} | NO       | All      | partial  |
-| end         | End point coordinates (default value: {x: 0.5,1})        | { x: number,y: number} | NO       | All      | partial  |
+> [!tip] "鸿蒙支持"列为 yes 的 API 表示支持鸿蒙平台，并且效果对标"原库平台"列中的 ios 或 android 的效果。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name        | Description                                              | Type                   | Required | Platform | HarmonyOS Support |
+| ----------- | -------------------------------------------------------- | ---------------------- | -------- | -------- | ------- |
+| colors      | Color Array                                              | (string\|number)[]     | NO       | All      | yes     |
+| locations   | Color for unknown array (length 0 or the same as colors) | number[]               | NO       | All      | yes     |
+| useAngle    | Use angle (default false)                                | boolean                | NO       | All      | yes     |
+| angle       | Angle (useAngle=true valid)                              | number                 | NO       | All      | yes     |
+| angleCenter | Middle angle coordinate                                  | { x: number,y: number} | NO       | All      | no      |
+| start       | Starting point coordinates (default value: {x: 0.5,1})   | { x: number,y: number} | NO       | All      | partial |
+| end         | End point coordinates (default value: {x: 0.5,1})        | { x: number,y: number} | NO       | All      | partial |
 
 ## 遗留问题
 

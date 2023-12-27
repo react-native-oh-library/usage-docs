@@ -1,4 +1,4 @@
-> 模板版本：v0.1.1
+> 模板版本：v0.1.2
 
 <p align="center">
   <h1 align="center"> <code>flash-list</code> </h1>
@@ -217,11 +217,15 @@ ohpm install
 
 ## 属性
 
-| 名称 | 说明 | 类型 | 是否必填 | 原库平台 | 鸿蒙支持 |
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ---- | ---- | -------- | -------- | -------- |
 |  contentContainerStyle| You can use contentContainerStyle to apply padding that will be applied to the whole content itself. | ContentStyle | No |  All | Yes |
 |  estimatedListSize| Estimated visible height and width of the list. It is not the scroll content size. Defining this prop will enable the list to be rendered immediately. Without it, the list first needs to measure its size, leading to a small delay during the first render. | object | No |  All | Yes |
-|  horizontal| If true, renders items next to each other horizontally instead of stacked vertically. Default is false. | boolean | No |  All | 仅支持（false） |
+|  horizontal| If true, renders items next to each other horizontally instead of stacked vertically. Default is false. | boolean | No |  All | partially（false） |
 |  keyExtractor| Used to extract a unique key for a given item at the specified index. Key is used for optimizing performance. | function | No |  All | Yes |
 |  numColumns| Multiple columns can only be rendered with horizontal={false} and will zig-zag like a flexWrap layout. Items should all be the same height - masonry layouts are not supported. | number | No |  All | Yes |
 |  extraData| A marker property for telling the list to re-render (since it implements PureComponent)| any | No |  All |  Yes|
@@ -259,7 +263,11 @@ ohpm install
 
 ## 静态方法
 
-| 名称 | 说明 | 类型 | 是否必填 | 原库平台 | 鸿蒙支持 |
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ---- | ---- | -------- | -------- | -------- |
 | prepareForLayoutAnimationRender | Run this method before running layout animations, such as when animating an element when deleting it. | function | No | All | No |
 | recordInteraction | Tells the list an interaction has occurred, which should trigger viewability calculations, e.g. if waitForInteractions is true and the user has not scrolled.  | function | No | All | No |

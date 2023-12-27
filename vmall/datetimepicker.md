@@ -1,4 +1,4 @@
-> 模板版本：v0.1.1
+> 模板版本：v0.1.2
 
 <p align="center">
   <h1 align="center"> <code>@react-native-community/datetimepicker</code> </h1>
@@ -230,9 +230,11 @@ ohpm install
 
 ## 属性
 
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| 名称        | 说明                                                                      | 类型     | 是否必填 | 原库平台                 | 鸿蒙支持                                                   |
+| Name        | Description                                                                      | Type     | Required | Platform                 | HarmonyOS Support                                                   |
 | ----------- | ------------------------------------------------------------------------- | -------- | -------- | ------------------------ | ---------------------------------------------------------- |
 | mode        | Defines the type of the picker                                            | string   | 否       | All                      | partially (仅支持 date/time 模式)                          |
 | style       | Sets style directly on picker component.                                  | object   | 否       | IOS only                 | yes                                                        |

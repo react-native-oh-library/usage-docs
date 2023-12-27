@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.1
 
 <p align="center">
   <h1 align="center"> <code>react-native-SmartRefreshLayout</code> </h1>
@@ -12,24 +12,23 @@
     </a>
 </p>
 
+> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-smartrefreshlayout)
+
 ## 安装与使用
 
 进入到工程目录并输入以下命令：
 
 <!-- tabs:start -->
-
-**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/react-native-SmartRefreshLayout/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
-
 #### **yarn**
 
 ```bash
-yarn add xxx
+yarn add  @react-native-oh-tpl/react-native-smartrefreshlayout
 ```
 
 #### **npm**
 
 ```bash
-npm install xxx
+npm install  @react-native-oh-tpl/react-native-smartrefreshlayout
 ```
 
 <!-- tabs:end -->
@@ -37,76 +36,98 @@ npm install xxx
 下面的代码展示了这个库的基本使用场景：
 
 ```js
-import React, { useState } from "react";
-import {
-  View,
-  Text,
-  FlatList,
-  StyleSheet,
-  TouchableOpacity,
-} from "react-native";
-import {
-  SmartRefreshControl,
-  AnyHeader,
-} from "react-native-smartrefreshlayout";
+import React, { useState } from 'react';
+import { View, Text, FlatList, StyleSheet ,TouchableOpacity} from 'react-native';
+import { SmartRefreshControl,AnyHeader} from 'react-native-smartrefreshlayout';
 
 const App = () => {
   const [text, setText] = useState("状态");
+  const [text1, setText1] = useState("刷新时间");
+
+  const [headerHeight, setHeaderHeight] = useState(66);
+  const [color, setColor] = useState('#fff000');
+
+
   const [data, setData] = useState([
-    { id: 1, text: "Item 1" },
-    { id: 2, text: "Item 2" },
-    { id: 3, text: "Item 3" },
-    { id: 4, text: "Item 4" },
-    { id: 5, text: "Item 5" },
-    { id: 6, text: "Item 6" },
-    { id: 7, text: "Item 7" },
-    { id: 8, text: "Item 8" },
+    { id: 1, text: 'Item 1' },
+    { id: 2, text: 'Item 2' },
+    { id: 3, text: 'Item 3' },
+    { id: 4, text: 'Item 4' },
+    { id: 5, text: 'Item 5' },
+    { id: 6, text: 'Item 6' },
+    { id: 7, text: 'Item 7' },
+    { id: 8, text: 'Item 8' },
+    { id: 9, text: 'Item 9' },
+    { id: 10, text: 'Item 10' },
+    { id: 11, text: 'Item 11' },
+
     // ... more data ...
   ]);
+
+  const onLoadMore = () => {
+    // Simulate loading more data
+    setTimeout(() => {
+      setData([
+        ...data,
+        { id: data.length + 1, text: `New Item ${data.length + 1}` },
+        // ... more loaded data ...
+      ]);
+    }, 1000);
+  };
 
   const renderItem = ({ item }) => (
     <View style={styles.item}>
       <Text style={styles.item}>{item.text}</Text>
     </View>
   );
-  let smartRefreshControlRef: React.RefObject<SmartRefreshControl>;
+  let smartRefreshControlRef:React.RefObject<SmartRefreshControl>;
   return (
-    <View>
-      <TouchableOpacity
-        onPress={() => {
-          smartRefreshControlRef.finishRefresh({ delayed: -1, success: true });
-        }}
-      >
-        <Text style={{ height: 40, width: "100%", backgroundColor: "red" }}>
-          点击完成刷新finish
-        </Text>
-      </TouchableOpacity>
+    <View >
+      <TouchableOpacity onPress={() => {smartRefreshControlRef.finishRefresh({delayed:-1,success:true})}}>
+      <Text style={{height:40,width:'100%',backgroundColor:"red"}} >finish</Text>
 
-      <Text style={{ height: 40, width: "100%", backgroundColor: "" }}>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => {setHeaderHeight(headerHeight == 66?132:66)}}>
+          <Text style={{height:40,width:'100%',backgroundColor:"pink"}} >切换高度 66/132</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => {setColor(color === "#fff000"?"red":"#fff000")}}>
+          <Text style={{height:40,width:'100%',backgroundColor:"green"}} >切换颜色（正在刷新中不支持切换背景色）</Text>
+        </TouchableOpacity>
+
+      <Text style={{height:40,width:'100%',backgroundColor:""}}>
         {text}
-      </Text>
-      <SmartRefreshControl
-        ref={(ref) => (smartRefreshControlRef = ref)}
-        primaryColor={"#f3f3f3"}
-        headerHeight={66}
-        style={{ height: 500, width: "100%", backgroundColor: "#ffcc00" }}
-        onHeaderMoving={(e) => {
-          setText("onHeaderMoving" + JSON.stringify(e.nativeEvent));
-        }}
-        HeaderComponent={
-          <AnyHeader>
-            <Text style={{ height: 66, width: "100%" }}>刷新头</Text>
-          </AnyHeader>
+        </Text>
+        <Text style={{height:40,width:'100%',backgroundColor:""}}>
+        {text1}
+        </Text>
+    <SmartRefreshControl
+    ref={(ref)=>smartRefreshControlRef=ref}
+      primaryColor={color}
+      headerHeight={headerHeight}
+      style={{ height:500,width:'100%',backgroundColor:"#ffcc00"}}
+      onHeaderMoving={(e)=>{
+        setText('onHeaderMoving' + JSON.stringify(e.nativeEvent))
+      }}
+      onRefresh={
+        ()=>{
+          setText1('时间：' + new Date().getTime() + "onRefresh触发刷新")
         }
-      >
-        <FlatList
-          style={{ flex: 1, height: "100%", width: "100%" }}
-          bounces={false}
-          data={data}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.id.toString()}
-        />
-      </SmartRefreshControl>
+      }
+      HeaderComponent={
+        <AnyHeader ><Text style={{height:66,width:'100%'}}>{text}</Text></AnyHeader>
+      }
+
+    >
+      <FlatList
+      style={{ flex: 1 ,height:'100%',width:'100%'}}
+      bounces={false}
+        data={data}
+        renderItem={renderItem}
+        keyExtractor={item => item.id.toString()}
+      />
+    </SmartRefreshControl>
     </View>
   );
 };
@@ -114,10 +135,14 @@ const App = () => {
 const styles = StyleSheet.create({
   item: {
     padding: 16,
-    width: "100%",
-    height: 100,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
+    width:100,
+    height:100,
   },
 });
+
+export default App;
 ```
 
 ## Link
@@ -139,7 +164,7 @@ const styles = StyleSheet.create({
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-smart-refresh-layout": "file:../../node_modules/react-native-smartrefreshlayout/harmony/smart_refresh_layout.har"
+    "rnoh-smart-refresh-layout": "file:../../node_modules/@react-native-oh-tpl/react-native-smartrefreshlayout/harmony/smart_refresh_layout.har"
   }
 ```
 
@@ -158,7 +183,7 @@ ohpm install
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-smart-refresh-layout": "file:../../node_modules/react-native-smartrefreshlayout/harmony/smart_refresh_layout"
+    "rnoh-smart-refresh-layout": "file:../../node_modules/@react-native-oh-tpl/react-native-smartrefreshlayout/harmony/smart_refresh_layout"
   }
 ```
 
@@ -236,29 +261,29 @@ import { createRNPackages } from '../RNPackagesFactory'
 
 @Builder
 function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-  if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
+  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
     SampleView({
       ctx: ctx.rnohContext,
-      tag: ctx.descriptor.tag,
+      tag: ctx.tag,
       buildCustomComponent: CustomComponentBuilder
     })
   }
-+ else if (ctx.descriptor.type == SMART_REFRESH_CONTROL_TYPE){
++ else if (ctx.componentName == SMART_REFRESH_CONTROL_TYPE){
 +    SmartRefreshControl({
 +      ctx: ctx.rnohContext,
-+      tag: ctx.descriptor.tag,
++      tag: ctx.tag,
 +      buildCustomComponent: CustomComponentBuilder
 +    })
-+  } else if (ctx.descriptor.type == ANY_HEADER_TYPE){
++  } else if (ctx.componentName == ANY_HEADER_TYPE){
 +    RNCAnyHeader({
 +      ctx: ctx.rnohContext,
-+      tag: ctx.descriptor.tag,
++      tag: ctx.tag,
 +      buildCustomComponent: CustomComponentBuilder
 +    })
-+  } else if (ctx.descriptor.type == DEFAULT_HEADER_TYPE) {
++  } else if (ctx.componentName == DEFAULT_HEADER_TYPE) {
 +    RNCDefaultHeader({
 +      ctx: ctx.rnohContext,
-+      tag: ctx.descriptor.tag,
++      tag: ctx.tag,
 +      buildCustomComponent: CustomComponentBuilder
 +    })
 +  }

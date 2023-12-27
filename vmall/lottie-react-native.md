@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.2
 
 <p align="center">
   <h1 align="center"> <code>lottie-react-native</code> </h1>
@@ -12,24 +12,24 @@
     </a>
 </p>
 
+> [!tip] [Github 地址](https://github.com/react-native-oh-library/lottie-react-native)
+
 ## 安装与使用
 
 进入到工程目录并输入以下命令：
 
 <!-- tabs:start -->
 
-**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/lottie-react-native/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
-
 #### **yarn**
 
 ```bash
-yarn add xxx
+yarn add @react-native-oh-tpl/lottie-react-native
 ```
 
 #### **npm**
 
 ```bash
-npm install xxx
+npm install @react-native-oh-tpl/lottie-react-native
 ```
 
 <!-- tabs:end -->
@@ -37,14 +37,9 @@ npm install xxx
 下面的代码展示了这个库的基本使用场景：
 
 ```js
-import React from "react";
 import LottieView from "lottie-react-native";
 
-export default function Animation() {
-  return (
-    <LottieView source={require("./assets/animations.json")} autoPlay loop />
-  );
-}
+<LottieView source={require("./assets/animations.json")} autoPlay loop />;
 ```
 
 ## Link
@@ -66,7 +61,7 @@ export default function Animation() {
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-lottie": "file:../../node_modules/lottie-react-native/harmony/lottie.har"
+    "rnoh-lottie": "file:../../node_modules/@react-native-oh-tpl/lottie-react-native/harmony/lottie.har"
   }
 ```
 
@@ -85,7 +80,7 @@ ohpm install
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-lottie": "file:../../node_modules/lottie-react-native/harmony/lottie"
+    "rnoh-lottie": "file:../../node_modules/@react-native-oh-tpl/lottie-react-native/harmony/lottie"
   }
 ```
 
@@ -149,31 +144,21 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 打开 `entry/src/main/ets/pages/index.ets`，添加：
 
 ```diff
-import {
-  RNApp,
-  ComponentBuilderContext,
-  RNAbility,
-  AnyJSBundleProvider,
-  MetroJSBundleProvider,
-  ResourceJSBundleProvider,
-} from 'rnoh'
-import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-package"
-import { createRNPackages } from '../RNPackagesFactory'
 + import { LottieAnimationView, LOTTIE_TYPE } from "rnoh-lottie"
 
 @Builder
 function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-  if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
+  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
     SampleView({
       ctx: ctx.rnohContext,
-      tag: ctx.descriptor.tag,
+      tag: ctx.tag,
       buildCustomComponent: CustomComponentBuilder
     })
   }
-+ else if (ctx.descriptor.type === LOTTIE_TYPE) {
++ else if (ctx.componentName === LOTTIE_TYPE) {
 +   LottieAnimationView({
 +     ctx: ctx.rnohContext,
-+     tag: ctx.descriptor.tag,
++     tag: ctx.tag,
 +     buildCustomComponent: CustomComponentBuilder
 +   })
 + }
@@ -195,50 +180,62 @@ ohpm install
 
 然后编译、运行即可。
 
-## 兼容性
+## 约束与限制
+
+### 兼容性
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/lottie-react-native Releases](https://github.com/react-native-oh-library/lottie-react-native/releases)
 
+### 权限要求
+
+- 如果 source 使用网络 url 应用需要申请网络权限
+- 如果使用的 json 文件里有依赖图片资源或使用 imageAssetsFolder 属性，需要将资源文件放置到鸿蒙工程 rawfile 下对应的路径中
+
 ## 属性
 
-| 名称               | 说明                                                                                                                                                                                                                                                                                                                                                           | 类型                                         | 默认值    | 是否必填 | 原库平台              | 鸿蒙支持 |
-| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------- | --------- | -------- | --------------------- | -------- |
-| source             | Mandatory - The source of animation. Can be referenced as a local asset by a string, or remotely with an object with a uri property, or it can be an actual JS object of an animation, obtained (for example) with something like require('../path/to/animation.json')                                                                                         | string \| AnimationObject \| { uri: string } | None      | Yes      | All                   | Yes      |
-| progress           | A number between 0 and 1. This number represents the normalized progress of the animation. If you update this prop, the animation will correspondingly update to the frame at that progress value. This prop is not required if you are using the imperative API.                                                                                              | number                                       | 0         | No       | iOS, Android, Windows | Yes      |
-| speed              | The speed the animation will progress. Sending a negative value will reverse the animation                                                                                                                                                                                                                                                                     | number                                       | 1         | No       | All                   | Yes      |
-| duration           | The duration of the animation in ms. Takes precedence over speed when set. This only works when source is an actual JS object of an animation.                                                                                                                                                                                                                 | number                                       | undefined | No       | iOS, Android, Windows | Yes      |
-| loop               | A boolean flag indicating whether or not the animation should loop.                                                                                                                                                                                                                                                                                            | boolean                                      | true      | No       | All                   | Yes      |
-| autoPlay           | A boolean flag indicating whether or not the animation should start automatically when mounted. This only affects the imperative API.                                                                                                                                                                                                                          | boolean                                      | false     | No       | All                   | Yes      |
-| resizeMode         | Determines how to resize the animated view when the frame doesn't match the raw image dimensions. Supports cover, contain and center.                                                                                                                                                                                                                          | 'cover' \| 'contain' \| 'center'             | contain   | No       | iOS, Android, Windows | No       |
-| style              | Style attributes for the view, as expected in a standard View, aside from border styling                                                                                                                                                                                                                                                                       | StyleProp<ViewStyle>                         | None      | No       | iOS, Android, Windows | Yes      |
-| webStyle           | Style attributes for the view, it uses CSSProperties.                                                                                                                                                                                                                                                                                                          | CSSProperties                                | None      | No       | Web                   | No       |
-| imageAssetsFolder  | Needed for Android to work properly with assets, iOS will ignore it.                                                                                                                                                                                                                                                                                           | string                                       | None      | No       | Android               | Yes      |
-| useNativeLooping   | Only Windows. When enabled, uses platform-level looping to improve smoothness, but onAnimationLoop will not fire and changing the loop prop will reset playback rather than finishing gracefully.                                                                                                                                                              | boolean                                      | false     | No       | Windows               | No       |
-| onAnimationLoop    | Only Windows and Web. A callback function invoked when the animation loops.                                                                                                                                                                                                                                                                                    | callback                                     | None      | No       | Windows, Web          | No       |
-| onAnimationFinish  | A callback function which will be called when animation is finished. This callback is called with a boolean isCancelled argument, indicating if the animation actually completed playing, or if it was cancelled, for instance by calling play() or reset() while is was still playing. Note that this callback will be called only when loop is set to false. | callback                                     | None      | No       | All                   | Yes      |
-| renderMode         | a String flag to set whether or not to render with HARDWARE or SOFTWARE acceleration                                                                                                                                                                                                                                                                           | 'AUTOMATIC' \| 'HARDWARE' \| 'SOFTWARE'      | AUTOMATIC | No       | iOS, Android          | No       |
-| cacheComposition   | Only Android, a boolean flag indicating whether or not the animation should do caching.                                                                                                                                                                                                                                                                        | boolean                                      | true      | No       | Android               | Yes      |
-| colorFilters       | An array of objects denoting layers by KeyPath and a new color filter value (as hex string).                                                                                                                                                                                                                                                                   | Array<ColorFilter>                           | []        | No       | iOS, Android, Windows | No       |
-| textFiltersAndroid | Only Android, an array of objects denoting text values to find and replace.                                                                                                                                                                                                                                                                                    | Array<TextFilterAndroid>                     | []        | No       | Android               | No       |
-| textFiltersIOS     | Only iOS, an array of objects denoting text layers by KeyPath and a new string value.                                                                                                                                                                                                                                                                          | Array<TextFilterIOS>                         | []        | No       | iOS                   | No       |
-| hover              | Only Web, a boolean denoting whether to play on mouse hover.                                                                                                                                                                                                                                                                                                   | boolean                                      | false     | No       | Web                   | No       |
-| direction          | Only Web a number from 1 or -1 denoting playing direction.                                                                                                                                                                                                                                                                                                     | 1 \| -1                                      | 1         | No       | Web                   | No       |
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name               | Description                                                                                                                                                                                                                                                                                                                                                    | Type                                        | Default   | Required | Platform              | HarmonyOS Support |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------- | --------- | -------- | --------------------- | ----------------- |
+| source             | Mandatory - The source of animation. Can be referenced as a local asset by a string, or remotely with an object with a uri property, or it can be an actual JS object of an animation, obtained (for example) with something like require('../path/to/animation.json')                                                                                         | string\| AnimationObject \| { uri: string } | None      | Yes      | All                   | Yes               |
+| progress           | A number between 0 and 1. This number represents the normalized progress of the animation. If you update this prop, the animation will correspondingly update to the frame at that progress value. This prop is not required if you are using the imperative API.                                                                                              | number                                      | 0         | No       | iOS, Android, Windows | Yes               |
+| speed              | The speed the animation will progress. Sending a negative value will reverse the animation                                                                                                                                                                                                                                                                     | number                                      | 1         | No       | All                   | Yes               |
+| duration           | The duration of the animation in ms. Takes precedence over speed when set. This only works when source is an actual JS object of an animation.                                                                                                                                                                                                                 | number                                      | undefined | No       | iOS, Android, Windows | Yes               |
+| loop               | A boolean flag indicating whether or not the animation should loop.                                                                                                                                                                                                                                                                                            | boolean                                     | true      | No       | All                   | Yes               |
+| autoPlay           | A boolean flag indicating whether or not the animation should start automatically when mounted. This only affects the imperative API.                                                                                                                                                                                                                          | boolean                                     | false     | No       | All                   | Yes               |
+| resizeMode         | Determines how to resize the animated view when the frame doesn't match the raw image dimensions. Supports cover, contain and center.                                                                                                                                                                                                                          | 'cover'\| 'contain' \| 'center'             | contain   | No       | iOS, Android, Windows | No                |
+| style              | Style attributes for the view, as expected in a standard View, aside from border styling                                                                                                                                                                                                                                                                       | StyleProp<ViewStyle>                        | None      | No       | iOS, Android, Windows | Yes               |
+| webStyle           | Style attributes for the view, it uses CSSProperties.                                                                                                                                                                                                                                                                                                          | CSSProperties                               | None      | No       | Web                   | No                |
+| imageAssetsFolder  | Needed for Android and HarmonyOS to work properly with assets, iOS will ignore it.                                                                                                                                                                                                                                                                             | string                                      | None      | No       | Android               | Yes               |
+| useNativeLooping   | Only Windows. When enabled, uses platform-level looping to improve smoothness, but onAnimationLoop will not fire and changing the loop prop will reset playback rather than finishing gracefully.                                                                                                                                                              | boolean                                     | false     | No       | Windows               | No                |
+| onAnimationLoop    | Only Windows and Web. A callback function invoked when the animation loops.                                                                                                                                                                                                                                                                                    | callback                                    | None      | No       | Windows, Web          | No                |
+| onAnimationFinish  | A callback function which will be called when animation is finished. This callback is called with a boolean isCancelled argument, indicating if the animation actually completed playing, or if it was cancelled, for instance by calling play() or reset() while is was still playing. Note that this callback will be called only when loop is set to false. | callback                                    | None      | No       | All                   | Yes               |
+| renderMode         | a String flag to set whether or not to render with HARDWARE or SOFTWARE acceleration                                                                                                                                                                                                                                                                           | 'AUTOMATIC'\| 'HARDWARE' \| 'SOFTWARE'      | AUTOMATIC | No       | iOS, Android          | No                |
+| cacheComposition   | Only Android, a boolean flag indicating whether or not the animation should do caching.                                                                                                                                                                                                                                                                        | boolean                                     | true      | No       | Android               | Yes               |
+| colorFilters       | An array of objects denoting layers by KeyPath and a new color filter value (as hex string).                                                                                                                                                                                                                                                                   | Array<ColorFilter>                          | []        | No       | iOS, Android, Windows | No                |
+| textFiltersAndroid | Only Android, an array of objects denoting text values to find and replace.                                                                                                                                                                                                                                                                                    | Array<TextFilterAndroid>                    | []        | No       | Android               | No                |
+| textFiltersIOS     | Only iOS, an array of objects denoting text layers by KeyPath and a new string value.                                                                                                                                                                                                                                                                          | Array<TextFilterIOS>                        | []        | No       | iOS                   | No                |
+| hover              | Only Web, a boolean denoting whether to play on mouse hover.                                                                                                                                                                                                                                                                                                   | boolean                                     | false     | No       | Web                   | No                |
+| direction          | Only Web a number from 1 or -1 denoting playing direction.                                                                                                                                                                                                                                                                                                     | 1\| -1                                      | 1         | No       | Web                   | No                |
 
 ## 方法 (Imperative API)
 
-| 名称   | 说明                                                                                                                                                                                    | 类型     | 是否必填 | 原库平台 | 鸿蒙支持 |
-| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | -------- |
-| play   | Play the animation all the way through, at the speed specified as a prop. It can also play a section of the animation (not available on web) when called as play(startFrame, endFrame). | function | No       | All      | Yes      |
-| reset  | Reset the animation back to 0 progress.                                                                                                                                                 | function | No       | All      | Yes      |
-| pause  | Pauses the animation.                                                                                                                                                                   | function | No       | All      | Yes      |
-| resume | Resumes the paused animation.                                                                                                                                                           | function | No       | All      | Yes      |
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name   | Description                                                                                                                                                                             | Type     | Required | Platform | HarmonyOS Support |
+| ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | ------- |
+| play   | Play the animation all the way through, at the speed specified as a prop. It can also play a section of the animation (not available on web) when called as play(startFrame, endFrame). | function | No       | All      | Yes     |
+| reset  | Reset the animation back to 0 progress.                                                                                                                                                 | function | No       | All      | Yes     |
+| pause  | Pauses the animation.                                                                                                                                                                   | function | No       | All      | Yes     |
+| resume | Resumes the paused animation.                                                                                                                                                           | function | No       | All      | Yes     |
 
 ## 遗留问题
-
-- [ ] 部分涉及加速渲染的接口，未适配
-- [ ] 部分涉及 KeyPath 的接口，未适配
 
 ## 其他
 

@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.1
 
 <p align="center">
   <h1 align="center"> <code>react-native-pager-view</code> </h1>
@@ -12,18 +12,18 @@
     </a>
 </p>
 
+>[!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-pager-view)
+
 ## 安装与使用
 
-**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/react-native-pager-view/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
-
 ```bash
-yarn add xxx
+yarn add @react-native-oh-tpl/react-native-pager-view
 ```
 
 或者
 
 ```bash
-npm install xxx
+npm install @react-native-oh-tpl/react-native-pager-view
 ```
 
 下面的代码展示了这个库的基本使用场景：
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-pager-view": "file:../../node_modules/react-native-pager-view/harmony/pager_view.har"
+    "rnoh-pager-view": "file:../../node_modules/@react-native-oh-tpl/react-native-pager-view/harmony/pager_view.har"
   }
 ```
 
@@ -91,7 +91,7 @@ ohpm install
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-   "rnoh-pager-view": "file:../../node_modules/react-native-pager-view/harmony/pager_view"
+   "rnoh-pager-view": "file:../../node_modules/@react-native-oh-tpl/react-native-pager-view/harmony/pager_view"
   }
 ```
 
@@ -155,31 +155,21 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 打开 `entry/src/main/ets/pages/index.ets`，添加：
 
 ```diff
-import {
-  RNApp,
-  ComponentBuilderContext,
-  RNAbility,
-  AnyJSBundleProvider,
-  MetroJSBundleProvider,
-  ResourceJSBundleProvider,
-} from 'rnoh'
-import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-package"
-import { createRNPackages } from '../RNPackagesFactory'
 + import { RNCViewPager, PAGER_VIEW_TYPE } from "rnoh-pager-view"
 
 @Builder
 function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-  if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
+  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
     SampleView({
       ctx: ctx.rnohContext,
-      tag: ctx.descriptor.tag,
+      tag: ctx.tag,
       buildCustomComponent: CustomComponentBuilder
     })
   }
-+ else if (ctx.descriptor.type === PAGER_VIEW_TYPE) {
++ else if (ctx.componentName === PAGER_VIEW_TYPE) {
 +   RNCViewPager({
 +     ctx: ctx.rnohContext,
-+     tag: ctx.descriptor.tag,
++     tag: ctx.tag,
 +     buildCustomComponent: CustomComponentBuilder
 +   })
 + }

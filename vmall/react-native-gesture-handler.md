@@ -211,10 +211,10 @@ react-native-gesture-handler 在 2.x 版本里，不再从原生端引入 `<Gest
 
   @Builder
   function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-    if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
+    if (ctx.componentName === SAMPLE_VIEW_TYPE) {
       SampleView({
         ctx: ctx.rnohContext,
-        tag: ctx.descriptor.tag,
+        tag: ctx.tag,
         buildCustomComponent: CustomComponentBuilder
       })
     }
@@ -249,6 +249,22 @@ react-native-gesture-handler 在 2.x 版本里，不再从原生端引入 `<Gest
     .height('100%')
     .width('100%')
   }
+```
+
+### 在 ArkTs 侧引入 Gesture Handler Package
+
+打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+
+```diff
+...
++ import { GestureHandlerPackage } from 'rnoh-gesture-handler/ts';
+
+export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
+  return [
+    new SamplePackage(ctx),
++   new GestureHandlerPackage(ctx),
+  ];
+}
 ```
 
 ### 运行

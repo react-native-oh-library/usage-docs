@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.1
 
 <p align="center">
   <h1 align="center"> <code>react-native-image-picker</code> </h1>
@@ -12,22 +12,24 @@
     </a>
 </p>
 
+> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-image-picker)
+
 ## 安装与使用
 
 <!-- tabs:start -->
 
-**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/react-native-image-picker/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
+
 
 #### **yarn**
 
 ```bash
-yarn add xxx
+yarn add @react-native-oh-tpl/react-native-image-picker
 ```
 
 #### **npm**
 
 ```bash
-npm install xxx
+npm install @react-native-oh-tpl/react-native-image-picker
 ```
 
 <!-- tabs:end -->
@@ -86,7 +88,7 @@ export default App;
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-image-picker": "file:../../node_modules/react-native-image-picker/harmony/image_picker.har"
+    "rnoh-image-picker": "file:../../node_modules/@react-native-oh-tpl/react-native-image-picker/harmony/image_picker.har"
   }
 ```
 
@@ -105,7 +107,7 @@ ohpm install
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-image-picker": "file:../../node_modules/react-native-image-picker/harmony/image_picker"
+    "rnoh-image-picker": "file:../../node_modules/@react-native-oh-tpl/react-native-image-picker/harmony/image_picker"
   }
 ```
 

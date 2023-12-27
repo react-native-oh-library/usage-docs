@@ -2,7 +2,7 @@
 
 > [!ATTENTION] 使用模板时请将后面带有 (删除) 的语句删除。(删除)
 
-> 模板版本：v0.1.1
+> 模板版本：v0.1.2
 
 <p align="center">
   <h1 align="center"> <code><原库 npm 包名></code> </h1>
@@ -251,19 +251,37 @@ ohpm install
 
 （填入相关权限配置）
 
+ **以下属性、静态方法、API 需要检查说明中手机平台描述，例如已支持鸿蒙的接口并且说明中提到 ios 和 android，那么需要检查是否补充harmony进到描述中。示例如下（删除）** 
+
+ ```
+ // 原描述
+ Needed for Android to work properly with assets, iOS will ignore it.
+ // 修改后
+ Needed for Android and harmony to work properly with assets, iOS will ignore it.
+ ```
+（删除）
 ## 属性（如有）
 
 | 名称 | 说明 | 类型 | 是否必填 | 原库平台 | 鸿蒙支持 |
+>[!tip] "鸿蒙支持"列为 yes 的属性表示支持鸿蒙平台，并且效果对标"原库平台"列中的 ios 或 android 的效果。
+
+| Name | Description | Type | Required | Platform | Harmony |
 | ---- | ---- | ---- | -------- | -------- | -------- |
 
 ## 静态方法（如有）
 
 | 名称 | 说明 | 类型 | 是否必填 | 原库平台 | 鸿蒙支持 |
+>[!tip] "鸿蒙支持"列为 yes 的方法表示支持鸿蒙平台，并且效果对标"原库平台"列中的 ios 或 android 的效果。
+
+| Name | Description | Type | Required | Platform | Harmony |
 | ---- | ---- | ---- | -------- | -------- | -------- |
 
 ## API（如有，一般是 TurboModules）
 
 | 名称 | 说明 | 类型 | 是否必填 | 原库平台 | 鸿蒙支持 |
+>[!tip] "鸿蒙支持"列为 yes 的 API 表示支持鸿蒙平台，并且效果对标"原库平台"列中的 ios 或 android 的效果。
+
+| Name | Description | Type | Required | Platform | Harmony |
 | ---- | ---- | ---- | -------- | -------- | -------- |
 
 ## 遗留问题

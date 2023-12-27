@@ -321,7 +321,7 @@ ohpm install
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-slider": "file:../../node_modules/@react-native-oh-tpl/react-native-video/harmony/rn_video"
+    "rnoh-video": "file:../../node_modules/@react-native-oh-tpl/react-native-video/harmony/rn_video"
   }
 ```
 
@@ -418,6 +418,23 @@ function CustomComponentBuilder(ctx: ComponentBuilderContext) {
 ...
 ```
 
+### 在 ArkTs 侧引入 RNCVideoPackage
+
+打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+
+```diff
+import type {RNPackageContext, RNPackage} from 'rnoh/ts';
+import {SamplePackage} from 'rnoh-sample-package/ts';
++ import { RNCVideoPackage } from 'rnoh-videoe/ts';
+
+export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
+  return [
+    new SamplePackage(ctx),
++   new RNCVideoPackage(ctx)
+  ];
+}
+```
+
 ### 运行
 
 点击右上角的 `sync` 按钮
@@ -445,7 +462,7 @@ ohpm install
 
 | 名称               | 说明                                                                                                                                                                                                                                                                                                                                        | 类型   | 是否必填 | 原库平台                                                 | 鸿蒙支持 |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----- | -------- | -------------------------------------------------------- | -------- |
-| `source`           | Sets the media source. You can pass an asset loaded via require or an object with a uri.                                                                                                                                                                                                                                                    | object | Yes      | All                                                      | yes      |
+| `source`           | Sets the media source. You can pass an asset loaded via require or an object with a uri.                                                                                                                                                                                                                                                    | object | Yes      | All                                                      | partially<br/>(仅支持网络适配) |
 | `disableFocus`     | Determines whether video audio should override background music/audio in Android devices.<br/>**false (default)**                                                                                                                                                                                                                           | bool   | No       | Android Exoplayer                                        | yes      |
 | `muted`            | Controls whether the audio is muted.<br/>**false (default)** - Don't mute audio                                                                                                                                                                                                                                                             | bool   | No       | All                                                      | yes      |
 | `paused`           | Controls whether the media is paused.<br/>**false (default)** - Don't pause the media                                                                                                                                                                                                                                                       | bool   | No       | All                                                      | yes      |

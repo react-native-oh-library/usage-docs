@@ -8,4 +8,4 @@
 
 [Gitee](https://gitee.com/react-native-oh-library/usage-docs)
 [GitHub（待完善）]()
-[快速开始](/zh-cn/README.md)
+[快速开始](/vmall/README.md)

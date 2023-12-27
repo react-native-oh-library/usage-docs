@@ -1,4 +1,5 @@
-> 模板版本：v0.1.1
+> 模板版本：v0.1.2
+
 <p align="center">
   <h1 align="center"> <code>react-native-autoheight-webview</code> </h1>
 </p>
@@ -37,158 +38,11 @@ import AutoHeightWebView from "react-native-autoheight-webview";
 
 ## Link
 
-目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+本库鸿蒙侧实现依赖@react-native-oh-tpl/react-native-webview 的原生端代码，如已在鸿蒙工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
 
-首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
+如未引入请参照[@react-native-oh-tpl/react-native-webview 文档的 Link 章节](https://gitee.com/react-native-oh-library/usage-docs/blob/master/vmall/react-native-webview.md#link)进行引入
 
-### 引入原生端代码
-
-目前有两种方法：
-
-1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
-2. 直接链接源码。
-
-方法一：通过 har 包引入
-打开 `entry/oh-package.json5`，添加以下依赖
-
-```json
-"dependencies": {
-    "rnoh": "file:../rnoh",
-    "rnoh-webview": "file:../../node_modules/@react-native-oh-tpl/react-native-webview/harmony/rn_webview.har"
-  }
-```
-
-点击右上角的 `sync` 按钮
-
-或者在终端执行：
-
-```bash
-cd entry
-ohpm install
-```
-
-方法二：直接链接源码
-打开 `entry/oh-package.json5`，添加以下依赖
-
-```json
-"dependencies": {
-    "rnoh": "file:../rnoh",
-    "rnoh-webview": "file:../../node_modules/@react-native-oh-tpl/react-native-webview/harmony/rn_webview"
-  }
-```
-
-打开终端，执行：
-
-```bash
-cd entry
-ohpm install --no-link
-```
-
-### 配置 CMakeLists 和引入 WebViewPackage
-
-打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
-
-```diff
-project(rnapp)
-cmake_minimum_required(VERSION 3.4.1)
-set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(OH_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
-set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
-
-add_subdirectory("${RNOH_CPP_DIR}" ./rn)
-
-# RNOH_BEGIN: add_package_subdirectories
-add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/rnoh-webview/src/main/cpp" ./webview)
-# RNOH_END: add_package_subdirectories
-
-add_library(rnoh_app SHARED
-    "./PackageProvider.cpp"
-    "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
-)
-
-target_link_libraries(rnoh_app PUBLIC rnoh)
-
-# RNOH_BEGIN: link_packages
-target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
-+ target_link_libraries(rnoh_app PUBLIC rnoh_webview)
-# RNOH_END: link_packages
-```
-
-打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
-
-```diff
-#include "RNOH/PackageProvider.h"
-#include "SamplePackage.h"
-+ #include "WebViewPackage.h"
-
-using namespace rnoh;
-
-std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
-    return {
-      std::make_shared<SamplePackage>(ctx),
-+     std::make_shared<WebViewPackage>(ctx)
-    };
-}
-```
-
-### 在 ArkTs 侧引入 webview 组件
-
-打开 `entry/src/main/ets/pages/index.ets`，添加：
-
-```diff
-+ import { WebView, WEB_VIEW } from "rnoh-webview"
-
-@Builder
-function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
-    SampleView({
-      ctx: ctx.rnohContext,
-      tag: ctx.tag,
-      buildCustomComponent: CustomComponentBuilder
-    })
-  }
-+ else if (ctx.componentName === WEB_VIEW) {
-+   WebView({
-+     ctx: ctx.rnohContext,
-+     tag: ctx.tag,
-+     buildCustomComponent: CustomComponentBuilder
-+   })
-+ }
- ...
-}
-...
-```
-
-### 在 ArkTs 侧引入 WebViewPackage
-
-打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
-
-```diff
-import type {RNPackageContext, RNPackage} from 'rnoh/ts';
-import {SamplePackage} from 'rnoh-sample-package/ts';
-+ import { WebViewPackage } from 'rnoh-webview/ts';
-
-export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
-  return [
-    new SamplePackage(ctx),
-+   new WebViewPackage(ctx)
-  ];
-}
-```
-
-### 运行
-
-点击右上角的 `sync` 按钮
-
-或者在终端执行：
-
-```bash
-cd entry
-ohpm install
-```
-
-然后编译、运行即可。
+## 约束与限制
 
 ## 兼容性
 
@@ -198,24 +52,29 @@ ohpm install
 
 ## 属性
 
-| 名称                              | 说明                                                                                                                                                                             | 类型                                                                                                          | 是否必填 | 原库平台 | 鸿蒙支持 |
-| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- |
-| `source`                          | Loads static HTML or a URI (with optional headers) in the WebView                                                                                                                | One of: <br />**Load uri :**<br />uri <br />headers <br />**Static HTML :**<br />html <br />baseUrl           | yes      | All      | yes      |
-| `originWhitelist?`                | List of origin strings to allow being navigated to.                                                                                                                              | string[]                                                                                                      | No       | All      | yes      |
-| `scalesPageToFit?`                | Boolean that controls whether the web content is scaled to fit the view and enables the user to change the scale.                                                                | boolean                                                                                                       | No       | android  | yes      |
-| `customScript?`                   | -                                                                                                                                                                                | string                                                                                                        | No       | All      | yes      |
-| `style?`                          | A style object that allow you to customize the WebView style.                                                                                                                    | Style                                                                                                         | No       | All      | yes      |
-| `customStyle?`                    | The custom css content will be added to the page's <head>.                                                                                                                       | string                                                                                                        | No       | All      | yes      |
-| `onSizeUpdated?`                  | Either updated height or width will trigger onSizeUpdated.                                                                                                                       | function                                                                                                      | No       | All      | yes      |
-| `showsHorizontalScrollIndicator?` | Boolean value that determines whether a horizontal scroll indicator is shown in the WebView.                                                                                     | boolean                                                                                                       | No       | All      | yes      |
-| `showsVerticalScrollIndicator`    | Boolean value that determines whether a vertical scroll indicator is shown in the WebView.                                                                                       | boolean                                                                                                       | No       | All      | yes      |
-| `files?`                          | Using local or remote files. To add local files: Add files to android/app/src/main/assets/ (depends on baseUrl) on android; add files to web/ (depends on baseUrl) on iOS.       | PropTypes.arrayOf(PropTypes.shape({ href: PropTypes.string, type: PropTypes.string, rel: PropTypes.string })) | No       | All      | yes      |
-| `scrollEnabledWithZoomedin?`      | Making the webview scrollable on iOS when zoomed in even if scrollEnabled is false.                                                                                              | boolean                                                                                                       | No       | ios      | no       |
-| `viewportContent?`                | Please note that 'width=device-width' with scalesPageToFit may cause some layout issues on Android, for these conditions, using customScript prop to apply custom viewport meta. | string                                                                                                        | No       | All      | yes      |
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name                              | Description                                                                                                                                                                                                                                   | Type                                                                                                          | Required | Platform | HarmonyOS Support                                                                                                 |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| `source`                          | Loads static HTML or a URI (with optional headers) in the WebView                                                                                                                                                                             | object                                                                                                        | yes      | All      | partially (Only of: <br />**Load uri :**<br />uri <br />headers <br />**Static HTML :**<br />html <br />baseUrl ) |
+| `originWhitelist?`                | List of origin strings to allow being navigated to.                                                                                                                                                                                           | string[]                                                                                                      | No       | All      | yes                                                                                                               |
+| `scalesPageToFit?`                | Boolean that controls whether the web content is scaled to fit the view and enables the user to change the scale.                                                                                                                             | boolean                                                                                                       | No       | android  | yes                                                                                                               |
+| `customScript?`                   | -                                                                                                                                                                                                                                             | string                                                                                                        | No       | All      | yes                                                                                                               |
+| `style?`                          | A style object that allow you to customize the WebView style.                                                                                                                                                                                 | Style                                                                                                         | No       | All      | yes                                                                                                               |
+| `customStyle?`                    | The custom css content will be added to the page's <head>.                                                                                                                                                                                    | string                                                                                                        | No       | All      | yes                                                                                                               |
+| `onSizeUpdated?`                  | Either updated height or width will trigger onSizeUpdated.                                                                                                                                                                                    | function                                                                                                      | No       | All      | yes                                                                                                               |
+| `showsHorizontalScrollIndicator?` | Boolean value that determines whether a horizontal scroll indicator is shown in the WebView.                                                                                                                                                  | boolean                                                                                                       | No       | All      | yes                                                                                                               |
+| `showsVerticalScrollIndicator`    | Boolean value that determines whether a vertical scroll indicator is shown in the WebView.                                                                                                                                                    | boolean                                                                                                       | No       | All      | yes                                                                                                               |
+| `files?`                          | Using local or remote files. To add local files: Add files to android/app/src/main/assets/ (depends on baseUrl) on android; add files to web/ (depends on baseUrl) on iOS; add files to harmony/entry/src/main/resoureces/rawfile on harmony. | PropTypes.arrayOf(PropTypes.shape({ href: PropTypes.string, type: PropTypes.string, rel: PropTypes.string })) | No       | All      | yes                                                                                                               |
+| `scrollEnabledWithZoomedin?`      | Making the webview scrollable on iOS when zoomed in even if scrollEnabled is false.                                                                                                                                                           | boolean                                                                                                       | No       | ios      | no                                                                                                                |
+| `viewportContent?`                | Please note that 'width=device-width' with scalesPageToFit may cause some layout issues on Android and harmony, for these conditions, using customScript prop to apply custom viewport meta.                                                  | string                                                                                                        | No       | All      | yes                                                                                                               |
 
 ## 遗留问题
 
 - [ ] autoheight-webview 部分属性未实现鸿蒙化[issue#1](https://github.com/react-native-oh-library/react-native-autoheight-webview/issues/1)
+- [ ] 中文乱码[issue#2](https://github.com/react-native-oh-library/react-native-autoheight-webview/issues/2)
 
 ## 其他
 

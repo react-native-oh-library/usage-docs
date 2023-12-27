@@ -17,7 +17,7 @@
     </a>
 </p>
 
->[!tip] [Github 地址](https://github.com/<源码仓地址>)
+> [!tip] [Github 地址](https://github.com/<源码仓地址>)
 
 如：[Github 地址](https://github.com/react-native-oh-library/react-native-linear-gradient)（删除）
 
@@ -251,38 +251,46 @@ ohpm install
 
 （填入相关权限配置）
 
- **以下属性、静态方法、API 需要检查说明中手机平台描述，例如已支持鸿蒙的接口并且说明中提到 ios 和 android，那么需要检查是否补充harmony进到描述中。示例如下（删除）** 
+**以下属性、静态方法、API 需要检查说明中手机平台描述，例如已支持鸿蒙的接口并且说明中提到 ios 和 android，那么需要检查是否补充 harmony 进到描述中。示例如下（删除）**
 
- ```
- // 原描述
- Needed for Android to work properly with assets, iOS will ignore it.
- // 修改后
- Needed for Android and harmony to work properly with assets, iOS will ignore it.
- ```
+```
+// 原描述
+Needed for Android to work properly with assets, iOS will ignore it.
+// 修改后
+Needed for Android and harmony to work properly with assets, iOS will ignore it.
+```
+
 （删除）
+
 ## 属性（如有）
 
-| 名称 | 说明 | 类型 | 是否必填 | 原库平台 | 鸿蒙支持 |
->[!tip] "鸿蒙支持"列为 yes 的属性表示支持鸿蒙平台，并且效果对标"原库平台"列中的 ios 或 android 的效果。
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
-| Name | Description | Type | Required | Platform | Harmony |
-| ---- | ---- | ---- | -------- | -------- | -------- |
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name | Description | Type | Required | Platform | HarmonyOS Support  |
+| ---- | ----------- | ---- | -------- | -------- | ------------------ |
+| XXX  | XXX         | XXX  | (yes/no) | xxx      | (yes/no/partially) |
 
 ## 静态方法（如有）
 
-| 名称 | 说明 | 类型 | 是否必填 | 原库平台 | 鸿蒙支持 |
->[!tip] "鸿蒙支持"列为 yes 的方法表示支持鸿蒙平台，并且效果对标"原库平台"列中的 ios 或 android 的效果。
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
-| Name | Description | Type | Required | Platform | Harmony |
-| ---- | ---- | ---- | -------- | -------- | -------- |
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name | Description | Type | Required | Platform | HarmonyOS Support  |
+| ---- | ----------- | ---- | -------- | -------- | ------------------ |
+| XXX  | XXX         | XXX  | (yes/no) | xxx      | (yes/no/partially) |
 
 ## API（如有，一般是 TurboModules）
 
-| 名称 | 说明 | 类型 | 是否必填 | 原库平台 | 鸿蒙支持 |
->[!tip] "鸿蒙支持"列为 yes 的 API 表示支持鸿蒙平台，并且效果对标"原库平台"列中的 ios 或 android 的效果。
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
-| Name | Description | Type | Required | Platform | Harmony |
-| ---- | ---- | ---- | -------- | -------- | -------- |
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name | Description | Type | Required | Platform | HarmonyOS Support  |
+| ---- | ----------- | ---- | -------- | -------- | ------------------ |
+| XXX  | XXX         | XXX  | (yes/no) | xxx      | (yes/no/partially) |
 
 ## 遗留问题
 

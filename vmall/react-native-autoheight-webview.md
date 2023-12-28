@@ -74,7 +74,7 @@ import AutoHeightWebView from "react-native-autoheight-webview";
 ## 遗留问题
 
 - [ ] autoheight-webview 部分属性未实现鸿蒙化[issue#1](https://github.com/react-native-oh-library/react-native-autoheight-webview/issues/1)
-- [ ] 中文乱码[issue#2](https://github.com/react-native-oh-library/react-native-autoheight-webview/issues/2)
+- [x] 中文乱码[issue#2](https://github.com/react-native-oh-library/react-native-autoheight-webview/issues/2)
 
 ## 其他
 

@@ -207,7 +207,7 @@ const styles = StyleSheet.create({
 | `activeColor`         | Custom color for icon and label in the active tab.                                                     | string   | No       | All         | yes      |
 | `inactiveColor`       | Custom color for icon and label in the inactive tab.                                                   | string   | No       | All         | yes      |
 | `scrollEnabled`       | Boolean indicating whether to make the tab bar scrollable.                                             | boolean  | No       | All         | yes      |
-| `bounces`             | Function that is invoked when the webview calls window.ReactNativeWebView.postMessage.                 | boolean  | No       | All         | yes      |
+| `bounces`             | Boolean indicating whether the tab bar bounces when scrolling.                                         | boolean  | No       | All         | yes      |
 | `gap`                 | Define a spacing between tabs.                                                                         | number   | No       | All         | yes      |
 
 ## 遗留问题

@@ -1,4 +1,4 @@
-> 模板版本：v0.1.1
+> 模板版本：v0.1.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-tab-view</code> </h1>
@@ -15,6 +15,8 @@
 > [!tip] [Github 地址](https://github.com/react-native-oh-library/react-navigation/tree/master/packages/react-native-tab-view)
 
 ## 安装与使用
+
+进入到工程目录并输入以下命令：
 
 ```bash
 yarn add @react-native-oh-tpl/react-native-tab-view
@@ -169,6 +171,7 @@ const styles = StyleSheet.create({
 
 如未引入请参照[@react-native-oh-tpl/react-native-pager-view 文档的 Link 章节](https://gitee.com/react-native-oh-library/usage-docs/blob/master/vmall/react-native-pager-view.md#link)进行引入
 
+## 约束与限制
 
 ## 兼容性
 
@@ -178,11 +181,17 @@ const styles = StyleSheet.create({
 
 ## 属性
 
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
 详情请查看[tabview 官方文档](https://github.com/react-navigation/react-navigation/blob/main/packages/react-native-tab-view/README.md)
 
 如下是 tabview 已经鸿蒙化的属性：
 
-| 名称                  | 说明                                                                                                   | 类型     | 是否必填 | 原库平台    | 鸿蒙支持 |
+> [!tip] "鸿蒙支持"列为 yes 的属性表示支持鸿蒙平台，并且效果对标"原库平台"列中的 ios 或 android 的效果。
+
+| Name                  | Description                                                                                            | Type     | Required | Platform    | HarmonyOS Support |
 | --------------------- | ------------------------------------------------------------------------------------------------------ | -------- | -------- | ----------- | -------- |
 | `onIndexChange`       | Callback which is called on tab change, receives the index of the new tab as argument                  | function | No       | All         | yes      |
 | `renderScene`         | Callback which returns a react element to render as the page for the tab.                              | function | No       | All         | yes      |
@@ -198,10 +207,12 @@ const styles = StyleSheet.create({
 | `activeColor`         | Custom color for icon and label in the active tab.                                                     | string   | No       | All         | yes      |
 | `inactiveColor`       | Custom color for icon and label in the inactive tab.                                                   | string   | No       | All         | yes      |
 | `scrollEnabled`       | Boolean indicating whether to make the tab bar scrollable.                                             | boolean  | No       | All         | yes      |
-| `bounces`             | Function that is invoked when the webview calls window.ReactNativeWebView.postMessage.                 | boolean  | No       | All         | yes      |
+| `bounces`             | Boolean indicating whether the tab bar bounces when scrolling.                                         | boolean  | No       | All         | yes      |
 | `gap`                 | Define a spacing between tabs.                                                                         | number   | No       | All         | yes      |
 
 ## 遗留问题
+
+- [ ] 页面滑动时，有概率卡在中间，无法自动回正[issue#5](https://github.com/react-native-oh-library/react-navigation/issues/5)
 
 ## 其他
 

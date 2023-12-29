@@ -1,4 +1,4 @@
-> 模板版本：v0.1.1
+> 模板版本：v0.1.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-exception-handler</code> </h1>
@@ -332,6 +332,9 @@ ohpm install
 
 然后编译、运行即可。
 
+## 约束与限制
+
+
 ## 兼容性
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
@@ -340,16 +343,24 @@ ohpm install
 
 ## 静态方法
 
-| 名称                    | 说明                 | 类型     | 是否必填 | 原库平台 | 鸿蒙支持 |
-| ----------------------- | -------------------- | -------- | -------- | -------- | -------- |
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name | Description | Type | Required | Platform | HarmonyOS Support  |
+| ---- | ----------- | ---- | -------- | -------- | ------------------ |
 | `setJSExceptionHandler` | 设置 JS 异常处理方法 | function | no       | All      | yes      |
 | `getJSExceptionHandler` | 获取 JS 异常处理方法 | function | no       | All      | yes      |
 
 ## API
 
-| 名称                        | 说明                     | 类型     | 是否必填 | 原库平台     | 鸿蒙支持 |
-| --------------------------- | ------------------------ | -------- | -------- | ------------ | -------- |
-| `setNativeExceptionHandler` | 设置 native 异常处理方法 | function | no       | android，ios | yes      |
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name | Description | Type | Required | Platform | HarmonyOS Support  |
+| ---- | ----------- | ---- | -------- | -------- | ------------------ |
+| `setNativeExceptionHandler` | 设置 native 异常处理方法 | function | no       | All      | yes      |
 
 ## 遗留问题
 

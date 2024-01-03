@@ -1,4 +1,4 @@
-> 模板版本：v0.1.1
+> 模板版本：v0.1.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-cameraroll</code> </h1>

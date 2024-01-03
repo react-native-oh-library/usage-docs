@@ -181,7 +181,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 在 ArkTs 侧引入 Gesture Handler Package
+### 在 ArkTs 侧引入 CameraRollPackage
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
@@ -196,6 +196,29 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   ];
 }
 ```
+### 应用权限申请
+
+> [!tip] "ohos.permission.READ_IMAGEVIDEO"，"ohos.permission.WRITE_IMAGEVIDEO"权限等级为<B>system_basic</B>，授权方式为<B>user_grant</B>，[使用ACL签名的配置指导](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/signing-0000001587684945-V3#section157591551175916)
+
+在 `YourProject/entry/src/main/module.json5`补上配置
+
+```diff
+{
+  "module": {
+    "name": "entry",
+    "type": "entry",
+    
+  ···
+
+    "requestPermissions": [
++     { "name": "ohos.permission.READ_IMAGEVIDEO" },
++     { "name": "ohos.permission.WRITE_IMAGEVIDEO" }
+    ]
+  }
+}
+```
+
+
 
 ### 运行
 

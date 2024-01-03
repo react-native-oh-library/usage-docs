@@ -1,4 +1,4 @@
-> 模板版本：v0.1.1
+> 模板版本：v0.1.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-qrcode-svg</code> </h1>
@@ -59,28 +59,32 @@ render() {
 
 ## 属性
 
-| 名称                   | 说明                                                                                                                      | 类型     | 是否必填 | 原库平台 | 鸿蒙支持           |
-| ---------------------- | ------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | ------------------ |
-| `size`                 | Size of rendered image in pixels                                                                                          | number   | No       | All      | yes 不支持动态更新 |
-| `value`                | String Value of the QR code                                                                                               | string   | yes      | All      | yes                |
-| `color`                | Color of the QR code                                                                                                      | string   | No       | All      | yes                |
-| `backgroundColor`      | Color of the background                                                                                                   | string   | No       | All      | yes                |
-| `enableLinearGradient` | enables or disables linear gradient                                                                                       | boolean  | No       | All      | no                 |
-| `linearGradient`       | array of 2 rgb colors used to create the linear gradient                                                                  | string[] | No       | All      | no                 |
-| `gradientDirection`    | the direction of the linear gradient                                                                                      | string   | No       | All      | no                 |
-| `logo`                 | Image source object. Ex. {uri: 'base64string'} or {require('pathToImage')}                                                | object   | No       | All      | yes                |
-| `logoSize`             | Size of the imprinted logo. Bigger logo = less error correction in QR code                                                | number   | No       | All      | yes                |
-| `logoBackgroundColor`  | The logo gets a filled quadratic background with this color. Use 'transparent' if your logo already has its own backdrop. | string   | No       | All      | yes                |
-| `logoMargin`           | logo's distance to its wrapper                                                                                            | number   | No       | All      | yes                |
-| `logoBorderRadius`     | the border-radius of logo image (Android is not supported)                                                                | number   | No       | ios      | no                 |
-| `quietZone`            | quiet zone around the qr in pixels (useful when saving image to gallery)                                                  | number   | No       | All      | yes 不支持动态更新 |
-| `getRef`               | Get SVG ref for further usage                                                                                             | callback | No       | All      | 不涉及             |
-| `ecl`                  | Error correction level                                                                                                    | string   | No       | All      | yes                |
-| `onError(error)`       | Callback fired when exception happened during the code generating process                                                 | callback | No       | All      | 不涉及             |
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name                   | Description                                                                                                               | Type     | Required | Platform | HarmonyOS Support |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | ----------------- |
+| `size`                 | Size of rendered image in pixels                                                                                          | number   | No       | All      | yes               |
+| `value`                | String Value of the QR code                                                                                               | string   | yes      | All      | yes               |
+| `color`                | Color of the QR code                                                                                                      | string   | No       | All      | yes               |
+| `backgroundColor`      | Color of the background                                                                                                   | string   | No       | All      | yes               |
+| `enableLinearGradient` | enables or disables linear gradient                                                                                       | boolean  | No       | All      | no                |
+| `linearGradient`       | array of 2 rgb colors used to create the linear gradient                                                                  | string[] | No       | All      | no                |
+| `gradientDirection`    | the direction of the linear gradient                                                                                      | string   | No       | All      | no                |
+| `logo`                 | Image source object. Ex. {uri: 'base64string'} or {require('pathToImage')}                                                | object   | No       | All      | yes               |
+| `logoSize`             | Size of the imprinted logo. Bigger logo = less error correction in QR code                                                | number   | No       | All      | yes               |
+| `logoBackgroundColor`  | The logo gets a filled quadratic background with this color. Use 'transparent' if your logo already has its own backdrop. | string   | No       | All      | yes               |
+| `logoMargin`           | logo's distance to its wrapper                                                                                            | number   | No       | All      | yes               |
+| `logoBorderRadius`     | the border-radius of logo image (Android is not supported)                                                                | number   | No       | ios      | no                |
+| `quietZone`            | quiet zone around the qr in pixels (useful when saving image to gallery)                                                  | number   | No       | All      | yes 见遗留问题    |
+| `getRef`               | Get SVG ref for further usage                                                                                             | callback | No       | All      | 不涉及            |
+| `ecl`                  | Error correction level                                                                                                    | string   | No       | All      | yes               |
+| `onError(error)`       | Callback fired when exception happened during the code generating process                                                 | callback | No       | All      | 不涉及            |
 
 ## 遗留问题
 
-- [ ] size、quietZone 属性暂不支持动态更新
+- [ ] 当 quietZone 属性为非 0 值时，二维码显示不居中
 
 ## 其他
 

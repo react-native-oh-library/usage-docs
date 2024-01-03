@@ -196,11 +196,20 @@ ohpm install
 
 然后编译、运行即可。
 
-## 兼容性
+## 约束与限制
+
+### 兼容性
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-library/netinfo Releases](https://github.com/react-native-oh-library/react-native-netinfo/releases)
+
+### 权限要求
+
+需要在主模块中添加以下权限：
+
+- ohos.permission.GET_NETWORK_INFO
+- ohos.permission.GET_WIFI_INFO
 
 ## 属性
 
@@ -281,11 +290,11 @@ ohpm install
 | `refresh()`            | Updates NetInfo's internal state, then returns a Promise that resolves to a NetInfoState object. This is similar to fetch(), but really only useful on platforms that do not supply internet reachability natively. For example, you can use it to immediately re-run an internet reachability test if a network request fails unexpectedly.                               | function |   yes    |   All    |   yes    |
 | `addEventListener()`   | Subscribe to connection information. The callback is called with a parameter of type NetInfoState whenever the connection state changes. Your listener will be called with the latest information soon after you subscribe and then with any subsequent changes afterwards. You should not assume that the listener is called in the same way across devices or platforms. | function |   yes    |   All    |   yes    |
 | `useNetInfo()`         | A React Hook which can be used to get access to the latest state from the global instance. It returns a hook with the NetInfoState type.                                                                                                                                                                                                                                   | function |   yes    |   All    |   yes    |
-| `useNetInfoInstance()` | A React Hook which can be used to create and manage an isolated instance of a network manager class. It returns a refresh function and the current NetInfoState.                                                                                                                                                                                                           | function |   yes    |   All    |    no    |
+| `useNetInfoInstance()` | A React Hook which can be used to create and manage an isolated instance of a network manager class. It returns a refresh function and the current NetInfoState.                                                                                                                                                                                                           | function |   yes    |   All    |   yes    |
 
 ## 遗留问题
 
-- 新版本 useNetInfoInstance 暂未适配验证，涉及非 wifi 环境下的接口属性未适配
+- 涉及非 wifi 环境下的接口属性未适配
 
 ## 其他
 

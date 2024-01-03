@@ -17,13 +17,13 @@
 **正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/react-native-webview/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
 
 ```bash
-yarn add xxx
+yarn add react-native-webview@file:../third_party/react-native-oh-tpl-react-native-webview-13.6.2-0.0.6.tgz
 ```
 
 或者
 
 ```bash
-npm install xxx
+npm install react-native-webview@file:../third_party/react-native-oh-tpl-react-native-webview-13.6.2-0.0.6.tgz
 ```
 
 下面的代码展示了这个库的基本使用场景：

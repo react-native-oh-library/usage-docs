@@ -87,7 +87,7 @@ const getData = async () => {
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-slider": "file:../../node_modules/@react-native-async-storage/async-storage/harmony/async_storage.har"
+    "rnoh-async-storage": "file:../../node_modules/@react-native-async-storage/async-storage/harmony/async_storage.har"
   }
 ```
 

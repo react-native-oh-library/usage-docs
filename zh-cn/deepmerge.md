@@ -5,7 +5,7 @@
 </p>
 <p align="center">
     <a href="https://github.com/TehShrike/deepmerge">
-        <img src="https://img.shields.io/badge/platforms-android%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
+        <img src="https://img.shields.io/badge/-lightgrey.svg" alt="" />
     </a>
     <a href="https://github.com/TehShrike/deepmerge/blob/master/license.txt">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
@@ -76,8 +76,8 @@ deepmerge(x, y) // => output
 
 | 名称 | 说明 | 类型 | 是否必填 | 原库平台 | 鸿蒙支持 |
 | ---- | ---- | ---- | -------- | -------- | -------- |
-| deepmerge(x, y, [options]) | Merge two objects x and y deeply, returning a new merged object with the elements from both x and y. | function | No | All | Yes |
-| deepmerge.all(arrayOfObjects, [options]) | Merges any number of objects into a single result object. | function | No | All | Yes |
+| deepmerge(x, y, [options]) | Merge two objects x and y deeply, returning a new merged object with the elements from both x and y. | function | No | / | Yes |
+| deepmerge.all(arrayOfObjects, [options]) | Merges any number of objects into a single result object. | function | No | / | Yes |
 
 ## 遗留问题
 

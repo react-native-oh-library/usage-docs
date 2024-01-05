@@ -37,12 +37,10 @@ npm install react-native-svg@npm:@react-native-oh-tpl/react-native-svg
 下面的代码展示了这个库的基本使用场景：
 
 ```js
-import Svg, { Path, G } from "react-native-svg";
-
-const TRIANGLE_PATH_DATA = "M90 0 L0 180 L180 180 Z";
+import Svg, { Path } from "react-native-svg";
 
 <Svg width="100" height="100">
-  <Path d={TRIANGLE_PATH_DATA} fill="red" />
+  <Path d="M90 0 L0 180 L180 180 Z" fill="red" />
 </Svg>;
 ```
 
@@ -160,15 +158,7 @@ import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-packag
 import { createRNPackages } from '../RNPackagesFactory'
 + import {
 +   SVG_VIEW_TYPE_NAME,
-+   SVGView,
-+   SVG_GROUP_TYPE_NAME,
-+   SVGGroup,
-+   SVG_PATH_TYPE_NAME,
-+   SVGPath,
-+   SVG_RECT_TYPE_NAME,
-+   SVGRect,
-+   SVG_IMAGE_TYPE_NAME,
-+   SVGImage
++   SVGView
 +  } from "rnoh-svg"
 
 @Builder
@@ -185,27 +175,6 @@ function CustomComponentBuilder(ctx: ComponentBuilderContext) {
 +     ctx: ctx.rnohContext,
 +     tag: ctx.descriptor.tag,
 +     buildCustomComponent: CustomComponentBuilder
-+   })
-+ } else if (ctx.descriptor.type === SVG_GROUP_TYPE_NAME) {
-+   SVGGroup({
-+     ctx: ctx.rnohContext,
-+     tag: ctx.descriptor.tag,
-+     buildCustomComponent: CustomComponentBuilder
-+   })
-+ } else if (ctx.descriptor.type === SVG_PATH_TYPE_NAME) {
-+   SVGPath({
-+     ctx: ctx.rnohContext,
-+     tag: ctx.descriptor.tag
-+   })
-+ } else if (ctx.descriptor.type === SVG_RECT_TYPE_NAME) {
-+   SVGRect({
-+     ctx: ctx.rnohContext,
-+     tag: ctx.descriptor.tag
-+   })
-+ } else if (ctx.descriptor.type === SVG_IMAGE_TYPE_NAME) {
-+   SVGImage({
-+     ctx: ctx.rnohContext,
-+     tag: ctx.descriptor.tag
 +   })
 + }
  ...
@@ -238,6 +207,10 @@ ohpm install
 
 以下为目前已支持的组件属性：
 
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
 **Svg**：绘制组件的父组件
 
 |  名称   |   说明   |      类型       | 是否必填 | 原库平台 | 鸿蒙支持 |
@@ -267,7 +240,7 @@ ohpm install
 | width  |     元素宽度      | number\| string | Yes      | All      | Yes      |
 | height |     元素高度      | number\| string | Yes      | All      | Yes      |
 |   rx   | 定义 x 轴上的半径 | number\| string | No       | All      | Yes      |
-|   rx   | 定义 y 轴上的半径 | number\| string | No       | All      | Yes      |
+|   ry   | 定义 y 轴上的半径 | number\| string | No       | All      | Yes      |
 
 **Image**： 图像元素，支持 JPEG、PNG 格式
 
@@ -288,6 +261,8 @@ ohpm install
 | strokeWidth |             设置边框宽度             | number |   1    |    No    | All      |     | √    | √    |
 
 ## 遗留问题
+
+- [ ] svg 当前仅实现少部分属性（具体见上面已列出的属性），其余还未实现鸿蒙化[issue#5](https://github.com/react-native-oh-library/react-native-svg/issues/5)
 
 ## 其他
 

@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.2
 
 <p align="center">
   <h1 align="center"> <code>@react-native-async-storage/async-storage</code> </h1>
@@ -12,20 +12,15 @@
     </a>
 </p>
 
+> [!tip] [Github 地址](https://github.com/react-native-oh-library/async-storage/releases)
+
 ## 安装与使用
-
-> [!tip] 目前部分 React-Native-OpenHarmony(RNOH) 三方库的 npm 包部署在私仓，需要通过 github token 来获取访问权限。
-
-在与 `package.json` 文件相同的目录中，创建或编辑 `.npmrc` 文件以包含指定 GitHub Packages URL 和托管包的命名空间的行。 将 TOKEN 替换为 RNOH 三方库指定的 token。
-
-```bash
-@react-native-oh-library:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=TOKEN
-```
 
 进入到工程目录并输入以下命令：
 
 <!-- tabs:start -->
+
+**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/async-storage/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
 
 #### **yarn**
 
@@ -204,7 +199,11 @@ ohpm install
 
 ## API
 
-| 名称              | 说明                                                                                                                                                     | 类型     | 是否必填 | 平台 | 鸿蒙支持 |
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name              | Description                                                                                                                                                     | Type     | Required | Platform | HarmonyOS Support |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ---- | -------- |
 | `getItem`         | Gets a string value for given key. This function can either return a string value for existing key or return null otherwise.                             | function | No       | All  | yes      |
 | `setItem`         | Sets a string value for given key. This operation can either modify an existing entry, if it did exist for given key, or add new one otherwise.          | function | No       | All  | yes      |

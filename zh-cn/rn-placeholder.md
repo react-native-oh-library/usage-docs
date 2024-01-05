@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.2
 
 <p align="center">
   <h1 align="center"> <code>rn-placeholder</code> </h1>
@@ -12,7 +12,11 @@
     </a>
 </p>
 
+> [!tip] [Github 地址](https://github.com/mfrachet/rn-placeholder)
+
 ## 安装与使用
+
+> [!tip] 因原作者未发布最新的组件版本到 npm 仓，如果 package.json 中 peerDependencies 依赖 react 版本与项目 react 版本不一致会产生依赖冲突。npm 安装需要引入--legacy-peer-deps 标志绕过 peerDependencies 自动安装
 
 进入到工程目录并输入以下命令：
 
@@ -24,7 +28,11 @@
 yarn add rn-placeholder
 ```
 
-<!-- tabs:end -->
+#### **npm**
+
+```bash
+npm install rn-placeholder
+```
 
 下面的代码展示了这个库的基本使用场景：
 
@@ -49,7 +57,17 @@ const App = () => (
 );
 ```
 
+## 约束与限制
+
+### 兼容性
+
+在下述版本验证通过:
+
+1. IDE: Deveco Studio 4.1.3.412;SDK: OpenHarmony (Api11) 4.1.0.53;测试设备: Mate40 Pro (NOH-AN00);ROM: 2.0.0.52(SP22C00E52R1P17log);RNOH: 0.72.11;
+
 ## 属性
+
+详情见 [Placeholder 源库地址](https://github.com/mfrachet/rn-placeholder)
 
 **组件 Placeholder**
 
@@ -64,7 +82,7 @@ It's the wrapper around all of the other components. Using alone will not produc
 **_Animations_**
 | 名称 | 说明 | 类型 | 是否必填 | 原库平台 | 鸿蒙支持 |
 | --------- | -------------------------------------------------- | ------------- | -------- | -------- | -------- |
-| Fade | AThis is the base animation that makes the placeholder become clearer on a specified interval| ComponentType | no | All | Yes |
+| Fade | This is the base animation that makes the placeholder become clearer on a specified interval| ComponentType | no | All | Yes |
 | ShineOverlay | This applies a tiny overlay from left to right of the placeholder. It's pretty neat but it has the drawback to only work without style customization: only on white background with gray lines |ComponentType| no | All | Yes |
 | Shine | The shine animation is an attempt to overcome the overlay problem of the ShineOverlay animation by animating only the differnt part of the placeholder | ComponentType | no | All | Yes |
 | Loader | A simple placeholder animation based on the standard loader (ActivityIndicator) of each platforms | ComponentType | no | All | Yes |
@@ -87,14 +105,16 @@ A PlaceholderLine is one of the two basic and visual components of a placeholder
 
 A PlaceholderMedia is the second of the two basic and visual components of a placeholder. It can be used a single placeholder like following:
 
-| 名称    | 说明                                                     | 类型   | 是否必填 | 原库平台 | 鸿蒙支持 |
-| ------- | -------------------------------------------------------- | ------ | -------- | -------- | -------- |
-| size    | The media size (height / width), default is 40           | number | no       | All      | Yes      |
-| isRound | Defines if the media is rounded or not, default is false | string | no       | All      | Yes      |
-| color   | The media color, default is #efefef                      | number | no       | All      | Yes      |
-| style   | Customize the style of the underlying View component     | object | no       | All      | Yes      |
+| 名称    | 说明                                                     | 类型    | 是否必填 | 原库平台 | 鸿蒙支持 |
+| ------- | -------------------------------------------------------- | ------- | -------- | -------- | -------- |
+| size    | The media size (height / width), default is 40           | number  | no       | All      | Yes      |
+| isRound | Defines if the media is rounded or not, default is false | boolean | no       | All      | Yes      |
+| color   | The media color, default is #efefef                      | string  | no       | All      | Yes      |
+| style   | Customize the style of the underlying View component     | object  | no       | All      | Yes      |
 
 ## 遗留问题
+
+- [ ] package.json 中 peerDependencies 依赖 react 版本与项目 react 版本不一致会产生依赖冲突，此问题只会导致 npm 安装依赖报错，不对组件功能造成影响。源库此问题 issues: [issue#226](https://github.com/mfrachet/rn-placeholder/issues/226)
 
 ## 其他
 

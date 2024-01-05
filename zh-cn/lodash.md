@@ -1,16 +1,15 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.2
 
 <p align="center">
   <h1 align="center"> <code>lodash</code> </h1>
 </p>
 <p align="center">
-    <!-- <a href="https://github.com/lodash/lodash/tree/4.17.21?tab=readme-ov-file">
-       <img src="https://img.shields.io/badge/-lightgrey.svg" alt="Supported platforms" />
-    </a> -->
     <a href="https://github.com/lodash/lodash/blob/4.17.21/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
+
+> [!tip] [Github 地址](https://github.com/lodash/lodash/tree/4.17.21)
 
 ## 安装与使用
 
@@ -56,7 +55,12 @@ lodashStable.findLastIndex(users, 'active');
 ```
 ### 兼容性
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+在下述版本验证通过:
+  1. IDE:Deveco Studio 4.1.3.412;
+     SDK: OpenHarmony (Api11) 4.1.0.53;
+     测试设备: Mate40 Pro (NOH-AN00);
+     ROM: 2.0.0.52 (SP22C00E52R1P17log);
+     RNOH: 0.72.11。
 
 ## 静态方法
 

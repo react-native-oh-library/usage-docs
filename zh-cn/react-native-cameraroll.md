@@ -104,7 +104,7 @@ export default function App() {
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-camera-roll": "file:../../node_modules/@react-native-tpl-oh/camera-roll/harmony/camera_roll.har"
+    "rnoh-camera-roll": "file:../../node_modules/@react-native-oh-tpl/camera-roll/harmony/camera_roll.har"
   }
 ```
 
@@ -123,7 +123,7 @@ ohpm install
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-camera-roll": "file:../../node_modules/@react-native-tpl-oh/camera-roll/harmony/camera_roll"
+    "rnoh-camera-roll": "file:../../node_modules/@react-native-oh-tpl/camera-roll/harmony/camera_roll"
   }
 ```
 
@@ -254,8 +254,8 @@ ohpm install
 | getPhotos | 查找图片/视频 | function | no   | android,ios | partially |
 | getAlbums | 查找相册 | function | no   | android,ios      | partially |
 | deletePhotos | 删除图片/视频 | function | no  | android,ios  | no     |
-| iosGetImageDataById | 获取图片数据 | function | no  | ios    | no     |
-| getPhotoThumbnail | 获取缩略图 | function | no     | ios     | no     |
+| iosGetImageDataById | 获取图片数据 | function | no  | ios    | partially |
+| getPhotoThumbnail | 获取缩略图 | function | no     | ios     | partially |
 
 
 
@@ -271,9 +271,9 @@ ohpm install
 | `iosRequestReadWriteGalleryPermission` | 读写权限申请 | function | no  | ios  | no      |
 | `iosRequestAddOnlyGalleryPermission` | 添加权限申请 | function | no  | ios  | no      |
 | `iosRefreshGallerySelection` | 图片列表刷新 | function | no   | ios   | no  |
-| `harmonyReadGalleryPermission` | 对比`iosReadGalleryPermission` | function | no    | harmony  | no  |
-| `harmonyRequestReadWriteGalleryPermission` | 对比`iosRequestReadWriteGalleryPermission` | function | no  | harmony  | partially      |
-| `harmonyRequestAddOnlyGalleryPermission` | 对比`iosRequestAddOnlyGalleryPermission` | function | no  | harmony  | partially      |
+| `harmonyReadGalleryPermission` | 对比`iosReadGalleryPermission` | function | no    | harmony  | yes  |
+| `harmonyRequestReadWriteGalleryPermission` | 对比`iosRequestReadWriteGalleryPermission` | function | no  | harmony  | yes    |
+| `harmonyRequestAddOnlyGalleryPermission` | 对比`iosRequestAddOnlyGalleryPermission` | function | no  | harmony  | yes    |
 | `harmonyRefreshGallerySelection` | 对比`iosRefreshGallerySelection` | function | no   | harmony   | no  |
 
 
@@ -283,8 +283,6 @@ ohpm install
 - [ ] harmony 查找图片/视频部分查询条件和返回字段需要使用系统接口
 - [ ] harmony 纯图片相册暂未对外开放，系统相册不返回相册名
 - [ ] harmony 删除图片/视频需要使用系统接口
-- [ ] harmony 权限验证需要应用tokenID,获取tokenID需要使用系统接口
-- [ ] harmony 权限申请需要先验证权限，当前跳过验证，直接申请
 - [ ] harmony 暂无对标ios图片列表刷新的方法
 
 ## 其他

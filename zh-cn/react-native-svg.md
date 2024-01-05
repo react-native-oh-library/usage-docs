@@ -205,6 +205,8 @@ ohpm install
 
 详细请查看 [react-native-svg 的文档介绍](https://github.com/software-mansion/react-native-svg/blob/main/USAGE.md)
 
+> [!tip] 目前Defs、Mask、Use、Circle、LinearGradient、Stop组件仅显示空白占位，还无具体实现效果。
+
 以下为目前已支持的组件属性：
 
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。

@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.2
 
 <p align="center">
   <h1 align="center"> <code>@react-navigation/bottom-tabs</code> </h1>
@@ -32,7 +32,11 @@ npm install @react-navigation/bottom-tabs@6.5.11
 
 ## 兼容性
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+在下述版本验证通过：
+
+1. DevEco Studio: 4.0.3.700; SDK: OpenHarmony(API10) 4.0.10.15; 测试设备: Mate 40 Pro(NOH-AN00); ROM: 4.0.0.66(SP3C00E73R1P14log); RNOH: 0.72.10
+2. DevEco Studio: 4.1.3.313; SDK: OpenHarmony(API11) 4.1.0.52; 测试设备: Mate 40 Pro(NOH-AN00); ROM: 2.0.0.51(SP22C00E52R1P17log); RNOH: 0.72.11
+3. DevEco Studio: 4.1.3.313; SDK: OpenHarmony(API11) 4.1.0.52; 测试设备: Mate 40 Pro(NOH-AN00); ROM: 2.0.0.52(SP22C00E52R1P17log); RNOH: 0.72.11
 
 ## 方法
 
@@ -42,7 +46,7 @@ npm install @react-navigation/bottom-tabs@6.5.11
 
 ## 属性
 
-详细请查看 [react-navigation/bottom-tabs 的文档介绍](https://reactnavigation.org/docs/bottom-tab-navigator)
+以下属性已验证，更多属性详情请查看 [react-navigation/bottom-tabs 的文档介绍](https://reactnavigation.org/docs/bottom-tab-navigator)
 
 **Navigator**：
 

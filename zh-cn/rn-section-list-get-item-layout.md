@@ -71,7 +71,7 @@ class MyComponent extends React.Component {
 
  在下述版本验证通过：
 
- 1. IDE：DevEco Studio 4.1.3.313;SDK：OpenHarmony(api11) 4.1.0.52;测试设备：Mate40 Pro(NOH-AN00);ROM：2.0.0.51(SP22C00E52R1P17log);RNOH：0.72.11
+ 1. IDE：DevEco Studio 4.1.3.313;SDK：OpenHarmony(api11) 4.1.0.52;测试设备：Mate40 Pro(NOH-AN00);ROM：2.0.0.52(C00E52R1P17log);RNOH：0.72.11
 
 ## API
 

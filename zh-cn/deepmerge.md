@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.2
 
 <p align="center">
   <h1 align="center"> <code>deepmerge</code> </h1>
@@ -8,6 +8,9 @@
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
+
+>[!tip] [Github 地址](https://github.com/TehShrike/deepmerge)
+
 
 ## 安装与使用
 
@@ -74,7 +77,15 @@ deepmerge(x, y) // => output
 
 ## 约束与限制
 
+### 兼容性
+
+ 在下述版本验证通过：
+
+ 1. IDE：DevEco Studio 4.1.3.412;SDK：OpenHarmony(api11) 4.1.0.53;测试设备：Mate40 Pro(NOH-AN00);ROM：2.0.0.52(SP22C00E52R1P17log);RNOH：0.72.11
+
 ## API
+
+详情见 [deepmerge源库地址](https://github.com/TehShrike/deepmerge)
 
 | 名称 | 说明 | 类型 | 是否必填 | 原库平台 | 鸿蒙支持 |
 | ---- | ---- | ---- | -------- | -------- | -------- |

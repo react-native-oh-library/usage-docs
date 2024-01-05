@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.2
 
 <p align="center">
   <h1 align="center"> <code>@react-native-community/progress-view</code> </h1>
@@ -12,22 +12,13 @@
     </a>
 </p>
 
+> [!tip] [Github 地址](https://github.com/react-native-oh-library/progress-view)
+
 ## 安装与使用
-
-> [!tip] 目前部分 React-Native-OpenHarmony(RNOH) 三方库的 npm 包部署在私仓，需要通过 github token 来获取访问权限。
-
-在与 `package.json` 文件相同的目录中，创建或编辑 `.npmrc` 文件以包含指定 GitHub Packages URL 和托管包的命名空间的行。 将 TOKEN 替换为 RNOH 三方库指定的 token。
-
-```bash
-@react-native-oh-library:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=TOKEN
-```
 
 进入到工程目录并输入以下命令：
 
 <!-- tabs:start -->
-
-**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/react-native-svg/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
 
 #### **yarn**
 
@@ -195,6 +186,8 @@ ohpm install
 
 然后编译、运行即可。
 
+## 约束与限制
+
 ## 兼容性
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
@@ -202,6 +195,10 @@ ohpm install
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-library/progress-view Releases](https://github.com/react-native-oh-library/progress-view/releases)
 
 ## 属性
+
+> [!tip] "鸿蒙支持"列为 yes 的 API 表示支持鸿蒙平台，并且效果对标"原库平台"列中的 ios 或 android 的效果。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name                | Description                                | Type          | Required | Platform | HarmonyOS Support |
 | ------------------- | ------------------------------------------ | ------------- | -------- | -------- | ----------------- |

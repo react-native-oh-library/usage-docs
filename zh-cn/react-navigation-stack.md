@@ -19,13 +19,13 @@
 <!-- tabs:start -->
 
 ```bash
-yarn add @react-navigation/stack@>=6.0.0
+yarn add @react-navigation/stack@6.3.19
 ```
 
 #### **npm**
 
 ```bash
-npm install @react-navigation/stack@>=6.0.0
+npm install @react-navigation/stack@6.3.19
 ```
 
 <!-- tabs:end -->

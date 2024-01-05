@@ -19,13 +19,13 @@
 <!-- tabs:start -->
 
 ```bash
-yarn add @react-navigation/native@>=6.0.0
+yarn add @react-navigation/native@6.1.9
 ```
 
 #### **npm**
 
 ```bash
-npm install @react-navigation/native@>=6.0.0
+npm install @react-navigation/native@6.1.9
 ```
 
 <!-- tabs:end -->

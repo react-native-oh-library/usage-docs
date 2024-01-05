@@ -19,13 +19,13 @@
 <!-- tabs:start -->
 
 ```bash
-yarn add @react-navigation/bottom-tabs@>=6.0.0
+yarn add @react-navigation/bottom-tabs@6.5.11
 ```
 
 #### **npm**
 
 ```bash
-npm install @react-navigation/bottom-tabs@>=6.0.0
+npm install @react-navigation/bottom-tabs@6.5.11
 ```
 
 <!-- tabs:end -->

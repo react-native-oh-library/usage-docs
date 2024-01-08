@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>RNOH三方库文档</title>
+		<title>RNOH三方库说明文档</title>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<meta name="description" content="Description">
@@ -78,26 +78,6 @@
 					scroll: false, // 启用滚动
 					height: 300 // 折叠高度
 				},
-				plugins: [
-					function (hook, vm) {
-					// load livere
-					hook.beforeEach(function(content) {
-						var comment = "<div id='lv-container' data-id='city' data-uid='MTAyMC81OTIwMy8zNTY2NQ=='></div>\n\n----\n"
-						return content + comment;
-					});
-
-					hook.doneEach(function() {
-						(function(d, s) {
-							var j, e = d.getElementsByTagName(s)[0];
-							if (typeof LivereTower === 'function') { return; }
-							j = d.createElement(s);
-							j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-							j.async = true;
-							e.parentNode.insertBefore(j, e);
-						})(document, 'script');
-					});
-					},
-				],
 			}
 		</script>
 		<!-- docsify的js依赖 -->

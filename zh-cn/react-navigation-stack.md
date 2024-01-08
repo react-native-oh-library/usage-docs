@@ -27,6 +27,11 @@ yarn add @react-navigation/stack@6.3.19
 ```bash
 npm install @react-navigation/stack@6.3.19
 ```
+正常使用`stack`还需导入相关依赖，点击查看详细使用方法
+
+[@react-native-oh-tpl/elements](./react-navigation-elements.md)<br/>
+[@react-native-oh-tpl/react-native-safe-area-context](./react-native-safe-area-context.md)<br/>
+[@react-native-oh-tpl/react-native-gesture-handler](./react-native-gesture-handler.md)
 
 <!-- tabs:end -->
 ## 兼容性

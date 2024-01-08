@@ -31,6 +31,11 @@ yarn add xxx
 npm install xxx
 ```
 
+正常使用`elements`还需导入相关依赖，点击查看详细使用方法
+
+[@react-native-oh-tpl/react-native-masked-view](./react-native-masked-view.md)<br/>
+[@react-native-oh-tpl/react-native-safe-area-context](./react-native-safe-area-context.md)
+
 <!-- tabs:end -->
 
 ## 兼容性

@@ -28,6 +28,11 @@ yarn add @react-navigation/bottom-tabs@6.5.11
 npm install @react-navigation/bottom-tabs@6.5.11
 ```
 
+正常使用`bottom-tabs`还需导入相关依赖，点击查看详细使用方法
+
+[@react-native-oh-tpl/elements](./react-navigation-elements.md)<br/>
+[@react-native-oh-tpl/react-native-safe-area-context](./react-native-safe-area-context.md)
+
 <!-- tabs:end -->
 
 ## 兼容性

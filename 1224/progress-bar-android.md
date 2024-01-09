@@ -12,7 +12,7 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/react-native-oh-library/progress-bar-android)
+> [!tip] [Github 地址](https://github.com/react-native-oh-tpl/progress-bar-android)
 
 ## 安装与使用
 
@@ -23,13 +23,13 @@
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-library/progress-bar-android
+yarn add @react-native-oh-tpl/progress-bar-android
 ```
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-library/progress-bar-android
+npm install @react-native-oh-tpl/progress-bar-android
 ```
 
 <!-- tabs:end -->
@@ -62,7 +62,7 @@ npm install @react-native-oh-library/progress-bar-android
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-  	"rnoh-progress-bar-android": "file:../../node_modules/@react-native-oh-library/progress-bar-android/harmony/progress_bar_android.har"
+  	"rnoh-progress-bar-android": "file:../../node_modules/@react-native-oh-tpl/progress-bar-android/harmony/progress_bar_android.har"
   }
 ```
 
@@ -81,7 +81,7 @@ ohpm install
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-  	"rnoh-progress-bar-android": "file:../../node_modules/@react-native-oh-library/progress-bar-android/harmony/progress_bar_android"
+  	"rnoh-progress-bar-android": "file:../../node_modules/@react-native-oh-tpl/progress-bar-android/harmony/progress_bar_android"
   }
 ```
 

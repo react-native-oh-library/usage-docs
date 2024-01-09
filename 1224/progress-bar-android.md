@@ -20,6 +20,8 @@
 
 <!-- tabs:start -->
 
+**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/progress-bar-android/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
+
 #### **yarn**
 
 ```bash
@@ -159,17 +161,18 @@ import { createRNPackages } from '../RNPackagesFactory'
 
 @Builder
 function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-  if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
+  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
     SampleView({
       ctx: ctx.rnohContext,
-      tag: ctx.descriptor.tag,
+      tag: ctx.tag,
       buildCustomComponent: CustomComponentBuilder
     })
   }
-+ else if (ctx.descriptor.type == PROGRESS_BAR_TYPE){
++ else if (ctx.componentName == PROGRESS_BAR_TYPE){
 +     ProgressBarAndroid({
 +       ctx: ctx.rnohContext,
-+       tag: ctx.descriptor.tag
++       tag: ctx.tag,
++     buildCustomComponent: CustomComponentBuilder
 +     })
 +   }
  ...

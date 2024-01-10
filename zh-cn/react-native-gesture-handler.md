@@ -23,7 +23,7 @@
 ...
 "dependencies": {
   ...
-  "@react-native-oh-tpl/react-native-gesture-handler": "xxx.tgz",
+  "react-native-harmony-gesture-handler": "xxx.tgz",
 },
 ...
 ```
@@ -33,26 +33,6 @@
 ```bash
 npm i
 ```
-
-发布到 npm 之后可以正常使用命令安装（暂未发布）
-
-进入到工程目录并输入以下命令：
-
-<!-- tabs:start -->
-
-#### **yarn**
-
-```bash
-yarn add @react-native-oh-tpl/react-native-gesture-handler
-```
-
-#### **npm**
-
-```bash
-npm install @react-native-oh-tpl/react-native-gesture-handler
-```
-
-<!-- tabs:end -->
 
 快速使用：
 
@@ -135,7 +115,7 @@ export default function App() {
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-gesture-handler": "file:../../node_modules/@react-native-tpl-oh/react-native-gesture-handler/harmony/gesture_handler.har"
+    "rnoh-gesture-handler": "file:../../node_modules/react-native-harmony-gesture-handler/harmony/gesture_handler.har"
   }
 ```
 
@@ -154,7 +134,7 @@ ohpm install
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-gesture-handler": "file:../../node_modules/@react-native-tpl-oh/react-native-gesture-handler/harmony/gesture_handler"
+    "rnoh-gesture-handler": "file:../../node_modules/react-native-harmony-gesture-handler/harmony/gesture_handler"
   }
 ```
 

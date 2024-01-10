@@ -25,13 +25,13 @@
 #### **yarn**
 
 ```bash
-yarn add rn-placeholder
+yarn add rn-placeholder@3.0.3
 ```
 
 #### **npm**
 
 ```bash
-npm install rn-placeholder
+npm install rn-placeholder@3.0.3
 ```
 
 下面的代码展示了这个库的基本使用场景：
@@ -67,20 +67,24 @@ const App = () => (
 
 ## 属性
 
-详情见 [Placeholder 源库地址](https://github.com/mfrachet/rn-placeholder)
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+详情见 [rn-placeholder 源库地址](https://github.com/mfrachet/rn-placeholder)
 
 **组件 Placeholder**
 
 It's the wrapper around all of the other components. Using alone will not produce anything interesting. You have put some line or media inside to make it powerful.It accepts all the props of a React Native View plus:
 
-| 名称      | 说明                                                | 类型          | 是否必填 | 原库平台 | 鸿蒙支持 |
-| --------- | --------------------------------------------------- | ------------- | -------- | -------- | -------- |
-| Animation | An optional component that animates the placeholder | Animations    | no       | All      | Yes      |
-| Left      | An optional component to display on the left        | ComponentType | no       | All      | Yes      |
-| Right     | An optional component to display on the right       | ComponentType | no       | All      | Yes      |
+| Name      | Description                                         | Type          | Required | Platform | HarmonyOS Support |
+| --------- | --------------------------------------------------- | ------------- | -------- | -------- | ----------------- |
+| Animation | An optional component that animates the placeholder | Animations    | no       | All      | Yes               |
+| Left      | An optional component to display on the left        | ComponentType | no       | All      | Yes               |
+| Right     | An optional component to display on the right       | ComponentType | no       | All      | Yes               |
 
 **_Animations_**
-| 名称 | 说明 | 类型 | 是否必填 | 原库平台 | 鸿蒙支持 |
+| Name | Description | Type | Required | Platform | HarmonyOS Support |
 | --------- | -------------------------------------------------- | ------------- | -------- | -------- | -------- |
 | Fade | This is the base animation that makes the placeholder become clearer on a specified interval| ComponentType | no | All | Yes |
 | ShineOverlay | This applies a tiny overlay from left to right of the placeholder. It's pretty neat but it has the drawback to only work without style customization: only on white background with gray lines |ComponentType| no | All | Yes |
@@ -93,24 +97,24 @@ It's the wrapper around all of the other components. Using alone will not produc
 
 A PlaceholderLine is one of the two basic and visual components of a placeholder.
 
-| 名称     | 说明                                                                   | 类型    | 是否必填 | 原库平台 | 鸿蒙支持 |
-| -------- | ---------------------------------------------------------------------- | ------- | -------- | -------- | -------- |
-| height   | The line height, default is 12                                         | number  | no       | All      | Yes      |
-| color    | The line color, default is #efefef                                     | string  | no       | All      | Yes      |
-| width    | The line width in percent, default is 100(%)                           | number  | no       | All      | Yes      |
-| noMargin | Defines if a line should have a margin bottom or not, default is false | boolean | no       | All      | Yes      |
-| style    | Customize the style of the underlying View component                   | object  | no       | All      | Yes      |
+| Name     | Description                                                            | Type    | Required | Platform | HarmonyOS Support |
+| -------- | ---------------------------------------------------------------------- | ------- | -------- | -------- | ----------------- |
+| height   | The line height, default is 12                                         | number  | no       | All      | Yes               |
+| color    | The line color, default is #efefef                                     | string  | no       | All      | Yes               |
+| width    | The line width in percent, default is 100(%)                           | number  | no       | All      | Yes               |
+| noMargin | Defines if a line should have a margin bottom or not, default is false | boolean | no       | All      | Yes               |
+| style    | Customize the style of the underlying View component                   | object  | no       | All      | Yes               |
 
 **组件 PlaceholderMedia**
 
 A PlaceholderMedia is the second of the two basic and visual components of a placeholder. It can be used a single placeholder like following:
 
-| 名称    | 说明                                                     | 类型    | 是否必填 | 原库平台 | 鸿蒙支持 |
-| ------- | -------------------------------------------------------- | ------- | -------- | -------- | -------- |
-| size    | The media size (height / width), default is 40           | number  | no       | All      | Yes      |
-| isRound | Defines if the media is rounded or not, default is false | boolean | no       | All      | Yes      |
-| color   | The media color, default is #efefef                      | string  | no       | All      | Yes      |
-| style   | Customize the style of the underlying View component     | object  | no       | All      | Yes      |
+| Name    | Description                                              | Type    | Required | Platform | HarmonyOS Support |
+| ------- | -------------------------------------------------------- | ------- | -------- | -------- | ----------------- |
+| size    | The media size (height / width), default is 40           | number  | no       | All      | Yes               |
+| isRound | Defines if the media is rounded or not, default is false | boolean | no       | All      | Yes               |
+| color   | The media color, default is #efefef                      | string  | no       | All      | Yes               |
+| style   | Customize the style of the underlying View component     | object  | no       | All      | Yes               |
 
 ## 遗留问题
 

@@ -42,71 +42,69 @@ import { View, Button, Text } from 'react-native';
 import CryptoJS from 'crypto-js';
 
 function CryptoJSDemo() {
-    const[result, setResult] = useState(' ');
-    return(
-        <View>
-        	<Text>{result}</Text>
-        	// 非对称加密
-        	<Button title='testMD5' onPress={testMD5}></Button>
-			<Button title='testHmacMD5' onPress={testHmacMD5}></Button>
+  const [result, setResult] = useState(' ');
+  return (
+    <View>
+      <Text>{result}</Text>
 
-			// 对称加密
-			<Button title='testAESEncrypt' onPress={testAESEncrypt}></Button>
-			<Button title='testAESDecrypt' onPress={testAESDecrypt}></Button>
+      <Button title='testMD5' onPress={testMD5}></Button>
+      <Button title='testHmacMD5' onPress={testHmacMD5}></Button>
 
-			// 类型转换
-			<Button title='testEncHexParse' onPress={testEncHexParse}></Button>
-			<Button title='testEncHexStringify' onPress={testEncHexStringify}></Button>
-			<Button title='testFormatHexParse' onPress={testFormatHexParse}></Button>
-			<Button title='testFormatHexStringify' onPress={testFormatHexStringify}></Button>
-        </View>
-    );
-    
-    function testMD5(){
-        let md5 = CryptoJS.MD5('123456');
-        setResult(md5.toString());
-    }
-    
-    function testHmacMD5(){
-        let hmacMD5 = CryptoJS.HmacMD5('123456', '123456');
-         setResult(hmacMD5.toString());
-    }
+      <Button title='testAESEncrypt' onPress={testAESEncrypt}></Button>
+      <Button title='testAESDecrypt' onPress={testAESDecrypt}></Button>
 
-	function testAESEncrypt(){
-        let encrypted = CryptoJS.AES.encrypt(CryptoJS.enc.Hex.parse('48656c6c6f576f726c6421'), CryptoJS.enc.Hex.parse('000102030405060708090a0b0c0d0e0f'), { mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.NoPadding });
-        setResult(encrypted.toString());
-    }
+      <Button title='testEncHexParse' onPress={testEncHexParse}></Button>
+      <Button title='testEncHexStringify' onPress={testEncHexStringify}></Button>
+      <Button title='testFormatHexParse' onPress={testFormatHexParse}></Button>
+      <Button title='testFormatHexStringify' onPress={testFormatHexStringify}></Button>
+    </View>
+  );
 
-	function testAESDecrypt(){
-        let encrypted = CryptoJS.AES.encrypt(CryptoJS.enc.Hex.parse('48656c6c6f576f726c6421'), CryptoJS.enc.Hex.parse('000102030405060708090a0b0c0d0e0f'), { mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.NoPadding });
-        let decrypted = CryptoJS.AES.decrypt(encrypted, CryptoJS.enc.Hex.parse('000102030405060708090a0b0c0d0e0f'), { mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.NoPadding });
-        setResult(decrypted.toString());
-    }
+  function testMD5() {
+    let md5 = CryptoJS.MD5('123456');
+    setResult('testMD5 result: ' + md5.toString());
+  }
 
-	function testEncHexParse() {
-        let wordArray = CryptoJS.enc.Hex.parse('48656c6c6f576f726c6421');
-        setResult(wordArray.toString());
-    }
+  function testHmacMD5() {
+    let hmacMD5 = CryptoJS.HmacMD5('123456', '123456');
+    setResult('testHmacMD5 result: ' + hmacMD5.toString());
+  }
 
-	function testEncHexStringify() {
-        let wordArray = CryptoJS.enc.Hex.parse('48656c6c6f576f726c6421');
-        let hexStr = CryptoJS.enc.Hex.stringify(wordArray);
-        setResult(hexStr);
-    }
+  function testAESEncrypt() {
+    let encrypted = CryptoJS.AES.encrypt(CryptoJS.enc.Hex.parse('48656c6c6f576f726c6421'), CryptoJS.enc.Hex.parse('000102030405060708090a0b0c0d0e0f'), { mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.NoPadding });
+    setResult('testAESEncrypt result: ' + encrypted.toString());
+  }
 
-	function testFormatHexParse() {
-        let hexStr = CryptoJS.format.Hex.parse('48656c6c6f576f726c6421').toString(CryptoJS.format.Hex);
-        setResult(hexStr);
-    }
+  function testAESDecrypt() {
+    let encrypted = CryptoJS.AES.encrypt(CryptoJS.enc.Hex.parse('48656c6c6f576f726c6421'), CryptoJS.enc.Hex.parse('000102030405060708090a0b0c0d0e0f'), { mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.NoPadding });
+    let decrypted = CryptoJS.AES.decrypt(encrypted, CryptoJS.enc.Hex.parse('000102030405060708090a0b0c0d0e0f'), { mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.NoPadding });
+    setResult('testAESDecrypt result: ' + decrypted.toString());
+  }
 
-	function testFormatHexStringify() {
-        let ciphertext = CryptoJS.enc.Hex.parse('48656c6c6f576f726c6421');
-        let cipSalt = {
-            'ciphertext': ciphertext
-        }
-        let hexStr = CryptoJS.format.Hex.stringify(CryptoJS.lib.CipherParams.create(cipSalt));
-        setResult(hexStr);
+  function testEncHexParse() {
+    let wordArray = CryptoJS.enc.Hex.parse('48656c6c6f576f726c6421');
+    setResult('testEncHexParse result: ' + wordArray.toString());
+  }
+
+  function testEncHexStringify() {
+    let wordArray = CryptoJS.enc.Hex.parse('48656c6c6f576f726c6421');
+    let hexStr = CryptoJS.enc.Hex.stringify(wordArray);
+    setResult('testEncHexStringify result: ' + hexStr);
+  }
+
+  function testFormatHexParse() {
+    let hexStr = CryptoJS.format.Hex.parse('48656c6c6f576f726c6421').toString(CryptoJS.format.Hex);
+    setResult('testFormatHexParse result: ' + hexStr);
+  }
+
+  function testFormatHexStringify() {
+    let ciphertext = CryptoJS.enc.Hex.parse('48656c6c6f576f726c6421');
+    let cipSalt = {
+      'ciphertext': ciphertext
     }
+    let hexStr = CryptoJS.format.Hex.stringify(CryptoJS.lib.CipherParams.create(cipSalt));
+    setResult('testFormatHexStringify result: ' + hexStr);
+  }
 }
 
 export default CryptoJSDemo;

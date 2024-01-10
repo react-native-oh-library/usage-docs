@@ -16,12 +16,12 @@
 #### **yarn**
 
 ```bash
-yarn add lodash
+yarn add lodash@^4.17.21
 ```
 
 #### **npm**
 ```bash
-npm install lodash
+npm install lodash@4.17.21
 ```
 <!-- tabs:end -->
 
@@ -70,7 +70,7 @@ lodashStable.findLastIndex(users, 'active');
 
  #### **Collection**
 
-| 名称 | 说明 | 类型 | 是否必填 | 鸿蒙支持 |
+| Name | Description | Type | Required | HarmonyOS Support |
 | ---- | ---- | ---- | -------- | -------- |
 | find | Iterates over elements of collection, returning the first element predicate returns truthy for | function | NO | yes |
 | findLast | Iterates over elements of collection from right to left, returning the first element | function | NO | yes |
@@ -86,7 +86,7 @@ lodashStable.findLastIndex(users, 'active');
 
 #### **Array**
 
-| 名称 | 说明 | 类型 | 是否必填 | 鸿蒙支持 |
+| Name | Description | Type | Required | HarmonyOS Support |
 | ---- | ---- | ---- | -------- | -------- |
 | findIndex | This method is like _.find except that it returns the index of the first element predicate returns truthy for instead of the element itself | function | NO | yes |
 | findLastIndex | This method is like _.findIndex except that it iterates over elements of collection from right to left | function | NO | yes |
@@ -98,7 +98,7 @@ lodashStable.findLastIndex(users, 'active');
 
 #### **String**
 
-| 名称 | 说明 | 类型 | 是否必填 | 鸿蒙支持 |
+| Name | Description | Type | Required | HarmonyOS Support |
 | ---- | ---- | ---- | -------- | -------- |
 | camelCase | Converts string to camel case | function | NO | yes |
 | repeat | Repeats the given string n times | function | NO | yes |
@@ -107,7 +107,7 @@ lodashStable.findLastIndex(users, 'active');
 
 #### **Math**
 
-| 名称 | 说明 | 类型 | 是否必填 | 鸿蒙支持 |
+| Name | Description | Type | Required | HarmonyOS Support |
 | ---- | ---- | ---- | -------- | -------- |
 | ceil | Computes number rounded up to precision | function | NO | yes |
 | divide | Divide two numbers. | function | NO | yes | Math |
@@ -117,7 +117,7 @@ lodashStable.findLastIndex(users, 'active');
 
 #### **Object**
 
-| 名称 | 说明 | 类型 | 是否必填 | 鸿蒙支持 |
+| Name | Description | Type | Required | HarmonyOS Support |
 | ---- | ---- | ---- | -------- | -------- |
 | findKey | This method is like _.find, returns the key of the first element | function | NO | yes |
 | findLastKey | This method is like _.findKey it iterates over elements of a collection in the opposite order | function | NO | yes |
@@ -128,7 +128,7 @@ lodashStable.findLastIndex(users, 'active');
 
 #### **Util**
 
-| 名称 | 说明 | 类型 | 是否必填 | 鸿蒙支持 |
+| Name | Description | Type | Required | HarmonyOS Support |
 | ---- | ---- | ---- | -------- | -------- |
 | range | Creates an array of numbers (positive and/or negative) progressing from start up to, but not including, end | function | NO | yes |
 | toPath | Converts value to a property path array | function | NO | yes |
@@ -136,7 +136,7 @@ lodashStable.findLastIndex(users, 'active');
 
 #### **Lang**
 
-| 名称 | 说明 | 类型 | 是否必填 | 鸿蒙支持 |
+| Name | Description | Type | Required | HarmonyOS Support |
 | ---- | ---- | ---- | -------- | -------- |
 | isEmpty | Checks if value is an empty object, collection, map, or set | function | NO | yes |
 | isEqual | Performs a deep comparison between two values to determine if they are equivalent | function | NO | yes |
@@ -147,14 +147,14 @@ lodashStable.findLastIndex(users, 'active');
 
 #### **Function**
 
-| 名称 | 说明 | 类型 | 是否必填 | 鸿蒙支持 |
+| Name | Description | Type | Required | HarmonyOS Support |
 | ---- | ---- | ---- | -------- | -------- |
 | debounce | Creates a debounced function that delays invoking func until after wait milliseconds have elapsed since the last time the debounced function was invoked | function | NO | yes |
 | throttle | Creates a throttled function that only invokes func at most once per every wait milliseconds | function | NO | yes |
 
 #### **Number**
 
-| 名称 | 说明 | 类型 | 是否必填 | 鸿蒙支持 |
+| Name | Description | Type | Required | HarmonyOS Support |
 | ---- | ---- | ---- | -------- | -------- |
 | clamp | Clamps number within the inclusive lower and upper bounds | function | NO | yes |
 | random | Produces a random number between the inclusive lower and upper bounds | function | NO | yes |
@@ -162,7 +162,7 @@ lodashStable.findLastIndex(users, 'active');
 
 #### **Seq**
 
-| 名称 | 说明 | 类型 | 是否必填 | 鸿蒙支持 |
+| Name | Description | Type | Required | HarmonyOS Support |
 | ---- | ---- | ---- | -------- | -------- |
 | chain | Creates a lodash wrapper instance that wraps value with explicit method chain sequences enabled | function | NO | yes |
 

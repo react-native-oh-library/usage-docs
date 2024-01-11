@@ -210,7 +210,7 @@ ohpm install
 
 ## 兼容性
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-community/checkbox Releases](https://github.com/react-native-oh-library/react-native-checkbox/releases)
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/checkbox Releases](https://github.com/react-native-oh-library/react-native-checkbox/releases)
 
 ## 属性
 

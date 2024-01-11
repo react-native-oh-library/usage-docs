@@ -12,7 +12,7 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/react-native-oh-tpl/progress-bar-android)
+> [!tip] [Github 地址](https://github.com/react-native-oh-library/progress-bar-android)
 
 ## 安装与使用
 
@@ -195,7 +195,7 @@ ohpm install
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-library/progress-bar-android Releases](https://github.com/react-native-oh-library/progress-bar-android/releases)
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/progress-bar-android Releases](https://github.com/react-native-oh-library/progress-bar-android/releases)
 
 ## 属性
 

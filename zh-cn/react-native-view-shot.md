@@ -249,7 +249,7 @@ ohpm install
 
 ## 遗留问题
 
-- [ ] harmony 资源释放验证未通过
+- [ ] harmonyOS 资源释放接口验证未通过
 
 ## 其他
 

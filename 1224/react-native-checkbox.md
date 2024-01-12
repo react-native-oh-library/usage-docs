@@ -210,7 +210,7 @@ ohpm install
 
 ## 兼容性
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-community/checkbox Releases](https://github.com/react-native-oh-library/react-native-checkbox/releases)
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/checkbox Releases](https://github.com/react-native-oh-library/react-native-checkbox/releases)
 
 ## 属性
 
@@ -227,6 +227,7 @@ ohpm install
 | `disabled`      | If true the user won't be able to toggle the checkbox. Default value is false.                                                                                                                 | bool     | No       | All           | yes      |
 | `onCheckColor`  | Color of the check box when it is selected.                                                                                                                                                    | Color    | No       | ios & harmony | yes      |
 | `tintColor`     | Border color of the check box when it is not selected.                                                                                                                                         | Color    | No       | ios & harmony | yes      |
+| `shape`         | Sets component shapes, including circles and rounded squares. Default value is 0.                                                                                                                 | int      | No       | harmony       | yes      |     
 | `markSize`      | Size of the internal mark. The default size is the same as the width of the check box.This parameter cannot be set in percentage. If it is set to an invalid value, the default value is used. | number   | No       | harmony       | yes      |
 | `strokeWidth`   | Stroke width of the internal mark. This parameter cannot be set in percentage. If it is set to an invalid value, the default value is used.                                                    | number   | No       | harmony       | yes      |
 | `strokeColor`   | Color of the internal mark.                                                                                                                                                                    | Color    | No       | harmony       | yes      |

@@ -249,7 +249,7 @@ ohpm install
 
 ## 遗留问题
 
-- [ ] harmonyOS 资源释放接口验证未通过
+- [ ] harmonyOS 资源释放接口验证未通过 [issues#2](https://github.com/react-native-oh-library/react-native-view-shot/issues/2)。
 
 ## 其他
 

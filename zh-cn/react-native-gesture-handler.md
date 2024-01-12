@@ -197,16 +197,11 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 react-native-gesture-handler 在 2.x 版本里，不再从原生端引入 `<GestureHandlerRootView>`，而是在 JS 端添加。详情请看官方说明：[Migrating off RNGHEnabledRootView](https://docs.swmansion.com/react-native-gesture-handler/docs/guides/migrating-off-rnghenabledroot)。
 
-鸿蒙支持 1.x 在原生端替换 `RootView` 来添加 `<GestureHandlerRootView>` 的方式。
-
-**如果使用 2.x 方式，则把后面带有 `1.x` 注释的代码删掉即可**
-
 打开 `entry/src/main/ets/pages/index.ets`，添加：
 
 ```diff
 ...
 + import { RNGestureHandlerRootView, RNGestureHandlerButton } from "rnoh-gesture-handler"
-+ import { RNGestureHandlerModule } from 'rnoh-gesture-handler/src/main/ets/RNGestureHandlerModule'  // 1.x
 
   @Builder
   function CustomComponentBuilder(ctx: ComponentBuilderContext) {
@@ -217,37 +212,22 @@ react-native-gesture-handler 在 2.x 版本里，不再从原生端引入 `<Gest
         buildCustomComponent: CustomComponentBuilder
       })
     }
-+   else if (ctx.componentName == RNGestureHandlerRootView.NAME){
++   else if (ctx.descriptor.type == RNGestureHandlerRootView.NAME){
 +     RNGestureHandlerRootView({
 +       ctx: ctx.rnohContext,
-+       tag: ctx.tag,
++       tag: ctx.descriptor.tag,
 +       buildCustomComponent: CustomComponentBuilder
 +     })
-+   } else if (ctx.componentName == RNGestureHandlerButton.DESCRIPTOR_TYPE){
++   } else if (ctx.descriptor.type == RNGestureHandlerButton.DESCRIPTOR_TYPE){
 +     RNGestureHandlerButton({
 +       ctx: ctx.rnohContext,
-+       tag: ctx.tag,
++       tag: ctx.descriptor.tag,
 +       buildCustomComponent: CustomComponentBuilder
 +     })
 +   }
     ...
   }
   ...
-  build() {
-    Column() {
-      if (this.rnAbility && this.shouldShow) {
-        RNApp({
-+         onSetUp: (rnInstance) => {  // 1.x
-+           rnInstance.bindComponentNameToDescriptorType(RNGestureHandlerRootView.NAME, "RootView")  // 1.x
-+           rnInstance.getTurboModule<RNGestureHandlerModule>(RNGestureHandlerModule.NAME).install()  // 1.x
-+         },  // 1.x
-          ...
-        })
-      }
-    }
-    .height('100%')
-    .width('100%')
-  }
 ```
 
 ### 在 ArkTs 侧引入 Gesture Handler Package

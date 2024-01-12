@@ -37,77 +37,95 @@ yarn add -D react-native-dotenv@^3.4.9
 下面的代码展示了这个库的基本使用场景：
 
 ```js
-1.配置babel.config.js文件如下：
-	module.exports=function(api){
-		api.cache(false);
-		return{
-			presets:['module:metro-react-native-babel-preset'],
-			plugins:[
-				["module:react-native-dotenv"]
-			]
-		}
+.babel.config.js：
+Basic setup:
+module.exports=function(api){
+	api.cache(false);      //解决缓存导致无法更新变量读取问题
+	return{
+		presets:['module:metro-react-native-babel-preset'],
+		plugins:[
+			["module:react-native-dotenv"]
+		]
 	}
+}
 
-2.在根目录下新建.env文件，并配置如下代码：
-	API_URL=env.url
-	API_TOKEN=env.token
-  在根目录下新建.env.dev文件，配置如下代码：
-	API_URL=dev.url
-	API_TOKEN=dev.token
-  在根目录下新建.env.test文件，配置如下代码：
-	API_URL=test.url
-	API_TOKEN=test.token
+If the defaults do not cut it for your project, this outlines the available options for your Babel configuration and their respective default values, but you do not need to add them if you are using the default settings.
 
-3.根目录下新建types文件夹，在此目录下新建env.d.tsx文件，并配置如下代码：
-	daclare module '@env'{
-		export const API_URL:string,API_TOKEN:string
-	}
+{
+  "plugins": [
+    ["module:react-native-dotenv", {
+      "envName": "MY_ENV",
+      "moduleName": "@env",
+      "path": ".env",
+    }]
+  ]
+}
+.env：
 
-4.将第3步的文件添加到tsconfig.json文件中，配置如下：
-	{
-		"extends":"@tsconfig/react-native/tsconfig.json",
-		"compilerOptions":{
-			"typeRoots":["./types"]
-		}
-	}
+API_URL=https://api.example.org
+API_TOKEN=abc123
 
-5.页面中引入，代码配置如下：
-	import React from 'react';
-	import {View,Text} from 'react-native';
-	import {API_URL,API_TOKEN} from "@env"
+In users.js：
 
-	function DotenvTest({}):JSX.Element{
-		return (
-			<View>
-				<Text>DotenvTest</Text>
-				<Text>API_URL:{API_URL}</Text>
-				<Text>API_TOKEN:{API_TOKEN}</Text>
-			</View>
-		)
-	}
-	export default DotenvTest
+import {API_URL, API_TOKEN} from "@env"
 
-6.在工程文件的package.json文件的"scrips"中配置如下代码：
-	"start_harmony:dev":"set NODE_ENV=dev&& npm run dev"
-	"start_harmony:test":"set NODE_ENV=test&& npm run dev"
+fetch(`${API_URL}/users`, {
+  headers: {
+    'Authorization': `Bearer ${API_TOKEN}`
+  }
+})
 
-7.在metro.config.js文件中修改为以下代码：
-	const config={
-		resetCache:true,
-		transformer:{
-			getTransformOptions:async()=>({
-				transform:{
-					experimentalImportSupport:false,
-					inlineRequires:true
-				}
-			})
-		}
-	}
+Multi-env
 
-8.单环境：执行npm run dev指令，生成bundle后运行鸿蒙侧，启动页面，观察页面读取到.env文件中的变量值
-  多环境：分别执行npm run start_harmony:dev 或者npm run start_harmony:test命令，生成bundle后运行鸿蒙侧，启动页面，观察页面读取到.env.dev和.env.test文件中的变量值
+// package.json
+{
+  "scripts": {
+   	"start_harmony:dev":"set NODE_ENV=dev&& npm run start",
+	"start_harmony:test":"set NODE_ENV=test&& npm run start"
+  }
+}
+Or
+{
+  "scripts": {
+   	"start_harmony:dev":"set MY_ENV=dev&& npm run start",
+	"start_harmony:test":"set MY_ENV=test&& npm run start"
+  }
+}
+
+For the library to work with TypeScript, you must manually specify the types for the module.
+
+Create a types folder in your project
+Inside that folder, create a *.d.tsxfile, say, env.d.tsx
+in that file, declare a module as the following format:
+
+declare module '@env' {
+  export const API_URL: string,API_TOKEN:string;
+}
+Add all of your .env variables inside this module.
+
+Finally, add this folder into the typeRoots field in your tsconfig.json file:
+{
+...
+  "compilerOptions": {
+    ...
+      "typeRoots": ["./src/types"],
+    ...  
+  }
+...
+}
 
 
+Cacheing
+
+When using with babel-loader with caching enabled you will run into issues where environment changes won’t be picked up. This is due to the fact that babel-loader computes a cacheIdentifier that does not take your .env file(s) into account. The good news is that a recent update has fixed this problem as long as you're using a new version of Babel. Many react native libraries have not updated their Babel version yet so to force the version, add in your package.json:
+
+"resolutions": {
+  "@babel/core": "^7.20.2",
+  "babel-loader": "^8.3.0"
+}
+If this does not work, you should set api.cache(false) in your babel config
+
+metro.config.js : resetCache: true  //解决缓存导致无法更新变量读取问题
 ```
 
 ## 约束与限制

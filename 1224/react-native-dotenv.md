@@ -5,7 +5,7 @@
 </p>
 <p align="center">
  	<a href="https://github.com/goatandsheep/react-native-dotenv">
-        <img src="https://img.shields.io/badge/platforms-android%20|%20web%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
+          <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20web%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
     <a href="https://github.com/goatandsheep/react-native-dotenv/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />

@@ -23,13 +23,13 @@
 #### **yarn**
 
 ```bash
-yarn add react-native-section-list-get-item-layout
+yarn add react-native-section-list-get-item-layout@^2.2.3
 ```
 
 #### **npm**
 
 ```bash
-npm install react-native-section-list-get-item-layout
+npm install react-native-section-list-get-item-layout@^2.2.3
 ```
 
 <!-- tabs:end -->
@@ -72,11 +72,15 @@ class MyComponent extends React.Component {
 
 ## API
 
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
 详情见 [rn-section-list-get-item-layout 源库地址](https://github.com/jsoendermann/rn-section-list-get-item-layout)
 
-| 名称                                                                                                                          | 说明                                                                                                                                                                                              | 类型     | 是否必填 | 原库平台 | 鸿蒙支持 |
+| Name                                                                                                                          | Description                                                                                                                                                                                              | Type     | Required | Platform | HarmonyOS Support |
 | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | -------- |
-| sectionListGetItemLayout({getItemHeight, getSeparatorHeight, getSectionHeaderHeight,getSectionFooterHeight,listHeaderHeight}) | This package provides a function that helps you construct the getItemLayout function for your SectionLists. For an explanation of why this exists, see this post. It's meant to be used like this | function | Yes      | /        | Yes      |
+| sectionListGetItemLayout({getItemHeight, getSeparatorHeight, getSectionHeaderHeight,getSectionFooterHeight,listHeaderHeight}) | This package provides a function that helps you construct the getItemLayout function for your SectionLists. For an explanation of why this exists, see this post. It's meant to be used like this | function | Yes      | All       | Yes      |
 
 ## 遗留问题
 

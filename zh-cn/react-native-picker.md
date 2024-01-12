@@ -127,7 +127,7 @@ target_link_libraries(rnoh_app PUBLIC rnoh)
 
 # RNOH_BEGIN: link_packages
 target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
-+ target_link_libraries(rnoh_app PUBLIC rnoh-picker)
++ target_link_libraries(rnoh_app PUBLIC rnoh_picker)
 # RNOH_END: link_packages
 ```
 
@@ -169,8 +169,7 @@ function CustomComponentBuilder(ctx: ComponentBuilderContext) {
 + else if (ctx.componentName === PICKER_TYPE) {
 +   RNCPicker({
 +     ctx: ctx.rnohContext,
-+     tag: ctx.tag,
-+     buildCustomComponent: CustomComponentBuilder
++     tag: ctx.tag
 +   })
 + }
  ...

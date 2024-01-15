@@ -207,11 +207,11 @@ ohpm install
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support |Notes|
 | ---- | ----------- | ---- | -------- | -------- | -------- | -------- |
-| setRNConfiguration  | Sets configuration options that will be used in all location requests | function(config)  | NO | IOS Android | partially | config仅支持skipPermissionRequests:false |
+| setRNConfiguration  | Sets configuration options that will be used in all location requests | function(config)  | NO | IOS Android | partially | config仅支持skipPermissionRequests |
 | requestAuthorization | Request suitable Location permission | function(success,error) | YES | IOS Android | partially | success支持,error仅支持code与message |
 | getCurrentPosition | Invokes the success callback once with the latest location info | function(success(position),error(error),option) | NO | IOS Android | partially | position中仅altitudeAccuracy不支持,option仅支持timeout与maximumAge,error仅支持code与message |
 | watchPosition | Invokes the success callback whenever the location changes. Returns a watchId (number) | function(success(postion),error(error),option) | NO | IOS Android | partially | position中仅altitudeAccuracy不支持,error仅支持code与message,option仅支持interval与distanceFilter|
-| clearWatch | Clears watch observer by id returned by watchPosition() | function(watchID) | NO | IOS Android | yes | watchID不支持 |
+| clearWatch | Clears watch observer by id returned by watchPosition() | function(watchID) | NO | IOS Android | yes | watchID仅支持默认值0 |
 
 ## 遗留问题
 

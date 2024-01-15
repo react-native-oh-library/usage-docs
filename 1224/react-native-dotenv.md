@@ -17,14 +17,17 @@
 
 ## 安装与使用
 
+### 安装
+
 进入到工程目录并输入以下命令：
+
+<!-- tabs:start -->
 
 #### **yarn**
 
 ```bash
 yarn add -D react-native-dotenv@^3.4.9
 ```
-<!-- tabs:start -->
 
 #### **npm**
 
@@ -34,39 +37,30 @@ yarn add -D react-native-dotenv@^3.4.9
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+### 使用
 
-```js
-.babel.config.js：
-Basic setup:
-module.exports=function(api){
-	api.cache(false);      //解决缓存导致无法更新变量读取问题
-	return{
-		presets:['module:metro-react-native-babel-preset'],
-		plugins:[
-			["module:react-native-dotenv"]
-		]
-	}
-}
+基础配置：
 
-If the defaults do not cut it for your project, this outlines the available options for your Babel configuration and their respective default values, but you do not need to add them if you are using the default settings.
+**.babelrc**
 
+```json
 {
   "plugins": [
-    ["module:react-native-dotenv", {
-      "envName": "MY_ENV",
-      "moduleName": "@env",
-      "path": ".env",
-    }]
+    ["module:react-native-dotenv"]
   ]
 }
-.env：
+```
 
+**.env**
+
+```
 API_URL=https://api.example.org
 API_TOKEN=abc123
+```
 
-In users.js：
+In **users.js**
 
+```js
 import {API_URL, API_TOKEN} from "@env"
 
 fetch(`${API_URL}/users`, {
@@ -74,36 +68,106 @@ fetch(`${API_URL}/users`, {
     'Authorization': `Bearer ${API_TOKEN}`
   }
 })
+```
 
-Multi-env
+### 安全模式
 
-// package.json
+若启用安全模式，则只允许使用在 `.env` 文件中定义的环境变量。这将完全忽略环境中已经定义的所有内容。
+
+`.env`  文件必须存在
+
+```json
+{
+  "plugins": [
+    ["module:react-native-dotenv", {
+      "safe": true
+    }]
+  ]
+}
+```
+
+### 允许 undefined
+
+允许导入未定义的变量，导入的值为 undefined。
+
+```json
+{
+  "plugins": [
+    ["module:react-native-dotenv", {
+      "allowUndefined": true
+    }]
+  ]
+}
+```
+
+In **users.js**
+
+```js
+import {UNDEFINED_VAR} from '@env'
+
+console.log(UNDEFINED_VAR === undefined) // true
+```
+
+当设置为 false 时，将抛出错误。
+
+### 覆写 envName
+
+请查看 [官方说明](https://github.com/goatandsheep/react-native-dotenv?tab=readme-ov-file#override-envname)
+
+### 多环境 (Multi-env)
+
+该三方库现在支持读取特定环境的变量。这意味着可以从多个文件中导入环境变量，例如 `.env`, `.env.development`, `.env.Production` 和 `.env.test`。这是基于 [dotenv-flow](https://www.npmjs.com/package/dotenv-flow) 实现的。
+
+
+若要进行选择，需要为每个环境使用 NODE_ENV 设置脚本
+
+**package.json**
+
+<!-- tabs:start -->
+
+#### **windows**
+
+```json
 {
   "scripts": {
-   	"start_harmony:dev":"set NODE_ENV=dev&& npm run start",
-	"start_harmony:test":"set NODE_ENV=test&& npm run start"
+    "start:development": "set NODE_ENV=development&& npx react-native start",
+    "start:production": "set NODE_ENV=production&& npx react-native start",
   }
 }
-Or
+```
+
+#### **iOS & Linux**
+
+```json
 {
   "scripts": {
-   	"start_harmony:dev":"set MY_ENV=dev&& npm run start",
-	"start_harmony:test":"set MY_ENV=test&& npm run start"
+    "start:development": "NODE_ENV=development npx react-native start",
+    "start:production": "NODE_ENV=production npx react-native start",
   }
 }
+```
 
-For the library to work with TypeScript, you must manually specify the types for the module.
+<!-- tabs:end -->
 
-Create a types folder in your project
-Inside that folder, create a *.d.tsxfile, say, env.d.tsx
-in that file, declare a module as the following format:
+### TypeScript
 
+对于使用 TypeScript 的库，需要手动指定类型：
+
+- 在你的工程创建 `types` 文件夹
+- 进入文件夹，创建 `*.d.tsx` 文件，比如 `env.d.ts`
+- 在此文件中，以下面的形式声明一个 module
+
+```ts
 declare module '@env' {
-  export const API_URL: string,API_TOKEN:string;
+  export const API_BASE: string;
 }
-Add all of your .env variables inside this module.
+```
 
-Finally, add this folder into the typeRoots field in your tsconfig.json file:
+把所有你的 `.env` 的变量加入这个 module 内。
+
+最后，在  `tsconfig.json` 文件中添加 `typeRoots` 字段
+
+```json
 {
 ...
   "compilerOptions": {
@@ -113,20 +177,50 @@ Finally, add this folder into the typeRoots field in your tsconfig.json file:
   }
 ...
 }
+```
 
+### 缓存
 
-Cacheing
+> [!WARNING] 请务必查看这一小节
 
-When using with babel-loader with caching enabled you will run into issues where environment changes won’t be picked up. This is due to the fact that babel-loader computes a cacheIdentifier that does not take your .env file(s) into account. The good news is that a recent update has fixed this problem as long as you're using a new version of Babel. Many react native libraries have not updated their Babel version yet so to force the version, add in your package.json:
+已知问题：在 Android 和 HarmonyOS 里，均会出现因为缓存导致的环境变量无法更新的问题，所以需要添加一些配置，让每次打包的时候清空缓存，以达到能读取新的环境变量的效果。
 
+首先确保以下依赖已经配置到你的 `package.json` 内
+
+```json
 "resolutions": {
   "@babel/core": "^7.20.2",
   "babel-loader": "^8.3.0"
 }
-If this does not work, you should set api.cache(false) in your babel config
-
-metro.config.js : resetCache: true  //解决缓存导致无法更新变量读取问题
 ```
+
+在 babel config 中添加 `api.cache(false)`，例如
+
+```js
+// .babel.config.js
+module.exports=function(api){
+	api.cache(false);
+	return{
+		presets:['module:metro-react-native-babel-preset'],
+		plugins:[
+			["module:react-native-dotenv"]
+		]
+	}
+}
+```
+
+在 `metro.config.js` 中添加 `resetCache: true`，例如
+
+```js
+// metro.config.js
+module.exports = {
+  resetCache:true,
+  ...
+}
+```
+
+更多清除缓存的方法请参考 [react-naitve-dotenv 官方指引](https://github.com/goatandsheep/react-native-dotenv)
+
 
 ## 约束与限制
 
@@ -135,19 +229,6 @@ metro.config.js : resetCache: true  //解决缓存导致无法更新变量读取
  在下述版本验证通过：
 
  1. IDE：DevEco Studio 4.1.3.412;SDK：OpenHarmony(api11) 4.1.0.53;测试设备：Mate40 Pro(NOH-AN00);ROM：2.0.0.52(SP22C00E52R1P17log);RNOH：0.72.11
-
-## 使用场景
-
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-详情见 [react-native-dotenv源库地址](https://github.com/goatandsheep/react-native-dotenv)
-
-| Name | Description |   Platform | HarmonyOS Support |
-| ---- | ---- | ---- |   -------- |
-| Single-env | 单环境使用场景  |All |  yes |
-| Multi-env | 多环境使用场景 |  All |  yes |
 
 ## 遗留问题
 

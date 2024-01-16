@@ -19,14 +19,14 @@
 #### **yarn**
 
 ```bash
-yarn add deepmerge
+yarn add deepmerge@^4.3.1
 ```
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm install deepmerge
+npm install deepmerge@^4.3.1
 ```
 
 <!-- tabs:end -->
@@ -85,16 +85,14 @@ deepmerge(x, y) // => output
 
 ## API
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 详情见 [deepmerge源库地址](https://github.com/TehShrike/deepmerge)
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support |
-| ---- | ---- | ---- | -------- | -------- | -------- |
-| deepmerge(x, y, [options]) | Merge two objects x and y deeply, returning a new merged object with the elements from both x and y. | function | no | / | yes |
-| deepmerge.all(arrayOfObjects, [options]) | Merges any number of objects into a single result object. | function | no | / | yes |
+| Name | Description | Type | Required |  HarmonyOS Support |
+| ---- | ---- | ---- | -------- |  -------- |
+| deepmerge(x, y, [options]) | Merge two objects x and y deeply, returning a new merged object with the elements from both x and y. | function | no |  yes |
+| deepmerge.all(arrayOfObjects, [options]) | Merges any number of objects into a single result object. | function | no |  yes |
 
 ## 遗留问题
 

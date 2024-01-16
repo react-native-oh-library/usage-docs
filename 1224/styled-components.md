@@ -18,7 +18,7 @@
 #### **yarn**
 
 ```bash
-yarn add styled-components
+yarn add styled-components@^6.1.1
 ```
 
 <!-- tabs:start -->
@@ -26,7 +26,7 @@ yarn add styled-components
 #### **npm**
 
 ```bash
-npm install styled-components
+npm install styled-components@^6.1.1
 ```
 
 <!-- tabs:end -->
@@ -69,24 +69,24 @@ function MyUI() {
 
 在下述版本验证通过：
 
-1.  IDE：DevEco Studio 4.1.3.412;SDK：OpenHarmony(api11) 4.1.0.53;测试设备：Mate40 Pro(NOH-AN00);ROM：2.0.0.52(SP22C00E52R1P17log);RNOH：0.72.11
+1. IDE：DevEco Studio 4.1.3.412;SDK：OpenHarmony(api11) 4.1.0.53;测试设备：Mate40 Pro(NOH-AN00);ROM：2.0.0.52(SP22C00E52R1P17log);RNOH：0.72.11
 
 ## 属性
 
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
 详情见 [styled-components 源库地址](https://github.com/styled-components/styled-components)
 
-| 名称              | 说明                                                                                                                                                                                  | 类型          | 是否必填 | 原库平台 | 鸿蒙支持 |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | -------- | -------- | -------- |
-| ThemeProvider     | A helper component for theming.                                                                                                                                                       | component     | No       | /        | Yes      |
-| css               | The css prop is a convenient way to iterate on your components without settling on fixed component boundaries yet                                                                     | prop          | No       | /        | Yes      |
-| toStyleSheet      | convert a style object to a stylesheet object                                                                                                                                         | function      | No       | /        | Yes      |
-| ThemeContext      | access the theme object and pass the theme object to the style component                                                                                                              | jsx component | No       | /        | Yes      |
-| isStyledComponent | A utility to help identify styled components.                                                                                                                                         | function      | No       | /        | Yes      |
-| withTheme         | This is a higher order component factory to get the current theme from a ThemeProvider and pass it to your component as a theme prop.                                                 | function      | No       | /        | Yes      |
-| useTheme          | This is a custom hook to get the current theme from a ThemeProvider.                                                                                                                  | function      | No       | /        | Yes      |
-| ThemeConsumer     | It passes the current theme (based on a ThemeProvider higher in your component tree) as an argument to the child function. From this function, you may return further JSX or nothing. | jsx component | No       | /        | Yes      |
-| createGlobalstyle | A helper function to generate a special StyledComponent that handles global styles                                                                                                    | function      | No       | Web      | No       |
-| keyframes         | A helper method to create keyframes for animations.                                                                                                                                   | function      | No       | Web      | No       |
+| Name          | Description       | Type | Required | HarmonyOS Support |
+| ------------- | ---------- | ---- | -------- |  -------- |
+| ThemeProvider     | A helper component for theming.                                                                                                                                                       | component     | no       | yes      |
+| css               | The css prop is a convenient way to iterate on your components without settling on fixed component boundaries yet                                                                     | prop          | no       | yes     |
+| toStyleSheet      | convert a style object to a stylesheet object                                                                                                                                         | function      |no       | yes     |
+| ThemeContext      | access the theme object and pass the theme object to the style component                                                                                                              | jsx component | no       | yes      |
+| isStyledComponent | A utility to help identify styled components.                                                                                                                                         | function      | no       | yes      |
+| withTheme         | This is a higher order component factory to get the current theme from a ThemeProvider and pass it to your component as a theme prop.                                                 | function      | no       | yes      |
+| useTheme          | This is a custom hook to get the current theme from a ThemeProvider.                                                                                                                  | function      | no       | yes     |
+| ThemeConsumer     | It passes the current theme (based on a ThemeProvider higher in your component tree) as an argument to the child function. From this function, you may return further JSX or nothing. | jsx component |no       | yes      |
 
 ## 遗留问题
 

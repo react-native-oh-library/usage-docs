@@ -130,14 +130,14 @@ target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 ```diff
 #include "RNOH/PackageProvider.h"
 #include "SamplePackage.h"
-+ #include "GeolocationPackage.h"
++ #include "GeoLocationPackage.h"
 
 using namespace rnoh;
 
 std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
     return {
       std::make_shared<SamplePackage>(ctx),
-+     std::make_shared<GeolocationPackage>(ctx)
++     std::make_shared<GeoLocationPackage>(ctx)
     };
 }
 ```
@@ -150,12 +150,12 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ```diff
 ...
-+ import {GeolocationPackage} from 'rnoh-geolocation/ts';
++ import {GeoLocationPackage} from 'rnoh-geolocation/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
     new SamplePackage(ctx),
-+   new GeolocationPackage(ctx)
++   new GeoLocationPackage(ctx)
   ];
 }
 ```
@@ -214,6 +214,8 @@ ohpm install
 | clearWatch | Clears watch observer by id returned by watchPosition() | function(watchID) | NO | IOS Android | yes | watchID仅支持默认值0 |
 
 ## 遗留问题
+
+- [ ] react-native-geolocation 部分属性未实现鸿蒙化: [issue#I8WRMI](https://gitee.com/react-native-oh-library/usage-docs/issues/I8WRMI)
 
 ## 其他
 

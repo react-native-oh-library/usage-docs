@@ -212,7 +212,7 @@ const styles = StyleSheet.create({
 
 ## 遗留问题
 
-- [ ] 页面滑动时，有概率卡在中间，无法自动回正[issue#5](https://github.com/react-native-oh-library/react-navigation/issues/5)
+- [yes] 已解决： 页面滑动时，有概率卡在中间，无法自动回正[issue#5](https://github.com/react-native-oh-library/react-navigation/issues/5)
 
 ## 其他
 

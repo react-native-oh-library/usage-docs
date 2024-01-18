@@ -77,14 +77,12 @@ render() {
 | `logoBackgroundColor`  | The logo gets a filled quadratic background with this color. Use 'transparent' if your logo already has its own backdrop. | string   | No       | All      | yes               |
 | `logoMargin`           | logo's distance to its wrapper                                                                                            | number   | No       | All      | yes               |
 | `logoBorderRadius`     | the border-radius of logo image (Android is not supported)                                                                | number   | No       | ios      | no                |
-| `quietZone`            | quiet zone around the qr in pixels (useful when saving image to gallery)                                                  | number   | No       | All      | yes 见遗留问题    |
+| `quietZone`            | quiet zone around the qr in pixels (useful when saving image to gallery)                                                  | number   | No       | All      | no                |
 | `getRef`               | Get SVG ref for further usage                                                                                             | callback | No       | All      | 不涉及            |
 | `ecl`                  | Error correction level                                                                                                    | string   | No       | All      | yes               |
 | `onError(error)`       | Callback fired when exception happened during the code generating process                                                 | callback | No       | All      | 不涉及            |
 
 ## 遗留问题
-
-- [ ] 当 quietZone 属性为非 0 值时，二维码显示不居中
 
 ## 其他
 

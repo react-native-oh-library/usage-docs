@@ -36,7 +36,7 @@ npm install @react-native-oh-tpl/react-native-reanimated
 
 ```js
 import { View, Text } from 'react-native';
-import { interpolate } from "@react-native-oh-tpl/react-native-reanimated";
+import { interpolate } from "react-native-reanimated";
 
 export default function App() {
   return (

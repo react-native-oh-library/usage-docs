@@ -18,21 +18,35 @@
 
 <!-- tabs:start -->
 
+#### **yarn**
+
+```bash
+yarn add @react-navigation/bottom-tabs
+yarn add @react-navigation/native
+yarn add @react-navigation/native-stack
+yarn add @react-navigation/stack
+yarn add @react-native-oh-tpl/react-native-gesture-handler
+yarn add react-native-reanimated
+yarn add @react-native-oh-tpl/react-native-safe-area-context
+yarn add react-native-screens
+
+```
 #### **npm**
 
 ```bash
-
-npm i @react-navigation/bottom-tabs
-npm i @react-navigation/native
-npm i @react-navigation/native-stack
-npm i @react-navigation/stack
-npm i @react-native-oh-tpl/react-native-gesture-handler
-npm i react-native-reanimated
-npm i @react-native-oh-tpl/react-native-safe-area-context
-npm i react-native-screens
+npm install @react-navigation/bottom-tabs
+npm install @react-navigation/native
+npm install @react-navigation/native-stack
+npm install @react-navigation/stack
+npm install @react-native-oh-tpl/react-native-gesture-handler
+npm install react-native-reanimated
+npm install @react-native-oh-tpl/react-native-safe-area-context
+npm install react-native-screens
 
 ```
 <!-- tabs:end -->
+
+声明：[@react-native-oh-tpl/react-native-safe-area-context](https://gitee.com/react-native-oh-library/usage-docs/blob/master/1224/react-native-safe-area-context.md)和[@react-native-oh-tpl/react-native-gesture-handler](https://gitee.com/react-native-oh-library/usage-docs/blob/master/1224/react-native-gesture-handler.md)需要进行额外的配置，详情请去对应的文档查看。
 
 下面的代码展示了这个库的基本使用场景：
 
@@ -64,7 +78,7 @@ function NativeNavigation() {
 const Tab = createBottomTabNavigator();
 const NestedNavigator = () => (
     <Tab.Navigator>
-        <Tab.Screen name = 'Screen1' component = {Home}>
+        <Tab.Screen name = 'Screen1' component = {Home}/>
     </Tab.Navigator>
 )
 
@@ -113,7 +127,7 @@ enableScreens(false);
 
 ## 属性
 
-| 名称 | 说明 | 类型 | 是否必填 | 原库平台 | 鸿蒙支持 |
+| Name | Description | Type | Required | Platform | HarmonyOS Support |
 | ---- | ---- | ---- | -------- | -------- | -------- |
 | enableScreens|支持原生及其React Native View |function| No | / | Yes |
 | enableFreeze |对react-freeze的支持，使用ReactSuspense机制来防止React组件输的部分渲染 | function | No | / | Yes |

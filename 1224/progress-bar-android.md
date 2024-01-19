@@ -215,7 +215,7 @@ Inherits [View Props](https://reactnative.dev/docs/view#props).
 
 ## 遗留问题
 
-- [ ] styleAttr 为 Horizontal 时无法铺满全屏 [issues#4](https://github.com/react-native-oh-library/progress-bar-android/issues/4)。
+- [x] styleAttr 为 Horizontal 时无法铺满全屏 [issues#4](https://github.com/react-native-oh-library/progress-bar-android/issues/4)。
 
 ## 其他
 

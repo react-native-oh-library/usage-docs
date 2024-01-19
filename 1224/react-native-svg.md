@@ -241,13 +241,64 @@ ohpm install
 | height |     元素高度      | number\| string | Yes      | All      | Yes               |
 |  href  |   图像资源引用    | source\| string | Yes      | All      | Yes               |
 
+**Circle**： 园绘制组件，基于圆心和半径生成园形形状
+
+| Name |      Description      |      Type       | Required | Platform | HarmonyOS Support |
+| :--: | :-------------------: | :-------------: | -------- | -------- | ----------------- |
+|  r   |        园半径         | number\| string | Yes      | All      | Yes               |
+|  cx  | 圆心在 x 轴上平移距离 | number\| string | No       | All      | Yes               |
+|  cy  | 圆心在 y 轴上平移距离 | number\| string | No       | All      | Yes               |
+
+**Polygon**： 多边形制组件，用于创建至少包含三条边的图形
+
+|  Name  |          Description           |      Type      | Required | Platform | HarmonyOS Support |
+| :----: | :----------------------------: | :------------: | -------- | -------- | ----------------- |
+| points | 定义多边形每个角的 x 和 y 坐标 | string\| array | Yes      | All      | Yes               |
+
+**Defs**：该元素是用于对其他 SVG 元素进行分组的容器
+
+**LinearGradient**：用于定义线性渐变
+
+> [!tip] 注： LinearGradient 目前仅支持 Path、Rect、Circle 组件，只支持在 fill 上使用，不支持 stroke
+
+| Name |    Description    |      Type       | Required | Platform | HarmonyOS Support |
+| :--: | :---------------: | :-------------: | -------- | -------- | ----------------- |
+|  x1  | 在 x 轴上平移距离 | number\| string | No       | All      | Yes               |
+|  y1  | 在 y 轴上平移距离 | number\| string | No       | All      | Yes               |
+|  x2  | 在 x 轴上平移距离 | number\| string | No       | All      | Yes               |
+|  y2  | 在 y 轴上平移距离 | number\| string | No       | All      | Yes               |
+
+**Stop**：定义渐变上的颜色坡度
+
+|    Name     |         Description          |      Type       | Required | Platform | HarmonyOS Support |
+| :---------: | :--------------------------: | :-------------: | -------- | -------- | ----------------- |
+|  stopColor  |        渐变停止的颜色        |     string      | No       | All      | Yes               |
+| stopOpacity |      渐变停止的不透明度      | number\| string | No       | All      | Yes               |
+|   offset    | 渐变停止沿渐变向量放置的位置 | number\| string | No       | All      | Yes               |
+
+**Mask**：定义 alpha 蒙版，用于将当前对象合成到背景中
+
+> [!tip] 注： Mask 目前自有属性均不支持，仅支持 Path、Rect、Circle 组件的单一组件嵌套，不支持多组件嵌套
+
+**Use**：该元素可以重复使用 SVG 元素
+
+> [!tip] 注： Use 目前仅支持 Path、Rect、Circle 组件
+
+|  Name  |    Description    |      Type       | Required | Platform | HarmonyOS Support |
+| :----: | :---------------: | :-------------: | -------- | -------- | ----------------- |
+|   x    | 在 x 轴上平移距离 | number\| string | No       | All      | Yes               |
+|   y    | 在 y 轴上平移距离 | number\| string | No       | All      | Yes               |
+| width  |     元素宽度      | number\| string | No       | All      | Yes               |
+| height |     元素高度      | number\| string | No       | All      | Yes               |
+|  href  |   图像资源引用    | source\| string | Yes      | All      | Yes               |
+
 **公共属性**：Common props 组件属性鸿蒙侧支持情况
 
-|    Name     |             Description              |  Type  | Default | Required | Platform | G   | Path | Rect |
-| :---------: | :----------------------------------: | :----: | :-----: | :------: | -------- | --- | ---- | ---- |
-|    fill     |           设置填充区域颜色           | string | '#000'  |    No    | All      |     | √    | √    |
-|   stroke    | 设置边框颜色，不设置时，默认没有边框 | string | 'none'  |    No    | All      |     | √    | √    |
-| strokeWidth |             设置边框宽度             | number |    1    |    No    | All      |     | √    | √    |
+|    Name     |             Description              |  Type  | Default | Required | Platform | G   | Path | Rect | Circle | Polygon |
+| :---------: | :----------------------------------: | :----: | :-----: | :------: | -------- | --- | ---- | ---- | ------ | ------- |
+|    fill     |           设置填充区域颜色           | string | '#000'  |    No    | All      |     | √    | √    | √      | √       |
+|   stroke    | 设置边框颜色，不设置时，默认没有边框 | string | 'none'  |    No    | All      |     | √    | √    | √      | √       |
+| strokeWidth |             设置边框宽度             | number |    1    |    No    | All      |     | √    | √    | √      | √       |
 
 ## 遗留问题
 

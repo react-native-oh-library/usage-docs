@@ -22,14 +22,14 @@
 
 ```bash
 
-npm i @react-navigation/bottom-tabs --save
-npm i @react-navigation/native --save
-npm i @react-navigation/native-stack --save
-npm i @react-navigation/stack --save
-npm i react-native-gesture-handler --save
-npm i react-native-reanimated --save
-npm i react-native-safe-area-context --save
-npm i react-native-screens --save
+npm i @react-navigation/bottom-tabs
+npm i @react-navigation/native
+npm i @react-navigation/native-stack
+npm i @react-navigation/stack
+npm i @react-native-oh-tpl/react-native-gesture-handler
+npm i react-native-reanimated
+npm i @react-native-oh-tpl/react-native-safe-area-context
+npm i react-native-screens
 
 ```
 <!-- tabs:end -->

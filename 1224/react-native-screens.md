@@ -34,6 +34,62 @@ npm i react-native-screens --save
 ```
 <!-- tabs:end -->
 
+下面的代码展示了这个库的基本使用场景：
+
+```js
+import React from "react";
+import { NavigationContainer, ParamListBase } from "@react-navigation/native";
+import { ScrollView, Button, Tesxt } from "react-native";
+import { NativeStackNavigationProp } from "react-native-screens";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
+import { enableScreens } from "react-native-screens";
+
+
+enableScreens(false)
+const Stack = createStackNavigator();
+
+function NativeNavigation() {
+    return (
+        <NavigationContainer>
+            <Stack.Navigator>
+                <Stack.Screen
+                name = 'Home'
+                component= {Home}/>
+            </Stack.Navigator>
+        </NavigationContainer>
+    )
+}
+
+const Tab = createBottomTabNavigator();
+const NestedNavigator = () => (
+    <Tab.Navigator>
+        <Tab.Screen name = 'Screen1' component = {Home}>
+    </Tab.Navigator>
+)
+
+function Home({navigation}:{navigation:NativeStackNavigationProp<ParamListBase>}){
+    return (
+        <ScrollView
+          style= {{ backgroundColor: 'yellow'}}
+          contentInsetAdjustmentBehavior= 'automatic'>
+
+        <Button
+          title= 'NestedNavigator'
+          onPress={() => {
+              navigation.push('NestedNavigator')
+          }}/>
+
+        </ScrollView>
+    );
+}
+
+export default function RNScreenTest(){
+    return <NativeNavigation/>
+}
+
+```
+
 ### 禁用 `react-native-screens`
 
 因为 ArkUI(Navigation、NavRouter、NavDestination)没有代理任何独特功能，且无法映射到 main_page 通过页面容器优化性能，所以 react-native-screens 禁用鸿蒙原生屏幕使用 react-native views 即可，请在您的入口文件中添加以下代码。 (例如. `App.js`):
@@ -44,7 +100,7 @@ import { enableScreens } from "react-native-screens";
 enableScreens(false);
 ```
 
-您还可以通过[`detachInactiveScreens`](https://reactnavigation.org/docs/stack-navigator#detachinactivescreens)在每个导航器中禁用使用原生屏幕。后续待补充各个接口验证情况。
+您还可以通过[`detachInactiveScreens`](https://reactnavigation.org/docs/stack-navigator#detachinactivescreens)在每个导航器中禁用使用原生屏幕。
 
 ## 兼容性
 
@@ -75,7 +131,10 @@ enableScreens(false);
 
 [原库接口文档](https://github.com/software-mansion/react-native-screens/blob/main/guides/GUIDE_FOR_LIBRARY_AUTHORS.md) ，欢迎提交 [issue](https://gitee.com/react-native-oh-library/usage-docs/issues).
 
+## 遗留问题
+
+## 其他
 
 ## 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/a7ul/react-native-exception-handler/blob/master/LICENSE) ，请自由地享受和参与开源。
+本项目基于 [The MIT License (MIT)](https://github.com/software-mansion/react-native-screens/blob/main/LICENSE) ，请自由地享受和参与开源。

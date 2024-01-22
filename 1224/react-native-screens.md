@@ -130,14 +130,14 @@ enableScreens(false);
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | ---- | ---- | ---- | -------- | -------- | -------- |
 | enableScreens|支持原生及其React Native View |function| No | All | Yes |
-| enableFreeze |对react-freeze的支持，使用ReactSuspense机制来防止React组件输的部分渲染 | function | No | All | Yes |
+| enableFreeze |对react-freeze的支持，使用ReactSuspense机制来防止React组件树的部分渲染 | function | No | All | Yes |
 | createNativeStackNavigator |提供屏幕切换的能力 | function | No | All | NO |
 | NativeStackNavigationProp |切换页面属性的封装 | object | No | All | Yes |
 | NativeStackNavigationOptions |导航栏属性设置封装 | object  | No | All | NO |
 | FullWindowOverlay |一个组件，可以将其子组件放在其他组件之上 | object | No | All | Yes |
 | SearchBarProps |搜索栏的属性设置封装| object | No | All | NO |
 | SearchBarCommands |搜索栏的操作封装 | object | No | All | NO |
-| useTransitionProgress |提供屏幕过度的动画插值器 | function | No | All | NO |
+| useTransitionProgress |提供屏幕过渡的动画插值器 | function | No | All | NO |
 | userReanimatedTransitionProgress  ReanimatedScreenProvider | 屏幕切换期间调用的帧回调，用于react-native-reanimated 2.0及其以上的版本，并使用ReanimatedScreenProvider进行封装 | function | No | All | NO |
 | userHeaderHeight |计算静态标题栏的高度，当屏幕方向发生更改，此值会发生更改 | function | No | All | NO |
 | userAnimatedHeaderHeight |动态计算标题栏的高度，此值会随着每个视图布局变化而变化| function | No | All | NO |

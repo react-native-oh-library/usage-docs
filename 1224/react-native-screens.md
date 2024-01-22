@@ -134,7 +134,7 @@ enableScreens(false);
 | createNativeStackNavigator |提供屏幕切换的能力 | function | No | All | NO |
 | NativeStackNavigationProp |切换页面属性的封装 | object | No | All | Yes |
 | NativeStackNavigationOptions |导航栏属性设置封装 | object  | No | All | NO |
-| FullWindowOverlay |一个组件，可以将其子组件放在其他组件之上 | object | No | All | NO |
+| FullWindowOverlay |一个组件，可以将其子组件放在其他组件之上 | object | No | All | Yes |
 | SearchBarProps |搜索栏的属性设置封装| object | No | All | NO |
 | SearchBarCommands |搜索栏的操作封装 | object | No | All | NO |
 | useTransitionProgress |提供屏幕过度的动画插值器 | function | No | All | NO |

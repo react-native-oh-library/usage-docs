@@ -18,10 +18,21 @@
 
 <!-- tabs:start -->
 
+#### **yarn**
+
+```bash
+
+yarn add i18next@^23.2.3
+yarn add react-i18next@^14.0.0
+
+```
 #### **npm**
 
 ```bash
+
+npm install i18next@^23.2.3
 npm install react-i18next@^14.0.0
+
 ```
 
 <!-- tabs:end -->

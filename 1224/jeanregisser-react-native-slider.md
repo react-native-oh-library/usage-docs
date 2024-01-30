@@ -26,7 +26,7 @@ yarn add @react-native-oh-tpl/react-native-slider
 
 #### **npm**
 ```bash
-npm i --save @react-native-oh-tpl/react-native-slider
+npm i @react-native-oh-tpl/react-native-slider
 ```
 <!-- tabs:end -->
 

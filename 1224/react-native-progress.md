@@ -205,7 +205,7 @@ All of the props under *Properties* in addition to the following:
 
 ## 遗留问题
 
-Progress.Circle中的属性fill在鸿蒙上默认显示黑色和默认无色存在差异，定位是svg的属性配置有问题，当前通过修改Circle.js中默认fill的属性进行规避，后续svg修复该问题后，修改的代码会移除。
+Progress.Circle中的属性fill在鸿蒙上默认显示黑色和默认无色不一致，定位是svg的属性配置有问题，当前通过修改Circle.js中默认fill的属性进行规避，后续svg修复该问题[issue#6](https://github.com/react-native-oh-library/react-native-svg/issues/6)后，修改的代码会移除。
 
 ## 其他
 

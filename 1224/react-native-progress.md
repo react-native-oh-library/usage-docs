@@ -1,13 +1,14 @@
 > 模板版本：v0.1.2
 
 <p align="center">
-  <h1 align="center"> <code>react-native-action-button</code> </h1>
+  <h1 align="center"> <code>react-native-progress</code> </h1>
 </p>
 <p align="center">
-    <a href="https://github.com/mastermoo/react-native-action-button/blob/master/LICENSE">
+    <a href="https://github.com/react-native-oh-library/react-native-progress/blob/sig/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
+
 
 ## 安装与使用
 
@@ -18,13 +19,13 @@
 #### **yarn**
 
 ```
-yarn add  @react-native-oh-tpl/react-native-progress@5.0.1-0.0.1
+yarn add  @react-native-oh-tpl/react-native-progress
 ```
 
 #### **npm**
 
 ```bash
-npm install  @react-native-oh-tpl/react-native-progress@5.0.1-0.0.1
+npm install  @react-native-oh-tpl/react-native-progress
 ```
 <!-- tabs:end -->
 
@@ -33,7 +34,7 @@ npm install  @react-native-oh-tpl/react-native-progress@5.0.1-0.0.1
 ```tsx
 import React, { useEffect } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import * as Progress from '@react-native-oh-tpl/react-native-progress';
+import * as Progress from 'react-native-progress';
 
 const ProgressExample = () => {
   const [progress, setProgress] = React.useState(0);
@@ -203,6 +204,8 @@ All of the props under *Properties* in addition to the following:
 | direction        | Direction in which the circle spins, either "clockwise" or "counter-clockwise" (default). | 'clockwise' \| 'counter-clockwise' | No       | All      | Yes               |
 
 ## 遗留问题
+
+Progress.Circle中的属性fill在鸿蒙上默认显示黑色和默认无色存在差异，定位是svg的属性配置有问题，当前通过修改Circle.js中默认fill的属性进行规避，后续svg修复该问题后，修改的代码会移除。
 
 ## 其他
 

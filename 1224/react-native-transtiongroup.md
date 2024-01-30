@@ -10,7 +10,7 @@
 </p>
 
 
-> [!tip] [Github 地址](https://github.com/imchintan/react-native-transtiongroup)
+> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-transitiongroup)
 
 ## 安装与使用
 

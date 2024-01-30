@@ -1,7 +1,7 @@
 > 模板版本：v0.1.2
 
 <p align="center">
-  <h1 align="center"> <code>< react-native-drag-sort ></code> </h1>
+  <h1 align="center"> <code>react-native-drag-sort</code> </h1>
 </p>
 <p align="center">
     <a href="https://github.com/<原库源码仓地址>">
@@ -12,6 +12,7 @@
         <!-- <img src="https://img.shields.io/badge/license-Apache-blue.svg" alt="License" /> -->
     </a>
 </p>
+
 
 
 > [!tip] [Github 地址](https://github.com/mochixuan/react-native-drag-sort)
@@ -25,13 +26,13 @@
 #### **yarn**
 
 ```bash
-yarn add react-native-drag-sort
+yarn add react-native-drag-sort@2.4.4
 ```
 
 #### **npm**
 
 ```bash
-npm i react-native-drag-sort --save 
+npm i react-native-drag-sort@2.4.4 --save 
 
 export { DragSortableView, AutoDragSortableView, AnySizeDragSortableView }
 ```
@@ -162,9 +163,11 @@ export default Dragsort;
 
 ### 兼容性
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio(构建版本：4.1.3.500) 和 手机 ROM(HarmonyOS NEXT)。
+在下述版本验证通过：
 
-### 权限要求（如有）
+1. IDE：DevEco Studio 4.1.3.500; SDK：OpenHarmony(api11) 4.1.5.6; 测试设备：Mate60 (BRA-AL00);ROM：HarmonyOS NEXT Developer Preview1(2.0.0.59); RNOH：0.72.13
+
+### 权限要求
 
 ## API（AutoDragSortableView、DragSortableView）
 

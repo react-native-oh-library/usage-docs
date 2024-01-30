@@ -107,20 +107,21 @@ const styles = StyleSheet.create({
 
 在以下版本验证通过： 
 
-   IDE: 4.1.3.500
-   SDK: HarmonyOS NEXT Devloper Preview1  
-   测试设备: Mate60 (BRA-AL00 )  
-   Rom: 204.1.0.59(SP2DEVC00E60R4P1)  
+   1. SDK: HarmonyOS NEXT Devloper Preview1;  
+   测试设备: Mate60 (BRA-AL00);
+   Rom: 204.1.0.59(SP2DEVC00E60R4P1);
+   IDE: 4.1.3.500; 
    RNOH: 0.72.13  
 
 
 ### base64 提供的方法:
 
-| 名称 | 说明 | 参数类型 | 是否必填 | 原库平台 | 鸿蒙支持 |
-| ---- | ---- | ---- | -------- | -------- | -------- |
-| encode| 对字符串编码 |string| No | / | Yes |
-| decode | 对base64编码串解码 | string | No | / | Yes |
-| encodeFromByteArray | 对二进制数据(unit8 Array) 编码 | Unit8Array | No | / | Yes |
+
+| Name | Description | Type  | Required | HarmonyOS Support | 
+| ---- | ---- | ---- | -------- | -------- |
+| encode| encode from string |string| No | Yes |
+| decode | decode base64 strings | string |  No | Yes |
+| encodeFromByteArray | encode from Unit8Array | Unit8Array | No | Yes |
 
 
 ## 遗留问题

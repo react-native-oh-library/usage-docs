@@ -1,8 +1,8 @@
 # 文档模板(删除)
 
-> [!ATTENTION] 使用模板时请将后面带有 (删除) 的语句删除。(删除)
+> [!ATTENTION] 使用模板时请将后面带有 (删除) 的语句删除。<>内是需要修改的内容。(删除)
 
-> 模板版本：v0.1.2
+> 模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code><原库 npm 包名></code> </h1>
@@ -19,28 +19,30 @@
 
 > [!tip] [Github 地址](https://github.com/<源码仓地址>)
 
-如：[Github 地址](https://github.com/react-native-oh-library/react-native-linear-gradient)（删除）
+如：[Github 地址](https://github.com/react-native-oh-library/react-native-linear-gradient)（已建仓的地址，未建仓则使用原库地址）（删除）
 
 ## 安装与使用
 
 进入到工程目录并输入以下命令：
 
-<!-- tabs:start -->
+请到三方库的 Releases 发布地址查看配套的版本信息：[<@react-native-oh-tpl/库名> Releases](https://github.com/<仓库地址>/releases)，并下载适用版本的 tgz 包。
 
-#### **yarn**
+进入到工程目录，打开 `package.json`，添加：
 
-```bash
-yarn add @react-native-oh-tpl/<Package_Name>
-// 提示：yarn add @react-native-oh-tpl/flash-list（删除）
-// 提示：yarn add @react-native-oh-tpl/react-native-linear-gradient（删除）
+```json
+{
+  "dpendencies": {
+    ...
+    "@react-native-oh-tpl/<库名>": "tgz包路径"
+  },
+  ...
+}
 ```
 
-#### **npm**
+打开终端，执行：
 
 ```bash
-npm install @react-native-oh-tpl/<Package_Name>
-// 提示：npm install @react-native-oh-tpl/flash-list（删除）
-// 提示：npm install @react-native-oh-tpl/react-native-linear-gradient（删除）
+npm i
 ```
 
 下面的代码展示了这个库的基本使用场景：
@@ -90,6 +92,9 @@ var styles = StyleSheet.create({
 2. 直接链接源码。
 
 方法一：通过 har 包引入
+
+> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
@@ -110,6 +115,9 @@ ohpm install
 ```
 
 方法二：直接链接源码
+
+> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
@@ -241,11 +249,24 @@ ohpm install
 
 ### 兼容性
 
+**已发包的库**（删除）
+
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[<xxx> Releases](https://github.com/<仓库地址>/releases)
 
 提示：[@react-native-oh-tpl/linear-gradient releases](https://github.com/react-native-oh-library/react-native-linear-gradient/releases)（删除）
+
+**未发包使用原库的库**（删除）
+
+本文档内容基于以下版本验证：
+
+```md
+- RNOH: x.x.x
+- OH SDK: x.x.x
+- IDE: x.x.x
+- ROM: xxx
+```
 
 ### 权限要求（如有）
 

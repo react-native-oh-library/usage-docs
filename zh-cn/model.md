@@ -47,6 +47,8 @@ npm i
 
 下面的代码展示了这个库的基本使用场景：
 
+>[!WARNING] 使用时 import 的库名不变。
+
 ```js
 // linear-gradient 为例
 import LinearGradient from "react-native-linear-gradient";

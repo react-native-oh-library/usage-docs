@@ -7,12 +7,12 @@
     <a href="https://github.com/Kureev/react-native-blur">
         <img src="https://img.shields.io/badge/platforms-android%20%7C%20ios%20%7C%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
-    <a href="https://github.com/react-native-oh-library/Kureev-react-native-blur/blob/sig/LICENSE">
+    <a href="https://github.com/react-native-oh-library/react-native-blur/blob/sig/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/react-native-oh-library/Kureev-react-native-blur)
+> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-blur)
 
 ## 安装与使用
 
@@ -336,7 +336,7 @@ ohpm install
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl Releases](https://github.com/react-native-oh-library/Kureev-react-native-blur/releases)
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl Releases](https://github.com/react-native-oh-library/react-native-blur/releases)
 
 ## 属性
 

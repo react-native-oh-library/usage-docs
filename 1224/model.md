@@ -263,12 +263,8 @@ ohpm install
 
 本文档内容基于以下版本验证：
 
-```md
-- RNOH: x.x.x
-- OH SDK: x.x.x
-- IDE: x.x.x
-- ROM: xxx
-```
+1. RNOH: x.x.x; OH SDK: x.x.x; IDE: x.x.x; ROM: xxx;
+2. （如有）
 
 ### 权限要求（如有）
 

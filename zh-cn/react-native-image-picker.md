@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>react-native-image-picker</code> </h1>
@@ -12,27 +12,35 @@
     </a>
 </p>
 
+> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-image-picker)
+
 ## 安装与使用
 
+请到三方库的 Releases 发布地址查看配套的版本信息：[<@react-native-oh-tpl/<库名> Releases](https://github.com/react-native-oh-library/react-native-image-picker/releases)，并下载适用版本的 tgz 包。
+
+进入到工程目录并输入以下命令：
+
+> [!TIP] # 处替换为 tgz 包的路径
+
 <!-- tabs:start -->
-
-**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/react-native-image-picker/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
-
-#### **yarn**
-
-```bash
-yarn add xxx
-```
 
 #### **npm**
 
 ```bash
-npm install xxx
+npm install @react-native-oh-tpl/react-native-image-picker@file:#
+```
+
+#### **yarn**
+
+```bash
+yarn add @react-native-oh-tpl/react-native-image-picker@file:#
 ```
 
 <!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：
+
+> [!WARNING] 使用时 import 的库名不变。
 
 ```js
 import React from 'react';
@@ -81,12 +89,15 @@ export default App;
 2. 直接链接源码。
 
 方法一：通过 har 包引入
+
+> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-image-picker": "file:../../node_modules/react-native-image-picker/harmony/image_picker.har"
+    "rnoh-image-picker": "file:../../node_modules/@react-native-oh-tpl/react-native-image-picker/harmony/image_picker.har"
   }
 ```
 
@@ -100,12 +111,15 @@ ohpm install
 ```
 
 方法二：直接链接源码
+
+> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-image-picker": "file:../../node_modules/react-native-image-picker/harmony/image_picker"
+    "rnoh-image-picker": "file:../../node_modules/@react-native-oh-tpl/react-native-image-picker/harmony/image_picker"
   }
 ```
 
@@ -202,57 +216,61 @@ ohpm install
 
 ## 属性
 
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
 ### Options
 
-| 名称                    | 说明                                                                                                                                                            | 类型    | 是否必填 | 原库平台        | 鸿蒙支持 |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------- | --------------- | -------- |
-| mediaType               | photo or video or mixed(launchCamera on Android does not support 'mixed'). Web only supports 'photo' for now.                                                   | string  | yes      | iOS Android Web | yes      |
-| maxWidth                | To resize the image.                                                                                                                                            | number  | no       | iOS Android     | no       |
-| maxHeight               | To resize the image.                                                                                                                                            | number  | no       | iOS Android     | no       |
-| videoQuality            | low, medium, or high on iOS, low or high on Android.                                                                                                            | string  | no       | iOS Android     | no       |
-| durationLimit           | Video max duration (in seconds).                                                                                                                                | number  | no       | iOS Android     | no       |
-| quality                 | 0 to 1, photos.                                                                                                                                                 | number  | no       | iOS Android     | no       |
-| cameraType              | 'back' or 'front' (May not be supported in few android devices).                                                                                                | string  | no       | iOS Android     | no       |
-| includeBase64           | If true, creates base64 string of the image (Avoid using on large image files due to performance).                                                              | boolean | no       | iOS Android Web | no       |
-| includeExtra            | If true, will include extra data which requires library permissions to be requested (i.e. exif data).                                                           | boolean | no       | iOS Android     | no       |
-| saveToPhotos            | (Boolean) Only for launchCamera, saves the image/video file captured to public photo.                                                                           | boolean | no       | iOS Android     | no       |
-| selectionLimit          | Supports providing any integer value. Use 0 to allow any number of files on iOS version >= 14 & Android version >= 13. Default is 1.                            | number  | no       | iOS Android Web | yes      |
-| presentationStyle       | Controls how the picker is presented. currentContext, pageSheet, fullScreen, formSheet, popover, overFullScreen, overCurrentContext. Default is currentContext. | string  | no       | iOS             | no       |
-| formatAsMp4             | Converts the selected video to MP4 (iOS Only).                                                                                                                  | boolean | no       | iOS             | no       |
-| assetRepresentationMode | A mode that determines which representation to use if an asset contains more than one. Possible values: 'auto', 'current', 'compatible'. Default is 'auto'.     | boolean | no       | iOS             | no       |
+| Name                    | Description                                                                                                                                                                      | Type    | Required | Platform        | HarmonyOS Support |
+| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------- | --------------- | ----------------- |
+| mediaType               | photo or video or mixed(launchCamera on Android does not support 'mixed'). Web only supports 'photo' for now.                                                                    | string  | yes      | iOS Android Web | yes               |
+| maxWidth                | To resize the image.                                                                                                                                                             | number  | no       | iOS Android     | no                |
+| maxHeight               | To resize the image.                                                                                                                                                             | number  | no       | iOS Android     | no                |
+| videoQuality            | low, medium, or high on iOS, low or high on Android.                                                                                                                             | string  | no       | iOS Android     | no                |
+| durationLimit           | Video max duration (in seconds).                                                                                                                                                 | number  | no       | iOS Android     | no                |
+| quality                 | 0 to 1, photos.                                                                                                                                                                  | number  | no       | iOS Android     | no                |
+| cameraType              | 'back' or 'front' (May not be supported in few android devices).                                                                                                                 | string  | no       | iOS Android     | no                |
+| includeBase64           | If true, creates base64 string of the image (Avoid using on large image files due to performance).                                                                               | boolean | no       | iOS Android Web | no                |
+| includeExtra            | If true, will include extra data which requires library permissions to be requested (i.e. exif data).                                                                            | boolean | no       | iOS Android     | no                |
+| saveToPhotos            | (Boolean) Only for launchCamera, saves the image/video file captured to public photo.                                                                                            | boolean | no       | iOS Android     | no                |
+| selectionLimit          | Supports providing any integer value. Use 0 to allow any number of files on iOS version >= 14 & Android version >= 13, Use 0 to allow up to 50 files on HarmonyOS. Default is 1. | number  | no       | iOS Android Web | yes               |
+| presentationStyle       | Controls how the picker is presented. currentContext, pageSheet, fullScreen, formSheet, popover, overFullScreen, overCurrentContext. Default is currentContext.                  | string  | no       | iOS             | no                |
+| formatAsMp4             | Converts the selected video to MP4 (iOS Only).                                                                                                                                   | boolean | no       | iOS             | no                |
+| assetRepresentationMode | A mode that determines which representation to use if an asset contains more than one. Possible values: 'auto', 'current', 'compatible'. Default is 'auto'.                      | boolean | no       | iOS             | no                |
 
 ### The Response Object
 
-| 名称         | 说明                                                    | 类型    | 是否必填 | 原库平台        | 鸿蒙支持 |
-| ------------ | ------------------------------------------------------- | ------- | -------- | --------------- | -------- |
-| didCancel    | true if the user cancelled the process                  | boolean | no       | iOS Android Web | yes      |
-| errorCode    | Check ErrorCode for all error codes                     | string  | no       | iOS Android Web | no       |
-| errorMessage | Description of the error, use it for debug purpose only | string  | no       | iOS Android Web | no       |
-| assets       | Array of the selected media, refer to Asset Object      | Asset   | no       | iOS Android Web | yes      |
+| Name         | Description                                             | Type    | Required | Platform        | HarmonyOS Support |
+| ------------ | ------------------------------------------------------- | ------- | -------- | --------------- | ----------------- |
+| didCancel    | true if the user cancelled the process                  | boolean | no       | iOS Android Web | yes               |
+| errorCode    | Check ErrorCode for all error codes                     | string  | no       | iOS Android Web | no                |
+| errorMessage | Description of the error, use it for debug purpose only | string  | no       | iOS Android Web | no                |
+| assets       | Array of the selected media, refer to Asset Object      | Asset   | no       | iOS Android Web | yes               |
 
 ### Asset Object
 
-| 名称         | 说明                                                                                                                                                                                                                                                                       | 类型   | 是否必填 | 原库平台        | 鸿蒙支持 |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | -------- | --------------- | -------- |
-| base64       | The base64 string of the image (photos only)                                                                                                                                                                                                                               | string | no       | iOS Android Web | no       |
-| uri          | The file uri in app specific cache storage. Except when picking video from Android gallery where you will get read only content uri, to get file uri in this case copy the file to app specific storage using any react-native library. For web it uses the base64 as uri. | string | yes      | iOS Android Web | yes      |
-| originalPath | The original file path.                                                                                                                                                                                                                                                    | string | yes      | iOS Android Web | yes      |
-| width        | Asset dimensions                                                                                                                                                                                                                                                           | number | yes      | iOS Android Web | yes      |
-| height       | Asset dimensions                                                                                                                                                                                                                                                           | number | yes      | iOS Android Web | yes      |
-| fileSize     | The file size                                                                                                                                                                                                                                                              | number | yes      | iOS Android     | yes      |
-| type         | The file type                                                                                                                                                                                                                                                              | string | yes      | iOS Android     | yes      |
-| fileName     | The file name                                                                                                                                                                                                                                                              | string | yes      | iOS Android     | yes      |
-| duration     | The selected video duration in seconds                                                                                                                                                                                                                                     | number | no       | iOS Android     | no       |
-| bitrate      | The average bitrate (in bits/sec) of the selected video, if available. (Android only)                                                                                                                                                                                      | number | no       | Android         | no       |
-| timestamp    | Timestamp of the asset. Only included if 'includeExtra' is true                                                                                                                                                                                                            | string | no       | iOS Android     | no       |
-| id           | local identifier of the photo or video. On Android, this is the same as fileName                                                                                                                                                                                           | string | no       | iOS Android     | yes      |
+| Name         | Description                                                                                                                                                                                                                                                                | Type   | Required | Platform        | HarmonyOS Support |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | -------- | --------------- | ----------------- |
+| base64       | The base64 string of the image (photos only)                                                                                                                                                                                                                               | string | no       | iOS Android Web | no                |
+| uri          | The file uri in app specific cache storage. Except when picking video from Android gallery where you will get read only content uri, to get file uri in this case copy the file to app specific storage using any react-native library. For web it uses the base64 as uri. | string | yes      | iOS Android Web | yes               |
+| originalPath | The original file path.                                                                                                                                                                                                                                                    | string | yes      | iOS Android Web | yes               |
+| width        | Asset dimensions                                                                                                                                                                                                                                                           | number | yes      | iOS Android Web | yes               |
+| height       | Asset dimensions                                                                                                                                                                                                                                                           | number | yes      | iOS Android Web | yes               |
+| fileSize     | The file size                                                                                                                                                                                                                                                              | number | yes      | iOS Android     | yes               |
+| type         | The file type                                                                                                                                                                                                                                                              | string | yes      | iOS Android     | yes               |
+| fileName     | The file name                                                                                                                                                                                                                                                              | string | yes      | iOS Android     | yes               |
+| duration     | The selected video duration in seconds                                                                                                                                                                                                                                     | number | no       | iOS Android     | no                |
+| bitrate      | The average bitrate (in bits/sec) of the selected video, if available. (Android only)                                                                                                                                                                                      | number | no       | Android         | no                |
+| timestamp    | Timestamp of the asset. Only included if 'includeExtra' is true                                                                                                                                                                                                            | string | no       | iOS Android     | no                |
+| id           | local identifier of the photo or video. On Android & HarmonyOS, this is the same as fileName                                                                                                                                                                               | string | no       | iOS Android     | yes               |
 
 ## 静态方法
 
-| 名称               | 说明                                   | 类型     | 是否必填 | 原库平台        | 鸿蒙支持 |
-| ------------------ | -------------------------------------- | -------- | -------- | --------------- | -------- |
-| launchCamera       | Launch camera to take photo or video.  | function | yes      | iOS Android Web | no       |
-| launchImageLibrary | Launch gallery to pick image or video. | function | yes      | iOS Android Web | yes      |
+| Name               | Description                            | Type     | Required | Platform        | HarmonyOS Support |
+| ------------------ | -------------------------------------- | -------- | -------- | --------------- | ----------------- |
+| launchCamera       | Launch camera to take photo or video.  | function | yes      | iOS Android Web | no                |
+| launchImageLibrary | Launch gallery to pick image or video. | function | yes      | iOS Android Web | yes               |
 
 ## 遗留问题
 

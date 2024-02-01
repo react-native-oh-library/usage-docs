@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>@react-native-masked-view/masked-view</code> </h1>
@@ -12,38 +12,35 @@
     </a>
 </p>
 
+[!tip] [Github 地址](https://github.com/react-native-oh-library/masked-view)
+
 ## 安装与使用
 
-> [!tip] 目前部分 React-Native-OpenHarmony(RNOH) 三方库的 npm 包部署在私仓，需要通过 github token 来获取访问权限。
-
-在与 `package.json` 文件相同的目录中，创建或编辑 `.npmrc` 文件以包含指定 GitHub Packages URL 和托管包的命名空间的行。 将 TOKEN 替换为 RNOH 三方库指定的 token。
-
-```bash
-@react-native-oh-library:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=TOKEN
-```
+请到三方库的 Releases 发布地址查看配套的版本信息：[<@react-native-oh-tpl/<库名> Releases](https://github.com/react-native-oh-library/masked-view/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
+>[!TIP] # 处替换为 tgz 包的路径
+
 <!-- tabs:start -->
-
-**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/masked-view/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
-
-#### **yarn**
-
-```bash
-yarn add xxx
-```
 
 #### **npm**
 
 ```bash
-npm install xxx
+npm install @react-native-oh-tpl/masked-view@file:#
+```
+
+#### **yarn**
+
+```bash
+yarn add @react-native-oh-tpl/masked-view@file:#
 ```
 
 <!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：
+
+>[!WARNING] 使用时 import 的库名不变。
 
 ```js
 import MaskedView from "@react-native-masked-view/masked-view";
@@ -94,12 +91,15 @@ import MaskedView from "@react-native-masked-view/masked-view";
 2. 直接链接源码。
 
 方法一：通过 har 包引入
+
+> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-masked-view": "file:../../node_modules/@react-native-masked-view/masked-view/harmony/masked_view.har",
+    "rnoh-masked-view": "file:../../node_modules/@react-native-oh-tpl/masked-view/harmony/masked_view.har",
   }
 ```
 
@@ -113,12 +113,15 @@ ohpm install
 ```
 
 方法二：直接链接源码
+
+> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-masked-view": "file:../../node_modules/@react-native-masked-view/masked-view/harmony/masked_view"
+    "rnoh-masked-view": "file:../../node_modules/@react-native-oh-tpl/masked-view/harmony/masked_view"
   }
 ```
 
@@ -182,31 +185,24 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 打开 `entry/src/main/ets/pages/index.ets`，添加：
 
 ```diff
-import {
-  RNApp,
-  ComponentBuilderContext,
-  RNAbility,
-  AnyJSBundleProvider,
-  MetroJSBundleProvider,
-  ResourceJSBundleProvider,
-} from 'rnoh'
+...
 import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-package"
 import { createRNPackages } from '../RNPackagesFactory'
 + import { MaskedView, MASKED_VIEW_TYPE } from "rnoh-masked-view"
 
   @Builder
   function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-    if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
+    if (ctx.componentName === SAMPLE_VIEW_TYPE) {
       SampleView({
         ctx: ctx.rnohContext,
-        tag: ctx.descriptor.tag,
+        tag: ctx.tag,
         buildCustomComponent: CustomComponentBuilder
       })
     }
-+   else if (ctx.descriptor.type === MASKED_VIEW_TYPE) {
++   else if (ctx.componentName === MASKED_VIEW_TYPE) {
 +     MaskedView({
 +       ctx: ctx.rnohContext,
-+       tag: ctx.descriptor.tag,
++       tag: ctx.tag,
 +       buildCustomComponent: CustomComponentBuilder
 +     })
 +   }
@@ -236,7 +232,11 @@ ohpm install
 
 ## 属性
 
-| 名称                   | 说明         | 类型               | 是否必填 | 原库平台 | 鸿蒙支持 |
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---------------------- | ------------ | ------------------ | -------- | -------- | -------- |
 | `maskElement`          | 遮罩元素     | element            | yes      | All      | yes      |
 | `androidRenderingMode` | 安卓渲染模式 | software, hardware | no       | android  | no       |

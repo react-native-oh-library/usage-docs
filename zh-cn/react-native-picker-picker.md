@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>@react-native-picker/picker</code> </h1>
@@ -14,34 +14,31 @@
 
 ## 安装与使用
 
-> [!tip] 目前部分 React-Native-OpenHarmony(RNOH) 三方库的 npm 包部署在私仓，需要通过 github token 来获取访问权限。
-
-在与 `package.json` 文件相同的目录中，创建或编辑 `.npmrc` 文件以包含指定 GitHub Packages URL 和托管包的命名空间的行。 将 TOKEN 替换为 RNOH 三方库指定的 token。
-
-```bash
-@react-native-oh-library:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=TOKEN
-```
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/picker Releases](https://github.com/react-native-oh-library/picker/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
+> [!TIP] # 处替换为 tgz 包的路径
+
 <!-- tabs:start -->
-
-#### **yarn**
-
-```bash
-yarn add @react-native-picker/picker@npm:@react-native-oh-library/picker
-```
 
 #### **npm**
 
 ```bash
-npm install @react-native-picker/picker@npm:@react-native-oh-library/picker
+npm install @react-native-oh-tpl/picker@file:#
+```
+
+#### **yarn**
+
+```bash
+yarn add @react-native-oh-tpl/picker@file:#
 ```
 
 <!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：
+
+> [!WARNING] 使用时 import 的库名不变。
 
 ```js
 import { Picker } from "@react-native-picker/picker";
@@ -71,12 +68,15 @@ const [selectedLanguage, setSelectedLanguage] = useState();
 2. 直接链接源码。
 
 方法一：通过 har 包引入
+
+> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-slider": "file:../../node_modules/@react-native-picker/picker/harmony/picker.har"
+    "rnoh-picker": "file:../../node_modules/@react-native-oh-tpl/picker/harmony/picker.har"
   }
 ```
 
@@ -90,12 +90,15 @@ ohpm install
 ```
 
 方法二：直接链接源码
+
+> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-slider": "file:../../node_modules/@react-native-picker/picker/harmony/picker"
+    "rnoh-picker": "file:../../node_modules/@react-native-oh-tpl/picker/harmony/picker"
   }
 ```
 
@@ -142,14 +145,14 @@ target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 ```diff
 #include "RNOH/PackageProvider.h"
 #include "SamplePackage.h"
-+ #include "HarmonyPickerPackage.h"
++ #include "PickerPackage.h"
 
 using namespace rnoh;
 
 std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
     return {
       std::make_shared<SamplePackage>(ctx),
-+     std::make_shared<HarmonyPickerPackage>(ctx)
++     std::make_shared<PickerPackage>(ctx)
     };
 }
 ```
@@ -159,32 +162,22 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 打开 `entry/src/main/ets/pages/index.ets`，添加：
 
 ```diff
-import {
-  RNApp,
-  ComponentBuilderContext,
-  RNAbility,
-  AnyJSBundleProvider,
-  MetroJSBundleProvider,
-  ResourceJSBundleProvider,
-} from 'rnoh'
-import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-package"
-import { createRNPackages } from '../RNPackagesFactory'
-+ import { RNCHarmonyPicker, HARMONY_PICKER_TYPE } from "rnoh-picker"
+...
++ import { RNCPicker, PICKER_TYPE } from "rnoh-picker"
 
   @Builder
   function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-    if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
+    if (ctx.componentName === SAMPLE_VIEW_TYPE) {
       SampleView({
         ctx: ctx.rnohContext,
-        tag: ctx.descriptor.tag,
+        tag: ctx.tag,
         buildCustomComponent: CustomComponentBuilder
       })
     }
-+   else if (ctx.descriptor.type === HARMONY_PICKER_TYPE) {
-+     RNCHarmonyPicker({
++   else if (ctx.componentName === PICKER_TYPE) {
++     RNCPicker({
 +       ctx: ctx.rnohContext,
-+       tag: ctx.descriptor.tag,
-+       buildCustomComponent: CustomComponentBuilder
++       tag: ctx.tag
 +     })
 +   }
     ...
@@ -200,7 +193,7 @@ import { createRNPackages } from '../RNPackagesFactory'
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-picker/picker Releases](https://github.com/react-native-oh-library/picker/releases)
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/picker Releases](https://github.com/react-native-oh-library/picker/releases)
 
 ## 属性
 

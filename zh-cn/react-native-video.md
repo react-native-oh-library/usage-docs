@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>react-native-video</code> </h1>
@@ -12,46 +12,52 @@
     </a>
 </p>
 
+> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-video)
+
 ## 安装与使用
+
+请到三方库的 Releases 发布地址查看配套的版本信息：[<@react-native-oh-tpl/react-native-video Releases](https://github.com/react-native-oh-library/react-native-video/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
+> [!TIP] # 处替换为 tgz 包的路径
+
 <!-- tabs:start -->
-
-**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/react-native-video/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
-
-#### **yarn**
-
-```bash
-yarn add xxx
-```
 
 #### **npm**
 
 ```bash
-npm install xxx
+npm install @react-native-oh-tpl/react-native-video@file:#
+```
+
+#### **yarn**
+
+```bash
+yarn add @react-native-oh-tpl/react-native-video@file:#
 ```
 
 <!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：
 
+> [!WARNING] 使用时 import 的库名不变。
+
 ```js
-import React, {useState, useRef} from 'react';
-import {View, ScrollView, StyleSheet, Text,TextInput} from 'react-native';
-import RNCVideo from 'react-native-video'
+import React, { useState, useRef } from "react";
+import { View, ScrollView, StyleSheet, Text, TextInput } from "react-native";
+import RNCVideo from "react-native-video";
 
 function RNCVideoDemo() {
-  const videoRef = React.useRef<typeof RNCVideo>(null);
-
   const [muted, setMuted] = useState(true);
   const [paused, setPaused] = useState(false);
   const [repeat, setRepeat] = useState(true);
   const [disableFocus, setDisableFocus] = useState(false);
-  const [uri, setUri] = useState('https://res.vmallres.com//uomcdn/CN/cms/202210/C75C7E20060F3E909F2998E13C3ABC03.mp4');
-  const [txt, setTxt] = useState('empty');
-  const [resizeMode, setResizeMode] = useState('none');
-  const [posterResizeMode, setPosterResizeMode] = useState('cover');
+  const [uri, setUri] = useState(
+    "https://res.vmallres.com//uomcdn/CN/cms/202210/C75C7E20060F3E909F2998E13C3ABC03.mp4"
+  );
+  const [txt, setTxt] = useState("empty");
+  const [resizeMode, setResizeMode] = useState("none");
+  const [posterResizeMode, setPosterResizeMode] = useState("cover");
   const [seekSec, setSeekSec] = useState(5000);
 
   const [onVideoLoad, setOnVideoLoad] = useState("onVideoLoad");
@@ -60,68 +66,316 @@ function RNCVideoDemo() {
   const [onVideoProgress, setOnVideoProgress] = useState("onVideoProgress");
   const [onVideoEnd, setOnVideoEnd] = useState("onVideoEnd");
   const [onVideoBuffer, setOnVideoBuffer] = useState("onVideoBuffer");
-  const [onPlaybackStalled, setOnPlaybackStalled] = useState("onPlaybackStalled");
+  const [onPlaybackStalled, setOnPlaybackStalled] =
+    useState("onPlaybackStalled");
   const [onPlaybackResume, setOnPlaybackResume] = useState("onPlaybackResume");
 
-  return (
+  const scrollRef = React.useRef < ScrollView > null;
+  const videoRef = React.useRef < typeof RNCVideo > null;
 
-      <View
-              style={{
-                flexDirection: "row",
-                flexWrap:"wrap",
-                padding: 0
-              }}
-            >
-       <Text style={styles.button} onPress={() => {  videoRef.current?.seek(5)}} >seek:5s</Text>
-	 </View>
-	<RNCVideo
-        style={styles.video}
-        ref={videoRef}
-        source={{ uri: uri ,isNetwork:true}}
-        paused={paused}
-        muted={muted}
-        resizeMode={resizeMode}
-        repeat={repeat}
-        volume={1}
-        disableFocus={disableFocus}
-		poster={'https://res.vmallres.com/pimages/uomcdn/CN/pms/202304/sbom/4002010007801/group/800_800_9B1356F1330EADDCB20D35D2AE1F46E0.jpg'}
-        posterResizeMode={posterResizeMode}
-        onLoad={(e) => {
-            console.log(`onLoad`)
-        }}
-        onLoadStart={(e) => {
-            console.log(`onLoadStart`)
-        }}
-        onProgress={(e) => {
-            console.log(`onProgress`)
-        }}
-        onError={(e) => {
-            console.log(`onError`)
-        }}
-        onEnd={() => {
-             console.log(`onEnd`)
-        }}
-        onBuffer={(e) => {
-             console.log(`onBuffer`)
-        }}
-        onPlaybackStalled={() => {
-             console.log(`onPlaybackStalled`)
-        }}
-        onPlaybackResume={() => {
-             console.log(`onPlaybackResume`)
-        }}
-        onReadyForDisplay={() => {
-             console.log(`onReadyForDisplay`)
-        }}
-      ></RNCVideo>
-	);
+  const toggleMuted = () => {
+    setMuted((prevMuted) => !prevMuted);
+  };
+
+  const togglePaused = () => {
+    setPaused((prevPaused) => !prevPaused);
+  };
+
+  const toggleRepeat = () => {
+    setRepeat((prevRepeat) => !prevRepeat);
+  };
+
+  const toggleDisableFocus = () => {
+    setDisableFocus((prevDisableFocus) => !prevDisableFocus);
+  };
+
+  const firstVideo = () => {
+    setUri((prevRepeat) => "https://vjs.zencdn.net/v/oceans.mp4");
+  };
+
+  const secondVideo = () => {
+    // setUri((prevRepeat) => 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4');
+    setUri(
+      (prevRepeat) =>
+        "https://res.vmallres.com//uomcdn/CN/cms/202210/C75C7E20060F3E909F2998E13C3ABC03.mp4"
+    );
+  };
+
+  const changeResizeMode = (resizeMode) => {
+    setResizeMode((prevResizeMode) => resizeMode);
+  };
+
+  return (
+    <ScrollView style={styles.container} ref={scrollRef}>
+      <View style={styles.container}>
+        <Text style={styles.title}>网络视频demo</Text>
+        <Text style={styles.labelB}>{onVideoLoad}</Text>
+        <Text style={styles.label}>{onVideoError}</Text>
+        <Text style={styles.label}>{onVideoLoadStart}</Text>
+        <Text style={styles.labelB}>{onVideoProgress}</Text>
+        <Text style={styles.label}>{onVideoEnd}</Text>
+        <Text style={styles.label}>{onVideoBuffer}</Text>
+        <Text style={styles.label}>{onPlaybackStalled}</Text>
+        <Text style={styles.label}>{onPlaybackResume}</Text>
+        <Text style={styles.title}>update source </Text>
+        <View
+          style={{
+            flexDirection: "row",
+            height: 40,
+            padding: 0,
+          }}
+        >
+          <Text
+            style={{ backgroundColor: "blue", flex: 0.25 }}
+            onPress={() => {
+              setUri(
+                "https://res.vmallres.com//uomcdn/CN/cms/202210/C75C7E20060F3E909F2998E13C3ABC03.mp4"
+              );
+              setPosterResizeMode("stretch");
+            }}
+          >
+            切换net:vmallres
+          </Text>
+          <Text
+            style={{ backgroundColor: "red", flex: 0.25 }}
+            onPress={() => {
+              setUri("https://vjs.zencdn.net/v/oceans.mp4");
+              setPosterResizeMode("contain");
+            }}
+          >
+            切换net:oceans
+          </Text>
+        </View>
+        <Text style={styles.title}>set resizeMode </Text>
+        <View
+          style={{
+            flexDirection: "row",
+            height: 40,
+            padding: 0,
+          }}
+        >
+          <Text
+            style={{ backgroundColor: "blue", flex: 0.25 }}
+            onPress={() => {
+              setResizeMode("none");
+            }}
+          >
+            none
+          </Text>
+          <Text
+            style={{ backgroundColor: "red", flex: 0.25 }}
+            onPress={() => {
+              setResizeMode("contain");
+            }}
+          >
+            contain
+          </Text>
+          <Text
+            style={{ backgroundColor: "yellow", flex: 0.25 }}
+            onPress={() => {
+              setResizeMode("stretch");
+            }}
+          >
+            stretch
+          </Text>
+          <Text
+            style={{ backgroundColor: "green", flex: 0.25 }}
+            onPress={() => {
+              setResizeMode("cover");
+            }}
+          >
+            cover
+          </Text>
+        </View>
+        <View
+          style={{
+            flexDirection: "row",
+            flexWrap: "wrap",
+            padding: 0,
+          }}
+        >
+          <Text style={styles.title}>操作 </Text>
+          <TextInput
+            style={styles.prop_input}
+            placeholder="input seek sec number:"
+            multiline={false}
+            maxLength={30}
+            keyboardType="numeric"
+            onChangeText={(text) => {
+              const newText = text.replace(/[^\d]+/, "");
+              setSeekSec(Number(newText));
+            }}
+            autoFocus={false}
+          />
+        </View>
+        <View
+          style={{
+            flexDirection: "row",
+            flexWrap: "wrap",
+            padding: 0,
+          }}
+        >
+          <Text
+            style={styles.button_b}
+            onPress={() => {
+              videoRef.current?.seek(seekSec);
+            }}
+          >
+            seek:{seekSec.toString()}
+          </Text>
+          <Text
+            style={styles.button_b}
+            onPress={() => {
+              togglePaused();
+            }}
+          >
+            paused:{paused.toString()}
+          </Text>
+          <Text
+            style={styles.button_b}
+            onPress={() => {
+              toggleMuted();
+            }}
+          >
+            muted:{muted.toString()}
+          </Text>
+          <Text
+            style={styles.button_b}
+            onPress={() => {
+              toggleRepeat();
+            }}
+          >
+            repeat:{repeat.toString()}
+          </Text>
+          <Text
+            style={styles.button_b}
+            onPress={() => {
+              toggleDisableFocus();
+            }}
+          >
+            disableFocus:{disableFocus.toString()}
+          </Text>
+          <Text style={styles.button_b}>
+            ReSizeMode:{resizeMode.toString()}
+          </Text>
+        </View>
+        <RNCVideo
+          style={styles.video}
+          ref={videoRef}
+          drm={{
+            type: "fairplay",
+            certificateUrl: "sasddd",
+            drmType: "drmfairplay",
+          }}
+          source={{ uri: uri, isNetwork: true }}
+          paused={paused}
+          muted={muted}
+          resizeMode={resizeMode}
+          repeat={repeat}
+          volume={1}
+          disableFocus={disableFocus}
+          poster={
+            "https://res.vmallres.com/pimages/uomcdn/CN/pms/202304/sbom/4002010007801/group/800_800_9B1356F1330EADDCB20D35D2AE1F46E0.jpg"
+          }
+          posterResizeMode={posterResizeMode}
+          onLoad={(e) => {
+            setOnVideoLoad(
+              "onVideoLoad currentTime =" +
+                e.currentPosition +
+                "s duration =" +
+                e.duration +
+                "s width =" +
+                e.naturalSize.width +
+                " orientation =" +
+                e.naturalSize.orientation
+            );
+            setOnVideoError("onVideoError error = ok");
+          }}
+          onLoadStart={(e) => {
+            setOnVideoLoadStart(
+              "onVideoLoadStart isNetwork =" +
+                e.isNetwork +
+                " type=" +
+                e.type +
+                " uri=" +
+                e.uri
+            );
+          }}
+          onProgress={(e) => {
+            setOnVideoProgress(
+              "onVideoProgress currentTime =" +
+                e.currentTime +
+                " playableDuration=" +
+                e.playableDuration +
+                " seekableDuration=" +
+                e.seekableDuration
+            );
+          }}
+          onError={(e) => {
+            setOnVideoError("onVideoError error =" + e.error);
+          }}
+          onEnd={() => {
+            setOnVideoEnd("onVideoEnd completed");
+          }}
+          onBuffer={(e) => {
+            setOnVideoBuffer("onVideoBuffer :" + e.isBuffering);
+          }}
+          onPlaybackStalled={() => {
+            setOnPlaybackStalled("onPlaybackStalled : true");
+            setOnPlaybackResume("onPlaybackResume :false");
+          }}
+          onPlaybackResume={() => {
+            setOnPlaybackStalled("onPlaybackStalled :false");
+            setOnPlaybackResume("onPlaybackResume :true");
+          }}
+          onReadyForDisplay={() => {
+            console.log(`onReadyForDisplay :setShowPoster(false)`);
+          }}
+        ></RNCVideo>
+      </View>
+    </ScrollView>
+  );
 }
+
 const styles = StyleSheet.create({
   video: {
-    width: '100%',
+    width: "100%",
     height: 260,
-	},
+  },
+  container: {
+    width: "100%",
+    height: "100%",
+    backgroundColor: "#333",
+  },
+  title: {
+    color: "white",
+    width: "30%", // hack
+    height: 30, // hack
+  },
+  label: {
+    color: "gray",
+    width: "100%", // hack
+    minHeight: 20,
+  },
+  labelB: {
+    color: "gray",
+    width: "100%", // hack
+    minHeight: 40,
+  },
   button: {
+    width: 160,
+    height: 36,
+    backgroundColor: "hsl(190, 50%, 70%)",
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 8,
+  },
+  buttonText: {
+    width: "100%",
+    height: "100%",
+    fontWeight: "bold",
+  },
+  button_b: {
     paddingHorizontal: 8,
     paddingVertical: 6,
     borderRadius: 4,
@@ -130,10 +384,18 @@ const styles = StyleSheet.create({
     marginHorizontal: "1%",
     marginBottom: 6,
     minWidth: "25%",
-    minHeight:20,
+    minHeight: 20,
     textAlign: "center",
   },
- });
+  prop_input: {
+    width: 160,
+    height: 40,
+    borderWidth: 1,
+    backgroundColor: "white",
+    color: "black",
+    borderRadius: 8,
+  },
+});
 
 export default RNCVideoDemo;
 ```
@@ -152,12 +414,15 @@ export default RNCVideoDemo;
 2. 直接链接源码。
 
 方法一：通过 har 包引入
+
+> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-video": "file:../../node_modules/react-native-video/harmony/rn_video.har"
+    "rnoh-video": "file:../../node_modules/@react-native-oh-tpl/react-native-video/harmony/rn_video.har"
   }
 ```
 
@@ -171,12 +436,15 @@ ohpm install
 ```
 
 方法二：直接链接源码
+
+> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-slider": "file:../../node_modules/react-native-video/harmony/rn_video"
+    "rnoh-video": "file:../../node_modules/@react-native-oh-tpl/react-native-video/harmony/rn_video"
   }
 ```
 
@@ -254,23 +522,40 @@ import { createRNPackages } from '../RNPackagesFactory'
 
 @Builder
 function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-  if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
+  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
     SampleView({
       ctx: ctx.rnohContext,
-      tag: ctx.descriptor.tag,
+      tag: ctx.tag,
       buildCustomComponent: CustomComponentBuilder
     })
   }
-+ else if (ctx.descriptor.type === RNC_VIDEO_TYPE) {
++ else if (ctx.componentName === RNC_VIDEO_TYPE) {
 +   RNCVideo({
 +     ctx: ctx.rnohContext,
-+     tag: ctx.descriptor.tag,
++     tag: ctx.tag,
 +     buildCustomComponent: CustomComponentBuilder
 +   })
 + }
  ...
 }
 ...
+```
+
+### 在 ArkTs 侧引入 RNCVideoPackage
+
+打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+
+```diff
+import type {RNPackageContext, RNPackage} from 'rnoh/ts';
+import {SamplePackage} from 'rnoh-sample-package/ts';
++ import { RNCVideoPackage } from 'rnoh-videoe/ts';
+
+export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
+  return [
+    new SamplePackage(ctx),
++   new RNCVideoPackage(ctx)
+  ];
+}
 ```
 
 ### 运行
@@ -298,37 +583,49 @@ ohpm install
 
 如下是 react-native-video 已经鸿蒙化的属性：
 
-| 名称               | 说明                                                                                                                                                                                                                                                                                                                                        | 类型   | 是否必填 | 原库平台                                                 | 鸿蒙支持                         |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----- | -------- | -------------------------------------------------------- | -------------------------------- |
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name               | Description                                                                                                                                                                                                                                                                                                                                 | Type   | Required | Platform                                                 | HarmonyOS Support              |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----- | -------- | -------------------------------------------------------- | ------------------------------ |
 | `source`           | Sets the media source. You can pass an asset loaded via require or an object with a uri.                                                                                                                                                                                                                                                    | object | Yes      | All                                                      | partially<br/>(仅支持网络适配) |
-| `disableFocus`     | Determines whether video audio should override background music/audio in Android devices.<br/>**false (default)**                                                                                                                                                                                                                           | bool   | No       | Android Exoplayer                                        | yes                              |
-| `muted`            | Controls whether the audio is muted.<br/>**false (default)** - Don't mute audio                                                                                                                                                                                                                                                             | bool   | No       | All                                                      | yes                              |
-| `paused`           | Controls whether the media is paused.<br/>**false (default)** - Don't pause the media                                                                                                                                                                                                                                                       | bool   | No       | All                                                      | yes                              |
-| `repeat`           | Determine whether to repeat the video when the end is reached.<br/>**false (default)** - Don't repeat the video                                                                                                                                                                                                                             | bool   | No       | All                                                      | yes                              |
-| `resizeMode`       | Determines how to resize the video when the frame doesn't match the raw video dimensions.<br/>**"none" (default)** - Don't apply resize                                                                                                                                                                                                     | string | No       | Android ExoPlayer, Android MediaPlayer, iOS, Windows UWP | yes                              |
-| `volume`           | Adjust the volume.<br/>**1.0 (default)** - Play at full volume                                                                                                                                                                                                                                                                              | number | No       | All                                                      | yes                              |
-| `poster`           | An image to display while the video is loading<br/>Value: string with a URL for the poster, e.g. "<https://baconmockup.com/300/200/>"                                                                                                                                                                                                       | string | No       | All                                                      | yes                              |
-| `posterResizeMode` | Determines how to resize the poster image when the frame doesn't match the raw video dimensions..<br/>**"contain" (default)**- Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or less than the corresponding dimension of the view (minus padding). | string | No       | All                                                      | yes                              |
+| `disableFocus`     | Determines whether video audio should override background music/audio in Android and HarmonyOS devices.<br/>**false (default)**                                                                                                                                                                                                             | bool   | No       | Android Exoplayer                                        | yes                            |
+| `muted`            | Controls whether the audio is muted.<br/>**false (default)** - Don't mute audio                                                                                                                                                                                                                                                             | bool   | No       | All                                                      | yes                            |
+| `paused`           | Controls whether the media is paused.<br/>**false (default)** - Don't pause the media                                                                                                                                                                                                                                                       | bool   | No       | All                                                      | yes                            |
+| `repeat`           | Determine whether to repeat the video when the end is reached.<br/>**false (default)** - Don't repeat the video                                                                                                                                                                                                                             | bool   | No       | All                                                      | yes                            |
+| `resizeMode`       | Determines how to resize the video when the frame doesn't match the raw video dimensions.<br/>**"none" (default)** - Don't apply resize                                                                                                                                                                                                     | string | No       | Android ExoPlayer, Android MediaPlayer, iOS, Windows UWP | yes                            |
+| `volume`           | Adjust the volume.<br/>**1.0 (default)** - Play at full volume                                                                                                                                                                                                                                                                              | number | No       | All                                                      | yes                            |
+| `poster`           | An image to display while the video is loading<br/>Value: string with a URL for the poster, e.g. "<https://baconmockup.com/300/200/>"                                                                                                                                                                                                       | string | No       | All                                                      | yes                            |
+| `posterResizeMode` | Determines how to resize the poster image when the frame doesn't match the raw video dimensions..<br/>**"contain" (default)**- Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or less than the corresponding dimension of the view (minus padding). | string | No       | All                                                      | yes                            |
 
 ## 事件回调
 
-| 名称                | 说明                                                                                                                                 | 类型     | 是否必填 | 原库平台                                         | 鸿蒙支持 |
-| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | :------- | -------- | ------------------------------------------------ | -------- |
-| `onLoad`            | Callback function that is called when the media is loaded and ready to play.                                                         | function | No       | All                                              | yes      |
-| `onLoadStart`       | Callback function that is called when the media starts loading.                                                                      | function | No       | All                                              | yes      |
-| `onReadyForDisplay` | Callback function that is called when the first video frame is ready for display. This is when the poster is removed.                | function | No       | Android ExoPlayer, Android MediaPlayer, iOS, Web | yes      |
-| `onProgress`        | Callback function that is called every progressUpdateInterval seconds with info about which position the media is currently playing. | function | No       | All                                              | yes      |
-| `onEnd`             | Callback function that is called when the player reaches the end of the media.                                                       | function | No       | All                                              | yes      |
-| `onError`           | Callback function that is called when the player experiences a playback error.                                                       | function | No       | All                                              | yes      |
-| `onBuffer`          | Callback function that is called when the player buffers.                                                                            | function | No       | Android, iOS                                     | yes      |
-| `onPlaybackStalled` | Callback function that is MediaPlayer MEDIA_INFO_BUFFERING_START                                                                     | function | No       | Android MediaPlayer                              | yes      |
-| `onPlaybackResume`  | Callback function that is MediaPlayer MEDIA_INFO_BUFFERING_END                                                                       | function | No       | Android MediaPlayer                              | yes      |
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name                | Description                                                                                                                          | Type     | Required | Platform                                         | HarmonyOS Support |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | :------- | -------- | ------------------------------------------------ | ----------------- |
+| `onLoad`            | Callback function that is called when the media is loaded and ready to play.                                                         | function | No       | All                                              | yes               |
+| `onLoadStart`       | Callback function that is called when the media starts loading.                                                                      | function | No       | All                                              | yes               |
+| `onReadyForDisplay` | Callback function that is called when the first video frame is ready for display. This is when the poster is removed.                | function | No       | Android ExoPlayer, Android MediaPlayer, iOS, Web | yes               |
+| `onProgress`        | Callback function that is called every progressUpdateInterval seconds with info about which position the media is currently playing. | function | No       | All                                              | yes               |
+| `onEnd`             | Callback function that is called when the player reaches the end of the media.                                                       | function | No       | All                                              | yes               |
+| `onError`           | Callback function that is called when the player experiences a playback error.                                                       | function | No       | All                                              | yes               |
+| `onBuffer`          | Callback function that is called when the player buffers.                                                                            | function | No       | Android, iOS                                     | yes               |
+| `onPlaybackStalled` | Callback function that is MediaPlayer MEDIA_INFO_BUFFERING_START                                                                     | function | No       | Android MediaPlayer                              | yes               |
+| `onPlaybackResume`  | Callback function that is MediaPlayer MEDIA_INFO_BUFFERING_END                                                                       | function | No       | Android MediaPlayer                              | yes               |
 
 ## 静态方法
 
-| 名称     | 说明                                                                             | 类型     | 是否必填 | 原库平台 | 鸿蒙支持 |
-| -------- | -------------------------------------------------------------------------------- | :------- | -------- | -------- | -------- |
-| `seek()` | Seek to the specified position represented by seconds. seconds is a float value. | function | No       | All      | yes      |
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name     | Description                                                                      | Type     | Required | Platform | HarmonyOS Support |
+| -------- | -------------------------------------------------------------------------------- | :------- | -------- | -------- | ----------------- |
+| `seek()` | Seek to the specified position represented by seconds. seconds is a float value. | function | No       | All      | yes               |
 
 ## 遗留问题
 

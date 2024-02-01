@@ -1,4 +1,4 @@
-> 模板版本：v0.1.2
+> 模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>react-native-transtiongroup</code> </h1>
@@ -14,25 +14,31 @@
 
 ## 安装与使用
 
+请到三方库的 Releases 发布地址查看配套的版本信息：[<@react-native-oh-tpl/库名> Releases](https://github.com/react-native-oh-library/react-native-transitiongroup/releases)，并下载适用版本的 tgz 包。
+
 进入到工程目录并输入以下命令：
 
+>[!TIP] # 处替换为 tgz 包的路径
+
 <!-- tabs:start -->
-
-#### **yarn**
-
-```bash
-yarn add @react-native-oh-tpl/react-native-transtiongroup
-```
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-transtiongroup
+npm install @react-native-oh-tpl/react-native-transitiongroup@file:#
+```
+
+#### **yarn**
+
+```bash
+yarn add @react-native-oh-tpl/react-native-transitiongroup@file:#
 ```
 
 <!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：
+
+>[!WARNING] 使用时 import 的库名不变。
 
 ```js
 import React, { useState } from 'react';
@@ -142,17 +148,10 @@ const styles = StyleSheet.create({
 
 ## 兼容性
 
-在下述版本验证通过:
+本文档内容基于以下版本验证通过：
 
-IDE: Deveco Studio 4.1.3.500;
-
-SDK: HarmonyOS NEXT Developer Preview1;
-
-测试设备: Mate60 (BRA-AL00);
-
-ROM: 204.1.0.59(SP2DEVC00E60R4P1) ;
-
-RNOH: 0.72.12;
+1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
+2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
 
 ## API
 

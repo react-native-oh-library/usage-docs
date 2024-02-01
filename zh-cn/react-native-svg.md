@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>react-native-svg</code> </h1>
@@ -12,29 +12,35 @@
     </a>
 </p>
 
+> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-svg)
+
 ## 安装与使用
+
+请到三方库的 Releases 发布地址查看配套的版本信息：[<@react-native-oh-tpl/react-native-svg> Releases](https://github.com/react-native-oh-library/react-native-svg/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
+>[!TIP] # 处替换为 tgz 包的路径
+
 <!-- tabs:start -->
-
-**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/react-native-svg/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
-
-#### **yarn**
-
-```bash
-yarn add react-native-svg@npm:@react-native-oh-tpl/react-native-svg
-```
 
 #### **npm**
 
 ```bash
-npm install react-native-svg@npm:@react-native-oh-tpl/react-native-svg
+npm install @react-native-oh-tpl/react-native-svg@file:#
+```
+
+#### **yarn**
+
+```bash
+yarn add @react-native-oh-tpl/react-native-svg@file:#
 ```
 
 <!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：
+
+>[!WARNING] 使用时 import 的库名不变。
 
 ```js
 import Svg, { Path } from "react-native-svg";
@@ -58,12 +64,15 @@ import Svg, { Path } from "react-native-svg";
 2. 直接链接源码。
 
 方法一：通过 har 包引入
+
+> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-svg": "file:../../node_modules/react-native-svg/harmony/svg.har"
+    "rnoh-svg": "file:../../node_modules/@react-native-oh-tpl/react-native-svg/harmony/svg.har"
   }
 ```
 
@@ -77,12 +86,15 @@ ohpm install
 ```
 
 方法二：直接链接源码
+
+> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-svg": "file:../../node_modules/react-native-svg/harmony/svg"
+    "rnoh-svg": "file:../../node_modules/@react-native-oh-tpl/react-native-svg/harmony/svg"
   }
 ```
 
@@ -146,34 +158,22 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 打开 `entry/src/main/ets/pages/index.ets`，添加：
 
 ```diff
-import {
-  RNApp,
-  ComponentBuilderContext,
-  RNAbility,
-  AnyJSBundleProvider,
-  MetroJSBundleProvider,
-  ResourceJSBundleProvider,
-} from 'rnoh'
-import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-package"
-import { createRNPackages } from '../RNPackagesFactory'
-+ import {
-+   SVG_VIEW_TYPE_NAME,
-+   SVGView
-+  } from "rnoh-svg"
+...
++ import { SVG_VIEW_TYPE_NAME, SVGView } from "rnoh-svg"
 
 @Builder
 function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-  if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
+  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
     SampleView({
       ctx: ctx.rnohContext,
-      tag: ctx.descriptor.tag,
+      tag: ctx.tag,
       buildCustomComponent: CustomComponentBuilder
     })
   }
-+ else if (ctx.descriptor.type === SVG_VIEW_TYPE_NAME) {
++ else if (ctx.componentName === SVG_VIEW_TYPE_NAME) {
 +   SVGView({
 +     ctx: ctx.rnohContext,
-+     tag: ctx.descriptor.tag,
++     tag: ctx.tag,
 +     buildCustomComponent: CustomComponentBuilder
 +   })
 + }
@@ -195,7 +195,9 @@ ohpm install
 
 然后编译、运行即可。
 
-## 兼容性
+## 约束与限制
+
+### 兼容性
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
@@ -205,8 +207,6 @@ ohpm install
 
 详细请查看 [react-native-svg 的文档介绍](https://github.com/software-mansion/react-native-svg/blob/main/USAGE.md)
 
-> [!tip] 目前Defs、Mask、Use、Circle、LinearGradient、Stop组件仅显示空白占位，还无具体实现效果。
-
 以下为目前已支持的组件属性：
 
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
@@ -215,52 +215,103 @@ ohpm install
 
 **Svg**：绘制组件的父组件
 
-|  名称   |   说明   |      类型       | 是否必填 | 原库平台 | 鸿蒙支持 |
-| :-----: | :------: | :-------------: | -------- | -------- | -------- |
-|  width  | 组件宽度 | number\| string | Yes      | All      | Yes      |
-| height  | 组件高度 | number\| string | Yes      | All      | Yes      |
-| viewBox | 组件视区 |     string      | No       | All      | Yes      |
-|  color  |   颜色   |     string      | No       | All      | Yes      |
+|  Name   | Description |      Type       | Required | Platform | HarmonyOS Support |
+| :-----: | :---------: | :-------------: | -------- | -------- | ----------------- |
+|  width  |  组件宽度   | number\| string | Yes      | All      | Yes               |
+| height  |  组件高度   | number\| string | Yes      | All      | Yes               |
+| viewBox |  组件视区   |     string      | No       | All      | Yes               |
+|  color  |    颜色     |     string      | No       | All      | Yes               |
 
 **G**：该元素是用于对其他 SVG 元素进行分组的容器
 
-| 名称 | 说明 | 类型 | 是否必填 | 原库平台 | 鸿蒙支持 |
-| :--: | :--: | :--: | -------- | -------- | -------- |
+| Name | Description | Type | Required | Platform | HarmonyOS Support |
+| :--: | :---------: | :--: | -------- | -------- | ----------------- |
 
 **Path**： 路径绘制组件，根据绘制路径生成封闭的自定义形状
 
-| 名称 |         说明         |  类型  | 是否必填 | 原库平台 | 鸿蒙支持 |
-| :--: | :------------------: | :----: | -------- | -------- | -------- |
-|  d   | 路径绘制的命令字符串 | string | Yes      | All      | Yes      |
+| Name |     Description      |  Type  | Required | Platform | HarmonyOS Support |
+| :--: | :------------------: | :----: | -------- | -------- | ----------------- |
+|  d   | 路径绘制的命令字符串 | string | Yes      | All      | Yes               |
 
 **Rect**： 矩形绘制组件，根据角位置和宽高生成矩形形状
 
-|  名称  |       说明        |      类型       | 是否必填 | 原库平台 | 鸿蒙支持 |
-| :----: | :---------------: | :-------------: | -------- | -------- | -------- |
-|   x    | 在 x 轴上平移距离 | number\| string | No       | All      | Yes      |
-|   y    | 在 y 轴上平移距离 | number\| string | No       | All      | Yes      |
-| width  |     元素宽度      | number\| string | Yes      | All      | Yes      |
-| height |     元素高度      | number\| string | Yes      | All      | Yes      |
-|   rx   | 定义 x 轴上的半径 | number\| string | No       | All      | Yes      |
-|   ry   | 定义 y 轴上的半径 | number\| string | No       | All      | Yes      |
+|  Name  |    Description    |      Type       | Required | Platform | HarmonyOS Support |
+| :----: | :---------------: | :-------------: | -------- | -------- | ----------------- |
+|   x    | 在 x 轴上平移距离 | number\| string | No       | All      | Yes               |
+|   y    | 在 y 轴上平移距离 | number\| string | No       | All      | Yes               |
+| width  |     元素宽度      | number\| string | Yes      | All      | Yes               |
+| height |     元素高度      | number\| string | Yes      | All      | Yes               |
+|   rx   | 定义 x 轴上的半径 | number\| string | No       | All      | Yes               |
+|   ry   | 定义 y 轴上的半径 | number\| string | No       | All      | Yes               |
 
 **Image**： 图像元素，支持 JPEG、PNG 格式
 
-|  名称  |       说明        |      类型       | 是否必填 | 原库平台 | 鸿蒙支持 |
-| :----: | :---------------: | :-------------: | -------- | -------- | -------- |
-|   x    | 在 x 轴上平移距离 | number\| string | No       | All      | Yes      |
-|   y    | 在 y 轴上平移距离 | number\| string | No       | All      | Yes      |
-| width  |     元素宽度      | number\| string | Yes      | All      | Yes      |
-| height |     元素高度      | number\| string | Yes      | All      | Yes      |
-|  href  |   图像资源引用    | source\| string | Yes      | All      | Yes      |
+|  Name  |    Description    |      Type       | Required | Platform | HarmonyOS Support |
+| :----: | :---------------: | :-------------: | -------- | -------- | ----------------- |
+|   x    | 在 x 轴上平移距离 | number\| string | No       | All      | Yes               |
+|   y    | 在 y 轴上平移距离 | number\| string | No       | All      | Yes               |
+| width  |     元素宽度      | number\| string | Yes      | All      | Yes               |
+| height |     元素高度      | number\| string | Yes      | All      | Yes               |
+|  href  |   图像资源引用    | source\| string | Yes      | All      | Yes               |
 
-**公共属性**：Common props 组件属性支持情况
+**Circle**： 园绘制组件，基于圆心和半径生成园形形状
 
-|    属性     |                 说明                 |  类型  | 默认值 | 是否必填 | 原库平台 | G   | Path | Rect |
-| :---------: | :----------------------------------: | :----: | :----: | :------: | -------- | --- | ---- | ---- |
-|    fill     |           设置填充区域颜色           | string | '#000' |    No    | All      |     | √    | √    |
-|   stroke    | 设置边框颜色，不设置时，默认没有边框 | string | 'none' |    No    | All      |     | √    | √    |
-| strokeWidth |             设置边框宽度             | number |   1    |    No    | All      |     | √    | √    |
+| Name |      Description      |      Type       | Required | Platform | HarmonyOS Support |
+| :--: | :-------------------: | :-------------: | -------- | -------- | ----------------- |
+|  r   |        园半径         | number\| string | Yes      | All      | Yes               |
+|  cx  | 圆心在 x 轴上平移距离 | number\| string | No       | All      | Yes               |
+|  cy  | 圆心在 y 轴上平移距离 | number\| string | No       | All      | Yes               |
+
+**Polygon**： 多边形制组件，用于创建至少包含三条边的图形
+
+|  Name  |          Description           |      Type      | Required | Platform | HarmonyOS Support |
+| :----: | :----------------------------: | :------------: | -------- | -------- | ----------------- |
+| points | 定义多边形每个角的 x 和 y 坐标 | string\| array | Yes      | All      | Yes               |
+
+**Defs**：该元素是用于对其他 SVG 元素进行分组的容器
+
+**LinearGradient**：用于定义线性渐变
+
+> [!tip] 注： LinearGradient 目前仅支持 Path、Rect、Circle 组件，只支持在 fill 上使用，不支持 stroke
+
+| Name |    Description    |      Type       | Required | Platform | HarmonyOS Support |
+| :--: | :---------------: | :-------------: | -------- | -------- | ----------------- |
+|  x1  | 在 x 轴上平移距离 | number\| string | No       | All      | Yes               |
+|  y1  | 在 y 轴上平移距离 | number\| string | No       | All      | Yes               |
+|  x2  | 在 x 轴上平移距离 | number\| string | No       | All      | Yes               |
+|  y2  | 在 y 轴上平移距离 | number\| string | No       | All      | Yes               |
+
+**Stop**：定义渐变上的颜色坡度
+
+|    Name     |         Description          |      Type       | Required | Platform | HarmonyOS Support |
+| :---------: | :--------------------------: | :-------------: | -------- | -------- | ----------------- |
+|  stopColor  |        渐变停止的颜色        |     string      | No       | All      | Yes               |
+| stopOpacity |      渐变停止的不透明度      | number\| string | No       | All      | Yes               |
+|   offset    | 渐变停止沿渐变向量放置的位置 | number\| string | No       | All      | Yes               |
+
+**Mask**：定义 alpha 蒙版，用于将当前对象合成到背景中
+
+> [!tip] 注： Mask 目前自有属性均不支持，仅支持 Path、Rect、Circle 组件的单一组件嵌套，不支持多组件嵌套
+
+**Use**：该元素可以重复使用 SVG 元素
+
+> [!tip] 注： Use 目前仅支持 Path、Rect、Circle 组件
+
+|  Name  |    Description    |      Type       | Required | Platform | HarmonyOS Support |
+| :----: | :---------------: | :-------------: | -------- | -------- | ----------------- |
+|   x    | 在 x 轴上平移距离 | number\| string | No       | All      | Yes               |
+|   y    | 在 y 轴上平移距离 | number\| string | No       | All      | Yes               |
+| width  |     元素宽度      | number\| string | No       | All      | Yes               |
+| height |     元素高度      | number\| string | No       | All      | Yes               |
+|  href  |   图像资源引用    | source\| string | Yes      | All      | Yes               |
+
+**公共属性**：Common props 组件属性鸿蒙侧支持情况
+
+|    Name     |             Description              |  Type  | Default | Required | Platform | G   | Path | Rect | Circle | Polygon |
+| :---------: | :----------------------------------: | :----: | :-----: | :------: | -------- | --- | ---- | ---- | ------ | ------- |
+|    fill     |           设置填充区域颜色           | string | '#000'  |    No    | All      |     | √    | √    | √      | √       |
+|   stroke    | 设置边框颜色，不设置时，默认没有边框 | string | 'none'  |    No    | All      |     | √    | √    | √      | √       |
+| strokeWidth |             设置边框宽度             | number |    1    |    No    | All      |     | √    | √    | √      | √       |
 
 ## 遗留问题
 

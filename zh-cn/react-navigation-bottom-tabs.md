@@ -1,4 +1,4 @@
-> 模板版本：v0.1.2
+> 模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>@react-navigation/bottom-tabs</code> </h1>
@@ -18,36 +18,32 @@
 
 <!-- tabs:start -->
 
-```bash
-yarn add @react-navigation/bottom-tabs@6.5.11
-```
-
 #### **npm**
 
 ```bash
 npm install @react-navigation/bottom-tabs@6.5.11
 ```
 
-正常使用`bottom-tabs`还需导入相关依赖，点击查看详细使用方法
+#### **yarn**
 
-[@react-native-oh-tpl/elements](./react-navigation-elements.md)<br/>
-[@react-native-oh-tpl/react-native-safe-area-context](./react-native-safe-area-context.md)
+```bash
+yarn add @react-navigation/bottom-tabs@6.5.11
+```
 
 <!-- tabs:end -->
 
 ## 兼容性
 
-在下述版本验证通过：
+本文档内容基于以下版本验证通过：
 
-1. DevEco Studio: 4.0.3.700; SDK: OpenHarmony(API10) 4.0.10.15; 测试设备: Mate 40 Pro(NOH-AN00); ROM: 4.0.0.66(SP3C00E73R1P14log); RNOH: 0.72.10
-2. DevEco Studio: 4.1.3.313; SDK: OpenHarmony(API11) 4.1.0.52; 测试设备: Mate 40 Pro(NOH-AN00); ROM: 2.0.0.51(SP22C00E52R1P17log); RNOH: 0.72.11
-3. DevEco Studio: 4.1.3.313; SDK: OpenHarmony(API11) 4.1.0.52; 测试设备: Mate 40 Pro(NOH-AN00); ROM: 2.0.0.52(SP22C00E52R1P17log); RNOH: 0.72.11
+1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
+2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
 
 ## 方法
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support  |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| `createBottomTabNavigator` | 创建BottomTabs组件 | function | no      | All      | yes      |
+| Name                       | Description          | Type     | Required | Platform | HarmonyOS Support |
+| -------------------------- | -------------------- | -------- | -------- | -------- | ----------------- |
+| `createBottomTabNavigator` | 创建 BottomTabs 组件 | function | no       | All      | yes               |
 
 ## 属性
 
@@ -55,20 +51,20 @@ npm install @react-navigation/bottom-tabs@6.5.11
 
 **Navigator**：
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support  |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| initialRouteName | 第一次加载导航器时要渲染的路线的名称 | string | no      | All      | yes      |
-| backBehavior | 控制在导航器中调用goBack时发生的情况 | string | no      | All      | yes      |
-| tabBar | 函数，返回一个React元素用来显示选项卡栏 | function | no      | All      | yes      |
-| sceneContainerStyle | 包装屏幕内容的组件的样式对象 | ViewStyle | no      | All      | yes      |
-| screenOptions | 用于导航器中屏幕的默认选项 |  自定义类型 | no      | All      | yes      |
+| Name                | Description                               | Type       | Required | Platform | HarmonyOS Support |
+| ------------------- | ----------------------------------------- | ---------- | -------- | -------- | ----------------- |
+| initialRouteName    | 第一次加载导航器时要渲染的路线的名称      | string     | no       | All      | yes               |
+| backBehavior        | 控制在导航器中调用 goBack 时发生的情况    | string     | no       | All      | yes               |
+| tabBar              | 函数，返回一个 React 元素用来显示选项卡栏 | function   | no       | All      | yes               |
+| sceneContainerStyle | 包装屏幕内容的组件的样式对象              | ViewStyle  | no       | All      | yes               |
+| screenOptions       | 用于导航器中屏幕的默认选项                | 自定义类型 | no       | All      | yes               |
 
 **Screen**：
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support  |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| name | 屏幕显示的 自定义类型名称 | string | no      | All      | yes      |
-| options | 用于配置如何在导航器中显示屏幕的选项。| 自定义类型 | no      | All      | yes      |
+| Name    | Description                            | Type       | Required | Platform | HarmonyOS Support |
+| ------- | -------------------------------------- | ---------- | -------- | -------- | ----------------- |
+| name    | 屏幕显示的 自定义类型名称              | string     | no       | All      | yes               |
+| options | 用于配置如何在导航器中显示屏幕的选项。 | 自定义类型 | no       | All      | yes               |
 
 **BottomTabBarHeightCallBackContext.Provider**：标签栏高度回调函数提供者
 

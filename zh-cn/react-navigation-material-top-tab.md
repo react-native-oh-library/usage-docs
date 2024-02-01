@@ -1,4 +1,4 @@
-> 模板版本：v0.1.2
+> 模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>@react-navigation/material-top-tabs</code> </h1>
@@ -18,24 +18,26 @@
 进入到工程目录并输入以下命令：
 
 <!-- tabs:start -->
-
-```bash
-yarn add @react-navigation/material-top-tabs@6.6.5
-```
-
 #### **npm**
 
 ```bash
 npm install @react-navigation/material-top-tabs@6.5.11
 ```
 
+#### **yarn**
+
+```bash
+yarn add @react-navigation/material-top-tabs@6.6.5
+```
+
 <!-- tabs:end -->
 
 ## 兼容性
 
-在下述版本验证通过：
+本文档内容基于以下版本验证通过：
 
-1. DevEco Studio: 4.1.3.322; SDK: OpenHarmony(API11) 4.1.0.52; 测试设备: Mate 40 Pro(NOH-AN00); ROM: 2.0.0.52(SP22C00E52R1P17log); RNOH: 0.72.11
+1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
+2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
 
 ## 方法
 

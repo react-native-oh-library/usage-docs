@@ -1,4 +1,4 @@
-> 模板版本：v0.1.2
+> 模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>@react-navigation/native</code> </h1>
@@ -18,25 +18,26 @@
 
 <!-- tabs:start -->
 
-```bash
-yarn add @react-navigation/native@6.1.9
-```
-
 #### **npm**
 
 ```bash
 npm install @react-navigation/native@6.1.9
 ```
 
+#### **yarn**
+
+```bash
+yarn add @react-navigation/native@6.1.9
+```
+
 <!-- tabs:end -->
 
 ## 兼容性
 
-在下述版本验证通过：
+本文档内容基于以下版本验证通过：
 
-1. DevEco Studio: 4.0.3.700; SDK: OpenHarmony(API10) 4.0.10.15; 测试设备: Mate 40 Pro(NOH-AN00); ROM: 4.0.0.66(SP3C00E73R1P14log); RNOH: 0.72.10
-2. DevEco Studio: 4.1.3.313; SDK: OpenHarmony(API11) 4.1.0.52; 测试设备: Mate 40 Pro(NOH-AN00); ROM: 2.0.0.51(SP22C00E52R1P17log); RNOH: 0.72.11
-3. DevEco Studio: 4.1.3.313; SDK: OpenHarmony(API11) 4.1.0.52; 测试设备: Mate 40 Pro(NOH-AN00); ROM: 2.0.0.52(SP22C00E52R1P17log); RNOH: 0.72.11
+1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
+2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
 
 ## 属性
 
@@ -44,14 +45,13 @@ npm install @react-navigation/native@6.1.9
 
 **NavigationContainer**：
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support  |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| theme | 主题 | Theme | no      | All      | yes      |
-| independent | 此导航容器是否应独立于父容器 | boolean | no      | All      | yes      |
-| documentTitle | 文档标题 | function | no      | All      | yes      |
+| Name          | Description                  | Type     | Required | Platform | HarmonyOS Support |
+| ------------- | ---------------------------- | -------- | -------- | -------- | ----------------- |
+| theme         | 主题                         | Theme    | no       | All      | yes               |
+| independent   | 此导航容器是否应独立于父容器 | boolean  | no       | All      | yes               |
+| documentTitle | 文档标题                     | function | no       | All      | yes               |
 
-
-**NavigationHelpersContext.Provider**：navigation提供者，用于保存导航器
+**NavigationHelpersContext.Provider**：navigation 提供者，用于保存导航器
 
 ## 遗留问题
 

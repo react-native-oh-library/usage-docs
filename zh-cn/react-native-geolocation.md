@@ -16,23 +16,31 @@
 
 ## 安装与使用
 
+请到三方库的 Releases 发布地址查看配套的版本信息：[<@react-native-oh-tpl/react-native-geolocation Releases](https://github.com/react-native-oh-library/react-native-geolocation/releases)，并下载适用版本的 tgz 包。
+
 进入到工程目录并输入以下命令：
 
+> [!TIP] # 处替换为 tgz 包的路径
+
 <!-- tabs:start -->
-
-#### **yarn**
-
-```bash
-yarn add @react-native-oh-tpl/react-native-geolocation
-```
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-geolocation
+npm install @react-native-oh-tpl/react-native-geolocation@file:#
 ```
 
+#### **yarn**
+
+```bash
+yarn add @react-native-oh-tpl/react-native-geolocation@file:#
+```
+
+<!-- tabs:end -->
+
 下面的代码展示了这个库的基本使用场景：
+
+> [!WARNING] 使用时 import 的库名不变。
 
 ```js
 // setRNConfiguration 为例
@@ -59,7 +67,11 @@ Geolocation.setRNConfiguration(
 1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
 2. 直接链接源码。
 
-方法一：通过 har 包引入打开 `entry/oh-package.json5`，添加以下依赖
+方法一：通过 har 包引入
+
+> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
+
+打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
@@ -78,6 +90,9 @@ ohpm install
 ```
 
 方法二：直接链接源码
+
+> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
@@ -142,8 +157,6 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-
-
 ### 在 ArkTs 侧引入 GeolocationPackage
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
@@ -173,7 +186,6 @@ ohpm install
 
 然后编译、运行即可。
 
-
 ### 兼容性
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
@@ -196,22 +208,19 @@ ohpm install
 }
 ```
 
-
-
-
 ## 属性
 
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support |Notes|
-| ---- | ----------- | ---- | -------- | -------- | -------- | -------- |
-| setRNConfiguration  | Sets configuration options that will be used in all location requests | function(config)  | NO | IOS Android | partially | config仅支持skipPermissionRequests |
-| requestAuthorization | Request suitable Location permission | function(success,error) | YES | IOS Android | partially | success支持,error仅支持code与message |
-| getCurrentPosition | Invokes the success callback once with the latest location info | function(success(position),error(error),option) | NO | IOS Android | partially | position中仅altitudeAccuracy不支持,option仅支持timeout与maximumAge,error仅支持code与message |
-| watchPosition | Invokes the success callback whenever the location changes. Returns a watchId (number) | function(success(postion),error(error),option) | NO | IOS Android | partially | position中仅altitudeAccuracy不支持,error仅支持code与message,option仅支持interval与distanceFilter|
-| clearWatch | Clears watch observer by id returned by watchPosition() | function(watchID) | NO | IOS Android | yes | watchID仅支持默认值0 |
+| Name                 | Description                                                                            | Type                                            | Required | Platform    | HarmonyOS Support | Notes                                                                                                       |
+| -------------------- | -------------------------------------------------------------------------------------- | ----------------------------------------------- | -------- | ----------- | ----------------- | ----------------------------------------------------------------------------------------------------------- |
+| setRNConfiguration   | Sets configuration options that will be used in all location requests                  | function(config)                                | NO       | IOS Android | partially         | config 仅支持 skipPermissionRequests                                                                        |
+| requestAuthorization | Request suitable Location permission                                                   | function(success,error)                         | YES      | IOS Android | partially         | success 支持,error 仅支持 code 与 message                                                                   |
+| getCurrentPosition   | Invokes the success callback once with the latest location info                        | function(success(position),error(error),option) | NO       | IOS Android | partially         | position 中仅 altitudeAccuracy 不支持,option 仅支持 timeout 与 maximumAge,error 仅支持 code 与 message      |
+| watchPosition        | Invokes the success callback whenever the location changes. Returns a watchId (number) | function(success(postion),error(error),option)  | NO       | IOS Android | partially         | position 中仅 altitudeAccuracy 不支持,error 仅支持 code 与 message,option 仅支持 interval 与 distanceFilter |
+| clearWatch           | Clears watch observer by id returned by watchPosition()                                | function(watchID)                               | NO       | IOS Android | yes               | watchID 仅支持默认值 0                                                                                      |
 
 ## 遗留问题
 

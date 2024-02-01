@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>@react-native-clipboard/clipboard</code> </h1>
@@ -12,36 +12,35 @@
     </a>
 </p>
 
+> [!tip] [Github 地址](https://github.com/react-native-oh-library/clipboard/tree/sig)
+
 ## 安装与使用
 
-> [!tip] 目前部分 React-Native-OpenHarmony(RNOH) 三方库的 npm 包部署在私仓，需要通过 github token 来获取访问权限。
-
-在与 `package.json` 文件相同的目录中，创建或编辑 `.npmrc` 文件以包含指定 GitHub Packages URL 和托管包的命名空间的行。 将 TOKEN 替换为 RNOH 三方库指定的 token。
-
-```bash
-@react-native-oh-library:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=TOKEN
-```
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/clipboard Releases](https://github.com/react-native-oh-library/clipboard/releases)，并下载适用版本的 tgz 包
 
 进入到工程目录并输入以下命令：
 
+>[!TIP] # 处替换为 tgz 包的路径
+
 <!-- tabs:start -->
-
-#### **yarn**
-
-```bash
-yarn add @react-native-clipboard/clipboard@npm:@react-native-oh-library/clipboard
-```
 
 #### **npm**
 
 ```bash
-npm install @react-native-clipboard/clipboard@npm:@react-native-oh-library/clipboard
+npm install @react-native-oh-tpl/clipboard@file:#
 ```
 
-<!-- tabs:end -->
+#### **yarn**
 
-下面的代码展示了这个库的基本使用场景：
+```bash
+yarn add @react-native-oh-tpl/clipboard@file:#
+```
+
+<!-- tabs:start -->
+
+快速使用：
+
+>[!WARNING] 使用时 import 的库名不变。
 
 ```js
 import Clipboard from "@react-native-clipboard/clipboard";
@@ -83,12 +82,15 @@ const fetchCopiedText = async () => {
 2. 直接链接源码。
 
 方法一：通过 har 包引入
+
+> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-clipboard": "file:../../node_modules/@react-native-clipboard/clipboard/harmony/clipboard.har"
+    "rnoh-clipboard": "file:../../node_modules/@react-native-oh-tpl/clipboard/harmony/clipboard.har"
   }
 ```
 
@@ -102,12 +104,15 @@ ohpm install
 ```
 
 方法二：直接链接源码
+
+> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-clipboard": "file:../../node_modules/@react-native-clipboard/clipboard/harmony/clipboard"
+    "rnoh-clipboard": "file:../../node_modules/@react-native-oh-tpl/clipboard/harmony/clipboard"
   }
 ```
 
@@ -166,7 +171,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 在 ArkTs 侧引入 Clipboard Package
+### 在 ArkTs 侧引入 ClipboardPackage
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
@@ -201,25 +206,29 @@ ohpm install
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-library/clipboard Releases](https://github.com/react-native-oh-library/clipboard/releases)
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/clipboard Releases](https://github.com/react-native-oh-library/clipboard/releases)
 
 ## 属性
 
-| 名称        | 说明                                                                                                                                                                                                                      | 类型     | 是否必填 | 原库平台    | 鸿蒙支持 |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------- | -------- |
-| getString   | Get content of string type, this method returns a Promise, so you can use following code to get clipboard content                                                                                                         | function | NO       | ios,android | yes      |
-| setString   | Set content of string type. You can use following code to set clipboard content                                                                                                                                           | function | NO       | ios,android | yes      |
-| hasString   | Returns whether the clipboard has content or is empty.                                                                                                                                                                    | function | NO       | ios,android | yes      |
-| getImage    | Get content of image in base64 string type, this method returns a Promise, so you can use following code to get clipboard content (ANDROID only)                                                                          | function | NO       | android     | no       |
-| getStrings  | (iOS only) Get contents of string array type, this method returns a Promise, so you can use following code to get clipboard content                                                                                       | function | NO       | ios         | no      |
-| setStrings  | (iOS only) Set content of string array type. You can use following code to set clipboard content                                                                                                                          | function | NO       | ios         | no      |
-| hasNumber   | (iOS 14+ only) Returns whether the clipboard has a Number(UIPasteboardDetectionPatternNumber) content. Can check if there is a Number content in clipboard without triggering PasteBoard notification for iOS 14+         | function | NO       | ios         | yes      |
-| hasImage    | Returns whether the clipboard has a Image                                                                                                                                                                                 | function | NO       | ios         | no       |
-| hasUrl      | (iOS only) Returns whether the clipboard has a URL content. Can check if there is a URL content in clipboard without triggering PasteBoard notification for iOS 14+                                                       | function | NO       | ios         | no       |
-| hasWebUrl   | (iOS 14+ only) Returns whether the clipboard has a WebURL(UIPasteboardDetectionPatternProbableWebURL) content. Can check if there is a WebURL content in clipboard without triggering PasteBoard notification for iOS 14+ | function | NO       | ios         | yes      |
-| setImage    | Set content of Image type.（base64 string）                                                                                                                                                                               | function | NO       | ios         | no       |
-| getImageJPG | get base64 string of JPG Image                                                                                                                                                                                            | function | NO       | ios         | no       |
-| getImagePNG | get base64 string of PNG Image                                                                                                                                                                                            | function | NO       | ios         | no       |
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name        | Description                                                                                                                                                                                                               | Type     | Required | Platform    | HarmonyOS Support |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------- | ----------------- |
+| getString   | Get content of string type, this method returns a Promise, so you can use following code to get clipboard content                                                                                                         | function | NO       | ios,android | yes               |
+| setString   | Set content of string type. You can use following code to set clipboard content                                                                                                                                           | function | NO       | ios,android | yes               |
+| hasString   | Returns whether the clipboard has content or is empty.                                                                                                                                                                    | function | NO       | ios,android | yes               |
+| getImage    | Get content of image in base64 string type, this method returns a Promise, so you can use following code to get clipboard content (ANDROID only)                                                                          | function | NO       | android     | no                |
+| getStrings  | (iOS only) Get contents of string array type, this method returns a Promise, so you can use following code to get clipboard content                                                                                       | function | NO       | ios         | no                |
+| setStrings  | (iOS only) Set content of string array type. You can use following code to set clipboard content                                                                                                                          | function | NO       | ios         | no                |
+| hasNumber   | (iOS 14+ only) Returns whether the clipboard has a Number(UIPasteboardDetectionPatternNumber) content. Can check if there is a Number content in clipboard without triggering PasteBoard notification for iOS 14+         | function | NO       | ios         | yes               |
+| hasImage    | Returns whether the clipboard has a Image                                                                                                                                                                                 | function | NO       | ios         | yes               |
+| hasUrl      | (iOS only) Returns whether the clipboard has a URL content. Can check if there is a URL content in clipboard without triggering PasteBoard notification for iOS 14+                                                       | function | NO       | ios         | no                |
+| hasWebUrl   | (iOS 14+ only) Returns whether the clipboard has a WebURL(UIPasteboardDetectionPatternProbableWebURL) content. Can check if there is a WebURL content in clipboard without triggering PasteBoard notification for iOS 14+ | function | NO       | ios         | yes               |
+| setImage    | Set content of Image type.（base64 string）                                                                                                                                                                               | function | NO       | ios         | yes               |
+| getImageJPG | get base64 string of JPG Image                                                                                                                                                                                            | function | NO       | ios         | yes               |
+| getImagePNG | get base64 string of PNG Image                                                                                                                                                                                            | function | NO       | ios         | yes               |
 
 ## 遗留问题
 

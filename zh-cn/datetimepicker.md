@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>@react-native-community/datetimepicker</code> </h1>
@@ -12,29 +12,35 @@
     </a>
 </p>
 
+> [!tip] [Github 地址](https://github.com/react-native-oh-library/datetimepicker)
+
 ## 安装与使用
+
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/datetimepicker Releases](https://github.com/react-native-oh-library/datetimepicker/releases)，并下载适用版本的 tgz 包
 
 进入到工程目录并输入以下命令：
 
+>[!TIP] # 处替换为 tgz 包的路径
+
 <!-- tabs:start -->
-
-**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/datetimepicker/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
-
-#### **yarn**
-
-```bash
-yarn add xxx
-```
 
 #### **npm**
 
 ```bash
-npm install xxx
+npm install @react-native-oh-tpl/datetimepicker@file:#
+```
+
+#### **yarn**
+
+```bash
+yarn add @react-native-oh-tpl/datetimepicker@file:#
 ```
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+快速使用：
+
+>[!WARNING] 使用时 import 的库名不变。
 
 ```js
 import DateTimePicker from '@react-native-community/datetimepicker';
@@ -96,12 +102,15 @@ export const App = () => {
 2. 直接链接源码。
 
 方法一：通过 har 包引入
+
+> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-datetimepicker": "file:../../node_modules/@react-native-community/datetimepicker/harmony/datetimepicker.har"
+    "rnoh-datetimepicker": "file:../../node_modules/@react-native-oh-tpl/datetimepicker/harmony/datetimepicker.har"
   }
 ```
 
@@ -115,12 +124,15 @@ ohpm install
 ```
 
 方法二：直接链接源码
+
+> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-   "rnoh-datetimepicker": "file:../../node_modules/@react-native-community/datetimepicker/harmony/datetimepicker"
+   "rnoh-datetimepicker": "file:../../node_modules/@react-native-oh-tpl/datetimepicker/harmony/datetimepicker"
   }
 ```
 
@@ -184,31 +196,23 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 打开 `entry/src/main/ets/pages/index.ets`，添加：
 
 ```diff
-import {
-  RNApp,
-  ComponentBuilderContext,
-  RNAbility,
-  AnyJSBundleProvider,
-  MetroJSBundleProvider,
-  ResourceJSBundleProvider,
-} from 'rnoh'
+...
 import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-package"
-import { createRNPackages } from '../RNPackagesFactory'
 + import { RNDateTimePicker, DATETIME_PICKER_VIEW_TYPE } from "rnoh-datetimepicker"
 
 @Builder
 function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-  if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
+  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
     SampleView({
       ctx: ctx.rnohContext,
-      tag: ctx.descriptor.tag,
+      tag: ctx.tag,
       buildCustomComponent: CustomComponentBuilder
     })
   }
-+ else if (ctx.descriptor.type === DATETIME_PICKER_VIEW_TYPE) {
++ else if (ctx.componentName === DATETIME_PICKER_VIEW_TYPE) {
 +   RNDateTimePicker({
 +     ctx: ctx.rnohContext,
-+     tag: ctx.descriptor.tag,
++     tag: ctx.tag,
 +     buildCustomComponent: CustomComponentBuilder
 +   })
 + }
@@ -234,11 +238,15 @@ ohpm install
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[<@react-native-oh-library/datetimepicker> Releases](https://github.com/react-native-oh-library/datetimepicker/releases/tag/7.6.2-0.0.2)
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[<@react-native-oh-library/datetimepicker> Releases](https://github.com/react-native-oh-library/datetimepicker/releases)
 
 ## 属性
 
-| 名称        | 说明                                                                      | 类型     | 是否必填 | 原库平台                 | 鸿蒙支持                                                   |
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name        | Description                                                                      | Type     | Required | Platform                 | HarmonyOS Support                                                   |
 | ----------- | ------------------------------------------------------------------------- | -------- | -------- | ------------------------ | ---------------------------------------------------------- |
 | mode        | Defines the type of the picker                                            | string   | 否       | All                      | partially (仅支持 date/time 模式)                          |
 | style       | Sets style directly on picker component.                                  | object   | 否       | IOS only                 | yes                                                        |
@@ -252,6 +260,8 @@ ohpm install
 | textColor   | Allows changing of the textColor of the date picker.                      | string   | 否       | IOS only                 | partially (仅支持在 mode=date 且 display=compact 时设置)   |
 
 ## 遗留问题
+
+- [x] 已解决：textColor属性在compact和inline模式改变值后使用禁用操作，颜色会变白色[issue#17](https://github.com/react-native-oh-library/datetimepicker/issues/17)
 
 - [ ] 部分接口，未适配
 

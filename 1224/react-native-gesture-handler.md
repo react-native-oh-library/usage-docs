@@ -1,4 +1,4 @@
-> 模板版本：v0.1.3
+> 模板版本：v0.1.1
 
 <p align="center">
   <h1 align="center"> <code>react-native-gesture-handler</code> </h1>
@@ -16,31 +16,25 @@
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-gesture-handler Releases](https://github.com/react-native-oh-library/react-native-gesture-handler/releases)，并下载适用版本的 tgz 包。
-
 进入到工程目录并输入以下命令：
 
->[!TIP] # 处替换为 tgz 包的路径
-
 <!-- tabs:start -->
-
-#### **npm**
-
-```bash
-npm install @react-native-oh-tpl/react-native-gesture-handler@file:#
-```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-gesture-handler@file:#
+yarn add @react-native-oh-tpl/react-native-gesture-handler
+```
+
+#### **npm**
+
+```bash
+npm install @react-native-oh-tpl/react-native-gesture-handler
 ```
 
 <!-- tabs:end -->
 
 快速使用：
-
->[!WARNING] 使用时 import 的库名不变。
 
 ```js
 import React, { Component } from "react";
@@ -116,9 +110,6 @@ export default function App() {
 2. 直接链接源码。
 
 方法一：通过 har 包引入
-
-> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
-
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
@@ -138,9 +129,6 @@ ohpm install
 ```
 
 方法二：直接链接源码
-
-> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
-
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
@@ -448,8 +436,7 @@ Y coordinate, expressed in points, of the current position of the pointer (finge
 
 ## 遗留问题
 
-- 手势只支持 Pan 和 Tap 手势；
-- 组件只支持 Touchables
+- 目前只支持 Pan 和 Tag 手势
 
 ## 其他
 

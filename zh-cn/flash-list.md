@@ -1,46 +1,46 @@
-
-
-> 模板版本：v0.0.1
+> 模板版本：v0.1.3
 
 <p align="center">
-  <h1 align="center"> <code>@Shopify/flash-list</code> </h1>
+  <h1 align="center"> <code>@shopify/flash-list</code> </h1>
 </p>
 <p align="center">
     <a href="https://github.com/Shopify/flash-list">
         <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
-    <a href="https://github.com/Shopify/flash-list/blob/main/LICENSE>">
+    <a href="https://github.com/Shopify/flash-list/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
 
+>[!tip] [Github 地址](https://github.com/react-native-oh-library/flash-list)
+
 ## 安装与使用
 
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/flash-list Releases](https://github.com/react-native-oh-library/flash-list/releases)，并下载适用版本的 tgz 包
 
 进入到工程目录并输入以下命令：
 
+>[!TIP] # 处替换为 tgz 包的路径
+
 <!-- tabs:start -->
-
-**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/datetimepicker/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
-
-#### **yarn**
-
-```bash
-yarn add xxx
-```
 
 #### **npm**
 
 ```bash
-npm install xxx
+npm install @react-native-oh-tpl/flash-list@file:#
+```
+
+#### **yarn**
+
+```bash
+yarn add @react-native-oh-tpl/flash-list@file:#
 ```
 
 <!-- tabs:end -->
 
+快速使用：
 
-
-
-下面的代码展示了这个库的基本使用场景：
+>[!WARNING] 使用时 import 的库名不变。
 
 ```js
 import React from "react";
@@ -65,9 +65,7 @@ const MyList = () => {
     />
   );
 };
-
 ```
-
 
 ## Link
 
@@ -83,12 +81,15 @@ const MyList = () => {
 2. 直接链接源码。
 
 方法一：通过 har 包引入
+
+> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-flash-list": "file:../../node_modules/@Shopify/flash-list/harmony/flash_list.har"
+    "rnoh-flash-list": "file:../../node_modules/@react-native-oh-tpl/flash-list/harmony/flash_list.har"
   }
 ```
 
@@ -102,12 +103,15 @@ ohpm install
 ```
 
 方法二：直接链接源码
+
+> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-flash-list": "file:../../node_modules/@Shopify/flash-list/harmony/flash_list"
+    "rnoh-flash-list": "file:../../node_modules/@react-native-oh-tpl/flash_list/harmony/flash_list"  
   }
 ```
 
@@ -118,7 +122,7 @@ cd entry
 ohpm install --no-link
 ```
 
-### 配置 CMakeLists 和引入 FlashListPackage
+### 配置 CMakeLists 和引入 FlashListPackage 
 
 打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
 
@@ -145,7 +149,7 @@ target_link_libraries(rnoh_app PUBLIC rnoh)
 
 # RNOH_BEGIN: link_packages
 target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
-+ target_link_libraries(rnoh_app PUBLIC rnoh_flash_list)
++ target_link_libraries(rnoh_app PUBLIC rnoh_flash_list)   
 # RNOH_END: link_packages
 ```
 
@@ -154,61 +158,56 @@ target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 ```diff
 #include "RNOH/PackageProvider.h"
 #include "SamplePackage.h"
-+ #include "FlashListPackage.h"
-
++ #include "FlashListPackage.h"  
 
 using namespace rnoh;
 
 std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
     return {
       std::make_shared<SamplePackage>(ctx),
-+     std::make_shared<FlashListPackage>(ctx)
++     std::make_shared<FlashListPackage>(ctx)  
     };
 }
 ```
 
-### 在 ArkTs 侧引入 flash-list  组件
+
+### 在 ArkTs 侧引入 flash-list 组件  
 
 打开 `entry/src/main/ets/pages/index.ets`，添加：
 
 ```diff
-import {
-  RNApp,
-  ComponentBuilderContext,
-  RNAbility,
-  AnyJSBundleProvider,
-  MetroJSBundleProvider,
-  ResourceJSBundleProvider,
-} from 'rnoh'
-import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-package"
-import { createRNPackages } from '../RNPackagesFactory'
-+ import { RNAutoLayoutView, FLASH_LIST_TYPE, RNCellContainer, CELL_CONTAINER_TYPE } from "rnoh-flash-list"
-@Builder
-function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-  if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
-    SampleView({
-      ctx: ctx.rnohContext,
-      tag: ctx.descriptor.tag,
-      buildCustomComponent: CustomComponentBuilder
-    })
-  }
-+   else if (ctx.descriptor.type === FLASH_LIST_TYPE) {
+...
++ import { RNAutoLayoutView, FLASH_LIST_TYPE } from "rnoh-flash-list" 
++ import { RNCellContainer, CELL_CONTAINER_TYPE } from "rnoh-flash-list" 
+
+  @Builder
+  function CustomComponentBuilder(ctx: ComponentBuilderContext) {
+    if (ctx.componentName === SAMPLE_VIEW_TYPE) {
+      SampleView({
+        ctx: ctx.rnohContext,
+        tag: ctx.tag,
+        buildCustomComponent: CustomComponentBuilder
+      })
+    }
++   else if (ctx.componentName === FLASH_LIST_TYPE) {
 +     RNAutoLayoutView({
 +       ctx: ctx.rnohContext,
-+       tag: ctx.descriptor.tag,
-+       buildCustomComponent: CustomComponentBuilder
++       tag: ctx.tag,
++       buildCustomComponent: CustomComponentBuilder           
 +     })
-+   } else if (ctx.descriptor.type === CELL_CONTAINER_TYPE) {
++   } else if (ctx.componentName === CELL_CONTAINER_TYPE) {
 +     RNCellContainer({
 +       ctx: ctx.rnohContext,
-+       tag: ctx.descriptor.tag,
-+       buildCustomComponent: CustomComponentBuilder
++       tag: ctx.tag,
++       buildCustomComponent: CustomComponentBuilder           
 +     })
 +   }
- ...
-}
-...
+
+    ...
+  }
+  ...
 ```
+
 
 ### 运行
 
@@ -223,21 +222,23 @@ ohpm install
 
 然后编译、运行即可。
 
-## 约束与限制
-
 ### 兼容性
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/flash-list Releases](https://github.com/react-native-oh-library/flash-list/releases)
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/flash-list releases](https://github.com/react-native-oh-library/flash-list/releases)
 
 ## 属性
 
-| 名称 | 说明 | 类型 | 是否必填 | 原库平台 | 鸿蒙支持 |
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ---- | ---- | -------- | -------- | -------- |
 |  contentContainerStyle| You can use contentContainerStyle to apply padding that will be applied to the whole content itself. | ContentStyle | No |  All | Yes |
 |  estimatedListSize| Estimated visible height and width of the list. It is not the scroll content size. Defining this prop will enable the list to be rendered immediately. Without it, the list first needs to measure its size, leading to a small delay during the first render. | object | No |  All | Yes |
-|  horizontal| If true, renders items next to each other horizontally instead of stacked vertically. Default is false. | boolean | No |  All | 仅支持（false） |
+|  horizontal| If true, renders items next to each other horizontally instead of stacked vertically. Default is false. | boolean | No |  All | partially（false） |
 |  keyExtractor| Used to extract a unique key for a given item at the specified index. Key is used for optimizing performance. | function | No |  All | Yes |
 |  numColumns| Multiple columns can only be rendered with horizontal={false} and will zig-zag like a flexWrap layout. Items should all be the same height - masonry layouts are not supported. | number | No |  All | Yes |
 |  extraData| A marker property for telling the list to re-render (since it implements PureComponent)| any | No |  All |  Yes|
@@ -275,7 +276,11 @@ ohpm install
 
 ## 静态方法
 
-| 名称 | 说明 | 类型 | 是否必填 | 原库平台 | 鸿蒙支持 |
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ---- | ---- | -------- | -------- | -------- |
 | prepareForLayoutAnimationRender | Run this method before running layout animations, such as when animating an element when deleting it. | function | No | All | No |
 | recordInteraction | Tells the list an interaction has occurred, which should trigger viewability calculations, e.g. if waitForInteractions is true and the user has not scrolled.  | function | No | All | No |
@@ -287,6 +292,8 @@ ohpm install
 ## 遗留问题
 
 - [ ] flash-list部分属性未实现鸿蒙化: [issue#I8QVS0](https://gitee.com/react-native-oh-library/usage-docs/issues/I8QVS0)
+
+
 
 ## 开源协议
 

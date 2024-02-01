@@ -1,3 +1,5 @@
+> 模板版本：v0.1.3
+
 <p align="center">
   <h1 align="center"><code><a href="https://github.com/oblador/react-native-vector-icons">react-native-vector-icons</a></code> </h1>
 </p>
@@ -5,15 +7,23 @@
     <a href="https://github.com/oblador/react-native-vector-icons">
         <img src="https://cloud.githubusercontent.com/assets/378279/12009887/33f4ae1c-ac8d-11e5-8666-7a87458753ee.png" alt="Supported platforms" />
     </a>
+    <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20web%20|%20windows%20|%20macos%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     <a href="https://github.com/oblador/react-native-vector-icons/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
-        <!-- <img src="https://img.shields.io/badge/license-Apache-blue.svg" alt="License" /> -->
     </a>
 </p>
 
 ## 安装与使用
 
-#### 进入到工程目录并输入以下命令：
+进入到工程目录并输入以下命令：
+
+<!-- tabs:start -->
+
+#### **npm**
+
+```bash
+npm install --save react-native-vector-icons@10.0.3
+```
 
 #### **yarn**
 
@@ -21,11 +31,7 @@
 yarn add react-native-vector-icons@10.0.3
 ```
 
-#### **npm**
-
-```bash
-npm install --save react-native-vector-icons@10.0.3
-```
+<!-- tabs:end -->
 
 ### 基本使用
 
@@ -241,6 +247,10 @@ const CustomFontIcoMoon = createIconSetFromIcoMoon(
 
 请使用 Api 11 及以上版本，低版本会导致font注册不成功，图标显示不出来。
 
+本文档内容基于以下版本验证通过：
+
+1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
+2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
 
 ## 遗留问题
 

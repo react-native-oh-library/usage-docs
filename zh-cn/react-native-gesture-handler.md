@@ -16,25 +16,27 @@
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-gesture-handle Releases](https://github.com/react-native-oh-library/react-native-gesture-handler/releases)，并下载适用版本的 tgz 包。
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-gesture-handler Releases](https://github.com/react-native-oh-library/react-native-gesture-handler/releases)，并下载适用版本的 tgz 包。
 
-进入到工程目录，打开 `package.json`，添加：
+进入到工程目录并输入以下命令：
 
-```json
-{
-  "dpendencies": {
-    ...
-    "@react-native-oh-tpl/react-native-gesture-handle": "tgz包路径"
-  },
-  ...
-}
-```
+>[!TIP] # 处替换为 tgz 包的路径
 
-打开终端，执行：
+<!-- tabs:start -->
+
+#### **npm**
 
 ```bash
-npm i
+npm install @react-native-oh-tpl/react-native-gesture-handler@file:#
 ```
+
+#### **yarn**
+
+```bash
+yarn add @react-native-oh-tpl/react-native-gesture-handler@file:#
+```
+
+<!-- tabs:end -->
 
 快速使用：
 

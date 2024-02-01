@@ -1,4 +1,4 @@
-> 模板版本：v0.1.2
+> 模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>react-native-reanimated</code> </h1>
@@ -16,23 +16,31 @@
 
 ## 安装与使用
 
+请到三方库的 Releases 发布地址查看配套的版本信息：[<@react-native-oh-tpl/react-native-reanimated Releases](https://github.com/react-native-oh-library/react-native-reanimated/releases)，并下载适用版本的 tgz 包。
+
 进入到工程目录并输入以下命令：
 
+> [!TIP] # 处替换为 tgz 包的路径
+
 <!-- tabs:start -->
-
-#### **yarn**
-
-```bash
-yarn add @react-native-oh-tpl/react-native-reanimated
-```
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-reanimated
+npm install @react-native-oh-tpl/react-native-reanimated@file:#
 ```
 
+#### **yarn**
+
+```bash
+yarn add @react-native-oh-tpl/react-native-reanimated@file:#
+```
+
+<!-- tabs:end -->
+
 下面的代码展示了这个库的基本使用场景：
+
+> [!WARNING] 使用时 import 的库名不变。
 
 ```js
 import { View, Text } from "react-native";
@@ -56,9 +64,12 @@ export default function App() {
 
 ### 兼容性
 
-在下述版本验证通过:
+> [!WARNING] 本库的动画功能尚未实现，请关注之后发布的版本。
 
-1. IDE: Deveco Studio 4.1.3.412;SDK: OpenHarmony (Api11) 4.1.0.53;测试设备: Mate40 Pro (NOH-AN00);ROM: 2.0.0.52(SP22C00E52R1P17log);RNOH: 0.72.11;
+本文档内容基于以下版本验证通过：
+
+1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
+2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
 
 ## 属性
 

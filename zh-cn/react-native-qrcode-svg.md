@@ -1,4 +1,4 @@
-> 模板版本：v0.1.2
+> 模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>react-native-qrcode-svg</code> </h1>
@@ -16,19 +16,31 @@
 
 ## 安装与使用
 
+请到三方库的 Releases 发布地址查看配套的版本信息：[<@react-native-oh-tpl/react-native-qrcode-svg Releases](https://github.com/react-native-oh-library/react-native-qrcode-svg/releases)，并下载适用版本的 tgz 包。
+
 进入到工程目录并输入以下命令：
 
+> [!TIP] # 处替换为 tgz 包的路径
+
+<!-- tabs:start -->
+
+#### **npm**
+
 ```bash
-yarn add @react-native-oh-tpl/react-native-qrcode-svg
+npm install @react-native-oh-tpl/react-native-qrcode-svg@file:#
 ```
 
-或者
+#### **yarn**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-qrcode-svg
+yarn add @react-native-oh-tpl/react-native-qrcode-svg@file:#
 ```
+
+<!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：
+
+> [!WARNING] 使用时 import 的库名不变。
 
 ```js
 import QRCode from 'react-native-qrcode-svg';
@@ -47,7 +59,7 @@ render() {
 
 本库鸿蒙侧实现依赖@react-native-oh-tpl/react-native-svg 的原生端代码，如已在鸿蒙工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
 
-如未引入请参照[@react-native-oh-tpl/react-native-svg 文档的 Link 章节](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-svg.md#link)进行引入
+如未引入请参照[@react-native-oh-tpl/react-native-svg 文档的 Link 章节](/zh-cn/react-native-svg.md#link)进行引入
 
 ## 约束与限制
 

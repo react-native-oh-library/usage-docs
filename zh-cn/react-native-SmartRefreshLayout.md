@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>react-native-SmartRefreshLayout</code> </h1>
@@ -12,29 +12,35 @@
     </a>
 </p>
 
+> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-smartrefreshlayout)
+
 ## 安装与使用
+
+请到三方库的 Releases 发布地址查看配套的版本信息：[<@react-native-oh-tpl/react-native-smartrefreshlayout> Releases](https://github.com/react-native-oh-library/react-native-smartrefreshlayout/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
+> [!TIP] # 处替换为 tgz 包的路径
+
 <!-- tabs:start -->
-
-**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/react-native-SmartRefreshLayout/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
-
-#### **yarn**
-
-```bash
-yarn add xxx
-```
 
 #### **npm**
 
 ```bash
-npm install xxx
+npm install @react-native-oh-tpl/react-native-smartrefreshlayout@file:#
+```
+
+#### **yarn**
+
+```bash
+yarn add @react-native-oh-tpl/react-native-smartrefreshlayout@file:#
 ```
 
 <!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：
+
+> [!WARNING] 使用时 import 的库名不变。
 
 ```js
 import React, { useState } from "react";
@@ -52,6 +58,11 @@ import {
 
 const App = () => {
   const [text, setText] = useState("状态");
+  const [text1, setText1] = useState("刷新时间");
+
+  const [headerHeight, setHeaderHeight] = useState(66);
+  const [color, setColor] = useState("#fff000");
+
   const [data, setData] = useState([
     { id: 1, text: "Item 1" },
     { id: 2, text: "Item 2" },
@@ -61,8 +72,23 @@ const App = () => {
     { id: 6, text: "Item 6" },
     { id: 7, text: "Item 7" },
     { id: 8, text: "Item 8" },
+    { id: 9, text: "Item 9" },
+    { id: 10, text: "Item 10" },
+    { id: 11, text: "Item 11" },
+
     // ... more data ...
   ]);
+
+  const onLoadMore = () => {
+    // Simulate loading more data
+    setTimeout(() => {
+      setData([
+        ...data,
+        { id: data.length + 1, text: `New Item ${data.length + 1}` },
+        // ... more loaded data ...
+      ]);
+    }, 1000);
+  };
 
   const renderItem = ({ item }) => (
     <View style={styles.item}>
@@ -78,24 +104,50 @@ const App = () => {
         }}
       >
         <Text style={{ height: 40, width: "100%", backgroundColor: "red" }}>
-          点击完成刷新finish
+          finish
+        </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => {
+          setHeaderHeight(headerHeight == 66 ? 132 : 66);
+        }}
+      >
+        <Text style={{ height: 40, width: "100%", backgroundColor: "pink" }}>
+          切换高度 66/132
+        </Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => {
+          setColor(color === "#fff000" ? "red" : "#fff000");
+        }}
+      >
+        <Text style={{ height: 40, width: "100%", backgroundColor: "green" }}>
+          切换颜色（正在刷新中不支持切换背景色）
         </Text>
       </TouchableOpacity>
 
       <Text style={{ height: 40, width: "100%", backgroundColor: "" }}>
         {text}
       </Text>
+      <Text style={{ height: 40, width: "100%", backgroundColor: "" }}>
+        {text1}
+      </Text>
       <SmartRefreshControl
         ref={(ref) => (smartRefreshControlRef = ref)}
-        primaryColor={"#f3f3f3"}
-        headerHeight={66}
+        primaryColor={color}
+        headerHeight={headerHeight}
         style={{ height: 500, width: "100%", backgroundColor: "#ffcc00" }}
         onHeaderMoving={(e) => {
           setText("onHeaderMoving" + JSON.stringify(e.nativeEvent));
         }}
+        onRefresh={() => {
+          setText1("时间：" + new Date().getTime() + "onRefresh触发刷新");
+        }}
         HeaderComponent={
           <AnyHeader>
-            <Text style={{ height: 66, width: "100%" }}>刷新头</Text>
+            <Text style={{ height: 66, width: "100%" }}>{text}</Text>
           </AnyHeader>
         }
       >
@@ -114,10 +166,14 @@ const App = () => {
 const styles = StyleSheet.create({
   item: {
     padding: 16,
-    width: "100%",
+    borderBottomWidth: 1,
+    borderBottomColor: "#ccc",
+    width: 100,
     height: 100,
   },
 });
+
+export default App;
 ```
 
 ## Link
@@ -134,12 +190,15 @@ const styles = StyleSheet.create({
 2. 直接链接源码。
 
 方法一：通过 har 包引入
+
+> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-smart-refresh-layout": "file:../../node_modules/react-native-smartrefreshlayout/harmony/smart_refresh_layout.har"
+    "rnoh-smart-refresh-layout": "file:../../node_modules/@react-native-oh-tpl/react-native-smartrefreshlayout/harmony/smart_refresh_layout.har"
   }
 ```
 
@@ -153,12 +212,15 @@ ohpm install
 ```
 
 方法二：直接链接源码
+
+> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-smart-refresh-layout": "file:../../node_modules/react-native-smartrefreshlayout/harmony/smart_refresh_layout"
+    "rnoh-smart-refresh-layout": "file:../../node_modules/@react-native-oh-tpl/react-native-smartrefreshlayout/harmony/smart_refresh_layout"
   }
 ```
 
@@ -222,43 +284,36 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 打开 `entry/src/main/ets/pages/index.ets`，添加：
 
 ```diff
-import {
-  RNApp,
-  ComponentBuilderContext,
-  RNAbility,
-  AnyJSBundleProvider,
-  MetroJSBundleProvider,
-  ResourceJSBundleProvider,
-} from 'rnoh'
+...
 import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-package"
 import { createRNPackages } from '../RNPackagesFactory'
 + import { SmartRefreshControl,SMART_REFRESH_CONTROL_TYPE ,ANY_HEADER_TYPE,RNCAnyHeader,DEFAULT_HEADER_TYPE,RNCDefaultHeader} from "rnoh-smart-refresh-layout"
 
 @Builder
 function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-  if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
+  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
     SampleView({
       ctx: ctx.rnohContext,
-      tag: ctx.descriptor.tag,
+      tag: ctx.tag,
       buildCustomComponent: CustomComponentBuilder
     })
   }
-+ else if (ctx.descriptor.type == SMART_REFRESH_CONTROL_TYPE){
++ else if (ctx.componentName == SMART_REFRESH_CONTROL_TYPE){
 +    SmartRefreshControl({
 +      ctx: ctx.rnohContext,
-+      tag: ctx.descriptor.tag,
++      tag: ctx.tag,
 +      buildCustomComponent: CustomComponentBuilder
 +    })
-+  } else if (ctx.descriptor.type == ANY_HEADER_TYPE){
++  } else if (ctx.componentName == ANY_HEADER_TYPE){
 +    RNCAnyHeader({
 +      ctx: ctx.rnohContext,
-+      tag: ctx.descriptor.tag,
++      tag: ctx.tag,
 +      buildCustomComponent: CustomComponentBuilder
 +    })
-+  } else if (ctx.descriptor.type == DEFAULT_HEADER_TYPE) {
++  } else if (ctx.componentName == DEFAULT_HEADER_TYPE) {
 +    RNCDefaultHeader({
 +      ctx: ctx.rnohContext,
-+      tag: ctx.descriptor.tag,
++      tag: ctx.tag,
 +      buildCustomComponent: CustomComponentBuilder
 +    })
 +  }
@@ -288,26 +343,30 @@ ohpm install
 
 ## 属性
 
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
 **组件 SmartRefreshControl**
 
-| 名称                  | 说明                                                             | 类型                                                                         | 是否必填 | 原库平台 | 鸿蒙支持 |
-| --------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------- | -------- | -------- | -------- |
-| `HeaderComponent`     | 用于渲染 SmartRefreshLayout 组件的 header,默认为 DefaultHeader。 | Element                                                                      | No       | Android  | Yes      |
-| `renderHeader`        | 用于渲染 SmartRefreshLayout 组件的 header,默认为 DefaultHeader。 | Element/func                                                                 | No       | Android  | No       |
-| `enableRefresh`       | 是否启用下拉刷新,默认为 true                                     | boolean                                                                      | No       | Android  | No       |
-| `headerHeight`        | 设定 header 的高度                                               | number                                                                       | No       | Android  | Yes      |
-| `primaryColor`        | 设置刷新组件的主调色                                             | string                                                                       | No       | Android  | Yes      |
-| `autoRefresh`         | 是否自动刷新                                                     | object:{refresh:boolean, time:number}                                        | No       | Android  | No       |
-| `pureScroll`          | 是否启用纯滚动                                                   | boolean                                                                      | No       | Android  | No       |
-| `overScrollBounce`    | 是否启用越界拖动，类似 IOS 样式。                                | boolean                                                                      | No       | Android  | No       |
-| `dragRate`            | 设置组件下拉高度与手指真实下拉高度的比值,默认为 0.5。            | number                                                                       | No       | Android  | No       |
-| `maxDragRate`         | 设置最大显示下拉高度与 header 标准高度的比值，默认为 2.0。       | number                                                                       | No       | Android  | No       |
-| `onPullDownToRefresh` | 可下拉刷新时触发                                                 | function                                                                     | No       | Android  | No       |
-| `onReleaseToRefresh`  | 可释放刷新时触发                                                 | function                                                                     | No       | Android  | No       |
-| `onRefresh`           | 刷新时触发                                                       | function                                                                     | No       | Android  | Yes      |
-| `onHeaderReleased`    | Header 释放时触发                                                | function                                                                     | No       | Android  | No       |
-| `onHeaderMoving`      | header 移动过程中触发,包括下拉过程和释放过程。                   | ({nativeEvent: {percent:number, offset:number, headerHeight:number}})=>void; | No       | Android  | Yes      |
-| `finishRefresh`       | 完成刷新                                                         | Methods                                                                      | No       | Android  | Yes      |
+| Name                  | Description                                                      | Type                                                                         | Required | Platform | HarmonyOS Support |
+| --------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------- | -------- | -------- | ----------------- |
+| `HeaderComponent`     | 用于渲染 SmartRefreshLayout 组件的 header,默认为 DefaultHeader。 | Element                                                                      | No       | Android  | Yes               |
+| `renderHeader`        | 用于渲染 SmartRefreshLayout 组件的 header,默认为 DefaultHeader。 | Element/func                                                                 | No       | Android  | No                |
+| `enableRefresh`       | 是否启用下拉刷新,默认为 true                                     | boolean                                                                      | No       | Android  | No                |
+| `headerHeight`        | 设定 header 的高度                                               | number                                                                       | No       | Android  | Yes               |
+| `primaryColor`        | 设置刷新组件的主调色                                             | string                                                                       | No       | Android  | Yes               |
+| `autoRefresh`         | 是否自动刷新                                                     | object:{refresh:boolean, time:number}                                        | No       | Android  | No                |
+| `pureScroll`          | 是否启用纯滚动                                                   | boolean                                                                      | No       | Android  | No                |
+| `overScrollBounce`    | 是否启用越界拖动，类似 IOS 样式。                                | boolean                                                                      | No       | Android  | No                |
+| `dragRate`            | 设置组件下拉高度与手指真实下拉高度的比值,默认为 0.5。            | number                                                                       | No       | Android  | No                |
+| `maxDragRate`         | 设置最大显示下拉高度与 header 标准高度的比值，默认为 2.0。       | number                                                                       | No       | Android  | No                |
+| `onPullDownToRefresh` | 可下拉刷新时触发                                                 | function                                                                     | No       | Android  | No                |
+| `onReleaseToRefresh`  | 可释放刷新时触发                                                 | function                                                                     | No       | Android  | No                |
+| `onRefresh`           | 刷新时触发                                                       | function                                                                     | No       | Android  | Yes               |
+| `onHeaderReleased`    | Header 释放时触发                                                | function                                                                     | No       | Android  | No                |
+| `onHeaderMoving`      | header 移动过程中触发,包括下拉过程和释放过程。                   | ({nativeEvent: {percent:number, offset:number, headerHeight:number}})=>void; | No       | Android  | Yes               |
+| `finishRefresh`       | 完成刷新                                                         | Methods                                                                      | No       | Android  | Yes               |
 
 **组件 AnyHeader**
 
@@ -339,6 +398,8 @@ ohpm install
 ---
 
 ## 遗留问题
+
+- [ ] SmartRefreshLayout 包裹 FlatList 组件，多次下拉刷新，item 会回弹。[Issue #11 ](https://github.com/react-native-oh-library/react-native-SmartRefreshLayout/issues/11)
 
 ## 其他
 

@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>react-native-gesture-handler</code> </h1>
@@ -9,32 +9,36 @@
     </a>
         <a href="https://github.com/software-mansion/react-native-gesture-handler/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
-        <!-- <img src="https://img.shields.io/badge/license-Apache-blue.svg" alt="License" /> -->
     </a>
 </p>
 
+> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-gesture-handler)
+
 ## 安装与使用
 
-**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/react-native-gesture-handler/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-gesture-handle Releases](https://github.com/react-native-oh-library/react-native-gesture-handler/releases)，并下载适用版本的 tgz 包。
 
-打开 `package.json`，添加：
+进入到工程目录，打开 `package.json`，添加：
 
 ```json
-...
-"dependencies": {
+{
+  "dpendencies": {
+    ...
+    "@react-native-oh-tpl/react-native-gesture-handle": "tgz包路径"
+  },
   ...
-  "react-native-harmony-gesture-handler": "xxx.tgz",
-},
-...
+}
 ```
 
-然后再终端运行
+打开终端，执行：
 
 ```bash
 npm i
 ```
 
 快速使用：
+
+>[!WARNING] 使用时 import 的库名不变。
 
 ```js
 import React, { Component } from "react";
@@ -110,12 +114,15 @@ export default function App() {
 2. 直接链接源码。
 
 方法一：通过 har 包引入
+
+> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-gesture-handler": "file:../../node_modules/react-native-harmony-gesture-handler/harmony/gesture_handler.har"
+    "rnoh-gesture-handler": "file:../../node_modules/@react-native-tpl-oh/react-native-gesture-handler/harmony/gesture_handler.har"
   }
 ```
 
@@ -129,12 +136,15 @@ ohpm install
 ```
 
 方法二：直接链接源码
+
+> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-gesture-handler": "file:../../node_modules/react-native-harmony-gesture-handler/harmony/gesture_handler"
+    "rnoh-gesture-handler": "file:../../node_modules/@react-native-tpl-oh/react-native-gesture-handler/harmony/gesture_handler"
   }
 ```
 
@@ -197,37 +207,57 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 react-native-gesture-handler 在 2.x 版本里，不再从原生端引入 `<GestureHandlerRootView>`，而是在 JS 端添加。详情请看官方说明：[Migrating off RNGHEnabledRootView](https://docs.swmansion.com/react-native-gesture-handler/docs/guides/migrating-off-rnghenabledroot)。
 
+鸿蒙支持 1.x 在原生端替换 `RootView` 来添加 `<GestureHandlerRootView>` 的方式。
+
+**如果使用 2.x 方式，则把后面带有 `1.x` 注释的代码删掉即可**
+
 打开 `entry/src/main/ets/pages/index.ets`，添加：
 
 ```diff
 ...
 + import { RNGestureHandlerRootView, RNGestureHandlerButton } from "rnoh-gesture-handler"
++ import { RNGestureHandlerModule } from 'rnoh-gesture-handler/src/main/ets/RNGestureHandlerModule'  // 1.x
 
   @Builder
   function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-    if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
+    if (ctx.componentName === SAMPLE_VIEW_TYPE) {
       SampleView({
         ctx: ctx.rnohContext,
-        tag: ctx.descriptor.tag,
+        tag: ctx.tag,
         buildCustomComponent: CustomComponentBuilder
       })
     }
-+   else if (ctx.descriptor.type == RNGestureHandlerRootView.NAME){
++   else if (ctx.componentName == RNGestureHandlerRootView.NAME){
 +     RNGestureHandlerRootView({
 +       ctx: ctx.rnohContext,
-+       tag: ctx.descriptor.tag,
++       tag: ctx.tag,
 +       buildCustomComponent: CustomComponentBuilder
 +     })
-+   } else if (ctx.descriptor.type == RNGestureHandlerButton.DESCRIPTOR_TYPE){
++   } else if (ctx.componentName == RNGestureHandlerButton.DESCRIPTOR_TYPE){
 +     RNGestureHandlerButton({
 +       ctx: ctx.rnohContext,
-+       tag: ctx.descriptor.tag,
++       tag: ctx.tag,
 +       buildCustomComponent: CustomComponentBuilder
 +     })
 +   }
     ...
   }
   ...
+  build() {
+    Column() {
+      if (this.rnAbility && this.shouldShow) {
+        RNApp({
++         onSetUp: (rnInstance) => {  // 1.x
++           rnInstance.bindComponentNameToDescriptorType(RNGestureHandlerRootView.NAME, "RootView")  // 1.x
++           rnInstance.getTurboModule<RNGestureHandlerModule>(RNGestureHandlerModule.NAME).install()  // 1.x
++         },  // 1.x
+          ...
+        })
+      }
+    }
+    .height('100%')
+    .width('100%')
+  }
 ```
 
 ### 在 ArkTs 侧引入 Gesture Handler Package
@@ -416,7 +446,8 @@ Y coordinate, expressed in points, of the current position of the pointer (finge
 
 ## 遗留问题
 
-- 目前只支持 Pan 和 Tag 手势
+- 手势只支持 Pan 和 Tap 手势；
+- 组件只支持 Touchables
 
 ## 其他
 

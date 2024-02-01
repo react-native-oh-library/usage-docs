@@ -1,4 +1,4 @@
-> 模板版本：v0.1.2
+> 模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>@react-native-async-storage/async-storage</code> </h1>
@@ -12,31 +12,35 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/react-native-oh-library/async-storage/releases)
+> [!tip] [Github 地址](https://github.com/react-native-oh-library/async-storage)
 
 ## 安装与使用
 
+请到三方库的 Releases 发布地址查看配套的版本信息：[<@react-native-oh-tpl/async-storage> Releases](https://github.com/react-native-oh-library/async-storage/releases)，并下载适用版本的 tgz 包。
+
 进入到工程目录并输入以下命令：
 
+>[!TIP] # 处替换为 tgz 包的路径
+
 <!-- tabs:start -->
-
-**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/async-storage/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
-
-#### **yarn**
-
-```bash
-yarn add @react-native-async-storage/async-storage@npm:@react-native-oh-library/async-storage
-```
 
 #### **npm**
 
 ```bash
-npm install @react-native-async-storage/async-storage@npm:@react-native-oh-library/async-storage
+npm install @react-native-oh-tpl/async-storage@file:#
+```
+
+#### **yarn**
+
+```bash
+yarn add @react-native-oh-tpl/async-storage@file:#
 ```
 
 <!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：
+
+>[!WARNING] 使用时 import 的库名不变。
 
 ```js
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -77,12 +81,15 @@ const getData = async () => {
 2. 直接链接源码。
 
 方法一：通过 har 包引入
+
+> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-async-storage": "file:../../node_modules/@react-native-async-storage/async-storage/harmony/async_storage.har"
+    "rnoh-async-storage": "file:../../node_modules/@react-native-oh-tpl/async-storage/harmony/async_storage.har"
   }
 ```
 
@@ -96,12 +103,15 @@ ohpm install
 ```
 
 方法二：直接链接源码
+
+> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-async-storage": "file:../../node_modules/@react-native-async-storage/async-storage/harmony/async-storage"
+    "rnoh-async-storage": "file:../../node_modules/@react-native-oh-tpl/async-storage/harmony/async-storage"
   }
 ```
 

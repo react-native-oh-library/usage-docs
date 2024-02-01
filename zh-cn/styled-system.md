@@ -15,18 +15,18 @@
 
 进入到工程目录并输入以下命令：
 
-#### **yarn**
-
-```bash
-yarn add styled-system@^5.1.5
-```
-
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm i styled-system@^5.1.5
+npm install styled-system@^5.1.5
+```
+
+#### **yarn**
+
+```bash
+yarn add styled-system@^5.1.5
 ```
 
 <!-- tabs:end -->

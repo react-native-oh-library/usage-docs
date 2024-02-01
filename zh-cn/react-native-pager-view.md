@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>react-native-pager-view</code> </h1>
@@ -12,21 +12,35 @@
     </a>
 </p>
 
+> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-pager-view)
+
 ## 安装与使用
 
-**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/react-native-pager-view/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
+请到三方库的 Releases 发布地址查看配套的版本信息：[<@react-native-oh-tpl/<库名> Releases](https://github.com/react-native-oh-library/react-native-pager-view/releases)，并下载适用版本的 tgz 包。
+
+进入到工程目录并输入以下命令：
+
+> [!TIP] # 处替换为 tgz 包的路径
+
+<!-- tabs:start -->
+
+#### **npm**
 
 ```bash
-yarn add xxx
+npm install @react-native-oh-tpl/react-native-pager-view@file:#
 ```
 
-或者
+#### **yarn**
 
 ```bash
-npm install xxx
+yarn add @react-native-oh-tpl/react-native-pager-view@file:#
 ```
+
+<!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：
+
+> [!WARNING] 使用时 import 的库名不变。
 
 ```js
 import React from "react";
@@ -67,12 +81,15 @@ const styles = StyleSheet.create({
 2. 直接链接源码。
 
 方法一：通过 har 包引入
+
+> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-pager-view": "file:../../node_modules/react-native-pager-view/harmony/pager_view.har"
+    "rnoh-pager-view": "file:../../node_modules/@react-native-oh-tpl/react-native-pager-view/harmony/pager_view.har"
   }
 ```
 
@@ -86,12 +103,15 @@ ohpm install
 ```
 
 方法二：直接链接源码
+
+> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-   "rnoh-pager-view": "file:../../node_modules/react-native-pager-view/harmony/pager_view"
+   "rnoh-pager-view": "file:../../node_modules/@react-native-oh-tpl/react-native-pager-view/harmony/pager_view"
   }
 ```
 
@@ -155,31 +175,21 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 打开 `entry/src/main/ets/pages/index.ets`，添加：
 
 ```diff
-import {
-  RNApp,
-  ComponentBuilderContext,
-  RNAbility,
-  AnyJSBundleProvider,
-  MetroJSBundleProvider,
-  ResourceJSBundleProvider,
-} from 'rnoh'
-import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-package"
-import { createRNPackages } from '../RNPackagesFactory'
 + import { RNCViewPager, PAGER_VIEW_TYPE } from "rnoh-pager-view"
 
 @Builder
 function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-  if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
+  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
     SampleView({
       ctx: ctx.rnohContext,
-      tag: ctx.descriptor.tag,
+      tag: ctx.tag,
       buildCustomComponent: CustomComponentBuilder
     })
   }
-+ else if (ctx.descriptor.type === PAGER_VIEW_TYPE) {
++ else if (ctx.componentName === PAGER_VIEW_TYPE) {
 +   RNCViewPager({
 +     ctx: ctx.rnohContext,
-+     tag: ctx.descriptor.tag,
++     tag: ctx.tag,
 +     buildCustomComponent: CustomComponentBuilder
 +   })
 + }
@@ -201,6 +211,8 @@ ohpm install
 
 然后编译、运行即可。
 
+## 约束与限制
+
 ## 兼容性
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
@@ -209,7 +221,11 @@ ohpm install
 
 ## 属性
 
-| 名称                                     | 说明                                                                                                                                                                                                                                                                | 类型                           | 是否必填 | 原库平台     | 鸿蒙支持                   |
+> [!tip] "鸿蒙支持"列为 yes 的 API 表示支持鸿蒙平台，并且效果对标"原库平台"列中的 ios 或 android 的效果。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name                                     | Description                                                                                                                                                                                                                                                         | Type                           | Required | Platform     | HarmonyOS Support          |
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | -------- | ------------ | -------------------------- |
 | initialPage                              | Index of initial page that should be selected                                                                                                                                                                                                                       | number                         | 是       | ios，android | yes                        |
 | scrollEnabled                            | Should pager view scroll, when scroll enabled                                                                                                                                                                                                                       | bool                           | 是       | ios，android | yes                        |
@@ -217,10 +233,10 @@ ohpm install
 | onPageScrollStateChanged                 | Function called when the page scrolling state has changed                                                                                                                                                                                                           | function                       | 否       | ios，android | yes                        |
 | onPageSelected                           | This callback will be called once the ViewPager finishes navigating to the selected page                                                                                                                                                                            | function                       | 否       | ios，android | yes                        |
 | pageMargin                               | Blank space to be shown between pages                                                                                                                                                                                                                               | number （取值范围:0~屏幕宽度） | 否       | ios，android | 仅支持取 0-368（屏幕宽度） |
-| keyboardDismissMode                      | Determines whether the keyboard gets dismissed in response to a drag                                                                                                                                                                                                | one of 'none' ,'on-drag'       | 否       | ios,droid    | yes                        |
+| keyboardDismissMode                      | Determines whether the keyboard gets dismissed in response to a drag                                                                                                                                                                                                | one of 'none' ,'on-drag'       | 否       | ios,android  | yes                        |
 | orientation                              | Set horizontal or vertical scrolling orientation (it does not work dynamically)                                                                                                                                                                                     | one of horizontal vertical     | 否       | ios，android | yes                        |
 | overScrollMode                           | Used to override default value of overScroll mode. Can be auto, always or never. Defaults to auto                                                                                                                                                                   | one of auto, always ,never     | 否       | android      | yes                        |
-| offscreenPageLimit                       | Set the number of pages that should be retained to either side of the currently visible page(s). Pages beyond this limit will be recreated from the adapter when needed. Defaults to RecyclerView's caching strategy. The given value must either be larger than 0. | number                         | 否       | android      | yes                        |
+| offscreenPageLimit                       | Set the number of pages that should be retained to either side of the currently visible page(s). Pages beyond this limit will be recreated from the adapter when needed. Defaults to RecyclerView's caching strategy. The given value must either be larger than 0. | number                         | 否       | android      | no                         |
 | overdrag                                 | Allows for overscrolling after reaching the end or very beginning or pages. Defaults to false                                                                                                                                                                       | bool                           | 否       | ios          | yes                        |
 | layoutDirection                          | Specifies layout direction. Use ltr or rtl to set explicitly or locale to deduce from the default language script of a locale. Defaults to locale                                                                                                                   | string                         | 否       | android,ios  | yes                        |
 | setPage(index: number)                   | Function to scroll to a specific page in the PagerView. Invalid index is ignored.                                                                                                                                                                                   | function                       | 否       | android,ios  | yes                        |
@@ -228,6 +244,8 @@ ohpm install
 | setScrollEnabled(scrollEnabled: boolean) | FA helper function to enable/disable scroll imperatively. The recommended way is using the scrollEnabled prop, however, there might be a case where a imperative solution is more useful (e.g. for not blocking an animation)                                       | function                       | 否       | android,ios  | yes                        |
 
 ## 遗留问题
+
+- [ ] offscreenPageLimit 未实现鸿蒙化[issue#7](https://github.com/react-native-oh-library/react-native-pager-view/issues/7)
 
 ## 其他
 

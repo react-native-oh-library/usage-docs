@@ -17,13 +17,13 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/<源码仓地址>)
+> [!TIP] [Github 地址](https://github.com/<源码仓地址>)
 
 如：[Github 地址](https://github.com/react-native-oh-library/react-native-linear-gradient)（已建仓的地址，未建仓则使用原库地址）（删除）
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[<@react-native-oh-tpl/库名> Releases](https://github.com/<仓库地址>/releases)，并下载适用版本的 tgz 包。
+请到三方库的 Releases 发布地址查看配套的版本信息：[<@react-native-oh-tpl/<库名> Releases](https://github.com/<仓库地址>/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
@@ -261,10 +261,10 @@ ohpm install
 
 **未发包使用原库的库**（删除）
 
-本文档内容基于以下版本验证：
+本文档内容基于以下版本验证通过：
 
-1. RNOH: x.x.x; OH SDK: x.x.x; IDE: x.x.x; ROM: xxx;
-2. （如有）
+1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
+2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
 
 ### 权限要求（如有）
 

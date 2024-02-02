@@ -20,7 +20,7 @@
 
 进入到工程目录并输入以下命令：
 
->[!TIP] # 处替换为 tgz 包的路径
+> [!TIP] # 处替换为 tgz 包的路径
 
 <!-- tabs:start -->
 
@@ -40,7 +40,7 @@ npm install @react-native-oh-tpl/progress-bar-android@file:#
 
 快速使用：
 
->[!WARNING] 使用时 import 的库名不变。
+> [!WARNING] 使用时 import 的库名不变。
 
 ```js
  import {ProgressBar} from '@react-native-community/progress-bar-android';
@@ -157,17 +157,10 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 打开 `entry/src/main/ets/pages/index.ets`，添加：
 
 ```diff
-import {
-  RNApp,
-  ComponentBuilderContext,
-  RNAbility,
-  AnyJSBundleProvider,
-  MetroJSBundleProvider,
-  ResourceJSBundleProvider,
-} from 'rnoh'
+...
 import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-package"
 import { createRNPackages } from '../RNPackagesFactory'
-+ import { ProgressBarAndroid,PROGRESS_BAR_TYPE } from "rnoh-progress-bar-android"
++ import { ProgressBarAndroid, PROGRESS_BAR_TYPE } from "rnoh-progress-bar-android"
 
 @Builder
 function CustomComponentBuilder(ctx: ComponentBuilderContext) {
@@ -178,11 +171,10 @@ function CustomComponentBuilder(ctx: ComponentBuilderContext) {
       buildCustomComponent: CustomComponentBuilder
     })
   }
-+ else if (ctx.componentName == PROGRESS_BAR_TYPE){
++ else if (ctx.componentName === PROGRESS_BAR_TYPE){
 +     ProgressBarAndroid({
 +       ctx: ctx.rnohContext,
-+       tag: ctx.tag,
-+     buildCustomComponent: CustomComponentBuilder
++       tag: ctx.tag
 +     })
 +   }
  ...
@@ -217,13 +209,13 @@ ohpm install
 
 Inherits [View Props](https://reactnative.dev/docs/view#props).
 
-| Name            | Description                                                                                                                                                | Type                                                                                                                       | Required | Platform | HarmonyOS Support |
-| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- |
-| `animating`     | Whether to show the ProgressBar (true, the default) or hide it (false).                                                                             | bool                                                                                                                       | No       | Android  | yes      |
-| `color`         | Color of the progress bar.                                                                                                                          | [color](https://reactnative.dev/docs/colors)                                                                               | No       | Android  | yes      |
-| `indeterminate` | If the progress bar will show indeterminate progress. Note that this can only be false if styleAttr is Horizontal, and requires a `progress` value. | indeterminateType                                                                                                          | No       | Android  | yes      |
-| `progress`      | The progress value (between 0 and 1).                                                                                                               | number                                                                                                                     | No       | Android  | yes      |
-| `styleAttr`     | Style of the ProgressBar.                                                                                                                           | One of:<br />Horizontal <br />Normal (default) <br />Small <br />Large <br />Inverse <br />SmallInverse <br />LargeInverse | No       | Android  | yes      |
+| Name            | Description                                                                                                                                         | Type                                                                                                                       | Required | Platform | HarmonyOS Support |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------------- |
+| `animating`     | Whether to show the ProgressBar (true, the default) or hide it (false).                                                                             | bool                                                                                                                       | No       | Android  | yes               |
+| `color`         | Color of the progress bar.                                                                                                                          | [color](https://reactnative.dev/docs/colors)                                                                               | No       | Android  | yes               |
+| `indeterminate` | If the progress bar will show indeterminate progress. Note that this can only be false if styleAttr is Horizontal, and requires a `progress` value. | indeterminateType                                                                                                          | No       | Android  | yes               |
+| `progress`      | The progress value (between 0 and 1).                                                                                                               | number                                                                                                                     | No       | Android  | yes               |
+| `styleAttr`     | Style of the ProgressBar.                                                                                                                           | One of:<br />Horizontal <br />Normal (default) <br />Small <br />Large <br />Inverse <br />SmallInverse <br />LargeInverse | No       | Android  | yes               |
 
 ## 遗留问题
 

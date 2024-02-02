@@ -1,4 +1,4 @@
-> 模板版本：v0.1.2
+> 模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>react-native-drag-sort</code> </h1>
@@ -13,8 +13,6 @@
     </a>
 </p>
 
-
-
 > [!tip] [Github 地址](https://github.com/mochixuan/react-native-drag-sort)
 
 ## 安装与使用
@@ -23,26 +21,26 @@
 
 <!-- tabs:start -->
 
+#### **npm**
+
+```bash
+npm i react-native-drag-sort@2.4.4
+```
+
 #### **yarn**
 
 ```bash
 yarn add react-native-drag-sort@2.4.4
 ```
 
-#### **npm**
-
-```bash
-npm i react-native-drag-sort@2.4.4 --save 
-
-export { DragSortableView, AutoDragSortableView, AnySizeDragSortableView }
-```
+<!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：
 
 ```js
 import React, { useState } from "react";
-import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
-import { DragSortableView } from 'react-native-drag-sort';
+import { View, Text, StyleSheet, SafeAreaView } from "react-native";
+import { DragSortableView } from "react-native-drag-sort";
 
 const Dragsort = () => {
   const [data, setData] = useState([
@@ -83,7 +81,7 @@ const Dragsort = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.header}>
-            <Text style={styles.header_title}>DragSortableView</Text>
+        <Text style={styles.header_title}>DragSortableView</Text>
       </View>
       <DragSortableView
         dataSource={data}
@@ -99,8 +97,8 @@ const Dragsort = () => {
         onClickItem={(data, item, index) => {
           console.log("点击了第", index, "个元素");
         }}
-        onDragStart={() => console.log('Drag started')}
-        onDragEnd={() => console.log('Drag end')}
+        onDragStart={() => console.log("Drag started")}
+        onDragEnd={() => console.log("Drag end")}
         onDataChange={() => {
           console.log("数据发生变化");
         }}
@@ -111,16 +109,12 @@ const Dragsort = () => {
         minOpacity={0.7}
         renderItem={(item, index) => {
           return (
-            <View
-              key={item.id}
-              style={styles.box}
-            >
+            <View key={item.id} style={styles.box}>
               <Text style={styles.text}>{item.title}</Text>
             </View>
           );
         }}
         sortable={true}
-
       />
     </SafeAreaView>
   );
@@ -134,28 +128,28 @@ const styles = StyleSheet.create({
     alignContent: "center",
     borderRadius: 5,
     margin: 20,
-    backgroundColor: '#4e71f2',
+    backgroundColor: "#4e71f2",
     height: 50,
     width: 100,
   },
   text: {
     fontSize: 18,
-    color: '#fff',
-    textAlign: 'center'
+    color: "#fff",
+    textAlign: "center",
   },
   header: {
     height: 48,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderBottomColor: '#2ecc71',
+    justifyContent: "center",
+    alignItems: "center",
+    borderBottomColor: "#2ecc71",
     borderBottomWidth: 2,
   },
   header_title: {
-    color: '#333',
+    color: "#333",
     fontSize: 24,
-    fontWeight: 'bold',
-  }
-})
+    fontWeight: "bold",
+  },
+});
 export default Dragsort;
 ```
 
@@ -163,15 +157,15 @@ export default Dragsort;
 
 ### 兼容性
 
-在下述版本验证通过：
+本文档内容基于以下版本验证通过：
 
-1. IDE：DevEco Studio 4.1.3.500; SDK：OpenHarmony(api11) 4.1.5.6; 测试设备：Mate60 (BRA-AL00);ROM：HarmonyOS NEXT Developer Preview1(2.0.0.59); RNOH：0.72.13
+1. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
 
 ### 权限要求
 
 ## API（AutoDragSortableView、DragSortableView）
 
-**isRequired if there is a * in the name field**
+**isRequired if there is a \* in the name field**
 
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
@@ -179,29 +173,29 @@ export default Dragsort;
 >
 > 详情见 [react-native-drag-sort 源库地址](https://github.com/mochixuan/react-native-drag-sort)
 
-|           Name           |                         Description                          |   Type   | Required |  Platform   | HarmonyOS Support |
-| :----------------------: | :----------------------------------------------------------: | :------: | :------: | :---------: | :---------------: |
-|     **dataSource** *     |                                                              |  array   |   Yes    | iOS/Android |        Yes        |
-|     **parentWidth**      |                         parent width                         |  number  |    No    | iOS/Android |        Yes        |
-|   **childrenHeight** *   |                       Each item height                       |  number  |   Yes    | iOS/Android |        Yes        |
-|   **childrenWidth** *    |                       Each item width                        |  number  |   Yes    | iOS/Android |        Yes        |
+|           Name           |                               Description                               |   Type   | Required |  Platform   | HarmonyOS Support |
+| :----------------------: | :---------------------------------------------------------------------: | :------: | :------: | :---------: | :---------------: |
+|    **dataSource** \*     |                                                                         |  array   |   Yes    | iOS/Android |        Yes        |
+|     **parentWidth**      |                              parent width                               |  number  |    No    | iOS/Android |        Yes        |
+|  **childrenHeight** \*   |                            Each item height                             |  number  |   Yes    | iOS/Android |        Yes        |
+|   **childrenWidth** \*   |                             Each item width                             |  number  |   Yes    | iOS/Android |        Yes        |
 |  **marginChildrenTop**   | So the item's outermost view adds margin, you can only use this method. |  number  |    No    | iOS/Android |        Yes        |
-| **marginChildrenBottom** |                                                              |  number  |    No    | iOS/Android |        Yes        |
-|  **marginChildrenLeft**  |                                                              |  number  |    No    | iOS/Android |        Yes        |
-| **marginChildrenRight**  |                                                              |  number  |    No    | iOS/Android |        Yes        |
-|       **sortable**       |                    Do not allow dragging                     |   bool   |    No    | iOS/Android |        Yes        |
-|     **onClickItem**      |                            click                             | function |    No    | iOS/Android |        Yes        |
-|     **onDragStart**      |                                                              | function |    No    | iOS/Android |        Yes        |
-|      **onDragEnd**       |                                                              | function |    No    | iOS/Android |        Yes        |
-|     **onDataChange**     |      This method is called every time the data changes.      | function |    No    | iOS/Android |        Yes        |
-|     **renderItem** *     |                       render item view                       | function |   Yes    | iOS/Android |        Yes        |
-|      **fixedItems**      |                          no remove                           |  array   |    No    | iOS/Android |        Yes        |
-|     **keyExtractor**     |                     (item,index) => key                      | function |    No    | iOS/Android |        Yes        |
-|    **delayLongPress**    |                                                              |  number  |    No    | iOS/Android |        Yes        |
-|     **isDragFreely**     |               Whether to limit the drag space                |   bool   |    No    | iOS/Android |        Yes        |
-|      **onDragging**      |                                                              | function |    No    | iOS/Android |        Yes        |
-|       **maxScale**       |                                                              |  number  |    No    | iOS/Android |        Yes        |
-|      **minOpacity**      |                                                              |  number  |    No    | iOS/Android |        Yes        |
+| **marginChildrenBottom** |                                                                         |  number  |    No    | iOS/Android |        Yes        |
+|  **marginChildrenLeft**  |                                                                         |  number  |    No    | iOS/Android |        Yes        |
+| **marginChildrenRight**  |                                                                         |  number  |    No    | iOS/Android |        Yes        |
+|       **sortable**       |                          Do not allow dragging                          |   bool   |    No    | iOS/Android |        Yes        |
+|     **onClickItem**      |                                  click                                  | function |    No    | iOS/Android |        Yes        |
+|     **onDragStart**      |                                                                         | function |    No    | iOS/Android |        Yes        |
+|      **onDragEnd**       |                                                                         | function |    No    | iOS/Android |        Yes        |
+|     **onDataChange**     |           This method is called every time the data changes.            | function |    No    | iOS/Android |        Yes        |
+|    **renderItem** \*     |                            render item view                             | function |   Yes    | iOS/Android |        Yes        |
+|      **fixedItems**      |                                no remove                                |  array   |    No    | iOS/Android |        Yes        |
+|     **keyExtractor**     |                           (item,index) => key                           | function |    No    | iOS/Android |        Yes        |
+|    **delayLongPress**    |                                                                         |  number  |    No    | iOS/Android |        Yes        |
+|     **isDragFreely**     |                     Whether to limit the drag space                     |   bool   |    No    | iOS/Android |        Yes        |
+|      **onDragging**      |                                                                         | function |    No    | iOS/Android |        Yes        |
+|       **maxScale**       |                                                                         |  number  |    No    | iOS/Android |        Yes        |
+|      **minOpacity**      |                                                                         |  number  |    No    | iOS/Android |        Yes        |
 
 #### The following attributes belong only to AutoDragSortableView
 
@@ -223,7 +217,7 @@ export default Dragsort;
 
 |           Name            |                    Description                    |                           Type                           | Required |  Platform   | HarmonyOS Support |
 | :-----------------------: | :-----------------------------------------------: | :------------------------------------------------------: | :------: | :---------: | :---------------: |
-|     **renderItem** *      |                 render item view                  |                         function                         |   Yes    | iOS/Android |        Yes        |
+|     **renderItem** \*     |                 render item view                  |                         function                         |   Yes    | iOS/Android |        Yes        |
 |     **onDataChange**      | This method is called every time the data changes |                         function                         |    No    | iOS/Android |        Yes        |
 |   **renderHeaderView**    |                                                   |                         element                          |    No    | iOS/Android |        Yes        |
 |   **headerViewHeight**    |                                                   |                          number                          |    No    | iOS/Android |        Yes        |
@@ -241,7 +235,7 @@ export default Dragsort;
 |   **childMarginRight**    |                                                   |                          number                          |    No    | iOS/Android |        Yes        |
 | **autoThrottleDuration**  |                                                   |                          number                          |    No    | iOS/Android |        Yes        |
 |       **onDragEnd**       |                                                   |                         function                         |    No    | iOS/Android |        Yes        |
-|     **dataSource** *      |                                                   |                          array                           |   Yes    | iOS/Android |        Yes        |
+|     **dataSource** \*     |                                                   |                          array                           |   Yes    | iOS/Android |        Yes        |
 |     **keyExtractor**      |                (item,index) => key                |                   function.isRequired                    |    No    | iOS/Android |        Yes        |
 
 ## 遗留问题

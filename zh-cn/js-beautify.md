@@ -1,4 +1,4 @@
-> 模板版本：v0.1.2
+> 模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>js-beautify</code> </h1>
@@ -18,21 +18,21 @@
 
 <!-- tabs:start -->
 
-#### **yarn**
-
-```bash
-yarn add js-beautify@^1.14.9
-```
-
 #### **npm**
 
 ```bash
 npm install js-beautify@^1.14.9
 ```
 
+#### **yarn**
+
+```bash
+yarn add js-beautify@^1.14.9
+```
+
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+快速使用：
 
 ```typescript
 import React from 'react';
@@ -76,8 +76,9 @@ css_beautify(data,options)
 
 在下述版本验证通过：
 
-1. IDE: DevEco Studio 4.1.3.401; SDK: Openharmony ( API 11) 4.1.0.52; 测试设备: Mate40 pro (NOH-AN00); ROM: 2.0.0.52(SP22C00E52R1P17log); RNOH: 0.72.12。
-
+1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
+2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
+ 
 ## API列表
 
 #### js_beautify

@@ -4,9 +4,6 @@
   <h1 align="center"><code>react-native-vector-icons</a></code> </h1>
 </p>
 <p align="center">
-    <a href="https://github.com/oblador/react-native-vector-icons">
-        <img src="https://cloud.githubusercontent.com/assets/378279/12009887/33f4ae1c-ac8d-11e5-8666-7a87458753ee.png" alt="Supported platforms" />
-    </a>
     <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20web%20|%20windows%20|%20macos%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     <a href="https://github.com/oblador/react-native-vector-icons/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />

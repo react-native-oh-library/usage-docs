@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>@react-native-community/checkbox</code> </h1>
@@ -12,36 +12,35 @@
     </a>
 </p>
 
+> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-checkbox)
+
 ## 安装与使用
 
-> [!tip] 目前部分 React-Native-OpenHarmony(RNOH) 三方库的 npm 包部署在私仓，需要通过 github token 来获取访问权限。
-
-在与 `package.json` 文件相同的目录中，创建或编辑 `.npmrc` 文件以包含指定 GitHub Packages URL 和托管包的命名空间的行。 将 TOKEN 替换为 RNOH 三方库指定的 token。
-
-```bash
-@react-native-oh-library:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=TOKEN
-```
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-checkbox Releases](https://github.com/react-native-oh-library/react-native-checkbox/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
+>[!TIP] # 处替换为 tgz 包的路径
+
 <!-- tabs:start -->
-
-#### **yarn**
-
-```bash
-yarn add @react-native-community/checkbox@npm:@react-native-oh-library/checkbox
-```
 
 #### **npm**
 
 ```bash
-npm install @react-native-community/checkbox@npm:@react-native-oh-library/checkbox
+npm install @react-native-oh-tpl/checkbox@file:#
+```
+
+#### **yarn**
+
+```bash
+yarn add @react-native-oh-tpl/checkbox@file:#
 ```
 
 <!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：
+
+>[!WARNING] 使用时 import 的库名不变。
 
 ```js
 import CheckBox from "@react-native-community/checkbox";
@@ -81,12 +80,15 @@ import CheckBox from "@react-native-community/checkbox";
 2. 直接链接源码。
 
 方法一：通过 har 包引入
+
+> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-checkbox": "file:../../node_modules/@react-native-community/checkbox/harmony/checkbox.har"
+    "rnoh-checkbox": "file:../../node_modules/@react-native-oh-tpl/checkbox/harmony/checkbox.har"
   }
 ```
 
@@ -100,12 +102,15 @@ ohpm install
 ```
 
 方法二：直接链接源码
+
+> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-checkbox": "file:../../node_modules/@react-native-community/checkbox/harmony/checkbox"
+    "rnoh-checkbox": "file:../../node_modules/@react-native-oh-tpl/checkbox/harmony/checkbox"
   }
 ```
 
@@ -183,17 +188,17 @@ import { createRNPackages } from '../RNPackagesFactory'
 
   @Builder
   function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-    if (ctx.descriptor.type === SAMPLE_VIEW_TYPE) {
+    if (ctx.componentName === SAMPLE_VIEW_TYPE) {
       SampleView({
         ctx: ctx.rnohContext,
-        tag: ctx.descriptor.tag,
+        tag: ctx.tag,
         buildCustomComponent: CustomComponentBuilder
       })
     }
-+   else if (ctx.descriptor.type === CHECKBOX_TYPE) {
++   else if (ctx.componentName === CHECKBOX_TYPE) {
 +     RNCCheckbox({
 +       ctx: ctx.rnohContext,
-+       tag: ctx.descriptor.tag,
++       tag: ctx.tag,
 +       buildCustomComponent: CustomComponentBuilder
 +     })
 +   }
@@ -217,11 +222,15 @@ ohpm install
 
 ## 兼容性
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-community/checkbox Releases](https://github.com/react-native-oh-library/react-native-checkbox/releases)
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/checkbox Releases](https://github.com/react-native-oh-library/react-native-checkbox/releases)
 
 ## 属性
 
-| 名称            | 说明                                                                                                                                                                                           | 类型     | 是否必填 | 原库平台      | 鸿蒙支持 |
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name            | Description                                                                                                                                                                                           | Type     | Required | Platform      | HarmonyOS Support |
 | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ------------- | -------- |
 | `onChange`      | Invoked on change with the native event.                                                                                                                                                       | function | No       | All           | yes      |
 | `onValueChange` | Invoked with the new boolean value when it changes.                                                                                                                                            | function | No       | All           | yes      |
@@ -230,6 +239,7 @@ ohpm install
 | `disabled`      | If true the user won't be able to toggle the checkbox. Default value is false.                                                                                                                 | bool     | No       | All           | yes      |
 | `onCheckColor`  | Color of the check box when it is selected.                                                                                                                                                    | Color    | No       | ios & harmony | yes      |
 | `tintColor`     | Border color of the check box when it is not selected.                                                                                                                                         | Color    | No       | ios & harmony | yes      |
+| `shape`         | Sets component shapes, including circles and rounded squares. Default value is 0.                                                                                                                 | int      | No       | harmony       | yes      |     
 | `markSize`      | Size of the internal mark. The default size is the same as the width of the check box.This parameter cannot be set in percentage. If it is set to an invalid value, the default value is used. | number   | No       | harmony       | yes      |
 | `strokeWidth`   | Stroke width of the internal mark. This parameter cannot be set in percentage. If it is set to an invalid value, the default value is used.                                                    | number   | No       | harmony       | yes      |
 | `strokeColor`   | Color of the internal mark.                                                                                                                                                                    | Color    | No       | harmony       | yes      |

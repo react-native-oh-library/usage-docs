@@ -18,18 +18,18 @@
 
 进入到工程目录并输入以下命令：
 
-#### **yarn**
-
-```bash
-yarn add @react-native-segmented-control/segmented-control@^2.5.0
-```
-
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
 npm install --save @react-native-segmented-control/segmented-control@^2.5.0
+```
+
+#### **yarn**
+
+```bash
+yarn add @react-native-segmented-control/segmented-control@^2.5.0
 ```
 
 <!-- tabs:end -->
@@ -56,7 +56,8 @@ return (
 
 在下述版本验证通过：
 
-1. IDE：DevEco Studio 4.1.3.412;SDK：OpenHarmony(api11) 4.1.0.53;测试设备：Mate40 Pro(NOH-AN00);ROM：2.0.0.52(SP22C00E52R1P17log);RNOH：0.72.11
+1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
+2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
 
 ## 属性
 

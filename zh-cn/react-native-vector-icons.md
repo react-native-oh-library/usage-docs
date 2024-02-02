@@ -1,7 +1,7 @@
 > 模板版本：v0.1.3
 
 <p align="center">
-  <h1 align="center"><code><a href="https://github.com/oblador/react-native-vector-icons">react-native-vector-icons</a></code> </h1>
+  <h1 align="center"><code>react-native-vector-icons</a></code> </h1>
 </p>
 <p align="center">
     <a href="https://github.com/oblador/react-native-vector-icons">
@@ -22,7 +22,7 @@
 #### **npm**
 
 ```bash
-npm install --save react-native-vector-icons@10.0.3
+npm install react-native-vector-icons@10.0.3
 ```
 
 #### **yarn**
@@ -39,85 +39,76 @@ yarn add react-native-vector-icons@10.0.3
 
 [Explore all icons](https://oblador.github.io/react-native-vector-icons/).
 
-- [`AntDesign`](https://ant.design/) from AntFinance (*298* icons)
-- [`Entypo`](http://entypo.com) by Daniel Bruce (v1.0.1 with *411* icons)
-- [`EvilIcons`](http://evil-icons.io) designed by Alexander Madyankin & Roman Shamin (v1.10.1 with *70* icons)
-- [`Feather`](http://feathericons.com) created by Cole Bemis & Contributors (v4.28.0 featuring *286* icons)
-- [`FontAwesome`](http://fortawesome.github.io/Font-Awesome/icons/) by Dave Gandy (v4.7.0 containing *675* icons)
-- [`FontAwesome 5`](https://fontawesome.com/v5/icons/) from Fonticons, Inc. (v5.15.3 offering *1598* free and *7848* pro icons)
-- [`FontAwesome 6`](https://fontawesome.com) designed by Fonticons, Inc. (v6.1.2 featuring *2016* free and *16150* pro icons)
-- [`Fontisto`](https://github.com/kenangundogan/fontisto) created by Kenan Gündoğan (v3.0.4 featuring *615* icons)
-- [`Foundation`](http://zurb.com/playground/foundation-icon-fonts-3) by ZURB, Inc. (v3.0 with *283* icons)
-- [`Ionicons`](https://ionicons.com/) crafted by Ionic (v7.1.0 containing *1338* icons)
-- [`MaterialIcons`](https://fonts.google.com/icons/) by Google, Inc. (v4.0.0 featuring *2189* icons)
-- [`MaterialCommunityIcons`](https://materialdesignicons.com/) from MaterialDesignIcons.com (v6.5.95 including *6596* icons)
-- [`Octicons`](http://octicons.github.com) designed by Github, Inc. (v16.3.1 with *250* icons)
-- [`Zocial`](http://zocial.smcllns.com/) by Sam Collins (v1.4.0 with *100* icons)
-- [`SimpleLineIcons`](https://simplelineicons.github.io/) crafted by Sabbir & Contributors (v2.5.5 with *189* icons)
+- [`AntDesign`](https://ant.design/) from AntFinance (_298_ icons)
+- [`Entypo`](http://entypo.com) by Daniel Bruce (v1.0.1 with _411_ icons)
+- [`EvilIcons`](http://evil-icons.io) designed by Alexander Madyankin & Roman Shamin (v1.10.1 with _70_ icons)
+- [`Feather`](http://feathericons.com) created by Cole Bemis & Contributors (v4.28.0 featuring _286_ icons)
+- [`FontAwesome`](http://fortawesome.github.io/Font-Awesome/icons/) by Dave Gandy (v4.7.0 containing _675_ icons)
+- [`FontAwesome 5`](https://fontawesome.com/v5/icons/) from Fonticons, Inc. (v5.15.3 offering _1598_ free and _7848_ pro icons)
+- [`FontAwesome 6`](https://fontawesome.com) designed by Fonticons, Inc. (v6.1.2 featuring _2016_ free and _16150_ pro icons)
+- [`Fontisto`](https://github.com/kenangundogan/fontisto) created by Kenan Gündoğan (v3.0.4 featuring _615_ icons)
+- [`Foundation`](http://zurb.com/playground/foundation-icon-fonts-3) by ZURB, Inc. (v3.0 with _283_ icons)
+- [`Ionicons`](https://ionicons.com/) crafted by Ionic (v7.1.0 containing _1338_ icons)
+- [`MaterialIcons`](https://fonts.google.com/icons/) by Google, Inc. (v4.0.0 featuring _2189_ icons)
+- [`MaterialCommunityIcons`](https://materialdesignicons.com/) from MaterialDesignIcons.com (v6.5.95 including _6596_ icons)
+- [`Octicons`](http://octicons.github.com) designed by Github, Inc. (v16.3.1 with _250_ icons)
+- [`Zocial`](http://zocial.smcllns.com/) by Sam Collins (v1.4.0 with _100_ icons)
+- [`SimpleLineIcons`](https://simplelineicons.github.io/) crafted by Sabbir & Contributors (v2.5.5 with _189_ icons)
 
 #### 自带字体的使用
 
 ```js
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import FontAwesome from "react-native-vector-icons/FontAwesome";
 
-<FontAwesome.Button 
-    name="fontName">
-</FontAwesome.Button>
+<FontAwesome.Button name="fontName"></FontAwesome.Button>;
 ```
 
 ### 自定义字体使用
 
 ```js
-import { createIconSet } from 'react-native-vector-icons';
+import { createIconSet } from "react-native-vector-icons";
 
 const CustomFont = createIconSet(
-    require('../assets/fonts/customfont.json'),
-    'custom-fontFamily',
-    '../assets/fonts/customfont.ttf',
-  );
+  require("../assets/fonts/customfont.json"),
+  "custom-fontFamily",
+  "../assets/fonts/customfont.ttf"
+);
 
-<CustomFont.Button
-    name="fontName"
-    >
-</CustomFont.Button>
+<CustomFont.Button name="fontName"></CustomFont.Button>;
 ```
 
 ### [fontello](http://fontello.com)字体使用
-从[fontello](http://fontello.com)网站选择合适的字体之后下载对应的字体文件和配置文件导入使用
+
+从[fontello](http://fontello.com)选择合适的字体之后下载对应的字体文件和配置文件导入使用
 
 ```js
-import { createIconSetFromFontello } from 'react-native-vector-icons';
-import fontelloConfig from '../assets/fonts/config.json';
+import { createIconSetFromFontello } from "react-native-vector-icons";
+import fontelloConfig from "../assets/fonts/config.json";
 
 const CustomFontello = createIconSetFromFontello(
-    fontelloConfig,
-    'fontello',
-    '../assets/fonts/fontello.ttf',
-  );
+  fontelloConfig,
+  "fontello",
+  "../assets/fonts/fontello.ttf"
+);
 
-<CustomFontello.Button
-    name="fontName"
-    >
-</CustomFontello.Button>
+<CustomFontello.Button name="fontName"></CustomFontello.Button>;
 ```
 
 ### [IcoMoon](https://icomoon.io/app)字体使用
+
 从[IcoMoon](https://icomoon.io/app)网站选择合适的字体之后下载对应的字体文件和配置文件导入使用
 
 ```js
-import { createIconSetFromIcoMoon } from 'react-native-vector-icons';
-import icoMoonConfig from '../assets/fonts/selection.json';
+import { createIconSetFromIcoMoon } from "react-native-vector-icons";
+import icoMoonConfig from "../assets/fonts/selection.json";
 
 const CustomFontIcoMoon = createIconSetFromIcoMoon(
-    icoMoonConfig,
-    'icomoon',
-    '../assets/fonts/icomoon.ttf',
-  );
+  icoMoonConfig,
+  "icomoon",
+  "../assets/fonts/icomoon.ttf"
+);
 
-<CustomFontIcoMoon.Button
-    name="fontName"
-    >
-</CustomFontIcoMoon.Button>
+<CustomFontIcoMoon.Button name="fontName"></CustomFontIcoMoon.Button>;
 ```
 
 ## Link
@@ -129,10 +120,10 @@ const CustomFontIcoMoon = createIconSetFromIcoMoon(
 ### 在 ArkTs 侧引入和注册字体文件
 
 步骤一：
-    复制 `react-native-vector-icons/Fonts` 目录下的字体文件到  `entry/src/main/ets/assets/fonts` 目录下
+复制 `react-native-vector-icons/Fonts` 目录下的字体文件到 `entry/src/main/ets/assets/fonts` 目录下
 
 步骤二：
-    打开 `entry/src/main/ets/pages/Index.ets`，添加以下代码
+打开 `entry/src/main/ets/pages/Index.ets`，添加以下代码
 
 ```ts
     import font from '@ohos.font';
@@ -237,6 +228,7 @@ const CustomFontIcoMoon = createIconSetFromIcoMoon(
         //...
     }
 ```
+
 #### 提醒：自定义字体也需要用同样的方法在此注册
 
 ## 约束与限制
@@ -245,7 +237,7 @@ const CustomFontIcoMoon = createIconSetFromIcoMoon(
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-请使用 Api 11 及以上版本，低版本会导致font注册不成功，图标显示不出来。
+请使用 Api 11 及以上版本，低版本会导致 font 注册不成功，图标显示不出来。
 
 本文档内容基于以下版本验证通过：
 
@@ -254,7 +246,7 @@ const CustomFontIcoMoon = createIconSetFromIcoMoon(
 
 ## 遗留问题
 
-- [ ] getImageSource和getImageSourceSync原生方法可以将字体文件绘制成Bitmap位图供 `Image` 组件使用，Harmony OS侧暂时不支持
+- [ ] getImageSource 和 getImageSourceSync 原生方法可以将字体文件绘制成 Bitmap 位图供 `Image` 组件使用，Harmony OS 侧暂时不支持
 
 ## 其他
 

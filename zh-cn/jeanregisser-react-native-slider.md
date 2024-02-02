@@ -1,4 +1,4 @@
-> 模板版本：v0.1.2
+> 模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>jeanregisser-react-native-slider</code> </h1>
@@ -14,23 +14,31 @@
 
 ## 安装与使用
 
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/jeanregisser-react-native-slider Releases](https://github.com/react-native-oh-library/jeanregisser-react-native-slider/releases)，并下载适用版本的 tgz 包
+
 进入到工程目录并输入以下命令：
 
 <!-- tabs:start -->
 
+>[!TIP] # 处替换为 tgz 包的路径
+
+#### **npm**
+
+```bash
+npm i @react-native-oh-tpl/react-native-slider@file:#
+```
+
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-slider
+yarn add @react-native-oh-tpl/react-native-slider@file:#
 ```
 
-#### **npm**
-```bash
-npm i @react-native-oh-tpl/react-native-slider
-```
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+快速使用：
+
+>[!WARNING] 使用时 import 的库名不变。
 
 ```js
 import React, { useState} from 'react';

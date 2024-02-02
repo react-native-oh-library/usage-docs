@@ -23,7 +23,7 @@
 #### **npm**
 
 ```bash
-npm install --save @react-native-segmented-control/segmented-control@^2.5.0
+npm install @react-native-segmented-control/segmented-control@^2.5.0
 ```
 
 #### **yarn**

@@ -1,4 +1,4 @@
-> 模板版本：v0.1.2
+> 模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>parse5</code> </h1>
@@ -16,11 +16,6 @@
 
 进入到工程目录并输入以下命令：
 
-#### **yarn**
-
-```bash
-yarn add parse5@7.1.2
-```
 <!-- tabs:start -->
 
 #### **npm**
@@ -29,9 +24,15 @@ yarn add parse5@7.1.2
 npm install parse5@7.1.2
 ```
 
+#### **yarn**
+
+```bash
+yarn add parse5@7.1.2
+```
+
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+直接使用：
 
 ```js
 const parse5 = require('parse5');
@@ -67,7 +68,8 @@ console.log(str); //> '<div>Hello, <b>world</b>!</div>'
 
  在下述版本验证通过：
 
- 1. IDE：DevEco Studio 4.1.3.313;SDK：OpenHarmony(api11) 4.1.0.52;测试设备：Mate40 Pro(NOH-AN00);ROM：204.1.0.52(C00E52R1P17log);RNOH：0.72.11
+1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
+2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
 
 ## API
 

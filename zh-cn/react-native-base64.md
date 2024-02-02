@@ -1,4 +1,4 @@
-> 模板版本：v0.1.2
+> 模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>react-native-base64</code> </h1>
@@ -107,11 +107,8 @@ const styles = StyleSheet.create({
 
 在以下版本验证通过： 
 
-   1. SDK: HarmonyOS NEXT Devloper Preview1;  
-   测试设备: Mate60 (BRA-AL00);
-   Rom: 204.1.0.59(SP2DEVC00E60R4P1);
-   IDE: 4.1.3.500; 
-   RNOH: 0.72.13  
+1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
+2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
 
 
 ### base64 提供的方法:

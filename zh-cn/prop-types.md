@@ -1,4 +1,4 @@
-> 模板版本：v0.1.2
+> 模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>prop-types</code> </h1>
@@ -12,6 +12,10 @@
 > [!tip] [Github 地址](https://github.com/facebook/prop-types/tree/v15.8.1)
 
 ## 安装与使用
+#### **npm**
+```bash
+npm install prop-types
+```
 
 #### **yarn**
 
@@ -19,10 +23,6 @@
 yarn add prop-types
 ```
 
-#### **npm**
-```bash
-npm install prop-types
-```
 <!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：
@@ -49,11 +49,8 @@ optionalEnum: PropTypes.oneOf(['News', 'Photos']),
 ### 兼容性
 
 在下述版本验证通过:
-  1. IDE:Deveco Studio 4.1.3.412;
-     SDK: OpenHarmony (Api11) 4.1.0.53;
-     测试设备: Mate40 Pro (NOH-AN00);
-     Rom: 2.0.0.52 (SP22C00E52R1P17log);
-     RNOH: 0.72.11。
+1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
+2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
 
 #### 属性
 

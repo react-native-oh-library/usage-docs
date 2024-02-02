@@ -12,7 +12,6 @@
     </a>
 </p>
 
-
 > [!tip] [Github 地址](https://github.com/fb55/htmlparser2)
 
 ## 安装与使用
@@ -20,13 +19,14 @@
 进入到工程目录并输入以下命令：
 
 <!-- tabs:start -->
+
 #### **npm**
 
 ```bash
 npm install htmlparser2@9.1.0
 ```
 
-**yarn**
+#### **yarn**
 
 ```bash
 yarn add htmlparser2@9.1.0
@@ -40,41 +40,41 @@ yarn add htmlparser2@9.1.0
 import * as htmlparser2 from "htmlparser2";
 
 const parser = new htmlparser2.Parser({
-    onopentag(name, attributes) {
-        /*
-         * This fires when a new tag is opened.
-         *
-         * If you don't need an aggregated `attributes` object,
-         * have a look at the `onopentagname` and `onattribute` events.
-         */
-        if (name === "script" && attributes.type === "text/javascript") {
-            console.log("JS! Hooray!");
-        }
-    },
-    ontext(text) {
-        /*
-         * Fires whenever a section of text was processed.
-         *
-         * Note that this can fire at any point within text and you might
-         * have to stitch together multiple pieces.
-         */
-        console.log("-->", text);
-    },
-    onclosetag(tagname) {
-        /*
-         * Fires when a tag is closed.
-         *
-         * You can rely on this event only firing when you have received an
-         * equivalent opening tag before. Closing tags without corresponding
-         * opening tags will be ignored.
-         */
-        if (tagname === "script") {
-            console.log("That's it?!");
-        }
-    },
+  onopentag(name, attributes) {
+    /*
+     * This fires when a new tag is opened.
+     *
+     * If you don't need an aggregated `attributes` object,
+     * have a look at the `onopentagname` and `onattribute` events.
+     */
+    if (name === "script" && attributes.type === "text/javascript") {
+      console.log("JS! Hooray!");
+    }
+  },
+  ontext(text) {
+    /*
+     * Fires whenever a section of text was processed.
+     *
+     * Note that this can fire at any point within text and you might
+     * have to stitch together multiple pieces.
+     */
+    console.log("-->", text);
+  },
+  onclosetag(tagname) {
+    /*
+     * Fires when a tag is closed.
+     *
+     * You can rely on this event only firing when you have received an
+     * equivalent opening tag before. Closing tags without corresponding
+     * opening tags will be ignored.
+     */
+    if (tagname === "script") {
+      console.log("That's it?!");
+    }
+  },
 });
 parser.write(
-    "Xyz <script type='text/javascript'>const foo = '<<bar>>';</script>",
+  "Xyz <script type='text/javascript'>const foo = '<<bar>>';</script>"
 );
 parser.end();
 ```
@@ -88,13 +88,13 @@ parser.end();
 
 ## 生态系统
 
-> | Name                                                         | Description                                             |
-> | ------------------------------------------------------------ | ------------------------------------------------------- |
-> | [htmlparser2](https://github.com/fb55/htmlparser2)           | Fast & forgiving HTML/XML parser                        |
-> | [domhandler](https://github.com/fb55/domhandler)             | Handler for htmlparser2 that turns documents into a DOM |
-> | [domutils](https://github.com/fb55/domutils)                 | Utilities for working with domhandler's DOM             |
-> | [css-select](https://github.com/fb55/css-select)             | CSS selector engine, compatible with domhandler's DOM   |
-> | [cheerio](https://github.com/cheeriojs/cheerio)              | The jQuery API for domhandler's DOM                     |
+> | Name                                                          | Description                                             |
+> | ------------------------------------------------------------- | ------------------------------------------------------- |
+> | [htmlparser2](https://github.com/fb55/htmlparser2)            | Fast & forgiving HTML/XML parser                        |
+> | [domhandler](https://github.com/fb55/domhandler)              | Handler for htmlparser2 that turns documents into a DOM |
+> | [domutils](https://github.com/fb55/domutils)                  | Utilities for working with domhandler's DOM             |
+> | [css-select](https://github.com/fb55/css-select)              | CSS selector engine, compatible with domhandler's DOM   |
+> | [cheerio](https://github.com/cheeriojs/cheerio)               | The jQuery API for domhandler's DOM                     |
 > | [dom-serializer](https://github.com/cheeriojs/dom-serializer) | Serializer for domhandler's DOM                         |
 
 ## 遗留问题

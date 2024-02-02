@@ -12,7 +12,11 @@
 > [!tip] [Github 地址](https://github.com/facebook/prop-types/tree/v15.8.1)
 
 ## 安装与使用
+
+<!-- tabs:start -->
+
 #### **npm**
+
 ```bash
 npm install prop-types
 ```
@@ -46,34 +50,36 @@ MyComponent.propTypes = {
 
 optionalEnum: PropTypes.oneOf(['News', 'Photos']),
 ```
+
 ### 兼容性
 
 在下述版本验证通过:
+
 1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
 2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
 
 #### 属性
 
-| 名称 | 说明 | 类型 | 是否必填 | 鸿蒙支持 |
-| ---- | ---- | ---- | -------- | -------- |
-| any | 约束属性为任意类型 | Attribute | NO | yes |
-| array | 约束属性为数组类型 | Attribute | NO | yes |
-| bool | 约束属性为布尔值类型 | Attribute | NO | yes |
-| func | 约束属性为函数类型 | Attribute | NO | yes |
-| number | 约束属性为数字类型 | Attribute | NO | yes |
-| object | 约束属性为对象类型 | Attribute | NO | yes |
-| string | 约束属性为字符串类型 | Attribute | NO | yes |
-| symbol | 约束属性为symbol类型 | Attribute | NO | yes |
-| element | 约束属性为react元素 | Attribute | NO | yes |
-| node | 约束属性为可以渲染的任何内容数字 字符串 元素 或 数组 | Attribute | NO | yes |
-| elementType | 约束属性为react类型 | Attribute | NO | yes |
-| instanceOf | 约束属性为某个对象的实例 | function | NO | yes |
-| oneOf | 约束属性为给定值中的任意一个 | function | NO | yes |
-| oneOfType | 约束属性为给定类型中的任意一个 | function | NO | yes |
-| arrayOf | 约束属性为指定类型的数组 | function | NO | yes |
-| objectOf | 约束属性为具有指定类型属性值的对象 | function | NO | yes |
-| shape | 约束属性为指定构成方式的对象 | function | NO | yes |
-| exact | 约束属性包含指定属性 | function | NO | yes |
+| 名称        | 说明                                                 | 类型      | 是否必填 | 鸿蒙支持 |
+| ----------- | ---------------------------------------------------- | --------- | -------- | -------- |
+| any         | 约束属性为任意类型                                   | Attribute | NO       | yes      |
+| array       | 约束属性为数组类型                                   | Attribute | NO       | yes      |
+| bool        | 约束属性为布尔值类型                                 | Attribute | NO       | yes      |
+| func        | 约束属性为函数类型                                   | Attribute | NO       | yes      |
+| number      | 约束属性为数字类型                                   | Attribute | NO       | yes      |
+| object      | 约束属性为对象类型                                   | Attribute | NO       | yes      |
+| string      | 约束属性为字符串类型                                 | Attribute | NO       | yes      |
+| symbol      | 约束属性为 symbol 类型                               | Attribute | NO       | yes      |
+| element     | 约束属性为 react 元素                                | Attribute | NO       | yes      |
+| node        | 约束属性为可以渲染的任何内容数字 字符串 元素 或 数组 | Attribute | NO       | yes      |
+| elementType | 约束属性为 react 类型                                | Attribute | NO       | yes      |
+| instanceOf  | 约束属性为某个对象的实例                             | function  | NO       | yes      |
+| oneOf       | 约束属性为给定值中的任意一个                         | function  | NO       | yes      |
+| oneOfType   | 约束属性为给定类型中的任意一个                       | function  | NO       | yes      |
+| arrayOf     | 约束属性为指定类型的数组                             | function  | NO       | yes      |
+| objectOf    | 约束属性为具有指定类型属性值的对象                   | function  | NO       | yes      |
+| shape       | 约束属性为指定构成方式的对象                         | function  | NO       | yes      |
+| exact       | 约束属性包含指定属性                                 | function  | NO       | yes      |
 
 ## 遗留问题
 

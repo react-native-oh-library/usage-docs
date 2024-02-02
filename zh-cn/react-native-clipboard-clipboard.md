@@ -36,7 +36,7 @@ npm install @react-native-oh-tpl/clipboard@file:#
 yarn add @react-native-oh-tpl/clipboard@file:#
 ```
 
-<!-- tabs:start -->
+<!-- tabs:end -->
 
 快速使用：
 

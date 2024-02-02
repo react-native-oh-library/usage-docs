@@ -1,4 +1,4 @@
-> 模板版本：v0.1.2
+> 模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>react-native-autoheight-webview</code> </h1>
@@ -16,19 +16,30 @@
 
 ## 安装与使用
 
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-autoheight-webview Releases](https://github.com/react-native-oh-library/react-native-autoheight-webview/releases)，并下载适用版本的 tgz 包。
+
 进入到工程目录并输入以下命令：
+
+>[!TIP] # 处替换为 tgz 包的路径
+
+<!-- tabs:start -->
+
+#### **npm**
+
+```bash
+npm install @react-native-oh-tpl/react-native-autoheight-webview
+```
+#### **yarn**
 
 ```bash
 yarn add @react-native-oh-tpl/react-native-autoheight-webview
 ```
 
-或者
-
-```bash
-npm install @react-native-oh-tpl/react-native-autoheight-webview
-```
+<!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：
+
+>[!WARNING] 使用时 import 的库名不变。
 
 ```js
 import AutoHeightWebView from "react-native-autoheight-webview";

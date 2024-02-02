@@ -1,4 +1,4 @@
-> 模板版本：v0.1.2
+> 模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>react-i18next</code> </h1>
@@ -18,20 +18,21 @@
 
 <!-- tabs:start -->
 
-#### **yarn**
-
-```bash
-
-yarn add i18next@^23.2.3
-yarn add react-i18next@^14.0.0
-
-```
 #### **npm**
 
 ```bash
 
 npm install i18next@^23.2.3
 npm install react-i18next@^14.0.0
+
+```
+
+#### **yarn**
+
+```bash
+
+yarn add i18next@^23.2.3
+yarn add react-i18next@^14.0.0
 
 ```
 
@@ -85,7 +86,8 @@ root.render(
 
  在下述版本验证通过：
 
- 1. IDE：DevEco Studio 4.1.3.313;SDK：OpenHarmony(api11) 4.1.0.52;测试设备：Mate40 Pro(NOH-AN00);ROM：2.0.0.52(SP22C00E52R1P17log);RNOH：0.72.11
+1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
+2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
 
 ## API
 

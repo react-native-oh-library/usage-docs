@@ -1,4 +1,4 @@
-> 模板版本：v0.0.1
+> 模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>react-native-exception-handler</code> </h1>
@@ -12,29 +12,35 @@
     </a>
 </p>
 
+> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-exception-handler)
+
 ## 安装与使用
+
+请到三方库的 Releases 发布地址查看配套的版本信息：[<@react-native-oh-tpl/react-native-exception-handler Releases](https://github.com/react-native-oh-library/react-native-exception-handler/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
+> [!TIP] # 处替换为 tgz 包的路径
+
 <!-- tabs:start -->
-
-**正在 npm 发布中，当前请先从仓库[Release](https://github.com/react-native-oh-library/react-native-exception-handler/releases)中获取库 tgz，通过使用本地依赖来安装本库。**
-
-#### **yarn**
-
-```bash
-yarn add xxx
-```
 
 #### **npm**
 
 ```bash
-npm install xxx
+npm install @react-native-oh-tpl/react-native-exception-handler@file:#
+```
+
+#### **yarn**
+
+```bash
+yarn add @react-native-oh-tpl/react-native-exception-handler@file:#
 ```
 
 <!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：
+
+> [!WARNING] 使用时 import 的库名不变。
 
 To catch <b>JS_Exceptions</b>
 
@@ -114,12 +120,15 @@ setNativeExceptionHandler(
 2. 直接链接源码。
 
 方法一：通过 har 包引入
+
+> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```diff
 "dependencies": {
     "rnoh": "file:../rnoh",
-+   "rnoh-exception-handler": "file:../../node_modules/react-native-exception-handler/harmony/exception_handler.har",
++   "rnoh-exception-handler": "file:../../node_modules/@react-native-oh-tpl/react-native-exception-handler/harmony/exception_handler.har",
   }
 ```
 
@@ -133,12 +142,15 @@ ohpm install
 ```
 
 方法二：直接链接源码
+
+> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```diff
 "dependencies": {
     "rnoh": "file:../rnoh",
-+   "rnoh-exception-handler": "file:../../node_modules/react-native-exception-handler/harmony/exception_handler"
++   "rnoh-exception-handler": "file:../../node_modules/@react-native-oh-tpl/react-native-exception-handler/harmony/exception_handler"
   }
 ```
 
@@ -219,7 +231,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 在 `YourProject/entry/src/main/ets/pages` 目录下,新建文件`ExceptionView.ets`
 
 ```typescript
-import { ExceptionComopnent } from 'rnoh-exception-handler';
+import { ExceptionComponent } from 'rnoh-exception-handler';
 import router from '@ohos.router';
 
 interface RouterParam {
@@ -332,6 +344,8 @@ ohpm install
 
 然后编译、运行即可。
 
+## 约束与限制
+
 ## 兼容性
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
@@ -340,16 +354,24 @@ ohpm install
 
 ## 静态方法
 
-| 名称                    | 说明                 | 类型     | 是否必填 | 原库平台 | 鸿蒙支持 |
-| ----------------------- | -------------------- | -------- | -------- | -------- | -------- |
-| `setJSExceptionHandler` | 设置 JS 异常处理方法 | function | no       | All      | yes      |
-| `getJSExceptionHandler` | 获取 JS 异常处理方法 | function | no       | All      | yes      |
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name                    | Description          | Type     | Required | Platform | HarmonyOS Support |
+| ----------------------- | -------------------- | -------- | -------- | -------- | ----------------- |
+| `setJSExceptionHandler` | 设置 JS 异常处理方法 | function | no       | All      | yes               |
+| `getJSExceptionHandler` | 获取 JS 异常处理方法 | function | no       | All      | yes               |
 
 ## API
 
-| 名称                        | 说明                     | 类型     | 是否必填 | 原库平台     | 鸿蒙支持 |
-| --------------------------- | ------------------------ | -------- | -------- | ------------ | -------- |
-| `setNativeExceptionHandler` | 设置 native 异常处理方法 | function | no       | android，ios | yes      |
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name                        | Description              | Type     | Required | Platform | HarmonyOS Support |
+| --------------------------- | ------------------------ | -------- | -------- | -------- | ----------------- |
+| `setNativeExceptionHandler` | 设置 native 异常处理方法 | function | no       | All      | yes               |
 
 ## 遗留问题
 

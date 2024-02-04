@@ -213,7 +213,11 @@ All of the props under _Properties_ in addition to the following:
 
 ## 遗留问题
 
-Progress.Circle 中的属性 fill 在鸿蒙上默认显示黑色和默认无色不一致，定位是 svg 的属性配置有问题，当前通过修改 Circle.js 中默认 fill 的属性进行规避，后续 svg 修复该问题[issue#6](https://github.com/react-native-oh-library/react-native-svg/issues/6)后，修改的代码会移除。
+1、Progress.Circle 中的属性 fill 在鸿蒙上默认显示黑色和默认无色不一致，定位是 svg 的属性配置有问题，当前通过修改 Circle.js 中默认 fill 的属性进行规避，后续 svg 修复该问题[issue#6](https://github.com/react-native-oh-library/react-native-svg/issues/6)后，修改的代码会移除。
+
+2、Progress.Circle中的属性color, unfilledColor,borderWith,borderColor中圆的颜色，在进行静态配置的时候颜色显示正常，在使用Button进行动态改变的时候，中间的圆会显示黑色和默认的颜色不一致，定位是svg的属性配置有问题，当前通过修改Circle.js中默认fill的属性进行规避，后续 svg 修复该问题[issue#7](https://github.com/react-native-oh-library/react-native-svg/issues/7)后，修改的代码会移除。
+
+3、Progress.pie中的属性color,borderWith,borderColor中内圆的颜色，在进行静态配置的时候颜色显示正常，在使用Button进行动态改变的时候，中间的圆会显示黑色和默认的颜色不一致，定位是svg的属性有问题，pie传入给svg的值是正常的，svg处理逻辑有问题，修改svg修复该问题[issue#8](https://github.com/react-native-oh-library/react-native-svg/issues/8)
 
 ## 其他
 

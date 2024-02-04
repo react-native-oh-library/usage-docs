@@ -159,6 +159,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ```diff
 ...
+import { createRNPackages } from '../RNPackagesFactory'
 + import { SVG_VIEW_TYPE_NAME, SVGView } from "rnoh-svg"
 
 @Builder

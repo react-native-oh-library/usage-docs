@@ -161,24 +161,24 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ### 在 ArkTs 侧引入 picker 组件
 
-打开 `entry/src/main/ets/pages/index.ets`，添加：
+找到 **function buildCustomComponent()**，一般位于  `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
 ...
 + import { RNCPicker, PICKER_TYPE } from "rnoh-picker"
 
   @Builder
-  function CustomComponentBuilder(ctx: ComponentBuilderContext) {
+  function buildCustomComponent(ctx: ComponentBuilderContext) {
     if (ctx.componentName === SAMPLE_VIEW_TYPE) {
       SampleView({
-        ctx: ctx.rnohContext,
+        ctx: ctx.rnComponentContext,
         tag: ctx.tag,
-        buildCustomComponent: CustomComponentBuilder
+        buildCustomComponent: buildCustomComponent
       })
     }
 +   else if (ctx.componentName === PICKER_TYPE) {
 +     RNCPicker({
-+       ctx: ctx.rnohContext,
++       ctx: ctx.rnComponentContext,
 +       tag: ctx.tag
 +     })
 +   }

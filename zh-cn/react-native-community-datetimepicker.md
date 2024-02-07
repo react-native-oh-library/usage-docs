@@ -193,7 +193,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ### 在 ArkTs 侧引入 DateTimePicker 组件
 
-打开 `entry/src/main/ets/pages/index.ets`，添加：
+找到 **function buildCustomComponent()**，一般位于  `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
 ...
@@ -201,19 +201,19 @@ import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-packag
 + import { RNDateTimePicker, DATETIME_PICKER_VIEW_TYPE } from "rnoh-datetimepicker"
 
 @Builder
-function CustomComponentBuilder(ctx: ComponentBuilderContext) {
+function buildCustomComponent(ctx: ComponentBuilderContext) {
   if (ctx.componentName === SAMPLE_VIEW_TYPE) {
     SampleView({
-      ctx: ctx.rnohContext,
+      ctx: ctx.rnComponentContext,
       tag: ctx.tag,
-      buildCustomComponent: CustomComponentBuilder
+      buildCustomComponent: buildCustomComponent
     })
   }
 + else if (ctx.componentName === DATETIME_PICKER_VIEW_TYPE) {
 +   RNDateTimePicker({
-+     ctx: ctx.rnohContext,
++     ctx: ctx.rnComponentContext,
 +     tag: ctx.tag,
-+     buildCustomComponent: CustomComponentBuilder
++     buildCustomComponent: buildCustomComponent
 +   })
 + }
  ...

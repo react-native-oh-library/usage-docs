@@ -23,7 +23,7 @@
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[<@react-native-oh-tpl/<库名> Releases](https://github.com/<仓库地址>/releases)，并下载适用版本的 tgz 包。
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/<库名> Releases](https://github.com/<仓库地址>/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
@@ -189,26 +189,26 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ### 在 ArkTs 侧引入 xxx 组件
 
-打开 `entry/src/main/ets/pages/index.ets`，添加：
+找到 **function buildCustomComponent()**，一般位于  `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
 ...
 + import { RNLinearGradient, LINEAR_GRADIENT_TYPE, LinearGradientDescriptor } from "rnoh-linear-gradient"
 
   @Builder
-  function CustomComponentBuilder(ctx: ComponentBuilderContext) {
+  function buildCustomComponent(ctx: ComponentBuilderContext) {
     if (ctx.componentName === SAMPLE_VIEW_TYPE) {
       SampleView({
-        ctx: ctx.rnohContext,
+        ctx: ctx.rnComponentContext,
         tag: ctx.tag,
-        buildCustomComponent: CustomComponentBuilder
+        buildCustomComponent: buildCustomComponent
       })
     }
 +   else if (ctx.componentName === LINEAR_GRADIENT_TYPE) {
 +     RNLinearGradient({
-+       ctx: ctx.rnohContext,
++       ctx: ctx.rnComponentContext,
 +       tag: ctx.tag,
-+       buildCustomComponent: CustomComponentBuilder
++       buildCustomComponent: buildCustomComponent
 +     })
 +   }
     ...

@@ -122,7 +122,7 @@ const CustomFontIcoMoon = createIconSetFromIcoMoon(
 复制 `react-native-vector-icons/Fonts` 目录下的字体文件到 `entry/src/main/ets/assets/fonts` 目录下
 
 步骤二：
-打开 `entry/src/main/ets/pages/Index.ets`，添加以下代码
+找到 **function buildCustomComponent()**，一般位于  `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加以下代码
 
 ```ts
     import font from '@ohos.font';

@@ -261,7 +261,7 @@ add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
 # RNOH_BEGIN: add_package_subdirectories
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/text_size/src/main/cpp" ./text-size)
++ add_subdirectory("${OH_MODULE_DIR}/rnoh-text-size/src/main/cpp" ./text-size)
 # RNOH_END: add_package_subdirectories
 
 add_library(rnoh_app SHARED
@@ -409,7 +409,7 @@ This is an object similar to the one you pass to `measure`, but the `text` optio
 
 ## 遗留问题
 
-- [ ] fontNamesForFamilyName问题:需要依赖手机文件font目录下的json文件，该文件目前没有预置在手机目录下，会导致该接口调用为空。后续底层框架侧修复该问题 [issue#1](https://github.com/react-native-oh-library/react-native-text-size/issues/1)
+- [ ] fontFamilyNames&fontNamesForFamilyName问题:需要依赖手机文件font目录下的json文件，该文件目前没有预置在手机目录下，会导致该接口调用为空。后续底层框架侧修复该问题 [issue#1](https://github.com/react-native-oh-library/react-native-text-size/issues/1)
 
 ## 其他
 

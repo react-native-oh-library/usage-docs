@@ -58,13 +58,8 @@ export const App = () => {
       title: 'title',
       subtitle: 'subtitle',
       body: 'body',
-      category: 'test',
-      threadId: 'thread-id',
-      fireDate: new Date(new Date().valueOf() + 2000),
-      repeats: true,
-      userInfo: {
-        image: 'https://www.github.com/Naturalclar.png',
-      }
+      fireDate: new Date(new Date().valueOf() + 1000),
+      repeats: true
     });
   };
 
@@ -74,13 +69,11 @@ export const App = () => {
       title: 'title',
       subtitle: 'subtitle',
       body: 'body',
-      category: 'test',
       isSilent: true,
-      threadId: 'thread-id',
       fireDate: new Date(new Date().valueOf() + 2000),
       repeats: true,
       userInfo: {
-        image: 'https://www.github.com/Naturalclar.png',
+        data: '123456',
       }
     });
   };
@@ -91,8 +84,6 @@ export const App = () => {
       title: 'First',
       subtitle: 'subtitle',
       body: 'First Notification out of 3',
-      category: 'test',
-      threadId: 'thread-id',
       fireDate: new Date(new Date().valueOf() + 10000),
       repeats: true,
     });
@@ -102,8 +93,6 @@ export const App = () => {
       title: 'Second',
       subtitle: 'subtitle',
       body: 'Second Notification out of 3',
-      category: 'test',
-      threadId: 'thread-id',
       fireDate: new Date(new Date().valueOf() + 12000),
       repeats: true,
     });
@@ -113,8 +102,6 @@ export const App = () => {
       title: 'Third',
       subtitle: 'subtitle',
       body: 'Third Notification out of 3',
-      category: 'test',
-      threadId: 'thread-id',
       fireDate: new Date(new Date().valueOf() + 14000),
       repeats: true,
     });
@@ -254,7 +241,7 @@ add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
 # RNOH_BEGIN: add_package_subdirectories
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/push_notification/src/main/cpp" ./push_notification)
++ add_subdirectory("${OH_MODULE_DIR}/rnoh-push-notification/src/main/cpp" ./push_notification)
 # RNOH_END: add_package_subdirectories
 
 add_library(rnoh_app SHARED

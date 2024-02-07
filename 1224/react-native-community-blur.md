@@ -1,7 +1,7 @@
 > 模板版本：v0.1.3
 
 <p align="center">
-  <h1 align="center"> <code>react-native-blur</code> </h1>
+  <h1 align="center"> <code>@react-native-community/blur</code> </h1>
 </p>
 <p align="center">
     <a href="https://github.com/Kureev/react-native-blur">
@@ -16,7 +16,7 @@
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-blur Releases](https://github.com/react-native-oh-library/react-native-blur/releases)，并下载适用版本的 tgz 包。
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/blur Releases](https://github.com/react-native-oh-library/react-native-blur/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 

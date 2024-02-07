@@ -408,7 +408,7 @@ ohpm install
 
 ## 遗留问题
 
-- [ ] blurTypes设置为ios/android平台定义枚举值，闪退[issue#755](https://gl.swmansion.com/rnoh/react-native-harmony/-/issues/755)
+- [x] blurTypes设置为ios/android平台定义枚举值，闪退[issue#755](https://gl.swmansion.com/rnoh/react-native-harmony/-/issues/755)
 - [ ] harmony 暂不支持VibrancyView组件
 
 ## 其他

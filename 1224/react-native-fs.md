@@ -283,7 +283,7 @@ ohpm install
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-详情请见[react-native-fs](https://github.com/react-native-oh-library/react-native-text-size)
+详情请见[react-native-fs](https://github.com/react-native-oh-library/react-native-fs)
 
 | Name            | Description | Type   | Required | Platform    | HarmonyOS Support |
 | --------------- | ----------- | ------ | -------- | ----------- | ----------------- |
@@ -295,7 +295,7 @@ ohpm install
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-详情请见[react-native-fs](https://github.com/react-native-oh-library/react-native-text-size)
+详情请见[react-native-fs](https://github.com/react-native-oh-library/react-native-fs)
 
 | Name           | Description                                                  | Type   | Required | Platform    | HarmonyOS Support |
 | -------------- | ------------------------------------------------------------ | ------ | -------- | ----------- | ----------------- |

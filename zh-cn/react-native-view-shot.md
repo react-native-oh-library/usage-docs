@@ -45,40 +45,64 @@ yarn add @react-native-oh-tpl/react-native-view-shot@file:#
 ```js
 import React from "react";
 import { View, Text, Button } from "react-native";
-import { captureRef, captureScreen } from "react-native-view-shot";
+import ViewShot, { captureRef, captureScreen } from "react-native-view-shot";
 
 export default function App() {
-  const view = React.useRef < View > null;
+  const view = React.useRef<View>(null);
+  const ref = React.useRef(null);
+  const onCapture = (uri) => {
+    console.info("onCapture callback");
+    setTxt(JSON.stringify(uri))
+  };
+  const onCaptureFailure = (err) => {
+    console.info("onCaptureFailure " + JSON.stringify(err));
+    setTxt(JSON.stringify(err))
+  };
+  const [txt, setTxt] = React.useState<string>('');
+
   return (
-    <View>
-      <View ref={view} collapsable={false} style={{ backgroudColor: "#FFF" }}>
+    <View >
+      <View ref={view} collapsable={false} style={{ backgroundColor: "#ffffff" }}>
         <Text style={{ color: "#000", marginBottom: 30 }}>
           Hello OpenHarmony
         </Text>
         <Text style={{ color: "#000", marginBottom: 30 }}>Hello HarmonyOS</Text>
         <Text style={{ color: "#000", marginBottom: 30 }}>
-          Hello HarmonyOS Next
+          Hello HarmonyOS Next.
         </Text>
-        <Text style={{ color: "#000", marginBottom: 30 }}>Hello World</Text>
+
+
+        <ViewShot ref={ref} style={{ backgroundColor: "#ffffff" }} onCapture={onCapture} onCaptureFailure={onCaptureFailure} captureMode="mount">
+          <Text style={{ color: "#000", marginBottom: 30 }}>Hello World</Text>
+        </ViewShot>
+
+        <Text style={{ color: "#000", marginBottom: 30 }}>message:{txt}</Text>
+
       </View>
-      <View>
-        <Button
-          title="captureRef"
-          onPress={() => {
-            captureRef(view).then((uri) => {
-              console.info(`captureRef: ${uri}`);
-            });
-          }}
-        />
-        <Button
-          title="captureScreen"
-          onPress={() => {
-            captureScreen().then((str) => {
-              console.info(`captureScreen: ${uri}`);
-            });
-          }}
-        />
-      </View>
+      <Button
+        title="captureRef"
+        onPress={() => {
+          captureRef(view).then((uri) => {
+            console.info(`captureRef: ${JSON.stringify(uri)}`);
+          });
+        }}
+      />
+      <Button
+        title="ViewShot capture"
+        onPress={() => {
+          captureRef(ref).then((uri) => {
+            console.info(`captureRef: ${uri}`);
+          });
+        }}
+      />
+      <Button
+        title="captureScreen"
+        onPress={() => {
+          captureScreen().then(() => {
+            console.info(`captureScreen success`);
+          });
+        }}
+      />
     </View>
   );
 }
@@ -218,7 +242,8 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   ···
 
     "requestPermissions": [
-+     { "name": "ohos.permission.WRITE_IMAGEVIDEO" }
++     { "name": "ohos.permission.WRITE_IMAGEVIDEO" }，
++     { "name": "ohos.permission.READ_IMAGEVIDEO" }
     ]
   }
 }
@@ -245,21 +270,34 @@ ohpm install
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/view-shot Releases](https://github.com/react-native-oh-library/react-native-view-shot/releases)
 
+## 属性
+
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name             | Description                              | Type                                   | Required | Platform     | HarmonyOS Support |
+| ---------------- | ---------------------------------------- | -------------------------------------- | -------- | ------------ | ----------------- |
+| captureMode      | if not defined (default). the capture is not automatic and you need to use the ref and call `capture()` yourself<br /><br />`"mount"`. Capture the view once at mount. (It is important to understand image loading won't be waited, in such case you want to use `"none"` with `viewShotRef.capture()` after `Image#onLoad`.)  `"continuous"` EXPERIMENTAL, this will capture A LOT of images continuously. For very specific use-cases.  `"update"` EXPERIMENTAL, this will capture images each time React redraw (on did update). For very specific use-cases. | ( 'mount' \| 'continuous' \| 'update') | no       | Android, iOS | yes               |
+| onCapture        | when a `captureMode` is defined, this callback will be called with the capture result. | function                               | no       | Android, iOS | yes               |
+| onCaptureFailure | when a `captureMode` is defined, this callback will be called when a capture fails. | function                               | no       | Android, iOS | yes               |
+
 ## API
 
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name   | Description  | Type  | Required | Platform | HarmonyOS Support |
-| ------ | ------------ | ----- | -------- | -------- | ----------------- |
-| `captureRef`  | 组件截图  | function | no | android, ios | yes           |
-| `captureScreen`  | 屏幕截图  | function | no | android, ios | yes           |
-| `releaseCapture`  | 资源释放  | function | no | android, ios | no           |
+| Name             | Description | Type     | Required | Platform     | HarmonyOS Support |
+| ---------------- | ----------- | -------- | -------- | ------------ | ----------------- |
+| `captureRef`     | 组件截图        | function | no       | android, ios | yes               |
+| `captureScreen`  | 屏幕截图        | function | no       | android, ios | yes               |
+| `releaseCapture` | 资源释放        | function | no       | android, ios | no                |
 
 ## 遗留问题
 
-- [ ] harmonyOS 资源释放接口验证未通过 [issues#2](https://github.com/react-native-oh-library/react-native-view-shot/issues/2)。
+- [ ] HarmonyOS 资源释放接口验证未通过 [issues#2](https://github.com/react-native-oh-library/react-native-view-shot/issues/2)。
+- [ ] 被截图组件需要设置背景色，否则截图效果全黑 [issues#3](https://github.com/react-native-oh-library/react-native-view-shot/issues/3)。
 
 ## 其他
 

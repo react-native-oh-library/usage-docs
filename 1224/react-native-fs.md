@@ -58,15 +58,18 @@ import {
 import FS from 'react-native-fs';
 import { Colors} from 'react-native/Libraries/NewAppScreen';
 function App(): React.JSX.Element {
+    // 参数
     const [mkdirParam, setMkdirParam] = useState('');
+    // 创建文件夹接口调用
     const mkdirExample = () => {
-      FS.mkdir(mkdirParam).then((result) => {
-        console.log('mkdir mkdirParam： '+mkdirParam);
-        console.log('mkdir Successfully created directory.');
+      FS.mkdir(FS.DocumentDirectoryPath + '/' + mkdirParam).then((result) => {
+        console.log('file mkdirParam： '+ mkdirParam);
+        console.log('file Successfully created directory.');
       }, err => {
-        console.error('mkdir mkdir: '+ err.message)
+        console.error('file mkdir: '+ err.message)
       });
     }
+    // 组件
     return (
       <>
       <StatusBar barStyle="dark-content" />
@@ -102,7 +105,7 @@ function App(): React.JSX.Element {
     </>
     );
 }
-
+ // 组件样式
  const styles = StyleSheet.create({
     scrollView: {
       backgroundColor: Colors.black,
@@ -130,7 +133,7 @@ function App(): React.JSX.Element {
       color: Colors.dark,
     },
     input: {
-      
+      marginTop: 12,
     },
   });
   
@@ -285,9 +288,10 @@ ohpm install
 
 详情请见[react-native-fs](https://github.com/react-native-oh-library/react-native-fs)
 
-| Name            | Description | Type   | Required | Platform    | HarmonyOS Support |
-| --------------- | ----------- | ------ | -------- | ----------- | ----------------- |
-| FileSandBoxPath | System Path | string | No       | IOS/Android | yes               |
+| Name                  | Description | Type   | Required | Platform    | HarmonyOS Support |
+| :-------------------- | ----------- | ------ | -------- | ----------- | ----------------- |
+| DocumentDirectoryPath | System Path | string | No       | IOS/Android | yes               |
+| CachesDirectoryPath   | System Path | string | No       | IOS/Android | yes               |
 
 ## API
 

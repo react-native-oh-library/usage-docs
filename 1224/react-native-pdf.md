@@ -1,39 +1,44 @@
-> 模板版本：v0.1.2
+> 模板版本：v0.1.3
 
 <p align="center">
-  <h1 align="center"> <code>@react-native-oh-tpl/react-native-pdf</code> </h1>
+  <h1 align="center"> <code>react-native-pdf</code> </h1>
 </p>
 <p align="center">
-    <a href="https://github.com/react-native-oh-library/react-native-pdf">
-        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20macos%20|%20windows%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
+    <a href="https://github.com/wonday/react-native-pdf">
+        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20windows%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
-    <a href="https://github.com/react-native-oh-library/react-native-pdf/blob/sig/LICENSE">
+    <a href="https://github.com/wonday/react-native-pdf/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
 
-
-> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-pdf)
+> [!tip] [Github 地址](https://github.com/wonday/react-native-pdf)
 
 ## 安装与使用
+
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-pdf Releases](https://github.com/react-native-oh-library/react-native-pdf/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
 <!-- tabs:start -->
 
-#### **yarn**
-
-```bash
-yarn add @react-native-oh-tpl/react-native-pdf
-```
-
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-pdf
+npm install @react-native-oh-tpl/react-native-pdf@file:#
 ```
 
+#### **yarn**
+
+```bash
+yarn add @react-native-oh-tpl/react-native-pdf@file:#
+```
+
+<!-- tabs:end -->
+
 下面的代码展示了这个库的基本使用场景：
+
+>[!WARNING] 使用时 import 的库名不变。
 
 ```js
 import React from 'react';
@@ -87,6 +92,9 @@ const styles = StyleSheet.create({
 2. 直接链接源码。
 
 方法一：通过 har 包引入
+
+> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
@@ -106,6 +114,9 @@ ohpm install
 ```
 
 方法二：直接链接源码
+
+> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
@@ -213,7 +224,9 @@ ohpm install
 
 然后编译、运行即可。
 
-## 兼容性
+## 约束与限制
+
+### 兼容性
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 

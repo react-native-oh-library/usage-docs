@@ -247,7 +247,7 @@ ohpm install
 
 ### 权限要求
 
-需要在`entry/src/main/oh-package.json5`中声明权限。
+需要在`entry/src/main/module.json5`中声明权限并创建reason string value。
 
 ```
 "requestPermissions": [
@@ -272,6 +272,21 @@ ohpm install
         }
       }
 ]
+```
+
+reason字段的内容写作规范及建议如下：
+
+​	保持句子简洁、不要加入多余的分割符号。
+
+​	建议句式：用于某事。
+
+​	示例：用于扫码拍照。
+
+```
+    {
+      "name": "reason",
+      "value": "允许应用使用相机。"
+    },
 ```
 
 权限列表

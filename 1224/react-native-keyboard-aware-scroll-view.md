@@ -7,10 +7,11 @@
     <a href="https://github.com/APSL/react-native-keyboard-aware-scroll-view">
         <img src="https://img.shields.io/badge/platforms-ios%20|%20android%20|%20web%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
-    <a href="https://github.com/APSL/react-native-keyboard-aware-scroll-view/blob/master/README.md">
+    <a href="https://github.com/APSL/react-native-keyboard-aware-scroll-view/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
+
 
 > [!tip] [Github 地址](https://github.com/APSL/react-native-keyboard-aware-scroll-view)
 
@@ -77,7 +78,7 @@ export default KasvCom;
 
 本文档内容基于以下版本验证通过：
 
-1. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
+1. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.59;
 
 ## 属性
 
@@ -89,31 +90,36 @@ export default KasvCom;
 
 **组件 KeyboardAwareScrollView**
 
-| Name                      | Description                                                                                    | Type                                                                                                                                                             | Required | Platform | HarmonyOS Support |
-| ------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------------- |
-| viewIsInsideTabBar        | Adds an extra offset that represents the `TabBarIOS` height.                                   | boolean                                                                                                                                                          | NO       | All      | NO                |
-| resetScrollToCoords       | Coordinates that will be used to reset the scroll when the keyboard hides.                     | Object: {x: number, y: number}                                                                                                                                   | NO       | All      | NO                |
-| enableAutomaticScroll     | When focus in `TextInput` will scroll the position, default is enabled.                        | boolean                                                                                                                                                          | NO       | All      | NO                |
-| extraHeight               | Adds an extra offset when focusing the `TextInput`s.                                           | number                                                                                                                                                           | NO       | All      | NO                |
-| extraScrollHeight         | Adds an extra offset to the keyboard. Useful if you want to stick elements above the keyboard. | number                                                                                                                                                           | NO       | All      | NO                |
-| enableResetScrollToCoords | Lets the user enable or disable automatic resetScrollToCoords.                                 | boolean                                                                                                                                                          | NO       | All      | NO                |
-| keyboardOpeningTime       | Sets the delay time before scrolling to new position, default is 250                           | number                                                                                                                                                           | NO       | IOS      | NO                |
-| keyboardWillShow          | What to do when the keyboard is about to appear                                                | (event?) => void                                                                                                                                                 | NO       | IOS      | NO                |
-| keyboardDidShow           | What to do when the keyboard appears                                                           | (event?) => void                                                                                                                                                 | NO       | All      | Yes               |
-| keyboardWillHide          | What to do when the keyboard is about to be hidden                                             | (event?) => void                                                                                                                                                 | NO       | IOS      | NO                |
-| keyboardDidHide           | What to do when hiding the keyboard                                                            | (event?) => void                                                                                                                                                 | NO       | All      | Yes               |
-| keyboardWillChangeFrame   | When the keyboard status is about to change                                                    | (event?) => void                                                                                                                                                 | NO       | IOS      | NO                |
-| keyboardDidChangeFrame    | When the keyboard status changes                                                               | (event?) => void                                                                                                                                                 | NO       | IOS      | NO                |
-| scrollToPosition          | Scroll to specific position with or without animation.                                         | (x: number, y: number, animated: bool = true) => void                                                                                                            | NO       | All      | Yes               |
-| scrollToEnd               | Scroll to end with or without animation.                                                       | (animated?: bool = true) => void                                                                                                                                 | NO       | All      | Yes               |
-| scrollIntoView            | Scrolls an element inside a KeyboardAwareScrollView into view.                                 | (element: React.Element<\*>, options: { getScrollPosition: ?(parentLayout, childLayout, contentOffset) => { x: number, y: number, animated: boolean } }) => void | NO       | All      | NO                |
+| Name                      | Description                                                  | Type                                                         | Required | Platform | HarmonyOS Support |
+| ------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | -------- | -------- | ----------------- |
+| viewIsInsideTabBar        | Adds an extra offset that represents the `TabBarIOS` height. | boolean                                                      | NO       | IOS      | NO                |
+| resetScrollToCoords       | Coordinates that will be used to reset the scroll when the keyboard hides. | Object: {x: number, y: number}                               | NO       | All      | YES               |
+| enableAutomaticScroll     | When focus in `TextInput` will scroll the position, default is enabled. | boolean                                                      | NO       | All      | YES               |
+| extraHeight               | Adds an extra offset when focusing the `TextInput`s.         | number                                                       | NO       | All      | YES               |
+| extraScrollHeight         | Adds an extra offset to the keyboard. Useful if you want to stick elements above the keyboard. | number                                                       | NO       | All      | YES               |
+| enableResetScrollToCoords | Lets the user enable or disable automatic resetScrollToCoords. | boolean                                                      | NO       | All      | YES               |
+| keyboardOpeningTime       | Sets the delay time before scrolling to new position, default is 250 | number                                                       | NO       | IOS      | NO                |
+| keyboardWillShow          | What to do when the keyboard is about to appear              | (event?) => void                                             | NO       | IOS      | NO                |
+| keyboardDidShow           | What to do when the keyboard appears                         | (event?) => void                                             | NO       | All      | YES               |
+| keyboardWillHide          | What to do when the keyboard is about to be hidden           | (event?) => void                                             | NO       | IOS      | NO                |
+| keyboardDidHide           | What to do when hiding the keyboard                          | (event?) => void                                             | NO       | All      | YES               |
+| keyboardWillChangeFrame   | When the keyboard status is about to change                  | (event?) => void                                             | NO       | IOS      | NO                |
+| keyboardDidChangeFrame    | When the keyboard status changes                             | (event?) => void                                             | NO       | IOS      | NO                |
+| scrollToPosition          | Scroll to specific position with or without animation.       | (x: number, y: number, animated: bool = true) => void        | NO       | All      | YES               |
+| scrollToEnd               | Scroll to end with or without animation.                     | (animated?: bool = true) => void                             | NO       | All      | YES               |
+| scrollIntoView            | Scrolls an element inside a KeyboardAwareScrollView into view. | (element: React.Element<\*>, options: { getScrollPosition: ?(parentLayout, childLayout, contentOffset) => { x: number, y: number, animated: boolean } }) => void | NO       | All      | NO                |
 
 ## 遗留问题
 
-- [ ] 受 RNOH 侧 UIManager.viewIsDescendantOf() API 的影响，键盘事件判断后的回调函数无法执行，导致主动视图 Scroll 滚动 API 均无法生效。
+- [ ] RN0.72.5版本新架构暂未支持UIManager.viewIsDescendantOf() API，该API功能为：判断组件节点嵌套关系，并在callback中返回boolean类型参数。
+
+- 问题说明：KeyboardAwareScrollView组件逻辑为：监听软键盘出现事件，并绑定callback，在callback中利用UIManager.viewIsDescendantOf()判断组件是否为该组件的子组件，返回true则抬升TextInput的高度，并处理相关Props。由于新架构暂未支持该API，目前IOS与Harmony的新架构均不会调用该API的callback，而Android则始终在callback内返回false，导致该组件的键盘出现事件的相关逻辑功能无法生效。
+- 处理现状：由于UIManager.viewIsDescendantOf() API暂无法调用内部callback，现已将其暂时删除，将callback变为外部逻辑。受此影响,KeyboardAwareScrollView组件无法判断当前聚焦的TextInput组件是否为子组件，KeyboardAwareScrollView组件以外的TextInput组件聚焦时也会触发KeyboardAwareScrollView组件的Props设置。且由于oh侧系统软键盘会自动抬起TextInput的高度，KeyboardAwareScrollView组件外的TextInput聚焦时，距离软键盘顶部会有额外的距离。
+
+- 使用建议：KeyboardAwareScrollView组件外不设置可聚焦TextInput组件或将其写入KeyboardAwareScrollView组件slot内。
 
 ## 其他
 
 ## 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/meliorence/react-native-render-html/blob/master/LICENSE) ，请自由地享受和参与开源。
+本项目基于 [The MIT License (MIT)](https://github.com/APSL/react-native-keyboard-aware-scroll-view/blob/master/LICENSE) ，请自由地享受和参与开源。

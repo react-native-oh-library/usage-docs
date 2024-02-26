@@ -276,27 +276,29 @@ ohpm install
 
 Inherits [View Props](https://reactnative.dev/docs/view#props).
 
-| Name           | Description                                                  | Type   | Required | Platform    | HarmonyOS Support |
-| -------------- | ------------------------------------------------------------ | ------ | -------- | ----------- | ----------------- |
-| actions          | Sets possible actions on the toolbar as part of the action menu. These are displayed as icons or text on the right side of the widget. If they don't fit they are placed in an 'overflow' menu.                            | array of object: {title: string,icon: object: {uri:object,height?:number,width?:number},show: enum('always', 'ifRoom', 'never'),showWithText: bool} | No       | Android     | yes               |
-| contentInsetStart         | Sets the content inset for the toolbar starting edge.                     | number | No       | Android | yes               |
-| contentInsetEnd       | Sets the content inset for the toolbar ending edge.                | number | No       | Android | yes               |
-| logo | Sets the toolbar logo. | object: {uri:object,height?:number,width?:number} | No       | Android     | yes               |
-| navIcon      | Sets the navigation icon.                         | object: {uri:object,height?:number,width?:number} | No       | Android | yes               |
-| onActionSelected     | Callback that is called when an action is selected. The only argument that is passed to the callback is the position of the action in the actions array.                         | function | No       | Android | yes               |
-| onIconClicked       | Callback called when the icon is selected.         | function | No       | Android         | yes               |
-| overflowIcon         | Sets the overflow icon.                              | object: {uri:object,height?:number,width?:number} | No       | Android | yes               |
-| rtl         | Used to set the toolbar direction to RTL.                              | bool | No       | Android | yes               |
-| subtitle         | Sets the toolbar subtitle.                              | string | No       | Android | yes               |
-| subtitleColor         | Sets the toolbar subtitle color.                              | string | No       | Android | yes               |
-| title         | Sets the toolbar title.                              | string | Yes       | Android | yes               |
-| titleColor         | Sets the toolbar title color.                              | string | No       | Android | yes               |
+| Name              | Description                                                                                                                                                                                     | Type                                                                                                          | Required | Platform | HarmonyOS Support |
+|-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|----------|----------|-------------------|
+| actions           | Sets possible actions on the toolbar as part of the action menu. These are displayed as icons or text on the right side of the widget. If they don't fit they are placed in an 'overflow' menu. | array of object: {title: string,icon: ImageSource,show: enum('always', 'ifRoom', 'never'),showWithText: bool} | No       | Android  | yes               |
+| contentInsetStart | Sets the content inset for the toolbar starting edge.                                                                                                                                           | number                                                                                                        | No       | Android  | yes               |
+| contentInsetEnd   | Sets the content inset for the toolbar ending edge.                                                                                                                                             | number                                                                                                        | No       | Android  | yes               |
+| logo              | Sets the toolbar logo.                                                                                                                                                                          | ImageSource                                                                                                   | No       | Android  | yes               |
+| navIcon           | Sets the navigation icon.                                                                                                                                                                       | ImageSource                                                                                                   | No       | Android  | yes               |
+| onActionSelected  | Callback that is called when an action is selected. The only argument that is passed to the callback is the position of the action in the actions array.                                        | function                                                                                                      | No       | Android  | yes               |
+| onIconClicked     | Callback called when the icon is selected.                                                                                                                                                      | function                                                                                                      | No       | Android  | yes               |
+| overflowIcon      | Sets the overflow icon.                                                                                                                                                                         | ImageSource                                                                                                   | No       | Android  | yes               |
+| rtl               | Used to set the toolbar direction to RTL.                                                                                                                                                       | bool                                                                                                          | No       | Android  | yes               |
+| subtitle          | Sets the toolbar subtitle.                                                                                                                                                                      | string                                                                                                        | No       | Android  | yes               |
+| subtitleColor     | Sets the toolbar subtitle color.                                                                                                                                                                | string                                                                                                        | No       | Android  | yes               |
+| title             | Sets the toolbar title.                                                                                                                                                                         | string                                                                                                        | Yes      | Android  | yes               |
+| titleColor        | Sets the toolbar title color.                                                                                                                                                                   | string                                                                                                        | No       | Android  | yes               |
 
-#### types of uri
+#### Props of ImageSource
 
-| Usage                                                        | Description                                                  | Platform    | HarmonyOS Support |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ----------- | ----------------- |
-| {require("./test.png")}                                    | load image from a url                                          | android | yes               |
+| Name   | Description                                             | Type   | Required | Platform | HarmonyOS Support |
+|--------|---------------------------------------------------------|--------|----------|----------|-------------------|
+| uri    | load image from a url, e.g. require('./some_icon.png')  | string | Yes      | android  | yes               |
+| width  | the width of the image                                  | number | No       | android  | yes               |
+| height | the height of the image                                 | number | No       | android  | yes               |
 
 ## 其他
 

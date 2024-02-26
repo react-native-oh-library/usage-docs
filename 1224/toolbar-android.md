@@ -1,10 +1,10 @@
 > 模板版本：v0.1.3
 
 <p align="center">
-  <h1 align="center"> <code>@react-native-oh-tpl/toolbar-android</code> </h1>
+  <h1 align="center"> <code>@react-native-community/toolbar-android</code> </h1>
 </p>
 <p align="center">
-    <a href="https://github.com/react-native-oh-library/toolbar-android">
+    <a href="https://github.com/react-native-toolbar-android/toolbar-android">
         <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
     <a href="https://github.com/react-native-oh-library/toolbar-android/blob/sig/LICENSE">
@@ -45,7 +45,7 @@ yarn add @react-native-oh-tpl/toolbar-android@file:#
 ```tsx
 import React, { useState } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import ToolbarAndroid from '@react-native-oh-tpl/toolbar-android';
+import ToolbarAndroid from '@react-native-community/toolbar-android';
 function App({ }): JSX.Element {
   const [state, setState] = useState<{
     message?: string
@@ -223,7 +223,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ```diff
 ...
-+ import { RNCToolbarAndroid, RNC_TOOLBAR_ANDROID_TYPE, RNCToolbarAndroidDescriptor } from 'rnoh-toolbar-android/src/main/ets/RNCToolbarAndroid'
++ import { RNCToolbarAndroid, RNC_TOOLBAR_ANDROID_TYPE } from 'rnoh-toolbar-android/src/main/ets/RNCToolbarAndroid'
 
   @Builder
   function buildCustomComponent(ctx: ComponentBuilderContext) {
@@ -237,8 +237,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 +  else if (ctx.componentName === RNC_TOOLBAR_ANDROID_TYPE) {
 +    RNCToolbarAndroid({
 +      ctx: ctx.rnohContext,
-+      tag: ctx.tag,
-+      descriptor: ctx.descriptor as RNCToolbarAndroidDescriptor
++      tag: ctx.tag
 +    })
 +  }
     ...

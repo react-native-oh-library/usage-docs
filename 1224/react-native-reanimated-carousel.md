@@ -1,7 +1,7 @@
-> 模板版本：v0.1.2
+> 模板版本：v0.1.3
 
 <p align="center">
-  <h1 align="center"> <code>react-native-transtiongroup</code> </h1>
+  <h1 align="center"> <code>react-native-reanimated-carousel</code> </h1>
 </p>
 <p align="center">
      <a href="https://github.com/dohooo/react-native-reanimated-carousel/blob/main/README.md">
@@ -21,13 +21,13 @@
 #### **yarn**
 
 ```bash
-yarn add react-native-reanimated-carousel
+yarn add react-native-reanimated-carousel@^3.5.1
 ```
 
 #### **npm**
 
 ```bash
-npm install react-native-reanimated-carousel
+npm install react-native-reanimated-carousel@^3.5.1
 ```
 
 <!-- tabs:end -->
@@ -287,15 +287,9 @@ export default App;
 
 在下述版本验证通过:
 
-IDE: Deveco Studio 4.1.3.500;
+1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
+2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.59;
 
-SDK: HarmonyOS NEXT Developer Preview1;
-
-测试设备: Mate60 (BRA-AL00);
-
-ROM: 204.1.0.59(SP2DEVC00E60R4P1) ;
-
-RNOH: 0.72.12;
 
 ## API
 

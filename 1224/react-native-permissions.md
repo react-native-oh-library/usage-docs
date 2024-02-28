@@ -245,6 +245,61 @@ ohpm install
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-permissions Releases](https://github.com/react-native-oh-library/react-native-permissions/releases)
 
+### 权限申请使用的工作流程
+
+应用在访问数据或者执行操作时，需要评估该行为是否需要应用具备相关的权限。如果确认需要目标权限，则需要在应用安装包中申请目标权限。
+
+然后，需要判断目标权限是否属于用户授权类。如果是，应用需要使用动态授权弹框来提供用户授权界面，请求用户授权目标权限。
+
+当用户授予应用所需权限后，应用可成功访问目标数据或执行目标操作。
+
+```
+   ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+   ┃ check(ohos.permission.CAMERA)    ┃
+   ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+                   │
+       Is the feature available
+           on this device ?
+                   │           ╔════╗
+                   ├───────────║ NO ║──────────────┐
+                   │           ╚════╝              │
+                ╔═════╗                            ▼
+                ║ YES ║                 ┌─────────────────────┐
+                ╚═════╝                 │ RESULTS.UNAVAILABLE │
+                   │                    └─────────────────────┘
+           Is the permission
+             requestable ?
+                   │           ╔════╗
+                   ├───────────║ NO ║──────────────┐
+                   │           ╚════╝              │
+                ╔═════╗                            ▼
+                ║ YES ║                  ┌───────────────────┐
+                ╚═════╝                  │ RESULTS.BLOCKED / │
+                   │                     │  RESULTS.GRANTED  │
+                   │                     └───────────────────┘
+  				   │
+                   ▼
+  	┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+  	┃ request(ohos.permission.CAMERA)    ┃
+  	┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+                   │
+         Does the user accept
+            the request ?
+                   │           ╔════╗
+                   ├───────────║ NO ║──────────────┐
+                   │           ╚════╝              │
+                ╔═════╗                            ▼
+                ║ YES ║                   ┌─────────────────┐
+                ╚═════╝                   │ RESULTS.BLOCKED │
+                   │                      └─────────────────┘
+                   ▼
+          ┌─────────────────┐
+          │ RESULTS.GRANTED │
+          └─────────────────┘
+```
+
+
+
 ### 权限要求
 
 需要在`entry/src/main/module.json5`中声明权限并创建reason string value。
@@ -276,11 +331,11 @@ ohpm install
 
 reason字段的内容写作规范及建议如下：
 
-​	保持句子简洁、不要加入多余的分割符号。
-
-​	建议句式：用于某事。
-
-​	示例：用于扫码拍照。
+	保持句子简洁、不要加入多余的分割符号。
+	
+	建议句式：用于某事。
+	
+	示例：用于扫码拍照。
 
 ```
     {
@@ -289,40 +344,87 @@ reason字段的内容写作规范及建议如下：
     },
 ```
 
-权限列表
+### 权限等级说明
+
+根据权限对于不同等级应用有不同的开放范围，权限类型对应分为以下三种，等级依次提高。
+
+- **normal权限**
+
+  normal 权限允许应用访问超出默认规则外的普通系统资源。这些系统资源的开放（包括数据和功能）对用户隐私以及其他应用带来的风险很小。
+
+  该类型的权限仅向APL等级为normal及以上的应用开放。
+
+- **system_basic权限**
+
+  system_basic权限允许应用访问操作系统基础服务相关的资源。这部分系统基础服务属于系统提供或者预置的基础功能，比如系统设置、身份认证等。这些系统资源的开放对用户隐私以及其他应用带来的风险较大。
+
+  该类型的权限仅向APL等级为system_basic及以上的应用开放。
 
 ```
-'ohos.permission.APPROXIMATELY_LOCATION',
-'ohos.permission.CAMERA',
-'ohos.permission.MICROPHONE',
-'ohos.permission.READ_CALENDAR',
-'ohos.permission.WRITE_CALENDAR',
-'ohos.permission.ACTIVITY_MOTION',
-'ohos.permission.READ_HEALTH_DATA',
-'ohos.permission.DISTRIBUTED_DATASYNC',
-'ohos.permission.READ_MEDIA',
-'ohos.permission.MEDIA_LOCATION',
-'ohos.permission.ACCESS_BLUETOOTH'
+normal权限列表
+    'ohos.permission.APPROXIMATELY_LOCATION',
+    'ohos.permission.LOCATION_IN_BACKGROUND'
+    'ohos.permission.LOCATION'
+    'ohos.permission.CAMERA',
+    'ohos.permission.MICROPHONE',
+    'ohos.permission.READ_CALENDAR',
+    'ohos.permission.WRITE_CALENDAR',
+    'ohos.permission.ACTIVITY_MOTION',
+    'ohos.permission.READ_HEALTH_DATA',
+    'ohos.permission.DISTRIBUTED_DATASYNC',
+    'ohos.permission.READ_MEDIA',
+    'ohos.permission.MEDIA_LOCATION',
+    'ohos.permission.ACCESS_BLUETOOTH'
+
+system_basic列表
+    'ohos.permission.READ_WHOLE_CALENDAR'
+    'ohos.permission.WRITE_WHOLE_CALENDAR'
+    'ohos.permission.ANSWER_CALL'
+    'ohos.permission.MANAGE_VOICEMAIL'
+    'ohos.permission.READ_CONTACTS'
+    'ohos.permission.WRITE_CONTACTS'
+    'ohos.permission.READ_CALL_LOG'
+    'ohos.permission.WRITE_CALL_LOG'
+    'ohos.permission.READ_CELL_MESSAGES'
+    'ohos.permission.READ_MESSAGES'
+    'ohos.permission.RECEIVE_MMS'
+    'ohos.permission.RECEIVE_SMS'
+    'ohos.permission.RECEIVE_WAP_MESSAGES'
+    'ohos.permission.SEND_MESSAGES'
+    'ohos.permission.WRITE_AUDIO'
+    'ohos.permission.READ_AUDIO'
+    'ohos.permission.READ_DOCUMENT'
+    'ohos.permission.WRITE_DOCUMENT'
+    'ohos.permission.WRITE_IMAGEVIDEO'
+    'ohos.permission.READ_IMAGEVIDEO'
+    'ohos.permission.GET_INSTALLED_BUNDLE_LIST'
+
 ```
 
-
+注：
+    ohos.permission.LOCATION_IN_BACKGROUND 允许应用在后台运行时获取设备位置信息。
+    由于安全隐私要求，应用不能通过弹窗的形式被授予后台位置权限，应用如果需要使用后台位置权限，需要引导用户到设置界面手动授予。
+    申请流程：
+    通过弹窗申请前台位置权限。存在两种允许情况：
+    申请前台模糊位置权限：ohos.permission.APPROXIMATELY_LOCATION。
+    申请前台精确位置权限：ohos.permission.APPROXIMATELY_LOCATION和ohos.permission.LOCATION。
+    当用户点击弹窗授予前台位置权限后，应用通过弹窗、提示窗等形式告知用户前往设置界面授予后台位置权限。
+    用户在设置界面中的选择“始终允许”应用访问位置信息权限，完成手动授予。
 
 ## 方法
 
-| Name                       | Description | Platform    | HarmonyOS Support |
-| -------------------------- | ----------- | ----------- | ----------------- |
-| check                      |             | ios,android | yes               |
-| checkNotifications         |             | ios,android | no                |
-| getConstants               |             | ios,android | no                |
-| openSettings               |             | ios,android | no                |
-| request                    |             | ios,android | yes               |
-| requestNotifications       |             | ios,android | yes               |
-| checkMultiple              |             | android     | yes               |
-| requestMultiple            |             | android     | yes               |
-| shouldShowRequestRationale |             | android     | no                |
-| checkLocationAccuracy      |             | ios         | no                |
-| openPhotoPicker            |             | ios         | no                |
-| requestLocationAccuracy    |             | ios         | no                |
+| Name                    | Description                | Platform    | HarmonyOS Support       |
+| ----------------------- | -------------------------- | ----------- | ----------------------- |
+| check                   | 检查单个权限               | ios,android | yes                     |
+| checkNotifications      | 检查通知权限               | ios,android | yes                     |
+| openSettings            | 打开设置页                 | ios,android | yes                     |
+| request                 | 设置单个权限               | ios,android | yes                     |
+| requestNotifications    | 设置通知权限               | ios,android | yes                     |
+| checkMultiple           | 检查多个权限               | android     | yes                     |
+| requestMultiple         | 设置多个权限               | android     | yes                     |
+| checkLocationAccuracy   | 检查设备位置权限           | ios         | no(使用check()查询权限) |
+| requestLocationAccuracy | 请求访问设备位置的权限     | ios         | no(使用check()设置权限) |
+| openPhotoPicker         | 请求访问设备本地图片的权限 | ios         | no(使用check()设置权限) |
 
 ## 遗留问题
 

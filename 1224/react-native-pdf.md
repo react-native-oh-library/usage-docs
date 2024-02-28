@@ -190,19 +190,19 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 + import { RTNPdfView, PDF_VIEW_TYPE } from 'rnoh-pdf-view';
 
   @Builder
-  function CustomComponentBuilder(ctx: ComponentBuilderContext) {
+  function buildCustomComponent(ctx: ComponentBuilderContext) {
     if (ctx.componentName === SAMPLE_VIEW_TYPE) {
       SampleView({
         ctx: ctx.rnComponentContext,
         tag: ctx.tag,
-        buildCustomComponent: CustomComponentBuilder
+        buildCustomComponent: buildCustomComponent
       })
     }
 +   else if (ctx.componentName === PDF_VIEW_TYPE) {
 +     RTNPdfView({
 +       ctx: ctx.rnComponentContext,
 +       tag: ctx.tag,
-+       buildCustomComponent: CustomComponentBuilder
++       buildCustomComponent: buildCustomComponent
 +     })
 +   }
     ...

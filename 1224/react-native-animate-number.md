@@ -22,13 +22,13 @@
 #### **npm**
 
 ```bash
-npm install react-native-animate-number
+npm install react-native-animate-number@0.1.2
 ```
 
 #### **yarn**
 
 ```bash
-yarn add react-native-animate-number
+yarn add react-native-animate-number@0.1.2
 ```
 
 <!-- tabs:end -->
@@ -114,21 +114,16 @@ export default App;
 
 ## 属性
 
-| Name        | Description                                                  | Type   | Required | Platform |
-| ----------- | ------------------------------------------------------------ | ------ | -------- | -------- |
-| `value`     | The value of AnimateNumber component.                        | number | yes      | All      |
-| `countBy`   | Set this property to force the component's value increase/decrease by this number. | number | No       | All      |
-| `interval`  | Base interval of each animation frame, in `ms`.              | number | No       | All      |
-| `steps`     | Set total frame number of animation, say, if interval is 14 and steps is 30, the animation will take 14x30ms to finish when it uses linear timing function. | number | No       | All      |
-| `timing`    | A style object that allow you to customize the WebView style. | number | No       | All      |
-| `formatter` | The custom css content will be added to the page's <head>.   | string | No       | All      |
-
-## 方法
-
-| Name         | Description                                                  | Type     | Required | Platform |
-| ------------ | ------------------------------------------------------------ | -------- | -------- | -------- |
-| `onProgress` | Either updated height or width will trigger onSizeUpdated.   | function | No       | All      |
-| `onFinish`   | Boolean value that determines whether a horizontal scroll indicator is shown in the WebView. | function | No       | All      |
+| Name         | Description                                                  | Type     | Required | Platform    | HarmonyOS Support |
+| ------------ | ------------------------------------------------------------ | -------- | -------- | ----------- | ----------------- |
+| `value`      | The value of AnimateNumber component.                        | number   | yes      | Android IOS | YES               |
+| `countBy`    | Set this property to force the component's value increase/decrease by this number. | number   | No       | Android IOS | YES               |
+| `interval`   | Base interval of each animation frame, in `ms`.              | number   | No       | Android IOS | YES               |
+| `steps`      | Set total frame number of animation, say, if interval is 14 and steps is 30, the animation will take 14x30ms to finish when it uses linear timing function. | number   | No       | Android IOS | YES               |
+| `timing`     | A style object that allow you to customize the WebView style. | number   | No       | Android IOS | YES               |
+| `formatter`  | The custom css content will be added to the page's <head>.   | string   | No       | Android IOS | YES               |
+| `onProgress` | Either updated height or width will trigger onSizeUpdated.   | function | No       | Android IOS | YES               |
+| `onFinish`   | Boolean value that determines whether a horizontal scroll indicator is shown in the WebView. | function | No       | Android IOS | YES               |
 
 ## 遗留问题
 

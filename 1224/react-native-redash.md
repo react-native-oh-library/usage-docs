@@ -9,17 +9,9 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://wcandillon.gitbook.io/redash/)
+> [!tip] [Github 地址](https://github.com/wcandillon/react-native-redash/)
 
 ## 安装与使用
-
-<!-- tabs:start -->
-
-#### **npm**
-
-```bash
-npm install react-native-redash@^18.1.3
-```
 
 #### **yarn**
 
@@ -27,9 +19,13 @@ npm install react-native-redash@^18.1.3
 yarn add react-native-redash@^18.1.3
 ```
 
+#### **npm**
+```bash
+npm install react-native-redash@^18.1.3
+```
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+redash库依赖react-native-reanimated动画库，为适配鸿蒙环境，需要把库里的依赖改成@react-native-oh-tpl/react-native-reanimated。下面的代码展示了这个库的基本使用场景：
 
 ```js
 // findLastIndex 为例
@@ -43,7 +39,7 @@ import {
   avg,
   toRad,
   toDeg} from 'react-native-redash/src/Math';
-import {
+import { 
   canvas2Cartesian,
   cartesian2Canvas,
   cartesian2Polar,
@@ -68,101 +64,207 @@ const canvas2Polar: ({ x, y }: Vector, center: Vector) => {
     radius: number;
 };
 ```
+动画演示示例
+
+1.位置移动演示动画，通过snapPoint运行指定的位置地点
+```js
+import { snapPoint } from "react-native-redash/src/Physics"
+import { useSharedValue,withSequence,withTiming,withRepeat} from '@react-native-oh-tpl/react-native-reanimated';
+
+const offset = useSharedValue(0);
+  
+const translateAnimatedStyles = useAnimatedStyle(() => {
+  return {
+    transform: [
+      { 
+        translateX: offset.value * 2
+      },
+    ],
+  };
+})
+  
+const translate= () => {
+  offset.value =  withSequence(
+    withTiming(-snapPoint(96, 600, [0, 125, 393]), { duration: 1000 }),
+    withRepeat(withTiming(snapPoint(96, 600, [0, 125, 393]), { duration: 1000 }), 60, true),
+    withTiming(0, { duration: 50 })
+  );
+}
+```
+2.颜色渐变动画演示，通过mixColor进行颜色渐变
+
+```js
+import { mixColor } from "react-native-redash/src/Colors";
+import { useSharedValue} from '@react-native-oh-tpl/react-native-reanimated';
+
+const progress = useSharedValue(0);
+
+const colorAnimatedStyle = useAnimatedStyle(() => {
+  return {
+    backgroundColor: mixColor(progress.value, "#b58df1", "#38ffb3"),
+  };
+});
+
+const handleColorPress = () => {
+  progress.value = withRepeat(withTiming(1 - progress.value, { duration: 1000 }),60,true);
+}
+```
+3.redash目前有两个动画辅助方法：useTiming、useSpring。useTiming可以使用贝塞尔曲线来进行运动,useSpring可以不将持续时间作为参数，而是由sprin物理特性作为运动轨迹。
+```js
+import { useTiming,useSpring } from "react-native-redash/src/Transitions"
+import Animated from '@react-native-oh-tpl/react-native-reanimated';
+
+
+const timing = useSpring(255,{duration:1000});
+const spring = useTiming(255,{duration:1000});
+
+const customSpringStyles = useAnimatedStyle(() => {
+  return {
+    transform: [
+      {
+        translateX: spring.value,
+      },
+    ],
+  };
+});
+
+const customTimingStyles = useAnimatedStyle(() => {
+  return {
+    transform: [
+      {
+        translateX: timing.value,
+      },
+    ],
+  };
+});
+
+return (
+  <View>
+      <Animated.View style={[styles.box, defaultSpringStyles]} />
+      <Animated.View style={[styles.box, defaultTimingStyles]} />
+  </View>
+);
+```
+4.redash提供能接受字符串动画节点属性的文本组件
+```js
+import { ReText } from "react-native-redash"
+import { useSharedValue} from '@react-native-oh-tpl/react-native-reanimated';
+
+const price = useSharedValue(42);
+const formattedPrice = useDerivedValue(() => (`${price.value}`.toLocaleString()));
+
+return (
+  <View>
+    <ReText
+      text={formattedPrice}
+      style={{ color: "#black", fontVariant: ["tabular-nums"],backgroundColor:"#38ffb3" }}
+    />
+  </View>
+);
+```
+
+## Link
+
+本库鸿蒙侧实现依赖@react-native-oh-tpl/react-native-reanimated 的原生端代码，如已在鸿蒙工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+
+如未引入请参照[@react-native-oh-tpl/react-native-reanimated 文档的 Link 章节](/zh-cn/react-native-reanimated.md#link)进行引入
 
 ### 兼容性
 
-本文档内容基于以下版本验证通过：
-
-1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
-2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
+在下述版本验证通过:
+  1. RNOH：0.72.11;
+     SDK：OpenHarmony(api11) 4.1.0.53;
+     IDE：DevEco Studio 4.1.3.412;
+     ROM：2.0.0.52;
+  2. RNOH：0.72.13;
+     SDK：HarmonyOS NEXT Developer Preview1;
+     IDE：DevEco Studio 4.1.3.500;
+     ROM：2.0.0.59; 
 
 ## 静态方法
 
-详情查看[redash 官方文档](https://github.com/wcandillon/react-native-redash)
+详情查看[redash官方文档](https://github.com/wcandillon/react-native-redash)
 
 如下是已验证接口展示:
 
-#### **Animations**
+ #### **Animations**
 
-| Name                          | Description                                                                                                                                                   | Type     | Required | HarmonyOS Support |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------------- |
-| defineAnimation()             | This utility function enables you to declare custom animations that can be invoked on both the JS and UI thread.                                              | function | NO       | NO                |
-| animationParameter(animation) | Access animations passed as parameters safely on both the UI and JS thread with the proper static types. Animations can receive other animations as parameter | function | NO       | NO                |
-| withPause()                   | Make an animation pausable. The state of the animation (paused or not) is controlled by a boolean shared value.                                               | function | NO       | NO                |
-| withBouncing()                | Add a bouncing behavior to a physics-based animation. An animation is defined as being physics-based if it contains a velocity in its state.                  | function | NO       | NO                |
+| Name | Description | Type | Required | HarmonyOS Support |
+| ---- | ---- | ---- | -------- | -------- |
+| defineAnimation() | This utility function enables you to declare custom animations that can be invoked on both the JS and UI thread. | function | NO | yes |
+| animationParameter(animation) | Access animations passed as parameters safely on both the UI and JS thread with the proper static types. Animations can receive other animations as parameter | function | NO | yes |
+| withPause() | Make an animation pausable. The state of the animation (paused or not) is controlled by a boolean shared value. | function | NO | yes |
+| withBouncing() | Add a bouncing behavior to a physics-based animation. An animation is defined as being physics-based if it contains a velocity in its state. | function | NO | yes |
 
 #### **Coordinates**
 
-| Name               | Description                                                        | Type     | Required | HarmonyOS Support |
-| ------------------ | ------------------------------------------------------------------ | -------- | -------- | ----------------- |
-| canvas2Cartesian() | Convert plane coordinate system to Cadir coordinate system         | function | NO       | yes               |
-| cartesian2Canvas() | Convert Kadir coordinate system to plane coordinate system         | NO       | yes      |
-| cartesian2Polar()  | Conversion from Kadir coordinate system to polar coordinate system | function | NO       | yes               |
-| polar2Cartesian()  | Convert polar coordinate system to Cadir coordinate system         | function | NO       | yes               |
-| polar2Canvas()     | Convert polar coordinate system to Cadir coordinate system         | function | NO       | yes               |
-| canvas2Polar()     | Convert plane coordinate system to polar coordinate system         | function | NO       | yes               |
+| Name | Description | Type | Required | HarmonyOS Support |
+| ---- | ---- | ---- | -------- | -------- |
+| canvas2Cartesian() | Convert plane coordinate system to Cadir coordinate system | function | NO | yes |
+| cartesian2Canvas() |  Convert Kadir coordinate system to plane coordinate system | function | NO | yes |
+| cartesian2Polar() | Conversion from Kadir coordinate system to polar coordinate system | function | NO | yes |
+| polar2Cartesian() | Convert polar coordinate system to Cadir coordinate system | function | NO | yes |
+| polar2Canvas() | Convert polar coordinate system to Cadir coordinate system  | function | NO | yes |
+| canvas2Polar() | Convert plane coordinate system to polar coordinate system  | function | NO | yes |
 
 #### **Strings**
 
-| Name       | Description                                                                                                                                                                                                                 | Type     | Required | HarmonyOS Support |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------------- |
-| <ReText /> | This component is like <Text> but accepts a string animation node as property. Behind the scene, <ReText> is using <TextInput> with some default styling. Therefore there might be some slight inconsistencies with <Text>. | function | NO       | NO                |
+| Name | Description | Type | Required | HarmonyOS Support |
+| ---- | ---- | ---- | -------- | -------- |
+| <ReText /> | This component is like <Text> but accepts a string animation node as property. Behind the scene, <ReText> is using <TextInput> with some default styling. Therefore there might be some slight inconsistencies with <Text>. | function | NO | yes |
 
 #### **Math**
 
-| Name               | Description                                                                                                                                                                                                                                                                               | Type     | Required | HarmonyOS Support |
-| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------------- | ---- |
-| mix()              | mix performs a linear interpolation between x and y using a to weight between them. The return value is computed as x _ (1 - value) + y _ value                                                                                                                                           | function | NO       | yes               |
-| bin()              | Convert a boolean value into a number. This can be useful in reanimated since 0 and 1 are used for conditional statements.                                                                                                                                                                | function | NO       | yes               | Math |
-| toRad()            | Transforms an angle from degrees to radians.                                                                                                                                                                                                                                              | function | NO       | yes               |
-| toDeg()            | Transforms an angle from radians to degrees.                                                                                                                                                                                                                                              | function | NO       | yes               |
-| clamp()            | Clamps a node with a lower and upper bound.                                                                                                                                                                                                                                               | function | NO       | yes               |
-| avg()              | Returns the average value of an array                                                                                                                                                                                                                                                     | function | NO       | yes               | Math |
-| between()          | Returns true if node is within lowerBound and upperBound.                                                                                                                                                                                                                                 | function | NO       | yes               |
-| round()            | Computes animation node rounded to precision.                                                                                                                                                                                                                                             | function | NO       | yes               |
-| cubicBezier()      | Returns the coordinate of a cubic bezier curve. t is the length of the curve from 0 to 1. cubicBezier(0, p0, p1, p2, p3) equals p0 and cubicBezier(1, p0, p1, p2, p3) equals p3. p0 and p3 are respectively the starting and ending point of the curve. p1 and p2 are the control points. | function | NO       | yes               |
-| cubicBezierYForX() | Given a cubic Bèzier curve, return the y value for x                                                                                                                                                                                                                                      | function | NO       | NO                |
+| Name | Description | Type | Required | HarmonyOS Support |
+| ---- | ---- | ---- | -------- | -------- |
+| mix() | mix performs a linear interpolation between x and y using a to weight between them. The return value is computed as x * (1 - value) + y * value | function | NO | yes |
+| bin() | Convert a boolean value into a number. This can be useful in reanimated since 0 and 1 are used for conditional statements. | function | NO | yes | Math |
+| toRad() | Transforms an angle from degrees to radians. | function | NO | yes |
+| toDeg() | Transforms an angle from radians to degrees. | function | NO | yes |
+| clamp() | Clamps a node with a lower and upper bound. | function | NO | yes |
+| avg() | Returns the average value of an array | function | NO | yes | Math |
+| between() | Returns true if node is within lowerBound and upperBound. | function | NO | yes |
+| round() | Computes animation node rounded to precision. | function | NO | yes |
+| cubicBezier() | Returns the coordinate of a cubic bezier curve. t is the length of the curve from 0 to 1. cubicBezier(0, p0, p1, p2, p3) equals p0 and cubicBezier(1, p0, p1, p2, p3) equals p3. p0 and p3 are respectively the starting and ending point of the curve. p1 and p2 are the control points. | function | NO | yes |
+| cubicBezierYForX() | Given a cubic Bèzier curve, return the y value for x | function | NO | yes |
 
 #### **Transitions**
 
-| Name        | Description                                                           | Type     | Required | HarmonyOS Support |
-| ----------- | --------------------------------------------------------------------- | -------- | -------- | ----------------- |
-| useTiming() | Transitions can attach an animation value to a change of React state. | function | NO       | NO                |
-| useSpring() | Transitions can attach an animation value to a change of React state. | function | NO       | NO                |
+| Name | Description | Type | Required | HarmonyOS Support |
+| ---- | ---- | ---- | -------- | -------- |
+| useTiming() | Transitions can attach an animation value to a change of React state. | function | NO | yes |
+| useSpring() | Transitions can attach an animation value to a change of React state. | function | NO | yes |
 
 #### **Vectors**
 
-| Name        | Description                        | Type     | Required | HarmonyOS Support |
-| ----------- | ---------------------------------- | -------- | -------- | ----------------- |
-| useVector() | Returns a vector of shared values. | function | NO       | NO                |
+| Name | Description | Type | Required | HarmonyOS Support |
+| ---- | ---- | ---- | -------- | -------- |
+| useVector() | Returns a vector of shared values. | function | NO | yes |
 
 #### **Paths**
 
-| Name                                                 | Description                                                                                                                                              | Type     | Required | HarmonyOS Support |
-| ---------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------------- |
-| createPath(path, {x, y})                             | Create a new path                                                                                                                                        | function | NO       | NO                |
-| addCurve(path, {c1: {x, y}, c2: {x, y}, to: {x, y}}) | Add a Bèzier curve command to a path                                                                                                                     | function | NO       | NO                |
-| close(path)                                          | Add a close command to a path.                                                                                                                           | function | NO       | NO                |
-| parse(path)                                          | Parse an SVG path into a sequence of Bèzier curves. The SVG is normalized to have absolute values and to be approximated to a sequence of Bèzier curves. | function | NO       | NO                |
-| serialize(path)                                      | Serialize a path into an SVG path string.                                                                                                                | function | NO       | NO                |
-| interpolatePath()                                    | Interpolate between paths.                                                                                                                               | function | NO       | NO                |
+| Name | Description | Type | Required | HarmonyOS Support |
+| ---- | ---- | ---- | -------- | -------- |
+| createPath(path, {x, y}) | Create a new path | function | NO | yes |
+| addCurve(path, {c1: {x, y}, c2: {x, y}, to: {x, y}}) | Add a Bèzier curve command to a path | function | NO | yes |
+| close(path) | Add a close command to a path. | function | NO | yes |
+| parse(path) | Parse an SVG path into a sequence of Bèzier curves. The SVG is normalized to have absolute values and to be approximated to a sequence of Bèzier curves. | function | NO | yes |
+| serialize(path) | Serialize a path into an SVG path string. | function | NO | yes |
+| interpolatePath() | Interpolate between paths.| function | NO | yes |
 
 #### **Physics**
 
-| Name        | Description                                                                                         | Type     | Required | HarmonyOS Support |
-| ----------- | --------------------------------------------------------------------------------------------------- | -------- | -------- | ----------------- |
-| snapPoint() | Select a point where the animation should snap to given the value of the gesture and it's velocity. | function | NO       | NO                |
+| Name | Description | Type | Required | HarmonyOS Support |
+| ---- | ---- | ---- | -------- | -------- |
+| snapPoint() | Select a point where the animation should snap to given the value of the gesture and it's velocity. | function | NO | yes |
 
 #### **Colors**
 
-| Name       | Description                                                                        | Type     | Required | HarmonyOS Support |
-| ---------- | ---------------------------------------------------------------------------------- | -------- | -------- | ----------------- |
-| mixColor() | Identical to interpolateColor() but with an animation value that goes from 0 to 1. | function | NO       | NO                |
+| Name | Description | Type | Required | HarmonyOS Support |
+| ---- | ---- | ---- | -------- | -------- |
+| mixColor() | Identical to interpolateColor() but with an animation value that goes from 0 to 1. | function | NO | yes |
 
 ## 遗留问题
-
-Animations、Strings、Transitions、Vectors、Paths、Physics、Colors 等
-部分接口依赖 react-native-reanimated 实现，目前 react-native-reanimated 暂不支持，所以无法实现。
 
 ## 其他
 

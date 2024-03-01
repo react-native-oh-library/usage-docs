@@ -122,7 +122,7 @@ import moment from 'moment';
 | toISOString | Formats a string to the ISO8601 standard.                                                                                                                             | function | no       | yes               |
 | toObject    | This returns an object containing year, month, day-of-month, hour, minute, seconds, milliseconds.                                                                     | function | no       | yes               |
 | toString    | Returns an english string in a similar format to JS Date's .toString().                                                                                               | function | no       | yes               |
-| inspect     | Returns a machine readable string, that can be evaluated to produce the same moment. Because of the name it's also used in node interactive shell to display objects. | function | no       | yes               | 
+| inspect     | Returns a machine readable string, that can be evaluated to produce the same moment. Because of the name it's also used in node interactive shell to display objects. | function | no       | yes               |
 
 #### **Query**
 | Name           | Description                                                                                                                  | Type     | Required | HarmonyOS Support |

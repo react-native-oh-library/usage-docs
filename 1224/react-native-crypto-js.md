@@ -24,13 +24,13 @@
 #### **npm**
 
 ```bash
-npm install react-native-crypto-js@^1.0.0
+npm install react-native-crypto-js@1.0.0
 ```
 
 #### **yarn**
 
 ```bash
-yarn add react-native-crypto-js@^1.0.0
+yarn add react-native-crypto-js@1.0.0
 ```
 
 <!-- tabs:end -->

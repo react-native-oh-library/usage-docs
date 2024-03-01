@@ -20,13 +20,13 @@
 #### **npm**
 
 ```bash
-npm install qrcode-generator
+npm install qrcode-generator@1.4.4
 ```
 
 #### **yarn**
 
 ```bash
-yarn add qrcode-generator
+yarn add qrcode-generator@1.4.4
 ```
 
 快速使用：
@@ -60,8 +60,7 @@ export const CustomQrCode = ({text,style}) => {
 
 在下述版本验证通过:
 
-1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
-2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
+1. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.59;
 
 API列表
 -------------------------------------------------------------------------------------------------------

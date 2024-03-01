@@ -25,13 +25,13 @@
 #### **npm**
 
 ```bash
-npm install redux-thunk@^3.1.0
+npm install redux-thunk@3.1.0
 ```
 
 #### **yarn**
 
 ```bash
-yarn add redux-thunk@^3.1.0
+yarn add redux-thunk@3.1.0
 ```
 
 <!-- tabs:end -->

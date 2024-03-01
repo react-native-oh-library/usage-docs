@@ -1,4 +1,4 @@
-> 模板版本：v0.1.3
+模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>react-native-fs</code> </h1>
@@ -288,10 +288,19 @@ ohpm install
 
 详情请见[react-native-fs](https://github.com/react-native-oh-library/react-native-fs)
 
-| Name                  | Description | Type   | Required | Platform    | HarmonyOS Support |
-| :-------------------- | ----------- | ------ | -------- | ----------- | ----------------- |
-| DocumentDirectoryPath | System Path | string | No       | IOS/Android | yes               |
-| CachesDirectoryPath   | System Path | string | No       | IOS/Android | yes               |
+| Name                         | Description | Type   | Required | Platform        | HarmonyOS Support | Remark                   |
+| :--------------------------- | ----------- | ------ | -------- | --------------- | ----------------- | ------------------------ |
+| DocumentDirectoryPath        | System Path | string | No       | IOS/Android     | yes               | No                       |
+| CachesDirectoryPath          | System Path | string | No       | IOS/Android     | yes               | No                       |
+| MainBundlePath               | System Path | string | No       | IOS             | No                | not available on Harmony |
+| ExternalCachesDirectoryPath  | System Path | string | No       | Android         | No                | Android only             |
+| DownloadDirectoryPath        | System Path | string | No       | Android/Windows | No                | not available on Harmony |
+| TemporaryDirectoryPath       | System Path | string | No       | IOS/Android     | No                | not available on Harmony |
+| LibraryDirectoryPath         | System Path | string | No       | IOS             | No                | IOS only                 |
+| ExternalDirectoryPath        | System Path | string | No       | Android         | No                | Android only             |
+| ExternalStorageDirectoryPath | System Path | string | No       | Android         | No                | Android only             |
+| PicturesDirectoryPath        | System Path | string | No       | Windows         | No                | Windows only             |
+| RoamingDirectoryPath         | System Path | string | No       | Windows         | No                | Windows only             |
 
 ## API
 
@@ -301,16 +310,49 @@ ohpm install
 
 详情请见[react-native-fs](https://github.com/react-native-oh-library/react-native-fs)
 
-| Name           | Description                                                  | Type   | Required | Platform    | HarmonyOS Support |
-| -------------- | ------------------------------------------------------------ | ------ | -------- | ----------- | ----------------- |
-| mkdir          | Create a directory at `filepath`.                            | string | No       | Android     | yes               |
-| exists         | Check if the item exists at `filepath`.                      | string | No       | IOS/Android | yes               |
-| readFile       | Reads the file at `path` and return contents.                | string | No       | IOS/Android | yes               |
-| readFileAssets | Reads the file at `path` in the harmony app's assets folder and return contents. | string | No       | Android     | yes               |
-| writeFile      | Write the `contents` to `filepath`.                          | string | No       | IOS/Android | yes               |
-| appendFile     | Append the `contents` to `filepath`.                         | string | No       | IOS/Android | yes               |
-| copyFile       | Copies the file located at `filepath` to `destPath`.         | string | No       | IOS         | yes               |
-| unlink         | Unlinks the item at `filepath`.                              | string | No       | IOS/Android | yes               |
+| Name                    | Description                                                  | Type     | Platform    | Required | HarmonyOS Support | Remark            |
+| ----------------------- | ------------------------------------------------------------ | -------- | ----------- | -------- | ----------------- | ----------------- |
+| mkdir                   | Create a directory at `filepath`.                            | function | Android     | No       | yes               | No                |
+| exists                  | Check if the item exists at `filepath`.                      | function | IOS/Android | No       | yes               | No                |
+| readFile                | Reads the file at `path` and return contents.                | function | IOS/Android | No       | yes               | No                |
+| readFileAssets          | Reads the file at `path` in the harmony app's assets folder and return contents. | function | Android     | No       | yes               | No                |
+| writeFile               | Write the `contents` to `filepath`.                          | function | IOS/Android | No       | yes               | No                |
+| appendFile              | Append the `contents` to `filepath`.                         | function | IOS/Android | No       | yes               | No                |
+| copyFile                | Copies the file located at `filepath` to `destPath`.         | function | IOS         | No       | yes               | No                |
+| unlink                  | Unlinks the item at `filepath`.                              | function | IOS/Android | No       | yes               | No                |
+| hash                    | Reads the file at `path` and returns its checksum as determined by `algorithm`, which can be one of `md5`, `sha1`, `sha256`. | function | IOS/Android | No       | partially         | No                |
+| moveFile                | Moves the file located at `filepath` to `destPath`.          | function | IOS/Android | No       | yes               | No                |
+| read                    | Reads `length` bytes from the given `position` of the file at `path` and returns contents. | function | IOS/Android | No       | yes               | No                |
+| write                   | Write the `contents` to `filepath` at the given random access position. | function | IOS/Android | No       | yes               | No                |
+| touch                   | Sets the modification timestamp `mtime`of the file at `filepath`. | function | IOS/Android | No       | partially         | No                |
+| stat                    | Stats an item at `filepath`.                                 | function | IOS/Android | No       | yes               | No                |
+| readDir                 | Reads the contents of `path`.                                | function | IOS/Android | No       | No                | No API on Harmony |
+| readDirAssets           | Reads the contents of `dirpath ` in the Android app's assets folder. | function | Android     | No       | No                | Android only      |
+| readdir                 | Node.js style version of `readDir` that returns only the names. | function | IOS/Android | No       | No                | No API on Harmony |
+| readFileRes             | Reads the file named `filename` in the Android app's `res` folder and return contents. | function | Android     | No       | No                | Android only      |
+| copyFolder              | Copies the contents located at `srcFolderPath` to `destFolderPath`. | function | Windows     | No       | No                | Windows only      |
+| copyFileAssets          | Copies the file at `filepath` in the Android app's assets folder and copies it to the given `destPath ` path. | function | Android     | No       | No                | Android only      |
+| copyFileRes             | Copies the file named `filename` in the Android app's res folder and copies it to the given `destPath ` path. | function | Android     | No       | No                | Android only      |
+| copyAssetsFileIOS       | Reads an image file from Camera Roll and writes to `destPath`. | function | IOS         | No       | No                | IOS only          |
+| copyAssetsVideoIOS      | Copies a video from assets-library, that is prefixed with 'assets-library://asset/asset.MOV?...' to a specific destination. | function | IOS         | No       | No                | IOS only          |
+| existsAssets            | Check in the Android assets folder if the item exists.       | function | Android     | No       | No                | Android only      |
+| existsRes               | Check in the Android res folder if the item named `filename` exists. | function | Android     | No       | No                | Android only      |
+| downloadFile            | Abort the current download job with this ID.                 | function | IOS/Android | No       | No                | No API on Harmony |
+| stopDownload            | Abort the current download job with this ID.                 | function | IOS/Android | No       | No                | No API on Harmony |
+| resumeDownload          | Resume the current download job with this ID.                | function | IOS         | No       | No                | IOS only          |
+| isResumable             | Check if the the download job with this ID is resumable with `resumeDownload()`. | function | IOS         | No       | No                | IOS only          |
+| completeHandlerIOS      | For use when using background downloads, tell iOS you are done handling a completed download. | function | IOS         | No       | No                | IOS only          |
+| uploadFiles             | Percentage can be computed easily by dividing `totalBytesSent` by `totalBytesExpectedToSend`. | function | IOS/Android | No       | No                | No API on Harmony |
+| stopUpload              | Abort the current upload job with this ID.                   | function | IOS         | No       | No                | IOS only          |
+| getFSInfo               | Returns an object with the following properties.             | function | IOS/Android | No       | No                | No API on Harmony |
+| scanFile                | Scan the file using [Media Scanner](https://developer.android.com/reference/android/media/MediaScannerConnection). | function | Android     | No       | No                | Android only      |
+| getAllExternalFilesDirs | Returns an array with the absolute paths to application-specific directories on all shared/external storage devices where the application can place persistent files it owns. | function | Android     | No       | No                | Android only      |
+| pathForGroup            | Returns the absolute path to the directory shared for all applications with the same security group identifier. | function | IOS         | No       | No                | IOS only          |
+
+##  遗留问题
+
+- HarmonyOS的hash哈希API中关于算法参数algorithm目前仅支持"md5"、"sha1"  "sha256"，其他相关算法参数目前不支持，问题: [issue#1](https://github.com/react-native-oh-library/react-native-fs/issues/1)
+- 原库部分接口在HarmonyOS中没有对应文件路径常量及接口处理相关逻辑，问题: [issue#2](https://github.com/react-native-oh-library/react-native-fs/issues/2)
 
 ## 其他
 

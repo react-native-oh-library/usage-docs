@@ -95,7 +95,7 @@ export default function RNEPDemo() {
 
 本文档内容基于以下版本验证通过：
 
-1. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.1.6.6;
+1. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.59;
 
 ## 属性
 
@@ -124,9 +124,8 @@ export default function RNEPDemo() {
 
 ## 遗留问题
 
-1、由于事件传递依托于 react-native-webview 的postMessage 方法，而该方法暂未鸿蒙化，所以该三方库的方法暂时无法使用[issues/17](https://github.com/react-native-oh-library/react-native-webview/issues/17)
-
-2、base64形式的自定义字体在 react-native-webview 中无法使用，导致该三方库也无法使用自定义字体[issues/20](https://github.com/react-native-oh-library/react-native-webview/issues/20)
+- [ ] setNewOption/getInstance/dispatchAction 这三个实例方法依赖于 react-native-webview 的 postMessage 方法，react-native-webview暂未实现这个方法，所以暂不支持 [issue#17](https://github.com/react-native-oh-library/react-native-webview/issues/17)
+- [ ] fontFamilies自定义字体属性未生效，经验证，base64字体在react-native-webview的最小化demo也不生效，一旦有base64字体加载，就会白屏并无法触发loadEnd，而原生鸿蒙webview上显示正常 [issues#20](https://github.com/react-native-oh-library/react-native-webview/issues/20)
 
 ## 其他
 

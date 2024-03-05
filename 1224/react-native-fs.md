@@ -248,6 +248,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
+import type { RNPackageContext, RNPackage } from 'rnoh/ts';
 ...
 + import { FsPackage } from 'rnoh-fs/ts';
 
@@ -290,8 +291,8 @@ ohpm install
 
 | Name                         | Description | Type   | Required | Platform        | HarmonyOS Support | Remark                   |
 | :--------------------------- | ----------- | ------ | -------- | --------------- | ----------------- | ------------------------ |
-| DocumentDirectoryPath        | System Path | string | No       | IOS/Android     | yes               | No                       |
-| CachesDirectoryPath          | System Path | string | No       | IOS/Android     | yes               | No                       |
+| DocumentDirectoryPath        | System Path | string | No       | IOS/Android     | yes               |                          |
+| CachesDirectoryPath          | System Path | string | No       | IOS/Android     | yes               |                          |
 | MainBundlePath               | System Path | string | No       | IOS             | No                | not available on Harmony |
 | ExternalCachesDirectoryPath  | System Path | string | No       | Android         | No                | Android only             |
 | DownloadDirectoryPath        | System Path | string | No       | Android/Windows | No                | not available on Harmony |
@@ -312,20 +313,20 @@ ohpm install
 
 | Name                    | Description                                                  | Type     | Platform    | Required | HarmonyOS Support | Remark            |
 | ----------------------- | ------------------------------------------------------------ | -------- | ----------- | -------- | ----------------- | ----------------- |
-| mkdir                   | Create a directory at `filepath`.                            | function | Android     | No       | yes               | No                |
-| exists                  | Check if the item exists at `filepath`.                      | function | IOS/Android | No       | yes               | No                |
-| readFile                | Reads the file at `path` and return contents.                | function | IOS/Android | No       | yes               | No                |
-| readFileAssets          | Reads the file at `path` in the harmony app's assets folder and return contents. | function | Android     | No       | yes               | No                |
-| writeFile               | Write the `contents` to `filepath`.                          | function | IOS/Android | No       | yes               | No                |
-| appendFile              | Append the `contents` to `filepath`.                         | function | IOS/Android | No       | yes               | No                |
-| copyFile                | Copies the file located at `filepath` to `destPath`.         | function | IOS         | No       | yes               | No                |
-| unlink                  | Unlinks the item at `filepath`.                              | function | IOS/Android | No       | yes               | No                |
-| hash                    | Reads the file at `path` and returns its checksum as determined by `algorithm`, which can be one of `md5`, `sha1`, `sha256`. | function | IOS/Android | No       | partially         | No                |
-| moveFile                | Moves the file located at `filepath` to `destPath`.          | function | IOS/Android | No       | yes               | No                |
-| read                    | Reads `length` bytes from the given `position` of the file at `path` and returns contents. | function | IOS/Android | No       | yes               | No                |
-| write                   | Write the `contents` to `filepath` at the given random access position. | function | IOS/Android | No       | yes               | No                |
-| touch                   | Sets the modification timestamp `mtime`of the file at `filepath`. | function | IOS/Android | No       | partially         | No                |
-| stat                    | Stats an item at `filepath`.                                 | function | IOS/Android | No       | yes               | No                |
+| mkdir                   | Create a directory at `filepath`.                            | function | Android     | No       | yes               |                   |
+| exists                  | Check if the item exists at `filepath`.                      | function | IOS/Android | No       | yes               |                   |
+| readFile                | Reads the file at `path` and return contents.                | function | IOS/Android | No       | yes               |                   |
+| readFileAssets          | Reads the file at `path` in the harmony app's assets folder and return contents. | function | Android     | No       | yes               |                   |
+| writeFile               | Write the `contents` to `filepath`.                          | function | IOS/Android | No       | yes               |                   |
+| appendFile              | Append the `contents` to `filepath`.                         | function | IOS/Android | No       | yes               |                   |
+| copyFile                | Copies the file located at `filepath` to `destPath`.         | function | IOS         | No       | yes               |                   |
+| unlink                  | Unlinks the item at `filepath`.                              | function | IOS/Android | No       | yes               |                   |
+| hash                    | Reads the file at `path` and returns its checksum as determined by `algorithm`, which can be one of `md5`, `sha1`, `sha256`. | function | IOS/Android | No       | partially         |                   |
+| moveFile                | Moves the file located at `filepath` to `destPath`.          | function | IOS/Android | No       | yes               |                   |
+| read                    | Reads `length` bytes from the given `position` of the file at `path` and returns contents. | function | IOS/Android | No       | yes               |                   |
+| write                   | Write the `contents` to `filepath` at the given random access position. | function | IOS/Android | No       | yes               |                   |
+| touch                   | Sets the modification timestamp `mtime`of the file at `filepath`. | function | IOS/Android | No       | partially         |                   |
+| stat                    | Stats an item at `filepath`.                                 | function | IOS/Android | No       | yes               |                   |
 | readDir                 | Reads the contents of `path`.                                | function | IOS/Android | No       | No                | No API on Harmony |
 | readDirAssets           | Reads the contents of `dirpath ` in the Android app's assets folder. | function | Android     | No       | No                | Android only      |
 | readdir                 | Node.js style version of `readDir` that returns only the names. | function | IOS/Android | No       | No                | No API on Harmony |
@@ -351,7 +352,7 @@ ohpm install
 
 ##  遗留问题
 
-- HarmonyOS的hash哈希API中关于算法参数algorithm目前仅支持"md5"、"sha1"  "sha256"，其他相关算法参数目前不支持，问题: [issue#1](https://github.com/react-native-oh-library/react-native-fs/issues/1)
+- HarmonyOS的hash哈希API中关于算法参数algorithm目前仅支持"md5"、"sha1"、  "sha256"，其他相关算法参数目前不支持，问题: [issue#1](https://github.com/react-native-oh-library/react-native-fs/issues/1)
 - 原库部分接口在HarmonyOS中没有对应文件路径常量及接口处理相关逻辑，问题: [issue#2](https://github.com/react-native-oh-library/react-native-fs/issues/2)
 
 ## 其他

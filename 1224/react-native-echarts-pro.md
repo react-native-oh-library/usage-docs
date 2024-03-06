@@ -1,4 +1,4 @@
-模板版本：v1.9.1
+模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>react-native-echarts-pro</code> </h1>

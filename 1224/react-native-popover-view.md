@@ -113,8 +113,6 @@ const PopoverDemo = () => {
               debug = {true}
               displayArea = {new Rect(50,50,50,50)}
               displayAreaInsets = {{top:20}}
-              statusBarTranslucent = {true}
-              verticalOffset = {20}
               onOpenStart = {() => {setOnOpenStart(222)}}
               onOpenComplete= {() => {setOnOpenComplete(222)}}
               onRequestClose= {() => {setShowPopoverC(false)}}
@@ -151,32 +149,34 @@ export default PopoverDemo;
 
 **属性&方法**
 
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name                    | Description                         | Type     | Required | HarmonyOS Support |
-| ----------------------- | ----------------------------------- | -------- | -------- | ----------------- |
-| from       | Popover source. See From section below.       | multiple | no       | yes               |
-| isVisible                   | Show/Hide the popover. Required if from is not a Touchable or function that uses showPopover call (see examples). If supplied, takes precedence regardless of from.                           | bool | no       | yes               |
-| mode      | How to position the popover, one of 'top', 'bottom', 'left', 'right', 'floating', or 'auto'. When 'auto' is specified, it will try to determine the best placement so that the popover is fully visible within displayArea. If an array of options is passed in, it will pick the first option that can accommodate the content.      | string OR string list | no       | yes               |
-| placement                  | One of: 'rn-modal', 'js-modal', 'tooltip'. See Mode section below for details.                          | string | no       | yes               |
-| offset    | The amount to shift the popover away from the source. Does not apply if the popover is centered.    | number | no       | yes               |
-| popoverStyle              | The style of the popover itself. You can override the borderRadius, backgroundColor, or any other style prop for a View.                          | object | no       | yes               |
-| popoverShift    | How much to shift the popover in each direction, as a multiplier. Object of shape { x: -1 to 1, y: -1 to 1 }, where both x and y are optional. -1 shifts the popover all the way to the left/top and 1 shifts it to the right/bottom. Currently only applies when placement is floating, but this will apply to all placements in a future version.    | object | no       | yes               |
-| backgroundStyle                | The style of the background view. Default is a black background with 0.5 opacity.                        | object | no       | yes               |
-| arrowSize    | The size of the arrow, as an object with width & height properties. The width of the arrow is the size of the arrow on the edge that touches the popover (base of isosceles triangle), while the height covers the distance from the popover to the source view, regardless of the placement of the popover. You can use { width: 0, height: 0 } to hide the arrow completely.    | object | no       | yes               |
-| arrowShift                | How much to shift the arrow to either side, as a multiplier. -1 will shift it all the way to the left (or top) corner of the source view, while 1 will shift all the way to the right (or bottom) corner. A value of 0.5 or -0.8 will shift it partly to one side.                        | object | no       | yes               |
-| onOpenStart      | Callback to be fired when the open animation starts (before animation)      | function | no       | yes               |
-| onOpenComplete                  | Callback to be fired when the open animation ends (after animation)                          | function | no       | yes               |
-| onRequestClose    | Callback to be fired when the user taps outside the popover (on the background) or taps the system back button on Android    | function | no       | yes               |
-| onCloseStart                | Callback to be fired when the popover starts closing (before animation)                        | function | no       | yes               |
-| onCloseComplete | Callback to be fired when the popover is finished closing (after animation) | function | no       | yes               |
-| onPositionChange             | Callback to be fired when the popover position finishes moving position (after animation)                     | function | no       | yes               |
-| animationConfig       | An object containing any configuration options that can be passed to Animated.timing (e.g. { duration: 600, easing: Easing.inOut(Easing.quad) }). The configuration options you pass will override the defaults for all animations.       | object | no       | yes               |
-| displayArea                   | Area where the popover is allowed to be displayed. By default, this will be automatically calculated to be the size of the display, or the size of the parent component if mode is not 'rn-modal'.                           | rect | no       | yes               |
-| displayAreaInsets       | Insets to apply to the display area. The Popover will not be allowed to go beyond the display area minus the insets.       | object | no       | yes               |
-| statusBarTranslucent                   | For 'rn-modal' mode on Android only. Determines whether the background should go under the status bar. Passed through to RN Modal component, see their docs as well.                           | bool | no       | no               |
-| verticalOffset       | The amount to vertically shift the popover on the screen, for use in correcting an occasional issue on Android. In certain Android configurations, you may need to apply a verticalOffset of -StatusBar.currentHeight for the popover to originate from the correct place. For shifting the popover in other situations, the offset prop should be used.       | number | no       | no               |
-| debug                   | Set this to true to turn on debug logging to the console. This is useful for figuring out why a Popover isn't showing.                           | bool | no       | yes               |
+| Name                    | Description                         | Type     | Required | HarmonyOS Support |Platform |remark |
+| ----------------------- | ----------------------------------- | -------- | -------- | ----------------- | ----------------- |----------------- |
+| from       | Popover source. See From section below.       | multiple | no       | yes               |All               |
+| isVisible                   | Show/Hide the popover. Required if from is not a Touchable or function that uses showPopover call (see examples). If supplied, takes precedence regardless of from.                           | bool | no       | yes               |All               |
+| mode      | How to position the popover, one of 'top', 'bottom', 'left', 'right', 'floating', or 'auto'. When 'auto' is specified, it will try to determine the best placement so that the popover is fully visible within displayArea. If an array of options is passed in, it will pick the first option that can accommodate the content.      | string OR string list | no       | yes               |All               |
+| placement                  | One of: 'rn-modal', 'js-modal', 'tooltip'. See Mode section below for details.                          | string | no       | yes               |All               |
+| offset    | The amount to shift the popover away from the source. Does not apply if the popover is centered.    | number | no       | All               |
+| popoverStyle              | The style of the popover itself. You can override the borderRadius, backgroundColor, or any other style prop for a View.                          | object | no       | yes               |All               |
+| popoverShift    | How much to shift the popover in each direction, as a multiplier. Object of shape { x: -1 to 1, y: -1 to 1 }, where both x and y are optional. -1 shifts the popover all the way to the left/top and 1 shifts it to the right/bottom. Currently only applies when placement is floating, but this will apply to all placements in a future version.    | object | no       | yes               |All               |
+| backgroundStyle                | The style of the background view. Default is a black background with 0.5 opacity.                        | object | no       | yes               |All               |
+| arrowSize    | The size of the arrow, as an object with width & height properties. The width of the arrow is the size of the arrow on the edge that touches the popover (base of isosceles triangle), while the height covers the distance from the popover to the source view, regardless of the placement of the popover. You can use { width: 0, height: 0 } to hide the arrow completely.    | object | no       | yes               |All               |
+| arrowShift                | How much to shift the arrow to either side, as a multiplier. -1 will shift it all the way to the left (or top) corner of the source view, while 1 will shift all the way to the right (or bottom) corner. A value of 0.5 or -0.8 will shift it partly to one side.                        | object | no       | yes               |All               |
+| onOpenStart      | Callback to be fired when the open animation starts (before animation)      | function | no       | yes               |All               |
+| onOpenComplete                  | Callback to be fired when the open animation ends (after animation)                          | function | no       | yes               |All               |
+| onRequestClose    | Callback to be fired when the user taps outside the popover (on the background) or taps the system back button on Android    | function | no       | yes               |All               |
+| onCloseStart                | Callback to be fired when the popover starts closing (before animation)                        | function | no       | yes               |All               |
+| onCloseComplete | Callback to be fired when the popover is finished closing (after animation) | function | no       | yes               |All               |
+| onPositionChange             | Callback to be fired when the popover position finishes moving position (after animation)                     | function | no       | yes               |All               |
+| animationConfig       | An object containing any configuration options that can be passed to Animated.timing (e.g. { duration: 600, easing: Easing.inOut(Easing.quad) }). The configuration options you pass will override the defaults for all animations.       | object | no       | yes               |All               |
+| displayArea                   | Area where the popover is allowed to be displayed. By default, this will be automatically calculated to be the size of the display, or the size of the parent component if mode is not 'rn-modal'.                           | rect | no       | yes               |All               |
+| displayAreaInsets       | Insets to apply to the display area. The Popover will not be allowed to go beyond the display area minus the insets.       | object | no       | yes               |All               |
+| statusBarTranslucent                   | For 'rn-modal' mode on Android only. Determines whether the background should go under the status bar. Passed through to RN Modal component, see their docs as well.                           | bool | no       | no               |Android               |   原库只支持Android，不支持ios，RN-js库只做鸿蒙化适配，效果对标ios[参考原库](https://github.com/SteffeyDev/react-native-popover-view?tab=readme-ov-file#props)            |
+| verticalOffset       | The amount to vertically shift the popover on the screen, for use in correcting an occasional issue on Android. In certain Android configurations, you may need to apply a verticalOffset of -StatusBar.currentHeight for the popover to originate from the correct place. For shifting the popover in other situations, the offset prop should be used.       | number | no       | no               |Android               |原库只支持Android，不支持ios，RN-js库只做鸿蒙化适配，效果对标ios[参考原库](https://github.com/SteffeyDev/react-native-popover-view?tab=readme-ov-file#props)               |
+| debug                   | Set this to true to turn on debug logging to the console. This is useful for figuring out why a Popover isn't showing.                           | bool | no       | yes               |All               |
 
 ## 遗留问题
 

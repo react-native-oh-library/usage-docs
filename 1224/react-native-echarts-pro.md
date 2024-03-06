@@ -12,11 +12,9 @@
 
 
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-echarts-pro)
+> [!TIP] [Github 地址](https://github.com/supervons/react-native-echarts-pro)
 
 ## 安装与使用
-
-请到三方库的 Releases 发布地址查看配套的版本信息：[<@react-native-oh-library/react-native-echarts-pro> Releases](https://github.com/react-native-oh-library/react-native-echarts-pro/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
@@ -27,13 +25,13 @@
 ####  npm
 
 ```bash
-npm install @react-native-oh-tpl/react-native-echarts-pro@file:#
+npm install react-native-echarts-pro@^1.9.1
 ```
 
 #### yarn
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-echarts-pro@file:#
+yarn add react-native-echarts-pro@^1.9.1
 ```
 
 <!-- tabs:end -->

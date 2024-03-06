@@ -7,7 +7,7 @@
     <a href="https://github.com/react-native-oh-library/react-native-popover-view">
         <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
-    <a href="https://github.com/SteffeyDev/react-native-popover-view/blob/master/LICENSE">
+    <a href="https://github.com/react-native-oh-library/react-native-popover-view/blob/sig/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
         <!-- <img src="https://img.shields.io/badge/license-Apache-blue.svg" alt="License" /> -->
     </a>
@@ -18,19 +18,24 @@
 
 ## 安装与使用
 
+请到三方库的 Releases 发布地址查看配套的版本信息：[<@react-native-oh-tpl/react-native-popover-view> Releases](https://github.com/react-native-oh-library/react-native-popover-view/releases)，并下载适用版本的 tgz 包。
+
 进入到工程目录并输入以下命令：
+
+>[!TIP] # 处替换为 tgz 包的路径
 
 <!-- tabs:start -->
 
-#### **npm**
+####  npm
 
 ```bash
-npm install @react-native-oh-tpl/react-native-popover-view@^5.1.7-0.0.1
+npm install @react-native-oh-tpl/react-native-popover-view@file:#
 ```
 
-#### **yarn**
+#### yarn
+
 ```bash
-yarn add @react-native-oh-tpl/react-native-popover-view@^5.1.7-0.0.1
+yarn add @react-native-oh-tpl/react-native-popover-view@file:#
 ```
 
 <!-- tabs:end -->
@@ -179,4 +184,4 @@ export default PopoverDemo;
 
 ## 开源协议
 
-本项目基于 [MIT License](https://github.com/SteffeyDev/react-native-popover-view/blob/master/LICENSE) ，请自由地享受和参与开源。
+本项目基于 [MIT License](https://github.com/react-native-oh-library/react-native-popover-view/blob/sig/LICENSE) ，请自由地享受和参与开源。

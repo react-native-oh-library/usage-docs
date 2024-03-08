@@ -45,179 +45,300 @@ yarn add @react-native-oh-tpl/react-native-blob-util@file:#
 >[!WARNING] 使用时 import 的库名不变。
 
 ```js
-import React, {useState} from 'react';
-import {ScrollView, StyleSheet,Button, View, Text} from 'react-native';
+import React, { useState } from 'react';
+import { ScrollView, StyleSheet, Button, View, Text,NativeEventEmitter} from 'react-native';
 import ReactNativeBlobUtil from 'react-native-blob-util';
 
 export default function BlobUtilDemo() {
    const [result, setResult] = useState<string | null>(null);
    const [mkdirParam, setMkdirParam] = useState('');
-   const [readStreamParam, setReadStreamParam] = useState('');
 
    const createFile = async () => {
-      await ReactNativeBlobUtil.fs.createFile('/test.txt','Try to write str.','utf8');
-    }
+      await ReactNativeBlobUtil.fs.createFile(result + "/text.txt", '123456', 'utf8');
+   }
 
-    const unlink = ()=>{
-      ReactNativeBlobUtil.fs.unlink('/data/storage/el2/base/haps/entry/cache/test.txt')
-    }
+   const ls = async () => {
+      await ReactNativeBlobUtil.fs.ls(ReactNativeBlobUtil.fs.dirs.CacheDir);
+   }
 
-    const getConstants = () => {
+   const createFileASCII = async () => {
+      await ReactNativeBlobUtil.fs.createFile(result + "/text.txt", [102, 111, 111], "ascii");
+   }
+
+   const unlink = () => {
+      ReactNativeBlobUtil.fs.unlink(result + '/text.txt')
+   }
+
+   const getConstants = () => {
       let obj = ReactNativeBlobUtil.fs.dirs.CacheDir;
       setResult(obj)
-    }
+   }
 
-    const stat = () => {
-      ReactNativeBlobUtil.fs.stat('/data/storage/el2/base/haps/entry/cache/test.txt')
-    }
-  
-   const copyFileToCache =() => {
-      ReactNativeBlobUtil.fs.cp('/data/storage/el2/base/haps/entry/cache/test.txt','/data/storage/el2/base/haps/entry/cache/text1.txt')
-    }
+   const writeFile = () => {
+      ReactNativeBlobUtil.fs.writeFile(result + "/text.txt", "Try to write str", 'utf8')
+   }
 
-    const writeFile = () =>{
-      ReactNativeBlobUtil.fs.writeFile('/data/storage/el2/base/haps/entry/cache/test.txt',"Try to write str",'utf8') 
-    }
+   const writeStream = () => {
+      ReactNativeBlobUtil.fs.writeStream(result + "/text.txt", "utf8", false)
+   }
 
-    const writeStream = () =>{
-      ReactNativeBlobUtil.fs.writeStream("/data/storage/el2/base/haps/entry/cache/test.txt","utf8",false)
-    }
+   const writeArrayChunk = () => {
+      ReactNativeBlobUtil.fs.writeStream(result + "/text.txt", "ascii", false).then(reactNativeBlobUtilWriteStream => {
+         reactNativeBlobUtilWriteStream.encoding = 'ascii'
+         reactNativeBlobUtilWriteStream.write(['101', '32', '97'])
+      })
+   }
 
-    const mkdir = () => {
-      ReactNativeBlobUtil.fs.mkdir(ReactNativeBlobUtil.fs.dirs.DocumentDir + '/' + mkdirParam)
-    };
+   const writeChunk = () => {
+      ReactNativeBlobUtil.fs.writeStream(result + "/text.txt", "utf8", false).then(reactNativeBlobUtilWriteStream => {
+         reactNativeBlobUtilWriteStream.write('Zm9vIChXcml0ZSBCYXNlNjQpMQ==')
+      })
+   }
 
+   const closeStream = () => {
+      ReactNativeBlobUtil.fs.writeStream(result + "/text.txt", "utf8", false).then(reactNativeBlobUtilWriteStream => {
+         setTimeout(() => {
+            reactNativeBlobUtilWriteStream.close();
+         }, 1000)
+      })
+   }
    const readStream = () => {
-      ReactNativeBlobUtil.fs.readStream(ReactNativeBlobUtil.fs.dirs.DocumentDir + '/' + readStreamParam, "utf8", 4000, 200).then((stream) => {
-          let data = '';
-          stream.open();
-          stream.onData((chunk) => {
-              data += chunk;
-          });
-          stream.onEnd(() => {
-              console.log('data: ' + data);
-          });
-      });
-  };
+      ReactNativeBlobUtil.fs.readStream(result + '/text.txt', "utf8", 4000, 200)
+   }
 
-return (
-   <View style={styles.container}>
-     <View style={styles.titleArea}>
-       <Text style = {styles.title}>BlobUtil</Text>
-     </View>
-     <View style = {styles.inputArea}>
-       <Text style={styles.baseText}>
-         {result}
-       </Text>
-     </View>
-     <ScrollView style={styles.scrollView}>
-       <View style={ { flexDirection: 'column'}}>
-         
-         <View style ={styles.baseArea}>
-            <Text style= {{flex:1}}>BlobUtilTurboModule.getConstants()</Text>
-            <Button title='运行' color='#841584' onPress={getConstants}></Button>
-         </View>
+   const mkdir = () => {
+      ReactNativeBlobUtil.fs.mkdir(ReactNativeBlobUtil.fs.dirs.DocumentDir + '/' + mkdirParam)
+   };
 
-         <View style ={styles.baseArea}>
-            <Text style= {{flex:1}}>BlobUtilTurboModule.createFile(utf-8)</Text>
-            <Button title='运行' color='#841584' onPress={createFile}></Button>
-         </View>
+   const stat = () => {
+      ReactNativeBlobUtil.fs.stat(result + "/text.txt")
+   }
 
-         <View style ={styles.baseArea}>
-            <Text style= {{flex:1}}>BlobUtilTurboModule.unlink(utf-8)</Text>
-            <Button title='运行' color='#841584' onPress={unlink}></Button>
-         </View>
+   const copyFileToCache = () => {
+      ReactNativeBlobUtil.fs.cp(result + "/text.txt", result + "/text1.txt")
+   }
 
-         <View style ={styles.baseArea}>
-            <Text style= {{flex:1}}>BlobUtilTurboModule.copyFileToCache(utf-8)</Text>
-            <Button title='运行' color='#841584' onPress={copyFileToCache}></Button>
-         </View>
+   const writeFileArray = () => {
+      ReactNativeBlobUtil.fs.writeFile(result + "/text.txt", [102, 111, 111], "ascii")
+   }
 
-         <View style ={styles.baseArea}>
-            <Text style= {{flex:1}}>BlobUtilTurboModule.writeFile()</Text>
-            <Button title='运行' color='#841584' onPress={writeFile}></Button>
-         </View>
+   const exists = () => {
+      ReactNativeBlobUtil.fs.exists(result + "/text.txt")
+   }
 
-         <View style ={styles.baseArea}>
-            <Text style= {{flex:1}}>BlobUtilTurboModule.stat()</Text>
-            <Button title='运行' color='#841584' onPress={stat}></Button>
-         </View>
-         
-         <View style ={styles.baseArea}>
-            <Text style= {{flex:1}}>BlobUtilTurboModule.mkdir()</Text>
-            <Button title='运行' color='#841584' onPress={mkdir}></Button>
-         </View>
-         
-         <View style ={styles.baseArea}>
-            <Text style= {{flex:1}}>BlobUtilTurboModule.writeStream()</Text>
-            <Button title='运行' color='#841584' onPress={writeStream}></Button>
-         </View>
+   const lstat = () => {
+      ReactNativeBlobUtil.fs.lstat(result + "/text.txt")
+   }
 
-         <View style ={styles.baseArea}>
-            <Text style= {{flex:1}}>BlobUtilTurboModule.readStream()</Text>
-            <Button title='运行' color='#841584' onPress={readStream}></Button>
+   const mv = () => {
+      ReactNativeBlobUtil.fs.mv(result + "/text.txt", result + "/text1.txt")
+   }
+
+   const hash = () => {
+      ReactNativeBlobUtil.fs.hash(result + "/text.txt", "md5")
+   }
+
+   const readFile = () => {
+      ReactNativeBlobUtil.fs.readFile(result + "/text.txt", 'utf8', 4000)
+   }
+
+   const slice = () => {
+      ReactNativeBlobUtil.fs.slice(result + "/text.txt", result + "/text1.txt", 2, 5)
+   }
+
+   const df = () => {
+      ReactNativeBlobUtil.fs.df()
+   }
+
+   const addListener = () => {
+      let obj = 'addListener是空实现';
+      setResult(obj)
+   }
+
+   const removeListeners = () => {
+      let obj = 'removeListeners是空实现';
+      setResult(obj)
+   }
+
+   const emitExpiredEvent = () => {
+      let obj = 'emitExpiredEvent是空实现,三方库没有调用';
+      setResult(obj)
+   }
+
+
+   return (
+      <View style={styles.container}>
+         <View style={styles.titleArea}>
+            <Text style={styles.title}>BlobUtil</Text>
          </View>
-       </View>
-     </ScrollView>
-   </View>
- );
+         <View style={styles.inputArea}>
+            <Text style={styles.baseText}>
+               {result}
+            </Text>
+         </View>
+         <ScrollView style={styles.scrollView}>
+            <View style={{ flexDirection: 'column' }}>
+               <View style={styles.baseArea}>
+                  <Text style={{ flex: 1 }}>BlobUtilTurboModule.getConstants()</Text>
+                  <Button title='运行' color='#841584' onPress={getConstants}></Button>
+               </View>
+               <View style={styles.baseArea}>
+                  <Text style={{ flex: 1 }}>BlobUtilTurboModule.createFile()</Text>
+                  <Button title='运行' color='#841584' onPress={createFile}></Button>
+               </View>
+               <View style={styles.baseArea}>
+                  <Text style={{ flex: 1 }}>BlobUtilTurboModule.unlink()</Text>
+                  <Button title='运行' color='#841584' onPress={unlink} ></Button>
+               </View>
+               <View style={styles.baseArea}>
+                  <Text style={{ flex: 1 }}>BlobUtilTurboModule.copyFileToCache()</Text>
+                  <Button title='运行' color='#841584' onPress={copyFileToCache}></Button>
+               </View>
+               <View style={styles.baseArea}>
+                  <Text style={{ flex: 1 }}>BlobUtilTurboModule.writeFile()</Text>
+                  <Button title='运行' color='#841584' onPress={writeFile}></Button>
+               </View>
+               <View style={styles.baseArea}>
+                  <Text style={{ flex: 1 }}>BlobUtilTurboModule.stat()</Text>
+                  <Button title='运行' color='#841584' onPress={stat}></Button>
+               </View>
+               <View style={styles.baseArea}>
+                  <Text style={{ flex: 1 }}>BlobUtilTurboModule.mkdir()</Text>
+                  <Button title='运行' color='#841584' onPress={mkdir}></Button>
+               </View>
+               <View style={styles.baseArea}>
+                  <Text style={{ flex: 1 }}>BlobUtilTurboModule.writeStream()</Text>
+                  <Button title='运行' color='#841584' onPress={writeStream}></Button>
+               </View>
+               <View style={styles.baseArea}>
+                  <Text style={{ flex: 1 }}>BlobUtilTurboModule.ls()</Text>
+                  <Button title='运行' color='#841584' onPress={ls}></Button>
+               </View>
+               <View style={styles.baseArea}>
+                  <Text style={{ flex: 1 }}>BlobUtilTurboModule.createFileASCII()</Text>
+                  <Button title='运行' color='#841584' onPress={createFileASCII}></Button>
+               </View>
+               <View style={styles.baseArea}>
+                  <Text style={{ flex: 1 }}>BlobUtilTurboModule.writeFileArray()</Text>
+                  <Button title='运行' color='#841584' onPress={writeFileArray}></Button>
+               </View>
+               <View style={styles.baseArea}>
+                  <Text style={{ flex: 1 }}>BlobUtilTurboModule.exists()</Text>
+                  <Button title='运行' color='#841584' onPress={exists}></Button>
+               </View>
+               <View style={styles.baseArea}>
+                  <Text style={{ flex: 1 }}>BlobUtilTurboModule.lstat()</Text>
+                  <Button title='运行' color='#841584' onPress={lstat}></Button>
+               </View>
+               <View style={styles.baseArea}>
+                  <Text style={{ flex: 1 }}>BlobUtilTurboModule.hash()</Text>
+                  <Button title='运行' color='#841584' onPress={hash}></Button>
+               </View>
+               <View style={styles.baseArea}>
+                  <Text style={{ flex: 1 }}>BlobUtilTurboModule.readFile()</Text>
+                  <Button title='运行' color='#841584' onPress={readFile}></Button>
+               </View>
+               <View style={styles.baseArea}>
+                  <Text style={{ flex: 1 }}>BlobUtilTurboModule.slice()</Text>
+                  <Button title='运行' color='#841584' onPress={slice}></Button>
+               </View>
+               <View style={styles.baseArea}>
+                  <Text style={{ flex: 1 }}>BlobUtilTurboModule.df()</Text>
+                  <Button title='运行' color='#841584' onPress={df}></Button>
+               </View>
+               <View style={styles.baseArea}>
+                  <Text style={{ flex: 1 }}>BlobUtilTurboModule.closeStream()</Text>
+                  <Button title='运行' color='#841584' onPress={closeStream}></Button>
+               </View>
+               <View style={styles.baseArea}>
+                  <Text style={{ flex: 1 }}>BlobUtilTurboModule.writeArrayChunk()</Text>
+                  <Button title='运行' color='#841584' onPress={writeArrayChunk}></Button>
+               </View>
+               <View style={styles.baseArea}>
+                  <Text style={{ flex: 1 }}>BlobUtilTurboModule.writeChunk()</Text>
+                  <Button title='运行' color='#841584' onPress={writeChunk}></Button>
+               </View>
+               <View style={styles.baseArea}>
+                  <Text style={{ flex: 1 }}>BlobUtilTurboModule.readStream()</Text>
+                  <Button title='运行' color='#841584' onPress={readStream}></Button>
+               </View>
+               <View style={styles.baseArea}>
+                  <Text style={{ flex: 1 }}>BlobUtilTurboModule.mv()</Text>
+                  <Button title='运行' color='#841584' onPress={mv}></Button>
+               </View>
+               <View style={styles.baseArea}>
+                  <Text style={{ flex: 1 }}>addListener()</Text>
+                  <Button title='运行' color='#841584' onPress={addListener}></Button>
+               </View>
+               <View style={styles.baseArea}>
+                  <Text style={{ flex: 1 }}>removeListeners()</Text>
+                  <Button title='运行' color='#841584' onPress={removeListeners}></Button>
+               </View>
+               <View style={styles.baseArea}>
+                  <Text style={{ flex: 1 }}>emitExpiredEvent()</Text>
+                  <Button title='运行' color='#841584' onPress={emitExpiredEvent}></Button>
+               </View>
+            </View>
+         </ScrollView>
+      </View>
+   );
 }
 
 const styles = StyleSheet.create({
-container: {
-   width: '100%',
-   height: '100%',
-   flexDirection: 'column',
-   alignItems: 'center',
-   backgroundColor: '#F1F3F5',
- }, 
- baseText: {
-   width: '100%',
-   height: '100%',
-   fontWeight: 'bold',
-   textAlign:'center',
-   fontSize:16,
-   ellipsizeMode:'tail',
-   numberOfLines:2
- },
- titleArea:{
-   width:'90%',
-   height:'8%',
-   alignItems:'center',
-   flexDirection:'row',
- },
- title: {
-   width:'90%',
-   color:'#000000',
-   textAlign:'left',
-   fontSize: 30,
- },
- scrollView: {
-   width:'90%',
-   marginHorizontal: 10,
- },
+   container: {
+      width: '100%',
+      height: '100%',
+      flexDirection: 'column',
+      alignItems: 'center',
+      backgroundColor: '#F1F3F5',
+   },
+   baseText: {
+      width: '100%',
+      height: '100%',
+      fontWeight: 'bold',
+      textAlign: 'center',
+      fontSize: 16,
+      ellipsizeMode: 'tail',
+      numberOfLines: 2
+   },
+   titleArea: {
+      width: '90%',
+      height: '8%',
+      alignItems: 'center',
+      flexDirection: 'row',
+   },
+   title: {
+      width: '90%',
+      color: '#000000',
+      textAlign: 'left',
+      fontSize: 30,
+   },
+   scrollView: {
+      width: '90%',
+      marginHorizontal: 10,
+   },
 
- inputArea: {
-   width:'90%',
-   height:'10%',
-   borderWidth:2,
-   borderColor:'#000000',
-   marginTop:8,
-   justifyContent:'center',
-   alignItems:'center',
- },
- baseArea: {
-   width:'100%',
-   height:60,
-   borderRadius:4,
-   borderColor:'#000000',
-   marginTop:6,
-   backgroundColor:'#FFFFFF',
-   flexDirection: 'row',
-   alignItems:'center',
-   paddingLeft:8,
-   paddingRight:8
- }
+   inputArea: {
+      width: '90%',
+      height: '10%',
+      borderWidth: 2,
+      borderColor: '#000000',
+      marginTop: 8,
+      justifyContent: 'center',
+      alignItems: 'center',
+   },
+   baseArea: {
+      width: '100%',
+      height: 60,
+      borderRadius: 4,
+      borderColor: '#000000',
+      marginTop: 6,
+      backgroundColor: '#FFFFFF',
+      flexDirection: 'row',
+      alignItems: 'center',
+      paddingLeft: 8,
+      paddingRight: 8
+   }
 });
 ```
 
@@ -367,21 +488,6 @@ ohpm install
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name               | Description | Required | Platform    | HarmonyOS Support |
-| ------------------ | ----------- | -------- | ----------- | ----------------- |
-| fetch              |             | No       | Android/IOS | No                |
-| base64             |             | No       | Android/IOS | No                |
-| android            |             | No       | Android     | No                |
-| ios                |             | No       | IOS         | No                |
-| config             |             | No       | Android/IOS | No                |
-| session            |             | No       | Android/IOS | No                |
-| fs                 |             | No       | Android/IOS | Yes               |
-| wrap               |             | No       | Android/IOS | No                |
-| polyfill           |             | No       | Android/IOS | No                |
-| JSONStream         |             | No       | Android/IOS | No                |
-| MediaCollection    |             | No       | Android/IOS | No                |
-| CanceledFetchError |             | No       | Android/IOS | No                |
-
 #### Android API
 
 ##### 	ReactNativeBlobUtil.android
@@ -398,36 +504,35 @@ ohpm install
 
 |    Name     |            Description             | Required |  Platform   | HarmonyOS Support |
 | :---------: | :--------------------------------: | :------: | :---------: | :---------------: |
-|    dirs     |                目录                |    NO    | IOS/Android |        No         |
+|    dirs     |                目录                |    NO    | IOS/Android |        Yes        |
 | createFile  |              创建文件              |    NO    | IOS/Android |        Yes        |
 |  writeFile  |               写文件               |    NO    | IOS/Android |        Yes        |
 | writeStream |                写流                |    NO    | IOS/Android |        Yes        |
-| appendFile  |              追加文件              |    NO    | IOS/Android |        No         |
-|  readFile   |              读取文件              |    NO    | IOS/Android |        No         |
+| appendFile  |              追加文件              |    NO    | IOS/Android |        Yes        |
+|  readFile   |              读取文件              |    NO    | IOS/Android |        Yes        |
 |    hash     |                哈希                |    NO    | IOS/Android |        Yes        |
 | readStream  |                读流                |    NO    | IOS/Android |        Yes        |
 |    mkdir    |              创建目录              |    NO    | IOS/Android |        Yes        |
-|     ls      |        查看当下的文件和目录        |    NO    | IOS/Android |        No         |
-|     mv      |            移动文件位置            |    NO    | IOS/Android |        No         |
+|     ls      |        查看当下的文件和目录        |    NO    | IOS/Android |        Yes        |
+|     mv      |            移动文件位置            |    NO    | IOS/Android |        Yes        |
 |     cp      |              复制文件              |    NO    | IOS/Android |        Yes        |
-|   exists    |          检查文件是否存在          |    NO    | IOS/Android |        No         |
-|    isDir    |             是否是目录             |    NO    | IOS/Android |        No         |
+|   exists    |          检查文件是否存在          |    NO    | IOS/Android |        Yes        |
+|    isDir    |             是否是目录             |    NO    | IOS/Android |        Yes        |
 |   unlink    |              删除文件              |    NO    | IOS/Android |        Yes        |
-|    lstat    |      获取目录下文件的统计数据      |    NO    | IOS/Android |        No         |
+|    lstat    |      获取目录下文件的统计数据      |    NO    | IOS/Android |        Yes        |
 |    stat     |   类似地获取数据或目录的统计信息   |    NO    | IOS/Android |        Yes        |
-|  scanFile   |              扫描文件              |    NO    | IOS/Android |        No         |
-|    asset    |                资产                |    NO    | IOS/Android |        No         |
-|     df      | 获取设备的可用磁盘空间和总磁盘空间 |    NO    | IOS/Android |        No         |
-|    dirs     |                目录                |    NO    | IOS/Android |        Yes        |
+|  scanFile   |              扫描文件              |    NO    |   Android   |        No         |
+|    asset    |                资产                |    NO    | IOS/Android |        Yes        |
+|     df      | 获取设备的可用磁盘空间和总磁盘空间 |    NO    | IOS/Android |        Yes        |
 
 #### iOS API
 
 #### 	ReactNativeBlobUtil.ios
 
-| Name            | Description              | Required | Platform | HarmonyOS Support |
-| --------------- | ------------------------ | -------- | -------- | ----------------- |
-| previewDocument | 文档查看器               | No       | iOS      | No                |
-| openDocument    | 显示与文件交互的选项菜单 | No       | iOS      | No                |
+| Name            | Description                            | Required | Platform | HarmonyOS Support |
+| --------------- | -------------------------------------- | -------- | -------- | ----------------- |
+| previewDocument | 文档查看器--需要系统权限               | No       | iOS      | No                |
+| openDocument    | 显示与文件交互的选项菜单--需要系统权限 | No       | iOS      | No                |
 
 #### Network Utils
 
@@ -444,7 +549,7 @@ ohpm install
 
 | Name    | Description | Required | Platform    | HarmonyOS Support |
 | ------- | ----------- | -------- | ----------- | ----------------- |
-| session |             | No       | IOS/Android | No                |
+| session | 会话        | No       | IOS/Android | No                |
 
 
 

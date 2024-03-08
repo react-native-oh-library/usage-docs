@@ -17,19 +17,19 @@
 #### **npm**
 
 ```bash
-npm install axios@0.28.0
+npm install axios@1.6.7
 ```
 
 #### **bower**
 
 ```bash
-bower install axios@0.28.0
+bower install axios@1.6.7
 ```
 
 #### **yarn**
 
 ```bash
-yarn add axios@0.28.0
+yarn add axios@1.6.7
 ```
 
 Once the package is installed, you can import the library using `import` or `require` approach:

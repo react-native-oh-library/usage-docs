@@ -17,7 +17,7 @@
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-maps Releases](https://github.com/react-native-maps/releases)，并下载适用版本的 tgz 包。
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-maps Releases](https://github.com/react-native-oh-library/react-native-maps/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
@@ -280,7 +280,7 @@ target_link_libraries(rnoh_app PUBLIC rnoh)
 
 # RNOH_BEGIN: link_packages
 target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
-+ target_link_libraries(rnoh_app PUBLIC rnoh-maps)
++ target_link_libraries(rnoh_app PUBLIC rnoh_maps)
 # RNOH_END: link_packages
 ```
 
@@ -308,7 +308,8 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 ```diff
 ...
 + import { AIRMap, AIR_MAP_TYPE, AIRMapMarker, AIR_MAP_MARKER_TYPE, AIRMapPolyline, AIR_MAP_POLYLINE_TYPE, AIRMapPolygon,
-+  AIR_MAP_POLYGON_TYPE, AIRMapCircle, AIR_MAP_CIRCLE_TYPE, AIR_MAP_CALLOUT_SUBVIEW_TYPE,
++  AIR_MAP_POLYGON_TYPE, AIRMapCircle, AIR_MAP_CIRCLE_TYPE, AIR_MAP_CALLOUT_SUBVIEW_TYPE, AIR_MAP_CALLOUT_TYPE,
++  AIRMapCallout,
 +  AIRMapCalloutSubview,
 +  Geojson,
 +  AIR_GEOJSON_TYPE,
@@ -608,7 +609,7 @@ ohpm install
 | pointForCoordinate        | Converts a map coordinate to a view coordinate (`Point`). Returns a `Promise<Point>`. | coordinate: LatLng                                           | ios/android | no                |
 | coordinateForPoint        | Converts a view coordinate (`Point`) to a map coordinate. Returns a `Promise<Coordinate>`. | point: Point                                                 | ios/android | no                |
 | getMarkersFrames          | Get markers' centers and frames in view coordinates. Returns a `Promise<{ "markerID" : { point: Point, frame: Frame } }>`. **Note**: iOS only. | onlyVisible: Boolean                                         | ios         | no                |
-| takeSnapshot              | Takes a snapshot of the map and saves it to a picture  file or returns the image as a base64 encoded string. | SnapshotOptions                                              | ios/android | no                |
+| takeSnapshot              | Takes a snapshot of the map and saves it to a picture  file or returns the image as a base64 encoded string. | SnapshotOptions                                              | ios/android | yes                |
 
 ## Marker
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
@@ -829,7 +830,7 @@ ohpm install
 
 ## 遗留问题
 
-- [ ] AIRMap 和 AIRMapMarker 中 Animated 未实现，AIRMap 中 takeSnapshot api未实现 [issues#1](https://github.com/react-native-oh-library/react-native-maps/issues/1)
+- [ ] AIRMap 和 AIRMapMarker 中 Animated 未实现 [issues#1](https://github.com/react-native-oh-library/react-native-maps/issues/1)
 - [ ] AIRMapOverlay 组件目前华为地图中不支持往地图组件中添加自定义view [issues#2](https://github.com/react-native-oh-library/react-native-maps/issues/2)
 - [ ] AIRMap AIRMapMarker AIRMapPolyline AIRMapPolygon AIRMapCircle 组件在HarmonyOS中的不支持属性是因为华为地图没提供对应的属性 [issues#3](https://github.com/react-native-oh-library/react-native-maps/issues/3)
 - [ ] AIRMapCallout AIRMapCalloutSubview 组件为 marker 子组件，华为地图中marker有自带的，但是目前不支持自定义样式显示 [issues#4](https://github.com/react-native-oh-library/react-native-maps/issues/4)

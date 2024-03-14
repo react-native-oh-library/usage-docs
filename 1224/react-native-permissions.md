@@ -4,7 +4,7 @@
   <h1 align="center"> <code>react-native-permissions</code> </h1>
 </p>
 <p align="center">
-    <a href="https://github.com/wonday/react-native-permissions">
+    <a href="https://github.com/zoontek/react-native-permissions">
         <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20windows%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
     <a href="https://github.com/zoontek/react-native-permissions/blob/master/LICENSE">
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "react-native-permissions": "file:../../node_modules/react-native-permissions/harmony/permissions.har"
+    "react-native-permissions": "file:../../node_modules/@react-native-oh-tpl/react-native-permissions/harmony/permissions.har"
   }
 ```
 
@@ -149,7 +149,7 @@ ohpm install
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "react-native-permissions": "file:../../node_modules/react-native-permissions/harmony/permissions"
+    "react-native-permissions": "file:../../node_modules/@react-native-oh-tpl/react-native-permissions/harmony/permissions"
   }
 ```
 

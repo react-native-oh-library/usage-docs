@@ -24,12 +24,26 @@
 
 ```bash
 npm install htmlparser2@9.1.0
+// 以下为配合htmlparser2使用的相关库，可视业务情况进行安装
+npm install circular-json@0.5.9
+npm install css-what@6.1.0
+npm install parse5-htmlparser2-tree-adapter@7.0.0
+npm install boolbase@1.0.0
+npm install nth-check@2.1.1
+npm install cheerio-select@2.1.0
 ```
 
 #### **yarn**
 
 ```bash
 yarn add htmlparser2@9.1.0
+// 以下为配合htmlparser2使用的相关库，可视业务情况进行安装
+yarn add circular-json@0.5.9
+yarn add css-what@6.1.0
+yarn add parse5-htmlparser2-tree-adapter@7.0.0
+yarn add boolbase@1.0.0
+yarn add nth-check@2.1.1
+yarn add cheerio-select@2.1.0
 ```
 
 <!-- tabs:end -->
@@ -78,6 +92,67 @@ parser.write(
 );
 parser.end();
 ```
+
+```js
+import { parseDocument } from "htmlparser2";
+import CircularJSON from 'circular-json';
+
+const dom = parseDocument(
+  '<div data-foo="In the end, it doesn\'t really matter."></div><div data-foo="Indeed-that\'s a delicate matter.">',
+);
+console.info(CircularJSON.stringify(dom));
+```
+
+```js
+import { parseDOM, parseDocument } from "htmlparser2";
+import { SelectorType, AttributeAction, parse, stringify } from "css-what";
+import { Element, AnyNode } from "domhandler";
+
+const [dom] = parseDOM("<div id=foo><p>foo</p></div>") as Element[];
+let curResult = CSSselect.is(dom, [
+	[
+	  {
+		  type: SelectorType.Attribute,
+		  action: AttributeAction.Equals,
+		  ignoreCase: false,
+		  name: "id",
+		  namespace: null,
+		  value: "foo",
+	  },
+	]
+]);
+console.info(curResult);
+
+let parsed = parse(":not(:empty):empty:contains(a):icontains(a):has(div):is(div):is(foo bar):is([foo])");
+console.info(parsed);
+```
+
+```js
+import getNCheck from "nth-check";
+import * as boolbase from "boolbase";
+
+const func = getNCheck('2n+1');
+if (func === boolbase.falseFunc) {
+    return boolbase.falseFunc;
+} else {
+    return boolbase.trueFunc;
+}
+```
+
+```js
+import type { ParserOptions as Parse5ParserOptions } from 'parse5';
+import type { Htmlparser2TreeAdapterMap } from 'parse5-htmlparser2-tree-adapter';
+import type { Options as SelectOptions } from 'cheerio-select';
+
+export interface Parse5Options // eslint-disable-line @typescript-eslint/no-empty-interface
+  extends Parse5ParserOptions<Htmlparser2TreeAdapterMap> {}
+
+export interface CheerioOptions extends Parse5Options {
+  quirksMode?: SelectOptions['quirksMode'];
+}
+```
+
+
 
 ## 兼容性
 

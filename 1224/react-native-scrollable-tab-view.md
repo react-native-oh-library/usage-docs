@@ -99,6 +99,8 @@ export default () => {
 
 ## 遗留问题
 
+- [x] `原库已知问题RN组件ScrollView里面的scrollTo()报undefined(已修复)`[#I95OVM](https://gitee.com/react-native-oh-library/usage-docs/issues/I95OVM)
+
 ## 其他
 
 ## 开源协议

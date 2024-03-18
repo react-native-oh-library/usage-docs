@@ -1,7 +1,7 @@
 > 模板版本：v0.1.3
 
 <p align="center">
-  <h1 align="center"> <code>@react-native-oh-library/react-native-image-viewer</code> </h1>
+  <h1 align="center"> <code>react-native-image-viewer</code> </h1>
 </p>
 <p align="center">
     <a href="https://github.com/react-native-oh-library/react-native-image-viewer">

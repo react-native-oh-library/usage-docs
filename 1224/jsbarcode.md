@@ -42,7 +42,7 @@ import JsBarCode from 'jsbarcode';
 下面的代码展示了这个库的基本使用示例：
 
 ### **With svg:**
-> [!tip] [jsbarcode库依赖react-native-svg库进行条形码展示, svg 当前仅实现少部分属性，其余还未实现鸿蒙化]
+> [!tip] [jsbarcode库依赖react-native-svg库进行条形码展示, svg 当前仅实现部分属性，其余还未实现鸿蒙化]
 > [!tip] [详见react-native-svg](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-svg.md)
 ```js
 import { useMemo } from 'react';
@@ -204,30 +204,31 @@ JsBarcode("#barcode", "29012343", {
 #### **All Options**
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name         | Description       | Type               | Required | HarmonyOS Support |
-| ------------ | ----------------- | ------------------ | --------  | ----------------- |
-| format       | "auto" (CODE128)  | String             | no       | yes       |
-| width        | 2                 | Number             | no       | yes       |
-| height       | 100               | Number             | no       | yes       |
-| displayValue | true              | Boolean            | no       | yes       |
-| text         | undefined         | String             | no       | yes       |
-| fontOptions  | ""                | String             | no       | partially |
-| font         | "monospace"       | String             | no       | no        |
-| textAlign    | "center"          | String             | no       | yes       |
-| textPosition | "bottom"          | String             | no       | yes       |
-| textMargin   | 2                 | Number             | no       | yes       |
-| fontSize     | 20                | Number             | no       | yes       |
-| background   | "#ffffff"         | String (CSS color) | no       | yes       |
-| lineColor    | "#000000"         | String (CSS color) | no       | yes       |
-| margin       | 10                | Number             | no       | yes       |
-| marginTop    | undefined         | Number             | no       | yes       |
-| marginBottom | undefined         | Number             | no       | yes       |
-| marginLeft   | undefined         | Number             | no       | yes       |
-| marginRight  | undefined         | Number             | no       | yes       |
-| flat         | false             | Boolean            | no       | yes       |
-| valid        | function(valid){} | Function           | no       | yes       |
+| Name         | Description       | Type               | Required | HarmonyOS Support | Remark                                                                |
+| ------------ | ----------------- | ------------------ | -------- | ----------------- | --------------------------------------------------------------------- |
+| format       | "auto" (CODE128)  | String             | no       | yes               |                                                                       |
+| width        | 2                 | Number             | no       | yes               |                                                                       |
+| height       | 100               | Number             | no       | yes               |                                                                       |
+| displayValue | true              | Boolean            | no       | yes               |                                                                       |
+| text         | undefined         | String             | no       | yes               |                                                                       |
+| fontOptions  | ""                | String             | no       | yes               | react-native-svg目前不支持fontOptions: 'italic'，导致条形码效果不生效    |
+| font         | "monospace"       | String             | no       | yes               | react-native-svg目前不支持font设置，导致条形码效果不生效                 |
+| textAlign    | "center"          | String             | no       | yes               |                                                                       |
+| textPosition | "bottom"          | String             | no       | yes               |                                                                       |
+| textMargin   | 2                 | Number             | no       | yes               |                                                                       |
+| fontSize     | 20                | Number             | no       | yes               |                                                                       |
+| background   | "#ffffff"         | String (CSS color) | no       | yes               |                                                                       |
+| lineColor    | "#000000"         | String (CSS color) | no       | yes               |                                                                       |
+| margin       | 10                | Number             | no       | yes               |                                                                       |
+| marginTop    | undefined         | Number             | no       | yes               |                                                                       |
+| marginBottom | undefined         | Number             | no       | yes               |                                                                       |
+| marginLeft   | undefined         | Number             | no       | yes               |                                                                       |
+| marginRight  | undefined         | Number             | no       | yes               |                                                                       |
+| flat         | false             | Boolean            | no       | yes               |                                                                       |
+| valid        | function(valid){} | Function           | no       | yes               |                                                                       |
 
-
+## 遗留问题
+jsbarcode库依赖react-native-svg库进行条形码展示, 因svg 当前仅实现部分属性，其余还未实现鸿蒙化，目前在HarmonyOS上条形码的文本位置效果不对，fontSize显示比较小。
 
 ## 其他
 

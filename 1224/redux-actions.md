@@ -33,7 +33,7 @@ npm i @types/redux-actions -D
 yarn add redux-actions@2.6.5
 
 // typescript 项目需下载对应包的类型声明
-yarn add i @types/redux-actions -D
+yarn add @types/redux-actions -D
 ```
 
 <!-- tabs:end -->

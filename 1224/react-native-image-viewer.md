@@ -121,14 +121,14 @@ const ReactImageZoon = () => {
   const renderArrowLeftFun = () => {
     return (
       <View style={{ width: 20, height: 20 }}>
-        <Image source={require('./assets/1.png')} style={{ width: '100%', height: '100%' }}></Image>
+        <Image source={{uri:'https://bpic.51yuansu.com/pic2/cover/00/52/03/5816a254309d2_610.jpg'}} style={{ width: '100%', height: '100%' }}></Image>
       </View>
     )
   }
   const renrenderArrowRightFun = () => {
     return (
       <View style={{ width: 20, height: 20 }}>
-        <Image source={require('./assets/1.png')} style={{ width: '100%', height: '100%' }}></Image>
+        <Image source={{uri:'https://pic.616pic.com/ys_img/00/13/60/slee3clqRZ.jpg'}} style={{ width: '100%', height: '100%' }}></Image>
       </View>
     )
   }
@@ -265,7 +265,7 @@ const ReactImageZoon = () => {
             swipeDownThreshold={swipeDownThreshold}
             onSwipeDown={onSwipeDown}
           />
-          <Button title="点击增加向下滑动的阈值500" onPress={() => setSwipeDownThreshold(500)} />
+          <Button title="点击增加向下滑动的阈值" onPress={() => setSwipeDownThreshold(400)} />
           <Button title="点击关闭" onPress={setFlipThresholdBtn} />
         </Modal>
 
@@ -534,8 +534,8 @@ export default ReactImageZoon
 
 | Name                   | Description                                                  | Type                                                         | Required                                                   | Platform    | HarmonyOS Support |
 | ---------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ---------------------------------------------------------- | ----------- | ----------------- |
-| `imageUrls`            | Image Source                                                 | array                                                        | yes                                                        | Android IOS | YES               |
-| enableImageZoom        | Enable image zoom                                            | boolean                                                      | no                                                         | Android IOS | YES               |
+| imageUrls              | Image Source                                                 | array                                                        | yes                                                        | Android IOS | YES               |
+| enableImageZoom        | Enable image zoom                                            | boolean                                                      | no                                                         | Android IOS | NO                |
 | onShowModal            | The callback for show modal                                  | function <br />(content?: JSX.Element) => void               | no                                                         | NO          | NO                |
 | onCancel               | The callback for cancel modal                                | function  <br />() => void                                   | no                                                         | Android IOS | YES               |
 | flipThreshold          | Swipe threshold of the next page                             | number                                                       | no                                                         | Android IOS | YES               |
@@ -570,7 +570,9 @@ export default ReactImageZoon
 
 ## 遗留问题
 
-1、因  CameraRoll.saveToCameraRoll  不支持鸿蒙，默认长按与保存到相册无法测通，已提单
+1、本库  CameraRoll.saveToCameraRoll  还未完全鸿蒙化，暂不支持调起相册。
+
+2、本库依赖 react-native-image-zoom ,enableImageZoom属性还未完全鸿蒙化。
 
 ## 其他
 

@@ -41,7 +41,60 @@ import JsBarCode from 'jsbarcode';
 
 下面的代码展示了这个库的基本使用示例：
 
+### **With svg:**
+> [!tip] [jsbarcode库依赖react-native-svg库进行条形码展示, svg 当前仅实现少部分属性，其余还未实现鸿蒙化]
+> [!tip] [详见react-native-svg](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-svg.md)
+```js
+import { useMemo } from 'react';
+import JsBarcode from 'jsbarcode';
+import { SvgXml } from 'react-native-svg';
+import { DOMImplementation, XMLSerializer } from 'xmldom';
+
+export const Barcode = (props: Props) => {
+  const [jsbarcodeInfo, setJsbarcodeInfo] = useState('');
+  const {
+    width ,
+    height,
+    format,
+    ... // options
+  } = props.options;
+
+  const svgText = useMemo(() => {
+    const document = new DOMImplementation().createDocument(null, 'html');
+    const svgNode = document.createElementNS(null, 'svg');
+
+    JsBarcode(svgNode, props.value, {
+      xmlDocument: document,
+      width,
+      height,
+      format,
+      ... // options
+    });
+
+    svgNode.removeAttribute('style')
+    setJsbarcodeInfo(new XMLSerializer().serializeToString(svgNode));
+
+    return new XMLSerializer().serializeToString(svgNode);
+  }, [props]);
+
+  return <SvgXml xml={svgText} />;
+};
+
+// 页面展示条形码
+import { Barcode } from 'XXXX';
+function JsbarcodeSvgDemo() {
+  return (
+    <Barcode
+      value="9501101530003"
+      options={{format: 'EAN13', background: 'yellow'}}
+    />
+  )
+}
+```
+
 ### **With canvas:**
+> [!tip] [react-native-canvas库暂未鸿蒙化，当前无法使用canvas渲染，下面用法仅供参考]
+
 ```js
 var JsBarcode = require('jsbarcode');
 
@@ -58,22 +111,7 @@ var canvas = createCanvas();
 JsBarcode(canvas, "Hello");
 ```
 
-### **With svg:**
-
-```js
-const { DOMImplementation, XMLSerializer } = require('xmldom');
-const xmlSerializer = new XMLSerializer();
-const document = new DOMImplementation().createDocument('http://www.w3.org/1999/xhtml', 'html', null);
-const svgNode = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-
-JsBarcode(svgNode, 'test', {
-    xmlDocument: document,
-});
-
-const svgText = xmlSerializer.serializeToString(svgNode);
-```
-
-如下是Options示例展示:
+如下是Options使用示例展示:
 
 ```js
 // format
@@ -102,14 +140,6 @@ JsBarcode("#barcode", "Hello", {
 // fontOptions
 JsBarcode("#barcode", "Bold text", {
   fontOptions: "bold"
-});
-
-JsBarcode("#barcode", "Italic text", {
-  fontOptions: "italic"
-});
-
-JsBarcode("#barcode", "Both options", {
-  fontOptions: "bold italic"
 });
 
 // font
@@ -171,30 +201,32 @@ JsBarcode("#barcode", "29012343", {
 });
 
 ```
-#### **Options**
+#### **All Options**
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| **Option**   | **Default value** | **Type**           |
-| ------------ | ----------------- | ------------------ |
-| format       | "auto" (CODE128)  | String             |
-| width        | 2                 | Number             |
-| height       | 100               | Number             |
-| displayValue | true              | Boolean            |
-| text         | undefined         | String             |
-| fontOptions  | ""                | String             |
-| font         | "monospace"       | String             |
-| textAlign    | "center"          | String             |
-| textPosition | "bottom"          | String             |
-| textMargin   | 2                 | Number             |
-| fontSize     | 20                | Number             |
-| background   | "#ffffff"         | String (CSS color) |
-| lineColor    | "#000000"         | String (CSS color) |
-| margin       | 10                | Number             |
-| marginTop    | undefined         | Number             |
-| marginBottom | undefined         | Number             |
-| marginLeft   | undefined         | Number             |
-| marginRight  | undefined         | Number             |
-| flat         | false             | Boolean            |
-| valid        | function(valid){} | Function           |
+| Name         | Description       | Type               | Required | HarmonyOS Support |
+| ------------ | ----------------- | ------------------ | --------  | ----------------- |
+| format       | "auto" (CODE128)  | String             | no       | yes       |
+| width        | 2                 | Number             | no       | yes       |
+| height       | 100               | Number             | no       | yes       |
+| displayValue | true              | Boolean            | no       | yes       |
+| text         | undefined         | String             | no       | yes       |
+| fontOptions  | ""                | String             | no       | partially |
+| font         | "monospace"       | String             | no       | no        |
+| textAlign    | "center"          | String             | no       | yes       |
+| textPosition | "bottom"          | String             | no       | yes       |
+| textMargin   | 2                 | Number             | no       | yes       |
+| fontSize     | 20                | Number             | no       | yes       |
+| background   | "#ffffff"         | String (CSS color) | no       | yes       |
+| lineColor    | "#000000"         | String (CSS color) | no       | yes       |
+| margin       | 10                | Number             | no       | yes       |
+| marginTop    | undefined         | Number             | no       | yes       |
+| marginBottom | undefined         | Number             | no       | yes       |
+| marginLeft   | undefined         | Number             | no       | yes       |
+| marginRight  | undefined         | Number             | no       | yes       |
+| flat         | false             | Boolean            | no       | yes       |
+| valid        | function(valid){} | Function           | no       | yes       |
+
 
 
 ## 其他

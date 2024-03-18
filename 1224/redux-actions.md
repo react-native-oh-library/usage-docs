@@ -21,13 +21,19 @@
 
 #### **npm**
 ```bash
-npm install redux-actions@^2.6.5
+npm install redux-actions@2.6.5
+
+// typescript 项目需下载对应包的类型声明
+npm i @types/redux-actions -D
 ```
 
 #### **yarn**
 
 ```bash
-yarn add redux-actions@^2.6.5
+yarn add redux-actions@2.6.5
+
+// typescript 项目需下载对应包的类型声明
+yarn add i @types/redux-actions -D
 ```
 
 <!-- tabs:end -->

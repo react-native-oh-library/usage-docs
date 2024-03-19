@@ -41,134 +41,109 @@ yarn add react-use@17.2.4
 
 ## 方法
 
-**Sensors**
+| title         | hook-name                                       | 描述                                                         | 类型     | HarmonyOS Support |
+| :------------ | :---------------------------------------------- | ------------------------------------------------------------ | -------- | ----------------- |
+| Sensors       | useMotion                                       | 跟踪设备运动传感器的状态。                                   | Function | YES               |
+| Animations    | useRaf                                          | 重新渲染每个请求上的组件AnimationFrame。                     | Function | YES               |
+| Animations    | useInterval and  useHarmonicIntervalFn          | 使用setInterval在设置的间隔上重新渲染组件。                  | Function | YES               |
+| Animations    | useSpring                                       | 根据弹簧动力学随时间插值数字。                               | Function | YES               |
+| Animations    | useTimeout                                      | 超时后重新渲染组件。                                         | Function | YES               |
+| Animations    | useTimeoutFn                                    | 超时后调用给定的函数。                                       | Function | YES               |
+| Animations    | useTween                                        | 重新渲染组件，同时推特从0到1的数字。                         | Function | YES               |
+| Animations    | useUpdate                                       | 返回一个回调，该回调在调用时重新呈现组件。                   | Function | YES               |
+| Side-effects  | useAsync useAsyncFn and useAsyncRetry           | 解析异步函数。                                               | Function | YES               |
+| Side-effects  | useBeforeUnload                                 | 当用户尝试重新加载或关闭页面时，显示浏览器警报。             | Function | YES               |
+| Side-effects  | useCookie                                       | 提供了读取、更新和删除cookie的方法。                         | Function | YES               |
+| Side-effects  | useDebounce                                     | 取消对函数的反弹。                                           | Function | YES               |
+| Side-effects  | useError                                        | 错误调度器。                                                 | Function | YES               |
+| Side-effects  | useRafLoop                                      | 调用RAF循环内的给定函数。                                    | Function | YES               |
+| Side-effects  | useThrottle` and `useThrottleFn                 | 抑制函数。                                                   | Function | YES               |
+| Lifecycles    | useEffectOnce                                   | 仅运行一次的修改后的[`useEffect`](https://reactjs.org/docs/hooks-reference.html#useeffect)。 | Function | YES               |
+| Lifecycles    | useLifecycles                                   | 调用`mount`和`unmount`回调。                                 | Function | YES               |
+| Lifecycles    | useMountedState and useUnmountPromise           | 跟踪是否安装了组件。                                         | Function | YES               |
+| Lifecycles    | useLogger                                       | 在组件经历生命周期时登录控制台。                             | Function | YES               |
+| Lifecycles    | useMount                                        | 调用`mount`回调。                                            | Function | YES               |
+| Lifecycles    | useUnmount                                      | 调用`unmount`回调。                                          | Function | YES               |
+| Lifecycles    | useUpdateEffect                                 | 仅在更新时运行一个`effect。`                                 | Function | YES               |
+| Lifecycles    | useIsomorphicLayoutEffect                       | useLayoutEffect在服务器上工作。                              | Function | YES               |
+| Lifecycles    | useDeepCompareEffect and useCustomCompareEffect | 运行一个`effect`通过深度比较其依赖项。                       | Function | YES               |
+| State         | createMemo                                      | 记忆挂钩工厂。                                               | Function | YES               |
+| State         | createReducerContext and  createStateContext    | 用于组件之间共享状态的挂钩的工厂。                           | Function | YES               |
+| State         | useDefault                                      | 当state为null或未定义时，返回默认值。                        | Function | YES               |
+| State         | useGetSet                                       | 返回状态getter get（），而不是原始状态。                     | Function | YES               |
+| State         | useGetSetState                                  | as if [`useGetSet`](https://github.com/streamich/react-use/blob/master/docs/useGetSet.md) and [`useSetState`](https://github.com/streamich/react-use/blob/master/docs/useSetState.md) had a baby. | Function | YES               |
+| State         | useLatest                                       | 返回最新状态或道具。                                         | Function | YES               |
+| State         | usePrevious                                     | 返回以前的状态或道具。                                       | Function | YES               |
+| State         | usePreviousDistinct                             | 类似于usePrevious，但有一个谓词来确定是否应该更新previous。  | Function | YES               |
+| State         | useObservable                                   | 跟踪Observable的最新值。                                     | Function | YES               |
+| State         | useRafState                                     | 创建setState方法，该方法仅在requestAnimationFrame之后更新。  | Function | YES               |
+| State         | useSetState                                     | 创建setState方法，其工作方式如下:this.setState。             | Function | YES               |
+| State         | useStateList                                    | 在数组上循环迭代。                                           | Function | YES               |
+| State         | useToggle                                       | 跟踪布尔值的状态。                                           | Function | YES               |
+| State         | useCounter                                      | 跟踪数字的状态。                                             | Function | YES               |
+| State         | useList                                         | 跟踪数组的状态。                                             | Function | YES               |
+| State         | useMap                                          | 跟踪对象的状态。                                             | Function | YES               |
+| State         | useSet                                          | 跟踪集合的状态。                                             | Function | YES               |
+| State         | useQueue                                        | 实现了简单的队列。                                           | Function | YES               |
+| State         | useStateValidator                               | 跟踪对象的状态。                                             | Function | YES               |
+| State         | useStateWithHistory                             | 存储以前的状态值，并提供通过这些值的句柄。                   | Function | YES               |
+| State         | useMultiStateValidator                          | 类似于useStateValidator，但一次跟踪多个状态。                | Function | YES               |
+| State         | useMediatedState                                | 类似于常规的useState，但具有自定义功能的中介。               | Function | YES               |
+| State         | useFirstMountState                              | 检查当前渲染是否是第一个。                                   | Function | YES               |
+| State         | useRendersCount                                 | 计数组件渲染。                                               | Function | YES               |
+| State         | createGlobalState                               | 跨组件共享状态。                                             | Function | YES               |
+| State         | useMethods                                      | 使用Reducer的整洁替代方案。                                  | Function | YES               |
+| Miscellaneous | useEnsuredForwardedRef                          | 安全地使用React.forwardedRef。                               | Function | YES               |
 
-- [`useMotion`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseMotion.tsx) — tracks state of device's motion sensor.  
+## IOS & android 不支持方法澄清
 
-**Animations**
-
-- [`useRaf`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/CreateGlobalState.tsx) — re-renders component on each `requestAnimationFrame`.
-
-- [`useInterval`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseInterval.tsx) and [`useHarmonicIntervalFn`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseHarmonicIntervalFn.tsx) — re-renders component on a set interval using `setInterval`.
-
-- [`useSpring`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseSpring.tsx) — interpolates number over time according to spring dynamics.
-
-- [`useTimeout`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseTimeout.tsx) — re-renders component after a timeout.
-
-- [`useTimeoutFn`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseTimeoutFn.tsx) — calls given function after a timeout.
-
-- [`useTween`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseTween.tsx) — re-renders component, while tweening a number from 0 to 1
-
-- [`useUpdate`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseUpdate.tsx) — returns a callback, which re-renders component when called.
-
-  
-
-**Side-effects**
-
-- [`useAsync`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseAsync.tsx), [`useAsyncFn`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseAsyncFn.tsx), and [`useAsyncRetry`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseAsyncRetry.tsx) — resolves an `async` function.
-- [`useBeforeUnload`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseBeforeUnload.tsx) — shows browser alert when user try to reload or close the page.
-- [`useCookie`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseCookie.tsx) — provides way to read, update and delete a cookie.
-- [`useDebounce`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseDebounce.tsx) — debounces a function. 
-- [`useError`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseError.tsx) — error dispatcher. 
-- [`useRafLoop`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseRafLoop.tsx) — calls given function inside the RAF loop.
-- [`useThrottle` and `useThrottleFn`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseThrottle.tsx) — throttles a function.
-
-**Lifecycles**
-
-- [`useEffectOnce`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseEffectOnce.tsx) — hook that only runs once.
-- [`useLifecycles`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseLifecycles.tsx) — calls `mount` and `unmount` callbacks.
-- [`useMountedState`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseMountedState.tsx) and [`useUnmountPromise`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseUnmountPromise.tsx) — track if component is mounted.
-- [`useLogger`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseLogger.tsx) — logs in console as component goes through life-cycles.
-- [`useMount`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseMount.tsx) — calls `mount` callbacks.
-- [`useUnmount`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseUnmount.tsx) — calls `unmount` callbacks.
-- [`useUpdateEffect`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseUpdateEffect.tsx) — run an `effect` only on updates.
-- [`useIsomorphicLayoutEffect`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseIsomorphicLayoutEffect.tsx) — `useLayoutEffect` that does not show warning when server-side rendering.
-- [`useDeepCompareEffect`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseDeepCompareEffect.tsx)and [`useCustomCompareEffect`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseCustomCompareEffect.tsx) — run an `effect` depending on deep comparison of its dependencies
-
-**State** 
-
-- [`createMemo`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/CreateMemo.tsx) — factory of memoized hooks.
-- [`createReducerContext`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/CreateReducerContext.tsx) and [`createStateContext`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/CreateStateContext.tsx) — factory of hooks for a sharing state between components.
-- [`useDefault`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseDefault.tsx) — returns the default value when state is `null` or `undefined`.
-- [`useGetSet`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseGetSet.tsx) — returns state getter `get()` instead of raw state.
-- [`useGetSetState`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseGetSetState.tsx) — as if [`useGetSet`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseGetSet.tsx) and [`useSetState`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseSetState.tsx) had a baby.
-- [`useLatest`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseLatest.tsx) — returns the latest state or props
-- [`usePrevious`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UsePrevious.tsx) — returns the previous state or props. 
-- [`usePreviousDistinct`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UsePreviousDistinct.tsx) — like `usePrevious` but with a predicate to determine if `previous` should update.
-- [`useObservable`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseObservable.tsx) — tracks latest value of an `Observable`.
-- [`useRafState`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseRafState.tsx) — creates `setState` method which only updates after `requestAnimationFrame`.
-- [`useSetState`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseSetState.tsx) — creates `setState` method which works like `this.setState`.
-- [`useStateList`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseStateList.tsx) — circularly iterates over an array.
-- [`useToggle` ](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseToggle.tsx) — tracks state of a boolean.
-- [`useCounter`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseCounter.tsx) — tracks state of a number. 
-- [`useList`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseList.tsx) — tracks state of an array. 
-- [`useMap`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseMap.tsx) — tracks state of an object. 
-- [`useSet`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseSet.tsx) — tracks state of a Set
-- [`useQueue`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseQueue.tsx) — implements simple queue.
-- [`useStateValidator`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseStateValidator.tsx) — tracks state of an object.
-- [`useStateWithHistory`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseStateWithHistory.tsx) — stores previous state values and provides handles to travel through them.
-- [`useMultiStateValidator`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseMultiStateValidator.tsx) — alike the `useStateValidator`, but tracks multiple states at a time
-- [`useMediatedState`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseMediatedState.tsx) — like the regular `useState` but with mediation by custom function.
-- [`useFirstMountState`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseFirstMountState.tsx) — check if current render is first.
-- [`useRendersCount`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseRendersCount.tsx) — count component renders. 
-- [`createGlobalState`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/CreateGlobalState.tsx) — cross component shared state
-- [`useMethods`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseMethods.tsx) — neat alternative to `useReducer`.
-
-**Miscellaneous**
-
-- [`useEnsuredForwardedRef`](https://github.com/react-native-oh-library/RNOHDCS/blob/main/ReactUseDemo/UseEnsuredForwardedRef.tsx)— use a React.forwardedRef safely.
-
-
-
-## 手机端不支持方法澄清
-
-| title        | hook-name                                                | 解释                                        | 问题描述                                                     | HarmonyOS Support |
-| ------------ | -------------------------------------------------------- | ------------------------------------------- | ------------------------------------------------------------ | ----------------- |
-| Sensors      | useBattery                                               | 跟踪设备电池状态。                          | 无报错，不支持蓄电池传感器                                   | NO                |
-| Sensors      | useGeolocation                                           | 跟踪用户设备的地理位置状态。                | Cannot read property 'getCurrentPosition' of undefined没有属性 | NO                |
-| Sensors      | useHover and useHoverDirty                               | 跟踪某些元素的鼠标悬停状态。                | 无报错，无反应                                               | NO                |
-| Sensors      | useHash                                                  | 跟踪位置哈希值。                            | Hash of undefined                                            | NO                |
-| Sensors      | useIdle                                                  | 跟踪用户是否处于非活动状态。                | Property 'document' doesn't exist                            | NO                |
-| Sensors      | useIntersection                                          | 跟踪HTML元素的交集                          | 无报错，无反应，状态不对应                                   | NO                |
-| Sensors      | useKey, useKeyPress, useKeyboardJs, and useKeyPressEvent | 追踪按键                                    | 无报错，无反应                                               | NO                |
-| Sensors      | useLocation and useSearchParam                           | 跟踪页面导航栏的位置状态。                  | Cannot convert undefined value to object                     | NO                |
-| Sensors      | useLongPress                                             | 跟踪某些元素的长按手势                      | 无报错，无反应                                               | NO                |
-| Sensors      | useMedia                                                 | 跟踪CSS媒体查询的状态                       | window.matchMedia is not a function (it is undefined)        | NO                |
-| Sensors      | useMediaDevices                                          | 跟踪连接的硬件设备的状态。                  | 无报错，值为空                                               | NO                |
-| Sensors      | useMouse and useMouseHovered                             | 跟踪鼠标位置的状态                          | Property 'document' doesn't exist                            | NO                |
-| Sensors      | useMouseWheel                                            | 跟踪滚动鼠标滚轮的deltaY。                  | 无报错，无反应                                               | NO                |
-| Sensors      | useNetworkState                                          | 跟踪浏览器的网络连接状态。                  | 无报错，值为空                                               | NO                |
-| Sensors      | useOrientation                                           | 跟踪设备屏幕方向的状态。                    | Cannot read property 'orientation' of undefined              | NO                |
-| Sensors      | usePageLeave                                             | 当鼠标离开页面边界时触发。                  | Property 'document' doesn't exist 属性“document”不存在       | NO                |
-| Sensors      | useScratch                                               | 跟踪鼠标单击和拖动状态。                    | 未报错，无反应                                               | NO                |
-| Sensors      | useScroll                                                | 跟踪HTML元素的滚动位置                      | 未报错，无反应                                               | NO                |
-| Sensors      | useScrolling                                             | 跟踪HTML元素是否正在滚动。                  | 未报错，无反应                                               | NO                |
-| Sensors      | useStartTyping                                           | 检测用户何时开始键入。                      | Property 'document' doesn't exist 属性“document”不存在       | NO                |
-| Sensors      | useWindowScroll                                          | 轨迹窗口滚动位置                            | 无报错，值为空                                               | NO                |
-| Sensors      | useWindowSize                                            | 跟踪窗口尺寸。                              | 无报错，值为空                                               | NO                |
-| Sensors      | useMeasure and useSize                                   | 跟踪HTML元素的维度。                        | 无报错，值为空                                               | NO                |
-| Sensors      | createBreakpoint                                         | 宽度                                        | 无报错，返回设备不正确                                       | NO                |
-| Sensors      | useScrollbarWidth                                        | 检测浏览器的本地滚动条宽度                  | 无报错，值为0                                                | NO                |
-| Sensors      | usePinchZoom                                             | 跟踪指针事件以检测收缩放大和缩小状态。      | Property 'useState' doesn't exist                            | NO                |
-| UI           | useAudio                                                 | 播放音频并公开其控件                        | 组件“audio”的 View config getter 回调必须是一个函数          | NO                |
-| UI           | useClickAway                                             | 当用户在目标区域外单击时触发回调。          | Property 'document' doesn't exist 属性“document”不存在       | NO                |
-| UI           | useCss                                                   | 动态调整CSS。                               | Property 'document' doesn't exist 属性“document”不存在       | NO                |
-| UI           | useDrop and useDropArea                                  | 跟踪文件、链接和复制粘贴滴漏。              | Property 'document' doesn't exist 属性“document”不存在       | NO                |
-| UI           | useFullscreen                                            | 全屏显示元素或视频                          | 组件“video”的视图配置getter回调必须是一个函数                | NO                |
-| UI           | useSlider                                                | 在任何HTML元素上提供幻灯片行为。            | Cannot set property 'userSelect' of undefined                | NO                |
-| UI           | useSpeech                                                | 从文本字符串合成语音。                      | Cannot read property 'getVoices' of undefined                | NO                |
-| UI           | useVibrate                                               | 使用振动API提供物理反馈。                   | 0, _react.useToggle is not a function (it is undefined)      | NO                |
-| UI           | useVideo                                                 | useVideo 播放视频、跟踪其状态并公开播放控件 | 组件“video”的视图配置getter回调必须是一个函数                | NO                |
-| Side-effects | useCopyToClipboard                                       | 将文本复制到剪切板。                        | 无报错无反应                                                 | NO                |
-| Side-effects | useFavicon                                               | 设置页面的useFavicon。                      | Property 'document' doesn't exist 属性“document”不存在       | NO                |
-| Side-effects | useLocalStorage                                          | 管理useLocalStorage中的值。                 | 无报错无反应                                                 | NO                |
-| Side-effects | useLockBodyScroll                                        | 锁定body元素的滚动。                        | 无报错无反应                                                 | NO                |
-| Side-effects | useSessionStorage                                        | 管理sessionStorage中的值。                  | 无报错无反应                                                 | NO                |
-| Side-effects | useTitle                                                 | 设置页面的标题。                            | 无报错无反应                                                 | NO                |
-| Side-effects | usePermission                                            | 查询浏览器API的权限状态。                   | Cannot read property 'query' of undefined                    | NO                |
-| Lifecycles   | usePromise                                               | 仅在安装组件时解析usePromise                | 无报错无反应                                                 | NO                |
-| Lifecycles   | useEvent                                                 | 订阅事件。                                  | 无报错无反应                                                 | NO                |
-| State        | createReducer                                            | 带有定制中间件的reducer钩子工厂。           | 无报错无反应                                                 | NO                |
+| title        | hook-name                                                | 解释                                   | 问题描述                                                     | HarmonyOS Support |
+| ------------ | -------------------------------------------------------- | -------------------------------------- | ------------------------------------------------------------ | ----------------- |
+| Sensors      | useBattery                                               | 跟踪设备电池状态。                     | 无报错，不支持蓄电池传感器                                   | NO                |
+| Sensors      | useGeolocation                                           | 跟踪用户设备的地理位置状态。           | Cannot read property 'getCurrentPosition' of undefined没有属性 | NO                |
+| Sensors      | useHover and useHoverDirty                               | 跟踪某些元素的鼠标悬停状态。           | 无报错，无反应                                               | NO                |
+| Sensors      | useHash                                                  | 跟踪位置哈希值。                       | Hash of undefined                                            | NO                |
+| Sensors      | useIdle                                                  | 跟踪用户是否处于非活动状态。           | Property 'document' doesn't exist                            | NO                |
+| Sensors      | useIntersection                                          | 跟踪HTML元素的交集。                   | 无报错，无反应，状态不对应                                   | NO                |
+| Sensors      | useKey, useKeyPress, useKeyboardJs, and useKeyPressEvent | 追踪按键。                             | 无报错，无反应                                               | NO                |
+| Sensors      | useLocation and useSearchParam                           | 跟踪页面导航栏的位置状态。             | Cannot convert undefined value to object                     | NO                |
+| Sensors      | useLongPress                                             | 跟踪某些元素的长按手势。               | 无报错，无反应                                               | NO                |
+| Sensors      | useMedia                                                 | 跟踪CSS媒体查询的状态。                | window.matchMedia is not a function (it is undefined)        | NO                |
+| Sensors      | useMediaDevices                                          | 跟踪连接的硬件设备的状态。             | 无报错，值为空                                               | NO                |
+| Sensors      | useMouse and useMouseHovered                             | 跟踪鼠标位置的状态。                   | Property 'document' doesn't exist                            | NO                |
+| Sensors      | useMouseWheel                                            | 跟踪滚动鼠标滚轮的deltaY。             | 无报错，无反应                                               | NO                |
+| Sensors      | useNetworkState                                          | 跟踪浏览器的网络连接状态。             | 无报错，值为空                                               | NO                |
+| Sensors      | useOrientation                                           | 跟踪设备屏幕方向的状态。               | Cannot read property 'orientation' of undefined              | NO                |
+| Sensors      | usePageLeave                                             | 当鼠标离开页面边界时触发。             | Property 'document' doesn't exist 属性“document”不存在       | NO                |
+| Sensors      | useScratch                                               | 跟踪鼠标单击和拖动状态。               | 未报错，无反应                                               | NO                |
+| Sensors      | useScroll                                                | 跟踪HTML元素的滚动位置。               | 未报错，无反应                                               | NO                |
+| Sensors      | useScrolling                                             | 跟踪HTML元素是否正在滚动。             | 未报错，无反应                                               | NO                |
+| Sensors      | useStartTyping                                           | 检测用户何时开始键入。                 | Property 'document' doesn't exist 属性“document”不存在       | NO                |
+| Sensors      | useWindowScroll                                          | 轨迹窗口滚动位置。                     | 无报错，值为空                                               | NO                |
+| Sensors      | useWindowSize                                            | 跟踪窗口尺寸。                         | 无报错，值为空                                               | NO                |
+| Sensors      | useMeasure and useSize                                   | 跟踪HTML元素的维度。                   | 无报错，值为空                                               | NO                |
+| Sensors      | createBreakpoint                                         | 跟踪内部宽度。                         | 无报错，返回设备不正确                                       | NO                |
+| Sensors      | useScrollbarWidth                                        | 检测浏览器的本地滚动条宽度。           | 无报错，值为0                                                | NO                |
+| Sensors      | usePinchZoom                                             | 跟踪指针事件以检测收缩放大和缩小状态。 | Property 'useState' doesn't exist                            | NO                |
+| UI           | useAudio                                                 | 播放音频并公开其控件。                 | 组件“audio”的 View config getter 回调必须是一个函数          | NO                |
+| UI           | useClickAway                                             | 当用户在目标区域外单击时触发回调。     | Property 'document' doesn't exist 属性“document”不存在       | NO                |
+| UI           | useCss                                                   | 动态调整CSS。                          | Property 'document' doesn't exist 属性“document”不存在       | NO                |
+| UI           | useDrop and useDropArea                                  | 跟踪文件、链接和复制粘贴滴漏。         | Property 'document' doesn't exist 属性“document”不存在       | NO                |
+| UI           | useFullscreen                                            | 全屏显示元素或视频。                   | 组件“video”的视图配置getter回调必须是一个函数                | NO                |
+| UI           | useSlider                                                | 在任何HTML元素上提供幻灯片行为。       | Cannot set property 'userSelect' of undefined                | NO                |
+| UI           | useSpeech                                                | 从文本字符串合成语音。                 | Cannot read property 'getVoices' of undefined                | NO                |
+| UI           | useVibrate                                               | 使用振动API提供物理反馈。              | 0, _react.useToggle is not a function (it is undefined)      | NO                |
+| UI           | useVideo                                                 | 播放视频、跟踪其状态并公开播放控件。   | 组件“video”的视图配置getter回调必须是一个函数                | NO                |
+| Side-effects | useCopyToClipboard                                       | 将文本复制到剪切板。                   | 无报错无反应                                                 | NO                |
+| Side-effects | useFavicon                                               | 设置页面的useFavicon。                 | Property 'document' doesn't exist 属性“document”不存在       | NO                |
+| Side-effects | useLocalStorage                                          | 管理useLocalStorage中的值。            | 无报错无反应                                                 | NO                |
+| Side-effects | useLockBodyScroll                                        | 锁定body元素的滚动。                   | 无报错无反应                                                 | NO                |
+| Side-effects | useSessionStorage                                        | 管理sessionStorage中的值。             | 无报错无反应                                                 | NO                |
+| Side-effects | useTitle                                                 | 设置页面的标题。                       | 无报错无反应                                                 | NO                |
+| Side-effects | usePermission                                            | 查询浏览器API的权限状态。              | Cannot read property 'query' of undefined                    | NO                |
+| Lifecycles   | usePromise                                               | 仅在安装组件时解析promise。            | 无报错无反应                                                 | NO                |
+| Lifecycles   | useEvent                                                 | 订阅事件。                             | 无报错无反应                                                 | NO                |
+| State        | createReducer                                            | 带有定制中间件的减速器挂钩工厂。       | 无报错无反应                                                 | NO                |
 
 ## 遗留问题
 

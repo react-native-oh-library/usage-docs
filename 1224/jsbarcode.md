@@ -224,7 +224,7 @@ JsBarcode("#barcode", "29012343", {
 | marginBottom | undefined         | Number             | no       | yes               |                                                                       |
 | marginLeft   | undefined         | Number             | no       | yes               |                                                                       |
 | marginRight  | undefined         | Number             | no       | yes               |                                                                       |
-| flat         | false             | Boolean            | no       | yes               |                                                                       |
+| flat         | false             | Boolean            | no       | yes               | 仅支持format：EAN8/EAN13                                               |
 | valid        | function(valid){} | Function           | no       | yes               |                                                                       |
 
 ## 遗留问题

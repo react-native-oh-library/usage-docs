@@ -570,9 +570,9 @@ export default ReactImageZoon
 
 ## 遗留问题
 
-- [ ] 本库  CameraRoll.saveToCameraRoll  还未完全鸿蒙化，暂不支持调起相册 （未解决）https://gitee.com/chenchen2019710/usage-docs/issues/I99NUM
-- [ ] 本库依赖 react-native-image-zoom ,enableImageZoom属性还未完全鸿蒙化（未解决）https://gitee.com/wuyasmile/usage-docs/issues/I99NP7
-- [ ] 本库依赖 react-native-image-zoom ,长按触发框架图片拖拽，应用崩溃（未解决）https://gitee.com/wuyasmile/usage-docs/issues/I99NQ7
+- [ ] 本库  CameraRoll.saveToCameraRoll  还未完全鸿蒙化，暂不支持调起相册 （未解决）[#I99NUM](https://gitee.com/chenchen2019710/usage-docs/issues/I99NUM)
+- [ ] 本库依赖 react-native-image-zoom ,enableImageZoom属性还未完全鸿蒙化（未解决）[#I99NP7](https://gitee.com/wuyasmile/usage-docs/issues/I99NP7)
+- [ ] 本库依赖 react-native-image-zoom ,长按触发框架图片拖拽，应用崩溃（未解决）[#I99NQ7](https://gitee.com/wuyasmile/usage-docs/issues/I99NQ7)
 
 ## 其他
 

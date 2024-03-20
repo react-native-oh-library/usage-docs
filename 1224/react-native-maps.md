@@ -578,7 +578,7 @@ ohpm install
 | kmlSrc | The URL from KML file. **Note:** Google Maps and Markers only (either Android or iOS with `PROVIDER_GOOGLE`). | String |  | no | ios/android | no |
 | compassOffset | If set, changes the position of the compass. **Note:** iOS Maps only. | Point |  | no | ios | no |
 | isAccessibilityElement | Determines whether the MapView captures VoiceOver touches or forwards them to children. When `true`, map markers are not visible to VoiceOver. **Note:** iOS Maps only. | Boolean | false | no | ios | no |
-| cameraZoomRange | Map camera distance limits. `minCenterCoordinateDistance` for minimum distance, `maxCenterCoordinateDistance` for maximum, `animated` for animated zoom range changes. Takes precedence if conflicting with `minZoomLevel`, `maxZoomLevel`. **Note**: iOS 13.0+ only. | cameraZoomRange | | no | ios |  |
+| cameraZoomRange | Map camera distance limits. `minCenterCoordinateDistance` for minimum distance, `maxCenterCoordinateDistance` for maximum, `animated` for animated zoom range changes. Takes precedence if conflicting with `minZoomLevel`, `maxZoomLevel`. **Note**: iOS 13.0+ only. | cameraZoomRange | | no | ios | no |
 
 注：HarmonyOS侧的mapType支持以下字符串值
 
@@ -599,15 +599,15 @@ ohpm install
 | animateCamera             | Animate the camera to a new view. You can pass a partial camera object here; any property not given will remain unmodified. | camera: Camera`, `{ duration: Number }                       | ios/android | yes               |
 | setCamera                 | Like `animateCamera`, but sets the new view instantly, without an animation. | camera: Camera`, `{ duration: Number }                       | ios/android | yes               |
 | animateToRegion           | Like `animateCamera`                                         | region: Region`, `duration: Number                           | ios/android | yes               |
-| getMapBoundaries          | Promise<{northEast: LatLng, southWest: LatLng}>              |                                                              | ios/android | no                |
+| getMapBoundaries          | Promise<{northEast: LatLng, southWest: LatLng}>              |                                                              | ios/android | yes             |
 | setMapBoundaries          | The boundary is defined by the map's center coordinates, not the device's viewport itself. **Note:** Google Maps only. | northEast: LatLng`, `southWest: LatLng                       | ios/android | yes               |
 | setIndoorActiveLevelIndex |                                                              | levelIndex: Number                                           | ios/android | no                |
 | fitToElements             | **Note** edgePadding is Google Maps only                     | options: { edgePadding: EdgePadding, animated: Boolean }     | ios/android | no                |
 | fitToSuppliedMarkers      | If you need to use this in `ComponentDidMount`, make sure you put it in a timeout or it will cause performance problems. **Note** edgePadding is Google Maps only | markerIDs: String[], options: { edgePadding: EdgePadding, animated: Boolean } | ios/android | no                |
 | fitToCoordinates          | If called in `ComponentDidMount` in android, it will cause an exception. It is recommended to call it from the MapView `onLayout` event. | coordinates: Array<LatLng>, options: { edgePadding: EdgePadding, animated: Boolean } | ios/android | yes               |
 | addressForCoordinate      | Converts a map coordinate to a address (`Address`). Returns a `Promise<Address>` **Note** Not supported on Google Maps for iOS. | coordinate: LatLng                                           | ios/android | yes               |
-| pointForCoordinate        | Converts a map coordinate to a view coordinate (`Point`). Returns a `Promise<Point>`. | coordinate: LatLng                                           | ios/android | no                |
-| coordinateForPoint        | Converts a view coordinate (`Point`) to a map coordinate. Returns a `Promise<Coordinate>`. | point: Point                                                 | ios/android | no                |
+| pointForCoordinate        | Converts a map coordinate to a view coordinate (`Point`). Returns a `Promise<Point>`. | coordinate: LatLng                                           | ios/android | yes             |
+| coordinateForPoint        | Converts a view coordinate (`Point`) to a map coordinate. Returns a `Promise<Coordinate>`. | point: Point                                                 | ios/android | yes             |
 | getMarkersFrames          | Get markers' centers and frames in view coordinates. Returns a `Promise<{ "markerID" : { point: Point, frame: Frame } }>`. **Note**: iOS only. | onlyVisible: Boolean                                         | ios         | no                |
 | takeSnapshot              | Takes a snapshot of the map and saves it to a picture  file or returns the image as a base64 encoded string. | SnapshotOptions                                              | ios/android | yes                |
 
@@ -653,7 +653,7 @@ ohpm install
 | hideCallout | Hides the callout for this marker |        | ios/android      | yes |
 | redrawCallout | Causes a redraw of the marker's callout. Useful for Google Maps on iOS. **Note**: iOS only. |        | ios      | no |
 | animateMarkerToCoordinate | Animates marker movement. **Note**: Android only |        | android      | no |
-| redraw | Causes a redraw of the marker. Useful when there are updates to the marker and `tracksViewChanges` comes with a cost that is too high. |        | ios/android      | no |
+| redraw | Causes a redraw of the marker. Useful when there are updates to the marker and `tracksViewChanges` comes with a cost that is too high. |        | ios/android      | yes |
 
 ## Polyline
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。

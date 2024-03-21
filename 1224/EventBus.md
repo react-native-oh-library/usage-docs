@@ -34,10 +34,20 @@ yarn add eventbusjs@0.2.0
 下面的代码展示了这个库的基本使用场景：
 
 ```tsx
-import {useState} from 'react';
-import {View, Button, StyleSheet, ScrollView, Text} from 'react-native';
+import {useState, createContext} from 'react';
+import {
+  View,
+  Button,
+  StyleSheet,
+  ScrollView,
+  Text,
+  TextInput,
+} from 'react-native';
 import EventBus from 'eventbusjs';
+import EventBus3 from 'eventbusjs';
 const TAG = 'EventBus';
+const MyContext = createContext('null');
+
 const styles = StyleSheet.create({
   main: {
     height: '100%',
@@ -59,45 +69,44 @@ const styles = StyleSheet.create({
     height: 100,
     borderWidth: 1,
     borderColor: '#000',
+    overflow: 'scroll',
   },
   title: {
     fontSize: 14,
     fontWeight: 'bold',
   },
+  inputWrap: {
+    disPlay: 'flex',
+  },
+  inputText: {
+    width: '100%',
+    height: 40,
+    borderWidth: 1,
+    borderColor: 'gray',
+    marginBottom: 10,
+  },
 });
 
 function eventTest() {
-  console.log(`${TAG},成功执行test_event类型的eventTest事件`);
+  console.warn(`${TAG}-----,成功派发test_event类型的eventTest事件`);
 }
-var TestKeep1 = function (this: any) {
-  this.className = 'TestKeep1';
-  this.callback = function (event: Event) {
-    console.log(
-      `${TAG},className=${this.className},event=${JSON.stringify(event)}`,
-    );
-  };
-};
-var TestKeep2 = function (this: any) {
-  this.className = 'TestKeep2';
-  this.dispatchOurEvent = function () {
-    EventBus.dispatch('callback_event', this);
-  };
-};
-var t1 = new (TestKeep1 as any)();
-var t2 = new (TestKeep2 as any)();
 
 var TestParamsClass1 = function (this: any) {
   this.className = 'TestParamsClass1';
-  this.doSomeThing = function (event: Event, param1: number, param2: string) {
-    console.log(
-      `${TAG},className=${this.className},event=${JSON.stringify(event)},param1=${param1},param=${param2}`,
+  this.doSomeThing = function (
+    event: Event,
+    param1: number | string,
+    param2: number | string,
+  ) {
+    console.warn(
+      `${TAG},className=${this.className},event=${JSON.stringify(event)},params=${param1}--${param2}`,
     );
   };
 };
 var TestParamsClass2 = function (this: any) {
   this.className = 'TestParamsClass2';
-  this.ready = function () {
-    EventBus.dispatch('custom_event', this, 100, 'hello');
+  this.ready = function (param1: number | string, param2: number | string) {
+    EventBus3.dispatch('custom_event', this, param1, param2);
   };
 };
 var p1 = new (TestParamsClass1 as any)();
@@ -105,16 +114,19 @@ var p2 = new (TestParamsClass2 as any)();
 
 function EventBusDemo() {
   const [msg, setMsg] = useState('');
-  const [msgKeep, setMsgKeep] = useState('');
   const [msgParams, setMsgParams] = useState('');
-
+  const [firstVal, setFirstVal] = useState('');
+  const [secondVal, setSecondVal] = useState('');
+  const [onOff, setOnOff] = useState(true);
   function handleAdd() {
-    const has = EventBus.addEventListener('test_event', eventTest, 0);
+    const has = EventBus.hasEventListener('test_event', eventTest, 0);
     if (has) {
       setMsg('eventBus中已经存在test_evnt类型的eventTest事件');
+      console.log(`${TAG},eventBus中已经存在test_evnt类型的eventTest事件`);
     } else {
       EventBus.addEventListener('test_event', eventTest, 0);
       setMsg('成功添加test_event类型的eventTest事件');
+      console.log(`${TAG},成功添加test_event类型的eventTest事件`);
     }
   }
 
@@ -125,6 +137,9 @@ function EventBusDemo() {
         ? '已存在test_event类型的eventTest事件'
         : '不存在test_event类型的eventTest事件',
     );
+    console.log(
+      `${TAG},${has ? '已存在test_event类型的eventTest事件' : '不存在test_event类型的eventTest事件'}`,
+    );
   }
 
   function handleRemove() {
@@ -132,109 +147,155 @@ function EventBusDemo() {
     if (has) {
       EventBus.removeEventListener('test_event', eventTest, 0);
       setMsg('已删除test_event类型的eventTest事件');
+      console.log(`${TAG},已删除test_event类型的eventTest事件`);
     } else {
       setMsg('未找到test_event类型的eventTest事件');
+      console.log(`${TAG},未找到test_event类型的eventTest事件`);
     }
   }
 
   function handleDispatch() {
     let has = EventBus.hasEventListener('test_event', eventTest, 0);
     if (has) {
-      EventBus.hasEventListener('test_event');
+      EventBus.dispatch('test_event');
       setMsg('成功执行test_event类型的eventTest事件');
+      console.log(`${TAG},成功执行test_event类型的eventTest事件`);
     } else {
       setMsg('test_event类型的eventTest事件已被删除或未找到事件');
+      console.log(`${TAG},test_event类型的eventTest事件已被删除或未找到事件`);
     }
   }
 
   function handleGet() {
     setMsg(`${JSON.stringify(EventBus.getEvents())}`);
-  }
-
-  function handleAddKeep() {
-    let has = EventBus.hasEventListener('callback_event', t1.callback, t1);
-    if (has) {
-      setMsgKeep('eventBus中已存在callback_event类型的t1.callback事件');
-    } else {
-      EventBus.addEventListener('callback_event', t1.callback, t1);
-       setMsgKeep('成功添加callback_event类型的t1.callback事件');
-    }
-  }
-
-  function handleDispatchKeep() {
-    t2.dispatchOurEvent();
-    setMsgKeep('成功执行callback_event类型的t1.callback事件');
+    console.log(`${TAG},${JSON.stringify(EventBus.getEvents())}`);
   }
 
   function handleAddForParams() {
-    let has = EventBus.hasEventListener('custom_event', p1.doSomeThing, p1);
+    let has = EventBus3.hasEventListener('custom_event', p1.doSomeThing, p1);
     if (has) {
       setMsgParams('eventBus中已存在custom_event类型的p1.doSomeThing事件');
+      console.log(
+        `${TAG},eventBus中已存在custom_event类型的p1.doSomeThing事件`,
+      );
     } else {
-      EventBus.addEventListener('custom_event', p1.doSomeThing, p1);
-      setMsgParams('成功添加custom_event类型的p1.doSomeThing事件');
+      if (firstVal.length <= 1 || secondVal.length <= 1) {
+        console.error('参数长度不符合预期');
+      } else {
+        EventBus3.addEventListener('custom_event', p1.doSomeThing, p1);
+        setMsgParams('成功添加custom_event类型的p1.doSomeThing事件');
+        console.log(`${TAG},'成功添加custom_event类型的p1.doSomeThing事件'`);
+        setOnOff(true);
+      }
     }
   }
   function handleDispatchForParams() {
-    p2.ready();
-    setMsgParams(
-      '成功执行custom_event类型的p1.doSomeThing事件，param1=100，param2=hello',
-    );
+    if (onOff) {
+      let has = EventBus3.hasEventListener('custom_event', p1.doSomeThing, p1);
+      if (has) {
+        p2.ready(firstVal, secondVal);
+        setMsgParams(`派发事件成功，param1=${firstVal},param2=${secondVal}`);
+        console.log(
+          `${TAG},派发事件成功，param1=${firstVal},param2=${secondVal}`,
+        );
+        setOnOff(false);
+      } else {
+        setMsgParams(
+          'custom_event类型的p1.doSomeThing事件已被删除或未找到事件',
+        );
+        console.log(
+          `${TAG},custom_event类型的p1.doSomeThing事件已被删除或未找到事件`,
+        );
+      }
+    } else {
+      setMsgParams('请先移除旧的p1.doSomeThing事件');
+      console.log(`${TAG},请先移除旧的p1.doSomeThing事件`);
+    }
   }
-
+  function handleRemoveForParams() {
+    setOnOff(true);
+    let has = EventBus3.hasEventListener('custom_event', p1.doSomeThing, p1);
+    if (has) {
+      EventBus3.removeEventListener('custom_event', p1.doSomeThing, p1);
+      setMsgParams('成功删除custom_event类型的p1.doSomeThing事件');
+      console.log(`${TAG},成功删除custom_event类型的p1.doSomeThing事件`);
+    } else {
+      setMsgParams('未找到custom_event类型的p1.doSomeThing事件');
+      console.log(`${TAG},未找到custom_event类型的p1.doSomeThing事件`);
+    }
+  }
   return (
-    <>
+    <MyContext.Provider value={{myGlobalVar: ''}}>
       <ScrollView style={styles.main}>
         <View style={styles.mainItem}>
-          <Text style={styles.title}>基础使用</Text>
+          <Text style={styles.title}>基础使用 & Keeping the scope</Text>
           <View style={styles.container}>
-            <Button title="添加" onPress={handleAdd}></Button>
+            <Button title="添加 eventTest 事件" onPress={handleAdd}></Button>
           </View>
           <View style={styles.container}>
-            <Button title="执行" onPress={handleDispatch}></Button>
+            <Button
+              title="派发 eventTest 事件"
+              onPress={handleDispatch}></Button>
           </View>
           <View style={styles.container}>
-            <Button title="删除" onPress={handleRemove}></Button>
+            <Button title="移除 eventTest 事件" onPress={handleRemove}></Button>
           </View>
           <View style={styles.container}>
-            <Button title="是否存在" onPress={handleHas}></Button>
+            <Button
+              title="判断是否存在 eventTest 事件"
+              onPress={handleHas}></Button>
           </View>
           <View style={styles.container}>
-            <Button title="获取" onPress={handleGet}></Button>
+            <Button
+              title="获取所有事件（常用于调试相关）"
+              onPress={handleGet}></Button>
           </View>
           <View style={styles.box}>
             <Text style={{color: 'blue'}}>{msg}</Text>
           </View>
         </View>
-        <View style={styles.mainItem}>
-          <Text style={styles.title}>Keeping the scope</Text>
-          <View style={styles.container}>
-            <Button title="添加" onPress={handleAddKeep}></Button>
-          </View>
-          <View style={styles.container}>
-            <Button title="执行" onPress={handleDispatchKeep}></Button>
-          </View>
-          <View style={styles.box}>
-            <Text style={{color: 'blue'}}>{msgKeep}</Text>
-          </View>
-        </View>
+
         <View style={styles.mainItem}>
           <Text style={styles.title}>Passing additional parameters</Text>
           <View style={styles.container}>
-            <Button title="添加" onPress={handleAddForParams}></Button>
+            <View style={styles.inputWrap} flexDirection={'row'}>
+              <TextInput
+                onChangeText={text => setFirstVal(text)}
+                style={styles.inputText}
+                placeholder="请输入长度大于1的参数"
+                maxLength={12}
+              />
+              <TextInput
+                onChangeText={text => setSecondVal(text)}
+                style={styles.inputText}
+                placeholder="请输入长度大于1的参数"
+                maxLength={12}
+              />
+            </View>
+            <Button title="添加 doSomeThing 事件" onPress={handleAddForParams}>
+              'add'
+            </Button>
           </View>
           <View style={styles.container}>
-            <Button title="执行" onPress={handleDispatchForParams}></Button>
+            <Button
+              title="派发 doSomeThing 事件"
+              onPress={handleDispatchForParams}></Button>
+          </View>
+          <View style={styles.container}>
+            <Button
+              title="移除 doSomeThing 事件"
+              onPress={handleRemoveForParams}></Button>
           </View>
           <View style={styles.box}>
             <Text style={{color: 'blue'}}>{msgParams}</Text>
           </View>
         </View>
       </ScrollView>
-    </>
+    </MyContext.Provider>
   );
 }
 export default EventBusDemo;
+
 ```
 
 ## 兼容性

@@ -268,7 +268,7 @@ add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
 # RNOH_BEGIN: add_package_subdirectories
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/maps/src/main/cpp" ./maps)
++ add_subdirectory("${OH_MODULE_DIR}/rnoh-maps/src/main/cpp" ./maps)
 # RNOH_END: add_package_subdirectories
 
 add_library(rnoh_app SHARED

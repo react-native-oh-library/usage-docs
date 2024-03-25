@@ -12,24 +12,28 @@
 
 
 
-> [!TIP] [Github 地址](https://github.com/ascoders/react-native-image-zoom)
+> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-image-zoom)
 
 ## 安装与使用
 
+请到三方库的 Releases 发布地址查看配套的版本信息：[<@react-native-oh-library/react-native-image-zoom> Releases](https://github.com/react-native-oh-library/react-native-image-zoom/releases)，并下载适用版本的 tgz 包。
+
 进入到工程目录并输入以下命令：
+
+>[!TIP] # 处替换为 tgz 包的路径
 
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm i react-native-image-pan-zoom --save
+npm install @react-native-oh-tpl/react-native-image-zoom@file:#
 ```
 
 #### **yarn**
 
 ```bash
-yarn add react-native-image-pan-zoom
+yarn add @react-native-oh-tpl/react-native-image-zoom@file:#
 ```
 
 <!-- tabs:end -->
@@ -313,10 +317,10 @@ export default ImageZoomDemo;
 | onClick                          | onClick                                                      | (eventParams: [IOnClick](https://github.com/ascoders/react-native-image-zoom/blob/master/src/image-zoom/image-zoom.type.ts))=>void | NO       | ALL      | YES               |                                                              |
 | `onDoubleClick`                  | onDoubleClick                                                | `(eventParams: IOnClick)=>void	`                          | NO       | ALL      | YES               |                                                              |
 | `panToMove`                      | allow to move picture with one finger                        | `boolean`                                                    | NO       | ALL      | YES               |                                                              |
-| pinchToZoom                      | allow scale with two fingers                                 | `boolean`                                                    | NO       | ALL      | YES               |                                                              |
+| pinchToZoom                      | allow scale with two fingers                                 | `boolean`                                                    | NO       | ALL      | NO                | 详见遗留问题                                                 |
 | clickDistance                    | how many finger movement can also trigger `onClick`          | number                                                       | NO       | ALL      | YES               |                                                              |
 | `horizontalOuterRangeOffset`     | horizontal beyond the distance, the parent to do picture switching, you can listen to this function. When this function is triggered, you can do the switch operation | (offsetX?: number)=>void                                     | NO       | ALL      | YES               |                                                              |
-| onDragLeft                       | trigger to switch to the left of the graph, the left sliding speed exceeds the threshold when triggered | ()=>void                                                     | NO       | ALL      | NO                | https://github.com/ascoders/react-native-image-zoom/issues/103 |
+| onDragLeft                       | trigger to switch to the left of the graph, the left sliding speed exceeds the threshold when triggered | ()=>void                                                     | NO       | \        | NO                | 此回调函数源码未实现，详见：https://github.com/ascoders/react-native-image-zoom/issues/103 |
 | `responderRelease`               | let go but do not cancel                                     | (vx: number)=>void                                           | NO       | ALL      | YES               |                                                              |
 | `maxOverflow`                    | maximum sliding threshold                                    | `number`                                                     | NO       | ALL      | YES               |                                                              |
 | `longPressTime`                  | long press threshold                                         | `number`                                                     | NO       | ALL      | YES               |                                                              |
@@ -328,13 +332,13 @@ export default ImageZoomDemo;
 | `enableCenterFocus`              | for disabling focus on image center if user doesn't want it  | `boolean`                                                    | NO       | ALL      | YES               | ``                                                           |
 | `onSwipeDown`                    | function that fires when user swipes down                    | `() => void	`                                             | NO       | ALL      | YES               |                                                              |
 | `swipeDownThreshold`             | threshold for firing swipe down function                     | `number`                                                     | NO       | ALL      | YES               |                                                              |
-| `minScale`                       | minimum zoom scale                                           | `number`                                                     | NO       | ALL      | YES               |                                                              |
-| maxScale                         | maximum zoom scale                                           | number                                                       | NO       |          | YES               |                                                              |
+| `minScale`                       | minimum zoom scale                                           | `number`                                                     | NO       | ALL      | NO                | 此值在双指缩放功能正常后可生效                               |
+| maxScale                         | maximum zoom scale                                           | number                                                       | NO       | ALL      | NO                | 此值在双指缩放功能正常后可生效                               |
 | useNativeDriver                  | Whether to animate using [`useNativeDriver`](https://reactnative.dev/docs/animations#using-the-native-driver) | boolean                                                      | NO       | ALL      | YES               |                                                              |
 | onStartShouldSetPanResponder     | Override onStartShouldSetPanResponder behavior               | () => boolean                                                | NO       | ALL      | YES               |                                                              |
 | onMoveShouldSetPanResponder      | Override onMoveShouldSetPanResponder behavior                | () => boolean                                                | NO       | ALL      | YES               |                                                              |
-| onPanResponderTerminationRequest | Override onMoveShouldSetPanResponder behavior                | () => boolean                                                | NO       | ALL      | YES               |                                                              |
-| useHardwareTextureAndroid        | for disabling rendering to hardware texture on Android       | boolean                                                      | NO       | Android  | YES               |                                                              |
+| onPanResponderTerminationRequest | Override onMoveShouldSetPanResponder behavior                | () => boolean                                                | NO       | ALL      | NO                | 详见遗留问题                                                 |
+| useHardwareTextureAndroid        | for disabling rendering to hardware texture on Android       | boolean                                                      | NO       | Android  | NO                | 此属性仅Android生效                                          |
 
 ## 遗留问题
 

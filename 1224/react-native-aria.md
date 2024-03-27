@@ -23,14 +23,14 @@ React Native ARIA是可增量采用的。每个组件都作为单独的包发布
 #### **yarn**
 
 ```bash
-yarn add @react-native-aria/button@0.2.4
+yarn add @react-native-aria/button@0.2.2
 ```
 <!-- tabs:end -->
 
 #### **npm**
 
 ```bash
-npm install @react-native-aria/button@0.2.4
+npm install @react-native-aria/button@0.2.2
 ```
 <!-- tabs:end -->
 
@@ -39,14 +39,14 @@ npm install @react-native-aria/button@0.2.4
 #### **yarn**
 
 ```bash
-yarn add @react-native-aria@0.2.4
+yarn add react-native-aria@0.2.2
 ```
 <!-- tabs:end -->
 
 #### **npm**
 
 ```bash
-npm install @react-native-aria@0.2.4
+npm install react-native-aria@0.2.2
 ```
 <!-- tabs:end -->
 

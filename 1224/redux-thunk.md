@@ -17,30 +17,27 @@
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[redux-thunk Releases](https://github.com/reduxjs/redux-thunk/releases)，并下载适用版本的 tgz 包。
-进入到工程目录并输入以下命令：
-
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm install redux-thunk@^3.1.0
+npm install redux-thunk@3.1.0
 ```
 
 #### **yarn**
 
 ```bash
-yarn add redux-thunk@^3.1.0
+yarn add redux-thunk@3.1.0
 ```
 
 <!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：
 
-```js
-
 1.在Redux store中引入redux-thunk中间件
+
+```js
 import React from 'react'
 import { Provider } from 'react-redux'
 import reducers from './reducers'
@@ -57,9 +54,9 @@ export const TodosExample = () => {
     </Provider>
   )
 }
-
-2.编写一个异步操作的action creator：
-...
+```
+2.编写一个异步操作的action creator
+```
 //使用定时器
 export const addTodoasync=(text) =>{
     return dispatch => {
@@ -82,8 +79,10 @@ export const fetchUser = () => {
       });
   };
   ...
-  
-3.在组件中dispatch这个action：
+```
+
+3.在组件中dispatch这个action
+```
 ...
 let AddTodo = ({ dispatch }) => {
     let input;

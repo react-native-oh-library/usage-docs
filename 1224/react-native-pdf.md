@@ -42,12 +42,12 @@ yarn add @react-native-oh-tpl/react-native-pdf@file:#
 
 ```js
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import Pdf from 'react-native-pdf';
+import { View, Dimensions, StyleSheet } from 'react-native';
+import Pdf from "react-native-pdf";
 
 export function PdfExample() {
     // const source = { uri: 'https://www-file.huawei.com/minisite/media/annual_report/annual_report_2022_cn.pdf', cache: true };
-    const source = require('../assets/test.pdf');  
+    const source = require('../assets/test.pdf');
 
     return (
         <View style={styles.sectionContainer}>
@@ -65,6 +65,7 @@ export function PdfExample() {
                 onPressLink={(uri) => {
                     console.log(`Link pressed: ${uri}`);
                 }}
+                style={styles.pdf}
             />
         </View>
     );
@@ -72,8 +73,14 @@ export function PdfExample() {
 
 const styles = StyleSheet.create({
     sectionContainer: {
-        marginTop: 32,
-        paddingHorizontal: 24,
+        flex: 1,
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+    },
+    pdf: {
+        flex:1,
+        width: Dimensions.get('window').width,
+        height: Dimensions.get('window').height,
     }
 });
 ```

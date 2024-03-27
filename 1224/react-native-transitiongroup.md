@@ -1,7 +1,7 @@
 > 模板版本：v0.1.3
 
 <p align="center">
-  <h1 align="center"> <code>react-native-transtiongroup</code> </h1>
+  <h1 align="center"> <code>react-native-transitiongroup</code> </h1>
 </p>
 <p align="center">
      <a href="https://github.com/madsleejensen/react-native-transitiongroup/blob/master/README.md">
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 >
-> 详情见 [react-native-transtiongroup 源库地址](https://github.com/imchintan/react-native-transtiongroup/blob/master/README.md)
+> 详情见 [react-native-transitiongroup 源库地址](https://github.com/madsleejensen/react-native-transitiongroup/blob/master/README.md)
 
 | 名称          | 描述                                | 参数类型 | 是否必填 | Platform | HarmonyOS Support |
 | ------------- | ---------------------------------- | -------- | -------- | -------- | ----------------- |
@@ -180,4 +180,4 @@ const styles = StyleSheet.create({
 
 ## 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/imchintan/react-native-transtiongroup/blob/master/package.json) ，请自由地享受和参与开源。
+本项目基于 [The MIT License (MIT)](https://github.com/madsleejensen/react-native-transitiongroup/blob/master/package.json) ，请自由地享受和参与开源。

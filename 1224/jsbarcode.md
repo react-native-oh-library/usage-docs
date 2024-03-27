@@ -60,11 +60,11 @@ export const Barcode = (props: Props) => {
   } = props.options;
 
   const svgText = useMemo(() => {
-    const document = new DOMImplementation().createDocument(null, 'html');
-    const svgNode = document.createElementNS(null, 'svg');
+    const doc = new DOMImplementation().createDocument(null, 'html');
+    const svgNode = doc.createElementNS(null, 'svg');
 
     JsBarcode(svgNode, props.value, {
-      xmlDocument: document,
+      xmlDocument: doc,
       width,
       height,
       format,

@@ -4,7 +4,7 @@
   <h1 align="center"> <code>EventBus</code> </h1>
 </p>
 <p align="center">
-    <a href="https://github.com/krasimir/EventBus">
+    <a href="https://github.com/krasimir/EventBus/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>

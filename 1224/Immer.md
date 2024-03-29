@@ -4,10 +4,12 @@
   <h1 align="center"> <code>immer</code> </h1>
 </p>
 <p align="center">
-    <a href="https://github.com/reactjs/react-lifecycles-compat">
+    <a href="https://github.com/immerjs/immer/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
+
+
 
 
 
@@ -773,7 +775,7 @@ export default MyComponent;
 
 在以下版本验证通过
 
-1. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：204.1.0.59;
+1. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.700; ROM：2.0.0.72;
 
 ## API
 
@@ -808,3 +810,7 @@ export default MyComponent;
 ## 遗留问题
 
 ## 其他
+
+## 开源协议
+
+本项目基于 [The MIT License (MIT)](https://github.com/immerjs/immer/blob/main/LICENSE) ，请自由地享受和参与开源。

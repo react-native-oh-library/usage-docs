@@ -24,13 +24,13 @@
 #### **npm**
 
 ```bash
-npm immer
+npm immer@10.0.4
 ```
 
 #### **yarn**
 
 ```bash
-yarn add immer
+yarn add immer@10.0.4
 ```
 
 <!-- tabs:end -->

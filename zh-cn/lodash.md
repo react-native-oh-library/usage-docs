@@ -106,15 +106,15 @@ lodashStable.findLastIndex(users, "active");
 | --------- | ------------------------------------------------------------------------ | -------- | -------- | ----------------- |
 | camelCase | Converts string to camel case                                            | function | NO       | yes               |
 | repeat    | Repeats the given string n times                                         | function | NO       | yes               |
-| truncate  |                                                                          | function | NO       | yes               |
+| truncate  | Truncates string if it's longer than the given maximum string length     | function | NO       | yes               |
 | toUpper   | Converts string, as a whole, to upper case just like String#toUpperCase. | function | NO       | yes               |
 
 #### **Math**
 
 | Name   | Description                               | Type     | Required | HarmonyOS Support |
-| ------ | ----------------------------------------- | -------- | -------- | ----------------- | ---- |
+| ------ | ----------------------------------------- | -------- | -------- | ----------------- | 
 | ceil   | Computes number rounded up to precision   | function | NO       | yes               |
-| divide | Divide two numbers.                       | function | NO       | yes               | Math |
+| divide | Divide two numbers.                       | function | NO       | yes               | 
 | round  | Computes number rounded to precision.     | function | NO       | yes               |
 | floor  | Computes number rounded down to precision | function | NO       | yes               |
 | sum    | Computes the sum of the values in array   | function | NO       | yes               |

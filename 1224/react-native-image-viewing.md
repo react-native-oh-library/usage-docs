@@ -1,4 +1,4 @@
-> 模板版本：v0.1.2
+> 模板版本：v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>react-native-image-viewing</code> </h1>
@@ -9,7 +9,7 @@
     </a>
 </p>
 
-> [!tip] [Github 地址][https://github.com/jobtoday/react-native-image-viewing]
+> [!tip] [Github 地址][https://github.com/react-native-oh-library/react-native-image-viewing]
 
 ## 安装与使用
 

@@ -220,6 +220,7 @@ var swiper = React.createClass({
 - [ ]    组件属性继承RNOH scrollview,当前RNOH中的scrollsToTop暂时不支持
 - [ ] 组件属性继承RNOH scrollview,当前RNOH中的removeClippedSubviews暂时不支持
 - [ ]   组件属性继承RNOH scrollview,当前RNOH中的automaticallyAdjustContentInsets暂时不支持
+- [ ]   组件轮播图3月30号roh版本为0.72.5暂时有不居中问题，在4月30号 roh版本为0.72.9  上解决
 
 ### 其他
 

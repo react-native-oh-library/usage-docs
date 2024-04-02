@@ -16,12 +16,12 @@
 #### **yarn**
 
 ```bash
-yarn add @redux@^^5.0.1
+yarn add redux@^5.0.1
 ```
 
 #### **npm**
 ```bash
-npm install @redux@^5.0.1
+npm install redux@^5.0.1
 ```
 <!-- tabs:end -->
 

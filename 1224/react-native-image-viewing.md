@@ -206,6 +206,8 @@ API列表
 
 ## 遗留问题
 
+- [ ] 本库  swipeToCloseEnabled，doubleTapToZoomEnabled，animationType  还未完全鸿蒙化，暂不支持上下滑动关闭、双击放大与动画效果功能 （未解决）[#I9DNQU](https://gitee.com/yumei1/usage-docs/issues/I9DNQU)
+
 ## 其他
 
 ## 开源协议

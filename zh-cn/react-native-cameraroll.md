@@ -20,7 +20,7 @@
 
 进入到工程目录并输入以下命令：
 
->[!TIP] # 处替换为 tgz 包的路径
+> [!TIP] # 处替换为 tgz 包的路径
 
 <!-- tabs:start -->
 
@@ -40,7 +40,7 @@ yarn add @react-native-oh-tpl/camera-roll@file:#
 
 快速使用：
 
->[!WARNING] 使用时 import 的库名不变。
+> [!WARNING] 使用时 import 的库名不变。
 
 ```js
 import { View, Button } from "react-native";
@@ -208,6 +208,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   ];
 }
 ```
+
 ### 应用权限申请
 
 > [!tip] "ohos.permission.READ_IMAGEVIDEO"，"ohos.permission.WRITE_IMAGEVIDEO"权限等级为<B>system_basic</B>，授权方式为<B>user_grant</B>，[使用ACL签名的配置指导](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/signing-0000001587684945-V3#section157591551175916)
@@ -219,7 +220,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   "module": {
     "name": "entry",
     "type": "entry",
-    
+
   ···
 
     "requestPermissions": [
@@ -229,8 +230,6 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   }
 }
 ```
-
-
 
 ### 运行
 
@@ -254,39 +253,37 @@ ohpm install
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/camera-roll Releases](https://github.com/react-native-oh-library/react-native-cameraroll/releases)
 
 ## 静态方法
+
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 **CameraRoll**
-| Name | Description | Type | Required | Platform | HarmonyOS Support  |
+| Name | Description | Type | Required | Platform | HarmonyOS Support |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| saveToCameraRoll | 保存图片/视频 | function | no | android,ios | no   |
-| getPhotos | 查找图片/视频 | function | no   | android,ios | partially |
-| getAlbums | 查找相册 | function | no   | android,ios      | partially |
-| deletePhotos | 删除图片/视频 | function | no  | android,ios  | no     |
-| iosGetImageDataById | 获取图片数据 | function | no  | ios    | partially |
-| getPhotoThumbnail | 获取缩略图 | function | no     | ios     | partially |
-
-
+| saveToCameraRoll | 保存图片/视频 | function | no | android,ios | no |
+| getPhotos | 查找图片/视频 | function | no | android,ios | partially |
+| getAlbums | 查找相册 | function | no | android,ios | partially |
+| deletePhotos | 删除图片/视频 | function | no | android,ios | no |
+| iosGetImageDataById | 获取图片数据 | function | no | ios | partially |
+| getPhotoThumbnail | 获取缩略图 | function | no | ios | partially |
 
 ## API
+
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-
-| Name | Description | Type | Required | Platform | HarmonyOS Support  |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| `iosReadGalleryPermission` | 权限验证 | function | no    | ios  | no  |
-| `iosRequestReadWriteGalleryPermission` | 读写权限申请 | function | no  | ios  | no      |
-| `iosRequestAddOnlyGalleryPermission` | 添加权限申请 | function | no  | ios  | no      |
-| `iosRefreshGallerySelection` | 图片列表刷新 | function | no   | ios   | no  |
-| `harmonyReadGalleryPermission` | 对比`iosReadGalleryPermission` | function | no    | harmony  | yes  |
-| `harmonyRequestReadWriteGalleryPermission` | 对比`iosRequestReadWriteGalleryPermission` | function | no  | harmony  | yes    |
-| `harmonyRequestAddOnlyGalleryPermission` | 对比`iosRequestAddOnlyGalleryPermission` | function | no  | harmony  | yes    |
-| `harmonyRefreshGallerySelection` | 对比`iosRefreshGallerySelection` | function | no   | harmony   | no  |
-
+| Name                                       | Description                                | Type     | Required | Platform | HarmonyOS Support |
+| ------------------------------------------ | ------------------------------------------ | -------- | -------- | -------- | ----------------- |
+| `iosReadGalleryPermission`                 | 权限验证                                   | function | no       | ios      | no                |
+| `iosRequestReadWriteGalleryPermission`     | 读写权限申请                               | function | no       | ios      | no                |
+| `iosRequestAddOnlyGalleryPermission`       | 添加权限申请                               | function | no       | ios      | no                |
+| `iosRefreshGallerySelection`               | 图片列表刷新                               | function | no       | ios      | no                |
+| `harmonyReadGalleryPermission`             | 对比`iosReadGalleryPermission`             | function | no       | harmony  | yes               |
+| `harmonyRequestReadWriteGalleryPermission` | 对比`iosRequestReadWriteGalleryPermission` | function | no       | harmony  | yes               |
+| `harmonyRequestAddOnlyGalleryPermission`   | 对比`iosRequestAddOnlyGalleryPermission`   | function | no       | harmony  | yes               |
+| `harmonyRefreshGallerySelection`           | 对比`iosRefreshGallerySelection`           | function | no       | harmony  | no                |
 
 ## 遗留问题
 

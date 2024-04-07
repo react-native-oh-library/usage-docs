@@ -20,7 +20,7 @@
 
 进入到工程目录并输入以下命令：
 
->[!TIP] # 处替换为 tgz 包的路径
+> [!TIP] # 处替换为 tgz 包的路径
 
 <!-- tabs:start -->
 
@@ -40,7 +40,7 @@ yarn add @react-native-oh-tpl/react-native-view-shot@file:#
 
 下面的代码展示了这个库的基本使用场景：
 
->[!WARNING] 使用时 import 的库名不变。
+> [!WARNING] 使用时 import 的库名不变。
 
 ```js
 import React from "react";
@@ -48,21 +48,25 @@ import { View, Text, Button } from "react-native";
 import ViewShot, { captureRef, captureScreen } from "react-native-view-shot";
 
 export default function App() {
-  const view = React.useRef<View>(null);
+  const view = React.useRef < View > null;
   const ref = React.useRef(null);
   const onCapture = (uri) => {
     console.info("onCapture callback");
-    setTxt(JSON.stringify(uri))
+    setTxt(JSON.stringify(uri));
   };
   const onCaptureFailure = (err) => {
     console.info("onCaptureFailure " + JSON.stringify(err));
-    setTxt(JSON.stringify(err))
+    setTxt(JSON.stringify(err));
   };
-  const [txt, setTxt] = React.useState<string>('');
+  const [txt, setTxt] = React.useState < string > "";
 
   return (
-    <View >
-      <View ref={view} collapsable={false} style={{ backgroundColor: "#ffffff" }}>
+    <View>
+      <View
+        ref={view}
+        collapsable={false}
+        style={{ backgroundColor: "#ffffff" }}
+      >
         <Text style={{ color: "#000", marginBottom: 30 }}>
           Hello OpenHarmony
         </Text>
@@ -71,13 +75,17 @@ export default function App() {
           Hello HarmonyOS Next.
         </Text>
 
-
-        <ViewShot ref={ref} style={{ backgroundColor: "#ffffff" }} onCapture={onCapture} onCaptureFailure={onCaptureFailure} captureMode="mount">
+        <ViewShot
+          ref={ref}
+          style={{ backgroundColor: "#ffffff" }}
+          onCapture={onCapture}
+          onCaptureFailure={onCaptureFailure}
+          captureMode="mount"
+        >
           <Text style={{ color: "#000", marginBottom: 30 }}>Hello World</Text>
         </ViewShot>
 
         <Text style={{ color: "#000", marginBottom: 30 }}>message:{txt}</Text>
-
       </View>
       <Button
         title="captureRef"
@@ -276,11 +284,11 @@ ohpm install
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name             | Description                              | Type                                   | Required | Platform     | HarmonyOS Support |
-| ---------------- | ---------------------------------------- | -------------------------------------- | -------- | ------------ | ----------------- |
-| captureMode      | if not defined (default). the capture is not automatic and you need to use the ref and call `capture()` yourself<br /><br />`"mount"`. Capture the view once at mount. (It is important to understand image loading won't be waited, in such case you want to use `"none"` with `viewShotRef.capture()` after `Image#onLoad`.)  `"continuous"` EXPERIMENTAL, this will capture A LOT of images continuously. For very specific use-cases.  `"update"` EXPERIMENTAL, this will capture images each time React redraw (on did update). For very specific use-cases. | ( 'mount' \| 'continuous' \| 'update') | no       | Android, iOS | yes               |
-| onCapture        | when a `captureMode` is defined, this callback will be called with the capture result. | function                               | no       | Android, iOS | yes               |
-| onCaptureFailure | when a `captureMode` is defined, this callback will be called when a capture fails. | function                               | no       | Android, iOS | yes               |
+| Name             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Type                                   | Required | Platform     | HarmonyOS Support |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------- | -------- | ------------ | ----------------- |
+| captureMode      | if not defined (default). the capture is not automatic and you need to use the ref and call `capture()` yourself<br /><br />`"mount"`. Capture the view once at mount. (It is important to understand image loading won't be waited, in such case you want to use `"none"` with `viewShotRef.capture()` after `Image#onLoad`.) `"continuous"` EXPERIMENTAL, this will capture A LOT of images continuously. For very specific use-cases. `"update"` EXPERIMENTAL, this will capture images each time React redraw (on did update). For very specific use-cases. | ( 'mount' \| 'continuous' \| 'update') | no       | Android, iOS | yes               |
+| onCapture        | when a `captureMode` is defined, this callback will be called with the capture result.                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | function                               | no       | Android, iOS | yes               |
+| onCaptureFailure | when a `captureMode` is defined, this callback will be called when a capture fails.                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | function                               | no       | Android, iOS | yes               |
 
 ## API
 
@@ -290,9 +298,9 @@ ohpm install
 
 | Name             | Description | Type     | Required | Platform     | HarmonyOS Support |
 | ---------------- | ----------- | -------- | -------- | ------------ | ----------------- |
-| `captureRef`     | 组件截图        | function | no       | android, ios | yes               |
-| `captureScreen`  | 屏幕截图        | function | no       | android, ios | yes               |
-| `releaseCapture` | 资源释放        | function | no       | android, ios | no                |
+| `captureRef`     | 组件截图    | function | no       | android, ios | yes               |
+| `captureScreen`  | 屏幕截图    | function | no       | android, ios | yes               |
+| `releaseCapture` | 资源释放    | function | no       | android, ios | no                |
 
 ## 遗留问题
 

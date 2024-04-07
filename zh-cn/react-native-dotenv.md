@@ -12,8 +12,7 @@
     </a>
 </p>
 
->[!tip] [Github 地址](https://github.com/goatandsheep/react-native-dotenv)
-
+> [!tip] [Github 地址](https://github.com/goatandsheep/react-native-dotenv)
 
 ## 安装与使用
 
@@ -45,9 +44,7 @@ yarn add -D react-native-dotenv@^3.4.9
 
 ```json
 {
-  "plugins": [
-    ["module:react-native-dotenv"]
-  ]
+  "plugins": [["module:react-native-dotenv"]]
 }
 ```
 
@@ -61,27 +58,30 @@ API_TOKEN=abc123
 In **users.js**
 
 ```js
-import {API_URL, API_TOKEN} from "@env"
+import { API_URL, API_TOKEN } from "@env";
 
 fetch(`${API_URL}/users`, {
   headers: {
-    'Authorization': `Bearer ${API_TOKEN}`
-  }
-})
+    Authorization: `Bearer ${API_TOKEN}`,
+  },
+});
 ```
 
 ### 安全模式
 
 若启用安全模式，则只允许使用在 `.env` 文件中定义的环境变量。这将完全忽略环境中已经定义的所有内容。
 
-`.env`  文件必须存在
+`.env` 文件必须存在
 
 ```json
 {
   "plugins": [
-    ["module:react-native-dotenv", {
-      "safe": true
-    }]
+    [
+      "module:react-native-dotenv",
+      {
+        "safe": true
+      }
+    ]
   ]
 }
 ```
@@ -93,9 +93,12 @@ fetch(`${API_URL}/users`, {
 ```json
 {
   "plugins": [
-    ["module:react-native-dotenv", {
-      "allowUndefined": true
-    }]
+    [
+      "module:react-native-dotenv",
+      {
+        "allowUndefined": true
+      }
+    ]
   ]
 }
 ```
@@ -103,9 +106,9 @@ fetch(`${API_URL}/users`, {
 In **users.js**
 
 ```js
-import {UNDEFINED_VAR} from '@env'
+import { UNDEFINED_VAR } from "@env";
 
-console.log(UNDEFINED_VAR === undefined) // true
+console.log(UNDEFINED_VAR === undefined); // true
 ```
 
 当设置为 false 时，将抛出错误。
@@ -117,7 +120,6 @@ console.log(UNDEFINED_VAR === undefined) // true
 ### 多环境 (Multi-env)
 
 该三方库现在支持读取特定环境的变量。这意味着可以从多个文件中导入环境变量，例如 `.env`, `.env.development`, `.env.Production` 和 `.env.test`。这是基于 [dotenv-flow](https://www.npmjs.com/package/dotenv-flow) 实现的。
-
 
 若要进行选择，需要为每个环境使用 NODE_ENV 设置脚本
 
@@ -131,7 +133,7 @@ console.log(UNDEFINED_VAR === undefined) // true
 {
   "scripts": {
     "start:development": "set NODE_ENV=development&& npx react-native start",
-    "start:production": "set NODE_ENV=production&& npx react-native start",
+    "start:production": "set NODE_ENV=production&& npx react-native start"
   }
 }
 ```
@@ -142,7 +144,7 @@ console.log(UNDEFINED_VAR === undefined) // true
 {
   "scripts": {
     "start:development": "NODE_ENV=development npx react-native start",
-    "start:production": "NODE_ENV=production npx react-native start",
+    "start:production": "NODE_ENV=production npx react-native start"
   }
 }
 ```
@@ -158,14 +160,14 @@ console.log(UNDEFINED_VAR === undefined) // true
 - 在此文件中，以下面的形式声明一个 module
 
 ```ts
-declare module '@env' {
+declare module "@env" {
   export const API_BASE: string;
 }
 ```
 
 把所有你的 `.env` 的变量加入这个 module 内。
 
-最后，在  `tsconfig.json` 文件中添加 `typeRoots` 字段
+最后，在 `tsconfig.json` 文件中添加 `typeRoots` 字段
 
 ```json
 {
@@ -173,7 +175,7 @@ declare module '@env' {
   "compilerOptions": {
     ...
       "typeRoots": ["./src/types"],
-    ...  
+    ...
   }
 ...
 }
@@ -198,15 +200,13 @@ declare module '@env' {
 
 ```js
 // .babel.config.js
-module.exports=function(api){
-	api.cache(false);
-	return{
-		presets:['module:metro-react-native-babel-preset'],
-		plugins:[
-			["module:react-native-dotenv"]
-		]
-	}
-}
+module.exports = function (api) {
+  api.cache(false);
+  return {
+    presets: ["module:metro-react-native-babel-preset"],
+    plugins: [["module:react-native-dotenv"]],
+  };
+};
 ```
 
 在 `metro.config.js` 中添加 `resetCache: true`，例如
@@ -220,7 +220,6 @@ module.exports = {
 ```
 
 更多清除缓存的方法请参考 [react-naitve-dotenv 官方指引](https://github.com/goatandsheep/react-native-dotenv)
-
 
 ## 约束与限制
 

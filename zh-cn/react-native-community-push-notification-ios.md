@@ -19,6 +19,7 @@
 进入到工程目录并输入以下命令：
 
 <!-- tabs:start -->
+
 #### **npm**
 
 ```bash
@@ -33,75 +34,69 @@ yarn add @react-native-oh-tpl/push-notification-ios@file:#
 
 <!-- tabs:end -->
 
-
 下面的代码展示了这个库的基本使用场景：
 
->[!WARNING] 使用时 import 的库名不变。
+> [!WARNING] 使用时 import 的库名不变。
 
 ```js
-import React, { useState } from 'react';
-import { 
-    View, 
-    Text,
-    Button 
-} from 'react-native';
+import React, { useState } from "react";
+import { View, Text, Button } from "react-native";
 
-import PushNotification from '@react-native-community/push-notification-ios';
+import PushNotification from "@react-native-community/push-notification-ios";
 
 export const App = () => {
-
   const [data, setData] = useState({});
 
   const addNotificationRequest = () => {
     PushNotification.addNotificationRequest({
-      id: 'test',
-      title: 'title',
-      subtitle: 'subtitle',
-      body: 'body',
+      id: "test",
+      title: "title",
+      subtitle: "subtitle",
+      body: "body",
       fireDate: new Date(new Date().valueOf() + 1000),
-      repeats: true
+      repeats: true,
     });
   };
 
   const addSilentNotificationRequest = () => {
     PushNotification.addNotificationRequest({
-      id: 'test-4',
-      title: 'title',
-      subtitle: 'subtitle',
-      body: 'body',
+      id: "test-4",
+      title: "title",
+      subtitle: "subtitle",
+      body: "body",
       isSilent: true,
       fireDate: new Date(new Date().valueOf() + 2000),
       repeats: true,
       userInfo: {
-        data: '123456',
-      }
+        data: "123456",
+      },
     });
   };
 
   const addMultipleRequests = () => {
     PushNotification.addNotificationRequest({
-      id: 'test-1',
-      title: 'First',
-      subtitle: 'subtitle',
-      body: 'First Notification out of 3',
+      id: "test-1",
+      title: "First",
+      subtitle: "subtitle",
+      body: "First Notification out of 3",
       fireDate: new Date(new Date().valueOf() + 10000),
       repeats: true,
     });
 
     PushNotification.addNotificationRequest({
-      id: 'test-2',
-      title: 'Second',
-      subtitle: 'subtitle',
-      body: 'Second Notification out of 3',
+      id: "test-2",
+      title: "Second",
+      subtitle: "subtitle",
+      body: "Second Notification out of 3",
       fireDate: new Date(new Date().valueOf() + 12000),
       repeats: true,
     });
 
     PushNotification.addNotificationRequest({
-      id: 'test-3',
-      title: 'Third',
-      subtitle: 'subtitle',
-      body: 'Third Notification out of 3',
+      id: "test-3",
+      title: "Third",
+      subtitle: "subtitle",
+      body: "Third Notification out of 3",
       fireDate: new Date(new Date().valueOf() + 14000),
       repeats: true,
     });
@@ -112,26 +107,27 @@ export const App = () => {
   };
 
   const removeDeliveredNotifications = () => {
-    PushNotification.removeDeliveredNotifications(['test-1', 'test-2']);
+    PushNotification.removeDeliveredNotifications(["test-1", "test-2"]);
   };
 
   const getDeliveredNotifications = () => {
     PushNotification.getDeliveredNotifications((data) => {
       if (data) {
-        setData(data)
+        setData(data);
       } else {
         console.log("failed");
       }
     });
   };
 
-
   return (
-    <View style={{ flexDirection: 'column', justifyContent: 'space-between' }}>
-      <Button title="Add Notification Request"
+    <View style={{ flexDirection: "column", justifyContent: "space-between" }}>
+      <Button
+        title="Add Notification Request"
         onPress={addNotificationRequest}
       />
-      <Button title="Add Slient Notification Request"
+      <Button
+        title="Add Slient Notification Request"
         onPress={addSilentNotificationRequest}
       />
       <Button
@@ -140,15 +136,11 @@ export const App = () => {
       />
       <Button
         title="Set app's icon badge to 42"
-        onPress={() =>
-          PushNotification.setApplicationIconBadgeNumber(42)
-        }
+        onPress={() => PushNotification.setApplicationIconBadgeNumber(42)}
       />
       <Button
         title="Clear app's icon badge"
-        onPress={() =>
-          PushNotification.setApplicationIconBadgeNumber(0)
-        }
+        onPress={() => PushNotification.setApplicationIconBadgeNumber(0)}
       />
       <Button
         title="Remove All Delivered Notification Requests"
@@ -168,9 +160,8 @@ export const App = () => {
     </View>
   );
 };
-
-
 ```
+
 ## Link
 
 目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
@@ -273,6 +264,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
     };
 }
 ```
+
 ### 在 ArkTs 侧引入 PushNotificationPackage
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
@@ -288,6 +280,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   ];
 }
 ```
+
 ### 运行
 
 点击右上角的 `sync` 按钮
@@ -304,6 +297,7 @@ ohpm install
 ## 约束与限制
 
 ## 兼容性
+
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[<@react-native-oh-tpl/push-notification-ios> Releases](https://github.com/react-native-oh-library/react-native-push-notification-ios/releases))
@@ -318,14 +312,13 @@ RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name                            | Description              | Type     | Required | Platform | HarmonyOS Support |
-| ------------------------------- | ------------------------ | -------- | -------- | -------- | ----------------- |
-| addNotificationRequest | Sends notificationRequest to notification center at specified firedate. Fires immediately if firedate is not set. | function | no       | IOS/HarmonyOS      | yes               |
-| setApplicationIconBadgeNumber | Sets the badge number for the app icon on the home screen | function | no       | All      | yes               |
-| getDeliveredNotifications | Provides you with a list of the app’s notifications that are still displayed in Notification Center | function | no       | All      | yes               |
-| removeAllDeliveredNotifications | Remove all delivered notifications from Notification Center | function | no       | All      | yes               |
-| removeDeliveredNotifications | Removes the specified delivered notifications from Notification Center | function | no       | All      | yes               |
-
+| Name                            | Description                                                                                                       | Type     | Required | Platform      | HarmonyOS Support |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------------------- | -------- | -------- | ------------- | ----------------- |
+| addNotificationRequest          | Sends notificationRequest to notification center at specified firedate. Fires immediately if firedate is not set. | function | no       | IOS/HarmonyOS | yes               |
+| setApplicationIconBadgeNumber   | Sets the badge number for the app icon on the home screen                                                         | function | no       | All           | yes               |
+| getDeliveredNotifications       | Provides you with a list of the app’s notifications that are still displayed in Notification Center               | function | no       | All           | yes               |
+| removeAllDeliveredNotifications | Remove all delivered notifications from Notification Center                                                       | function | no       | All           | yes               |
+| removeDeliveredNotifications    | Removes the specified delivered notifications from Notification Center                                            | function | no       | All           | yes               |
 
 ## 属性
 
@@ -335,28 +328,29 @@ RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1
 
 以下属性已验证，更多属性详情请查看 [react-native-push-notification-ios的文档介绍](https://github.com/react-native-oh-library/react-native-push-notification)
 
-
 **Parameters:**
 
-*NotificationRequest:*
+_NotificationRequest:_
 
-| Name        | Description  | Type     | Required | Platform | HarmonyOS Support |
-| ------------| -------------| -------- | -------- | -------- | ----------------- |
-| `id`        | Identifier of the notification     | string  | yes       | All      | yes               |
-| `title`     | A short description of the reason for the notification      | string   | yes      | All      | yes               |
-| `subtitle`  | A secondary description of the reason for the notification     | string   | no      | All      | yes               |
-| `body`      | The message displayed in the notificatio      | string   | yes      | All      | yes               |
-| `badge`     | The number to display as the app's icon badge      | number   | no       | All      | yes               |
-| `fireDate`  | The date and time when the system should deliver the notification      | object   | no       | All      | yes            |
-| `repeats`   | Sets notification to repeat      | boolean   | no       | All      | yes             |
-| `isSilent`  | If true, the notification will appear without sound | boolean   | no       | All      | yes            |
-| `userInfo`  |  An object containing additional notification data   | object   | no       | All      | yes            |
+| Name       | Description                                                       | Type    | Required | Platform | HarmonyOS Support |
+| ---------- | ----------------------------------------------------------------- | ------- | -------- | -------- | ----------------- |
+| `id`       | Identifier of the notification                                    | string  | yes      | All      | yes               |
+| `title`    | A short description of the reason for the notification            | string  | yes      | All      | yes               |
+| `subtitle` | A secondary description of the reason for the notification        | string  | no       | All      | yes               |
+| `body`     | The message displayed in the notificatio                          | string  | yes      | All      | yes               |
+| `badge`    | The number to display as the app's icon badge                     | number  | no       | All      | yes               |
+| `fireDate` | The date and time when the system should deliver the notification | object  | no       | All      | yes               |
+| `repeats`  | Sets notification to repeat                                       | boolean | no       | All      | yes               |
+| `isSilent` | If true, the notification will appear without sound               | boolean | no       | All      | yes               |
+| `userInfo` | An object containing additional notification data                 | object  | no       | All      | yes               |
 
 ---
 
 ## 遗留问题
+
 - [ ] HarmonyOS的NotificationManager的规格和IOS不一致，其NotificationRequest所含参数，在HarmonyOS上部分没有适配对应参数，问题: [issue#1](https://github.com/react-native-oh-library/react-native-push-notification/issues/1)
 - [ ] 原库部分接口在HarmonyOS中没有对应接口处理相关逻辑，问题: [issue#2](https://github.com/react-native-oh-library/react-native-push-notification/issues/2)
+
 ## 其他
 
 ## 开源协议

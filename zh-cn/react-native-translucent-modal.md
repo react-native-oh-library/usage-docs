@@ -20,7 +20,7 @@
 
 进入到工程目录并输入以下命令：
 
->[!TIP] # 处替换为 tgz 包的路径
+> [!TIP] # 处替换为 tgz 包的路径
 
 <!-- tabs:start -->
 
@@ -40,12 +40,19 @@ yarn add @react-native-oh-tpl/react-native-translucent-modal@file:#
 
 快速使用：
 
->[!WARNING] 使用时 import 的库名不变。
+> [!WARNING] 使用时 import 的库名不变。
 
 ```js
 import React, { Component } from "react";
-import { Text, TouchableHighlight, View, StyleSheet, TouchableWithoutFeedback, Image } from "react-native";
-import Modal from 'react-native-translucent-modal';
+import {
+  Text,
+  TouchableHighlight,
+  View,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  Image,
+} from "react-native";
+import Modal from "react-native-translucent-modal";
 
 export default class App extends Component {
   state = {
@@ -68,9 +75,17 @@ export default class App extends Component {
             this.setModalVisible(!this.state.modalVisible);
           }}
         >
-          <TouchableWithoutFeedback style={styles.wrapper} onPress={() => this.setModalVisible(!this.state.modalVisible)}>
-              <Image source={{ uri: 'https://hbimg.huabanimg.com/ed258f740ab675e3b3a0b6e7abc44eb7bd832c523396b-cJL1G9_fw658' }} style={styles.imageBackground} />
-            </TouchableWithoutFeedback>
+          <TouchableWithoutFeedback
+            style={styles.wrapper}
+            onPress={() => this.setModalVisible(!this.state.modalVisible)}
+          >
+            <Image
+              source={{
+                uri: "https://hbimg.huabanimg.com/ed258f740ab675e3b3a0b6e7abc44eb7bd832c523396b-cJL1G9_fw658",
+              }}
+              style={styles.imageBackground}
+            />
+          </TouchableWithoutFeedback>
         </Modal>
 
         <TouchableHighlight
@@ -88,12 +103,12 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
-    alignItems: 'center',
-    backgroundColor: '#fff',
+    alignItems: "center",
+    backgroundColor: "#fff",
   },
   imageBackground: {
     flex: 1,
-    resizeMode: 'cover',
+    resizeMode: "cover",
   },
 });
 ```
@@ -114,12 +129,12 @@ const styles = StyleSheet.create({
 
 > [!tip] react-native提供的Modal组件，在HarmonyOS、iOS平台一样可以实现状态栏沉浸式效果。
 
-| Name                           | Description                                         | Type             | Required | Platform | HarmonyOS Support |
-| ------------------------------ |-----------------------------------------------------| ---------------- | -------- | -------- | ----------------- |
-| `animationType`                | Animation type of modal.                            | string           | yes      | All      | yes               |
-| `transparent`                  | Whether the background of the modal is transparent. | boolean          | yes      | All      | yes               |
-| `visible`                      | Controls whether the modal is displayed.            | boolean          | yes      | All      | yes               |
-| `onRequestClose?: () => void`  | Called when the model request close.                | function         | yes      | ALL      | yes               |
+| Name                          | Description                                         | Type     | Required | Platform | HarmonyOS Support |
+| ----------------------------- | --------------------------------------------------- | -------- | -------- | -------- | ----------------- |
+| `animationType`               | Animation type of modal.                            | string   | yes      | All      | yes               |
+| `transparent`                 | Whether the background of the modal is transparent. | boolean  | yes      | All      | yes               |
+| `visible`                     | Controls whether the modal is displayed.            | boolean  | yes      | All      | yes               |
+| `onRequestClose?: () => void` | Called when the model request close.                | function | yes      | ALL      | yes               |
 
 ## 遗留问题
 

@@ -94,7 +94,7 @@ const exceptionhandler = (exceptionString) => {
 setNativeExceptionHandler(
   exceptionhandler,
   forceAppQuit,
-  executeDefaultHandler
+  executeDefaultHandler,
 );
 // - exceptionhandler is the exception handler function
 // - forceAppQuit is an optional ANDROID specific parameter that defines

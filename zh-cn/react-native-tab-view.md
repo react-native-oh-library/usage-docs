@@ -20,7 +20,7 @@
 
 进入到工程目录并输入以下命令：
 
->[!TIP] # 处替换为 tgz 包的路径
+> [!TIP] # 处替换为 tgz 包的路径
 
 <!-- tabs:start -->
 
@@ -40,7 +40,7 @@ yarn add @react-native-oh-tpl/react-native-tab-view@file:#
 
 下面的代码展示了这个库的基本使用场景：
 
->[!WARNING] 使用时 import 的库名不变。
+> [!WARNING] 使用时 import 的库名不变。
 
 ```js
 import React from "react";
@@ -203,24 +203,24 @@ const styles = StyleSheet.create({
 
 > [!tip] "鸿蒙支持"列为 yes 的属性表示支持鸿蒙平台，并且效果对标"原库平台"列中的 ios 或 android 的效果。
 
-| Name                  | Description                                                                                            | Type     | Required | Platform    | HarmonyOS Support |
-| --------------------- | ------------------------------------------------------------------------------------------------------ | -------- | -------- | ----------- | -------- |
-| `onIndexChange`       | Callback which is called on tab change, receives the index of the new tab as argument                  | function | No       | All         | yes      |
-| `renderScene`         | Callback which returns a react element to render as the page for the tab.                              | function | No       | All         | yes      |
-| `renderTabBar`        | Callback which returns a custom React Element to use as the tab bar.                                   | function | No       | All         | yes      |
-| `tabBarPosition`      | Position of the tab bar in the tab view.                                                               | string   | No       | All         | yes      |
-| `keyboardDismissMode` | String indicating whether the keyboard gets dismissed in response to a drag gesture.                   | string   | No       | All         | yes      |
-| `swipeEnabled`        | Passing false will disable swipe gestures, but the user can still switch tabs by pressing the tab bar. | boolean  | No       | All         | yes      |
-| `style`               | Style to apply to the pager view wrapping all the scenes.                                              | boolean  | No       | All         | yes      |
-| `tabStyle`            | Style to apply to the individual tab items in the tab bar.                                             | boolean  | No       | All         | yes      |
-| `indicatorStyle`      | Style to apply to the active indicator.                                                                | boolean  | No       | All         | yes      |
-| `labelStyle`          | Style to apply to the tab item label.                                                                  | boolean  | No       | All         | yes      |
-| `style`               | Style to apply to the tab bar container.                                                               | boolean  | No       | All         | yes      |
-| `activeColor`         | Custom color for icon and label in the active tab.                                                     | string   | No       | All         | yes      |
-| `inactiveColor`       | Custom color for icon and label in the inactive tab.                                                   | string   | No       | All         | yes      |
-| `scrollEnabled`       | Boolean indicating whether to make the tab bar scrollable.                                             | boolean  | No       | All         | yes      |
-| `bounces`             | Boolean indicating whether the tab bar bounces when scrolling.                                         | boolean  | No       | All         | yes      |
-| `gap`                 | Define a spacing between tabs.                                                                         | number   | No       | All         | yes      |
+| Name                  | Description                                                                                            | Type     | Required | Platform | HarmonyOS Support |
+| --------------------- | ------------------------------------------------------------------------------------------------------ | -------- | -------- | -------- | ----------------- |
+| `onIndexChange`       | Callback which is called on tab change, receives the index of the new tab as argument                  | function | No       | All      | yes               |
+| `renderScene`         | Callback which returns a react element to render as the page for the tab.                              | function | No       | All      | yes               |
+| `renderTabBar`        | Callback which returns a custom React Element to use as the tab bar.                                   | function | No       | All      | yes               |
+| `tabBarPosition`      | Position of the tab bar in the tab view.                                                               | string   | No       | All      | yes               |
+| `keyboardDismissMode` | String indicating whether the keyboard gets dismissed in response to a drag gesture.                   | string   | No       | All      | yes               |
+| `swipeEnabled`        | Passing false will disable swipe gestures, but the user can still switch tabs by pressing the tab bar. | boolean  | No       | All      | yes               |
+| `style`               | Style to apply to the pager view wrapping all the scenes.                                              | boolean  | No       | All      | yes               |
+| `tabStyle`            | Style to apply to the individual tab items in the tab bar.                                             | boolean  | No       | All      | yes               |
+| `indicatorStyle`      | Style to apply to the active indicator.                                                                | boolean  | No       | All      | yes               |
+| `labelStyle`          | Style to apply to the tab item label.                                                                  | boolean  | No       | All      | yes               |
+| `style`               | Style to apply to the tab bar container.                                                               | boolean  | No       | All      | yes               |
+| `activeColor`         | Custom color for icon and label in the active tab.                                                     | string   | No       | All      | yes               |
+| `inactiveColor`       | Custom color for icon and label in the inactive tab.                                                   | string   | No       | All      | yes               |
+| `scrollEnabled`       | Boolean indicating whether to make the tab bar scrollable.                                             | boolean  | No       | All      | yes               |
+| `bounces`             | Boolean indicating whether the tab bar bounces when scrolling.                                         | boolean  | No       | All      | yes               |
+| `gap`                 | Define a spacing between tabs.                                                                         | number   | No       | All      | yes               |
 
 ## 遗留问题
 

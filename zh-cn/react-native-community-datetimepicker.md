@@ -20,7 +20,7 @@
 
 进入到工程目录并输入以下命令：
 
->[!TIP] # 处替换为 tgz 包的路径
+> [!TIP] # 处替换为 tgz 包的路径
 
 <!-- tabs:start -->
 
@@ -40,7 +40,7 @@ yarn add @react-native-oh-tpl/datetimepicker@file:#
 
 快速使用：
 
->[!WARNING] 使用时 import 的库名不变。
+> [!WARNING] 使用时 import 的库名不变。
 
 ```js
 import DateTimePicker from '@react-native-community/datetimepicker';
@@ -193,7 +193,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ### 在 ArkTs 侧引入 DateTimePicker 组件
 
-找到 **function buildCustomComponent()**，一般位于  `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
+找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
 ...
@@ -246,7 +246,7 @@ ohpm install
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name        | Description                                                                      | Type     | Required | Platform                 | HarmonyOS Support                                                   |
+| Name        | Description                                                               | Type     | Required | Platform                 | HarmonyOS Support                                          |
 | ----------- | ------------------------------------------------------------------------- | -------- | -------- | ------------------------ | ---------------------------------------------------------- |
 | mode        | Defines the type of the picker                                            | string   | 否       | All                      | partially (仅支持 date/time 模式)                          |
 | style       | Sets style directly on picker component.                                  | object   | 否       | IOS only                 | yes                                                        |

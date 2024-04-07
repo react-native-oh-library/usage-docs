@@ -53,7 +53,7 @@ function RNCVideoDemo() {
   const [repeat, setRepeat] = useState(true);
   const [disableFocus, setDisableFocus] = useState(false);
   const [uri, setUri] = useState(
-    "https://res.vmallres.com//uomcdn/CN/cms/202210/C75C7E20060F3E909F2998E13C3ABC03.mp4"
+    "https://res.vmallres.com//uomcdn/CN/cms/202210/C75C7E20060F3E909F2998E13C3ABC03.mp4",
   );
   const [txt, setTxt] = useState("empty");
   const [resizeMode, setResizeMode] = useState("none");
@@ -97,7 +97,7 @@ function RNCVideoDemo() {
     // setUri((prevRepeat) => 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4');
     setUri(
       (prevRepeat) =>
-        "https://res.vmallres.com//uomcdn/CN/cms/202210/C75C7E20060F3E909F2998E13C3ABC03.mp4"
+        "https://res.vmallres.com//uomcdn/CN/cms/202210/C75C7E20060F3E909F2998E13C3ABC03.mp4",
     );
   };
 
@@ -129,7 +129,7 @@ function RNCVideoDemo() {
             style={{ backgroundColor: "blue", flex: 0.25 }}
             onPress={() => {
               setUri(
-                "https://res.vmallres.com//uomcdn/CN/cms/202210/C75C7E20060F3E909F2998E13C3ABC03.mp4"
+                "https://res.vmallres.com//uomcdn/CN/cms/202210/C75C7E20060F3E909F2998E13C3ABC03.mp4",
               );
               setPosterResizeMode("stretch");
             }}
@@ -287,7 +287,7 @@ function RNCVideoDemo() {
                 "s width =" +
                 e.naturalSize.width +
                 " orientation =" +
-                e.naturalSize.orientation
+                e.naturalSize.orientation,
             );
             setOnVideoError("onVideoError error = ok");
           }}
@@ -298,7 +298,7 @@ function RNCVideoDemo() {
                 " type=" +
                 e.type +
                 " uri=" +
-                e.uri
+                e.uri,
             );
           }}
           onProgress={(e) => {
@@ -308,7 +308,7 @@ function RNCVideoDemo() {
                 " playableDuration=" +
                 e.playableDuration +
                 " seekableDuration=" +
-                e.seekableDuration
+                e.seekableDuration,
             );
           }}
           onError={(e) => {
@@ -505,7 +505,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ### 在 ArkTs 侧引入 RNCVideo 组件
 
-找到 **function buildCustomComponent()**，一般位于  `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
+找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
 import {

@@ -20,11 +20,12 @@
 #### **npm**
 
 ```bash
-npm i react-native-base64@0.2.1 
+npm i react-native-base64@0.2.1
 
 // typescript 项目需下载对应包的类型声明
 npm i @types/react-native-base64 -D
 ```
+
 <!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：
@@ -105,21 +106,18 @@ const styles = StyleSheet.create({
 
 ## 兼容性
 
-在以下版本验证通过： 
+在以下版本验证通过：
 
 1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
 2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
 
-
 ### base64 提供的方法:
 
-
-| Name | Description | Type  | Required | HarmonyOS Support | 
-| ---- | ---- | ---- | -------- | -------- |
-| encode| encode from string |string| No | Yes |
-| decode | decode base64 strings | string |  No | Yes |
-| encodeFromByteArray | encode from Unit8Array | Unit8Array | No | Yes |
-
+| Name                | Description            | Type       | Required | HarmonyOS Support |
+| ------------------- | ---------------------- | ---------- | -------- | ----------------- |
+| encode              | encode from string     | string     | No       | Yes               |
+| decode              | decode base64 strings  | string     | No       | Yes               |
+| encodeFromByteArray | encode from Unit8Array | Unit8Array | No       | Yes               |
 
 ## 遗留问题
 

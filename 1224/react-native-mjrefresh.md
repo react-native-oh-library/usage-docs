@@ -171,7 +171,7 @@ add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
 # RNOH_BEGIN: add_package_subdirectories
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/mjrefresh/src/main/cpp" ./mjrefresh)
++ add_subdirectory("${OH_MODULE_DIR}/rnoh-mjrefresh/src/main/cpp" ./mjrefresh)
 # RNOH_END: add_package_subdirectories
 
 add_library(rnoh_app SHARED
@@ -210,7 +210,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ```diff
 ...
-+  import { MJRefresh, MJREFRESH_TYPE} from "mjrefresh"
++  import { MJRefresh, MJREFRESH_TYPE} from "rnoh-mjrefresh"
 
   @Builder
   function buildCustomComponent(ctx: ComponentBuilderContext) {

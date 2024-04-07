@@ -77,3 +77,4 @@
     - [redux](/zh-cn/redux.md)
     - [redux-logger](/zh-cn/redux-logger.md)
     - [redux-persist](/zh-cn/redux-persist.md)
+    - [qrcode-generator](/zh-cn/qrcode-generator.md)

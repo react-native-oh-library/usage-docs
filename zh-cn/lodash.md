@@ -112,9 +112,9 @@ lodashStable.findLastIndex(users, "active");
 #### **Math**
 
 | Name   | Description                               | Type     | Required | HarmonyOS Support |
-| ------ | ----------------------------------------- | -------- | -------- | ----------------- | 
+| ------ | ----------------------------------------- | -------- | -------- | ----------------- |
 | ceil   | Computes number rounded up to precision   | function | NO       | yes               |
-| divide | Divide two numbers.                       | function | NO       | yes               | 
+| divide | Divide two numbers.                       | function | NO       | yes               |
 | round  | Computes number rounded to precision.     | function | NO       | yes               |
 | floor  | Computes number rounded down to precision | function | NO       | yes               |
 | sum    | Computes the sum of the values in array   | function | NO       | yes               |

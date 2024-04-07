@@ -20,7 +20,7 @@
 
 进入到工程目录并输入以下命令：
 
->[!TIP] # 处替换为 tgz 包的路径
+> [!TIP] # 处替换为 tgz 包的路径
 
 <!-- tabs:start -->
 
@@ -40,7 +40,7 @@ yarn add @react-native-oh-tpl/lottie-react-native@file:#
 
 快速使用：
 
->[!WARNING] 使用时 import 的库名不变。
+> [!WARNING] 使用时 import 的库名不变。
 
 ```js
 import LottieView from "lottie-react-native";
@@ -153,7 +153,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ### 在 ArkTs 侧引入 Lottie 组件
 
-找到 **function buildCustomComponent()**，一般位于  `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
+找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
 + import { LottieAnimationView, LOTTIE_TYPE } from "rnoh-lottie"

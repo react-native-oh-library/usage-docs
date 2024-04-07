@@ -36,30 +36,25 @@ yarn add redux-logger@^3.0.6
 下面的代码展示了这个库的基本使用场景：
 
 场景一：
-```js
-import { applyMiddleware, createStore } from 'redux';
-// Logger with default options
-import logger from 'redux-logger'
-const store = createStore(
-  reducer,
-  applyMiddleware(logger)
-)
 
+```js
+import { applyMiddleware, createStore } from "redux";
+// Logger with default options
+import logger from "redux-logger";
+const store = createStore(reducer, applyMiddleware(logger));
 ```
 
 场景二：
+
 ```js
-import { applyMiddleware, createStore } from 'redux';
-import { createLogger } from 'redux-logger'
+import { applyMiddleware, createStore } from "redux";
+import { createLogger } from "redux-logger";
 
 const logger = createLogger({
   // ...options
 });
 
-const store = createStore(
-  reducer,
-  applyMiddleware(logger)
-);
+const store = createStore(reducer, applyMiddleware(logger));
 ```
 
 ## 约束与限制
@@ -71,18 +66,16 @@ const store = createStore(
 1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
 2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.59;
 
-
 ## 静态方法
 
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support |
-| ---- | ---- | ---- | -------- | -------- |-------- |
-logger | default logger | Function | no | ios/android | yes
-createLogger | options logger | Function | no  | ios/android | yes
-
+| Name         | Description    | Type     | Required | Platform    | HarmonyOS Support |
+| ------------ | -------------- | -------- | -------- | ----------- | ----------------- |
+| logger       | default logger | Function | no       | ios/android | yes               |
+| createLogger | options logger | Function | no       | ios/android | yes               |
 
 ## 遗留问题s
 

@@ -9,8 +9,7 @@
     </a>
 </p>
 
->[!tip] [Github 地址](https://github.com/inikulin/parse5)
-
+> [!tip] [Github 地址](https://github.com/inikulin/parse5)
 
 ## 安装与使用
 
@@ -35,20 +34,27 @@ yarn add parse5@7.1.2
 直接使用：
 
 ```js
-const parse5 = require('parse5');
+const parse5 = require("parse5");
 
 // parse
-const document = parse5.parse('<!DOCTYPE html><html><head></head><body>Hi there!</body></html>');
+const document = parse5.parse(
+  "<!DOCTYPE html><html><head></head><body>Hi there!</body></html>",
+);
 console.log(document.childNodes[1].tagName); //> 'html'
 
 // parseFragment
-const documentFragment = parse5.parseFragment('<table></table>');
+const documentFragment = parse5.parseFragment("<table></table>");
 console.log(documentFragment.childNodes[0].tagName); //> 'table'
-const trFragment = parse5.parseFragment(documentFragment.childNodes[0], '<tr><td>Shake it, baby</td></tr>');
+const trFragment = parse5.parseFragment(
+  documentFragment.childNodes[0],
+  "<tr><td>Shake it, baby</td></tr>",
+);
 console.log(trFragment.childNodes[0].childNodes[0].tagName); //> 'td'
 
 // serialize
-const document = parse5.parse('<!DOCTYPE html><html><head></head><body>Hi there!</body></html>');
+const document = parse5.parse(
+  "<!DOCTYPE html><html><head></head><body>Hi there!</body></html>",
+);
 // Serializes a document.
 const html = parse5.serialize(document);
 // Serializes the <html> element content.
@@ -56,7 +62,7 @@ const str = parse5.serialize(document.childNodes[1]);
 console.log(str); //> '<head></head><body>Hi there!</body>'
 
 // serializeOuter
-const document = parse5.parseFragment('<div>Hello, <b>world</b>!</div>');
+const document = parse5.parseFragment("<div>Hello, <b>world</b>!</div>");
 // Serializes the <div> element.
 const str = parse5.serializeOuter(document.childNodes[0]);
 console.log(str); //> '<div>Hello, <b>world</b>!</div>'
@@ -66,7 +72,7 @@ console.log(str); //> '<div>Hello, <b>world</b>!</div>'
 
 ### 兼容性
 
- 在下述版本验证通过：
+在下述版本验证通过：
 
 1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
 2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;

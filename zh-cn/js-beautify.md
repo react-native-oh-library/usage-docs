@@ -10,9 +10,6 @@
     </a>
 </p>
 
-
-
-
 > [!TIP] [Github 地址](https://github.com/beautifier/js-beautify)
 
 ## 安装与使用
@@ -37,7 +34,7 @@ ynpm install js-beautify@^1.15.1
 
 详情可见[js-beautify 官方演示](https://beautifier.io/)
 
->[!WARNING] 使用时 import 的库名不变。
+> [!WARNING] 使用时 import 的库名不变。
 
 ```js
 import React from 'react';
@@ -95,7 +92,7 @@ console.log(dataJson1);
 console.log(prettyObj1);
 
 //"max_preserve_newlines": 2,// 允许保留连续新行的最大数量。
-var text1 = `Is there any 
+var text1 = `Is there any
 
 
 
@@ -225,9 +222,9 @@ console.log(prettyCode14);
 
 // "indent-empty-lines": false, //保留空行上的缩进
 var text13 = `function() {
-    
+
   return 'Hello world!';
-  
+
   }`;
 var prettyText13 = js_beautify(text13, {indent_empty_lines: true});
 console.log(text13);
@@ -731,10 +728,10 @@ export default BeautifyDemo;
 
 ### js_beautify
 
-该库的接口为``js_beautify``，通过传入不同的``options``，实现对应的功能。
+该库的接口为`js_beautify`，通过传入不同的`options`，实现对应的功能。
 
-| Name        | Description                                                  | Type     | Required | HarmonyOS Support |
-| ----------- | ------------------------------------------------------------ | -------- | -------- | ----------------- |
+| Name        | Description                                                                                                    | Type     | Required | HarmonyOS Support |
+| ----------- | -------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------------- |
 | js_beautify | options need to be passed in；options is an object with the settings you would like used to beautify the code. | function | NO       | yes               |
 
 ### options

@@ -32,29 +32,32 @@ yarn add qrcode-generator@1.4.4
 快速使用：
 
 ```js
-import React,{useState,useEffect} from "react";
-import{View,Text,Image} from "react-native"
-import QRCode from 'qrcode-generator'
+import React, { useState, useEffect } from "react";
+import { View, Text, Image } from "react-native";
+import QRCode from "qrcode-generator";
 
-export const CustomQrCode = ({text,style}) => {
-    const [base64Img,setBase64Img] = useState('hello word')
-    useEffect(() => {
-        const typeNumber = 4
-        const errorCorrectionLevel = 'L'
-        const qr = QRCode(typeNumber,errorCorrectionLevel)
-        qr.addData(text)
-        qr.make()
-        setBase64Img(qr.createDataURL(4,10))
-    },[text])
+export const CustomQrCode = ({ text, style }) => {
+  const [base64Img, setBase64Img] = useState("hello word");
+  useEffect(() => {
+    const typeNumber = 4;
+    const errorCorrectionLevel = "L";
+    const qr = QRCode(typeNumber, errorCorrectionLevel);
+    qr.addData(text);
+    qr.make();
+    setBase64Img(qr.createDataURL(4, 10));
+  }, [text]);
 
-    return(
-        base64Img ? <Image source={{uri:base64Img}} style={style} resizeMode="contain"></Image> : null
-    )
-}
+  return base64Img ? (
+    <Image
+      source={{ uri: base64Img }}
+      style={style}
+      resizeMode="contain"
+    ></Image>
+  ) : null;
+};
 ```
 
-约束与限制
--------------------------------------------------------------------------------------------------------------------------------
+## 约束与限制
 
 ### 兼容性
 
@@ -62,13 +65,12 @@ export const CustomQrCode = ({text,style}) => {
 
 1. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.59;
 
-API列表
--------------------------------------------------------------------------------------------------------
+## API列表
 
 **以下 `QRCode` 均为qrcode-generator导出的对象，即：**
 
 ```js
-import QRCode from 'qrcode-generator';
+import QRCode from "qrcode-generator";
 ```
 
 #### Base
@@ -76,8 +78,6 @@ import QRCode from 'qrcode-generator';
 **静态方法**
 
 "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-
 
 | Name                                    | Description             | Type     | Required | HarmonyOS Support |
 | --------------------------------------- | ----------------------- | -------- | -------- | ----------------- |
@@ -130,8 +130,6 @@ api
 | row  | 0 ~ moduleCount - 1 | number | Yes      | Yes               |
 | col  | 0 ~ moduleCount - 1 | number | Yes      | Yes               |
 
-
-
 **静态方法**
 
 | Name                                      | Description                                                                                            | Type     | Required | HarmonyOS Support |
@@ -144,11 +142,11 @@ api
 
 **api**
 
-| Name     | Description           | Type     | Required | HarmonyOS Support |
-| -------- | --------------------- | -------- | -------- | ----------------- |
-| cellSize | default: 2            | function | No       | Yes               |
-| margin   | default: cellSize * 4 | function | No       | Yes               |
-| alt      | (optional)            | function | No       | Yes               |
+| Name     | Description            | Type     | Required | HarmonyOS Support |
+| -------- | ---------------------- | -------- | -------- | ----------------- |
+| cellSize | default: 2             | function | No       | Yes               |
+| margin   | default: cellSize \* 4 | function | No       | Yes               |
+| alt      | (optional)             | function | No       | Yes               |
 
 ## 遗留问题
 

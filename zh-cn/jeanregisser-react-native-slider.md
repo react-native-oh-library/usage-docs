@@ -9,7 +9,6 @@
     </a>
 </p>
 
-
 > [!tip] [Github 地址](https://github.com/react-native-oh-library/jeanregisser-react-native-slider/tree/sig)
 
 ## 安装与使用
@@ -20,7 +19,7 @@
 
 <!-- tabs:start -->
 
->[!TIP] # 处替换为 tgz 包的路径
+> [!TIP] # 处替换为 tgz 包的路径
 
 #### **npm**
 
@@ -38,7 +37,7 @@ yarn add @react-native-oh-tpl/react-native-slider@file:#
 
 快速使用：
 
->[!WARNING] 使用时 import 的库名不变。
+> [!WARNING] 使用时 import 的库名不变。
 
 ```js
 import React, { useState} from 'react';
@@ -53,17 +52,17 @@ export function SliderExample() {
         <View style={styles.sectionContainer}>
         <Text>default style</Text>
         <Slider value={0.2}/>
-        
+
         <Text>with min,max and custom tints</Text>
-        <Slider 
+        <Slider
          value={0.2}
          minimumTrackTintColor = '#1A9274'
          maximumTrackTintColor = '#D3D3D3'
          thumbTintColor = '#1A9274'
          />
-    
+
         <Text>with style,thumbStyle,thumbStyle</Text>
-        <Slider 
+        <Slider
          value={0.2}
          minimumTrackTintColor = '#1073FF'
          thumbTintColor = '#FFFFFF'
@@ -71,7 +70,7 @@ export function SliderExample() {
          trackStyle = {styles.trackStyle}
          thumbStyle = {styles.thumbStyle}
          />
-    
+
         <Text>with thumbTouchSize,event</Text>
         <Slider
             value={0.2}
@@ -80,16 +79,16 @@ export function SliderExample() {
             onValueChange={(val: number) => {
                 console.log('===Slider onValueChange: ' + value);
             }}
-    
+
             onSlidingStart={() => {
                 console.log('===Slider onSlidingStart');
             }}
-    
+
             onSlidingComplete={() => {
                 console.log('===Slider onSlidingComplete');
             }}
         />
-    
+
         <Text>with thumbImage</Text>
         <Slider
             value={0.2}
@@ -97,7 +96,7 @@ export function SliderExample() {
             thumbStyle = {styles.thumbStyle}
             thumbImage = {require('./resources/slider.png')}
         />
-    
+
         <Text>with animateTransitions</Text>
         <Slider
             value={value}
@@ -113,13 +112,13 @@ export function SliderExample() {
               useNativeDriver: false,
             }}
         />
-    
+
         <Button onPress={()=>{
             setValue(0.9);
         }}
         title="动画测试"
         color="#841584"
-        />  
+        />
         </View>
     );
 }
@@ -144,6 +143,7 @@ const styles = StyleSheet.create({
     }
   });
 ```
+
 ### 兼容性
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
@@ -152,28 +152,28 @@ const styles = StyleSheet.create({
 
 #### 属性
 
-| Prop                  | Description                                                  | Type                                                         | Required | Platform | HarmonyOS Support |
-| --------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | -------- | -------- | ----------------- |
-| value                 | Initial value of the slider.                                 | number                                                       | No       | All      | yes               |
-| disabled              | If true the user won't be able to move the slider.           | bool                                                         | No       | All      | yes               |
-| minimumValue          | Initial minimum value of the slider.                         | number                                                       | No       | All      | yes               |
-| maximumValue          | Initial maximum value of the slider.                         | number                                                       | No       | All      | yes               |
-| step                  | Step value of the slider. The value should be between 0 and maximumValue - minimumValue). | number                                                       | No       | All      | yes               |
-| minimumTrackTintColor | The color used for the track to the left of the button.      | string                                                       | No       | All      | yes               |
-| maximumTrackTintColor | The color used for the track to the right of the button.     | string                                                       | No       | All      | yes               |
-| thumbTintColor        | The color used for the thumb.                                | string                                                       | No       | All      | yes               |
-| thumbTouchSize        | The size of the touch area that allows moving the thumb. The touch area has the same center as the visible thumb. This allows to have a visually small thumb while still allowing the user to move it easily. | object                                                       | No       | All      | yes               |
-| onValueChange         | Callback continuously called while the user is dragging the slider. | function                                                     | No       | All      | yes               |
-| onSlidingStart        | Callback called when the user starts changing the value (e.g. when the slider is pressed). | function                                                     | No       | All      | yes               |
-| onSlidingComplete     | Callback called when the user finishes changing the value (e.g. when the slider is released). | function                                                     | No       | All      | yes               |
-| style                 | The style applied to the slider container.                   | [style](http://facebook.github.io/react-native/docs/view.html#style) | No       | All      | yes               |
-| trackStyle            | The style applied to the track.                              | [style](http://facebook.github.io/react-native/docs/view.html#style) | No       | All      | yes               |
-| thumbStyle            | The style applied to the thumb.                              | [style](http://facebook.github.io/react-native/docs/view.html#style) | No       | All      | yes               |
-| thumbImage            | Sets an image for the thumb.                                 | [source](http://facebook.github.io/react-native/docs/image.html#source) | No       | All      | yes               |
-| debugTouchArea        | Set this to true to visually see the thumb touch rect in green. | bool                                                         | No       | All      | yes               |
-| animateTransitions    | Set to true if you want to use the default 'spring' animation. | bool                                                         | No       | All      | yes               |
-| animationType         | Set to 'spring' or 'timing' to use one of those two types of animations with the default [animation properties](https://facebook.github.io/react-native/docs/animations.html). | string                                                       | No       | All      | yes               |
-| animationConfig       | Used to configure the animation parameters.  These are the same parameters in the [Animated library](https://facebook.github.io/react-native/docs/animations.html). | object                                                       | No       | All      | yes               |
+| Prop                  | Description                                                                                                                                                                                                   | Type                                                                    | Required | Platform | HarmonyOS Support |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | -------- | -------- | ----------------- |
+| value                 | Initial value of the slider.                                                                                                                                                                                  | number                                                                  | No       | All      | yes               |
+| disabled              | If true the user won't be able to move the slider.                                                                                                                                                            | bool                                                                    | No       | All      | yes               |
+| minimumValue          | Initial minimum value of the slider.                                                                                                                                                                          | number                                                                  | No       | All      | yes               |
+| maximumValue          | Initial maximum value of the slider.                                                                                                                                                                          | number                                                                  | No       | All      | yes               |
+| step                  | Step value of the slider. The value should be between 0 and maximumValue - minimumValue).                                                                                                                     | number                                                                  | No       | All      | yes               |
+| minimumTrackTintColor | The color used for the track to the left of the button.                                                                                                                                                       | string                                                                  | No       | All      | yes               |
+| maximumTrackTintColor | The color used for the track to the right of the button.                                                                                                                                                      | string                                                                  | No       | All      | yes               |
+| thumbTintColor        | The color used for the thumb.                                                                                                                                                                                 | string                                                                  | No       | All      | yes               |
+| thumbTouchSize        | The size of the touch area that allows moving the thumb. The touch area has the same center as the visible thumb. This allows to have a visually small thumb while still allowing the user to move it easily. | object                                                                  | No       | All      | yes               |
+| onValueChange         | Callback continuously called while the user is dragging the slider.                                                                                                                                           | function                                                                | No       | All      | yes               |
+| onSlidingStart        | Callback called when the user starts changing the value (e.g. when the slider is pressed).                                                                                                                    | function                                                                | No       | All      | yes               |
+| onSlidingComplete     | Callback called when the user finishes changing the value (e.g. when the slider is released).                                                                                                                 | function                                                                | No       | All      | yes               |
+| style                 | The style applied to the slider container.                                                                                                                                                                    | [style](http://facebook.github.io/react-native/docs/view.html#style)    | No       | All      | yes               |
+| trackStyle            | The style applied to the track.                                                                                                                                                                               | [style](http://facebook.github.io/react-native/docs/view.html#style)    | No       | All      | yes               |
+| thumbStyle            | The style applied to the thumb.                                                                                                                                                                               | [style](http://facebook.github.io/react-native/docs/view.html#style)    | No       | All      | yes               |
+| thumbImage            | Sets an image for the thumb.                                                                                                                                                                                  | [source](http://facebook.github.io/react-native/docs/image.html#source) | No       | All      | yes               |
+| debugTouchArea        | Set this to true to visually see the thumb touch rect in green.                                                                                                                                               | bool                                                                    | No       | All      | yes               |
+| animateTransitions    | Set to true if you want to use the default 'spring' animation.                                                                                                                                                | bool                                                                    | No       | All      | yes               |
+| animationType         | Set to 'spring' or 'timing' to use one of those two types of animations with the default [animation properties](https://facebook.github.io/react-native/docs/animations.html).                                | string                                                                  | No       | All      | yes               |
+| animationConfig       | Used to configure the animation parameters. These are the same parameters in the [Animated library](https://facebook.github.io/react-native/docs/animations.html).                                            | object                                                                  | No       | All      | yes               |
 
 ## 遗留问题
 

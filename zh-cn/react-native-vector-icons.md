@@ -70,7 +70,7 @@ import { createIconSet } from "react-native-vector-icons";
 const CustomFont = createIconSet(
   require("../assets/fonts/customfont.json"),
   "custom-fontFamily",
-  "../assets/fonts/customfont.ttf"
+  "../assets/fonts/customfont.ttf",
 );
 
 <CustomFont.Button name="fontName"></CustomFont.Button>;
@@ -87,7 +87,7 @@ import fontelloConfig from "../assets/fonts/config.json";
 const CustomFontello = createIconSetFromFontello(
   fontelloConfig,
   "fontello",
-  "../assets/fonts/fontello.ttf"
+  "../assets/fonts/fontello.ttf",
 );
 
 <CustomFontello.Button name="fontName"></CustomFontello.Button>;
@@ -104,7 +104,7 @@ import icoMoonConfig from "../assets/fonts/selection.json";
 const CustomFontIcoMoon = createIconSetFromIcoMoon(
   icoMoonConfig,
   "icomoon",
-  "../assets/fonts/icomoon.ttf"
+  "../assets/fonts/icomoon.ttf",
 );
 
 <CustomFontIcoMoon.Button name="fontName"></CustomFontIcoMoon.Button>;
@@ -122,7 +122,7 @@ const CustomFontIcoMoon = createIconSetFromIcoMoon(
 复制 `react-native-vector-icons/Fonts` 目录下的字体文件到 `entry/src/main/ets/assets/fonts` 目录下
 
 步骤二：
-找到 **function buildCustomComponent()**，一般位于  `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加以下代码
+找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加以下代码
 
 ```ts
     import font from '@ohos.font';

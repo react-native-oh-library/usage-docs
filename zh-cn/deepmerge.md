@@ -9,8 +9,7 @@
     </a>
 </p>
 
->[!tip] [Github 地址](https://github.com/TehShrike/deepmerge)
-
+> [!tip] [Github 地址](https://github.com/TehShrike/deepmerge)
 
 ## 安装与使用
 
@@ -35,52 +34,61 @@ yarn add deepmerge@^4.3.1
 快速使用：
 
 ```js
-import deepmerge from 'deepmerge'
+import deepmerge from "deepmerge";
 
 const x = {
-	foo: { bar: 3 },
-	array: [{
-		does: 'work',
-		too: [ 1, 2, 3 ]
-	}]
-}
+  foo: { bar: 3 },
+  array: [
+    {
+      does: "work",
+      too: [1, 2, 3],
+    },
+  ],
+};
 
 const y = {
-	foo: { baz: 4 },
-	quux: 5,
-	array: [{
-		does: 'work',
-		too: [ 4, 5, 6 ]
-	}, {
-		really: 'yes'
-	}]
-}
+  foo: { baz: 4 },
+  quux: 5,
+  array: [
+    {
+      does: "work",
+      too: [4, 5, 6],
+    },
+    {
+      really: "yes",
+    },
+  ],
+};
 
 const output = {
-	foo: {
-		bar: 3,
-		baz: 4
-	},
-	array: [{
-		does: 'work',
-		too: [ 1, 2, 3 ]
-	}, {
-		does: 'work',
-		too: [ 4, 5, 6 ]
-	}, {
-		really: 'yes'
-	}],
-	quux: 5
-}
+  foo: {
+    bar: 3,
+    baz: 4,
+  },
+  array: [
+    {
+      does: "work",
+      too: [1, 2, 3],
+    },
+    {
+      does: "work",
+      too: [4, 5, 6],
+    },
+    {
+      really: "yes",
+    },
+  ],
+  quux: 5,
+};
 
-deepmerge(x, y) // => output
+deepmerge(x, y); // => output
 ```
 
 ## 约束与限制
 
 ### 兼容性
 
- 在下述版本验证通过：
+在下述版本验证通过：
 
 1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
 2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
@@ -91,10 +99,10 @@ deepmerge(x, y) // => output
 
 详情见 [deepmerge源库地址](https://github.com/TehShrike/deepmerge)
 
-| Name | Description | Type | Required |  HarmonyOS Support |
-| ---- | ---- | ---- | -------- |  -------- |
-| deepmerge(x, y, [options]) | Merge two objects x and y deeply, returning a new merged object with the elements from both x and y. | function | no |  yes |
-| deepmerge.all(arrayOfObjects, [options]) | Merges any number of objects into a single result object. | function | no |  yes |
+| Name                                     | Description                                                                                          | Type     | Required | HarmonyOS Support |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------- | -------- | -------- | ----------------- |
+| deepmerge(x, y, [options])               | Merge two objects x and y deeply, returning a new merged object with the elements from both x and y. | function | no       | yes               |
+| deepmerge.all(arrayOfObjects, [options]) | Merges any number of objects into a single result object.                                            | function | no       | yes               |
 
 ## 遗留问题
 

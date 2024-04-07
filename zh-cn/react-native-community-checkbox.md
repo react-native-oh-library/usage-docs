@@ -20,7 +20,7 @@
 
 进入到工程目录并输入以下命令：
 
->[!TIP] # 处替换为 tgz 包的路径
+> [!TIP] # 处替换为 tgz 包的路径
 
 <!-- tabs:start -->
 
@@ -40,7 +40,7 @@ yarn add @react-native-oh-tpl/checkbox@file:#
 
 下面的代码展示了这个库的基本使用场景：
 
->[!WARNING] 使用时 import 的库名不变。
+> [!WARNING] 使用时 import 的库名不变。
 
 ```js
 import CheckBox from "@react-native-community/checkbox";
@@ -171,7 +171,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ### 在 ArkTs 侧引入 Checkbox 组件
 
-找到 **function buildCustomComponent()**，一般位于  `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
+找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
 ...
@@ -223,19 +223,19 @@ ohpm install
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name            | Description                                                                                                                                                                                           | Type     | Required | Platform      | HarmonyOS Support |
-| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ------------- | -------- |
-| `onChange`      | Invoked on change with the native event.                                                                                                                                                       | function | No       | All           | yes      |
-| `onValueChange` | Invoked with the new boolean value when it changes.                                                                                                                                            | function | No       | All           | yes      |
-| `value`         | The value of the checkbox. If true the checkbox will be turned on. Default value is false.                                                                                                     | boolean  | No       | All           | yes      |
-| `testID`        | Used to locate this view in end-to-end tests.                                                                                                                                                  | string   | No       | All           | yes      |
-| `disabled`      | If true the user won't be able to toggle the checkbox. Default value is false.                                                                                                                 | bool     | No       | All           | yes      |
-| `onCheckColor`  | Color of the check box when it is selected.                                                                                                                                                    | Color    | No       | ios & harmony | yes      |
-| `tintColor`     | Border color of the check box when it is not selected.                                                                                                                                         | Color    | No       | ios & harmony | yes      |
-| `shape`         | Sets component shapes, including circles and rounded squares. Default value is 0.                                                                                                                 | int      | No       | harmony       | yes      |     
-| `markSize`      | Size of the internal mark. The default size is the same as the width of the check box.This parameter cannot be set in percentage. If it is set to an invalid value, the default value is used. | number   | No       | harmony       | yes      |
-| `strokeWidth`   | Stroke width of the internal mark. This parameter cannot be set in percentage. If it is set to an invalid value, the default value is used.                                                    | number   | No       | harmony       | yes      |
-| `strokeColor`   | Color of the internal mark.                                                                                                                                                                    | Color    | No       | harmony       | yes      |
+| Name            | Description                                                                                                                                                                                    | Type     | Required | Platform      | HarmonyOS Support |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ------------- | ----------------- |
+| `onChange`      | Invoked on change with the native event.                                                                                                                                                       | function | No       | All           | yes               |
+| `onValueChange` | Invoked with the new boolean value when it changes.                                                                                                                                            | function | No       | All           | yes               |
+| `value`         | The value of the checkbox. If true the checkbox will be turned on. Default value is false.                                                                                                     | boolean  | No       | All           | yes               |
+| `testID`        | Used to locate this view in end-to-end tests.                                                                                                                                                  | string   | No       | All           | yes               |
+| `disabled`      | If true the user won't be able to toggle the checkbox. Default value is false.                                                                                                                 | bool     | No       | All           | yes               |
+| `onCheckColor`  | Color of the check box when it is selected.                                                                                                                                                    | Color    | No       | ios & harmony | yes               |
+| `tintColor`     | Border color of the check box when it is not selected.                                                                                                                                         | Color    | No       | ios & harmony | yes               |
+| `shape`         | Sets component shapes, including circles and rounded squares. Default value is 0.                                                                                                              | int      | No       | harmony       | yes               |
+| `markSize`      | Size of the internal mark. The default size is the same as the width of the check box.This parameter cannot be set in percentage. If it is set to an invalid value, the default value is used. | number   | No       | harmony       | yes               |
+| `strokeWidth`   | Stroke width of the internal mark. This parameter cannot be set in percentage. If it is set to an invalid value, the default value is used.                                                    | number   | No       | harmony       | yes               |
+| `strokeColor`   | Color of the internal mark.                                                                                                                                                                    | Color    | No       | harmony       | yes               |
 
 ## 遗留问题
 

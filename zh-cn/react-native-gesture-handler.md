@@ -20,7 +20,7 @@
 
 进入到工程目录并输入以下命令：
 
->[!TIP] # 处替换为 tgz 包的路径
+> [!TIP] # 处替换为 tgz 包的路径
 
 <!-- tabs:start -->
 
@@ -40,7 +40,7 @@ yarn add @react-native-oh-tpl/react-native-gesture-handler@file:#
 
 快速使用：
 
->[!WARNING] 使用时 import 的库名不变。
+> [!WARNING] 使用时 import 的库名不变。
 
 ```js
 import React, { Component } from "react";
@@ -83,7 +83,7 @@ class Circle extends Component {
                     {
                       translateX: Animated.add(
                         this._touchX,
-                        new Animated.Value(-circleRadius)
+                        new Animated.Value(-circleRadius),
                       ),
                     },
                   ],
@@ -213,7 +213,7 @@ react-native-gesture-handler 在 2.x 版本里，不再从原生端引入 `<Gest
 
 **如果使用 2.x 方式，则把后面带有 `1.x` 注释的代码删掉即可**
 
-找到 **function buildCustomComponent()**，一般位于  `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
+找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
 ...
@@ -308,10 +308,11 @@ ohpm install
 GestureDetector 是 Gesture Handler 库 2.x 版本的一个主要组件。
 
 #### Gesture detector 属性
-| 名称        | 说明                                                     | 类型                   | 是否必填 | 原库平台 | 鸿蒙支持 |
-| ----------- | -------------------------------------------------------- | ---------------------- | -------- | -------- | -------- |
-| gesture | A gesture object containing the configuration and callbacks.  | base gestures or any ComposedGesture | yes | All | yes |
-| userSelect  | This parameter allows to specify which userSelect property should be applied to underlying view.  | ("none" \| "auto" \| "text") | no | Web | no |
+
+| 名称       | 说明                                                                                             | 类型                                 | 是否必填 | 原库平台 | 鸿蒙支持 |
+| ---------- | ------------------------------------------------------------------------------------------------ | ------------------------------------ | -------- | -------- | -------- |
+| gesture    | A gesture object containing the configuration and callbacks.                                     | base gestures or any ComposedGesture | yes      | All      | yes      |
+| userSelect | This parameter allows to specify which userSelect property should be applied to underlying view. | ("none" \| "auto" \| "text")         | no       | Web      | no       |
 
 目前 GestureDetector 支持:
 
@@ -341,49 +342,49 @@ Gesture Handler 库提供了一种基于原生按钮的 React Native touchable �
 
 ### Gesture handlers 通用属性
 
-| 名称        | 说明                                                     | 类型                   | 是否必填 | 原库平台 | 鸿蒙支持 |
-| ----------- | -------------------------------------------------------- | ---------------------- | -------- | -------- | -------- |
-| enabled |  Indicates whether the given handler should be analyzing stream of touch events or not.  | boolean | no | All | yes |
-| shouldCancelWhenOutside | When true the handler will cancel or fail recognition (depending on its current state) whenever the finger leaves the area of the connected view.   | boolean | no | All | no |
-| cancelsTouchesInView | When true, the handler will cancel touches for native UI components (UIButton, UISwitch, etc) it's attached to when it becomes ACTIVE.  | boolean | no | iOS | no |
-| simultaneousHandlers | When set, the handler will be allowed to activate even if one or more of the handlers provided by their refs are in an ACTIVE state.  | refs | no | All | no |
-| waitFor | When set the handler will not activate as long as the handlers provided by their refs are in the BEGAN state.   | refs | no | All | no |
-| hitSlop | This parameter enables control over what part of the connected view area can be used to begin recognizing the gesture.  | object | no | All | yes |
-| userSelect | This parameter allows to specify which userSelect property should be applied to underlying view.   | ("none" \| "auto" \| "text") | no | Web | no |
-| activeCursor | This parameter allows to specify which cursor should be used when gesture activates.   | CSS cursor values | no | Web | no |
-| onGestureEvent | Takes a callback that is going to be triggered for each subsequent touch event while the handler is in an ACTIVE state.  | callback | no | All | yes |
-| onHandlerStateChange | Takes a callback that is going to be triggered when state of the given handler changes.  | callback | no | All | yes |
+| 名称                    | 说明                                                                                                                                              | 类型                         | 是否必填 | 原库平台 | 鸿蒙支持 |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | -------- | -------- | -------- |
+| enabled                 | Indicates whether the given handler should be analyzing stream of touch events or not.                                                            | boolean                      | no       | All      | yes      |
+| shouldCancelWhenOutside | When true the handler will cancel or fail recognition (depending on its current state) whenever the finger leaves the area of the connected view. | boolean                      | no       | All      | no       |
+| cancelsTouchesInView    | When true, the handler will cancel touches for native UI components (UIButton, UISwitch, etc) it's attached to when it becomes ACTIVE.            | boolean                      | no       | iOS      | no       |
+| simultaneousHandlers    | When set, the handler will be allowed to activate even if one or more of the handlers provided by their refs are in an ACTIVE state.              | refs                         | no       | All      | no       |
+| waitFor                 | When set the handler will not activate as long as the handlers provided by their refs are in the BEGAN state.                                     | refs                         | no       | All      | no       |
+| hitSlop                 | This parameter enables control over what part of the connected view area can be used to begin recognizing the gesture.                            | object                       | no       | All      | yes      |
+| userSelect              | This parameter allows to specify which userSelect property should be applied to underlying view.                                                  | ("none" \| "auto" \| "text") | no       | Web      | no       |
+| activeCursor            | This parameter allows to specify which cursor should be used when gesture activates.                                                              | CSS cursor values            | no       | Web      | no       |
+| onGestureEvent          | Takes a callback that is going to be triggered for each subsequent touch event while the handler is in an ACTIVE state.                           | callback                     | no       | All      | yes      |
+| onHandlerStateChange    | Takes a callback that is going to be triggered when state of the given handler changes.                                                           | callback                     | no       | All      | yes      |
 
 ### Gesture handlers 通用事件数据
 
 以下是提供给 `onGestureEvent` 和 `onHandlerStateChange` 回调的通用事件数据:
 
-| 名称        | 说明                                                     | 类型                   | 原库平台 | 鸿蒙支持 |
-| ----------- | -------------------------------------------------------- | ---------------------- | -------- | -------- |
-| state |  Current state of the handler.   | State | All | yes |
-| numberOfPointers | Represents the number of pointers (fingers) currently placed on the screen.   | number | All | yes |
+| 名称             | 说明                                                                        | 类型   | 原库平台 | 鸿蒙支持 |
+| ---------------- | --------------------------------------------------------------------------- | ------ | -------- | -------- |
+| state            | Current state of the handler.                                               | State  | All      | yes      |
+| numberOfPointers | Represents the number of pointers (fingers) currently placed on the screen. | number | All      | yes      |
 
 ### PanGestureHandler
 
 #### PanGestureHandler 属性
 
-| 名称        | 说明                                                     | 类型                   | 是否必填 | 原库平台 | 鸿蒙支持 |
-| ----------- | -------------------------------------------------------- | ---------------------- | -------- | -------- | -------- |
-| minDist | Minimum distance the finger (or multiple finger) need to travel before the handler activates.  | number | no | All | yes |
-| minPointers | A number of fingers that is required to be placed before handler can activate.  | number | no | All | yes |
-| maxPointers | When the given number of fingers is placed on the screen and handler hasn't yet activated it will fail recognizing the gesture.  | number | no | All | yes |
-| activeOffsetX | Range along X axis (in points) where fingers travels without activation of handler.  | number | no | All | yes |
-| activeOffsetY | Range along Y axis (in points) where fingers travels without activation of handler.   | number | no | All | yes |
-| failOffsetY | When the finger moves outside this range (in points) along Y axis and handler hasn't yet activated it will fail recognizing the gesture.  | number | no | All | yes |
-| failOffsetX | When the finger moves outside this range (in points) along X axis and handler hasn't yet activated it will fail recognizing the gesture. Range can be given as an array or a single number.  | number | no | All | yes |
-| maxDeltaX | This method is deprecated but supported for backward compatibility. Instead of using maxDeltaX={N} you can do failOffsetX={[-N, N]}.  | number | no | All | yes |
-| maxDeltaY | This method is deprecated but supported for backward compatibility. Instead of using maxDeltaY={N} you can do failOffsetY={[-N, N]}.  | number | no | All | yes |
-| minOffsetX | This method is deprecated but supported for backward compatibility. Instead of using minOffsetX={N} you can do activeOffsetX={N}.  | number | no | All | yes |
-| minOffsetY | This method is deprecated but supported for backward compatibility. Instead of using minOffsetY={N} you can do activeOffsetY={N}.  | number | no | All | yes |
-| minDeltaX | This method is deprecated but supported for backward compatibility. Instead of using minDeltaX={N} you can do activeOffsetX={[-N, N]}.  | number | no | All | yes |
-| minDeltaY | This method is deprecated but supported for backward compatibility. Instead of using minDeltaY={N} you can do activeOffsetY={[-N, N]}.  | number | no | All | yes |
-| avgTouches | Android, by default, will calculate translation values based on the position of the leading pointer (the first one that was placed on the screen).   | number | no | Android | no |
-| enableTrackpadTwoFingerGesture | Enables two-finger gestures on supported devices, for example iPads with trackpads.    | boolean | no | iOS | no |
+| 名称                           | 说明                                                                                                                                                                                        | 类型    | 是否必填 | 原库平台 | 鸿蒙支持 |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------- | -------- | -------- |
+| minDist                        | Minimum distance the finger (or multiple finger) need to travel before the handler activates.                                                                                               | number  | no       | All      | yes      |
+| minPointers                    | A number of fingers that is required to be placed before handler can activate.                                                                                                              | number  | no       | All      | yes      |
+| maxPointers                    | When the given number of fingers is placed on the screen and handler hasn't yet activated it will fail recognizing the gesture.                                                             | number  | no       | All      | yes      |
+| activeOffsetX                  | Range along X axis (in points) where fingers travels without activation of handler.                                                                                                         | number  | no       | All      | yes      |
+| activeOffsetY                  | Range along Y axis (in points) where fingers travels without activation of handler.                                                                                                         | number  | no       | All      | yes      |
+| failOffsetY                    | When the finger moves outside this range (in points) along Y axis and handler hasn't yet activated it will fail recognizing the gesture.                                                    | number  | no       | All      | yes      |
+| failOffsetX                    | When the finger moves outside this range (in points) along X axis and handler hasn't yet activated it will fail recognizing the gesture. Range can be given as an array or a single number. | number  | no       | All      | yes      |
+| maxDeltaX                      | This method is deprecated but supported for backward compatibility. Instead of using maxDeltaX={N} you can do failOffsetX={[-N, N]}.                                                        | number  | no       | All      | yes      |
+| maxDeltaY                      | This method is deprecated but supported for backward compatibility. Instead of using maxDeltaY={N} you can do failOffsetY={[-N, N]}.                                                        | number  | no       | All      | yes      |
+| minOffsetX                     | This method is deprecated but supported for backward compatibility. Instead of using minOffsetX={N} you can do activeOffsetX={N}.                                                           | number  | no       | All      | yes      |
+| minOffsetY                     | This method is deprecated but supported for backward compatibility. Instead of using minOffsetY={N} you can do activeOffsetY={N}.                                                           | number  | no       | All      | yes      |
+| minDeltaX                      | This method is deprecated but supported for backward compatibility. Instead of using minDeltaX={N} you can do activeOffsetX={[-N, N]}.                                                      | number  | no       | All      | yes      |
+| minDeltaY                      | This method is deprecated but supported for backward compatibility. Instead of using minDeltaY={N} you can do activeOffsetY={[-N, N]}.                                                      | number  | no       | All      | yes      |
+| avgTouches                     | Android, by default, will calculate translation values based on the position of the leading pointer (the first one that was placed on the screen).                                          | number  | no       | Android  | no       |
+| enableTrackpadTwoFingerGesture | Enables two-finger gestures on supported devices, for example iPads with trackpads.                                                                                                         | boolean | no       | iOS      | no       |
 
 #### PanGestureHandler 事件数据
 
@@ -417,14 +418,14 @@ Y coordinate of the current position of the pointer (finger or a leading pointer
 
 #### TapGestureHandler 属性
 
-| 名称        | 说明                                                     | 类型                   | 是否必填 | 原库平台 | 鸿蒙支持 |
-| ----------- | -------------------------------------------------------- | ---------------------- | -------- | -------- | -------- |
-| minPointers | Minimum number of pointers (fingers) required to be placed before the handler activates.   | number | no | All | yes |
-| maxDurationMs | Maximum time, expressed in milliseconds, that defines how fast a finger must be released after a touch.  | number | no | All | yes |
-| maxDelayMs | Maximum time, expressed in milliseconds, that can pass before the next tap — if many taps are required.  | number | no | All | yes |
-| maxDeltaX | Maximum distance, expressed in points, that defines how far the finger is allowed to travel along the X axis during a tap gesture.  | number | no | All | yes |
-| maxDeltaY | Maximum distance, expressed in points, that defines how far the finger is allowed to travel along the Y axis during a tap gesture.   | number | no | All | yes |
-| maxDist | Maximum distance, expressed in points, that defines how far the finger is allowed to travel during a tap gesture.  | number | no | All | yes |
+| 名称          | 说明                                                                                                                               | 类型   | 是否必填 | 原库平台 | 鸿蒙支持 |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------ | -------- | -------- | -------- |
+| minPointers   | Minimum number of pointers (fingers) required to be placed before the handler activates.                                           | number | no       | All      | yes      |
+| maxDurationMs | Maximum time, expressed in milliseconds, that defines how fast a finger must be released after a touch.                            | number | no       | All      | yes      |
+| maxDelayMs    | Maximum time, expressed in milliseconds, that can pass before the next tap — if many taps are required.                            | number | no       | All      | yes      |
+| maxDeltaX     | Maximum distance, expressed in points, that defines how far the finger is allowed to travel along the X axis during a tap gesture. | number | no       | All      | yes      |
+| maxDeltaY     | Maximum distance, expressed in points, that defines how far the finger is allowed to travel along the Y axis during a tap gesture. | number | no       | All      | yes      |
+| maxDist       | Maximum distance, expressed in points, that defines how far the finger is allowed to travel during a tap gesture.                  | number | no       | All      | yes      |
 
 #### TapGestureHandler 事件数据
 

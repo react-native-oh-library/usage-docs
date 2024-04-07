@@ -37,14 +37,14 @@ yarn add @react-native-segmented-control/segmented-control@^2.5.0
 下面的代码展示了这个库的基本使用场景：
 
 ```js
-import SegmentedControl from '@react-native-segmented-control/segmented-control';
+import SegmentedControl from "@react-native-segmented-control/segmented-control";
 
 return (
   <SegmentedControl
-    values={['One', 'Two']}
+    values={["One", "Two"]}
     selectedIndex={this.state.selectedIndex}
     onChange={(event) => {
-      this.setState({selectedIndex: event.nativeEvent.selectedSegmentIndex});
+      this.setState({ selectedIndex: event.nativeEvent.selectedSegmentIndex });
     }}
   />
 );
@@ -67,20 +67,20 @@ return (
 
 详情见 [react-native-community/segmented-control 源库地址](https://github.com/react-native-segmented-control/segmented-control)
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support | Notes |
-| ---------|------- | ------------- | -------- | -------- | -------- |-------- |
-| enabled     | If false the user won't be able to interact with the control. Default value is true. | boolean     | No       |All | Yes      |
-| momentary               | If true, then selecting a segment won't persist visually. The onValueChange callback will still work as expected.| boolean          | No       |iOS        | No      | Android和HarmonyOS侧,效果一致，不生效，iOS侧有效果
-| onChange      |Callback that is called when the user taps a segment; passes the event as an argument | function      | No       | All     | Yes      |
-| onValueChange      | Callback that is called when the user taps a segment; passes the segment's value as an argument | function | No       |All        | Yes      |
-| selectedIndex |The index in props.values of the segment to be (pre)selected. | number      | No       | All     | Yes      |
-| tintColor         | Accent color of the control. | string      | No       |All   | Yes      |
-| backgroundColor          |  Background color color of the control. | string      | No       | All   | Yes      |
-| values     |  The labels for the control's segment buttons, in order.| string | Yes       | All      | Yes      |
-| appearance | Overrides the control's appearance irrespective of the OS theme  | 'dark', 'light'       | No       | All      | Yes       |
-| fontStyle         | An object container,color: color of segment;fontSize: font-size of segment text;fontFamily: font-family of segment text;fontWeight: font-weight of segment text| object      | No       | All      | Yes       | Android和HarmonyOS侧，fontFamily效果一致，均不生效
-| activeFontStyle         | An object container,color: overrides color of selected segment text;fontSize: overrides font-size of selected segment text;fontFamily: overrides font-family of selected segment text;fontWeight: overrides font-weight of selected segment text| object      | No       | All    | Yes       |  Android和HarmonyOS侧，fontFamily效果一致，均不生效
-| tabStyle         | Styles the clickable surface which is responsible to change tabs| object      | No       | Android, Web      | Yes       |
+| Name            | Description                                                                                                                                                                                                                                      | Type            | Required | Platform     | HarmonyOS Support | Notes                                              |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------- | -------- | ------------ | ----------------- | -------------------------------------------------- |
+| enabled         | If false the user won't be able to interact with the control. Default value is true.                                                                                                                                                             | boolean         | No       | All          | Yes               |
+| momentary       | If true, then selecting a segment won't persist visually. The onValueChange callback will still work as expected.                                                                                                                                | boolean         | No       | iOS          | No                | Android和HarmonyOS侧,效果一致，不生效，iOS侧有效果 |
+| onChange        | Callback that is called when the user taps a segment; passes the event as an argument                                                                                                                                                            | function        | No       | All          | Yes               |
+| onValueChange   | Callback that is called when the user taps a segment; passes the segment's value as an argument                                                                                                                                                  | function        | No       | All          | Yes               |
+| selectedIndex   | The index in props.values of the segment to be (pre)selected.                                                                                                                                                                                    | number          | No       | All          | Yes               |
+| tintColor       | Accent color of the control.                                                                                                                                                                                                                     | string          | No       | All          | Yes               |
+| backgroundColor | Background color color of the control.                                                                                                                                                                                                           | string          | No       | All          | Yes               |
+| values          | The labels for the control's segment buttons, in order.                                                                                                                                                                                          | string          | Yes      | All          | Yes               |
+| appearance      | Overrides the control's appearance irrespective of the OS theme                                                                                                                                                                                  | 'dark', 'light' | No       | All          | Yes               |
+| fontStyle       | An object container,color: color of segment;fontSize: font-size of segment text;fontFamily: font-family of segment text;fontWeight: font-weight of segment text                                                                                  | object          | No       | All          | Yes               | Android和HarmonyOS侧，fontFamily效果一致，均不生效 |
+| activeFontStyle | An object container,color: overrides color of selected segment text;fontSize: overrides font-size of selected segment text;fontFamily: overrides font-family of selected segment text;fontWeight: overrides font-weight of selected segment text | object          | No       | All          | Yes               | Android和HarmonyOS侧，fontFamily效果一致，均不生效 |
+| tabStyle        | Styles the clickable surface which is responsible to change tabs                                                                                                                                                                                 | object          | No       | Android, Web | Yes               |
 
 ## 遗留问题
 

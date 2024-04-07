@@ -9,9 +9,6 @@
     </a>
 </p>
 
-
-
-
 > [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-cookies/tree/sig)
 
 ## 安装与使用
@@ -25,9 +22,11 @@
 <!-- tabs:start -->
 
 #### **npm**
+
 ```bash
 npm install @react-native-oh-tpl/cookies@file:#
 ```
+
 **yarn**
 
 ```
@@ -72,7 +71,7 @@ export function CookiesPage() {
       <View style={styles.pageArea}>
         <WebView source={{uri: httpUrl }}  ref={webViewRef} />;
       </View>
-      
+
       <ScrollView style={styles.resultArea}>
         <Text>{result}</Text>
       </ScrollView>
@@ -84,7 +83,7 @@ export function CookiesPage() {
       }} >
         <Text>clearAll()【清除所有cookie】</Text>
       </TouchableOpacity>
-      
+
       <TouchableOpacity style={styles.button} onPress={async() => {
         let cookieResult = await CookieManager.get(httpUrl, true);
         setResult(JSON.stringify(cookieResult));
@@ -161,6 +160,7 @@ const styles = StyleSheet.create({
   },
 });
 ```
+
 ## Link
 
 目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
@@ -316,8 +316,8 @@ import {SamplePackage} from 'rnoh-sample-package/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
-    new SamplePackage(ctx), 
-+  	new CookiesPackage(ctx), 
+    new SamplePackage(ctx),
++  	new CookiesPackage(ctx),
 +  	new WebViewPackage(ctx)
   ];
 }

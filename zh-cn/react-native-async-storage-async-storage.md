@@ -20,7 +20,7 @@
 
 进入到工程目录并输入以下命令：
 
->[!TIP] # 处替换为 tgz 包的路径
+> [!TIP] # 处替换为 tgz 包的路径
 
 <!-- tabs:start -->
 
@@ -40,7 +40,7 @@ yarn add @react-native-oh-tpl/async-storage@file:#
 
 下面的代码展示了这个库的基本使用场景：
 
->[!WARNING] 使用时 import 的库名不变。
+> [!WARNING] 使用时 import 的库名不变。
 
 ```js
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -213,19 +213,19 @@ ohpm install
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name              | Description                                                                                                                                                     | Type     | Required | Platform | HarmonyOS Support |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ---- | -------- |
-| `getItem`         | Gets a string value for given key. This function can either return a string value for existing key or return null otherwise.                             | function | No       | All  | yes      |
-| `setItem`         | Sets a string value for given key. This operation can either modify an existing entry, if it did exist for given key, or add new one otherwise.          | function | No       | All  | yes      |
-| `mergeItem`       | Merges an existing value stored under key, with new value, assuming both values are stringified JSON.                                                    | function | No       | All  | yes      |
-| `removeItem`      | Removes item for a key, invokes (optional) callback once completed.                                                                                      | function | No       | All  | yes      |
-| `getAllKeys`      | Returns all keys known to your App, for all callers, libraries, etc. Once completed, invokes callback with errors (if any) and array of keys.            | function | No       | All  | yes      |
-| `multiGet`        | Fetches multiple key-value pairs for given array of keys in a batch. Once completed, invokes callback with errors (if any) and results.                  | function | No       | All  | yes      |
-| `multiSet`        | Stores multiple key-value pairs in a batch. Once completed, callback with any errors will be called.                                                     | function | No       | All  | yes      |
-| `multiMerge`      | Multiple merging of existing and new values in a batch. Assumes that values are stringified JSON. Once completed, invokes callback with errors (if any). | function | No       | All  | yes      |
-| `multiRemove`     | Clears multiple key-value entries for given array of keys in a batch. Once completed, invokes a callback with errors (if any).                           | function | No       | All  | yes      |
-| `clear`           | Removes whole AsyncStorage data, for all clients, libraries, etc. You probably want to use removeItem or multiRemove to clear only your App's keys.      | function | No       | All  | yes      |
-| `useAsyncStorage` | The useAsyncStorage returns an object that exposes all methods that allow you to interact with the stored value.                                         | hook     | No       | All  | yes      |
+| Name              | Description                                                                                                                                              | Type     | Required | Platform | HarmonyOS Support |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | ----------------- |
+| `getItem`         | Gets a string value for given key. This function can either return a string value for existing key or return null otherwise.                             | function | No       | All      | yes               |
+| `setItem`         | Sets a string value for given key. This operation can either modify an existing entry, if it did exist for given key, or add new one otherwise.          | function | No       | All      | yes               |
+| `mergeItem`       | Merges an existing value stored under key, with new value, assuming both values are stringified JSON.                                                    | function | No       | All      | yes               |
+| `removeItem`      | Removes item for a key, invokes (optional) callback once completed.                                                                                      | function | No       | All      | yes               |
+| `getAllKeys`      | Returns all keys known to your App, for all callers, libraries, etc. Once completed, invokes callback with errors (if any) and array of keys.            | function | No       | All      | yes               |
+| `multiGet`        | Fetches multiple key-value pairs for given array of keys in a batch. Once completed, invokes callback with errors (if any) and results.                  | function | No       | All      | yes               |
+| `multiSet`        | Stores multiple key-value pairs in a batch. Once completed, callback with any errors will be called.                                                     | function | No       | All      | yes               |
+| `multiMerge`      | Multiple merging of existing and new values in a batch. Assumes that values are stringified JSON. Once completed, invokes callback with errors (if any). | function | No       | All      | yes               |
+| `multiRemove`     | Clears multiple key-value entries for given array of keys in a batch. Once completed, invokes a callback with errors (if any).                           | function | No       | All      | yes               |
+| `clear`           | Removes whole AsyncStorage data, for all clients, libraries, etc. You probably want to use removeItem or multiRemove to clear only your App's keys.      | function | No       | All      | yes               |
+| `useAsyncStorage` | The useAsyncStorage returns an object that exposes all methods that allow you to interact with the stored value.                                         | hook     | No       | All      | yes               |
 
 ## 遗留问题
 

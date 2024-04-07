@@ -9,7 +9,6 @@
     </a>
 </p>
 
-
 > [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-transitiongroup)
 
 ## 安装与使用
@@ -18,7 +17,7 @@
 
 进入到工程目录并输入以下命令：
 
->[!TIP] # 处替换为 tgz 包的路径
+> [!TIP] # 处替换为 tgz 包的路径
 
 <!-- tabs:start -->
 
@@ -38,19 +37,14 @@ yarn add @react-native-oh-tpl/react-native-transitiongroup@file:#
 
 下面的代码展示了这个库的基本使用场景：
 
->[!WARNING] 使用时 import 的库名不变。
+> [!WARNING] 使用时 import 的库名不变。
 
 ```js
-import React, { useState } from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  Easing
-} from 'react-native';
-import TransitionGroup, { FadeInOutTransition } from 'react-native-transitiongroup';
-
+import React, { useState } from "react";
+import { StyleSheet, Text, View, TouchableOpacity, Easing } from "react-native";
+import TransitionGroup, {
+  FadeInOutTransition,
+} from "react-native-transitiongroup";
 
 export function TransitiongroupExample() {
   const [showText, setShowText] = useState(false);
@@ -63,7 +57,7 @@ export function TransitiongroupExample() {
     <View style={styles.container}>
       <View style={styles.relativeContainer}>
         <TouchableOpacity onPress={handleToggle} style={styles.button}>
-          <Text style={styles.buttonText}>{showText ? 'Hide' : 'Show'}</Text>
+          <Text style={styles.buttonText}>{showText ? "Hide" : "Show"}</Text>
         </TouchableOpacity>
 
         <TransitionGroup style={styles.absoluteContainer}>
@@ -91,7 +85,8 @@ export function TransitiongroupExample() {
               inDelay={200}
               outDelay={0}
               pointerEvents="box-only"
-              style={{ backgroundColor: "pink" }}>
+              style={{ backgroundColor: "pink" }}
+            >
               <Text style={styles.text}>I'm Pink</Text>
             </FadeInOutTransition>
           )}
@@ -104,44 +99,43 @@ export function TransitiongroupExample() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
   relativeContainer: {
-    position: 'relative',
+    position: "relative",
   },
   button: {
-    backgroundColor: '#3f51b5',
+    backgroundColor: "#3f51b5",
     padding: 10,
     borderRadius: 5,
     marginBottom: 20,
   },
   buttonText: {
-    color: '#fff',
-    fontWeight: 'bold',
+    color: "#fff",
+    fontWeight: "bold",
     fontSize: 16,
   },
   absoluteContainer: {
-    position: 'absolute',
+    position: "absolute",
     bottom: -50,
     left: -100,
   },
   absoluteContainerTwo: {
-    position: 'absolute',
+    position: "absolute",
     bottom: -150,
     left: -100,
   },
   absoluteContainerThree: {
-    position: 'absolute',
+    position: "absolute",
     bottom: -250,
     left: -100,
   },
   text: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 });
-
 ```
 
 ## 约束与限制
@@ -161,15 +155,15 @@ const styles = StyleSheet.create({
 >
 > 详情见 [react-native-transitiongroup 源库地址](https://github.com/madsleejensen/react-native-transitiongroup/blob/master/README.md)
 
-| 名称          | 描述                                | 参数类型 | 是否必填 | Platform | HarmonyOS Support |
-| ------------- | ---------------------------------- | -------- | -------- | -------- | ----------------- |
-| easing        | 缓动函数                            | func     | yes      | All      | yes               |
+| 名称          | 描述                                   | 参数类型 | 是否必填 | Platform | HarmonyOS Support |
+| ------------- | -------------------------------------- | -------- | -------- | -------- | ----------------- |
+| easing        | 缓动函数                               | func     | yes      | All      | yes               |
 | inDelay       | 组件加载时开始动画前的延迟时间（毫秒） | number   | yes      | All      | yes               |
-| inDuration    | 组件加载时动画的持续时间（毫秒）      | number   | yes      | All      | yes               |
-| outDelay      | 组件销毁时开始动画前的延迟时间（毫秒） | number   | yes      | All      | yes              |
-| outDuration   | 组件销毁时动画的持续时间（毫秒）      | number   | yes      | All      | yes              |
-| pointerEvents | 控制View是否可以成为触摸事件的目标    | string   | yes      | All      | yes              |
-| style         | 组件样式                            | style   | yes      | All      | yes              |
+| inDuration    | 组件加载时动画的持续时间（毫秒）       | number   | yes      | All      | yes               |
+| outDelay      | 组件销毁时开始动画前的延迟时间（毫秒） | number   | yes      | All      | yes               |
+| outDuration   | 组件销毁时动画的持续时间（毫秒）       | number   | yes      | All      | yes               |
+| pointerEvents | 控制View是否可以成为触摸事件的目标     | string   | yes      | All      | yes               |
+| style         | 组件样式                               | style    | yes      | All      | yes               |
 
 ## 遗留问题
 

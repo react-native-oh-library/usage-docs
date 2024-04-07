@@ -20,7 +20,7 @@
 
 进入到工程目录并输入以下命令：
 
->[!TIP] # 处替换为 tgz 包的路径
+> [!TIP] # 处替换为 tgz 包的路径
 
 <!-- tabs:start -->
 
@@ -40,7 +40,7 @@ yarn add @react-native-oh-tpl/blur@file:#
 
 下面的代码展示了这个库的基本使用场景：
 
->[!WARNING] 使用时 import 的库名不变。
+> [!WARNING] 使用时 import 的库名不变。
 
 ```js
 import React, { useState} from 'react';
@@ -305,7 +305,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 打开 `entry/src/main/ets/pages/index.ets`，添加：
 
-```diff
+````diff
 ...
 + import {  BlurView, BLUR_TYPE } from "rnoh-blur"
 
@@ -338,7 +338,7 @@ function CustomComponentBuilder(ctx: ComponentBuilderContext) {
 ```bash
 cd entry
 ohpm install
-```
+````
 
 然后编译、运行即可。
 
@@ -356,14 +356,14 @@ ohpm install
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name                           | Description                                                                               | Type             | Required | Platform | HarmonyOS Support |
-| ------------------------------ | ----------------------------------------------------------------------------------------- | ---------------- | -------- | -------- | ----------------- |
-| `blurType`                   | blur type                                                      | enum            | yes      | All      | yes               |
-| `blurAmount?`              | 0 - 100 (The maximum blurAmount on Android is 32, so higher values will be clamped to 32)                  | number           | No      | All      | yes               |
-| `reducedTransparencyFallbackColor?`             | Reduce transparency fallback color                                                                      | Any color             | No       | iOS only      | no                |
-| `blurRadius?`                | Matches iOS blurAmount                                                            | number             | No       | Android only      | no                |
-| `downsampleFactor?`               | Matches iOS blurAmount                                                        | number           | No      | Android only      | no               |
-| `overlayColor?`                  | Default color based on iOS blurType                                                              | Any color             | No      | Android only      | no
+| Name                                | Description                                                                               | Type      | Required | Platform     | HarmonyOS Support |
+| ----------------------------------- | ----------------------------------------------------------------------------------------- | --------- | -------- | ------------ | ----------------- |
+| `blurType`                          | blur type                                                                                 | enum      | yes      | All          | yes               |
+| `blurAmount?`                       | 0 - 100 (The maximum blurAmount on Android is 32, so higher values will be clamped to 32) | number    | No       | All          | yes               |
+| `reducedTransparencyFallbackColor?` | Reduce transparency fallback color                                                        | Any color | No       | iOS only     | no                |
+| `blurRadius?`                       | Matches iOS blurAmount                                                                    | number    | No       | Android only | no                |
+| `downsampleFactor?`                 | Matches iOS blurAmount                                                                    | number    | No       | Android only | no                |
+| `overlayColor?`                     | Default color based on iOS blurType                                                       | Any color | No       | Android only | no                |
 
 #### blurType
 
@@ -371,29 +371,29 @@ ohpm install
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该组件；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name                           | Description                                                                                          | Platform | HarmonyOS Support |
-| ------------------------------ | ----------------------------------------------------------------------------------------- |  -------- | ----------------- |
-| `xlight`|extra light blur type| All| no 
-| `light`|light blur type| All| yes 
-| `dark`|dark blur type| All| yes 
-| `extraDark`|extra dark blur type (tvOS only)| tvOS only| no
-| `regular`|regular blur type (iOS 10+ and tvOS only)| iOS 10+ and tvOS only| yes
-| `prominent`|prominent blur type (iOS 10+ and tvOS only)| iOS 10+ and tvOS only| no
-| `chromeMaterial`|An adaptable blur effect that creates the appearance of a material with normal thickness| iOS 13 only| no
-| `material`|An adaptable blur effect that creates the appearance of a material with normal thickness| iOS 13 only| no
-| `thickMaterial`|An adaptable blur effect that creates the appearance of a material that is thicker than normal| iOS 13 only| no
-| `thinMaterial`|An adaptable blur effect that creates the appearance of an ultra-thin material|  iOS 13 only| no
-| `ultraThinMaterial`|An adaptable blur effect that creates the appearance of an ultra-thin material|  iOS 13 only| no
-| `chromeMaterialDark`|A blur effect that creates the appearance of an ultra-thin material and is always dark|  iOS 13 only| no
-| `materialDark`|A blur effect that creates the appearance of a thin material and is always dark|  iOS 13 only| no
-| `thickMaterialDark`|A blur effect that creates the appearance of a material with normal thickness and is always dark|  iOS 13 only| yes
-| `thinMaterialDark`|A blur effect that creates the appearance of a material that is thicker than normal and is always dark| iOS 13 only| yes
-| `ultraThinMaterialDark`|A blur effect that creates the appearance of the system chrome and is always dark| i iOS 13 only| no
-| `chromeMaterialLight`|An adaptable blur effect that creates the appearance of the system chrome|  iOS 13 only| no
-| `materialLight`|An adaptable blur effect that creates the appearance of a material with normal thickness|  iOS 13 only| no
-| `thickMaterialLight`|An adaptable blur effect that creates the appearance of a thin material|  iOS 13 only| yes
-| `thinMaterialLight`|An adaptable blur effect that creates the appearance of a thin material|  iOS 13 only| yes
-| `ultraThinMaterialLight`|An adaptable blur effect that creates the appearance of an ultra-thin material|  iOS 13 only| no
+| Name                     | Description                                                                                            | Platform              | HarmonyOS Support |
+| ------------------------ | ------------------------------------------------------------------------------------------------------ | --------------------- | ----------------- |
+| `xlight`                 | extra light blur type                                                                                  | All                   | no                |
+| `light`                  | light blur type                                                                                        | All                   | yes               |
+| `dark`                   | dark blur type                                                                                         | All                   | yes               |
+| `extraDark`              | extra dark blur type (tvOS only)                                                                       | tvOS only             | no                |
+| `regular`                | regular blur type (iOS 10+ and tvOS only)                                                              | iOS 10+ and tvOS only | yes               |
+| `prominent`              | prominent blur type (iOS 10+ and tvOS only)                                                            | iOS 10+ and tvOS only | no                |
+| `chromeMaterial`         | An adaptable blur effect that creates the appearance of a material with normal thickness               | iOS 13 only           | no                |
+| `material`               | An adaptable blur effect that creates the appearance of a material with normal thickness               | iOS 13 only           | no                |
+| `thickMaterial`          | An adaptable blur effect that creates the appearance of a material that is thicker than normal         | iOS 13 only           | no                |
+| `thinMaterial`           | An adaptable blur effect that creates the appearance of an ultra-thin material                         | iOS 13 only           | no                |
+| `ultraThinMaterial`      | An adaptable blur effect that creates the appearance of an ultra-thin material                         | iOS 13 only           | no                |
+| `chromeMaterialDark`     | A blur effect that creates the appearance of an ultra-thin material and is always dark                 | iOS 13 only           | no                |
+| `materialDark`           | A blur effect that creates the appearance of a thin material and is always dark                        | iOS 13 only           | no                |
+| `thickMaterialDark`      | A blur effect that creates the appearance of a material with normal thickness and is always dark       | iOS 13 only           | yes               |
+| `thinMaterialDark`       | A blur effect that creates the appearance of a material that is thicker than normal and is always dark | iOS 13 only           | yes               |
+| `ultraThinMaterialDark`  | A blur effect that creates the appearance of the system chrome and is always dark                      | i iOS 13 only         | no                |
+| `chromeMaterialLight`    | An adaptable blur effect that creates the appearance of the system chrome                              | iOS 13 only           | no                |
+| `materialLight`          | An adaptable blur effect that creates the appearance of a material with normal thickness               | iOS 13 only           | no                |
+| `thickMaterialLight`     | An adaptable blur effect that creates the appearance of a thin material                                | iOS 13 only           | yes               |
+| `thinMaterialLight`      | An adaptable blur effect that creates the appearance of a thin material                                | iOS 13 only           | yes               |
+| `ultraThinMaterialLight` | An adaptable blur effect that creates the appearance of an ultra-thin material                         | iOS 13 only           | no                |
 
 ## 组件
 
@@ -401,10 +401,10 @@ ohpm install
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该组件；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name| Description| Type  | Platform | HarmonyOS Support |
-|------------------------------------------ | -------- | -------- | -------- | ----------------- |
-| `BlurView`           | Preload images to display later. e.g.      | component       | All                | yes
-| `VibrancyView`   | The vibrancy effect lets the content underneath a blurred view show through more vibrantly | component | IOS      | no
+| Name           | Description                                                                                | Type      | Platform | HarmonyOS Support |
+| -------------- | ------------------------------------------------------------------------------------------ | --------- | -------- | ----------------- |
+| `BlurView`     | Preload images to display later. e.g.                                                      | component | All      | yes               |
+| `VibrancyView` | The vibrancy effect lets the content underneath a blurred view show through more vibrantly | component | IOS      | no                |
 
 ## 遗留问题
 

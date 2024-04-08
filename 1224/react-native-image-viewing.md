@@ -4,7 +4,10 @@
   <h1 align="center"> <code>react-native-image-viewing</code> </h1>
 </p>
 <p align="center">
-    <a href="https://github.com/facebook/prop-types/blob/v15.8.1/LICENSE">
+    <a href="https://github.com/react-native-oh-library/react-native-image-viewer">
+        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
+    </a>
+    <a href="https://github.com/react-native-oh-library/react-native-image-viewer/blob/sig/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
@@ -13,17 +16,23 @@
 
 ## 安装与使用
 
+请到三方库的 Releases 发布地址查看配套的版本信息：[<@react-native-oh-tpl/react-native-image-viewing> Releases](https://github.com/react-native-oh-library/react-native-image-viewing/releases)，并下载适用版本的 tgz 包。
+
+进入到工程目录并输入以下命令：
+
+> [!TIP] # 处替换为 tgz 包的路径
+
 <!-- tabs:start -->
 
 进入到工程目录并输入以下命令：
 
-#### **npm**
+#### npm
 
 ```bash
 npm install @react-native-oh-tpl/react-native-image-viewing@file:#
 ```
 
-#### **yarn**
+#### yarn
 
 ```bash
 yarn add @react-native-oh-tpl/react-native-image-viewing@file:#
@@ -174,10 +183,7 @@ const styles = StyleSheet.create({
 
 ```
 
-约束与限制
--------------------------------------------------------------------------------------------------------------------------------
-
-### 兼容性
+## 兼容性
 
 在下述版本验证通过:
 

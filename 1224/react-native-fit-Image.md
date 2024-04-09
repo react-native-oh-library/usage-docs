@@ -72,37 +72,40 @@ const FitImageDemo=()=>{
     // 获取网络图片尺寸
     const imgHttp={uri:"https://octodex.github.com/images/stormtroopocat.jpg"}
     const [imgHttpSize,getHttpSizeNum] = useState({width:0,height:0})
-    // 刷新定时器
-    var reshUi:any = null
+    // 刷新
+    const [reshUiData,setReshUi] = useState(0)
     useEffect(() => {;
+        getReloadFres()
+      }, []);
+      const getReloadFres =()=>{
          // http远程文件
-        Image.getSize(imgHttp.uri, (width,height) => {
+         Image.getSize(imgHttp.uri, (width,height) => {
             getHttpSizeNum({ width,height });
           },
          (failure) => { console.log('failure', failure)});
-         // base64文件
-      }, []);
+      }
     //  刷新
     const reLoadFun = () =>{
         setRefLoadBtn(false)
-        if(reshUi) {
-            clearTimeout(reshUi)
-        } else {
-            reshUi = setTimeout(()=>{
-                setRefLoadBtn(true)
-            },1000)
-        }
+        setReshUi(reshUiData+1)
+        getImageSizeNum({width:0,height:0})
+        getHttpSizeNum({width:0,height:0})
+        setRefLoadBtn(true)
+        getReloadFres()
     }
     return (
         <SafeAreaView>
             <ScrollView>
+                {/* button刷新按钮方便压力测试 */}
                 <Button onPress={()=>{reLoadFun()}} title='刷新'></Button>
                 {refLoadData&&(
-                     <View style={{width:'100%',height:'100%'}}>
+                    <View style={{width:'100%',height:'100%'}}>
+                    <Text>刷新了{reshUiData}次</Text>
                      <View>
                          <Text>测试onLoad</Text>
                          <Text>{onLoadDatea}</Text>
-                         <FitImage onLoad={()=>{console.log('执行了onLoad'); setOnLoad('执行了onLoad')}} style={styles.fitImageWithSize} source={require('./assets/expo.png')} />                        
+                         <FitImage onLoad={()=>{console.log('执行了onLoad'); setOnLoad('执行了onLoad')}}
+                             style={styles.fitImageWithSize} source={require('./assets/expo.png')} />                        
                      </View>
                      <View>
                          <Text>测试base64图片</Text>
@@ -163,7 +166,7 @@ const FitImageDemo=()=>{
                              <Text>indicator(加载器 为true) indicatorColor(加载器颜色) indicatorSize(值：large  small number)</Text>
                              <Text>值为：large</Text>
                              <FitImage indicator={true}  indicatorColor='red' indicatorSize='large' 
-                                 style={{...styles.fitImageWithSize}} source={require('./assets/expo.png')} />                   
+                                 style={{...styles.fitImageWithSize}} source={require('./assets/expo.png')} />                  
                          </View>
                          <View>
                              <Text>indicator(加载器 为true) indicatorColor(加载器颜色) indicatorSize(值：large  small number)</Text>
@@ -175,13 +178,13 @@ const FitImageDemo=()=>{
                              <Text>indicator(加载器 为true) indicatorColor(加载器颜色) indicatorSize(值：large  small number)</Text>
                              <Text>number:值越大指示器越大</Text>
                              <FitImage indicator={true}  indicatorColor='red' indicatorSize={100} 
-                                 style={{...styles.fitImageWithSize}} source={require('./assets/expo.png')} />                  
+                                 style={{...styles.fitImageWithSize}} source={require('./assets/expo.png')} />                   
                          </View>
                          <View>
                              <Text>indicator(加载器 为false) </Text>
                              <Text>number:值越大指示器越大</Text>
-                             <FitImage indicator={false}   
-                                 style={{...styles.fitImageWithSize}} source={require('./assets/expo.png')} />                   
+                             <FitImage indicator={false}   style={{...styles.fitImageWithSize}} 
+                                 source={require('./assets/expo.png')} />                             
                          </View>
                      </View>
                      <View>
@@ -198,7 +201,7 @@ const FitImageDemo=()=>{
                      <View>
                          <Text>验证网络图片宽高</Text>
                          <Text>宽度：{imgHttpSize.width},高度：{imgHttpSize.height}</Text>
-                         <FitImage  style={{...styles.fitImageWithSize,...styles.fitImage}}
+                         <FitImage  style={{...styles.fitImageWithSize,...styles.fitImage}} 
                              source={{uri:"https://octodex.github.com/images/stormtroopocat.jpg"}} />                         
                      </View>
                      <View>
@@ -213,7 +216,7 @@ const FitImageDemo=()=>{
                      </View>
                      <View>
                          <Text>测试resizeMode(cover contain stretch repeat center)，值为contain</Text>
-                         <FitImage resizeMode='contain' style={{...styles.fitImageWithSize}} 
+                         <FitImage resizeMode='contain' style={{...styles.fitImageWithSize}}
                              source={require('./assets/expo.png')} />                        
                      </View>
                      <View>
@@ -235,25 +238,19 @@ const FitImageDemo=()=>{
                      <View>
                          <Text>测试onError</Text>
                          <Text>{onErrorDatea}</Text>
-                         <FitImage onError={()=>{setTimeout(()=>{
-                                 console.log('执行了onError'); 
-                                 setOnError('执行了onError')},2000)}} 
+                         <FitImage onError={()=>{console.log('执行了onError'); setOnError('执行了onError')}} 
                              style={styles.fitImageWithSize} source={{uri:'https://ok.gitHub.io123.png'}} />    
                      </View>
                      <View>
                          <Text>测试onLoadStart</Text>
                          <Text>{onLoadStartDatea}</Text>
-                         <FitImage onLoadStart={()=>{setTimeout(()=>{
-                                 console.log('执行了onLoadStart');
-                                 setOnLoadStart('执行了onLoadStart')},2000)}} 
+                         <FitImage onLoadStart={()=>{console.log('执行了onLoadStart');setOnLoadStart('执行了onLoadStart')}} 
                              style={{...styles.fitImageWithSize,borderRadius:20}} source={require('./assets/expo.png')} />     
                      </View>
                      <View>
                          <Text>测试onLayOut</Text>
                          <Text>{onLayOutData}</Text>
-                         <FitImage onLayout={()=>{setTimeout(()=>{
-                                 console.log('执行了onLayout');
-                                 setOnLayout('执行了onLayout')},2000)}} 
+                         <FitImage onLoadStart={()=>{console.log('执行了onLayout');setOnLayout('执行了onLayout')}} 
                              style={{...styles.fitImageWithSize,borderRadius:20}} source={require('./assets/expo.png')} />     
                      </View>
                      <View>

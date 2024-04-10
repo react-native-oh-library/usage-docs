@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-pdf-view": "file:../../node_modules/react-native-pdf/harmony/pdfview.har"
+    "rnoh-pdf-view": "file:../../node_modules/@react-native-oh-tpl/react-native-pdf/harmony/pdfview.har"
   }
 ```
 
@@ -129,7 +129,7 @@ ohpm install
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-pdf-view": "file:../../node_modules/react-native-pdf/harmony/pdfview"
+    "rnoh-pdf-view": "file:../../node_modules/@react-native-oh-tpl/react-native-pdf/harmony/pdfview"
   }
 ```
 
@@ -197,19 +197,19 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 + import { RTNPdfView, PDF_VIEW_TYPE } from 'rnoh-pdf-view';
 
   @Builder
-  function buildCustomComponent(ctx: ComponentBuilderContext) {
+  function CustomComponentBuilder(ctx: ComponentBuilderContext) {
     if (ctx.componentName === SAMPLE_VIEW_TYPE) {
       SampleView({
         ctx: ctx.rnComponentContext,
         tag: ctx.tag,
-        buildCustomComponent: buildCustomComponent
+        buildCustomComponent: CustomComponentBuilder
       })
     }
 +   else if (ctx.componentName === PDF_VIEW_TYPE) {
 +     RTNPdfView({
 +       ctx: ctx.rnComponentContext,
 +       tag: ctx.tag,
-+       buildCustomComponent: buildCustomComponent
++       buildCustomComponent: CustomComponentBuilder
 +     })
 +   }
     ...

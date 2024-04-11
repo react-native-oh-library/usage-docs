@@ -4,7 +4,7 @@
   <h1 align="center"> <code>react-native-worklets-core</code> </h1>
 </p>
 <p align="center">
-    <a href="https://github.com/react-native-oh-library/react-native-worklets-core">
+    <a href="https://github.com/react-native-oh-library/react-native-worklets-core/blob/sig/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
@@ -233,4 +233,4 @@ export default App;
 
 ## 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/jeanregisser/react-native-worklets-core/blob/master/LICENSE) ，请自由地享受和参与开源。
+本项目基于 [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-worklets-core/blob/sig/LICENSE) ，请自由地享受和参与开源。

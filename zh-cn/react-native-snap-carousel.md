@@ -13,33 +13,31 @@
 
 ## 安装与使用
 
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-library/react-native-snap-carousel Releases](https://github.com/react-native-oh-library/react-native-snap-carousel/releases)，并下载适用版本的 tgz 包。
+
 进入到工程目录并输入以下命令：
+
+> [!TIP] # 处替换为 tgz 包的路径
 
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-$ npm install @react-native-oh-tpl/react-native-snap-carousel
+$ npm install @react-native-oh-tpl/react-native-snap-carousel@file:#
 ```
 
 ```bash
-$ yarn add @react-native-oh-tpl/react-native-snap-carousel
+$ yarn add @react-native-oh-tpl/react-native-snap-carousel@file:#
 ```
 
 <!-- tabs:end -->
-
-如果您使用的是 Typescript，您还应该安装类型定义：
-
-```bash
-$ npm install @types/react-native-snap-carousel
-```
 
 下面的代码展示了这个库的基本使用场景：
 
 ```js
 import React, { useState } from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, StyleSheet } from "react-native";
 import Carousel from "react-native-snap-carousel";
 
 export default function SnapCarouselExample(): JSX.Element {
@@ -103,6 +101,13 @@ const styles = StyleSheet.create({
     width: "100%",
     marginBottom: 20,
   },
+  image: {
+    resizeMode: 'cover',
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8,
+    width: 250,
+    height: 300
+  }
 });
 ```
 

@@ -8,6 +8,12 @@
 
 该文档旨在帮助开发者在 HarmonyOS 平台使用 React Native OpenHarmony 的第三方库，并呈现每个三方库的信息。
 
+## 贡献文档
+
+欢迎您参与贡献，我们鼓励开发者以各种方式参与文档反馈和贡献。
+
+您可以对现有文档进行评价、简单更改、反馈文档质量问题、贡献您的原创内容，详细请参考[贡献文档](/zh-cn/contribute.md)。
+
 ## RNOH 三方库总览
 
 >[!tip] NPM 公仓坐标：@react-native-oh-tpl

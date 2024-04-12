@@ -1,6 +1,7 @@
 <!-- _sidebar.md -->
 
 - [首页](/zh-cn/README.md)
+- [贡献文档](/zh-cn/contribute.md)
 - [文档模板](/zh-cn/model.md)
 - 三方库说明文档合集
   - RN原生库

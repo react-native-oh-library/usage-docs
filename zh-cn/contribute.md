@@ -17,9 +17,9 @@
 2. 在Gitee源文件md页面中，在对应内容处完成更改、修复。
 3. 修改完成后，可单击“预览“按钮，确认修改结果。
 
-### 贡献HarmonyOS化RN三方库使用文档
+### 贡献RN三方库使用文档
 
-新增使用文档：
+新增HarmonyOS化RN三方库化使用文档：
 
 1. 参考[文档](https://react-native-oh-library.gitee.io/docs/#/zh-cn/third-party?id=%e4%b8%89%e6%96%b9%e5%ba%93%e5%88%86%e7%b1%bb)将三方库按纯JS库/JS库/原生库进行分类，并且根据[模板](./model.md)撰写不同类型的使用文档。
 

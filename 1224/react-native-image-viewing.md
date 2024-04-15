@@ -12,7 +12,7 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-image-viewing)
+> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-image-viewing)
 
 ## 安装与使用
 
@@ -212,7 +212,7 @@ API列表
 
 ## 遗留问题
 
-- [ ] 本库  swipeToCloseEnabled，doubleTapToZoomEnabled，animationType  还未完全鸿蒙化，暂不支持上下滑动关闭、双击放大与动画效果功能 （未解决）[#I9DNQU](https://gitee.com/react-native-oh-library/usage-docs/issues/I9DQPA)
+- [ ] 本库  swipeToCloseEnabled，doubleTapToZoomEnabled，animationType  还未完全HarmonyOS化，暂不支持上下滑动关闭、双击放大与动画效果功能 （未解决）[#I9DNQU](https://gitee.com/react-native-oh-library/usage-docs/issues/I9DQPA)
 
 ## 其他
 

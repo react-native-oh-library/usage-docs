@@ -208,9 +208,9 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 **提示：ArkTs侧引入 Fabric 组件**（删除）
 
-### 在 ArkTs 侧引入 xxx 组件
+### 在 ArkTs 侧引入 xxx 组件（若需要运行ArkTs版本）
 
-> [!WARNING] Deprecated！（若已经CAPI化则需要加上这行）
+> [!WARNING] Deprecated！该库已接入CAPI。（若已经CAPI化则需要加上这行）
 
 找到 `function buildCustomRNComponent()`，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 

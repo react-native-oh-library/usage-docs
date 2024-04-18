@@ -532,8 +532,7 @@ function buildCustomComponent(ctx: ComponentBuilderContext) {
 + else if (ctx.componentName === RNC_VIDEO_TYPE) {
 +   RNCVideo({
 +     ctx: ctx.rnComponentContext,
-+     tag: ctx.tag,
-+     buildCustomComponent: buildCustomComponent
++     tag: ctx.tag
 +   })
 + }
  ...

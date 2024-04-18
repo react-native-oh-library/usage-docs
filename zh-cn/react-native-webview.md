@@ -170,8 +170,7 @@ function buildCustomComponent(ctx: ComponentBuilderContext) {
 + else if (ctx.componentName === WEB_VIEW) {
 +   WebView({
 +     ctx: ctx.rnComponentContext,
-+     tag: ctx.tag,
-+     buildCustomComponent: buildCustomComponent
++     tag: ctx.tag
 +   })
 + }
  ...

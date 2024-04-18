@@ -174,8 +174,7 @@ function buildCustomComponent(ctx: ComponentBuilderContext) {
 + else if (ctx.componentName === SVG_VIEW_TYPE_NAME) {
 +   SVGView({
 +     ctx: ctx.rnComponentContext,
-+     tag: ctx.tag,
-+     buildCustomComponent: buildCustomComponent
++     tag: ctx.tag
 +   })
 + }
  ...

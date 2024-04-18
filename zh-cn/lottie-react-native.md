@@ -170,8 +170,7 @@ function buildCustomComponent(ctx: ComponentBuilderContext) {
 + else if (ctx.componentName === LOTTIE_TYPE) {
 +   LottieAnimationView({
 +     ctx: ctx.rnComponentContext,
-+     tag: ctx.tag,
-+     buildCustomComponent: buildCustomComponent
++     tag: ctx.tag
 +   })
 + }
  ...

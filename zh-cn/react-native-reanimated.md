@@ -124,7 +124,7 @@ export default function App() {
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-reanimated": "file:../../node_modules/@react-native-tpl-oh/react-native-reanimated/harmony/reanimated.har"
+    "rnoh-reanimated": "file:../../node_modules/@react-native-oh-tpl/react-native-reanimated/harmony/reanimated.har"
   }
 ```
 
@@ -146,7 +146,7 @@ ohpm install
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-reanimated": "file:../../node_modules/@react-native-tpl-oh/react-native-reanimated/harmony/reanimated"
+    "rnoh-reanimated": "file:../../node_modules/@react-native-oh-tpl/react-native-reanimated/harmony/reanimated"
   }
 ```
 

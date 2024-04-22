@@ -33,7 +33,8 @@ react-native-pager-view -> react-native-pager-view.md
 
 3. 使用[prettier](https://github.com/prettier/prettier)格式化文档，`prettier --write ./xx.md` ；或者使用 VSCode 的 prettier 插件。
 
-4. 在根目录[README.md](../README.md)和[zh-cn/README.md](/zh-cn/README.md)补充该库信息，两者内容一致。
+4. 在根目录 **Menu.xlsx** 新增三方库的信息。新增之后使用 Excel 转 MarkDown 工具转换成 MarkDown 表格：[Table to Markdown](https://tabletomarkdown.com/convert-spreadsheet-to-markdown/)。然后覆盖[README.md](../README.md)和[zh-cn/README.md](/zh-cn/README.md)中的表格信息。
+
 
 5. 在根目录 \_sidebar.md 添加使用文档导航栏配置。
 

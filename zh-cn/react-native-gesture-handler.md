@@ -221,7 +221,7 @@ react-native-gesture-handler 在 2.x 版本里，不再从原生端引入 `<Gest
 + import { RNGestureHandlerModule } from 'rnoh-gesture-handler/src/main/ets/RNGestureHandlerModule'  // 1.x
 
   @Builder
-  function buildCustomComponent(ctx: ComponentBuilderContext) {
+  function buildCustomRNComponent(ctx: ComponentBuilderContext) {
     if (ctx.componentName === SAMPLE_VIEW_TYPE) {
       SampleView({
         ctx: ctx.rnComponentContext,
@@ -233,13 +233,13 @@ react-native-gesture-handler 在 2.x 版本里，不再从原生端引入 `<Gest
 +     RNGestureHandlerRootView({
 +       ctx: ctx.rnComponentContext,
 +       tag: ctx.tag,
-+       buildCustomComponent: buildCustomComponent
++       buildCustomComponent: buildCustomRNComponent
 +     })
-+   } else if (ctx.componentName == RNGestureHandlerButton.DESCRIPTOR_TYPE){
++   } else if (ctx.componentName == RNGestureHandlerButton.NAME){
 +     RNGestureHandlerButton({
 +       ctx: ctx.rnComponentContext,
 +       tag: ctx.tag,
-+       buildCustomComponent: buildCustomComponent
++       buildCustomComponent: buildCustomRNComponent
 +     })
 +   }
     ...

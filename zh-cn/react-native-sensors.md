@@ -175,7 +175,7 @@ add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
 # RNOH_BEGIN: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("../../../../sensors/src/main/cpp" ./sensors)
++ add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/react-native-sensors/src/main/cpp" ./sensors)
 # RNOH_END: manual_package_linking_1
 
 file(GLOB GENERATED_CPP_FILES "./generated/*.cpp")

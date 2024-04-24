@@ -62,99 +62,32 @@ import dayjs from 'dayjs';
 ```tsx
 import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
-import dayjs from 'dayjs'
-import duration from 'dayjs/plugin/duration'
-
-
+import dayjs from 'dayjs';
+import duration from 'dayjs/plugin/duration';
 
 const DayJsDemo = () => {
   dayjs.extend(duration)
 
-
   return (
-    <View style={styles.container}>
-      <Text style={styles.componentTitle}>ValueAssignmentDemo: 取值/赋值</Text>
-      <Text style={styles.textCommon}>获取或设置毫秒：{dayjs().millisecond()}</Text>
-      <Text style={styles.textCommon}>获取或设置秒：{dayjs().second()}</Text>
-      <Text style={styles.textCommon}>获取或设置分钟：{dayjs().minute()}</Text>
-      <Text style={styles.textCommon}>获取或设置小时：{dayjs().hour()}</Text>
-      <Text style={styles.textCommon}>获取或设置月份里的日期：{dayjs().date()}</Text>
-      <Text style={styles.textCommon}>获取或设置星期几：{dayjs().day()}</Text>
-      <Text style={styles.textCommon}>获取或设置月份：{dayjs().month()}</Text>
-      <Text style={styles.textCommon}>获取或设置年份。：{dayjs().year()}</Text>
-      <Text style={styles.textCommon}>从Dayjs对象中获取相应信息的 getter：年{dayjs().get('year')} 月{dayjs().get('month')}</Text>
-      <Text style={styles.textCommon}>格式化{dayjs().format('YYYY-MM-DD')}</Text>
-      <Text style={styles.textCommon}>时长{dayjs.duration(100)}</Text>
-      <Text style={styles.textCommon}>时间比较{dayjs().isSame('2011-01-01', 'year')? '相等': '不相等'}</Text>
+    <View>
+      <Text>ValueAssignmentDemo: 取值/赋值</Text>
+      <Text>获取或设置毫秒：{dayjs().millisecond()}</Text>
+      <Text>获取或设置秒：{dayjs().second()}</Text>
+      <Text>获取或设置分钟：{dayjs().minute()}</Text>
+      <Text>获取或设置小时：{dayjs().hour()}</Text>
+      <Text>获取或设置月份里的日期：{dayjs().date()}</Text>
+      <Text>获取或设置星期几：{dayjs().day()}</Text>
+      <Text>获取或设置月份：{dayjs().month()}</Text>
+      <Text>获取或设置年份。：{dayjs().year()}</Text>
+      <Text>从Dayjs对象中获取相应信息的 getter：年{dayjs().get('year')} 月{dayjs().get('month')}</Text>
+      <Text>格式化{dayjs().format('YYYY-MM-DD')}</Text>
+      <Text>时长{dayjs.duration(100)}</Text>
+      <Text>时间比较{dayjs().isSame('2011-01-01', 'year')? '相等': '不相等'}</Text>
     </View>
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    paddingTop: 50,
-    padding: 8
-  },
-  navigationContainer: {
-    flex: 1,
-    paddingTop: 50,
-    padding: 8
-  },
-  textCommon: {
-    marginBottom: 10,
-    fontSize: 15,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  interval: {
-    marginBottom: 10,
-  },
-  viewBox: {
-    width: '100%',
-    borderWidth: 1,
-    marginBottom: 2,
-    padding: 5
-  },
-  viewButtonBox: {
-    width: '100%',
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 10,
-  },
-  formatLabel: {
-    marginRight: 2,
-    fontSize: 16,
-    fontWeight: '700'
-  },
-  flexRowCenter: {
-    flexDirection: 'row',
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  flexColCenter: {
-    alignItems: "center",
-    justifyContent: "center"
-  },
-  headerTitle: {
-    fontSize: 18,
-    fontWeight: '700'
-  },
-  componentTitle: {
-    fontSize: 25,
-    fontWeight: '700',
-    marginBottom: 20
-  },
-  inputStyle: {
-    width: 200,
-    height: 40,
-    borderWidth: 1,
-    borderRadius: 10
-  }
-});
-export default DayJsDemo
+export default DayJsDemo;
 ```
 
 如下是已验证接口展示:
@@ -163,7 +96,7 @@ export default DayJsDemo
 
 #### **Get + Set**
 | Name           | Description                                                                                                                                                                            | Type     | Required | HarmonyOS Support | note                                              |
-|----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|----------|-------------------|---------------------------------------------------|
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------------- | ------------------------------------------------- |
 | millisecond    | Gets or sets the milliseconds.                                                                                                                                                         | function | no       | yes               |                                                   |
 | second         | Gets or sets the seconds.                                                                                                                                                              | function | no       | yes               |                                                   |
 | minute         | Gets or sets the minutes.                                                                                                                                                              | function | no       | yes               |                                                   |
@@ -186,7 +119,7 @@ export default DayJsDemo
 
 #### **Manipulate**
 | Name      | Description                                                                | Type     | Required | HarmonyOS Support | note                                   |
-|-----------|----------------------------------------------------------------------------|----------|----------|-------------------|----------------------------------------|
+| --------- | -------------------------------------------------------------------------- | -------- | -------- | ----------------- | -------------------------------------- |
 | add       | Returns a cloned Day.js object with a specified amount of time added.      | function | no       | yes               |                                        |
 | subtract  | Returns a cloned Day.js object with a specified amount of time subtracted. | function | no       | yes               |                                        |
 | startOf   | Returns a cloned Day.js object and set it to the start of a unit of time.  | function | no       | yes               |                                        |
@@ -197,7 +130,7 @@ export default DayJsDemo
 
 #### **Display**
 | Name        | Description                                                                                                                                                                                                                         | Type     | Required | HarmonyOS Support | note                                            |
-|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|----------|-------------------|-------------------------------------------------|
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------------- | ----------------------------------------------- |
 | format      | Get the formatted date according to the string of tokens passed in.                                                                                                                                                                 | function | no       | yes               |                                                 |
 | fromNow     | Returns the string of relative time from now.If you pass true, you can get the value without the suffix.                                                                                                                            | function | no       | yes               | This requires the `RelativeTime` plugin to work |
 | from        | Returns the string of relative time from X.If you pass true, you can get the value without the suffix.                                                                                                                              | function | no       | yes               | This requires the `RelativeTime` plugin to work |
@@ -217,7 +150,7 @@ export default DayJsDemo
 
 #### **Query**
 | Name           | Description                                                                                                                                                                                                                                                        | Type     | Required | HarmonyOS Support | note                                              |
-|----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|----------|-------------------|---------------------------------------------------|
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- | -------- | ----------------- | ------------------------------------------------- |
 | isBefore       | This indicates whether the Day.js object is before the other supplied date-time.If you want to limit the granularity to a unit other than milliseconds, pass it as the second parameter. In that case, the comparison respects the given unit and the units above. | function | no       | yes               |                                                   |
 | isSame         | This indicates whether the Day.js object is the same as the other supplied date-time.If you want to limit the granularity to a unit other than milliseconds, pass it as the second parameter.                                                                      | function | no       | yes               |                                                   |
 | isAfter        | This indicates whether the Day.js object is after the other supplied date-time.If you want to limit the granularity to a unit other than milliseconds, pass it as the second parameter. In that case the comparision respects the given unit and the units above.  | function | no       | yes               |                                                   |
@@ -230,20 +163,20 @@ export default DayJsDemo
 
 #### **Durations**
 | Name     | Description                                                                          | Type     | Required | HarmonyOS Support | note                                        |
-|----------|--------------------------------------------------------------------------------------|----------|----------|-------------------|---------------------------------------------|
+| -------- | ------------------------------------------------------------------------------------ | -------- | -------- | ----------------- | ------------------------------------------- |
 | duration | To create a duration, call dayjs.duration() with the length of time in milliseconds. | function | no       | yes               | This requires the `Duration` plugin to work |
 
 #### **Plugins**
 加载插件：
 
 ```bash
-import duration from 'dayjs/plugin/duration'
+import duration from 'dayjs/plugin/duration';
 
 dayjs.extend(duration)
 ```
 
 | Name              | Description                                                                                                                                                                                                                     | Required | HarmonyOS Support |
-|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|-------------------|
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------------- |
 | advancedFormat    | AdvancedFormat extends dayjs().format API to supply more format options.                                                                                                                                                        | no       | yes               |
 | arraySupport      | ArraySupport extends dayjs(), dayjs.utc APIs to support array argument.                                                                                                                                                         | no       | yes               |
 | bigIntSupport     | BigIntSupport extends dayjs(), dayjs.unix APIs to support BigInt argument.                                                                                                                                                      | no       | yes               |
@@ -281,7 +214,7 @@ dayjs.extend(duration)
 #### **格式化时间**
 
 | **Format** | **Description**                                           | **Output**            |
-|------------|-----------------------------------------------------------|-----------------------|
+| ---------- | --------------------------------------------------------- | --------------------- |
 | YY         | Two-digit year                                            | 18                    |
 | YYYY       | Four-digit year                                           | 2018                  |
 | M          | The month, beginning at 1                                 | 1-12                  |

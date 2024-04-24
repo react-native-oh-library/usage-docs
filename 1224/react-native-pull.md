@@ -339,8 +339,9 @@ export default PullListDemo;
 ## 约束与限制
 
 ### 兼容性
+本文档内容基于以下版本验证通过：
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.59;
 
 请到三方库相应的发布地址查看版本信息：[@react-native-oh-tpl/react-native-pull/releases](https://github.com/react-native-oh-library/react-native-pull/releases)
 

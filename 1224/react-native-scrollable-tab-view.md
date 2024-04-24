@@ -71,7 +71,7 @@ export default () => {
 
 本文档内容基于以下版本验证通过：
 
-1. RNOH：0.72.12; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.313; ROM：2.0.0.59;
+RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 4.1.3.700; ROM：2.0.0.72;
 
 ## 属性
 

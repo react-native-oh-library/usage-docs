@@ -88,7 +88,7 @@ AppRegistry.registerComponent("myproject", () => SwiperComponent);
 ### 兼容性
 
 在下述版本验证通过:
-RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.68;
+RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
 
 ### 属性
 

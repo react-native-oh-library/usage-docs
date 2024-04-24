@@ -281,7 +281,7 @@ export default FitImageDemo;
 
 在以下版本验证通过
 
-1. RNOH：0.72.5; SDK：HarmonyOS NEXT DP2; IDE：DevEco Studio 4.1.3.700; ROM：204.1.0.72(SP2DEVC00E72R1P1);
+1. RNOH：0.72.13; SDK：HarmonyOS NEXT DP2; IDE：DevEco Studio 4.1.3.700; ROM：2.1.0.72;
 
 ## 属性
 

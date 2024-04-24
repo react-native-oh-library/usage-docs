@@ -201,7 +201,15 @@ JsBarcode("#barcode", "29012343", {
 });
 
 ```
-#### **All Options**
+## 约束与限制
+
+### 兼容性
+
+本文档内容基于以下版本验证通过：
+
+RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.59;
+
+## **All Options**
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name         | Description       | Type               | Required | HarmonyOS Support | Remark                                                                |

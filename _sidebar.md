@@ -46,6 +46,7 @@
     - [react-native-blob-util](/zh-cn/react-native-blob-util.md)
     - [@react-native-community/toolbar-android](/zh-cn/react-native-toolbar-android.md)
     - [react-native-MJRefresh](/zh-cn/react-native-MJRefresh.md)
+    - [react-native-sensors](/zh-cn/react-native-sensors.md)
   - RN JS库
     - [lottie-react-native](/zh-cn/lottie-react-native.md)
     - [react-i18next](/zh-cn/react-i18next.md)
@@ -74,8 +75,8 @@
     - [react-native-transitiongroup](/zh-cn/react-native-transitiongroup.md)
     - [react-native-translucent-modal](/zh-cn/react-native-translucent-modal.md)
     - [axios](/zh-cn/axios.md)
-    - [dayjs](/zh-cn/dayjs.md)
-    - [immer](/zh-cn/immer.md)
+    - [dayjs](/zh-cn/dayJs.md)
+    - [immer](/zh-cn/Immer.md)
     - [jsbarcode](/zh-cn/jsbarcode.md)
     - [moment](/zh-cn/moment.md)
     - [qrcode-generator](/zh-cn/qrcode-generator.md)

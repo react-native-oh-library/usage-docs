@@ -1,4 +1,4 @@
-> 模板版本：v0.1.3
+> 模板版本：v0.2.0
 
 <p align="center">
   <h1 align="center"> <code>react-native-sensors</code> </h1>
@@ -12,33 +12,35 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/react-native-sensors/react-native-sensors)
+> [!TIP] [Github 地址](https://github.com/react-native-sensors/react-native-sensors)
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/sensors Releases](https://github.com/react-native-oh-library/react-native-sensors/releases/)，并下载适用版本的 tgz 包
-
-#### **npm**
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-sensors Releases](https://github.com/react-native-oh-library/react-native-sensors/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
 > [!TIP] # 处替换为 tgz 包的路径
 
+<!-- tabs:start -->
+
+#### **npm**
+
 ```bash
-npm install  @react-native-oh-tpl/react-native-sensors@file:#
+npm install @react-native-oh-tpl/react-native-sensors@file:#
 ```
 
 #### **yarn**
 
 ```bash
-yarn add  @react-native-oh-tpl/react-native-sensors@file:#
+yarn add @react-native-oh-tpl/react-native-sensors@file:#
 ```
 
 <!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：
 
-> [!WARNING] 使用时 import 的库名不变。 应用设备需具备对应类型的传感器
+> [!WARNING] 使用时 import 的库名不变。
 
 ```js
 import {
@@ -82,6 +84,7 @@ gravity.subscribe(({ x, y, z, timestamp }) =>
 );
 // setUpdateIntervalForType(type: string, interval: number)
 setUpdateIntervalForType(SensorTypes.accelerometer, 100);
+
 ```
 
 ## Link
@@ -90,6 +93,17 @@ setUpdateIntervalForType(SensorTypes.accelerometer, 100);
 
 首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
 
+### 在工程根目录的 `oh-package.json` 添加 overrides字段
+
+```json
+{
+  ...
+  "overrides": {
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+  }
+}
+```
+
 ### 引入原生端代码
 
 目前有两种方法：
@@ -97,7 +111,7 @@ setUpdateIntervalForType(SensorTypes.accelerometer, 100);
 1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
 2. 直接链接源码。
 
-方法一：通过 har 包引入
+方法一：通过 har 包引入（推荐）
 
 > [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
 
@@ -105,8 +119,8 @@ setUpdateIntervalForType(SensorTypes.accelerometer, 100);
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
-    "rnoh-sensors": "file:../../node_modules/@react-native-oh-tpl/react-native-sensors/harmony/sensors.har"
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+    "@react-native-oh-tpl/react-native-sensors": "file:../../node_modules/@react-native-oh-tpl/react-native-sensors/harmony/sensors.har"
   }
 ```
 
@@ -127,8 +141,8 @@ ohpm install
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
-    "rnoh-sensors": "file:../../node_modules/@react-native-oh-tpl/sensors/harmony/sensors"
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+    "@react-native-oh-tpl/react-native-sensors": "file:../../node_modules/@react-native-oh-tpl/react-native-sensors/harmony/sensors"
   }
 ```
 
@@ -146,34 +160,44 @@ ohpm install --no-link
 ```diff
 project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
+set(CMAKE_SKIP_BUILD_RPATH TRUE)
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(OH_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
+set(LOG_VERBOSITY_LEVEL 1)
+set(CMAKE_ASM_FLAGS "-Wno-error=unused-command-line-argument -Qunused-arguments")
+set(CMAKE_CXX_FLAGS "-fstack-protector-strong -Wl,-z,relro,-z,now,-z,noexecstack -s -fPIE -pie")
+set(WITH_HITRACE_SYSTRACE 1) # for other CMakeLists.txt files to use
+add_compile_definitions(WITH_HITRACE_SYSTRACE)
 
 add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
-# RNOH_BEGIN: add_package_subdirectories
+# RNOH_BEGIN: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/sensors/src/main/cpp" ./sensors)
-# RNOH_END: add_package_subdirectories
++ add_subdirectory("${OH_MODULES}/sensors/src/main/cpp" ./sensors)
+# RNOH_END: manual_package_linking_1
+
+file(GLOB GENERATED_CPP_FILES "./generated/*.cpp")
 
 add_library(rnoh_app SHARED
+    ${GENERATED_CPP_FILES}
     "./PackageProvider.cpp"
     "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
 )
-
 target_link_libraries(rnoh_app PUBLIC rnoh)
 
-# RNOH_BEGIN: rnoh_sensors
+# RNOH_BEGIN: manual_package_linking_2
 target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 + target_link_libraries(rnoh_app PUBLIC rnoh_sensors)
-# RNOH_END: rnoh_sensors
+# RNOH_END: manual_package_linking_2
 ```
 
 打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
 
 ```diff
 #include "RNOH/PackageProvider.h"
+#include "generated/RNOHGeneratedPackage.h"
 #include "SamplePackage.h"
 + #include "SensorsPackage.h"
 
@@ -181,8 +205,9 @@ using namespace rnoh;
 
 std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
     return {
-      std::make_shared<SamplePackage>(ctx),
-+     std::make_shared<SensorsPackage>(ctx)
+        std::make_shared<RNOHGeneratedPackage>(ctx),
+        std::make_shared<SamplePackage>(ctx),
++       std::make_shared<SensorsPackage>(ctx)
     };
 }
 ```
@@ -193,7 +218,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ```diff
 ...
-+ import {SensorsPackage} from "rnoh-sensors/ts";
++ import {SensorsPackage} from '@react-native-oh-tpl/react-native-sensors/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
@@ -218,26 +243,40 @@ ohpm install
 
 ## 约束与限制
 
-设备使用 sensors 时需具备对应类型的传感器。
-
-## 兼容性
+### 兼容性
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[Releases](https://github.com/react-native-oh-library/react-native-sensors/releases/)
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[<xxx> Releases](https://github.com/react-native-oh-library/react-native-sensors/releases)
+
+
+本文档内容基于以下版本验证通过：
+
+RNOH: 0.72.13; SDK: HarmonyOS NEXT Developer Preview1; IDE: DevEco Studio 4.1.3.500; ROM: 2.0.0.72;
+
+### 权限要求
+在module.json5中配置所需要的权限
+
+accelerometer需要的权限：ohos.permission.ACCELEROMETER
+
+gyroscope需要的权限：ohos.permission.GYROSCOPE
 
 ## API
 
-| Name                     | Description  | Platform    | HarmonyOS Support |
-| ------------------------ | ------------ | ----------- | ----------------- |
-| accelerometer            | 加速度计     | ios/Android | yes               |
-| gyroscope                | 陀螺仪       | ios/Android | yes               |
-| magnetometer             | 磁力计       | ios/Android | yes               |
-| barometer                | 气压计       | ios/Android | yes               |
-| orientation              | 方向         | ios/Android | yes               |
-| gravity                  | 重力         | ios/Android | yes               |
-| setUpdateIntervalForType | 间隔时间     | ios/Android | yes               |
-| setLogLevelForType       | 日志打印级别 | ios/Android | yes               |
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name | Description | Type | Required | Platform | HarmonyOS Support  |
+| ---- | ----------- | ---- | -------- | -------- | ------------------ |
+| accelerometer  | 加速度计         | Observable  | no | ios/Android      | yes |
+| gyroscope  | 陀螺仪         | Observable  | no | ios/Android      | yes |
+| magnetometer  | 磁力计         | Observable  | no | ios/Android      | yes |
+| barometer  | 气压计         | Observable  | no | ios/Android      | yes |
+| orientation  | 方向         | Observable  | no | ios/Android      | yes |
+| gravity  | 重力         | Observable  | no | ios/Android      | yes |
+| setUpdateIntervalForType  | 间隔时间         | function  | no | ios/Android      | yes |
+| setLogLevelForType  | 日志打印级别         | function  | no | ios/Android      | yes |
 
 ## 遗留问题
 
@@ -245,4 +284,4 @@ ohpm install
 
 ## 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/Kureev/react-native-blur/blob/master/LICENSE) ，请自由地享受和参与开源。
+本项目基于 [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-sensors/blob/sig/LICENSE) ，请自由地享受和参与开源。

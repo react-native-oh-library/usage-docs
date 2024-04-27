@@ -47,8 +47,8 @@
     - [@react-native-community/toolbar-android](/zh-cn/react-native-toolbar-android.md)
     - [react-native-MJRefresh](/zh-cn/react-native-MJRefresh.md)
     - [react-native-sensors](/zh-cn/react-native-sensors.md)
-  - RN JS库
     - [lottie-react-native](/zh-cn/lottie-react-native.md)
+  - RN JS库
     - [react-i18next](/zh-cn/react-i18next.md)
     - [react-native-action-button](/zh-cn/react-native-action-button.md)
     - [react-native-autoheight-webview](/zh-cn/react-native-autoheight-webview.md)
@@ -109,7 +109,8 @@
     - [react-native-keyboard-aware-scroll-view](/zh-cn/react-native-keyboard-aware-scroll-view.md)
     - [react-native-reanimated-carousel](/zh-cn/react-native-reanimated-carousel.md)
     - [react-native-drag-sort](/zh-cn/react-native-drag-sort.md)
-    - [react-redux](/zh-cn/react-redux.md)
+    - [react-native-sortable-list](/zh-cn/react-native-sortable-list.md)
+    
   - 纯JS库
     - [crypto-js](/zh-cn/crypto-js.md)
     - [deepmerge](/zh-cn/deepmerge.md)
@@ -130,3 +131,4 @@
     - [react-router-dom](/zh-cn/react-router-dom.md)
     - [redux-actions](/zh-cn/redux-actions.md)
     - [redux-thunk](/zh-cn/redux-thunk.md)
+    - [react-redux](/zh-cn/react-redux.md)

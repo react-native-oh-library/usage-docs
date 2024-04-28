@@ -16,7 +16,7 @@
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-gesture-handler Releases](https://github.com/react-native-oh-library/react-native-gesture-handler/releases)，并下载适用版本的 tgz 包。
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-gesture-handler Releases](https://github.com/react-native-oh-library/react-native-harmony-gesture-handler/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
@@ -297,7 +297,7 @@ ohpm install
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-gesture-handler Releases](https://github.com/react-native-oh-library/react-native-gesture-handler/releases)
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-gesture-handler Releases](https://github.com/react-native-oh-library/react-native-harmony-gesture-handler/releases)
 
 > [!tip] [官方文档](https://docs.swmansion.com/react-native-gesture-handler/docs/)
 

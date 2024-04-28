@@ -9,7 +9,6 @@
     </a>
 </p>
 
-
 > [!tip] [Github 地址](https://github.com/brix/crypto-js/tree/4.2.0)
 
 ## 安装与使用
@@ -26,6 +25,7 @@ npm install @types/crypto-js@^4.2.1
 ```
 
 #### **yarn**
+
 ```bash
 yarn add crypto-js@^4.2.0
 yarn add @types/crypto-js@^4.2.1
@@ -123,7 +123,7 @@ export default CryptoJSDemo;
 **以下 `C` 均为crypto-js导出的对象，即：**
 
 ```typescript
-import C from 'crypto-js';
+import C from "crypto-js";
 ```
 
 #### Base
@@ -269,10 +269,10 @@ import C from 'crypto-js';
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name              | Description                                    | Type     | Required | HarmonyOS Support |
-| ----------------- | ---------------------------------------------- | -------- | -------- | ----------------- |
-| C.pad.Pkcs7.pad   | 使用PKCS  #5/7中定义的算法填充数据。           | function | no       | yes               |
-| C.pad.Pkcs7.unpad | 取消填充使用PKCS  #5/7中定义的算法填充的数据。 | function | no       | yes               |
+| Name              | Description                                   | Type     | Required | HarmonyOS Support |
+| ----------------- | --------------------------------------------- | -------- | -------- | ----------------- |
+| C.pad.Pkcs7.pad   | 使用PKCS #5/7中定义的算法填充数据。           | function | no       | yes               |
+| C.pad.Pkcs7.unpad | 取消填充使用PKCS #5/7中定义的算法填充的数据。 | function | no       | yes               |
 
 #### pad.AnsiX923
 
@@ -348,9 +348,9 @@ import C from 'crypto-js';
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name      | Description                                           | Type   | Required | HarmonyOS Support |
-| --------- | ----------------------------------------------------- | ------ | -------- | ----------------- |
-| blockSize | 哈希运算的32位字节块大小。缺省值：16(32*16=512bits)。 | number | no       | yes               |
+| Name      | Description                                            | Type   | Required | HarmonyOS Support |
+| --------- | ------------------------------------------------------ | ------ | -------- | ----------------- |
+| blockSize | 哈希运算的32位字节块大小。缺省值：16(32\*16=512bits)。 | number | no       | yes               |
 
 **API**
 
@@ -384,11 +384,11 @@ import C from 'crypto-js';
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name     | Description                                                  | Type     | Required | HarmonyOS Support |
-| :------- | ------------------------------------------------------------ | -------- | -------- | ----------------- |
-| reset    | 将此HMAC重置为其初始状态。                                   | function | no       | yes               |
-| update   | 使用消息更新此HMAC。                                         | function | no       | yes               |
-| finalize | 最终完成HMAC计算。     请注意，finally操作实际上是一个破坏性的、读一次的操作。 | function | no       | yes               |
+| Name     | Description                                                                | Type     | Required | HarmonyOS Support |
+| :------- | -------------------------------------------------------------------------- | -------- | -------- | ----------------- |
+| reset    | 将此HMAC重置为其初始状态。                                                 | function | no       | yes               |
+| update   | 使用消息更新此HMAC。                                                       | function | no       | yes               |
+| finalize | 最终完成HMAC计算。 请注意，finally操作实际上是一个破坏性的、读一次的操作。 | function | no       | yes               |
 
 #### AES
 
@@ -396,11 +396,11 @@ import C from 'crypto-js';
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name                       | Description                 | Type     | Required | HarmonyOS Support | Notes                                                        |
-| :------------------------- | --------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------ |
+| Name                       | Description                 | Type     | Required | HarmonyOS Support | Notes                                                                          |
+| :------------------------- | --------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------------------------ |
 | C.AES.encrypt              | AES算法加密。               | function | no       | partially         | 密码必须使用WordArray格式参数，不支持设置为string类型(与android/ios效果一致)。 |
 | C.AES.decrypt              | AES算法解密。               | function | no       | partially         | 密码必须使用WordArray格式参数，不支持设置为string类型(与android/ios效果一致)。 |
-| C.algo.AES.createEncryptor | 在AES加密模式下创建此密码。 | function | no       | yes               |                                                              |
+| C.algo.AES.createEncryptor | 在AES加密模式下创建此密码。 | function | no       | yes               |                                                                                |
 
 #### DES
 
@@ -408,11 +408,11 @@ import C from 'crypto-js';
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name                       | Description                 | Type     | Required | HarmonyOS Support | Notes                                                        |
-| :------------------------- | --------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------ |
+| Name                       | Description                 | Type     | Required | HarmonyOS Support | Notes                                                                          |
+| :------------------------- | --------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------------------------ |
 | C.DES.encrypt              | DES算法加密。               | function | no       | partially         | 密码必须使用WordArray格式参数，不支持设置为string类型(与android/ios效果一致)。 |
 | C.DES.decrypt              | DES算法解密。               | function | no       | partially         | 密码必须使用WordArray格式参数，不支持设置为string类型(与android/ios效果一致)。 |
-| C.algo.DES.createEncryptor | 在DES加密模式下创建此密码。 | function | no       | yes               |                                                              |
+| C.algo.DES.createEncryptor | 在DES加密模式下创建此密码。 | function | no       | yes               |                                                                                |
 
 #### TripleDES
 
@@ -420,11 +420,11 @@ import C from 'crypto-js';
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name                             | Description                       | Type     | Required | HarmonyOS Support | Notes                                                        |
-| :------------------------------- | --------------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------ |
+| Name                             | Description                       | Type     | Required | HarmonyOS Support | Notes                                                                          |
+| :------------------------------- | --------------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------------------------ |
 | C.TripleDES.encrypt              | TripleDES算法加密。               | function | no       | partially         | 密码必须使用WordArray格式参数，不支持设置为string类型(与android/ios效果一致)。 |
 | C.TripleDES.decrypt              | TripleDES算法解密。               | function | no       | partially         | 密码必须使用WordArray格式参数，不支持设置为string类型(与android/ios效果一致)。 |
-| C.algo.TripleDES.createEncryptor | 在TripleDES加密模式下创建此密码。 | function | no       | yes               |                                                              |
+| C.algo.TripleDES.createEncryptor | 在TripleDES加密模式下创建此密码。 | function | no       | yes               |                                                                                |
 
 #### RC4
 
@@ -432,11 +432,11 @@ import C from 'crypto-js';
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name                       | Description                 | Type     | Required | HarmonyOS Support | Notes                                                        |
-| :------------------------- | --------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------ |
+| Name                       | Description                 | Type     | Required | HarmonyOS Support | Notes                                                                          |
+| :------------------------- | --------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------------------------ |
 | C.RC4.encrypt              | RC4算法加密。               | function | no       | partially         | 密码必须使用WordArray格式参数，不支持设置为string类型(与android/ios效果一致)。 |
 | C.RC4.decrypt              | RC4算法解密。               | function | no       | partially         | 密码必须使用WordArray格式参数，不支持设置为string类型(与android/ios效果一致)。 |
-| C.algo.RC4.createEncryptor | 在RC4加密模式下创建此密码。 | function | no       | yes               |                                                              |
+| C.algo.RC4.createEncryptor | 在RC4加密模式下创建此密码。 | function | no       | yes               |                                                                                |
 
 #### RC4Drop
 
@@ -444,11 +444,11 @@ import C from 'crypto-js';
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name                          | Description                     | Type     | Required | HarmonyOS Support | Notes                                                        |
-| :---------------------------- | ------------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------ |
+| Name                          | Description                     | Type     | Required | HarmonyOS Support | Notes                                                                          |
+| :---------------------------- | ------------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------------------------ |
 | C.RC4Drop.encrypt             | RC4Drop算法加密。               | function | no       | partially         | 密码必须使用WordArray格式参数，不支持设置为string类型(与android/ios效果一致)。 |
 | C.RC4Drop.decrypt             | RC4Drop算法解密。               | function | no       | partially         | 密码必须使用WordArray格式参数，不支持设置为string类型(与android/ios效果一致)。 |
-| C.algo.RC4Drop.createEncrypto | 在RC4Drop加密模式下创建此密码。 | function | no       | yes               |                                                              |
+| C.algo.RC4Drop.createEncrypto | 在RC4Drop加密模式下创建此密码。 | function | no       | yes               |                                                                                |
 
 #### Rabbit
 
@@ -456,11 +456,11 @@ import C from 'crypto-js';
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name                          | Description                    | Type     | Required | HarmonyOS Support | Notes                                                        |
-| :---------------------------- | ------------------------------ | -------- | -------- | ----------------- | ------------------------------------------------------------ |
+| Name                          | Description                    | Type     | Required | HarmonyOS Support | Notes                                                                          |
+| :---------------------------- | ------------------------------ | -------- | -------- | ----------------- | ------------------------------------------------------------------------------ |
 | C.Rabbit.encrypt              | Rabbit算法加密。               | function | no       | partially         | 密码必须使用WordArray格式参数，不支持设置为string类型(与android/ios效果一致)。 |
 | C.Rabbit.decrypt              | Rabbit算法解密。               | function | no       | partially         | 密码必须使用WordArray格式参数，不支持设置为string类型(与android/ios效果一致)。 |
-| C.algo.Rabbit.createEncryptor | 在Rabbit加密模式下创建此密码。 | function | no       | yes               |                                                              |
+| C.algo.Rabbit.createEncryptor | 在Rabbit加密模式下创建此密码。 | function | no       | yes               |                                                                                |
 
 #### RabbitLegacy
 
@@ -468,11 +468,11 @@ import C from 'crypto-js';
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name                                | Description                          | Type     | Required | HarmonyOS Support | Notes                                                        |
-| :---------------------------------- | ------------------------------------ | -------- | -------- | ----------------- | ------------------------------------------------------------ |
+| Name                                | Description                          | Type     | Required | HarmonyOS Support | Notes                                                                          |
+| :---------------------------------- | ------------------------------------ | -------- | -------- | ----------------- | ------------------------------------------------------------------------------ |
 | C.RabbitLegacy.encrypt              | RabbitLegacy算法加密。               | function | no       | partially         | 密码必须使用WordArray格式参数，不支持设置为string类型(与android/ios效果一致)。 |
 | C.RabbitLegacy.decrypt              | RabbitLegacy算法解密。               | function | no       | partially         | 密码必须使用WordArray格式参数，不支持设置为string类型(与android/ios效果一致)。 |
-| C.algo.RabbitLegacy.createEncryptor | 在RabbitLegacy加密模式下创建此密码。 | function | no       | yes               |                                                              |
+| C.algo.RabbitLegacy.createEncryptor | 在RabbitLegacy加密模式下创建此密码。 | function | no       | yes               |                                                                                |
 
 #### Cipher
 
@@ -489,11 +489,11 @@ import C from 'crypto-js';
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name     | Description                                                  | Type     | Required | HarmonyOS Support |
-| :------- | ------------------------------------------------------------ | -------- | -------- | ----------------- |
-| reset    | 将此密码重置为其初始状态。                                   | function | no       | yes               |
-| process  | 添加需要加解密的数据。                                       | function | no       | yes               |
-| finalize | 完成加密或解密过程。     请注意，finally操作实际上是一个破坏性的、一次读取的操作。 | function | no       | yes               |
+| Name     | Description                                                                    | Type     | Required | HarmonyOS Support |
+| :------- | ------------------------------------------------------------------------------ | -------- | -------- | ----------------- |
+| reset    | 将此密码重置为其初始状态。                                                     | function | no       | yes               |
+| process  | 添加需要加解密的数据。                                                         | function | no       | yes               |
+| finalize | 完成加密或解密过程。 请注意，finally操作实际上是一个破坏性的、一次读取的操作。 | function | no       | yes               |
 
 #### Blowfish
 
@@ -523,8 +523,8 @@ import C from 'crypto-js';
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name                              | Description          | Type     | Required | HarmonyOS Support | Notes                                                        |
-| :-------------------------------- | -------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------ |
+| Name                              | Description          | Type     | Required | HarmonyOS Support | Notes                                                                   |
+| :-------------------------------- | -------------------- | -------- | -------- | ----------------- | ----------------------------------------------------------------------- |
 | C.lib.PasswordBasedCipher.encrypt | 对信息进行加密。     | function | no       | partially         | 必须传入有效的salt参数，不传入salt参数时不支持(与android/ios效果一致)。 |
 | C.lib.PasswordBasedCipher.decrypt | 对加密信息进行解密。 | function | no       | partially         | 必须传入有效的salt参数，不传入salt参数时不支持(与android/ios效果一致)。 |
 
@@ -534,8 +534,8 @@ import C from 'crypto-js';
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name                  | Description          | Type     | Required | HarmonyOS Support | Notes                                                        |
-| :-------------------- | -------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------ |
+| Name                  | Description          | Type     | Required | HarmonyOS Support | Notes                                                                   |
+| :-------------------- | -------------------- | -------- | -------- | ----------------- | ----------------------------------------------------------------------- |
 | C.kdf.OpenSSL.execute | 从密码派生密钥和IV。 | function | no       | partially         | 必须传入有效的salt参数，不传入salt参数时不支持(与android/ios效果一致)。 |
 
 #### kdf.PBKDF2

@@ -106,7 +106,7 @@ export default class RecycleTestComponent extends React.Component {
             dim.width = 0;
             dim.height = 0;
         }
-      }
+      },
     );
 
     this._rowRenderer = this._rowRenderer.bind(this);

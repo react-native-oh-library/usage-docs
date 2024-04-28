@@ -104,7 +104,7 @@ function SoundDemo(): JSX.Element {
     title:props.navigation.state.params.title,}
   );
 
-let sound=new Sound();
+let sound=new Sound('whoosh.mp3');
   
  const onPlay=()=>{
    sound.play();

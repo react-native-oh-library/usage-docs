@@ -88,14 +88,14 @@ const parser = new htmlparser2.Parser({
   },
 });
 parser.write(
-  "Xyz <script type='text/javascript'>const foo = '<<bar>>';</script>"
+  "Xyz <script type='text/javascript'>const foo = '<<bar>>';</script>",
 );
 parser.end();
 ```
 
 ```js
 import { parseDocument } from "htmlparser2";
-import CircularJSON from 'circular-json';
+import CircularJSON from "circular-json";
 
 const dom = parseDocument(
   '<div data-foo="In the end, it doesn\'t really matter."></div><div data-foo="Indeed-that\'s a delicate matter.">',
@@ -131,11 +131,11 @@ console.info(parsed);
 import getNCheck from "nth-check";
 import * as boolbase from "boolbase";
 
-const func = getNCheck('2n+1');
+const func = getNCheck("2n+1");
 if (func === boolbase.falseFunc) {
-    return boolbase.falseFunc;
+  return boolbase.falseFunc;
 } else {
-    return boolbase.trueFunc;
+  return boolbase.trueFunc;
 }
 ```
 
@@ -151,8 +151,6 @@ export interface CheerioOptions extends Parse5Options {
   quirksMode?: SelectOptions['quirksMode'];
 }
 ```
-
-
 
 ## 兼容性
 

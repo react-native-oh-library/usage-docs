@@ -40,6 +40,13 @@ yarn add @types/redux-actions -D
 
 下面的代码展示了这个库的基本使用场景：
 
+运行demo还需安装以下依赖：
+
+```bash
+npm install redux
+npm install react-redux
+```
+
 1.定义state的类型
 
 // LoginType.ts

@@ -90,7 +90,7 @@ AppRegistry.registerComponent('myproject', () => SwiperComponent)
 ### 兼容性
 
 在下述版本验证通过:
-RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.68;
+RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
 
 ### 属性
 
@@ -220,7 +220,6 @@ var swiper = React.createClass({
 - [ ]    组件属性继承RNOH scrollview,当前RNOH中的scrollsToTop暂时不支持
 - [ ] 组件属性继承RNOH scrollview,当前RNOH中的removeClippedSubviews暂时不支持
 - [ ]   组件属性继承RNOH scrollview,当前RNOH中的automaticallyAdjustContentInsets暂时不支持
-- [ ]   组件轮播图3月30号roh版本为0.72.5暂时有不居中问题，在4月30号 roh版本为0.72.9  上解决
 
 ### 其他
 

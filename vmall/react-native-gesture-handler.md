@@ -116,7 +116,7 @@ export default function App() {
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-gesture-handler": "file:../../node_modules/@react-native-tpl-oh/react-native-gesture-handler/harmony/gesture_handler.har"
+    "rnoh-gesture-handler": "file:../../node_modules/@react-native-oh-tpl/react-native-gesture-handler/harmony/gesture_handler.har"
   }
 ```
 
@@ -135,7 +135,7 @@ ohpm install
 ```json
 "dependencies": {
     "rnoh": "file:../rnoh",
-    "rnoh-gesture-handler": "file:../../node_modules/@react-native-tpl-oh/react-native-gesture-handler/harmony/gesture_handler"
+    "rnoh-gesture-handler": "file:../../node_modules/@react-native-oh-tpl/react-native-gesture-handler/harmony/gesture_handler"
   }
 ```
 

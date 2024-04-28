@@ -35,15 +35,16 @@ yarn add mobx-react@^7.6.0
 
 ```js
 module.exports = {
-  presets: ['module:metro-react-native-babel-preset'],
-  plugins:[
-    ["@babel/plugin-proposal-decorators",{"version":"legacy"}],
-    ["@babel/plugin-transform-class-properties",{"loose":true}],
-  ]
+  presets: ["module:metro-react-native-babel-preset"],
+  plugins: [
+    ["@babel/plugin-proposal-decorators", { version: "legacy" }],
+    ["@babel/plugin-transform-class-properties", { loose: true }],
+  ],
 };
 ```
 
 安装babel相关依赖:
+
 ```bash
 npm install @babel/core
 
@@ -55,27 +56,27 @@ npm install @babel/plugin-transform-class-properties --save-dev
 下面的代码展示了这个库的基本使用场景：
 
 ```js
-import { observer } from "mobx-react"
+import { observer } from "mobx-react";
 
 // ---- ES6 syntax ----
 const TodoView = observer(
-    class TodoView extends React.Component {
-        render() {
-            return <div>{this.props.todo.title}</div>
-        }
+  class TodoView extends React.Component {
+    render() {
+      return <div>{this.props.todo.title}</div>;
     }
-)
+  },
+);
 
 // ---- ESNext syntax with decorator syntax enabled ----
 @observer
 class TodoView extends React.Component {
-    render() {
-        return <div>{this.props.todo.title}</div>
-    }
+  render() {
+    return <div>{this.props.todo.title}</div>;
+  }
 }
 
 // ---- or just use function components: ----
-const TodoView = observer(({ todo }) => <div>{todo.title}</div>)
+const TodoView = observer(({ todo }) => <div>{todo.title}</div>);
 ```
 
 ### 兼容性
@@ -84,7 +85,6 @@ const TodoView = observer(({ todo }) => <div>{todo.title}</div>)
 
 1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
 2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
-
 
 ## 属性
 
@@ -96,11 +96,11 @@ const TodoView = observer(({ todo }) => <div>{todo.title}</div>)
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name | Description | Type | Required | HarmonyOS Support  |
-| ---- | ----------- | ---- | -------- | ------------------ |
-| Observer | Observer is a React component, which applies observer to an anonymous region in your component | function  | no | yes |
-| Provider | is a component that can pass stores (or other stuff) using React's context mechanism to child components | function  | no | yes |
-| inject | can be used to pick up those stores. It is a higher order component that takes a list of strings and makes those stores available to the wrapped component | function | no | yes |
+| Name     | Description                                                                                                                                                | Type     | Required | HarmonyOS Support |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------------- |
+| Observer | Observer is a React component, which applies observer to an anonymous region in your component                                                             | function | no       | yes               |
+| Provider | is a component that can pass stores (or other stuff) using React's context mechanism to child components                                                   | function | no       | yes               |
+| inject   | can be used to pick up those stores. It is a higher order component that takes a list of strings and makes those stores available to the wrapped component | function | no       | yes               |
 
 ## 其他
 

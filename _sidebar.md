@@ -112,6 +112,7 @@
     - [react-native-drag-sort](/zh-cn/react-native-drag-sort.md)
     - [react-native-sortable-list](/zh-cn/react-native-sortable-list.md)
     - [react-native-easy-toast](/zh-cn/react-native-easy-toast.md)
+    - [react-native-feather](/zh-cn/react-native-feather.md)
   - 纯JS库
     - [crypto-js](/zh-cn/crypto-js.md)
     - [deepmerge](/zh-cn/deepmerge.md)

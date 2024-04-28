@@ -48,6 +48,7 @@
     - [react-native-MJRefresh](/zh-cn/react-native-MJRefresh.md)
     - [react-native-sensors](/zh-cn/react-native-sensors.md)
     - [lottie-react-native](/zh-cn/lottie-react-native.md)
+    - [react-native-image-sequence-2](/zh-cn/react-native-image-sequence-2.md)
   - RN JS库
     - [react-i18next](/zh-cn/react-i18next.md)
     - [react-native-action-button](/zh-cn/react-native-action-button.md)

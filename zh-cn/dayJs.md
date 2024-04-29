@@ -26,7 +26,7 @@ npm install dayjs --save
 #### **yarn**
 
 ```bash
-yarn dayjs --save
+yarn add dayjs --save
 ```
 
 <!-- tabs:end -->
@@ -339,3 +339,5 @@ dayjs.extend(duration)
 ## 其他
 
 ## 开源协议
+
+本项目基于 [The MIT License (MIT)](https://github.com/iamkun/dayjs/blob/dev/LICENSE) ，请自由地享受和参与开源。

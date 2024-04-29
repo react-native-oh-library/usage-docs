@@ -19,18 +19,20 @@
 
 进入到工程目录并输入以下命令：
 
+> [!TIP] # 处替换为 tgz 包的路径
+
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm install react-native-better-banner@1.1.3
+npm install @react-native-oh-tpl/react-native-better-banner@file:#
 ```
 
 #### **yarn**
 
 ```bash
-yarn add react-native-better-banner@1.1.3
+yarn add @react-native-oh-tpl/react-native-better-banner@file:#
 ```
 
 <!-- tabs:end -->
@@ -102,6 +104,23 @@ const styles = StyleSheet.create({
 });
 
 export default App;
+```
+
+## Link
+
+目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+
+首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
+
+### 在工程根目录的 `oh-package.json` 添加 overrides字段
+
+```json
+{
+  ...
+  "overrides": {
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+  }
+}
 ```
 
 

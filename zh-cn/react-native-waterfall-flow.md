@@ -26,7 +26,7 @@
 #### **npm**
 
 ```bash
-npm install react-native-waterfall-flow --save 
+npm install react-native-waterfall-flow --save
 ```
 
 #### **yarn**

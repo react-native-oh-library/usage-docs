@@ -16,6 +16,8 @@
 
 ## 安装与使用
 
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-better-banner Releases](https://github.com/react-native-oh-library/better-banner/releases)，并下载适用版本的 tgz 包。
+
 
 进入到工程目录并输入以下命令：
 

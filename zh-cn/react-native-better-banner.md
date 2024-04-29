@@ -19,18 +19,20 @@
 
 进入到工程目录并输入以下命令：
 
+> [!TIP] # 处替换为 tgz 包的路径
+
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm install react-native-better-banner@1.1.3
+npm install @react-native-oh-tpl/react-native-better-banner@file:#
 ```
 
 #### **yarn**
 
 ```bash
-yarn add react-native-better-banner@1.1.3
+yarn add @react-native-oh-tpl/react-native-better-banner@file:#
 ```
 
 <!-- tabs:end -->
@@ -103,8 +105,6 @@ const styles = StyleSheet.create({
 
 export default App;
 ```
-
-
 
 ## 约束与限制
 

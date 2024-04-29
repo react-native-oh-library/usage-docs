@@ -26,13 +26,13 @@
 #### **npm**
 
 ```bash
-npm install react-native-waterfall-flow --save
+npm install react-native-waterfall-flow@1.1.5 --save
 ```
 
 #### **yarn**
 
 ```bash
-yarn add react-native-waterfall-flow --save
+yarn add react-native-waterfall-flow@1.1.5 --save
 ```
 
 <!-- tabs:end -->
@@ -43,11 +43,10 @@ yarn add react-native-waterfall-flow --save
 import { PureComponent, Component } from 'react'
 import { View, Dimensions, Image, Animated, ImageProps, ActivityIndicator, Text, Platform, TouchableOpacity, Alert } from 'react-native'
 import WaterfallFlow from 'react-native-waterfall-flow'
-import imgList from './imgList'
 
 const window = Dimensions.get('window')
 
-export default class TestWaterfallFlowScreen extends Component {
+export default class TestWaterfallFlowScreenTow extends Component {
 
   constructor(props) {
     super(props)
@@ -86,6 +85,55 @@ export default class TestWaterfallFlowScreen extends Component {
       })
     } 
     setTimeout(() => { // mock request data
+      const imgList = [
+        {
+          "thumbURL": "https://img1.baidu.com/it/u=2226443709,1655735334&fm=253&fmt=auto&app=120&f=JPEG?w=690&h=1226",
+          "title": "尾页,好看的风景锁屏壁纸,唯美天空手机壁纸",
+          "width": 690,
+          "height": 1226
+        },
+        {
+          "thumbURL": "https://img1.baidu.com/it/u=1864407977,4278108853&fm=253&fmt=auto&app=138&f=JPEG?w=333&h=499",
+          "title": "唯美意境图片田园景色手机壁纸第一辑-风景-壁纸下载-美桌网",
+          "width": 640,
+          "height": 960
+        },
+        {
+          "thumbURL": "https://img1.baidu.com/it/u=1884825806,3687074543&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=889",
+          "title": "大自然唯美风景图片手机壁纸",
+          "width": 1080,
+          "height": 1920
+        },
+        {
+          "thumbURL": "https://img2.baidu.com/it/u=241902442,933965745&fm=253&fmt=auto&app=120&f=JPEG?w=540&h=960",
+          "title": "好看唯美的自然风光手机壁纸-风景-手机壁纸下载-美桌网",
+          "width": 540,
+          "height": 960
+        },
+        {
+          "thumbURL": "https://img1.baidu.com/it/u=1605135781,4151997734&fm=253&fmt=auto&app=138&f=JPEG?w=281&h=499",
+          "title": "唯美瀑布高清大自然风景图片壁纸",
+          "width": 640,
+          "height": 1137
+        },
+        {
+          "thumbURL": "https://img0.baidu.com/it/u=1303418658,2016567117&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=889",
+          "title": "手机动漫风景图片壁纸2",
+          "width": 576,
+          "height": 1024
+        },
+        {
+          "thumbURL": "https://img1.baidu.com/it/u=1094974745,1772917056&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=750",
+          "title": "清新的大海景色640x960唯美手机壁纸大图",
+          "width": 640,
+          "height": 960
+        },
+        {
+          "thumbURL": "https://img0.baidu.com/it/u=2608390028,4097355289&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=751",
+          "title": "高清风景图片竖屏最美(2)",
+          "width": 500,
+          "height": 751
+        }]
       const newData = imgList.slice((page - 1) * this.pageSize, page * this.pageSize).map(img => {
         const { width, height } = img
         const cardWidth = Math.floor(window.width / 2)

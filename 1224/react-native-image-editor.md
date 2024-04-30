@@ -42,7 +42,7 @@ yarn add @react-native-oh-tpl/image-editor@file:#
 import ImageEditor from '@react-native-community/image-editor';
 
 ImageEditor.cropImage(uri, cropData).then((result) => {
-  console.log('Cropped image uri:', result);
+    console.log('Cropped image uri:', result);
 });
 ```
 
@@ -67,9 +67,9 @@ ImageEditor.cropImage(uri, cropData).then((result) => {
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
-    "rnoh-image-editor": "file:../../node_modules/@react-native-oh-tpl/image-editor/harmony/image_editor.har"
-  }
+"@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+"@react-native-oh-tpl/image-editor": "file:../../node_modules/@react-native-oh-tpl/image-editor/harmony/image_editor.har"
+}
 ```
 
 点击右上角的 `sync` 按钮
@@ -89,8 +89,8 @@ ohpm install
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
-    "rnoh-image-editor": "file:../../node_modules/@react-native-oh-tpl/image-editor/harmony/image_editor"
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+    "@react-native-oh-tpl/image-editor": "file:../../node_modules/@react-native-oh-tpl/image-editor/harmony/image_editor"
   }
 ```
 
@@ -101,54 +101,6 @@ cd entry
 ohpm install --no-link
 ```
 
-### 配置 CMakeLists 和引入ImageEditorPackage
-
-打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
-
-```diff
-project(rnapp)
-cmake_minimum_required(VERSION 3.4.1)
-set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(OH_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
-set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
-
-add_subdirectory("${RNOH_CPP_DIR}" ./rn)
-
-# RNOH_BEGIN: add_package_subdirectories
-add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/rnoh-image-editor/src/main/cpp" ./image-editor)
-# RNOH_END: add_package_subdirectories
-
-add_library(rnoh_app SHARED
-    "./PackageProvider.cpp"
-    "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
-)
-
-target_link_libraries(rnoh_app PUBLIC rnoh)
-
-# RNOH_BEGIN: link_packages
-target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
-+ target_link_libraries(rnoh_app PUBLIC rnoh_image_editor)
-# RNOH_END: link_packages
-```
-
-打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
-
-```diff
-#include "RNOH/PackageProvider.h"
-#include "SamplePackage.h"
-+ #include "ImageEditorPackage.h"
-
-using namespace rnoh;
-
-std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
-    return {
-      std::make_shared<SamplePackage>(ctx),
-+     std::make_shared<ImageEditorPackage>(ctx)
-    };
-}
-```
-
 
 
 ### 在 ArkTs 侧引入 ImageEditorPackage
@@ -157,7 +109,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ```diff
 ...
-+ import {ImageEditorPackage} from "rnoh-image-editor/ts";
++ import {ImageEditorPackage} from "@react-native-oh-tpl/image-editor/ts";
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
@@ -171,7 +123,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 
 点击右上角的 `sync` 按钮
 
-或者在终端执行：
+或者在终端执行：[react-native-image-editor.md](react-native-image-editor.md)
 
 ```bash
 cd entry
@@ -183,9 +135,10 @@ ohpm install
 ## 约束与限制
 
 ### 兼容性
+
 本文档内容基于以下版本验证通过：
 
-RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 4.1.1.700; ROM：2.0.0.72;
+RNOH：0.72.20; SDK：HarmonyOS-NEXT-DB1; IDE：DevEco Studio 5.0.3.200; ROM：2.0.0.13;
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[Releases](https://github.com/react-native-oh-library/react-native-image-editor/releases)
 

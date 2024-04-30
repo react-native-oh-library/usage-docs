@@ -13,7 +13,7 @@
     </a>
 </p>
 
-> [Github 地址](https://github.com/react-native-oh-library/react-native-image-editor)
+>  [Github 地址](https://github.com/react-native-oh-library/react-native-image-editor)
 
 ## 安装与使用
 
@@ -36,10 +36,10 @@ yarn add @react-native-oh-tpl/image-editor@file:#
 > [!TIP] 使用时 import 的库名不变。
 
 ```js
-import ImageEditor from "@react-native-community/image-editor";
+import ImageEditor from '@react-native-community/image-editor';
 
 ImageEditor.cropImage(uri, cropData).then((result) => {
-  console.log("Cropped image uri:", result);
+  console.log('Cropped image uri:', result);
 });
 ```
 
@@ -64,8 +64,8 @@ ImageEditor.cropImage(uri, cropData).then((result) => {
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
-    "rnoh-image-editor": "file:../../node_modules/@react-native-oh-tpl/image-editor/harmony/image_editor.har"
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+    "@react-native-oh-tpl/image-editor": "file:../../node_modules/@react-native-oh-tpl/image-editor/harmony/image_editor.har"
   }
 ```
 
@@ -86,8 +86,8 @@ ohpm install
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
-    "rnoh-image-editor": "file:../../node_modules/@react-native-oh-tpl/image-editor/harmony/image_editor"
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+    "@react-native-oh-tpl/image-editor": "file:../../node_modules/@react-native-oh-tpl/image-editor/harmony/image_editor"
   }
 ```
 
@@ -98,53 +98,7 @@ cd entry
 ohpm install --no-link
 ```
 
-### 配置 CMakeLists 和引入ImageEditorPackage
 
-打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
-
-```diff
-project(rnapp)
-cmake_minimum_required(VERSION 3.4.1)
-set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(OH_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
-set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
-
-add_subdirectory("${RNOH_CPP_DIR}" ./rn)
-
-# RNOH_BEGIN: add_package_subdirectories
-add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/rnoh-image-editor/src/main/cpp" ./image-editor)
-# RNOH_END: add_package_subdirectories
-
-add_library(rnoh_app SHARED
-    "./PackageProvider.cpp"
-    "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
-)
-
-target_link_libraries(rnoh_app PUBLIC rnoh)
-
-# RNOH_BEGIN: link_packages
-target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
-+ target_link_libraries(rnoh_app PUBLIC rnoh_image_editor)
-# RNOH_END: link_packages
-```
-
-打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
-
-```diff
-#include "RNOH/PackageProvider.h"
-#include "SamplePackage.h"
-+ #include "ImageEditorPackage.h"
-
-using namespace rnoh;
-
-std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
-    return {
-      std::make_shared<SamplePackage>(ctx),
-+     std::make_shared<ImageEditorPackage>(ctx)
-    };
-}
-```
 
 ### 在 ArkTs 侧引入 ImageEditorPackage
 
@@ -152,7 +106,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ```diff
 ...
-+ import {ImageEditorPackage} from "rnoh-image-editor/ts";
++ import {ImageEditorPackage} from "@react-native-oh-tpl/image-editor/ts";
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
@@ -166,7 +120,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 
 点击右上角的 `sync` 按钮
 
-或者在终端执行：
+或者在终端执行：[react-native-image-editor.md](react-native-image-editor.md)
 
 ```bash
 cd entry
@@ -178,30 +132,31 @@ ohpm install
 ## 约束与限制
 
 ### 兼容性
+
 本文档内容基于以下版本验证通过：
 
-RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 4.1.1.700; ROM：2.0.0.72;
+RNOH：0.72.20; SDK：HarmonyOS-NEXT-DB1; IDE：DevEco Studio 5.0.3.200; ROM：2.0.0.13;
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[Releases](https://github.com/react-native-oh-library/react-native-image-editor/releases)
 
 ## API
 
-| Name      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Platform    | HarmonyOS Support |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ----------------- |
+| Name      | Description                                                  | Platform    | HarmonyOS Support |
+| --------- | ------------------------------------------------------------ | ----------- | ----------------- |
 | cropImage | Crop the image specified by the URI param. If URI points to a remote image, it will be downloaded automatically. If the image cannot be loaded/downloaded, the promise will be rejected.<br/><br/>If the cropping process is successful, the resultant cropped image will be stored in the cache path, and the CropResult returned in the promise will point to the image in the cache path. ⚠️ Remember to delete the cropped image from the cache path when you are done with it. | ios/Android | yes               |
 
 cropData
 
-| 名称          | 类型                              | 说明                                                                                                                                                                                                      | 是否必填 | 原库平台 | 鸿蒙支持 |
-| ------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- |
-| `offset`      | { x: number, y: number }          | The top-left corner of the cropped image, specified in the original image's coordinate space                                                                                                              | yes      | All      | yes      |
-| `size`        | { width: number, height: number } | Size (dimensions) of the cropped image                                                                                                                                                                    | yes      | All      | yes      |
-| `displaySize` | { width: number, height: number } | Size to which you want to scale the cropped image                                                                                                                                                         | no       | All      | yes      |
-| `resizeMode`  | 'contain' \| 'cover' \| 'stretch' | Resizing mode to use when scaling the image**Default value**: `'cover'`                                                                                                                                   | no       | All      | yes      |
+| 名称          | 类型                              | 说明                                                         | 是否必填 | 原库平台 | 鸿蒙支持 |
+| ------------- | --------------------------------- | ------------------------------------------------------------ | -------- | -------- | -------- |
+| `offset`      | { x: number, y: number }          | The top-left corner of the cropped image, specified in the original image's coordinate space | yes      | All      | yes      |
+| `size`        | { width: number, height: number } | Size (dimensions) of the cropped image                       | yes      | All      | yes      |
+| `displaySize` | { width: number, height: number } | Size to which you want to scale the cropped image            | no       | All      | yes      |
+| `resizeMode`  | 'contain' \| 'cover' \| 'stretch' | Resizing mode to use when scaling the image**Default value**: `'cover'` | no       | All      | yes      |
 | `quality`     | number                            | A value in range `0.0` - `1.0` specifying compression level of the result image. `1` means no compression (highest quality) and `0` the highest compression (lowest quality)<br/>**Default value**: `0.9` | no       | All      | yes      |
-| `format`      | 'jpeg' \| 'png' \| 'webp'         | The format of the resulting image.<br/>**Default value**: based on the provided image;<br/>if value determination is not possible, `'jpeg'` will be used as a fallback.                                   | no       | All      | yes      |
+| `format`      | 'jpeg' \| 'png'  \| 'webp'        | The format of the resulting image.<br/>**Default value**: based on the provided image;<br/>if value determination is not possible, `'jpeg'` will be used as a fallback. | no       | All      | yes      |
 
-##
+## 
 
 ## 遗留问题
 
@@ -210,3 +165,4 @@ cropData
 ## 开源协议
 
 本项目基于 [ [The MIT License (MIT)]](https://github.com/callstack/react-native-image-editor/blob/master/LICENSE) ，请自由地享受和参与开源。
+

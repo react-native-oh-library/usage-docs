@@ -4,10 +4,10 @@
   <h1 align="center"> <code>react-native-marquee</code> </h1>
 </p>
 <p align="center">
-    <a href="https://github.com/react-navigation/react-navigation/tree/6.x/packages/stack">
+    <a href="https://github.com/react-native-oh-library/react-native-marquee">
         <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
-    <a href="https://github.com/react-navigation/react-navigation/blob/6.x/packages/stack/LICENSE">
+    <a href="https://github.com/react-native-oh-library/react-native-marquee/blob/sig/LICENSE/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
@@ -27,13 +27,13 @@
 #### **npm**
 
 ```bash
-npm install --save react-native-marquee@0.5.0-0.0.1
+npm install @react-native-oh-tpl/react-native-marquee@file:#
 ```
 
 #### **yarn**
 
 ```bash
-yarn add react-native-marquee@0.5.0-0.0.1
+yarn add @react-native-oh-tpl/react-native-marquee@file:#
 ```
 
 <!-- tabs:end -->
@@ -93,8 +93,7 @@ MarqueText组件基本上继承了TextProps，以下是附加组件：
 
 本文档内容基于以下版本验证通过：
 
-1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
-2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
+1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：205.0.0.18;
 
 ## 遗留问题
 

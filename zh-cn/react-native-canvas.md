@@ -1,4 +1,4 @@
-模板版本：v0.1.3
+模板版本：v0.2.0
 
 <p align="center">
   <h1 align="center"> <code>react-native-canvas</code> </h1>
@@ -29,6 +29,11 @@ npm install react-native-canvas@0.1.39
 yarn add react-native-canvas@0.1.39
 ```
 
+[!TIP] 如果依赖未完全安装，请执行：
+```bash
+npm install --save-dev @type/react-native-canvas@0.1.39
+```
+
 <!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：
@@ -39,7 +44,7 @@ import { View, StyleSheet, Text, ScrollView } from "react-native";
 import Canvas, {
   Image as CanvasImage,
   CanvasRenderingContext2D,
-  Path2D,
+  Path2D
 } from "react-native-canvas";
 
 const CanvasDemo = () => {

@@ -1,10 +1,10 @@
-
+模板版本：v0.2.0
 
 <p align="center">
   <h1 align="center"> <code>react-use</code> </h1>
 </p>
 <p align="center">
-    <a href="https://github.com/zenghongtu/react-use">
+    <a href="https://github.com/zenghongtu/react-use/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
@@ -29,6 +29,17 @@ npm install react-use@17.2.4
 
 ```bash
 yarn add react-use@17.2.4
+```
+[!TIP] 如果依赖安装报错，请执行：
+```bash
+npm install react-use@17.2.4 --legacy-peer-deps
+```
+
+[!TIP] 如果要体验全部demo效果，还需要安装以下依赖：
+```bash
+npm install @types/lodash --legacy-peer-deps
+npm install rxjs --legacy-peer-deps
+npm install rebound --legacy-peer-deps
 ```
 
 <!-- tabs:end -->

@@ -1,10 +1,10 @@
-模板版本：v0.1.3
+模板版本：v0.2.0
 
 <p align="center">
   <h1 align="center"> <code>react-native-echarts-pro</code> </h1>
 </p>
 <p align="center">
-    <a href="https://github.com/react-native-oh-library/react-native-echarts-pro">
+    <a href="https://github.com/supervons/react-native-echarts-pro/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
@@ -122,7 +122,6 @@ export default function RNEPDemo() {
 
 ## 遗留问题
 
-- [ ] setNewOption/getInstance/dispatchAction 这三个实例方法依赖于 react-native-webview 的 postMessage 方法，react-native-webview暂未实现这个方法，所以暂不支持 [issue#17](https://github.com/react-native-oh-library/react-native-webview/issues/17)
 - [ ] fontFamilies自定义字体属性未生效，该属性需要将字体文件转为base64字符串，拼接在html中的style标签中使用，经验证，这种用法在react-native-webview的最小化demo也不生效，一旦有base64字体加载，就会白屏并无法触发loadEnd，而原生鸿蒙webview上显示正常 [issues#20](https://github.com/react-native-oh-library/react-native-webview/issues/20)
 
 ## 其他

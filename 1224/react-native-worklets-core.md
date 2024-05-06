@@ -1,4 +1,4 @@
-> 模板版本：v0.1.3
+> 模板版本：v0.2.0
 
 <p align="center">
   <h1 align="center"> <code>react-native-worklets-core</code> </h1>
@@ -8,8 +8,6 @@
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
-
-
 
 > [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-worklets-core)
 
@@ -21,7 +19,7 @@
 
 <!-- tabs:start -->
 
->[!TIP] # 处替换为 tgz 包的路径
+> [!TIP] # 处替换为 tgz 包的路径
 
 #### **npm**
 
@@ -76,8 +74,8 @@ yarn start --reset-cache
 
 ```diff
 "dependencies": {
-    "rnoh": "file:../rnoh",
-+   "rnoh-worklets": "file:../../node_modules/@react-native-oh-tpl/react-native-worklets-core/harmony/worklets.har"
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
++   "@react-native-oh-tpl/react-native-worklets-core": "file:../../node_modules/@react-native-oh-tpl/react-native-worklets-core/harmony/rn_worklets.har"
   }
 ```
 
@@ -98,8 +96,8 @@ ohpm install
 
 ```diff
 "dependencies": {
-    "rnoh": "file:../rnoh",
-+   "rnoh-worklets": "file:../../node_modules/@react-native-oh-tpl/react-native-worklets-core/harmony/worklets"
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
++   "@react-native-oh-tpl/react-native-worklets-core": "file:../../node_modules/@react-native-oh-tpl/react-native-worklets-core/harmony/rn_worklets"
   }
 ```
 
@@ -117,7 +115,7 @@ ohpm install --no-link
 ```diff
 # RNOH_BEGIN: add_package_subdirectories
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/rnoh-worklets/src/main/cpp" ./worklets)
++ add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/react-native-worklets-core/src/main/cpp" ./worklets)
 # RNOH_END: add_package_subdirectories
 
 # RNOH_BEGIN: link_packages
@@ -149,7 +147,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ```diff
 ...
-+ import { WorkletsPackage } from "rnoh-worklets/ts";
++ import { WorkletsPackage } from "@react-native-oh-tpl/react-native-worklets-core/ts";
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
@@ -179,13 +177,13 @@ ohpm install
 ```tsx
 import { useState } from "react";
 import { Button, Text, View } from "react-native"
-import { useRunInJS, useWorklet } from "react-native-worklets-core";
+import { useRunOnJS, useWorklet } from "react-native-worklets-core";
 
 const App = () => {
     // 计数器
     const [count, setCount] = useState(0);
     // 定义一个useRunJS方法
-    const setCountRunInJS = useRunInJS(() => {
+    const setCountRunInJS = useRunOnJS(() => {
         setCount(Math.random());
     }, [count])
     // 在worklets线程使用RunInJS方法
@@ -218,15 +216,19 @@ export default App;
 
 ### API
 
-| NAME                 | Description                                             | Required | Platform | HarmonyOS Support |
-| -------------------- | ------------------------------------------------------- | -------- | -------- | ----------------- |
-| createContext        | Create a worker thread context object                   | YES      | All      | YES               |
-| createRunInContextFn | Create a function to execute within a specified context | YES      | All      | YES               |
-| createRunInJsFn      | Create a function to execute in the JavaScript thread   | YES      | All      | YES               |
-| createSharedValue    | Create a value shared across threads                    | YES      | All      | YES               |
-| useRunInJS           | Same as `createRunInJsFn`                               | YES      | All      | YES               |
-| useWorklet           | Same as `createRunInContextFn`                          | YES      | All      | YES               |
-| useSharedValue       | Same as `createSharedValue`                             | YES      | All      | YES               |
+| NAME                   | Description                                                  | Required | Platform | HarmonyOS Support |
+| ---------------------- | ------------------------------------------------------------ | -------- | -------- | ----------------- |
+| createContext          | Create a worker thread context object                        | YES      | All      | YES               |
+| createSharedValue      | Creates a new worklet context with the given name            | YES      | All      | YES               |
+| createRunOnJS          | Creates a function that can be executed asynchronously on the default React-JS context | YES      | All      | YES               |
+| runOnJS                | Runs the given Function asynchronously on the default React-JS context | YES      | All      | YES               |
+| getCurrentThreadId     | Returns a unique identifier for the Thread this method is called on | YES      | All      | YES               |
+| defaultContext         | Get the default Worklet context                              | YES      | All      | YES               |
+| context.createRunAsync | Creates a function that can be executed asynchronously on the Worklet context. | YES      | All      | YES               |
+| context.runAsync       | Runs the given Function asynchronously on this Worklet context. | YES      | All      | YES               |
+| useWorklet             | Same as `context.createRunAsync`                             | YES      | All      | YES               |
+| useRunOnJS             | Same as `createRunOnJS`                                      | YES      | All      | YES               |
+| useSharedValue         | Same as `createSharedValue`                                  | YES      | All      | YES               |
 
 ## 遗留问题
 

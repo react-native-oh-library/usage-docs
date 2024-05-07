@@ -88,7 +88,8 @@ const MyList = () => {
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-flash-list": "file:../../node_modules/@react-native-oh-tpl/flash-list/harmony/flash_list.har"
   }
 ```
@@ -110,7 +111,8 @@ ohpm install
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-flash-list": "file:../../node_modules/@react-native-oh-tpl/flash_list/harmony/flash_list"
   }
 ```

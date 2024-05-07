@@ -70,7 +70,8 @@ npm install @react-native-oh-tpl/progress-bar-android@file:#
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
   	"rnoh-progress-bar-android": "file:../../node_modules/@react-native-oh-tpl/progress-bar-android/harmony/progress_bar_android.har"
   }
 ```
@@ -92,7 +93,8 @@ ohpm install
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
   	"rnoh-progress-bar-android": "file:../../node_modules/@react-native-oh-tpl/progress-bar-android/harmony/progress_bar_android"
   }
 ```

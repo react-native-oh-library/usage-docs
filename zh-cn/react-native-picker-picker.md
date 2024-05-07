@@ -77,7 +77,8 @@ const [selectedLanguage, setSelectedLanguage] = useState();
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-picker": "file:../../node_modules/@react-native-oh-tpl/picker/harmony/picker.har"
   }
 ```
@@ -99,7 +100,8 @@ ohpm install
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-picker": "file:../../node_modules/@react-native-oh-tpl/picker/harmony/picker"
   }
 ```

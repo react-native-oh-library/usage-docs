@@ -98,7 +98,8 @@ import MaskedView from "@react-native-masked-view/masked-view";
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-masked-view": "file:../../node_modules/@react-native-oh-tpl/masked-view/harmony/masked_view.har",
   }
 ```
@@ -120,7 +121,8 @@ ohpm install
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-masked-view": "file:../../node_modules/@react-native-oh-tpl/masked-view/harmony/masked_view"
   }
 ```

@@ -96,7 +96,8 @@ export default App;
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-image-picker": "file:../../node_modules/@react-native-oh-tpl/react-native-image-picker/harmony/image_picker.har"
   }
 ```
@@ -118,7 +119,8 @@ ohpm install
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-image-picker": "file:../../node_modules/@react-native-oh-tpl/react-native-image-picker/harmony/image_picker"
   }
 ```

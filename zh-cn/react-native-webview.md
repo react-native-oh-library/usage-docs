@@ -69,7 +69,8 @@ import { WebView } from "react-native-webview";
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-webview": "file:../../node_modules/@react-native-oh-tpl/react-native-webview/harmony/rn_webview.har"
   }
 ```
@@ -91,7 +92,8 @@ ohpm install
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-webview": "file:../../node_modules/@react-native-oh-tpl/react-native-webview/harmony/rn_webview"
   }
 ```

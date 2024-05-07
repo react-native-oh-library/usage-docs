@@ -93,7 +93,8 @@ var styles = StyleSheet.create({
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-linear-gradient": "file:../../node_modules/@react-native-oh-tpl/react-native-linear-gradient/harmony/linear_gradient.har"
   }
 ```
@@ -115,7 +116,8 @@ ohpm install
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-linear-gradient": "file:../../node_modules/@react-native-oh-tpl/react-native-linear-gradient/harmony/linear_gradient"
   }
 ```

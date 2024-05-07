@@ -88,7 +88,8 @@ const getData = async () => {
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-async-storage": "file:../../node_modules/@react-native-oh-tpl/async-storage/harmony/async_storage.har"
   }
 ```
@@ -110,7 +111,8 @@ ohpm install
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-async-storage": "file:../../node_modules/@react-native-oh-tpl/async-storage/harmony/async-storage"
   }
 ```

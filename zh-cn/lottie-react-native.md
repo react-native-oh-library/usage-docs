@@ -69,7 +69,8 @@ import LottieView from "lottie-react-native";
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-lottie": "file:../../node_modules/@react-native-oh-tpl/lottie-react-native/harmony/lottie.har"
   }
 ```
@@ -91,7 +92,8 @@ ohpm install
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-lottie": "file:../../node_modules/@react-native-oh-tpl/lottie-react-native/harmony/lottie"
   }
 ```

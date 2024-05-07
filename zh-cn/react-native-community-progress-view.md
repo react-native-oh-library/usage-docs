@@ -73,7 +73,8 @@ import { ProgressView } from "@react-native-community/progress-view";
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-progress-view": "file:../../node_modules/@react-native-oh-tpl/progress-view/harmony/progress_view.har"
   }
 ```
@@ -95,7 +96,8 @@ ohpm install
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-progress-view": "file:../../node_modules/@react-native-oh-tpl/progress-view/harmony/progress-view"
   }
 ```

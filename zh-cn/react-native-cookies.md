@@ -182,7 +182,8 @@ const styles = StyleSheet.create({
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-cookies": "file:../../node_modules/@react-native-oh-tpl/cookies/harmony/rn_cookies.har",
     ...
   }
@@ -205,7 +206,8 @@ ohpm install
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-cookies": "file:../../node_modules/@react-native-oh-tpl/cookies/harmony/rn_cookies",
     ...
   }

@@ -75,7 +75,8 @@ import Slider from "@react-native-community/slider";
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-slider": "file:../../node_modules/@react-native-oh-tpl/slider/harmony/slider.har"
   }
 ```
@@ -97,7 +98,8 @@ ohpm install
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-slider": "file:../../node_modules/@react-native-oh-tpl/slider/harmony/slider"
   }
 ```

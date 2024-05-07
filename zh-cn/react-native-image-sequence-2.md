@@ -323,7 +323,8 @@ ohpm install
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "@rnoh-image-sequence": "file:../../node_modules/@react-native-oh-tpl/react-native-image-sequence-2/harmony/image_sequence"
   }
 ```

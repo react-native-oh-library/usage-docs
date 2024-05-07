@@ -183,7 +183,8 @@ export const App = () => {
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-push-notification": "file:../../node_modules/@react-native-oh-tpl/push-notification-ios/harmony/push_notification.har"
   }
 ```
@@ -205,7 +206,8 @@ ohpm install
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-push-notification": "file:../../node_modules/@react-native-oh-tpl/push-notification-ios/harmony/push_notification"
   }
 ```

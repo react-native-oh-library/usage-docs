@@ -87,7 +87,8 @@ export default App;
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-safe-area": "file:../../node_modules/@react-native-oh-tpl/react-native-safe-area-context/harmony/safe_area.har"
   }
 ```
@@ -109,7 +110,8 @@ ohpm install
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-safe-area": "file:../../node_modules/@react-native-oh-tpl/react-native-safe-area-context/harmony/safe_area"
   }
 ```

@@ -210,7 +210,8 @@ export function TextSizeExample() {
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-text-size": "file:../../node_modules/@react-native-oh-tpl/react-native-text-size/harmony/text_size.har"
   }
 ```
@@ -232,7 +233,8 @@ ohpm install
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-text-size": "file:../../node_modules/@react-native-oh-tpl/react-native-text-size/harmony/text_size"
   }
 ```

@@ -87,7 +87,8 @@ import CheckBox from "@react-native-community/checkbox";
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-checkbox": "file:../../node_modules/@react-native-oh-tpl/checkbox/harmony/checkbox.har"
   }
 ```
@@ -109,7 +110,8 @@ ohpm install
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-checkbox": "file:../../node_modules/@react-native-oh-tpl/checkbox/harmony/checkbox"
   }
 ```

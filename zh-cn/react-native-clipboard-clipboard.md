@@ -89,7 +89,8 @@ const fetchCopiedText = async () => {
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-clipboard": "file:../../node_modules/@react-native-oh-tpl/clipboard/harmony/clipboard.har"
   }
 ```
@@ -111,7 +112,8 @@ ohpm install
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-clipboard": "file:../../node_modules/@react-native-oh-tpl/clipboard/harmony/clipboard"
   }
 ```

@@ -127,7 +127,8 @@ setNativeExceptionHandler(
 
 ```diff
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
 +   "rnoh-exception-handler": "file:../../node_modules/@react-native-oh-tpl/react-native-exception-handler/harmony/exception_handler.har",
   }
 ```
@@ -149,7 +150,8 @@ ohpm install
 
 ```diff
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
 +   "rnoh-exception-handler": "file:../../node_modules/@react-native-oh-tpl/react-native-exception-handler/harmony/exception_handler"
   }
 ```

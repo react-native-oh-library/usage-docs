@@ -177,7 +177,8 @@ export default SoundDemo;
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-sound": "file:../../node_modules/@react-native-oh-tpl/react-native-sound/harmony/sound.har"
   }
 ```
@@ -199,7 +200,8 @@ ohpm install
 
 ```json
 "dependencies": {
-    "rnoh": "file:../rnoh",
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
     "rnoh-sound": "file:../../node_modules/@react-native-oh-tpl/react-native-sound/harmony/sound"
   }
 ```

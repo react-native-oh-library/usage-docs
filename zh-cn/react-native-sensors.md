@@ -139,10 +139,12 @@ ohpm install
 
 打开 `entry/oh-package.json5`，添加以下依赖
 
+在 `harmony` 文件夹下新建 `sensors` 模块，把源库中react-native-sensors/harmony/sensors目录下代码copy到 `sensors`模块下面
+
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/react-native-sensors": "file:../../node_modules/@react-native-oh-tpl/react-native-sensors/harmony/sensors"
+    "@react-native-oh-tpl/react-native-sensors": "file:../sensors"
   }
 ```
 
@@ -153,7 +155,7 @@ cd entry
 ohpm install --no-link
 ```
 
-### 配置 CMakeLists 和引入 SensorsPackage
+### 配置 CMakeLists 和引入 SensorsPackage（codegen方式忽略此步骤）
 
 打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
 

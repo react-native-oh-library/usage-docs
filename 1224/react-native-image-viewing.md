@@ -1,4 +1,4 @@
-> 模板版本：v0.1.3
+> 模板版本：v0.2.0
 
 <p align="center">
   <h1 align="center"> <code>react-native-image-viewing</code> </h1>
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
 
 在下述版本验证通过:
 
-1. RNOH：0.72.13; SDK：HarmonyOS NEXT DP2; IDE：DevEco Studio 4.1.3.700; ROM：204.1.0.72(SP2DEVC00E72R1P1);
+1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：205.0.0.18;
 
 API列表
 -------------------------------------------------------------------------------------------------------

@@ -1,0 +1,226 @@
+> 模板版本：v0.2.0
+
+<p align="center">
+  <h1 align="center"> <code>react-native-clippathview</code> </h1>
+</p>
+<p align="center">
+    <a href="https://github.com/react-native-oh-library/react-native-clippath/blob/sig/LICENSE">
+        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
+    </a>
+</p>
+
+> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-clippath)
+
+## 安装与使用
+
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-library/react-native-clippath Releases](https://github.com/react-native-oh-library/react-native-clippath/releases)，并下载适用版本的 tgz 包。
+
+进入到工程目录并输入以下命令：
+
+> [!TIP] # 处替换为 tgz 包的路径
+
+<!-- tabs:start -->
+
+#### **npm**
+
+```bash
+npm install @react-native-oh-tpl/clip-path@file:#
+```
+
+#### **yarn**
+
+```bash
+yarn add @react-native-oh-tpl/clip-path@file:#
+```
+
+<!-- tabs:end -->
+
+下面的代码展示了这个库的基本使用场景：
+
+```jsx
+import { View, Text, ScrollView } from 'react-native'
+import React from 'react'
+import { ClipPathView } from 'react-native-clippathview'
+
+export default function index() {
+  const viewBox = [0, 0, 400, 400]
+  const path = "M 0 0 L 400 0 L 0 400 L 400 400 Z"
+
+  return (
+    <ScrollView style={{ width: '100%', height: '100%' }}>
+      <ClipPathView d={path} style={{  backgroundColor: '#ff0' }}>
+        <Text style={{ lineHeight: 5, fontSize: 6 }}>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</Text>
+      </ClipPathView>
+    </ScrollView>
+  )
+}
+
+```
+
+## 兼容性
+
+在以下版本验证通过
+
+- RNOH：0.72.20; 
+- SDK：HarmonyOS-NEXT-DP2; 
+- IDE：DevEco Studio 5.0.3.29; 
+- ROM：205.0.0.18;
+
+## Link
+
+目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+
+首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
+
+### 引入原生端代码
+
+目前有两种方法：
+
+1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
+2. 直接链接源码。
+
+方法一：通过 har 包引入
+
+> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
+
+打开 `entry/oh-package.json5`，添加以下依赖
+
+```json
+"dependencies": {
+    "rnoh": "file:../rnoh",
+    "rnoh-clip-path": "file:../../node_modules/@react-native-oh-tpl/clip-path/harmony/clip_path.har",
+}
+```
+
+点击右上角的 `sync` 按钮
+
+或者在终端执行：
+
+```bash
+cd entry
+ohpm install
+```
+
+方法二：直接链接源码
+
+> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
+
+打开 `entry/oh-package.json5`，添加以下依赖
+
+```json
+"dependencies": {
+    "rnoh": "file:../rnoh",
+    "rnoh-clip-path": "file:../../node_modules/@react-native-oh-tpl/clip-path/harmony/clip_path",
+  }
+```
+
+打开终端，执行：
+
+```bash
+cd entry
+ohpm install --no-link
+```
+
+### 在 ArkTs 侧引入 ClipPath 组件
+
+找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
+
+```diff
+...
++ import { ClipPath } from 'rnoh-clip-path';
+
+@Builder
+function buildCustomComponent(ctx: ComponentBuilderContext) {
+  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
+    SampleView({
+      ctx: ctx.rnComponentContext,
+      tag: ctx.tag,
+      buildCustomComponent: buildCustomComponent
+    })
+  }
++ else if (ctx.componentName === ClipPath.NAME) {
++   ClipPath({
++     ctx: ctx.rnComponentContext,
++     tag: ctx.tag,
++   })
++ }
+ ...
+}
+...
+```
+
+### 在 ArkTs 侧引入 ClipPathPackage
+
+打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+
+```diff
+import type {RNPackageContext, RNPackage} from 'rnoh/ts';
+import {SamplePackage} from 'rnoh-sample-package/ts';
++ import { ClipPathPackage } from 'rnoh-clip-path/ts'
+
+export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
+  return [
+    new SamplePackage(ctx),
++   new ClipPathPackage(ctx)
+  ];
+}
+```
+
+### 运行
+
+点击右上角的 `sync` 按钮
+
+或者在终端执行：
+
+```bash
+cd entry
+ohpm install
+```
+
+然后编译、运行即可。
+
+
+## 属性
+| Name                 | Description                                                  | Type              | Required | Platform    | HarmonyOS Support |
+| -------------------- | ------------------------------------------------------------ | ----------------- | -------- | ----------- | ----------------- |
+| svgKey               | 唯一key                                                      | string            | No       | IOS/Android | Yes               |
+| d                    | 形状由一系列命令定义（svg path data）                        | string            | No       | IOS/Android | Yes               |
+| viewBox              | 定义用户空间中的位置和维度                                   | Array<Number>(4)  | No       | IOS/Android | Yes               |
+| align                | preserveAspectRatio 属性的 align                             | string            | No       | IOS/Android | No                |
+| aspect               | preserveAspectRatio 属性的 meetOrSlice                       | meet/slice/none   | No       | IOS/Android | No                |
+| fillRule             | 路径内部填充规则                                             | nonzero/evenodd   | No       | IOS/Android | No                |
+| strokeWidth          | 路径描边宽度                                                 | number            | No       | IOS/Android | Yes               |
+| strokeCap            | 开放路径两端的形状                                           | butt/round/square | No       | IOS/Android | Yes               |
+| strokeJoin           | 路径转角处使用的形状                                         | bevel/miter/round | No       | IOS/Android | Yes               |
+| strokeMiter          | strokeJoin值是miter，设置夹角延伸                            | number            | No       | IOS/Android | Yes               |
+| strokeStart          | IOS CAShapeLayer 描线开始的地方占总路径的百分比。默认值是0。 | number            | No       | IOS/Android | No                |
+| strokeEnd            | IOS CAShapeLayer 表示绘制结束的地方站总路径的百分比。默认值是1，如果小于等于strokeStart 则绘制不出任何内容。 | number            | No       | IOS/Android | No                |
+| translateZ           | 设置定位层级，相当于index                                    | number            | No       | IOS/Android | Yes               |
+| transX               | 在二维平面上水平方向移动元素                                 | number            | No       | IOS/Android | Yes               |
+| transY               | 在二维平面上垂直方向移动元素                                 | number            | No       | IOS/Android | Yes               |
+| transPercentageValue | transX、transY 使用百分比                                    | boolean           | No       | IOS/Android | Yes               |
+| rot                  | 元素围绕一个定点旋转                                         | number            | No       | IOS/Android | Yes               |
+| rotOx                | 旋转中心点水平位置                                           | number            | No       | IOS/Android | Yes               |
+| rotOy                | 旋转中心点垂直位置                                           | number            | No       | IOS/Android | Yes               |
+| rotPercentageValue   | rotOx、rotOy 使用百分比                                      | boolean           | No       | IOS/Android | Yes               |
+| sc                   | 放大或缩小元素                                               | number            | No       | IOS/Android | Yes               |
+| scX                  | 水平缩放                                                     | number            | No       | IOS/Android | Yes               |
+| scY                  | 垂直缩放                                                     | number            | No       | IOS/Android | Yes               |
+| scO                  | 缩放中心点位置                                               | number            | No       | IOS/Android | Yes               |
+| scOx                 | 缩放中心点水平位置                                           | number            | No       | IOS/Android | Yes               |
+| scOy                 | 缩放中心点垂直位置                                           | number            | No       | IOS/Android | Yes               |
+| scPercentageValue    | scO、scOx、scOy使用百分比                                    | boolean           | No       | IOS/Android | Yes               |
+
+
+
+## 遗留问题
+部分属性目前版本暂不支持，具体参考属性表格 `HarmonyOS ` 列。
+
+## 其他
+
+## 开源协议
+
+本项目基于 [MIT License](https://github.com/react-native-oh-library/react-native-clippath/blob/sig/LICENSE) ，请自由地享受和参与开源。
+
+------------------------------------------------------------
+

@@ -1,4 +1,4 @@
-> 模板版本：v0.1.3
+> 模板版本：v0.2.0
 
 <p align="center">
   <h1 align="center"> <code>redux-toolkit</code> </h1>
@@ -151,7 +151,7 @@ export function Counter() {
 
 本文档内容基于以下版本验证通过：
 
-1. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.59;
+1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：205.0.0.18;
 
 ## 方法和属性
 

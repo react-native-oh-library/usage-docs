@@ -49,6 +49,7 @@
     - [react-native-sensors](/zh-cn/react-native-sensors.md)
     - [lottie-react-native](/zh-cn/lottie-react-native.md)
     - [react-native-image-sequence-2](/zh-cn/react-native-image-sequence-2.md)
+    - [react-native-clippath](/zh-cn/react-native-clippath.md)
   - RN JS库
     - [react-i18next](/zh-cn/react-i18next.md)
     - [react-native-action-button](/zh-cn/react-native-action-button.md)

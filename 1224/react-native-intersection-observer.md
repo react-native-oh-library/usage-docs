@@ -1,4 +1,4 @@
-> 模板版本：v0.1.3
+> 模板版本：v0.2.0
 
 <p align="center">
   <h1 align="center"> <code>react-native-intersection-observer</code> </h1>
@@ -80,7 +80,7 @@ export default App;
 
 在下述版本验证通过：
 
-RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.59;
+1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：205.0.0.18;
 
 #### 组件及属性
 
@@ -114,9 +114,9 @@ Methods: Inherits [ScrollView Methods](https://reactnative.dev/docs/scrollview#m
 
 Props: Inherits [FlatList Props](https://reactnative.dev/docs/flatlist#props)
 
-| Name       | Description   | Type                                                         | Default   | Require | HarmonyOS Support |
-| ---------- | ------------- | ------------------------------------------------------------ | --------- | ------- | ----------------- |
-| rootMargin | `root margin` | { top: number; left: number; right: number; bottom: number } | undefined | false   | yes               |
+| Name       | Description   | Type                                                         | Required | HarmonyOS Support |
+| ---------- | ------------- | ------------------------------------------------------------ | -------- | ----------------- |
+| rootMargin | `root margin` | { top: number; left: number; right: number; bottom: number } | false    | yes               |
 
 Methods: Inherits [FlatList Methods](https://reactnative.dev/docs/flatlist#methods)
 
@@ -126,12 +126,12 @@ Methods: Inherits [FlatList Methods](https://reactnative.dev/docs/flatlist#metho
 
 #### 此组件有以下属性:
 
-| Name        | Description                                                  | Type                        | Default | Require | HarmonyOS Support |
-| ----------- | ------------------------------------------------------------ | --------------------------- | ------- | ------- | ----------------- |
-| as          | `Render the wrapping element as this element. Defaults to `View`.` | `ComponentType`             | View    | false   | yes               |
-| children    | Children expects a plain child, to have the `<InView />` deal with the wrapping element. | ReactNode                   |         | true    | yes               |
-| triggerOnce | Only trigger this method once.                               | boolean                     | false   | false   | yes               |
-| onChange    | Call this function whenever the in view state changes. It will receive the `inView` boolean, alongside the current `IntersectionObserverEntry`. | `(inView: boolean) => void` |         | false   | yes               |
+| Name        | Description                                                  | Type                        | Required | HarmonyOS Support |
+| ----------- | ------------------------------------------------------------ | --------------------------- | -------- | ----------------- |
+| as          | `Render the wrapping element as this element. Defaults to `View`.` | `ComponentType`             | false    | yes               |
+| children    | Children expects a plain child, to have the `<InView />` deal with the wrapping element. | ReactNode                   | true     | yes               |
+| triggerOnce | Only trigger this method once.                               | boolean                     | false    | yes               |
+| onChange    | Call this function whenever the in view state changes. It will receive the `inView` boolean, alongside the current `IntersectionObserverEntry`. | `(inView: boolean) => void` | false    | yes               |
 
 
 

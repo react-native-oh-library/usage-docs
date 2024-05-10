@@ -1,13 +1,14 @@
-模板版本：v0.1.3
+模板版本：v0.2.0
 
 <p align="center">
   <h1 align="center"> <code>react-native-fit-image</code> </h1>
 </p>
 <p align="center">
-    <a href="https://github.com/huiseoul/react-native-fit-image">
+    <a href="https://github.com/huiseoul/react-native-fit-image/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
+
 
 
 
@@ -281,11 +282,13 @@ export default FitImageDemo;
 
 在以下版本验证通过
 
-1. RNOH：0.72.13; SDK：HarmonyOS NEXT DP2; IDE：DevEco Studio 4.1.3.700; ROM：2.1.0.72;
+1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.21;
 
 ## 属性
 
-| Name               | Description                                                  | Type          | Required | Platform                      | HarmonyOS Support | 备注                                                         |
+[!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name               | Description                                                  | Type          | Required | Platform                      | HarmonyOS Support | Remark                                                       |
 | ------------------ | ------------------------------------------------------------ | ------------- | -------- | ----------------------------- | ----------------- | ------------------------------------------------------------ |
 | `style`            | 图片宽(width)高(height)，边框等样式                          | object        | yes      | Android IOS                   | YES               | 在不加orginalWidth与orginalHeight属性时，style里面必须设置宽width，高height才能把图片加载出来 |
 | `source`           | 图片文件源：                                                                                               本地图片 source={require('./assets/expo.png')}；<br />网略图片 source={{uri:"https://octodex.github.com/images/stormtroopocat.jpg"}} | string        | yes      | Android IOS                   | YES               |                                                              |
@@ -312,7 +315,7 @@ export default FitImageDemo;
 
 
 
-## 原库已知问题
+##  遗留问题
 
 1. 在react-native-fit-image三方库中`onError`.`onLoadStart`.`onLayout`回调方法，在原库文档（react-native-fit-image）作者已说明并没有适配（Some props are not working），有待开发[issues](https://github.com/huiseoul/react-native-fit-image/issues/76)
 2. `borderRadius`图片圆角属性，在鸿蒙，ios，安卓均不支持，官方文档互动有提到borderRadius不生效;[issues](https://github.com/huiseoul/react-native-fit-image/issues/111)
@@ -320,3 +323,7 @@ export default FitImageDemo;
 
 
 ## 其他
+
+## 开源协议
+
+本项目基于 [MIT License](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Fhuiseoul%2Freact-native-fit-image%2Fblob%2Fmaster%2FLICENSE) ，请自由地享受和参与开源。

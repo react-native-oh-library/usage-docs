@@ -1,4 +1,4 @@
-> 模板版本：v0.1.3
+> 模板版本：v0.2.0
 
 <p align="center">
   <h1 align="center"> <code>JsBarCode</code> </h1>
@@ -20,7 +20,7 @@
 #### **npm**
 
 ```bash
-npm install jsbarcode --save@3.11.6
+npm install jsbarcode@3.11.6 --save
 ```
 
 #### **yarn**
@@ -45,51 +45,128 @@ import JsBarCode from 'jsbarcode';
 > [!tip] [jsbarcode库依赖react-native-svg库进行条形码展示, svg 当前仅实现部分属性，其余还未实现鸿蒙化]
 > [!tip] [详见react-native-svg](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-svg.md)
 ```js
-import { useMemo } from 'react';
-import JsBarcode from 'jsbarcode';
-import { SvgXml } from 'react-native-svg';
-import { DOMImplementation, XMLSerializer } from 'xmldom';
+import {ScrollView, StyleSheet, View, Text} from 'react-native';
+import {Barcode} from './component/SvgComponent';
+import {useState} from 'react';
 
-export const Barcode = (props: Props) => {
-  const [jsbarcodeInfo, setJsbarcodeInfo] = useState('');
-  const {
-    width ,
-    height,
-    format,
-    ... // options
-  } = props.options;
+export default function JsbarcodeSvgDemo() {
 
-  const svgText = useMemo(() => {
-    const doc = new DOMImplementation().createDocument(null, 'html');
-    const svgNode = doc.createElementNS(null, 'svg');
-
-    JsBarcode(svgNode, props.value, {
-      xmlDocument: doc,
-      width,
-      height,
-      format,
-      ... // options
-    });
-
-    svgNode.removeAttribute('style')
-    setJsbarcodeInfo(new XMLSerializer().serializeToString(svgNode));
-
-    return new XMLSerializer().serializeToString(svgNode);
-  }, [props]);
-
-  return <SvgXml xml={svgText} />;
-};
-
-// 页面展示条形码
-import { Barcode } from 'XXXX';
-function JsbarcodeSvgDemo() {
   return (
-    <Barcode
-      value="9501101530003"
-      options={{format: 'EAN13', background: 'yellow'}}
-    />
-  )
+    <ScrollView>
+      <View style={styles.container}>
+        <Text style={styles.testStyle}>format和background：'red'</Text>
+        <Barcode
+          value="123456789999"
+          options={{format: 'UPC', background: 'red'}}
+        />
+        <Text style={styles.testStyle}>
+          format: 'EAN13', background: 'yellow'
+        </Text>
+        <Barcode
+          value="9501101530003"
+          options={{format: 'EAN13', background: 'yellow'}}
+        />
+        <Text style={styles.testStyle}>
+          format: 'CODE128', background: 'pink'
+        </Text>
+        <Barcode
+          value="7895641245"
+          options={{format: 'CODE128', background: 'pink'}}
+        />
+        <Text style={styles.testStyle}>width和height</Text>
+        <Barcode
+          value="1234568999999"
+          options={{format: 'CODE128', width: 1, height: 150}}
+        />
+        <Barcode
+          value="7895641245"
+          options={{format: 'CODE128', width: 3, height: 30}}
+        />
+        <Text style={styles.testStyle}>Text</Text>
+        <Barcode
+          value="1234568999999"
+          options={{format: 'CODE128', text: 'hello!'}}
+        />
+        <Text style={styles.testStyle}>fontOptions:bold</Text>
+        <Barcode
+          value="9501101530003"
+          options={{format: 'EAN13', fontOptions: 'bold'}}
+        />
+        <Text style={styles.testStyle}>fontOptions:'bold italic'</Text>
+        <Barcode
+          value="9501101530003"
+          options={{format: 'EAN13', fontOptions: 'bold italic'}}
+        />
+        <Text style={styles.testStyle}>fontOptions:'italic'</Text>
+        <Barcode
+          value="9501101530003"
+          options={{format: 'EAN13', fontOptions: 'italic'}}
+        />
+        <Text style={styles.testStyle}>font</Text>
+        <Barcode value="Fantasy font" options={{format: 'CODE128', font: 'fantasy'}} />
+        <Text style={styles.testStyle}>displayValue</Text>
+        <Barcode
+          value="1234568999999"
+          options={{format: 'CODE128', displayValue: false}}
+        />
+        <Text style={styles.testStyle}>textAlign</Text>
+        <Barcode
+          value="1234568999999"
+          options={{format: 'CODE128', textAlign: 'left'}}
+        />
+        <Text style={styles.testStyle}>textPosition</Text>
+        <Barcode
+          value="1234568999999"
+          options={{format: 'CODE128', textPosition: 'top'}}
+        />
+        <Text style={styles.testStyle}>textMargin</Text>
+        <Barcode
+          value="1234568999999"
+          options={{format: 'CODE128', textMargin: 10}}
+        />
+        <Text style={styles.testStyle}>fontSize</Text>
+        <Barcode
+          value="1234568999999"
+          options={{format: 'CODE128', fontSize: 40}}
+        />
+        <Text style={styles.testStyle}>lineColor</Text>
+        <Barcode
+          value="1234568999999"
+          options={{format: 'CODE128', lineColor: '#990000'}}
+        />
+        <Text style={styles.testStyle}>margins</Text>
+        <Barcode
+          value="1234568956999"
+          options={{format: 'CODE128', marginLeft: 30, marginTop: 50}}
+        />
+        <Text style={styles.testStyle}>flat: false</Text>
+        <Barcode
+          value="29012343"
+          options={{format: 'EAN8', flat: false}}
+        />
+        <Text style={styles.testStyle}>flat: true</Text>
+        <Barcode
+          value="29012343"
+          options={{format: 'EAN8', flat: true}}
+        />
+      </View>
+    </ScrollView>
+  );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  testStyle: {
+    fontWeight: '600',
+  },
+});
+
 ```
 
 ### **With canvas:**
@@ -113,7 +190,7 @@ JsBarcode(canvas, "Hello");
 
 如下是Options使用示例展示:
 
-```js
+```tsx
 // format
 JsBarcode("#barcode", "123456789012", {
   format: "EAN13"
@@ -207,7 +284,7 @@ JsBarcode("#barcode", "29012343", {
 
 本文档内容基于以下版本验证通过：
 
-RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.59;
+1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.18;
 
 ## **All Options**
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
@@ -241,3 +318,5 @@ jsbarcode库依赖react-native-svg库进行条形码展示, 因svg 当前仅实�
 ## 其他
 
 ## 开源协议
+
+本项目基于 [MIT License](https://github.com/lindell/JsBarcode/blob/master/MIT-LICENSE.txt) ，请自由地享受和参与开源。

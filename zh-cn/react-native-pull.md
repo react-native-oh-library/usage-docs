@@ -1,4 +1,4 @@
-> 模板版本：v0.1.3
+> 模板版本：v0.2.0
 
 <p align="center">
 <h1 align="center"> <code>react-native-pull</code> </h1>
@@ -7,10 +7,11 @@
  <a href="https://github.com/react-native-oh-library/react-native-pull">
      <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
  </a>
-     <a href="https://github.com/react-native-oh-library/react-native-pull/LICENCE">
+     <a href="https://github.com/react-native-oh-library/react-native-pull/blob/main/LICENSE">
      <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
  </a>
 </p>
+
 
 > [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-pull)
 
@@ -335,7 +336,7 @@ export default PullListDemo;
 ### 兼容性
 本文档内容基于以下版本验证通过：
 
-RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.59;
+1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.21;
 
 请到三方库相应的发布地址查看版本信息：[@react-native-oh-tpl/react-native-pull/releases](https://github.com/react-native-oh-library/react-native-pull/releases)
 
@@ -366,4 +367,4 @@ RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1
 
 ## 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-pull) ，请自由地享受和参与开源。
+本项目基于 [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-pull/blob/main/LICENSE) ，请自由地享受和参与开源。

@@ -2,7 +2,7 @@
 
 > [!ATTENTION] 使用模板时请将后面带有 (删除) 的语句删除。<>内是需要修改的内容。(删除)
 
-> 模板版本：v0.2.0
+> 模板版本：v0.2.1
 
 <p align="center">
   <h1 align="center"> <code><原库 npm 包名></code> </h1>
@@ -130,13 +130,48 @@ ohpm install
 
 > [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
 
+把`tester/node_modules/@react-native-oh-tpl/<Package_Name>/harmony/`目录下的源码`<xxx>`复制到`harmony`工程根目录下
+
+在`harmony`工程根目录的 `build-profile.template.json5` 添加以下模块
+
+```json
+modules:[
+  ...
+  {
+    name: '<xxx>',
+    srcPath: './<xxx>',
+  }
+  //提示：{
+  //        name: 'safe_area',
+  //        srcPath: './safe_area',
+  //      } 
+]
+```
+
+进入到`harmony`工程目录并输入以下命令：
+
+<!-- tabs:start -->
+
+**npm**
+
+```bash
+npm install
+```
+**yarn**
+
+```bash
+yarn add
+```
+
+<!-- tabs:end -->
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/<Package_Name>": "file:../../node_modules/@react-native-oh-tpl/<Package_Name>/harmony/<xxx>"
-    // 提示: "@react-native-oh-tpl/react-native-safe-area-context": "file:../../node_modules/@react-native-oh-tpl/react-native-safe-area-context/harmony/safe_area"（删除）
+    "@react-native-oh-tpl/<Package_Name>": "file:../<xxx>"
+    // 提示: "@react-native-oh-tpl/react-native-safe-area-context": "file:../safe_area"（删除）
   }
 ```
 

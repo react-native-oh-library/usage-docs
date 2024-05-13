@@ -1,7 +1,7 @@
 > 模板版本：v0.2.1
 
 <p align="center">
-  <h1 align="center"> <code>react-native-svg(ArkTS)</code> </h1>
+  <h1 align="center"> <code>react-native-svg(CAPI)</code> </h1>
 </p>
 <p align="center">
     <a href="https://github.com/software-mansion/react-native-svg">
@@ -12,11 +12,11 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-svg)
+> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-harmony-svg)
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-svg Releases](https://github.com/react-native-oh-library/react-native-svg/releases)，并下载适用版本的 tgz 包。
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-svg Releases](https://github.com/react-native-oh-library/react-native-harmony-svg/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
@@ -191,35 +191,6 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 在 ArkTs 侧引入 SVG 组件
-
-找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
-
-```diff
-...
-import { createRNPackages } from '../RNPackagesFactory'
-+ import { SVG_VIEW_TYPE_NAME, SVGView } from "@react-native-oh-tpl/svg"
-
-@Builder
-function buildCustomComponent(ctx: ComponentBuilderContext) {
-  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
-    SampleView({
-      ctx: ctx.rnComponentContext,
-      tag: ctx.tag,
-      buildCustomComponent: buildCustomComponent
-    })
-  }
-+ else if (ctx.componentName === SVG_VIEW_TYPE_NAME) {
-+   SVGView({
-+     ctx: ctx.rnComponentContext,
-+     tag: ctx.tag
-+   })
-+ }
- ...
-}
-...
-```
-
 ### 运行
 
 点击右上角的 `sync` 按钮
@@ -239,7 +210,7 @@ ohpm install
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-svg Releases](https://github.com/react-native-oh-library/react-native-svg/releases)
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-svg Releases](https://github.com/react-native-oh-library/react-native-harmony-svg/releases)
 
 ## 属性
 
@@ -352,8 +323,6 @@ ohpm install
 | strokeWidth |             设置边框宽度             | number |    1    |    No    | All      |     | √    | √    | √      | √       |
 
 ## 遗留问题
-
-- [ ] svg 当前仅实现少部分属性（具体见上面已列出的属性），其余还未实现鸿蒙化[issue#5](https://github.com/react-native-oh-library/react-native-svg/issues/5)
 
 ## 其他
 

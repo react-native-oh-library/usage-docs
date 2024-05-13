@@ -175,11 +175,13 @@ yarn add
   }
 ```
 
-打开终端，执行：
+点击右上角的 `sync` 按钮
+
+或者在终端执行：
 
 ```bash
 cd entry
-ohpm install --no-link
+ohpm install
 ```
 
 ### 配置 CMakeLists 和引入 xxxPackge

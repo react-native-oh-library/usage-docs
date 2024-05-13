@@ -314,6 +314,20 @@ ohpm install
 | height |     元素高度      | number\| string | No       | All      | Yes               |
 |  href  |   图像资源引用    | source\| string | Yes      | All      | Yes               |
 
+**Marker**：用于在绘制类组件上添加标记
+
+|  Name  |    Description    |      Type       | Required | Platform | HarmonyOS Support |
+| :----: | :---------------: | :-------------: | -------- | -------- | ----------------- |
+|  id    | 为元素分配唯一的名称 | string | Yes       | All      | Yes               |
+|  viewBox    | 视窗在用户空间中的位置和尺寸 | string | No       | All      | Yes               |
+|  preserveAspectRatio  |     是否强制进行统一缩放      | string | No       | All      | Yes               |
+|  refX |     标记参考点的 x 坐标      | number\| string | No       | All      | Yes               |
+|  refY  |   标记参考点的 y 坐标    | number\| string | No      | All      | Yes               |
+|  markerUnits  |   markerWidth和markerHeight属性的坐标系以及标记的内容    | string | No      | All      | Yes               |
+|  orient  |   将标记放置在形状上的相应位置时如何旋转    |  string | No      | All      | Yes               |
+|  markerWidth  |   表示标记进入的视窗的宽度    | number\| string | No      | All      | Yes               |
+|  markerHeight  |   表示标记进入的视窗的高度    | number\| string | No      | All      | Yes               |
+
 **公共属性**：Common props 组件属性鸿蒙侧支持情况
 
 |    Name     |             Description              |  Type  | Default | Required | Platform | G   | Path | Rect | Circle | Polygon |

@@ -215,7 +215,7 @@ export default Shadow2Demo;
 
 目前可使用的属性，具体见上面已列出。
 
-- [ ] 由于react-native-shadow-2强依赖[`react-native-svg`](https://react-native-oh-library.gitee.io/usage-docs/#/zh-cn/react-native-svg)库，但react-native-svg目前仅实现少部分属性，其余还未实现鸿蒙化， 导致属性offset、paintInside、corners不可用问题: [issue#5](https://github.com/react-native-oh-library/react-native-svg/issues/5)
+- [ ] 由于react-native-shadow-2强依赖[`react-native-svg`](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-svg.md)库，但react-native-svg目前仅实现少部分属性，其余还未实现鸿蒙化， 导致属性offset、paintInside、corners不可用问题: [issue#5](https://github.com/react-native-oh-library/react-native-svg/issues/5)
 
 ## 其他
 

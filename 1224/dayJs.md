@@ -50,7 +50,7 @@ dayjs().format()
 
 ## API
 
-详情请查看[DayJs官方文档](https://dayjs.gitee.io/zh-CN/)
+详情请查看[DayJs官方文档](https://day.js.org/docs/zh-CN/installation/installation)
 
 以下dayjs为day.js导出的对象，即：
 

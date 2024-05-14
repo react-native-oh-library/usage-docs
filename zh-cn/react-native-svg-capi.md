@@ -238,9 +238,10 @@ ohpm install
 
 **Path**： 路径绘制组件，根据绘制路径生成封闭的自定义形状
 
-| Name |     Description      |  Type  | Required | Platform | HarmonyOS Support |
-| :--: | :------------------: | :----: | -------- | -------- | ----------------- |
-|  d   | 路径绘制的命令字符串 | string | Yes      | All      | Yes               |
+|  Name   |     Description      |  Type  | Required | Platform | HarmonyOS Support |
+| :-----: | :------------------: | :----: | -------- | -------- | ----------------- |
+|    d    | 路径绘制的命令字符串 | string | Yes      | All      | Yes               |
+| opacity |        透明度        | number | Yes      | All      | Yes               |
 
 **Rect**： 矩形绘制组件，根据角位置和宽高生成矩形形状
 
@@ -265,17 +266,19 @@ ohpm install
 
 **Circle**： 园绘制组件，基于圆心和半径生成园形形状
 
-| Name |      Description      |      Type       | Required | Platform | HarmonyOS Support |
-| :--: | :-------------------: | :-------------: | -------- | -------- | ----------------- |
-|  r   |        园半径         | number\| string | Yes      | All      | Yes               |
-|  cx  | 圆心在 x 轴上平移距离 | number\| string | No       | All      | Yes               |
-|  cy  | 圆心在 y 轴上平移距离 | number\| string | No       | All      | Yes               |
+|  Name   |      Description      |      Type       | Required | Platform | HarmonyOS Support |
+| :-----: | :-------------------: | :-------------: | -------- | -------- | ----------------- |
+|    r    |        园半径         | number\| string | Yes      | All      | Yes               |
+|   cx    | 圆心在 x 轴上平移距离 | number\| string | No       | All      | Yes               |
+|   cy    | 圆心在 y 轴上平移距离 | number\| string | No       | All      | Yes               |
+| opacity |        透明度         |     number      | Yes      | All      | Yes               |
 
 **Polygon**： 多边形制组件，用于创建至少包含三条边的图形
 
-|  Name  |          Description           |      Type      | Required | Platform | HarmonyOS Support |
-| :----: | :----------------------------: | :------------: | -------- | -------- | ----------------- |
-| points | 定义多边形每个角的 x 和 y 坐标 | string\| array | Yes      | All      | Yes               |
+|  Name   |          Description           |      Type      | Required | Platform | HarmonyOS Support |
+| :-----: | :----------------------------: | :------------: | -------- | -------- | ----------------- |
+| points  | 定义多边形每个角的 x 和 y 坐标 | string\| array | Yes      | All      | Yes               |
+| opacity |             透明度             |     number     | Yes      | All      | Yes               |
 
 **Defs**：该元素是用于对其他 SVG 元素进行分组的容器
 

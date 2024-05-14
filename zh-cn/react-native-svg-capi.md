@@ -300,7 +300,15 @@ ohpm install
 
 **Mask**：定义 alpha 蒙版，用于将当前对象合成到背景中
 
-> [!tip] 注： Mask 目前自有属性均不支持，仅支持 Path、Rect、Circle 组件的单一组件嵌套，不支持多组件嵌套
+|       Name       | Description                                                  | Type       | Required | Platform | HarmonyOS Support |
+| :--------------: | ------------------------------------------------------------ | ---------- | -------- | -------- | :---------------: |
+|        id        | 唯一标识                                                     | string     | No       | All      |        Yes        |
+|        x         | 左侧顶角横坐标                                               | NumberProp | No       | All      |        Yes        |
+|        y         | 左侧顶角纵坐标                                               | NumberProp | No       | All      |        Yes        |
+|      width       | 元素宽度                                                     | NumberProp | No       | All      |        Yes        |
+|      height      | 元素高度                                                     | NumberProp | No       | All      |        Yes        |
+|    maskUnits     | 定义x,y,width,height使用的坐标系，默认值为objectBoundingBox，可以使用objectBoundingBox\|userSpaceOnUse | TMaskUnits | No       | All      |        Yes        |
+| maskContentUnits | 定义内容使用的坐标系，默认值为userSpaceOnUse，可以使用objectBoundingBox\|userSpaceOnUse | TMaskUnits | No       | All      |        Yes        |
 
 **Use**：该元素可以重复使用 SVG 元素
 

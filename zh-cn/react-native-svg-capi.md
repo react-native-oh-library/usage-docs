@@ -281,6 +281,9 @@ ohpm install
 | opacity |             透明度             |     number     | No       | All      | Yes               |
 
 **Defs**：该元素是用于对其他 SVG 元素进行分组的容器
+|    Name     |         Description          |      Type       | Required | Platform | HarmonyOS Support |
+| :---------: | :--------------------------: | :-------------: | -------- | -------- | ----------------- |
+|  /  |        /      |     /      | /       | All      | Yes               |
 
 **LinearGradient**：用于定义线性渐变
 
@@ -315,8 +318,6 @@ ohpm install
 
 **Use**：该元素可以重复使用 SVG 元素
 
-> [!tip] 注： Use 目前仅支持 Path、Rect、Circle 组件
-
 |  Name  |    Description    |      Type       | Required | Platform | HarmonyOS Support |
 | :----: | :---------------: | :-------------: | -------- | -------- | ----------------- |
 |   x    | 在 x 轴上平移距离 | number\| string | No       | All      | Yes               |
@@ -324,6 +325,27 @@ ohpm install
 | width  |     元素宽度      | number\| string | No       | All      | Yes               |
 | height |     元素高度      | number\| string | No       | All      | Yes               |
 |  href  |   图像资源引用    | source\| string | Yes      | All      | Yes               |
+
+**Ellipse**： 椭圆绘制组件，基于一个中心坐标以及它们的x半径和y半径
+
+| Name |      Description      |      Type       | Required | Platform | HarmonyOS Support |
+| :--: | :-------------------: | :-------------: | -------- | -------- | ----------------- |
+|  cx  | 圆心在 x 轴上平移距离 | number\| string | No       | All      | Yes               |
+|  cy  | 圆心在 y 轴上平移距离 | number\| string | No       | All      | Yes               |
+|  rx  | 定义 x 轴上的半径    | number\| string | No       | All      | Yes               |
+|  ry  | 定义 y 轴上的半径    | number\| string | No       | All      | Yes               |
+
+**Symbol**： 该元素用来定义一个图形模板对象，它可以用一个<use>元素实例化
+
+| Name |      Description      |      Type       | Required | Platform | HarmonyOS Support |
+| :--: | :-------------------: | :-------------: | -------- | -------- | ----------------- |
+|preserveAspectRatio| 是否强制进行统一缩放|    string  | No       | All      | Yes       |
+| viewBox |  组件视区   |     string      | No       | All      | Yes               |
+
+**ClipPath**：该元素定义一条剪切路径，可作为其他元素的clipPath属性的值
+|    Name     |         Description          |      Type       | Required | Platform | HarmonyOS Support |
+| :---------: | :--------------------------: | :-------------: | -------- | -------- | ----------------- |
+|  /  |        /      |     /      | /       | All      | Yes               |
 
 **Marker**：用于在绘制类组件上添加标记
 

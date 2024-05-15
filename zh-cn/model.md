@@ -76,7 +76,6 @@ const App = () => {
 };
 
 export default App;
-
 ```
 
 ## Link
@@ -85,7 +84,7 @@ export default App;
 
 首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
 
-### 在工程根目录的 `oh-package.json` 添加 overrides字段
+### 在工程根目录的 `oh-package.json` 添加 overrides 字段
 
 ```json
 {
@@ -132,7 +131,7 @@ ohpm install
 
 把`tester/node_modules/@react-native-oh-tpl/<Package_Name>/harmony/`目录下的源码`<xxx>`复制到`harmony`工程根目录下
 
-在`harmony`工程根目录的 `build-profile.template.json5` 添加以下模块
+在`harmony`工程根目录的 `build-profile.template.json5`（若存在）和`build-profile.json5` 添加以下模块
 
 ```json
 modules:[
@@ -144,26 +143,9 @@ modules:[
   //提示：{
   //        name: 'safe_area',
   //        srcPath: './safe_area',
-  //      } 
+  //      } （删除）
 ]
 ```
-
-进入到`harmony`工程目录并输入以下命令：
-
-<!-- tabs:start -->
-
-**npm**
-
-```bash
-npm install
-```
-**yarn**
-
-```bash
-yarn add
-```
-
-<!-- tabs:end -->
 
 打开 `entry/oh-package.json5`，添加以下依赖
 
@@ -243,11 +225,11 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-**提示：ArkTs侧引入 Fabric 组件**（删除）
+**提示：ArkTs 侧引入 Fabric 组件**（删除）
 
-### 在 ArkTs 侧引入 xxx 组件（若需要运行ArkTs版本）
+### 在 ArkTs 侧引入 xxx 组件（若需要运行 ArkTs 版本）
 
-> [!WARNING] Deprecated！该库已接入CAPI。（若已经CAPI化则需要加上这行）
+> [!WARNING] Deprecated！该库已接入 CAPI。（若已经 CAPI 化则需要加上这行）
 
 找到 `function buildCustomRNComponent()`，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
@@ -305,7 +287,7 @@ ohpm install
 
 ### 兼容性
 
-**已发Releases的库**（删除）
+**已发 Releases 的库**（删除）
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
@@ -313,7 +295,7 @@ ohpm install
 
 提示：[@react-native-oh-tpl/react-native-safe-area-context Releases](https://github.com/react-native-oh-library/react-native-safe-area-context/releases)（删除）
 
-**未发Releases使用原库的库**（删除）
+**未发 Releases 使用原库的库**（删除）
 
 本文档内容基于以下版本验证通过：
 

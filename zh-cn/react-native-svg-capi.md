@@ -280,21 +280,46 @@ ohpm install
 | points  | 定义多边形每个角的 x 和 y 坐标 | string\| array | Yes      | All      | Yes               |
 | opacity |             透明度             |     number     | No       | All      | Yes               |
 
+**Polyline**： 多段线组件，用于创建一条线段构成的轨迹
+
+|  Name   |           Description            |      Type      | Required | Platform | HarmonyOS Support |
+| :-----: | :------------------------------: | :------------: | -------- | -------- | ----------------- |
+| points  | 定义多段线每个端点的 x 和 y 坐标 | string\| array | Yes      | All      | Yes               |
+| opacity |              透明度              |     number     | No       | All      | Yes               |
+
 **Defs**：该元素是用于对其他 SVG 元素进行分组的容器
-|    Name     |         Description          |      Type       | Required | Platform | HarmonyOS Support |
+| Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :---------: | :--------------------------: | :-------------: | -------- | -------- | ----------------- |
-|  /  |        /      |     /      | /       | All      | Yes               |
+| / | / | / | / | All | Yes |
 
 **LinearGradient**：用于定义线性渐变
 
 > [!tip] 注： LinearGradient 目前仅支持 Path、Rect、Circle 组件，只支持在 fill 上使用，不支持 stroke
 
-| Name |    Description    |      Type       | Required | Platform | HarmonyOS Support |
-| :--: | :---------------: | :-------------: | -------- | -------- | ----------------- |
-|  x1  | 在 x 轴上平移距离 | number\| string | No       | All      | Yes               |
-|  y1  | 在 y 轴上平移距离 | number\| string | No       | All      | Yes               |
-|  x2  | 在 x 轴上平移距离 | number\| string | No       | All      | Yes               |
-|  y2  | 在 y 轴上平移距离 | number\| string | No       | All      | Yes               |
+|       Name        |              Description               |                  Type                   | Required | Platform | HarmonyOS Support |
+| :---------------: | :------------------------------------: | :-------------------------------------: | -------- | -------- | ----------------- |
+|        x1         |           在 x 轴上平移距离            |             number\| string             | No       | All      | Yes               |
+|        y1         |           在 y 轴上平移距离            |             number\| string             | No       | All      | Yes               |
+|        x2         |           在 x 轴上平移距离            |             number\| string             | No       | All      | Yes               |
+|        y2         |           在 y 轴上平移距离            |             number\| string             | No       | All      | Yes               |
+|   gradientUnits   |        指定元素属性使用的坐标系        | 'userSpaceOnUse' \| 'objectBoundingBox' | No       | All      | Yes               |
+| gradientTransform | 指定从元素当前坐标系到目标坐标系的转换 |  ColumnMajorTransformMatrix \| string   | No       | All      | Yes               |
+
+**RadialGradient**：用于定义线性渐变
+
+> [!tip] 注： RadialGradient 目前仅支持 Path、Rect、Circle 组件，只支持在 fill 上使用，不支持 stroke
+
+|       Name        |              Description               |                  Type                   | Required | Platform | HarmonyOS Support |
+| :---------------: | :------------------------------------: | :-------------------------------------: | -------- | -------- | ----------------- |
+|        fx         |           起始圆的 x 轴坐标            |             number\| string             | No       | All      | Yes               |
+|        fy         |           起始圆的 y 轴坐标            |             number\| string             | No       | All      | Yes               |
+|        rx         |          终止椭圆的 x 轴半径           |             number\| string             | No       | All      | Yes               |
+|        ry         |          终止椭圆的 y 轴半径           |             number\| string             | No       | All      | Yes               |
+|        cx         |           终止圆的 x 轴坐标            |             number\| string             | No       | All      | Yes               |
+|        cy         |           终止圆的 y 轴坐标            |             number\| string             | No       | All      | Yes               |
+|         r         |              终止圆的半径              |             number\| string             | No       | All      | Yes               |
+|   gradientUnits   |        指定元素属性使用的坐标系        | 'userSpaceOnUse' \| 'objectBoundingBox' | No       | All      | Yes               |
+| gradientTransform | 指定从元素当前坐标系到目标坐标系的转换 |  ColumnMajorTransformMatrix \| string   | No       | All      | Yes               |
 
 **Stop**：定义渐变上的颜色坡度
 
@@ -306,15 +331,15 @@ ohpm install
 
 **Mask**：定义 alpha 蒙版，用于将当前对象合成到背景中
 
-|       Name       | Description                                                  | Type       | Required | Platform | HarmonyOS Support |
-| :--------------: | ------------------------------------------------------------ | ---------- | -------- | -------- | :---------------: |
-|        id        | 唯一标识                                                     | string     | No       | All      |        Yes        |
-|        x         | 左侧顶角横坐标                                               | NumberProp | No       | All      |        Yes        |
-|        y         | 左侧顶角纵坐标                                               | NumberProp | No       | All      |        Yes        |
-|      width       | 元素宽度                                                     | NumberProp | No       | All      |        Yes        |
-|      height      | 元素高度                                                     | NumberProp | No       | All      |        Yes        |
-|    maskUnits     | 定义x,y,width,height使用的坐标系，默认值为objectBoundingBox，可以使用objectBoundingBox\|userSpaceOnUse | TMaskUnits | No       | All      |        Yes        |
-| maskContentUnits | 定义内容使用的坐标系，默认值为userSpaceOnUse，可以使用objectBoundingBox\|userSpaceOnUse | TMaskUnits | No       | All      |        Yes        |
+|       Name       | Description                                                                                                | Type       | Required | Platform | HarmonyOS Support |
+| :--------------: | ---------------------------------------------------------------------------------------------------------- | ---------- | -------- | -------- | :---------------: |
+|        id        | 唯一标识                                                                                                   | string     | No       | All      |        Yes        |
+|        x         | 左侧顶角横坐标                                                                                             | NumberProp | No       | All      |        Yes        |
+|        y         | 左侧顶角纵坐标                                                                                             | NumberProp | No       | All      |        Yes        |
+|      width       | 元素宽度                                                                                                   | NumberProp | No       | All      |        Yes        |
+|      height      | 元素高度                                                                                                   | NumberProp | No       | All      |        Yes        |
+|    maskUnits     | 定义 x,y,width,height 使用的坐标系，默认值为 objectBoundingBox，可以使用 objectBoundingBox\|userSpaceOnUse | TMaskUnits | No       | All      |        Yes        |
+| maskContentUnits | 定义内容使用的坐标系，默认值为 userSpaceOnUse，可以使用 objectBoundingBox\|userSpaceOnUse                  | TMaskUnits | No       | All      |        Yes        |
 
 **Use**：该元素可以重复使用 SVG 元素
 
@@ -326,40 +351,40 @@ ohpm install
 | height |     元素高度      | number\| string | No       | All      | Yes               |
 |  href  |   图像资源引用    | source\| string | Yes      | All      | Yes               |
 
-**Ellipse**： 椭圆绘制组件，基于一个中心坐标以及它们的x半径和y半径
+**Ellipse**： 椭圆绘制组件，基于一个中心坐标以及它们的 x 半径和 y 半径
 
 | Name |      Description      |      Type       | Required | Platform | HarmonyOS Support |
 | :--: | :-------------------: | :-------------: | -------- | -------- | ----------------- |
 |  cx  | 圆心在 x 轴上平移距离 | number\| string | No       | All      | Yes               |
 |  cy  | 圆心在 y 轴上平移距离 | number\| string | No       | All      | Yes               |
-|  rx  | 定义 x 轴上的半径    | number\| string | No       | All      | Yes               |
-|  ry  | 定义 y 轴上的半径    | number\| string | No       | All      | Yes               |
+|  rx  |   定义 x 轴上的半径   | number\| string | No       | All      | Yes               |
+|  ry  |   定义 y 轴上的半径   | number\| string | No       | All      | Yes               |
 
 **Symbol**： 该元素用来定义一个图形模板对象，它可以用一个<use>元素实例化
 
-| Name |      Description      |      Type       | Required | Platform | HarmonyOS Support |
-| :--: | :-------------------: | :-------------: | -------- | -------- | ----------------- |
-|preserveAspectRatio| 是否强制进行统一缩放|    string  | No       | All      | Yes       |
-| viewBox |  组件视区   |     string      | No       | All      | Yes               |
+|        Name         |     Description      |  Type  | Required | Platform | HarmonyOS Support |
+| :-----------------: | :------------------: | :----: | -------- | -------- | ----------------- |
+| preserveAspectRatio | 是否强制进行统一缩放 | string | No       | All      | Yes               |
+|       viewBox       |       组件视区       | string | No       | All      | Yes               |
 
-**ClipPath**：该元素定义一条剪切路径，可作为其他元素的clipPath属性的值
-|    Name     |         Description          |      Type       | Required | Platform | HarmonyOS Support |
+**ClipPath**：该元素定义一条剪切路径，可作为其他元素的 clipPath 属性的值
+| Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :---------: | :--------------------------: | :-------------: | -------- | -------- | ----------------- |
-|  /  |        /      |     /      | /       | All      | Yes               |
+| / | / | / | / | All | Yes |
 
 **Marker**：用于在绘制类组件上添加标记
 
-|  Name  |    Description    |      Type       | Required | Platform | HarmonyOS Support |
-| :----: | :---------------: | :-------------: | -------- | -------- | ----------------- |
-|  id    | 为元素分配唯一的名称 | string | Yes       | All      | Yes               |
-|  viewBox    | 视窗在用户空间中的位置和尺寸 | string | No       | All      | Yes               |
-|  preserveAspectRatio  |     是否强制进行统一缩放      | string | No       | All      | Yes               |
-|  refX |     标记参考点的 x 坐标      | number\| string | No       | All      | Yes               |
-|  refY  |   标记参考点的 y 坐标    | number\| string | No      | All      | Yes               |
-|  markerUnits  |   markerWidth和markerHeight属性的坐标系以及标记的内容    | string | No      | All      | Yes               |
-|  orient  |   将标记放置在形状上的相应位置时如何旋转    |  string | No      | All      | Yes               |
-|  markerWidth  |   表示标记进入的视窗的宽度    | number\| string | No      | All      | Yes               |
-|  markerHeight  |   表示标记进入的视窗的高度    | number\| string | No      | All      | Yes               |
+|        Name         |                      Description                       |      Type       | Required | Platform | HarmonyOS Support |
+| :-----------------: | :----------------------------------------------------: | :-------------: | -------- | -------- | ----------------- |
+|         id          |                  为元素分配唯一的名称                  |     string      | Yes      | All      | Yes               |
+|       viewBox       |              视窗在用户空间中的位置和尺寸              |     string      | No       | All      | Yes               |
+| preserveAspectRatio |                  是否强制进行统一缩放                  |     string      | No       | All      | Yes               |
+|        refX         |                  标记参考点的 x 坐标                   | number\| string | No       | All      | Yes               |
+|        refY         |                  标记参考点的 y 坐标                   | number\| string | No       | All      | Yes               |
+|     markerUnits     | markerWidth 和 markerHeight 属性的坐标系以及标记的内容 |     string      | No       | All      | Yes               |
+|       orient        |         将标记放置在形状上的相应位置时如何旋转         |     string      | No       | All      | Yes               |
+|     markerWidth     |                表示标记进入的视窗的宽度                | number\| string | No       | All      | Yes               |
+|    markerHeight     |                表示标记进入的视窗的高度                | number\| string | No       | All      | Yes               |
 
 **公共属性**：Common props 组件属性鸿蒙侧支持情况
 

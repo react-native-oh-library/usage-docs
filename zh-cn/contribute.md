@@ -21,7 +21,7 @@
 
 新增 HarmonyOS 化 RN 三方库使用文档：
 
-1. 参考[文档](https://react-native-oh-library.gitee.io/docs/#/zh-cn/third-party?id=%e4%b8%89%e6%96%b9%e5%ba%93%e5%88%86%e7%b1%bb)将三方库按纯 JS 库/JS 库/原生库进行分类，并且根据[模板](/zh-cn/model.md)撰写不同类型的使用文档，然后放入 `/zh-cn` 目录下。
+1. 参考[文档](https://gitee.com/react-native-oh-library/docs/blob/master/zh-cn/third-party.md)将三方库按纯 JS 库/JS 库/原生库进行分类，并且根据[模板](/zh-cn/model.md)撰写不同类型的使用文档，然后放入 `/zh-cn` 目录下。
 
 2. 文档命名样例：
 

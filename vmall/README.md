@@ -1,6 +1,6 @@
 # 简介
 
-> 欢迎开始 React-Native 的旅程！如果你在找如何搭建环境的文档，请移步开发文档的[搭建开发环境](https://react-native-oh-library.gitee.io/docs/#/zh-cn/environment)章节。
+> 欢迎开始 React-Native 的旅程！如果你在找如何搭建环境的文档，请移步开发文档的[搭建开发环境](https://gitee.com/react-native-oh-library/docs/blob/master/zh-cn/environment.md)章节。
 
 ## 概述
 

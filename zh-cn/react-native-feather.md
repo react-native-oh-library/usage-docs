@@ -38,7 +38,7 @@ yarn add react-native-feather@1.1.2
 
 此库可以使用的[图标列表](https://feathericons.com/)
 
->[!WARNING] 使用时 import 的库名不变。且该库强依赖[@react-native-oh-tpl/react-native-svg](https://react-native-oh-library.gitee.io/usage-docs/#/zh-cn/react-native-svg)，请在使用前，安装svg库
+>[!WARNING] 使用时 import 的库名不变。且该库强依赖[@react-native-oh-tpl/react-native-svg](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-svg.md)，请在使用前，安装svg库
 
 ```js
 import React from 'react';  
@@ -82,7 +82,7 @@ export default FeatherExample;
 
 ## 属性
 
-所有[SVG属性](https://react-native-oh-library.gitee.io/usage-docs/#/zh-cn/react-native-svg)均可使用
+所有[SVG属性](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-svg.md)均可使用
 
 ### feather
 
@@ -104,8 +104,8 @@ export default FeatherExample;
 
 以下事项与原库保持一致需注意遵循：
 
-1. 在使用该库前，请保证按照上文"Link"的提示，已经安装 [`react-native-svg`](https://react-native-oh-library.gitee.io/usage-docs/#/zh-cn/react-native-svg)。
-2. 此组件包含所有 [`react-native-svg`](https://react-native-oh-library.gitee.io/usage-docs/#/zh-cn/react-native-svg) 兼容的所有 Feather 图标。
+1. 在使用该库前，请保证按照上文"Link"的提示，已经安装 [`react-native-svg`](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-svg.md)。
+2. 此组件包含所有 [`react-native-svg`](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-svg.md) 兼容的所有 Feather 图标。
 3. 基于Feather 图标库版本为V4.28.0。
 
 ## 开源协议

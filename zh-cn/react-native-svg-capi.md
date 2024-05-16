@@ -244,6 +244,12 @@ ohpm install
 | :-----: | :---------: | :-------------: | -------- | -------- | ----------------- |
 | opacity |   透明度    | number\| string | No       | All      | Yes               |
 
+**Pattern**：使用预定义的图形对一个对象进行填充或描边
+
+|       Name       |              Description               |                 Type                 | Required | Platform | HarmonyOS Support |
+| :--------------: | :------------------------------------: | :----------------------------------: | -------- | -------- | ----------------- |
+| patternTransform | 指定从元素当前坐标系到目标坐标系的转换 | ColumnMajorTransformMatrix \| string | No       | All      | Yes               |
+
 **TextPath**：文本路径组件，沿给定的 Path 组件绘制文本
 
 |    Name     |          Description           |      Type       | Required | Platform | HarmonyOS Support |

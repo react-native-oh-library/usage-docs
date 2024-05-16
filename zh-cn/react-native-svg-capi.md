@@ -230,11 +230,32 @@ ohpm install
 | height  |  组件高度   | number\| string | Yes      | All      | Yes               |
 | viewBox |  组件视区   |     string      | No       | All      | Yes               |
 |  color  |    颜色     |     string      | No       | All      | Yes               |
+|  title  | 组件标题名  |     string      | No       | All      | Yes               |
+
+**Line**：线段绘制组件，根据两点生成一条线段
+
+|  Name   | Description |      Type       | Required | Platform | HarmonyOS Support |
+| :-----: | :---------: | :-------------: | -------- | -------- | ----------------- |
+| opacity |   透明度    | number\| string | No       | All      | Yes               |
+
+**TSpan**：线段绘制组件，根据两点生成一条线段
+
+|  Name   | Description |      Type       | Required | Platform | HarmonyOS Support |
+| :-----: | :---------: | :-------------: | -------- | -------- | ----------------- |
+| opacity |   透明度    | number\| string | No       | All      | Yes               |
+
+**TextPath**：文本路径组件，沿给定的 Path 组件绘制文本
+
+|    Name     |          Description           |      Type       | Required | Platform | HarmonyOS Support |
+| :---------: | :----------------------------: | :-------------: | -------- | -------- | ----------------- |
+|    href     |          路径组件引用          |     string      | No       | All      | Yes               |
+| startOffset | 文本起点相对于路径起点偏移距离 | number\| string | No       | All      | Yes               |
 
 **G**：该元素是用于对其他 SVG 元素进行分组的容器
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support |
-| :--: | :---------: | :--: | -------- | -------- | ----------------- |
+|  Name   | Description |      Type       | Required | Platform | HarmonyOS Support |
+| :-----: | :---------: | :-------------: | -------- | -------- | ----------------- |
+| opacity |   透明度    | number\| string | No       | All      | Yes               |
 
 **Path**： 路径绘制组件，根据绘制路径生成封闭的自定义形状
 
@@ -323,11 +344,11 @@ ohpm install
 
 **Stop**：定义渐变上的颜色坡度
 
-|    Name     |         Description          |      Type       | Required | Platform | HarmonyOS Support |
-| :---------: | :--------------------------: | :-------------: | -------- | -------- | ----------------- |
-|  stopColor  |        渐变停止的颜色        |     string      | No       | All      | Yes               |
-| stopOpacity |      渐变停止的不透明度      | number\| string | No       | All      | Yes               |
-|   offset    | 渐变停止沿渐变向量放置的位置 | number\| string | No       | All      | Yes               |
+|    Name     |  Description   |  Type  | Required | Platform | HarmonyOS Support |
+| :---------: | :------------: | :----: | -------- | -------- | ----------------- |
+|  stopColor  |     渐变色     | string | No       | All      | Yes               |
+| stopOpacity |  渐变色透明度  | string | No       | All      | Yes               |
+|   offset    | 渐变色相对位置 | string | No       | All      | Yes               |
 
 **Mask**：定义 alpha 蒙版，用于将当前对象合成到背景中
 

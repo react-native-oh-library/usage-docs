@@ -335,13 +335,6 @@ ohpm install
 |  rx  | 定义 x 轴上的半径    | number\| string | No       | All      | Yes               |
 |  ry  | 定义 y 轴上的半径    | number\| string | No       | All      | Yes               |
 
-**Symbol**： 该元素用来定义一个图形模板对象，它可以用一个<use>元素实例化
-
-| Name |      Description      |      Type       | Required | Platform | HarmonyOS Support |
-| :--: | :-------------------: | :-------------: | -------- | -------- | ----------------- |
-|preserveAspectRatio| 是否强制进行统一缩放|    string  | No       | All      | Yes       |
-| viewBox |  组件视区   |     string      | No       | All      | Yes               |
-
 **ClipPath**：该元素定义一条剪切路径，可作为其他元素的clipPath属性的值
 |    Name     |         Description          |      Type       | Required | Platform | HarmonyOS Support |
 | :---------: | :--------------------------: | :-------------: | -------- | -------- | ----------------- |
@@ -360,6 +353,30 @@ ohpm install
 |  orient  |   将标记放置在形状上的相应位置时如何旋转    |  string | No      | All      | Yes               |
 |  markerWidth  |   表示标记进入的视窗的宽度    | number\| string | No      | All      | Yes               |
 |  markerHeight  |   表示标记进入的视窗的高度    | number\| string | No      | All      | Yes               |
+
+**Pattern**：用于定义一个图形对象，可以被引用以平铺重绘该图形对象以覆盖某个区域。
+
+|  Name  |    Description    |      Type       | Required | Platform | HarmonyOS Support |
+| :----: | :---------------: | :-------------: | -------- | -------- | ----------------- |
+|  id    | 为元素分配唯一的名称 | string | Yes       | All      | Yes               |
+|  x |     标记参考点的 x 坐标      | number\| string | No       | All      | Yes               |
+|  y  |   标记参考点的 y 坐标    | number\| string | No      | All      | Yes               |
+|  width  |   表示标记进入的视窗的宽度    | number\| string | No      | All      | Yes               |
+|  height  |   表示标记进入的视窗的高度    | number\| string | No      | All      | Yes               |
+|  patternUnits  |   属性指示pattern元素的几何属性使用哪个坐标系。    | string | No      | All      | Yes               |
+|  patternContentUnit  |   属性指示pattern元素的几何属性使用哪个坐标系。    |  string | No      | All      | Yes               |
+|  patternTransform  |   定义了应用于图案图块的变换定义的列表    | string | No      | All      | Yes               |
+|  viewBox    | 定义视窗在用户空间中的位置和尺寸 | string | No       | All      | Yes               |
+|  preserveAspectRatio  |     指示具有提供给定宽高比的 viewBox 的元素必须如何适应具有不同宽高比的视口。      | string | No       | All      | Yes               |
+
+**Symbol**：用于定义可由use元素实例化的图形模板对象。
+
+|  Name  |    Description    |      Type       | Required | Platform | HarmonyOS Support |
+| :----: | :---------------: | :-------------: | -------- | -------- | ----------------- |
+|  id    | 为元素分配唯一的名称 | string | Yes       | All      | Yes               |
+|  viewBox    | 定义视窗在用户空间中的位置和尺寸 | string | No       | All      | Yes               |
+|  preserveAspectRatio  |     指示具有提供给定宽高比的 viewBox 的元素必须如何适应具有不同宽高比的视口。      | string | No       | All      | Yes               |
+|  opacity  |   指定一个对象或一组对象的透明度，即元素后面的背景被覆盖的程度。    | number\| string | No      | All      | Yes               |
 
 **公共属性**：Common props 组件属性鸿蒙侧支持情况
 

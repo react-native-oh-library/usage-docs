@@ -368,6 +368,8 @@ ohpm install
 |    fill     |           设置填充区域颜色           | string | '#000'  |    No    | All      |     | √    | √    | √      | √       |
 |   stroke    | 设置边框颜色，不设置时，默认没有边框 | string | 'none'  |    No    | All      |     | √    | √    | √      | √       |
 | strokeWidth |             设置边框宽度             | number |    1    |    No    | All      |     | √    | √    | √      | √       |
+|  clipRule   |  设置裁剪规则                        | string |'evenodd'|    No    | All      |     | √    | √    | √      | √       |
+|  clipPath   |  指定、关联一条裁剪路径              | string | 'none'  |    No    | All      |     | √    | √    | √      | √       |
 
 ## 遗留问题
 

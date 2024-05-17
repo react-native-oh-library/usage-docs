@@ -230,6 +230,7 @@ ohpm install
 | height  |  组件高度   | number\| string | Yes      | All      | Yes               |
 | viewBox |  组件视区   |     string      | No       | All      | Yes               |
 |  color  |    颜色     |     string      | No       | All      | Yes               |
+|  preserveAspectRatio  |     是否强制进行统一缩放      | string | No       | All      | Yes               |
 
 **G**：该元素是用于对其他 SVG 元素进行分组的容器
 
@@ -387,6 +388,41 @@ ohpm install
 |   x2    | x 轴上的线的末端 | number\| string | No       | All      | Yes               |
 |   y2    | y 轴上的线的末端 | number\| string | No       | All      | Yes               |
 | opacity |      透明度      | number\| string | No       | All      | Yes               |
+
+**Text**：绘制由文本组成的图形元素
+
+|  Name  |    Description    |      Type       | Required | Platform | HarmonyOS Support |
+| :----: | :---------------: | :-------------: | -------- | -------- | ----------------- |
+|  x    | 文本基线起点的 x 坐标 | number\string | No       | All      | Yes               |
+|  y    | 文本基线起点的 y 坐标 | number\string | No       | All      | Yes               |
+|  dx  |     从前一个文本元素水平移动文本位置      | number\string | No       | All      | Yes               |
+|  dy |     从前一个文本元素垂直移动文本位置      | number\| string | No       | All      | Yes               |
+|  rotate  |   旋转每个单独字形的方向    | array | No      | All      | Yes               |
+|  opacity  |   透明度    | number | No      | All      | Yes               |
+|  inlineSize  |   水平或垂直尺寸    | number | No      | All      | Yes               |
+
+**TSpan**：绘制文本或Text内的子文本
+
+|  Name  |    Description    |      Type       | Required | Platform | HarmonyOS Support |
+| :----: | :---------------: | :-------------: | -------- | -------- | ----------------- |
+|  x    | 文本基线起点的 x 坐标 | number\string | No       | All      | Yes               |
+|  y    | 文本基线起点的 y 坐标 | number\string | No       | All      | Yes               |
+|  dx  |     从前一个文本元素水平移动文本位置      | number\string | No       | All      | Yes               |
+|  dy |     从前一个文本元素垂直移动文本位置      | number\| string | No       | All      | Yes               |
+|  rotate  |   旋转每个单独字形的方向    | array | No      | All      | Yes               |
+|  opacity  |   透明度    | number | No      | All      | Yes               |
+|  inlineSize  |   水平或垂直尺寸    | number | No      | All      | Yes               |
+
+**TextPath**：若要沿路径形状呈现文本，将文本括在具有 href 属性的 TextPath 元素中，并引用 Path 元素。
+
+|  Name  |    Description    |      Type       | Required | Platform | HarmonyOS Support |
+| :----: | :---------------: | :-------------: | -------- | -------- | ----------------- |
+|  href    | 用于呈现文本的路径或基本形状的 URL | string | No       | All      | Yes               |
+|  xlinkHref    | 用于呈现文本的路径或基本形状的 URL | string | No       | All      | Yes               |
+|  method    | 沿路径渲染各个字形的方法 | string | No       | All      | Yes               |
+|  spacing |     绘制字符之间的间距      |  string | No       | All      | Yes               |
+|  side  |     文本应呈现在路径的哪一侧      | string | No       | All      | Yes               |
+|  midLine |     中线      |  string | No       | All      | Yes               |
 
 **公共属性**：Common props 组件属性鸿蒙侧支持情况
 

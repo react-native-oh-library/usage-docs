@@ -1,4 +1,4 @@
-> 模板版本：v0.1.3
+> 模板版本：v0.2.1
 
 <p align="center">
   <h1 align="center"> <code>react-native-image-sequence</code> </h1>
@@ -16,13 +16,11 @@
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[react-native-image-sequence Releases](https://github.com/react-native-oh-library/react-native-image-sequence/releases)，并下载适用版本的 tgz 包
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-image-sequence Releases](https://github.com/react-native-oh-library/react-native-image-sequence/releases)，并下载适用版本的 tgz 包
 
 进入到工程目录并输入以下命令：
 
 > [!TIP] # 处替换为 tgz 包的路径
-
-<!-- tabs:start -->
 
 #### **npm**
 
@@ -36,9 +34,7 @@ npm install @react-native-oh-tpl/react-native-image-sequence-2@file:#
 yarn add @react-native-oh-tpl/react-native-image-sequence-2@file:#
 ```
 
-<!-- tabs:end -->
-
-快速使用：
+下面的代码展示了这个库的基本使用场景：
 
 > [!WARNING] 使用时 import 的库名不变。
 
@@ -50,11 +46,12 @@ import TestDemo2 from "./TestDemo2";
 
 const images = [
   { uri: "https://octodex.github.com/images/stormtroopocat.jpg" },
-  require("../../assets/2.jpg"),
-  require("../../assets/3.jpg"),
-  require("../../assets/4.jpg"),
-  require("../../assets/5.jpg"),
-  require("../../assets/6.jpg"),
+  {uri: 'https://octodex.github.com/images/saint_nictocat.jpg'},
+  require("./assets/2.jpg"),
+  require("./assets/3.jpg"),
+  require("./assets/4.jpg"),
+  require("./assets/5.jpg"),
+  require("./assets/6.jpg"),
 ];
 
 export interface sequenceType {
@@ -83,7 +80,7 @@ const ImageSequenceDemo = (props: any) => {
   };
 
   // 设置采样高度
-  const inputSampleGeight = (value: string) => {
+  const inputSampleHeight = (value: string) => {
     if (isNaN(Number(value))) {
       return;
     }
@@ -175,20 +172,13 @@ const ImageSequenceDemo = (props: any) => {
             defaultValue="24"
             keyboardType="numeric"
           />
-          <Text>采样宽度：</Text>
-          <TextInput
-            style={styles.input}
-            onChangeText={(value) => inputSampleWidth(value)}
-            defaultValue="-1"
-            keyboardType="default"
-          />
-          <Text>采样高度：</Text>
-          <TextInput
-            style={styles.input}
-            onChangeText={(value) => inputSetWinHeight(value)}
-            defaultValue="-1"
-            keyboardType="default"
-          />
+          <View>
+             <Text>采样宽度/高度：</Text>
+             <View style={styles.box}>
+                <TextInput style={[styles.input, styles.input1]} onChangeText={value => inputSampleWidth(value)} defaultValue='-1' keyboardType='default' />
+                 <TextInput style={[styles.input, styles.input1]} onChangeText={value => inputSampleHeight(value)} defaultValue='-1' keyboardType='default' />
+              </View>
+           </View>
         </View>
         {!isShow ? (
           <Button title="显示" onPress={() => buttonIsShow()} />
@@ -286,6 +276,17 @@ export default TestDemo2
 
 首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
 
+###  在工程根目录的 `oh-package.json` 添加 overrides 字段
+
+```
+{
+  ...
+  "overrides": {
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+  }
+}
+```
+
 ### 引入原生端代码
 
 目前有两种方法：
@@ -302,7 +303,7 @@ export default TestDemo2
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react-native-openharmony",
-    "@rnoh-image-sequence": "file:../../node_modules/@react-native-oh-tpl/react-native-image-sequence-2/harmony/image_sequence.har"
+    "rnoh-image-sequence": "file:../../node_modules/@react-native-oh-tpl/react-native-image-sequence-2/harmony/image_sequence.har"
   }
 ```
 
@@ -319,13 +320,27 @@ ohpm install
 
 > [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
 
+把`tester/node_modules/@react-native-oh-tpl/react-native-image-sequence-2/harmony/`目录下的源码image_sequence复制到`harmony`工程根目录下
+
+在`harmony`工程根目录的 `build-profile.template.json5`（若存在）和`build-profile.json5` 添加以下模块
+
+```
+modules:[
+  ...
+  {
+    name: 'image_sequence',
+    srcPath: './image_sequence',
+  }
+]
+```
+
 打开 `entry/oh-package.json5`，添加以下依赖
 
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
 
-    "@rnoh-image-sequence": "file:../../node_modules/@react-native-oh-tpl/react-native-image-sequence-2/harmony/image_sequence"
+    "rnoh-image-sequence": "file:../image_sequence"
   }
 ```
 
@@ -387,6 +402,8 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ### 在 ArkTs 侧引入 image sequence 组件
 
+[!WARNING] Deprecated！该库已接入 CAPI。
+
 找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
@@ -427,6 +444,10 @@ ohpm install
 然后编译、运行即可。
 
 ## 兼容性
+
+要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[ Releases](https://github.com/react-native-oh-library/react-native-image-sequence/releases)
 
 本文档内容基于以下版本验证通过：
 

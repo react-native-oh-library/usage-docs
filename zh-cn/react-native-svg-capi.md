@@ -230,12 +230,14 @@ ohpm install
 | height  |  组件高度   | number\| string | Yes      | All      | Yes               |
 | viewBox |  组件视区   |     string      | No       | All      | Yes               |
 |  color  |    颜色     |     string      | No       | All      | Yes               |
+|  title  | 组件标题名  |     string      | No       | All      | Yes               |
 |  preserveAspectRatio  |     是否强制进行统一缩放      | string | No       | All      | Yes               |
 
 **G**：该元素是用于对其他 SVG 元素进行分组的容器
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support |
-| :--: | :---------: | :--: | -------- | -------- | ----------------- |
+|  Name   | Description |      Type       | Required | Platform | HarmonyOS Support |
+| :-----: | :---------: | :-------------: | -------- | -------- | ----------------- |
+| opacity |   透明度    | number\| string | No       | All      | Yes               |
 
 **Path**： 路径绘制组件，根据绘制路径生成封闭的自定义形状
 
@@ -281,6 +283,13 @@ ohpm install
 | points  | 定义多边形每个角的 x 和 y 坐标 | string\| array | Yes      | All      | Yes               |
 | opacity |             透明度             |     number     | No       | All      | Yes               |
 
+**Polyline**： 多段线组件，用于创建一条线段构成的轨迹
+
+|  Name   |           Description            |      Type      | Required | Platform | HarmonyOS Support |
+| :-----: | :------------------------------: | :------------: | -------- | -------- | ----------------- |
+| points  | 定义多段线每个端点的 x 和 y 坐标 | string\| array | Yes      | All      | Yes               |
+| opacity |              透明度              |     number     | No       | All      | Yes               |
+
 **Defs**：该元素是用于对其他 SVG 元素进行分组的容器
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :--: | :---------: | :--: | -------- | -------- | ----------------- |
@@ -290,20 +299,38 @@ ohpm install
 
 > [!tip] 注： LinearGradient 目前仅支持 Path、Rect、Circle 组件，只支持在 fill 上使用，不支持 stroke
 
-| Name |    Description    |      Type       | Required | Platform | HarmonyOS Support |
-| :--: | :---------------: | :-------------: | -------- | -------- | ----------------- |
-|  x1  | 在 x 轴上平移距离 | number\| string | No       | All      | Yes               |
-|  y1  | 在 y 轴上平移距离 | number\| string | No       | All      | Yes               |
-|  x2  | 在 x 轴上平移距离 | number\| string | No       | All      | Yes               |
-|  y2  | 在 y 轴上平移距离 | number\| string | No       | All      | Yes               |
+|       Name        |              Description               |                  Type                   | Required | Platform | HarmonyOS Support |
+| :---------------: | :------------------------------------: | :-------------------------------------: | -------- | -------- | ----------------- |
+|        x1         |           在 x 轴上平移距离            |             number\| string             | No       | All      | Yes               |
+|        y1         |           在 y 轴上平移距离            |             number\| string             | No       | All      | Yes               |
+|        x2         |           在 x 轴上平移距离            |             number\| string             | No       | All      | Yes               |
+|        y2         |           在 y 轴上平移距离            |             number\| string             | No       | All      | Yes               |
+|   gradientUnits   |        指定元素属性使用的坐标系        | 'userSpaceOnUse' \| 'objectBoundingBox' | No       | All      | Yes               |
+| gradientTransform | 指定从元素当前坐标系到目标坐标系的转换 |  ColumnMajorTransformMatrix \| string   | No       | All      | Yes               |
+
+**RadialGradient**：用于定义线性渐变
+
+> [!tip] 注： RadialGradient 目前仅支持 Path、Rect、Circle 组件，只支持在 fill 上使用，不支持 stroke
+
+|       Name        |              Description               |                  Type                   | Required | Platform | HarmonyOS Support |
+| :---------------: | :------------------------------------: | :-------------------------------------: | -------- | -------- | ----------------- |
+|        fx         |           起始圆的 x 轴坐标            |             number\| string             | No       | All      | Yes               |
+|        fy         |           起始圆的 y 轴坐标            |             number\| string             | No       | All      | Yes               |
+|        rx         |          终止椭圆的 x 轴半径           |             number\| string             | No       | All      | Yes               |
+|        ry         |          终止椭圆的 y 轴半径           |             number\| string             | No       | All      | Yes               |
+|        cx         |           终止圆的 x 轴坐标            |             number\| string             | No       | All      | Yes               |
+|        cy         |           终止圆的 y 轴坐标            |             number\| string             | No       | All      | Yes               |
+|         r         |              终止圆的半径              |             number\| string             | No       | All      | Yes               |
+|   gradientUnits   |        指定元素属性使用的坐标系        | 'userSpaceOnUse' \| 'objectBoundingBox' | No       | All      | Yes               |
+| gradientTransform | 指定从元素当前坐标系到目标坐标系的转换 |  ColumnMajorTransformMatrix \| string   | No       | All      | Yes               |
 
 **Stop**：定义渐变上的颜色坡度
 
-|    Name     |         Description          |      Type       | Required | Platform | HarmonyOS Support |
-| :---------: | :--------------------------: | :-------------: | -------- | -------- | ----------------- |
-|  stopColor  |        渐变停止的颜色        |     string      | No       | All      | Yes               |
-| stopOpacity |      渐变停止的不透明度      | number\| string | No       | All      | Yes               |
-|   offset    | 渐变停止沿渐变向量放置的位置 | number\| string | No       | All      | Yes               |
+|    Name     |  Description   |  Type  | Required | Platform | HarmonyOS Support |
+| :---------: | :------------: | :----: | -------- | -------- | ----------------- |
+|  stopColor  |     渐变色     | string | No       | All      | Yes               |
+| stopOpacity |  渐变色透明度  | string | No       | All      | Yes               |
+|   offset    | 渐变色相对位置 | string | No       | All      | Yes               |
 
 **Mask**：定义 alpha 蒙版，用于将当前对象合成到背景中
 

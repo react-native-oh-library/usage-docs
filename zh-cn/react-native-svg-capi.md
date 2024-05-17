@@ -231,31 +231,7 @@ ohpm install
 | viewBox |  组件视区   |     string      | No       | All      | Yes               |
 |  color  |    颜色     |     string      | No       | All      | Yes               |
 |  title  | 组件标题名  |     string      | No       | All      | Yes               |
-
-**Line**：线段绘制组件，根据两点生成一条线段
-
-|  Name   | Description |      Type       | Required | Platform | HarmonyOS Support |
-| :-----: | :---------: | :-------------: | -------- | -------- | ----------------- |
-| opacity |   透明度    | number\| string | No       | All      | Yes               |
-
-**TSpan**：线段绘制组件，根据两点生成一条线段
-
-|  Name   | Description |      Type       | Required | Platform | HarmonyOS Support |
-| :-----: | :---------: | :-------------: | -------- | -------- | ----------------- |
-| opacity |   透明度    | number\| string | No       | All      | Yes               |
-
-**Pattern**：使用预定义的图形对一个对象进行填充或描边
-
-|       Name       |              Description               |                 Type                 | Required | Platform | HarmonyOS Support |
-| :--------------: | :------------------------------------: | :----------------------------------: | -------- | -------- | ----------------- |
-| patternTransform | 指定从元素当前坐标系到目标坐标系的转换 | ColumnMajorTransformMatrix \| string | No       | All      | Yes               |
-
-**TextPath**：文本路径组件，沿给定的 Path 组件绘制文本
-
-|    Name     |          Description           |      Type       | Required | Platform | HarmonyOS Support |
-| :---------: | :----------------------------: | :-------------: | -------- | -------- | ----------------- |
-|    href     |          路径组件引用          |     string      | No       | All      | Yes               |
-| startOffset | 文本起点相对于路径起点偏移距离 | number\| string | No       | All      | Yes               |
+|  preserveAspectRatio  |     是否强制进行统一缩放      | string | No       | All      | Yes               |
 
 **G**：该元素是用于对其他 SVG 元素进行分组的容器
 
@@ -316,7 +292,7 @@ ohpm install
 
 **Defs**：该元素是用于对其他 SVG 元素进行分组的容器
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
-| :---------: | :--------------------------: | :-------------: | -------- | -------- | ----------------- |
+| :--: | :---------: | :--: | -------- | -------- | ----------------- |
 | / | / | / | / | All | Yes |
 
 **LinearGradient**：用于定义线性渐变
@@ -387,16 +363,9 @@ ohpm install
 |  rx  |   定义 x 轴上的半径   | number\| string | No       | All      | Yes               |
 |  ry  |   定义 y 轴上的半径   | number\| string | No       | All      | Yes               |
 
-**Symbol**： 该元素用来定义一个图形模板对象，它可以用一个<use>元素实例化
-
-|        Name         |     Description      |  Type  | Required | Platform | HarmonyOS Support |
-| :-----------------: | :------------------: | :----: | -------- | -------- | ----------------- |
-| preserveAspectRatio | 是否强制进行统一缩放 | string | No       | All      | Yes               |
-|       viewBox       |       组件视区       | string | No       | All      | Yes               |
-
 **ClipPath**：该元素定义一条剪切路径，可作为其他元素的 clipPath 属性的值
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
-| :---------: | :--------------------------: | :-------------: | -------- | -------- | ----------------- |
+| :--: | :---------: | :--: | -------- | -------- | ----------------- |
 | / | / | / | / | All | Yes |
 
 **Marker**：用于在绘制类组件上添加标记
@@ -413,13 +382,85 @@ ohpm install
 |     markerWidth     |                表示标记进入的视窗的宽度                | number\| string | No       | All      | Yes               |
 |    markerHeight     |                表示标记进入的视窗的高度                | number\| string | No       | All      | Yes               |
 
+**Pattern**：用于定义一个图形对象，可以被引用以平铺重绘该图形对象以覆盖某个区域。
+
+|        Name         |                                Description                                |      Type       | Required | Platform | HarmonyOS Support |
+| :-----------------: | :-----------------------------------------------------------------------: | :-------------: | -------- | -------- | ----------------- |
+|         id          |                           为元素分配唯一的名称                            |     string      | Yes      | All      | Yes               |
+|          x          |                            标记参考点的 x 坐标                            | number\| string | No       | All      | Yes               |
+|          y          |                            标记参考点的 y 坐标                            | number\| string | No       | All      | Yes               |
+|        width        |                         表示标记进入的视窗的宽度                          | number\| string | No       | All      | Yes               |
+|       height        |                         表示标记进入的视窗的高度                          | number\| string | No       | All      | Yes               |
+|    patternUnits     |              属性指示 pattern 元素的几何属性使用哪个坐标系。              |     string      | No       | All      | Yes               |
+| patternContentUnit  |              属性指示 pattern 元素的几何属性使用哪个坐标系。              |     string      | No       | All      | Yes               |
+|  patternTransform   |                   定义了应用于图案图块的变换定义的列表                    |     string      | No       | All      | Yes               |
+|       viewBox       |                     定义视窗在用户空间中的位置和尺寸                      |     string      | No       | All      | Yes               |
+| preserveAspectRatio | 指示具有提供给定宽高比的 viewBox 的元素必须如何适应具有不同宽高比的视口。 |     string      | No       | All      | Yes               |
+
+**Symbol**：用于定义可由 use 元素实例化的图形模板对象。
+
+|        Name         |                                Description                                |      Type       | Required | Platform | HarmonyOS Support |
+| :-----------------: | :-----------------------------------------------------------------------: | :-------------: | -------- | -------- | ----------------- |
+|         id          |                           为元素分配唯一的名称                            |     string      | Yes      | All      | Yes               |
+|       viewBox       |                     定义视窗在用户空间中的位置和尺寸                      |     string      | No       | All      | Yes               |
+| preserveAspectRatio | 指示具有提供给定宽高比的 viewBox 的元素必须如何适应具有不同宽高比的视口。 |     string      | No       | All      | Yes               |
+|       opacity       |      指定一个对象或一组对象的透明度，即元素后面的背景被覆盖的程度。       | number\| string | No       | All      | Yes               |
+
+**Line**：SVG 基本形状，用于创建连接两点的线。
+
+|  Name   |   Description    |      Type       | Required | Platform | HarmonyOS Support |
+| :-----: | :--------------: | :-------------: | -------- | -------- | ----------------- |
+|   x1    | x 轴上线条的起点 | number\| string | No       | All      | Yes               |
+|   y1    | y 轴上的线的起点 | number\| string | No       | All      | Yes               |
+|   x2    | x 轴上的线的末端 | number\| string | No       | All      | Yes               |
+|   y2    | y 轴上的线的末端 | number\| string | No       | All      | Yes               |
+| opacity |      透明度      | number\| string | No       | All      | Yes               |
+
+**Text**：绘制由文本组成的图形元素
+
+|  Name  |    Description    |      Type       | Required | Platform | HarmonyOS Support |
+| :----: | :---------------: | :-------------: | -------- | -------- | ----------------- |
+|  x    | 文本基线起点的 x 坐标 | number\string | No       | All      | Yes               |
+|  y    | 文本基线起点的 y 坐标 | number\string | No       | All      | Yes               |
+|  dx  |     从前一个文本元素水平移动文本位置      | number\string | No       | All      | Yes               |
+|  dy |     从前一个文本元素垂直移动文本位置      | number\| string | No       | All      | Yes               |
+|  rotate  |   旋转每个单独字形的方向    | array | No      | All      | Yes               |
+|  opacity  |   透明度    | number | No      | All      | Yes               |
+|  inlineSize  |   水平或垂直尺寸    | number | No      | All      | Yes               |
+
+**TSpan**：绘制文本或Text内的子文本
+
+|  Name  |    Description    |      Type       | Required | Platform | HarmonyOS Support |
+| :----: | :---------------: | :-------------: | -------- | -------- | ----------------- |
+|  x    | 文本基线起点的 x 坐标 | number\string | No       | All      | Yes               |
+|  y    | 文本基线起点的 y 坐标 | number\string | No       | All      | Yes               |
+|  dx  |     从前一个文本元素水平移动文本位置      | number\string | No       | All      | Yes               |
+|  dy |     从前一个文本元素垂直移动文本位置      | number\| string | No       | All      | Yes               |
+|  rotate  |   旋转每个单独字形的方向    | array | No      | All      | Yes               |
+|  opacity  |   透明度    | number | No      | All      | Yes               |
+|  inlineSize  |   水平或垂直尺寸    | number | No      | All      | Yes               |
+
+**TextPath**：若要沿路径形状呈现文本，将文本括在具有 href 属性的 TextPath 元素中，并引用 Path 元素。
+
+|  Name  |    Description    |      Type       | Required | Platform | HarmonyOS Support |
+| :----: | :---------------: | :-------------: | -------- | -------- | ----------------- |
+|  href    | 用于呈现文本的路径或基本形状的 URL | string | No       | All      | Yes               |
+|  xlinkHref    | 用于呈现文本的路径或基本形状的 URL | string | No       | All      | Yes               |
+|  method    | 沿路径渲染各个字形的方法 | string | No       | All      | Yes               |
+|  spacing |     绘制字符之间的间距      |  string | No       | All      | Yes               |
+|  side  |     文本应呈现在路径的哪一侧      | string | No       | All      | Yes               |
+|  midLine |     中线      |  string | No       | All      | Yes               |
+
 **公共属性**：Common props 组件属性鸿蒙侧支持情况
 
-|    Name     |             Description              |  Type  | Default | Required | Platform | G   | Path | Rect | Circle | Polygon |
-| :---------: | :----------------------------------: | :----: | :-----: | :------: | -------- | --- | ---- | ---- | ------ | ------- |
-|    fill     |           设置填充区域颜色           | string | '#000'  |    No    | All      |     | √    | √    | √      | √       |
-|   stroke    | 设置边框颜色，不设置时，默认没有边框 | string | 'none'  |    No    | All      |     | √    | √    | √      | √       |
-| strokeWidth |             设置边框宽度             | number |    1    |    No    | All      |     | √    | √    | √      | √       |
+|    Name     |             Description              |          Type          |  Default  | Required | Platform | G   | Path | Rect | Circle | Polygon |
+| :---------: | :----------------------------------: | :--------------------: | :-------: | :------: | -------- | --- | ---- | ---- | ------ | ------- |
+|    fill     |           设置填充区域颜色           |         string         |  '#000'   |    No    | All      |     | √    | √    | √      | √       |
+|   stroke    | 设置边框颜色，不设置时，默认没有边框 |         string         |  'none'   |    No    | All      |     | √    | √    | √      | √       |
+| strokeWidth |             设置边框宽度             |         number         |     1     |    No    | All      |     | √    | √    | √      | √       |
+|  clipRule   |             设置裁剪规则             |         string         | 'evenodd' |    No    | All      |     | √    | √    | √      | √       |
+|  clipPath   |        指定、关联一条裁剪路径        |         string         |  'none'   |    No    | All      |     | √    | √    | √      | √       |
+|  fillRule   |           用来定义填充规则           | 'nonzero'\| ' evenodd' | 'nonzero' |    No    | All      |     | √    | √    | √      | √       |
 
 ## 遗留问题
 

@@ -291,9 +291,10 @@ ohpm install
 | opacity |              透明度              |     number     | No       | All      | Yes               |
 
 **Defs**：该元素是用于对其他 SVG 元素进行分组的容器
-| Name | Description | Type | Required | Platform | HarmonyOS Support |
-| :--: | :---------: | :--: | -------- | -------- | ----------------- |
-| / | / | / | / | All | Yes |
+
+|    Name     |         Description          |      Type       | Required | Platform | HarmonyOS Support |
+| :---------: | :--------------------------: | :-------------: | -------- | -------- | ----------------- |
+|  /  |        /      |     /      | /       | All      | Yes               |
 
 **LinearGradient**：用于定义线性渐变
 
@@ -363,10 +364,18 @@ ohpm install
 |  rx  |   定义 x 轴上的半径   | number\| string | No       | All      | Yes               |
 |  ry  |   定义 y 轴上的半径   | number\| string | No       | All      | Yes               |
 
-**ClipPath**：该元素定义一条剪切路径，可作为其他元素的 clipPath 属性的值
-| Name | Description | Type | Required | Platform | HarmonyOS Support |
-| :--: | :---------: | :--: | -------- | -------- | ----------------- |
-| / | / | / | / | All | Yes |
+**Symbol**： 该元素用来定义一个图形模板对象，它可以用一个<use>元素实例化
+
+| Name |      Description      |      Type       | Required | Platform | HarmonyOS Support |
+| :--: | :-------------------: | :-------------: | -------- | -------- | ----------------- |
+|preserveAspectRatio| 是否强制进行统一缩放|    string  | No       | All      | Yes       |
+| viewBox |  组件视区   |     string      | No       | All      | Yes               |
+
+**ClipPath**：该元素定义一条剪切路径，可作为其他元素的clipPath属性的值
+
+|    Name     |         Description          |      Type       | Required | Platform | HarmonyOS Support |
+| :---------: | :--------------------------: | :-------------: | -------- | -------- | ----------------- |
+|  /  |        /      |     /      | /       | All      | Yes               |
 
 **Marker**：用于在绘制类组件上添加标记
 
@@ -451,16 +460,153 @@ ohpm install
 |  side  |     文本应呈现在路径的哪一侧      | string | No       | All      | Yes               |
 |  midLine |     中线      |  string | No       | All      | Yes               |
 
+**SvgAst**：该组件通过传入ast来渲染出svg
+
+|    Name     |         Description          |      Type       | Required | Platform | HarmonyOS Support |
+| :---------: | :--------------------------: | :-------------: | :------: | :------: | :---------------: |
+| ast | 解析svg字符串得到的ast树 | JsxAST | Yes | All      | Yes  |
+| override | 覆盖svg样式，如宽高 | object | No | All      | Yes  |
+| onError | 错误时触发 | function | No | All | Yes |
+| onLoad | 加载成功后触发 | function | No | All | Yes |
+| fallback | 加载中元素 | function | No | All | Yes |
+
+**SvgFromUri**：该组件通过传入uri地址来渲染出svg
+
+|   Name   |     Description     |   Type   | Required | Platform | HarmonyOS Support |
+| :------: | :-----------------: | :------: | :------: | :------: | :---------------: |
+|   uri    |     svg资源地址     |  string  |   Yes    |   All    |        Yes        |
+| override | 覆盖svg样式，如宽高 |  object  |    No    |   All    |        Yes        |
+| onError  |     错误时触发      | function |    No    |   All    |        Yes        |
+|  onLoad  |   加载成功后触发    | function |    No    |   All    |        Yes        |
+| fallback |     加载中元素      | function |    No    |   All    |        Yes        |
+
+**SvgFromXml**：该组件通过传入字符串来渲染出svg
+
+|   Name   |     Description     |   Type   | Required | Platform | HarmonyOS Support |
+| :------: | :-----------------: | :------: | :------: | :------: | :---------------: |
+|   xml    |   svg代码的字符串   |  string  |   Yes    |   All    |        Yes        |
+| override | 覆盖svg样式，如宽高 |  object  |    No    |   All    |        Yes        |
+| onError  |     错误时触发      | function |    No    |   All    |        Yes        |
+|  onLoad  |   加载成功后触发    | function |    No    |   All    |        Yes        |
+| fallback |     加载中元素      | function |    No    |   All    |        Yes        |
+
+**SvgUri**：该组件通过传入uri地址来渲染出svg
+
+|   Name   |     Description     |   Type   | Required | Platform | HarmonyOS Support |
+| :------: | :-----------------: | :------: | :------: | :------: | :---------------: |
+|   uri    |     svg资源地址     |  string  |   Yes    |   All    |        Yes        |
+| override | 覆盖svg样式，如宽高 |  object  |    No    |   All    |        Yes        |
+| onError  |     错误时触发      | function |    No    |   All    |        Yes        |
+|  onLoad  |   加载成功后触发    | function |    No    |   All    |        Yes        |
+| fallback |     加载中元素      | function |    No    |   All    |        Yes        |
+
+**函数**
+
+|    Name     |         Description          |      Type       | Required | Platform | HarmonyOS Support |
+| :---------: | :--------------------------: | :-------------: | :------: | :------: | :---------------: |
+| parse | 将svg字符串解析成JsxAST | function | No  | All      | Yes |
+| err | 打印日志 | function | No  | All      | Yes |
+| camelCase | 字符串首字母转成大写 | function | No  | All      | Yes |
+| fetchText | 将svg字符串解析成JsxAST | function | No  | All      | Yes |
+
+
 **公共属性**：Common props 组件属性鸿蒙侧支持情况
 
-|    Name     |             Description              |          Type          |  Default  | Required | Platform | G   | Path | Rect | Circle | Polygon |
-| :---------: | :----------------------------------: | :--------------------: | :-------: | :------: | -------- | --- | ---- | ---- | ------ | ------- |
-|    fill     |           设置填充区域颜色           |         string         |  '#000'   |    No    | All      |     | √    | √    | √      | √       |
-|   stroke    | 设置边框颜色，不设置时，默认没有边框 |         string         |  'none'   |    No    | All      |     | √    | √    | √      | √       |
-| strokeWidth |             设置边框宽度             |         number         |     1     |    No    | All      |     | √    | √    | √      | √       |
+|    Name     |             Description              |  Type  | Default | Required | Platform | G   | Path | Rect | Circle | Polygon |
+| :---------: | :----------------------------------: | :----: | :-----: | :------: | :------: | --- | ---- | ---- | ------ | ------- |
+|    fill     |           设置填充区域颜色           | string | '#000'  |    No    | All      |     | √    | √    | √      | √       |
+|    fillOpacity  |           设置填充区域透明度   | number | 1  |    No    | All      |     | √    | √    | √      | √       |
+|    fillRule  |           设置填充规则   | number | 1  |    No    | All      |     | √    | √    | √      | √       |
 |  clipRule   |             设置裁剪规则             |         string         | 'evenodd' |    No    | All      |     | √    | √    | √      | √       |
 |  clipPath   |        指定、关联一条裁剪路径        |         string         |  'none'   |    No    | All      |     | √    | √    | √      | √       |
-|  fillRule   |           用来定义填充规则           | 'nonzero'\| ' evenodd' | 'nonzero' |    No    | All      |     | √    | √    | √      | √       |
+|   stroke    | 设置边框颜色，不设置时，默认没有边框 | string | none  |    No    | All      |     | √    | √    | √      | √       |
+| strokeWidth |             设置边框宽度             | number |    1    |    No    | All      |     | √    | √    | √      | √       |
+| strokeOpacity | 边框透明度 | number | 1 | No | All | | √ | √ | √ | √ |
+| strokeDasharray | 用来描边的点划线的图案范式 | number | none | No | All | |  |  |  |  |
+| strokeDashoffset | 指定了dash 模式到路径开始的距离 | number | 1 | No | All | |  |  |  |  |
+| strokeLinecap | 设置路径两端的形状 | string | butt | No | All | |  |  |  |  |
+| strokeLinejoin | 指明路径的转角处使用的形状 | string | miter | No | All | |  |  |  |  |
+| strokeMiterlimit | 对斜接长度和stroke-width的比率设置极限 值 | number | 4 | No | All | |  |  |  |  |
+| vectorEffect | 指明绘制对象时要使用的矢量效果 | string | none | No | All | |  |  |  |  |
+| clipRule | 将元素进行剪切的规则 | string | evenodd | No | All | |  |  |  |  |
+| clipPath | 将元素进行剪切 | string | - | No | All | |  |  |  |  |
+| translate | 设置位移 | numberArray | 0,0 | No | All | |  |  |  |  |
+| translateX | 设置x轴位移 | number | 0 | No | All | |  |  |  |  |
+| translateY | 设置y轴位移 | number | 0 | No | All | |  |  |  |  |
+| origin | 更改一个元素变形的原点 | numberArray | 0,0 | No | All | |  |  |  |  |
+| originX | 更改一个元素变形的原点x坐标 | number | 0 | No | All | |  |  |  |  |
+| originY | 更改一个元素变形的原点y坐标 | number | 0 | No | All | |  |  |  |  |
+| scale | 定义缩放大小 | numberArray | 1，1 | No | All | |  |  |  |  |
+| scaleX | 定义x轴缩放大小 | number | 1 | No | All | |  |  |  |  |
+| scaleY | 定义y轴缩放大小 | number | 1 | No | All | |  |  |  |  |
+| rotation | 设置旋转角度 | number | 0，0 | No | All | |  |  |  |  |
+| x | 标识一个 x 轴坐标 | number | 0 | No | All | |  |  |  |  |
+| y | 标识一个 y轴坐标 | number | 0 | No | All | |  |  |  |  |
+| transform | 定义应用于元素及其子元素的变换规则列表 | string | - | No | All | |  |  |  |  |
+| marker | 指定路径所有顶点的路标样式 | string | - | No | All | | | | | |
+| markerStart | 指定路径起点所采用的路标样式 | string | - | No | All | | | | | |
+| markerMid | 指定路径中间顶点所采用的路标样式 | string | - | No | All | | | | | |
+| markerEnd | 指定路径终点所采用的路标样式 | string | - | No | All | | | | | |
+| mask | 给元素指定使用Mask元素实现遮罩效果 | string | - | No | All | | | | | |
+| fontStyle | 指定文本渲染样式 | string | normal | No | All | | | | | |
+| fontVariant | 设置文本字体变体 |  |  | No | All | | | | | |
+| fontWeight | 设置文本自退粗细 | string | normal | No | All | | | | | |
+| fontStretch | 控制字体拉伸程度 | string | normal | No | All | | | | | |
+| fontSize | 设置文本字体大小 | number | medium | No | All | | | | | |
+| fontFamily | 指定文本字体 | string | normal | No | All | | | | | |
+| textAnchor | 用于指定文本相对于其锚点的对齐方式 | string | start | No | All | | | | | |
+| textDecoration | 设置文本装饰效果 | string | - | No | All | | | | | |
+| letterSpacing | 设置字符间距或字母间距 | number | 1 | No | All | | | | | |
+| wordSpacing | 设置英文单词之间的距离 | number | 1 | No | All | | | | | |
+| kerning | 设置字符之间的间距 | number | 0 | No | All | | | | | |
+| fontFeatureSettings | 字体特性控制 | string | normal | No | All | | | | | |
+| fontVariantLigatures | 控制文本中连字 | string | normal | No | All | | | | | |
+| fontVariationSettings |  | string | normal | No | All | | | | | |
+| opacity | 设置透明度 | number | 1 | No | All | | | | | |
+| alignmentBaseline | 设置相对于其父对象的对齐方式 | string | baseline | No | All | | | | | |
+| baselineShift | 设置文本与其自身正常基准位置的排列关系 | number | 0 | No | All | | | | | |
+| verticalAlign | 控制垂直方向的对齐方式 | number | 0 | No | All | | | | | |
+| lengthAdjust | 指定文本元素的长度调整方式 | string | spacing | No | All | | | | | |
+| textLength | 限制文本长度 | number | none | No | All | | | | | |
+| fontData | 字体配置 | Object | none | No | All | | | | | |
+| name | 设置节点名称 | string | - | No | All | | | | | |
+| opacity | 设置透明度 | number | 1 | No | All | | | | | |
+| matrix | 元素变形的数组 | Array<Float> | - | No | All | | | | | |
+| responsible |  | bool | - | No | All | | | | | |
+| display | 控制元素展示的方式 | string | block | No | All | | | | | |
+| pointerEvents | 设置元素如何响应鼠标事件 | string |  | No | All | | | | | |
+| fill（SvgRenderableCommonProps） |                       设置填充区域颜色                       |      ColorStruct（对象）      |      none       |    No    | All      |      |      |      |        |         |
+|           fillOpacity            |                   设置填充区域颜色的透明度                   |             Float             |       1.0       |    No    | All      |      |      |      |        |         |
+|             fillRule             |             设置用来确定一个多边形内部区域的算法             |              Int              |        0        |    No    | All      |      |      |      |        |         |
+|              stroke              |                设置给定图形元素的外轮廓的颜色                |      ColorStruct（对象）      |      none       |    No    | All      |      |      |      |        |         |
+|          strokeOpacity           |                 设置当前对象的轮廓的不透明度                 |             Float             |       1.0       |    No    | All      |      |      |      |        |         |
+|           strokeWidth            |                   设置当前对象的轮廓的宽度                   |            string             |       '1'       |    No    | All      |      |      |      |        |         |
+|          strokeLinecap           | 设置在开放子路径被设置描边的情况下，用于开放自路径两端的形状 |              Int              |        0        |    No    | All      |      |      |      |        |         |
+|          strokeLinejoin          |         指明路径的转角处使用的形状或者绘制的基础形状         |              Int              |        0        |    No    | All      |      |      |      |        |         |
+|         strokeDasharray          |                控制用来描边的点划线的图案范式                | Array<string> |      none       |    No    | All      |      |      |      |        |         |
+|         strokeDashoffset         |                设置 dash 模式到路径开始的距离                |             Float             |        1        |    No    | All      |      |      |      |        |         |
+|         strokeMiterlimit         | 对斜接长度和 `stroke-width` 的比率强加了一个极限，当极限到达时，交汇处由斜接变成倒角。 |             Float             |        4        |    No    | All      |      |      |      |        |         |
+|           vectorEffect           |                指明绘制对象时要使用的矢量效果                |              Int              |        0        |    No    | All      |      |      |      |        |         |
+|             propList             |                        设置属性的列表                        | ReadonlyArray<string>（对象） |      none       |    No    | All      |      |      |      |        |         |
+|             fontSize             | 在多行布局环境中将多行文本设置为实线时，从基线到基线的字体大小 |            string             |    'medium'     |    No    | All      |      |      |      |        |         |
+|            fontWeight            |  用于呈现文本的字形相对于同一字体族中的其他字体的粗度或亮度  |            string             |    'normal'     |    No    | All      |      |      |      |        |         |
+|               font               |                  设置一个用于文字布局的字体                  |      FontObject（对象）       |      none       |    No    | All      |      |      |      |        |         |
+|           getConstant            |                                                              |                               |                 |    No    | All      |      |      |      |        |         |
+|                dx                | 设置一个元素或其内容在 `x` 轴方向上的偏移，偏移量取决于设置该属性的元素 | number | 0 |    No    | All      |      |      |      |        |         |
+|                dy                | 设置一个元素或其内容在 `y`轴方向上的偏移，偏移量取决于设置该属性的元素 | number | 0 |    No    | All      |      |      |      |        |         |
+|                x                 |            在用户坐标系统中标识了一个 `x` 轴坐标             | number | 0 |    No    | All      |      |      |      |        |         |
+|                y                 |             在用户坐标系统中标识了一个 `y`轴坐标             | number | 0 |    No    | All      |      |      |      |        |         |
+|              rotate              | 指定了动画元素沿着<animateMotion>元素中指定的路径移动时的旋转方式 | number | 0 |    No    | All      |      |      |      |        |         |
+|            inlineSize            |                                                              | number | none |    No    | All      |      |      |      |        |         |
+|            textLength            |                 指定文本要绘制到的空间的宽度                 |            string             |      none       |    No    | All      |      |      |      |        |         |
+|          baselineShift           | 相对于父文本内容元素的 `dominant-baseline` 重定位 `dominant-baseline` |            string             |   'baseline'    |    No    | All      |      |      |      |        |         |
+|           lengthAdjust           |         控制如何将文本拉伸成textLength属性定义的长度         |            string             |    'spacing'    |    No    | All      |      |      |      |        |         |
+|              width               |           在用户坐标系统中定义了元素的一个水平长度           |          NumberProp           |  auto（视为0）  |    No    | All      |      |      |      |        |         |
+|              height              |              在用户坐标系统中标识了一个垂直长度              |          NumberProp           |  auto（视为0）  |    No    | All      |      |      |      |        |         |
+|             viewBox              |        指定一个给定的一组图形伸展以适应特定的容器元素        |            string             | - |    No    | All      |      |      |      |        |         |
+|       preserveAspectRatio        |                   表示是否强制进行统一缩放                   |            string             | 'xMidYMid meet' |    No    | All      |      |      |      |        |         |
+|              color               |                       设置填充区域颜色                       |            string             |     '#000'      |    No    | All      |      |      |      |        |         |
+|              title               |                         设置文本提示                         |            string             |       ''        |    No    | All      |      |      |      |        |         |
 
 ## 遗留问题
 

@@ -191,7 +191,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 在 ArkTs 侧引入 SvgPackage (注册TurboModule)
+### 在 ArkTs 侧引入 SvgPackage (注册 TurboModule)
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
@@ -264,24 +264,28 @@ ohpm install
 
 **Rect**： 矩形绘制组件，根据角位置和宽高生成矩形形状
 
-|  Name  |    Description    |      Type       | Required | Platform | HarmonyOS Support |
-| :----: | :---------------: | :-------------: | -------- | -------- | ----------------- |
-|   x    | 在 x 轴上平移距离 | number\| string | No       | All      | Yes               |
-|   y    | 在 y 轴上平移距离 | number\| string | No       | All      | Yes               |
-| width  |     元素宽度      | number\| string | Yes      | All      | Yes               |
-| height |     元素高度      | number\| string | Yes      | All      | Yes               |
-|   rx   | 定义 x 轴上的半径 | number\| string | No       | All      | Yes               |
-|   ry   | 定义 y 轴上的半径 | number\| string | No       | All      | Yes               |
+|  Name   |    Description    |      Type       | Required | Platform | HarmonyOS Support |
+| :-----: | :---------------: | :-------------: | -------- | -------- | ----------------- |
+|    x    | 在 x 轴上平移距离 | number\| string | No       | All      | Yes               |
+|    y    | 在 y 轴上平移距离 | number\| string | No       | All      | Yes               |
+|  width  |     元素宽度      | number\| string | Yes      | All      | Yes               |
+| height  |     元素高度      | number\| string | Yes      | All      | Yes               |
+|   rx    | 定义 x 轴上的半径 | number\| string | No       | All      | Yes               |
+|   ry    | 定义 y 轴上的半径 | number\| string | No       | All      | Yes               |
+| opacity |      透明度       | number\| string | No       | All      | Yes               |
 
 **Image**： 图像元素，支持 JPEG、PNG 格式
 
-|  Name  |    Description    |      Type       | Required | Platform | HarmonyOS Support |
-| :----: | :---------------: | :-------------: | -------- | -------- | ----------------- |
-|   x    | 在 x 轴上平移距离 | number\| string | No       | All      | Yes               |
-|   y    | 在 y 轴上平移距离 | number\| string | No       | All      | Yes               |
-| width  |     元素宽度      | number\| string | Yes      | All      | Yes               |
-| height |     元素高度      | number\| string | Yes      | All      | Yes               |
-|  href  |   图像资源引用    | source\| string | Yes      | All      | Yes               |
+|        Name         |                Description                 |               Type               | Required | Platform | HarmonyOS Support |
+| :-----------------: | :----------------------------------------: | :------------------------------: | -------- | -------- | ----------------- |
+|          x          |             在 x 轴上平移距离              |         number\| string          | No       | All      | Yes               |
+|          y          |             在 y 轴上平移距离              |         number\| string          | No       | All      | Yes               |
+|        width        |                  元素宽度                  |         number\| string          | Yes      | All      | Yes               |
+|       height        |                  元素高度                  |         number\| string          | Yes      | All      | Yes               |
+|        href         |                图像资源引用                |         source\| string          | Yes      | All      | Yes               |
+|      xlinkHref      |         用于指定要嵌入的图像的 URL         | RNImageProps['source'] \| string | No       | All      | Yes               |
+| preserveAspectRatio | 控制在给定的容器尺寸内如何保持图像的宽高比 |              string              | No       | All      | Yes               |
+|       opacity       |                   透明度                   |         source\| string          | No       | All      | Yes               |
 
 **Circle**： 园绘制组件，基于圆心和半径生成园形形状
 
@@ -363,29 +367,33 @@ ohpm install
 
 **Use**：该元素可以重复使用 SVG 元素
 
-|  Name  |    Description    |      Type       | Required | Platform | HarmonyOS Support |
-| :----: | :---------------: | :-------------: | -------- | -------- | ----------------- |
-|   x    | 在 x 轴上平移距离 | number\| string | No       | All      | Yes               |
-|   y    | 在 y 轴上平移距离 | number\| string | No       | All      | Yes               |
-| width  |     元素宽度      | number\| string | No       | All      | Yes               |
-| height |     元素高度      | number\| string | No       | All      | Yes               |
-|  href  |   图像资源引用    | source\| string | Yes      | All      | Yes               |
+|   Name    |                      Description                       |      Type       | Required | Platform | HarmonyOS Support |
+| :-------: | :----------------------------------------------------: | :-------------: | -------- | -------- | ----------------- |
+|     x     |                   在 x 轴上平移距离                    | number\| string | No       | All      | Yes               |
+|     y     |                   在 y 轴上平移距离                    | number\| string | No       | All      | Yes               |
+|   width   |                        元素宽度                        | number\| string | No       | All      | Yes               |
+|  height   |                        元素高度                        | number\| string | No       | All      | Yes               |
+|   href    |                      图像资源引用                      | source\| string | Yes      | All      | Yes               |
+| xlinkHref | 指定了一个 URI，该 URI 指向了 SVG 文档中定义的一个元素 |     string      | No       | All      | Yes               |
+|  opacity  |                         透明度                         | number\| string | No       | All      | Yes               |
 
 **Ellipse**： 椭圆绘制组件，基于一个中心坐标以及它们的 x 半径和 y 半径
 
-| Name |      Description      |      Type       | Required | Platform | HarmonyOS Support |
-| :--: | :-------------------: | :-------------: | -------- | -------- | ----------------- |
-|  cx  | 圆心在 x 轴上平移距离 | number\| string | No       | All      | Yes               |
-|  cy  | 圆心在 y 轴上平移距离 | number\| string | No       | All      | Yes               |
-|  rx  |   定义 x 轴上的半径   | number\| string | No       | All      | Yes               |
-|  ry  |   定义 y 轴上的半径   | number\| string | No       | All      | Yes               |
+|  Name   |      Description      |      Type       | Required | Platform | HarmonyOS Support |
+| :-----: | :-------------------: | :-------------: | -------- | -------- | ----------------- |
+|   cx    | 圆心在 x 轴上平移距离 | number\| string | No       | All      | Yes               |
+|   cy    | 圆心在 y 轴上平移距离 | number\| string | No       | All      | Yes               |
+|   rx    |   定义 x 轴上的半径   | number\| string | No       | All      | Yes               |
+|   ry    |   定义 y 轴上的半径   | number\| string | No       | All      | Yes               |
+| opacity |        透明度         | number\| string | No       | All      | Yes               |
 
 **Symbol**： 该元素用来定义一个图形模板对象，它可以用一个<use>元素实例化
 
-|        Name         |     Description      |  Type  | Required | Platform | HarmonyOS Support |
-| :-----------------: | :------------------: | :----: | -------- | -------- | ----------------- |
-| preserveAspectRatio | 是否强制进行统一缩放 | string | No       | All      | Yes               |
-|       viewBox       |       组件视区       | string | No       | All      | Yes               |
+|        Name         |     Description      |      Type       | Required | Platform | HarmonyOS Support |
+| :-----------------: | :------------------: | :-------------: | -------- | -------- | ----------------- |
+| preserveAspectRatio | 是否强制进行统一缩放 |     string      | No       | All      | Yes               |
+|       viewBox       |       组件视区       |     string      | No       | All      | Yes               |
+|       opacity       |        透明度        | number\| string | No       | All      | Yes               |
 
 **ClipPath**：该元素定义一条剪切路径，可作为其他元素的 clipPath 属性的值
 
@@ -467,14 +475,15 @@ ohpm install
 
 **TextPath**：若要沿路径形状呈现文本，将文本括在具有 href 属性的 TextPath 元素中，并引用 Path 元素。
 
-|   Name    |            Description             |  Type  | Required | Platform | HarmonyOS Support |
-| :-------: | :--------------------------------: | :----: | -------- | -------- | ----------------- |
-|   href    | 用于呈现文本的路径或基本形状的 URL | string | No       | All      | Yes               |
-| xlinkHref | 用于呈现文本的路径或基本形状的 URL | string | No       | All      | Yes               |
-|  method   |      沿路径渲染各个字形的方法      | string | No       | All      | Yes               |
-|  spacing  |         绘制字符之间的间距         | string | No       | All      | Yes               |
-|   side    |      文本应呈现在路径的哪一侧      | string | No       | All      | Yes               |
-|  midLine  |                中线                | string | No       | All      | Yes               |
+|    Name     |            Description             |      Type       | Required | Platform | HarmonyOS Support |
+| :---------: | :--------------------------------: | :-------------: | -------- | -------- | ----------------- |
+|    href     | 用于呈现文本的路径或基本形状的 URL |     string      | No       | All      | Yes               |
+|  xlinkHref  | 用于呈现文本的路径或基本形状的 URL |     string      | No       | All      | Yes               |
+|   method    |      沿路径渲染各个字形的方法      |     string      | No       | All      | Yes               |
+|   spacing   |         绘制字符之间的间距         |     string      | No       | All      | Yes               |
+|    side     |      文本应呈现在路径的哪一侧      |     string      | No       | All      | Yes               |
+|   midLine   |                中线                |     string      | No       | All      | Yes               |
+| startOffset |  文本开始被沿着路径绘制时的偏移量  | number\| string | No       | All      | Yes               |
 
 **SvgAst**：该组件通过传入 ast 来渲染出 svg
 

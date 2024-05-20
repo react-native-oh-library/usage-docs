@@ -1,7 +1,7 @@
 > 模板版本：v0.2.0
 
 <p align="center">
-  <h1 align="center"> <code>react-native-scrollable-tabview</code></h1>
+  <h1 align="center"> <code>react-native-scrollable-tabview</code> </h1>
 </p>
 <p align="center">
     <a href="https://github.com/itenl/react-native-scrollable-tabview">
@@ -17,10 +17,7 @@
 
 ## 安装与使用
 
-
 进入到工程目录并输入以下命令：
-
->[!TIP] # 处替换为 tgz 包的路径
 
 <!-- tabs:start -->
 

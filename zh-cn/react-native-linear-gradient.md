@@ -43,15 +43,30 @@ yarn add @react-native-oh-tpl/react-native-linear-gradient@file:#
 > [!WARNING] 使用时 import 的库名不变。
 
 ```js
+import React, { ReactNode } from 'react';
+import {
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import LinearGradient from "react-native-linear-gradient";
 
 // Within your render function
-<LinearGradient
-  colors={["#4c669f", "#3b5998", "#192f6a"]}
-  style={styles.linearGradient}
->
-  <Text style={styles.buttonText}>Sign in with Facebook</Text>
-</LinearGradient>;
+export const App = () => {
+  return (
+    <View style={styles.container}>
+        <LinearGradient
+          colors={["#4c669f", "#3b5998", "#192f6a"]}
+          style={styles.linearGradient}
+        >
+          <Text style={styles.buttonText}>Sign in with Facebook</Text>
+        </LinearGradient>;
+    </View>
+  );
+};
 
 // Later on in your styles..
 var styles = StyleSheet.create({
@@ -186,19 +201,19 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 + import { RNLinearGradient, LINEAR_GRADIENT_TYPE, LinearGradientDescriptor } from "rnoh-linear-gradient"
 
   @Builder
-  function buildCustomComponent(ctx: ComponentBuilderContext) {
+  function buildCustomRNComponent(ctx: ComponentBuilderContext) {
     if (ctx.componentName === SAMPLE_VIEW_TYPE) {
       SampleView({
         ctx: ctx.rnComponentContext,
         tag: ctx.tag,
-        buildCustomComponent: buildCustomComponent
+        buildCustomRNComponent: buildCustomRNComponent
       })
     }
 +   else if (ctx.componentName === LINEAR_GRADIENT_TYPE) {
 +     RNLinearGradient({
 +       ctx: ctx.rnComponentContext,
 +       tag: ctx.tag,
-+       buildCustomComponent: buildCustomComponent
++       buildCustomRNComponent: buildCustomRNComponent
 +     })
 +   }
     ...

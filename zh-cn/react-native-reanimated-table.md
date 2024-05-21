@@ -1,10 +1,10 @@
-模板版本：v0.1.3
+模板版本：v0.2.1
 
 <p align="center">
   <h1 align="center"> <code>react-native-reanimated-table</code> </h1>
 </p>
 <p align="center">
-    <a href="https://github.com/dohooo/react-native-reanimated-table">
+    <a href="https://github.com/dohooo/react-native-reanimated-table/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
@@ -15,11 +15,9 @@
 
 进入到工程目录并输入以下命令：
 
-> [!TIP] # 处替换为 tgz 包的路径
-
 <!-- tabs:start -->
 
-#### npm
+####  npm
 
 ```bash
 npm install react-native-reanimated-table@^0.0.2
@@ -35,17 +33,17 @@ yarn add react-native-reanimated-table@^0.0.2
 
 下面的代码展示了这个库的基本使用场景：
 
-> [!WARNING] 使用时 import 的库名不变。
+>[!WARNING] 使用时 import 的库名不变。
 
 ```tsx
-import React, { Component } from "react";
-import { StyleSheet, View } from "react-native";
-import { Table, Row, Rows } from "react-native-reanimated-table";
+import React, { Component } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { Table, Row, Rows } from 'react-native-reanimated-table';
 
 type State = {
   tableHead: string[];
   tableData: Array<string[]>;
-};
+}
 
 export default class ExampleOne extends Component<{}, State> {
   constructor(props: {} | Readonly<{}>) {
@@ -53,39 +51,35 @@ export default class ExampleOne extends Component<{}, State> {
     this.initData();
   }
 
-  initData() {
+  initData(){
     this.state = {
-      tableHead: ["Head", "Head2", "Head3", "Head4"],
+      tableHead: ['Head', 'Head2', 'Head3', 'Head4'],
       tableData: [
-        ["1", "2", "3", "4"],
-        ["a", "b", "c", "d"],
-        ["1", "2", "3", "456\n789"],
-        ["a", "b", "c", "d"],
-      ],
-    };
+        ['1', '2', '3', '4'],
+        ['a', 'b', 'c', 'd'],
+        ['1', '2', '3', '456\n789'],
+        ['a', 'b', 'c', 'd']
+      ]
+    }
   }
 
   render() {
     const state = this.state;
     return (
       <View style={styles.container}>
-        <Table borderStyle={{ borderWidth: 2, borderColor: "#c8e1ff" }}>
-          <Row
-            data={state.tableHead}
-            style={styles.head}
-            textStyle={styles.text}
-          />
-          <Rows data={state.tableData} textStyle={styles.text} />
+        <Table borderStyle={{borderWidth: 2, borderColor: '#c8e1ff'}}>
+          <Row data={state.tableHead} style={styles.head} textStyle={styles.text}/>
+          <Rows data={state.tableData} textStyle={styles.text}/>
         </Table>
       </View>
-    );
+    )
   }
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: "#fff" },
-  head: { height: 40, backgroundColor: "#f1f8ff" },
-  text: { margin: 6 },
+  container: { flex: 1, padding: 16, paddingTop: 30, backgroundColor: '#fff' },
+  head: { height: 40, backgroundColor: '#f1f8ff' },
+  text: { margin: 6 }
 });
 ```
 
@@ -93,7 +87,7 @@ const styles = StyleSheet.create({
 
 本文档内容基于以下版本验证通过：
 
-1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.29; ROM：205.0.0.18;
+1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：205.0.0.18;
 
 ## 属性
 
@@ -105,19 +99,20 @@ const styles = StyleSheet.create({
 
 ### Properties for all react-native-reanimated-table components:
 
-| Name        | Description                        | **Type** | Platform | Default                               | HarmonyOS Support |
-| ----------- | ---------------------------------- | -------- | -------- | ------------------------------------- | ----------------- |
-| data        | Table data.                        | Array    | All      | null                                  | Yes               |
-| style       | Container style.                   | Style    | All      | null                                  | Yes               |
-| borderStyle | Table border line width and color. | Object   | All      | { borderWidth: 0, borderColor: #000 } | Yes               |
-| textStyle   | Cell font style.                   | Style    | All      | null                                  | Yes               |
-| flexArr     | Flex value per column.             | Array    | All      | []                                    | Yes               |
-| widthArr    | Width per column.                  | Array    | All      | []                                    | Yes               |
-| heightArr   | Height per line.                   | Array    | All      | []                                    | Yes               |
-| ...props    | more props                         | any      | All      |                                       | Yes               |
+| Name                      | Description                                                  | **Type** | Platform    | HarmonyOS Support |
+| ------------------------- | ------------------------------------------------------------ | -------- | ----------- | ----------------- |
+| data                      | Table data.                                                  | Array    | All         | Yes               |
+| style                     | Container style.                                             | Style   | All         | Yes               |
+| borderStyle               | Table border line width and color.                           | Object   | All         | Yes               |
+| textStyle                 | Cell font style.                                             | Style   | All         | Yes               |
+| flexArr                   | Flex value per column.                                       | Array   | All         | Yes               |
+| widthArr                  | Width per column.                                            | Array   | All         | Yes               |
+| heightArr                 | Height per line.                                             | Array   | All         | Yes               |
+| ...props                  | more props                                                   | any     | All         | Yes               |
+
 
 ## 其他
 
 ## 开源协议
 
-本项目基于 [MIT License](https://github.com/oblador/react-native-progress/blob/master/LICENSE) ，请自由地享受和参与开源。
+本项目基于 [MIT License](https://github.com/dohooo/react-native-reanimated-table/blob/main/LICENSE) ，请自由地享受和参与开源。

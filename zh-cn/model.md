@@ -127,44 +127,7 @@ ohpm install
 
 方法二：直接链接源码
 
-> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
-
-把`tester/node_modules/@react-native-oh-tpl/<Package_Name>/harmony/`目录下的源码`<xxx>`复制到`harmony`工程根目录下
-
-在`harmony`工程根目录的 `build-profile.template.json5`（若存在）和`build-profile.json5` 添加以下模块
-
-```json
-modules:[
-  ...
-  {
-    name: '<xxx>',
-    srcPath: './<xxx>',
-  }
-  //提示：{
-  //        name: 'safe_area',
-  //        srcPath: './safe_area',
-  //      } （删除）
-]
-```
-
-打开 `entry/oh-package.json5`，添加以下依赖
-
-```json
-"dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/<Package_Name>": "file:../<xxx>"
-    // 提示: "@react-native-oh-tpl/react-native-safe-area-context": "file:../safe_area"（删除）
-  }
-```
-
-点击右上角的 `sync` 按钮
-
-或者在终端执行：
-
-```bash
-cd entry
-ohpm install
-```
+> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
 ### 配置 CMakeLists 和引入 xxxPackge
 

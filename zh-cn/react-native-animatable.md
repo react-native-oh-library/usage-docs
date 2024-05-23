@@ -94,7 +94,7 @@ export default function ExampleView() {
 
 Name | Description | Type | Required | Platform | HarmonyOS   Support
 -- | -- | -- | -- | -- | --
-animatio | 动画的名称，请参见下面的可用动画 | string/undefined | / | all | yes
+animation | 动画的名称，请参见下面的可用动画 | string/undefined | / | all | yes
 duration | 动画将运行的时间（毫秒） | number/undefined | / | all | yes
 delay | （可选）延迟动画（毫秒） | number/undefined | / | all | yes
 direction | 动画的方向，特别适用于重复动画。有效值：正常、反向、交替、交替反向 | string/undefined | / | all | yes

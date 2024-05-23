@@ -1,4 +1,4 @@
-> 模板版本：v0.1.3
+> 模板版本：v0.2.1
 
 <p align="center">
   <h1 align="center"> <code>react-native-scrollable-tab-view</code> </h1>
@@ -16,7 +16,7 @@
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[<@react-native-oh-tpl/react-native-scrollable-tab-view> Releases](https://github.com/react-native-oh-library/react-native-scrollable-tab-view/releases)，并下载适用版本的 tgz 包。
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-scrollable-tab-view Releases](https://github.com/react-native-oh-library/react-native-scrollable-tab-view/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
@@ -63,11 +63,17 @@ export default () => {
 };
 ```
 
+## Link
+
+本库鸿蒙侧实现依赖@react-native-oh-tpl/react-native-pager-view 的原生端代码，如已在鸿蒙工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+
+如未引入请参照[@react-native-oh-tpl/react-native-pager-view 文档的 Link 章节](https://gitee.com/react-native-oh-library/usage-docs/blob/de61c0d0684afb8fb93228aeaa3e7961d58682cf/zh-cn/react-native-pager-view.md#link)进行引入
+
 ## 兼容性
 
 本文档内容基于以下版本验证通过：
 
-1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.29; ROM：205.0.0.18;
+1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：205.0.0.18;
 
 ## 属性
 
@@ -100,3 +106,5 @@ export default () => {
 ## 其他
 
 ## 开源协议
+
+本项目基于 [The MIT License (MIT)](https://www.mit-license.org/) ，请自由地享受和参与开源。

@@ -1,4 +1,4 @@
-> 模板版本：v0.1.3
+> 模板版本：v0.2.1
 
 <p align="center">
   <h1 align="center"> <code>react-native-markdown-display</code> </h1>
@@ -7,7 +7,7 @@
     <a href="https://github.com/react-native-oh-library/react-native-markdown-display">
         <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20macos%20|%20web%20|%20windows%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
-    <a href="https://github.com/react-native-oh-library/react-native-markdown-display/LICENSE">
+    <a href="https://github.com/iamacup/react-native-markdown-display/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
@@ -27,13 +27,13 @@
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-markdown-display
+npm install @react-native-oh-tpl/react-native-markdown-display@file:#
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-markdown-display
+yarn add @react-native-oh-tpl/react-native-markdown-display@file:#
 ```
 
 <!-- tabs:end -->

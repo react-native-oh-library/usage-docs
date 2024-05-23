@@ -1,13 +1,14 @@
 > 模板版本：v0.2.0
 
 <p align="center">
-  <h1 align="center"> <code>react-native-clippathview</code> </h1>
+  <h1 align="center"> <code>react-native-clippath</code> </h1>
 </p>
 <p align="center">
     <a href="https://github.com/react-native-oh-library/react-native-clippath/blob/sig/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
+
 
 > [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-clippath)
 
@@ -49,7 +50,7 @@ export default function index() {
   return (
     <ScrollView style={{ width: '100%', height: '100%' }}>
       <ClipPathView d={path} style={{  backgroundColor: '#ff0' }}>
-        <Text style={{ lineHeight: 5, fontSize: 6 }}>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</Text>
+        <Text style={{ height: 800, fontSize: 26 }}>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</Text>
       </ClipPathView>
     </ScrollView>
   )
@@ -59,12 +60,14 @@ export default function index() {
 
 ## 兼容性
 
-在以下版本验证通过
+要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-- RNOH：0.72.20; 
-- SDK：HarmonyOS-NEXT-DP2; 
-- IDE：DevEco Studio 5.0.3.29; 
-- ROM：205.0.0.18;
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[ Releases](https://github.com/react-native-oh-library/react-native-clippath/releases)
+
+本文档内容基于以下版本验证通过：
+
+1. RNOH: 0.72.26; SDK: HarmonyOS-NEXT-DP2; IDE: DevEco Studio 5.0.3.29;  ROM: 205.0.0.18;
+2. RNOH: 0.72.26; SDK: armonyOS NEXT Developer preview2、5.0.0.22(API Version 12 Canary3); IDE: DevEco Studio: 5.0.3.300；ROM: 3.0.0.22;
 
 ## Link
 
@@ -179,8 +182,12 @@ ohpm install
 
 然后编译、运行即可。
 
-
 ## 属性
+
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
 | Name                 | Description                                                  | Type              | Required | Platform    | HarmonyOS Support |
 | -------------------- | ------------------------------------------------------------ | ----------------- | -------- | ----------- | ----------------- |
 | svgKey               | 唯一key                                                      | string            | No       | IOS/Android | Yes               |

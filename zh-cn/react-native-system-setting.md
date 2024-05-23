@@ -177,7 +177,7 @@ export default SystemSettingDemo
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/rnoh-system-setting": "../../node_modules/@react-native-oh-tpl/react-native-system-setting/harmony/system_setting.har"
+    "@react-native-oh-tpl/rnoh-system-setting": "../../node_modules/@react-native-oh-tpl/react-native-system-setting/harmony/react_native_system_setting.har"
   }
 ```
 
@@ -199,7 +199,7 @@ ohpm install
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/rnoh-system-setting": "../../node_modules/@react-native-oh-tpl/react-native-system-setting/harmony/system_setting"
+    "@react-native-oh-tpl/rnoh-system-setting": "../../node_modules/@react-native-oh-tpl/react-native-system-setting/harmony/react_native_system_setting"
   }
 ```
 

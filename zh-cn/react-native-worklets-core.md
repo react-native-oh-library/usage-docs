@@ -90,25 +90,9 @@ ohpm install
 
 方法二：直接链接源码
 
-> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
+> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
-打开 `entry/oh-package.json5`，添加以下依赖
-
-```diff
-"dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-+   "@react-native-oh-tpl/react-native-worklets-core": "file:../../node_modules/@react-native-oh-tpl/react-native-worklets-core/harmony/rn_worklets"
-  }
-```
-
-打开终端，执行：
-
-```shell
-cd entry
-ohpm install --no-link
-```
-
-### 配置 CMakeLists 和引入Worklets
+### 配置 CMakeLists 和引入 Worklets
 
 打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
 
@@ -172,35 +156,39 @@ ohpm install
 
 快速使用：
 
->[!WARNING] 使用时 import 的库名不变。
+> [!WARNING] 使用时 import 的库名不变。
 
 ```tsx
 import { useState } from "react";
-import { Button, Text, View } from "react-native"
+import { Button, Text, View } from "react-native";
 import { useRunOnJS, useWorklet } from "react-native-worklets-core";
 
 const App = () => {
-    // 计数器
-    const [count, setCount] = useState(0);
-    // 定义一个useRunJS方法
-    const setCountRunInJS = useRunOnJS(() => {
-        setCount(Math.random());
-    }, [count])
-    // 在worklets线程使用RunInJS方法
-    const countInWorkLet = useWorklet('default', () => {
-        'worklet'
-        setCountRunInJS();
-    }, [setCountRunInJS])
+  // 计数器
+  const [count, setCount] = useState(0);
+  // 定义一个useRunJS方法
+  const setCountRunInJS = useRunOnJS(() => {
+    setCount(Math.random());
+  }, [count]);
+  // 在worklets线程使用RunInJS方法
+  const countInWorkLet = useWorklet(
+    "default",
+    () => {
+      "worklet";
+      setCountRunInJS();
+    },
+    [setCountRunInJS]
+  );
 
-    return (
-        <View>
-            <View style={{ flexDirection: 'row', gap: 10 }}>
-                <Button title="SetCount" onPress={() => countInWorkLet()} />
-            </View>
-            <Text>count:{count}</Text>
-        </View>
-    )
-}
+  return (
+    <View>
+      <View style={{ flexDirection: "row", gap: 10 }}>
+        <Button title="SetCount" onPress={() => countInWorkLet()} />
+      </View>
+      <Text>count:{count}</Text>
+    </View>
+  );
+};
 
 export default App;
 ```
@@ -208,6 +196,7 @@ export default App;
 ## 约束与限制
 
 ### 兼容性
+
 本文档内容基于以下版本验证通过：
 
 1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.200; ROM：205.0.0.18;
@@ -216,19 +205,19 @@ export default App;
 
 ### API
 
-| NAME                   | Description                                                  | Required | Platform | HarmonyOS Support |
-| ---------------------- | ------------------------------------------------------------ | -------- | -------- | ----------------- |
-| createContext          | Create a worker thread context object                        | YES      | All      | YES               |
-| createSharedValue      | Creates a new worklet context with the given name            | YES      | All      | YES               |
+| NAME                   | Description                                                                            | Required | Platform | HarmonyOS Support |
+| ---------------------- | -------------------------------------------------------------------------------------- | -------- | -------- | ----------------- |
+| createContext          | Create a worker thread context object                                                  | YES      | All      | YES               |
+| createSharedValue      | Creates a new worklet context with the given name                                      | YES      | All      | YES               |
 | createRunOnJS          | Creates a function that can be executed asynchronously on the default React-JS context | YES      | All      | YES               |
-| runOnJS                | Runs the given Function asynchronously on the default React-JS context | YES      | All      | YES               |
-| getCurrentThreadId     | Returns a unique identifier for the Thread this method is called on | YES      | All      | YES               |
-| defaultContext         | Get the default Worklet context                              | YES      | All      | YES               |
-| context.createRunAsync | Creates a function that can be executed asynchronously on the Worklet context. | YES      | All      | YES               |
-| context.runAsync       | Runs the given Function asynchronously on this Worklet context. | YES      | All      | YES               |
-| useWorklet             | Same as `context.createRunAsync`                             | YES      | All      | YES               |
-| useRunOnJS             | Same as `createRunOnJS`                                      | YES      | All      | YES               |
-| useSharedValue         | Same as `createSharedValue`                                  | YES      | All      | YES               |
+| runOnJS                | Runs the given Function asynchronously on the default React-JS context                 | YES      | All      | YES               |
+| getCurrentThreadId     | Returns a unique identifier for the Thread this method is called on                    | YES      | All      | YES               |
+| defaultContext         | Get the default Worklet context                                                        | YES      | All      | YES               |
+| context.createRunAsync | Creates a function that can be executed asynchronously on the Worklet context.         | YES      | All      | YES               |
+| context.runAsync       | Runs the given Function asynchronously on this Worklet context.                        | YES      | All      | YES               |
+| useWorklet             | Same as `context.createRunAsync`                                                       | YES      | All      | YES               |
+| useRunOnJS             | Same as `createRunOnJS`                                                                | YES      | All      | YES               |
+| useSharedValue         | Same as `createSharedValue`                                                            | YES      | All      | YES               |
 
 ## 遗留问题
 

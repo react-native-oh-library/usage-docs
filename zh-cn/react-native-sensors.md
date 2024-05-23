@@ -84,7 +84,6 @@ gravity.subscribe(({ x, y, z, timestamp }) =>
 );
 // setUpdateIntervalForType(type: string, interval: number)
 setUpdateIntervalForType(SensorTypes.accelerometer, 100);
-
 ```
 
 ## Link
@@ -93,7 +92,7 @@ setUpdateIntervalForType(SensorTypes.accelerometer, 100);
 
 首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
 
-### 在工程根目录的 `oh-package.json` 添加 overrides字段
+### 在工程根目录的 `oh-package.json` 添加 overrides 字段
 
 ```json
 {
@@ -135,27 +134,9 @@ ohpm install
 
 方法二：直接链接源码
 
-> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
+> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
-打开 `entry/oh-package.json5`，添加以下依赖
-
-在 `harmony` 文件夹下新建 `sensors` 模块，把源库中react-native-sensors/harmony/sensors目录下代码copy到 `sensors`模块下面
-
-```json
-"dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/react-native-sensors": "file:../sensors"
-  }
-```
-
-打开终端，执行：
-
-```bash
-cd entry
-ohpm install --no-link
-```
-
-### 配置 CMakeLists 和引入 SensorsPackage（codegen方式忽略此步骤）
+### 配置 CMakeLists 和引入 SensorsPackage（codegen 方式忽略此步骤）
 
 打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
 
@@ -251,17 +232,17 @@ ohpm install
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-sensors Releases](https://github.com/react-native-oh-library/react-native-sensors/releases)
 
-
 本文档内容基于以下版本验证通过：
 
 1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：205.0.0.18;
 
 ### 权限要求
-在module.json5中配置所需要的权限
 
-accelerometer需要的权限：ohos.permission.ACCELEROMETER
+在 module.json5 中配置所需要的权限
 
-gyroscope需要的权限：ohos.permission.GYROSCOPE
+accelerometer 需要的权限：ohos.permission.ACCELEROMETER
+
+gyroscope 需要的权限：ohos.permission.GYROSCOPE
 
 ## API
 
@@ -269,16 +250,16 @@ gyroscope需要的权限：ohos.permission.GYROSCOPE
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support  |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| accelerometer  | 加速度计         | Observable  | no | ios/Android      | yes |
-| gyroscope  | 陀螺仪         | Observable  | no | ios/Android      | yes |
-| magnetometer  | 磁力计         | Observable  | no | ios/Android      | yes |
-| barometer  | 气压计         | Observable  | no | ios/Android      | yes |
-| orientation  | 方向         | Observable  | no | ios/Android      | yes |
-| gravity  | 重力         | Observable  | no | ios/Android      | yes |
-| setUpdateIntervalForType  | 间隔时间         | function  | no | ios/Android      | yes |
-| setLogLevelForType  | 日志打印级别         | function  | no | ios/Android      | yes |
+| Name                     | Description  | Type       | Required | Platform    | HarmonyOS Support |
+| ------------------------ | ------------ | ---------- | -------- | ----------- | ----------------- |
+| accelerometer            | 加速度计     | Observable | no       | ios/Android | yes               |
+| gyroscope                | 陀螺仪       | Observable | no       | ios/Android | yes               |
+| magnetometer             | 磁力计       | Observable | no       | ios/Android | yes               |
+| barometer                | 气压计       | Observable | no       | ios/Android | yes               |
+| orientation              | 方向         | Observable | no       | ios/Android | yes               |
+| gravity                  | 重力         | Observable | no       | ios/Android | yes               |
+| setUpdateIntervalForType | 间隔时间     | function   | no       | ios/Android | yes               |
+| setLogLevelForType       | 日志打印级别 | function   | no       | ios/Android | yes               |
 
 ## 遗留问题
 

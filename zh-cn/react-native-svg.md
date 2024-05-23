@@ -99,38 +99,7 @@ ohpm install
 
 方法二：直接链接源码
 
-> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
-
-把 `tester/node_modules/@react-native-oh-tpl/react-native-svg/harmony/` 目录下的源码 `svg` 复制到 `harmony` 工程根目录下
-
-在`harmony`工程根目录的 `build-profile.template.json5(若有)` 和 `build-profile.json5` 添加以下模块
-
-```json
-modules:[
-  ...
-  {
-    name: 'svg',
-    srcPath: './svg',
-  }
-]
-```
-
-打开 `entry/oh-package.json5`，添加以下依赖
-
-```json
-"dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "@react-native-oh-tpl/svg": "file:../svg"
-  }
-```
-
-打开终端，执行：
-
-```bash
-cd entry
-ohpm install
-```
+> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
 ### 配置 CMakeLists 和引入 SVGPackage
 

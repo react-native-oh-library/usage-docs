@@ -46,7 +46,7 @@ import TestDemo2 from "./TestDemo2";
 
 const images = [
   { uri: "https://octodex.github.com/images/stormtroopocat.jpg" },
-  {uri: 'https://octodex.github.com/images/saint_nictocat.jpg'},
+  { uri: "https://octodex.github.com/images/saint_nictocat.jpg" },
   require("./assets/2.jpg"),
   require("./assets/3.jpg"),
   require("./assets/4.jpg"),
@@ -173,12 +173,22 @@ const ImageSequenceDemo = (props: any) => {
             keyboardType="numeric"
           />
           <View>
-             <Text>采样宽度/高度：</Text>
-             <View style={styles.box}>
-                <TextInput style={[styles.input, styles.input1]} onChangeText={value => inputSampleWidth(value)} defaultValue='-1' keyboardType='default' />
-                 <TextInput style={[styles.input, styles.input1]} onChangeText={value => inputSampleHeight(value)} defaultValue='-1' keyboardType='default' />
-              </View>
-           </View>
+            <Text>采样宽度/高度：</Text>
+            <View style={styles.box}>
+              <TextInput
+                style={[styles.input, styles.input1]}
+                onChangeText={(value) => inputSampleWidth(value)}
+                defaultValue="-1"
+                keyboardType="default"
+              />
+              <TextInput
+                style={[styles.input, styles.input1]}
+                onChangeText={(value) => inputSampleHeight(value)}
+                defaultValue="-1"
+                keyboardType="default"
+              />
+            </View>
+          </View>
         </View>
         {!isShow ? (
           <Button title="显示" onPress={() => buttonIsShow()} />
@@ -276,7 +286,7 @@ export default TestDemo2
 
 首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
 
-###  在工程根目录的 `oh-package.json` 添加 overrides 字段
+### 在工程根目录的 `oh-package.json` 添加 overrides 字段
 
 ```
 {
@@ -318,38 +328,7 @@ ohpm install
 
 方法二：直接链接源码
 
-> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
-
-把`tester/node_modules/@react-native-oh-tpl/react-native-image-sequence-2/harmony/`目录下的源码image_sequence复制到`harmony`工程根目录下
-
-在`harmony`工程根目录的 `build-profile.template.json5`（若存在）和`build-profile.json5` 添加以下模块
-
-```
-modules:[
-  ...
-  {
-    name: 'image_sequence',
-    srcPath: './image_sequence',
-  }
-]
-```
-
-打开 `entry/oh-package.json5`，添加以下依赖
-
-```json
-"dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "rnoh-image-sequence": "file:../image_sequence"
-  }
-```
-
-打开终端，执行：
-
-```bash
-cd entry
-ohpm install --no-link
-```
+> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
 ### 配置 CMakeLists 和引入 ImageSequencePackage
 

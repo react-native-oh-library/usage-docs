@@ -200,24 +200,7 @@ ohpm install
 
 方法二：直接链接源码
 
-> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
-
-```json
-"dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "rnoh-push-notification": "file:../../node_modules/@react-native-oh-tpl/push-notification-ios/harmony/push_notification"
-  }
-```
-
-打开终端，执行：
-
-```bash
-cd entry
-ohpm install --no-link
-```
+> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
 ### 配置 CMakeLists 和引入 PushNotificationPackage
 
@@ -328,7 +311,7 @@ RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-以下属性已验证，更多属性详情请查看 [react-native-push-notification-ios的文档介绍](https://github.com/react-native-oh-library/react-native-push-notification)
+以下属性已验证，更多属性详情请查看 [react-native-push-notification-ios 的文档介绍](https://github.com/react-native-oh-library/react-native-push-notification)
 
 **Parameters:**
 
@@ -350,8 +333,8 @@ _NotificationRequest:_
 
 ## 遗留问题
 
-- [ ] HarmonyOS的NotificationManager的规格和IOS不一致，其NotificationRequest所含参数，在HarmonyOS上部分没有适配对应参数，问题: [issue#1](https://github.com/react-native-oh-library/react-native-push-notification/issues/1)
-- [ ] 原库部分接口在HarmonyOS中没有对应接口处理相关逻辑，问题: [issue#2](https://github.com/react-native-oh-library/react-native-push-notification/issues/2)
+- [ ] HarmonyOS 的 NotificationManager 的规格和 IOS 不一致，其 NotificationRequest 所含参数，在 HarmonyOS 上部分没有适配对应参数，问题: [issue#1](https://github.com/react-native-oh-library/react-native-push-notification/issues/1)
+- [ ] 原库部分接口在 HarmonyOS 中没有对应接口处理相关逻辑，问题: [issue#2](https://github.com/react-native-oh-library/react-native-push-notification/issues/2)
 
 ## 其他
 

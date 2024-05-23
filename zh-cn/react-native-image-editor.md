@@ -13,7 +13,7 @@
     </a>
 </p>
 
->  [Github 地址](https://github.com/react-native-oh-library/react-native-image-editor)
+> [Github 地址](https://github.com/react-native-oh-library/react-native-image-editor)
 
 ## 安装与使用
 
@@ -36,10 +36,10 @@ yarn add @react-native-oh-tpl/image-editor@file:#
 > [!TIP] 使用时 import 的库名不变。
 
 ```js
-import ImageEditor from '@react-native-community/image-editor';
+import ImageEditor from "@react-native-community/image-editor";
 
 ImageEditor.cropImage(uri, cropData).then((result) => {
-  console.log('Cropped image uri:', result);
+  console.log("Cropped image uri:", result);
 });
 ```
 
@@ -80,25 +80,7 @@ ohpm install
 
 方法二：直接链接源码
 
-> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
-
-```json
-"dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/image-editor": "file:../../node_modules/@react-native-oh-tpl/image-editor/harmony/image_editor"
-  }
-```
-
-打开终端，执行：
-
-```bash
-cd entry
-ohpm install --no-link
-```
-
-
+> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
 ### 在 ArkTs 侧引入 ImageEditorPackage
 
@@ -141,22 +123,22 @@ RNOH：0.72.20; SDK：HarmonyOS-NEXT-DB1; IDE：DevEco Studio 5.0.3.200; ROM：2
 
 ## API
 
-| Name      | Description                                                  | Platform    | HarmonyOS Support |
-| --------- | ------------------------------------------------------------ | ----------- | ----------------- |
+| Name      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Platform    | HarmonyOS Support |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ----------------- |
 | cropImage | Crop the image specified by the URI param. If URI points to a remote image, it will be downloaded automatically. If the image cannot be loaded/downloaded, the promise will be rejected.<br/><br/>If the cropping process is successful, the resultant cropped image will be stored in the cache path, and the CropResult returned in the promise will point to the image in the cache path. ⚠️ Remember to delete the cropped image from the cache path when you are done with it. | ios/Android | yes               |
 
 cropData
 
-| 名称          | 类型                              | 说明                                                         | 是否必填 | 原库平台 | 鸿蒙支持 |
-| ------------- | --------------------------------- | ------------------------------------------------------------ | -------- | -------- | -------- |
-| `offset`      | { x: number, y: number }          | The top-left corner of the cropped image, specified in the original image's coordinate space | yes      | All      | yes      |
-| `size`        | { width: number, height: number } | Size (dimensions) of the cropped image                       | yes      | All      | yes      |
-| `displaySize` | { width: number, height: number } | Size to which you want to scale the cropped image            | no       | All      | yes      |
-| `resizeMode`  | 'contain' \| 'cover' \| 'stretch' | Resizing mode to use when scaling the image**Default value**: `'cover'` | no       | All      | yes      |
+| 名称          | 类型                              | 说明                                                                                                                                                                                                      | 是否必填 | 原库平台 | 鸿蒙支持 |
+| ------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- |
+| `offset`      | { x: number, y: number }          | The top-left corner of the cropped image, specified in the original image's coordinate space                                                                                                              | yes      | All      | yes      |
+| `size`        | { width: number, height: number } | Size (dimensions) of the cropped image                                                                                                                                                                    | yes      | All      | yes      |
+| `displaySize` | { width: number, height: number } | Size to which you want to scale the cropped image                                                                                                                                                         | no       | All      | yes      |
+| `resizeMode`  | 'contain' \| 'cover' \| 'stretch' | Resizing mode to use when scaling the image**Default value**: `'cover'`                                                                                                                                   | no       | All      | yes      |
 | `quality`     | number                            | A value in range `0.0` - `1.0` specifying compression level of the result image. `1` means no compression (highest quality) and `0` the highest compression (lowest quality)<br/>**Default value**: `0.9` | no       | All      | yes      |
-| `format`      | 'jpeg' \| 'png'  \| 'webp'        | The format of the resulting image.<br/>**Default value**: based on the provided image;<br/>if value determination is not possible, `'jpeg'` will be used as a fallback. | no       | All      | yes      |
+| `format`      | 'jpeg' \| 'png' \| 'webp'         | The format of the resulting image.<br/>**Default value**: based on the provided image;<br/>if value determination is not possible, `'jpeg'` will be used as a fallback.                                   | no       | All      | yes      |
 
-## 
+##
 
 ## 遗留问题
 
@@ -165,4 +147,3 @@ cropData
 ## 开源协议
 
 本项目基于 [ [The MIT License (MIT)]](https://github.com/callstack/react-native-image-editor/blob/master/LICENSE) ，请自由地享受和参与开源。
-

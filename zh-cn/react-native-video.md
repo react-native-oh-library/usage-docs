@@ -53,7 +53,7 @@ function RNCVideoDemo() {
   const [repeat, setRepeat] = useState(true);
   const [disableFocus, setDisableFocus] = useState(false);
   const [uri, setUri] = useState(
-    "https://res.vmallres.com//uomcdn/CN/cms/202210/C75C7E20060F3E909F2998E13C3ABC03.mp4",
+    "https://res.vmallres.com//uomcdn/CN/cms/202210/C75C7E20060F3E909F2998E13C3ABC03.mp4"
   );
   const [txt, setTxt] = useState("empty");
   const [resizeMode, setResizeMode] = useState("none");
@@ -97,7 +97,7 @@ function RNCVideoDemo() {
     // setUri((prevRepeat) => 'http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4');
     setUri(
       (prevRepeat) =>
-        "https://res.vmallres.com//uomcdn/CN/cms/202210/C75C7E20060F3E909F2998E13C3ABC03.mp4",
+        "https://res.vmallres.com//uomcdn/CN/cms/202210/C75C7E20060F3E909F2998E13C3ABC03.mp4"
     );
   };
 
@@ -129,7 +129,7 @@ function RNCVideoDemo() {
             style={{ backgroundColor: "blue", flex: 0.25 }}
             onPress={() => {
               setUri(
-                "https://res.vmallres.com//uomcdn/CN/cms/202210/C75C7E20060F3E909F2998E13C3ABC03.mp4",
+                "https://res.vmallres.com//uomcdn/CN/cms/202210/C75C7E20060F3E909F2998E13C3ABC03.mp4"
               );
               setPosterResizeMode("stretch");
             }}
@@ -287,7 +287,7 @@ function RNCVideoDemo() {
                 "s width =" +
                 e.naturalSize.width +
                 " orientation =" +
-                e.naturalSize.orientation,
+                e.naturalSize.orientation
             );
             setOnVideoError("onVideoError error = ok");
           }}
@@ -298,7 +298,7 @@ function RNCVideoDemo() {
                 " type=" +
                 e.type +
                 " uri=" +
-                e.uri,
+                e.uri
             );
           }}
           onProgress={(e) => {
@@ -308,7 +308,7 @@ function RNCVideoDemo() {
                 " playableDuration=" +
                 e.playableDuration +
                 " seekableDuration=" +
-                e.seekableDuration,
+                e.seekableDuration
             );
           }}
           onError={(e) => {
@@ -438,24 +438,7 @@ ohpm install
 
 方法二：直接链接源码
 
-> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
-
-```json
-"dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "rnoh-video": "file:../../node_modules/@react-native-oh-tpl/react-native-video/harmony/rn_video"
-  }
-```
-
-打开终端，执行：
-
-```bash
-cd entry
-ohpm install --no-link
-```
+> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
 ### 配置 CMakeLists 和引入 RNCVideoPackage
 

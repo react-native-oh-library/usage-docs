@@ -41,66 +41,76 @@ yarn add @react-native-oh-tpl/react-native-permissions@file:#
 > [!WARNING] 使用时 import 的库名不变。
 
 ```js
-import { ScrollView, StyleSheet, View, Text, Button } from 'react-native';
-import React from 'react';
-import RTNPermissions, { Permission } from 'react-native-permissions';
+import { ScrollView, StyleSheet, View, Text, Button } from "react-native";
+import React from "react";
+import RTNPermissions, { Permission } from "react-native-permissions";
 
 const permissionNormal: Permission[] = [
-    'ohos.permission.APPROXIMATELY_LOCATION',
-    'ohos.permission.CAMERA',
-    'ohos.permission.MICROPHONE',
-    'ohos.permission.READ_CALENDAR',
-    'ohos.permission.WRITE_CALENDAR',
-    'ohos.permission.ACTIVITY_MOTION',
-    'ohos.permission.READ_HEALTH_DATA',
-    'ohos.permission.DISTRIBUTED_DATASYNC',
-    'ohos.permission.READ_MEDIA',
-    'ohos.permission.MEDIA_LOCATION',
-    'ohos.permission.ACCESS_BLUETOOTH',
-]
+  "ohos.permission.APPROXIMATELY_LOCATION",
+  "ohos.permission.CAMERA",
+  "ohos.permission.MICROPHONE",
+  "ohos.permission.READ_CALENDAR",
+  "ohos.permission.WRITE_CALENDAR",
+  "ohos.permission.ACTIVITY_MOTION",
+  "ohos.permission.READ_HEALTH_DATA",
+  "ohos.permission.DISTRIBUTED_DATASYNC",
+  "ohos.permission.READ_MEDIA",
+  "ohos.permission.MEDIA_LOCATION",
+  "ohos.permission.ACCESS_BLUETOOTH",
+];
 
 export function PermissionsExample() {
-    return (
-        <View style={styles.sectionContainer}>
-            <Button title='查询相机权限'
-                onPress={async () => {
-                    let check = await RTNPermissions.check('ohos.permission.CAMERA');
-                    console.info('RTNPermissions===== check', check);
-                }} />
-            <Button title='设置相机权限'
-                 onPress={async () => {
-                    let request = await RTNPermissions.request('ohos.permission.CAMERA');
-                    console.info('RTNPermissions===== request', request);
-                 }} />
-			<Button
-                label={'查询多个权限'}
-                onPress={async () => {
-                    let checkMultiple = await RTNPermissions.checkMultiple(permissionNormal);
-                    console.info('RTNPermissions===== checkMultiple', checkMultiple);
-                }} />
-           <Button
-               label={'设置多个权限'}
-               onPress={async () => {
-                   let requestMultiple = await RTNPermissions.requestMultiple(permissionNormal);
-                   console.info('RTNPermissions===== requestMultiple', requestMultiple);
-               }} />
-        </View>
-    );
+  return (
+    <View style={styles.sectionContainer}>
+      <Button
+        title="查询相机权限"
+        onPress={async () => {
+          let check = await RTNPermissions.check("ohos.permission.CAMERA");
+          console.info("RTNPermissions===== check", check);
+        }}
+      />
+      <Button
+        title="设置相机权限"
+        onPress={async () => {
+          let request = await RTNPermissions.request("ohos.permission.CAMERA");
+          console.info("RTNPermissions===== request", request);
+        }}
+      />
+      <Button
+        label={"查询多个权限"}
+        onPress={async () => {
+          let checkMultiple = await RTNPermissions.checkMultiple(
+            permissionNormal
+          );
+          console.info("RTNPermissions===== checkMultiple", checkMultiple);
+        }}
+      />
+      <Button
+        label={"设置多个权限"}
+        onPress={async () => {
+          let requestMultiple = await RTNPermissions.requestMultiple(
+            permissionNormal
+          );
+          console.info("RTNPermissions===== requestMultiple", requestMultiple);
+        }}
+      />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-    sectionContainer: {
-        marginTop: 32,
-        paddingHorizontal: 24,
-    },
-   	view: {
-   	   width: '100%',
-   	   display: 'flex',
-   	   flexDirection: 'row',
-   	   justifyContent: 'space-evenly',
-   	   flexWrap: 'wrap',
-   	   margin: 5,
-    }
+  sectionContainer: {
+    marginTop: 32,
+    paddingHorizontal: 24,
+  },
+  view: {
+    width: "100%",
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-evenly",
+    flexWrap: "wrap",
+    margin: 5,
+  },
 });
 ```
 
@@ -142,24 +152,7 @@ ohpm install
 
 方法二：直接链接源码
 
-> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
-
-```json
-"dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "react-native-permissions": "file:../../node_modules/@react-native-oh-tpl/react-native-permissions/harmony/permissions"
-  }
-```
-
-打开终端，执行：
-
-```bash
-cd entry
-ohpm install --no-link
-```
+> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
 ### 配置 CMakeLists 和引入 PermissionsPackage
 
@@ -301,7 +294,7 @@ ohpm install
 
 ### 权限要求
 
-需要在`entry/src/main/module.json5`中声明权限并创建reason string value。
+需要在`entry/src/main/module.json5`中声明权限并创建 reason string value。
 
 ```
 "requestPermissions": [
@@ -328,7 +321,7 @@ ohpm install
 ]
 ```
 
-reason字段的内容写作规范及建议如下：
+reason 字段的内容写作规范及建议如下：
 
     保持句子简洁、不要加入多余的分割符号。
 
@@ -347,17 +340,17 @@ reason字段的内容写作规范及建议如下：
 
 根据权限对于不同等级应用有不同的开放范围，权限类型对应分为以下三种，等级依次提高。
 
-- **normal权限**
+- **normal 权限**
 
   normal 权限允许应用访问超出默认规则外的普通系统资源。这些系统资源的开放（包括数据和功能）对用户隐私以及其他应用带来的风险很小。
 
-  该类型的权限仅向APL等级为normal及以上的应用开放。
+  该类型的权限仅向 APL 等级为 normal 及以上的应用开放。
 
-- **system_basic权限**
+- **system_basic 权限**
 
-  system_basic权限允许应用访问操作系统基础服务相关的资源。这部分系统基础服务属于系统提供或者预置的基础功能，比如系统设置、身份认证等。这些系统资源的开放对用户隐私以及其他应用带来的风险较大。
+  system_basic 权限允许应用访问操作系统基础服务相关的资源。这部分系统基础服务属于系统提供或者预置的基础功能，比如系统设置、身份认证等。这些系统资源的开放对用户隐私以及其他应用带来的风险较大。
 
-  该类型的权限仅向APL等级为system_basic及以上的应用开放。
+  该类型的权限仅向 APL 等级为 system_basic 及以上的应用开放。
 
 ```
 normal权限列表
@@ -406,24 +399,24 @@ ohos.permission.LOCATION_IN_BACKGROUND 允许应用在后台运行时获取设�
 申请流程：
 通过弹窗申请前台位置权限。存在两种允许情况：
 申请前台模糊位置权限：ohos.permission.APPROXIMATELY_LOCATION。
-申请前台精确位置权限：ohos.permission.APPROXIMATELY_LOCATION和ohos.permission.LOCATION。
+申请前台精确位置权限：ohos.permission.APPROXIMATELY_LOCATION 和 ohos.permission.LOCATION。
 当用户点击弹窗授予前台位置权限后，应用通过弹窗、提示窗等形式告知用户前往设置界面授予后台位置权限。
 用户在设置界面中的选择“始终允许”应用访问位置信息权限，完成手动授予。
 
 ## 方法
 
-| Name                    | Description                | Platform    | HarmonyOS Support       |
-| ----------------------- | -------------------------- | ----------- | ----------------------- |
-| check                   | 检查单个权限               | ios,android | yes                     |
-| checkNotifications      | 检查通知权限               | ios,android | yes                     |
-| openSettings            | 打开设置页                 | ios,android | yes                     |
-| request                 | 设置单个权限               | ios,android | yes                     |
-| requestNotifications    | 设置通知权限               | ios,android | yes                     |
-| checkMultiple           | 检查多个权限               | android     | yes                     |
-| requestMultiple         | 设置多个权限               | android     | yes                     |
-| checkLocationAccuracy   | 检查设备位置权限           | ios         | no(使用check()查询权限) |
-| requestLocationAccuracy | 请求访问设备位置的权限     | ios         | no(使用check()设置权限) |
-| openPhotoPicker         | 请求访问设备本地图片的权限 | ios         | no(使用check()设置权限) |
+| Name                    | Description                | Platform    | HarmonyOS Support        |
+| ----------------------- | -------------------------- | ----------- | ------------------------ |
+| check                   | 检查单个权限               | ios,android | yes                      |
+| checkNotifications      | 检查通知权限               | ios,android | yes                      |
+| openSettings            | 打开设置页                 | ios,android | yes                      |
+| request                 | 设置单个权限               | ios,android | yes                      |
+| requestNotifications    | 设置通知权限               | ios,android | yes                      |
+| checkMultiple           | 检查多个权限               | android     | yes                      |
+| requestMultiple         | 设置多个权限               | android     | yes                      |
+| checkLocationAccuracy   | 检查设备位置权限           | ios         | no(使用 check()查询权限) |
+| requestLocationAccuracy | 请求访问设备位置的权限     | ios         | no(使用 check()设置权限) |
+| openPhotoPicker         | 请求访问设备本地图片的权限 | ios         | no(使用 check()设置权限) |
 
 ## 遗留问题
 

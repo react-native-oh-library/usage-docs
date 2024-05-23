@@ -236,24 +236,7 @@ ohpm install
 
 方法二：直接链接源码
 
-> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
-
-```json
-"dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "rnoh-blur": "file:../../node_modules/@react-native-oh-tpl/blur/harmony/blur"
-  }
-```
-
-打开终端，执行：
-
-```bash
-cd entry
-ohpm install --no-link
-```
+> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
 ### 配置 CMakeLists 和引入 BlurPackage
 
@@ -410,8 +393,8 @@ ohpm install
 
 ## 遗留问题
 
-- [x] blurTypes设置为ios/android平台定义枚举值，闪退[issue#755](https://gl.swmansion.com/rnoh/react-native-harmony/-/issues/755)
-- [ ] harmony 暂不支持VibrancyView组件
+- [x] blurTypes 设置为 ios/android 平台定义枚举值，闪退[issue#755](https://gl.swmansion.com/rnoh/react-native-harmony/-/issues/755)
+- [ ] harmony 暂不支持 VibrancyView 组件
 
 ## 其他
 

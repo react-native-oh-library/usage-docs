@@ -9,7 +9,6 @@
     </a>
 </p>
 
-
 > [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-clippath)
 
 ## 安装与使用
@@ -39,23 +38,24 @@ yarn add @react-native-oh-tpl/clip-path@file:#
 下面的代码展示了这个库的基本使用场景：
 
 ```jsx
-import { View, Text, ScrollView } from 'react-native'
-import React from 'react'
-import { ClipPathView } from 'react-native-clippathview'
+import { View, Text, ScrollView } from "react-native";
+import React from "react";
+import { ClipPathView } from "react-native-clippathview";
 
 export default function index() {
-  const viewBox = [0, 0, 400, 400]
-  const path = "M 0 0 L 400 0 L 0 400 L 400 400 Z"
+  const viewBox = [0, 0, 400, 400];
+  const path = "M 0 0 L 400 0 L 0 400 L 400 400 Z";
 
   return (
-    <ScrollView style={{ width: '100%', height: '100%' }}>
-      <ClipPathView d={path} style={{  backgroundColor: '#ff0' }}>
-        <Text style={{ height: 800, fontSize: 26 }}>MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM</Text>
+    <ScrollView style={{ width: "100%", height: "100%" }}>
+      <ClipPathView d={path} style={{ backgroundColor: "#ff0" }}>
+        <Text style={{ height: 800, fontSize: 26 }}>
+          MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+        </Text>
       </ClipPathView>
     </ScrollView>
-  )
+  );
 }
-
 ```
 
 ## 兼容性
@@ -66,7 +66,7 @@ export default function index() {
 
 本文档内容基于以下版本验证通过：
 
-1. RNOH: 0.72.26; SDK: HarmonyOS-NEXT-DP2; IDE: DevEco Studio 5.0.3.29;  ROM: 205.0.0.18;
+1. RNOH: 0.72.26; SDK: HarmonyOS-NEXT-DP2; IDE: DevEco Studio 5.0.3.29; ROM: 205.0.0.18;
 2. RNOH: 0.72.26; SDK: armonyOS NEXT Developer preview2、5.0.0.22(API Version 12 Canary3); IDE: DevEco Studio: 5.0.3.300；ROM: 3.0.0.22;
 
 ## Link
@@ -106,23 +106,7 @@ ohpm install
 
 方法二：直接链接源码
 
-> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
-
-```json
-"dependencies": {
-    "rnoh": "file:../rnoh",
-    "rnoh-clip-path": "file:../../node_modules/@react-native-oh-tpl/clip-path/harmony/clip_path",
-  }
-```
-
-打开终端，执行：
-
-```bash
-cd entry
-ohpm install --no-link
-```
+> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
 ### 在 ArkTs 侧引入 ClipPath 组件
 
@@ -188,39 +172,38 @@ ohpm install
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name                 | Description                                                  | Type              | Required | Platform    | HarmonyOS Support |
-| -------------------- | ------------------------------------------------------------ | ----------------- | -------- | ----------- | ----------------- |
-| svgKey               | 唯一key                                                      | string            | No       | IOS/Android | Yes               |
-| d                    | 形状由一系列命令定义（svg path data）                        | string            | No       | IOS/Android | Yes               |
-| viewBox              | 定义用户空间中的位置和维度                                   | Array<Number>(4)  | No       | IOS/Android | Yes               |
-| align                | preserveAspectRatio 属性的 align                             | string            | No       | IOS/Android | No                |
-| aspect               | preserveAspectRatio 属性的 meetOrSlice                       | meet/slice/none   | No       | IOS/Android | No                |
-| fillRule             | 路径内部填充规则                                             | nonzero/evenodd   | No       | IOS/Android | No                |
-| strokeWidth          | 路径描边宽度                                                 | number            | No       | IOS/Android | Yes               |
-| strokeCap            | 开放路径两端的形状                                           | butt/round/square | No       | IOS/Android | Yes               |
-| strokeJoin           | 路径转角处使用的形状                                         | bevel/miter/round | No       | IOS/Android | Yes               |
-| strokeMiter          | strokeJoin值是miter，设置夹角延伸                            | number            | No       | IOS/Android | Yes               |
-| strokeStart          | IOS CAShapeLayer 描线开始的地方占总路径的百分比。默认值是0。 | number            | No       | IOS/Android | No                |
-| strokeEnd            | IOS CAShapeLayer 表示绘制结束的地方站总路径的百分比。默认值是1，如果小于等于strokeStart 则绘制不出任何内容。 | number            | No       | IOS/Android | No                |
-| translateZ           | 设置定位层级，相当于index                                    | number            | No       | IOS/Android | Yes               |
-| transX               | 在二维平面上水平方向移动元素                                 | number            | No       | IOS/Android | Yes               |
-| transY               | 在二维平面上垂直方向移动元素                                 | number            | No       | IOS/Android | Yes               |
-| transPercentageValue | transX、transY 使用百分比                                    | boolean           | No       | IOS/Android | Yes               |
-| rot                  | 元素围绕一个定点旋转                                         | number            | No       | IOS/Android | Yes               |
-| rotOx                | 旋转中心点水平位置                                           | number            | No       | IOS/Android | Yes               |
-| rotOy                | 旋转中心点垂直位置                                           | number            | No       | IOS/Android | Yes               |
-| rotPercentageValue   | rotOx、rotOy 使用百分比                                      | boolean           | No       | IOS/Android | Yes               |
-| sc                   | 放大或缩小元素                                               | number            | No       | IOS/Android | Yes               |
-| scX                  | 水平缩放                                                     | number            | No       | IOS/Android | Yes               |
-| scY                  | 垂直缩放                                                     | number            | No       | IOS/Android | Yes               |
-| scO                  | 缩放中心点位置                                               | number            | No       | IOS/Android | Yes               |
-| scOx                 | 缩放中心点水平位置                                           | number            | No       | IOS/Android | Yes               |
-| scOy                 | 缩放中心点垂直位置                                           | number            | No       | IOS/Android | Yes               |
-| scPercentageValue    | scO、scOx、scOy使用百分比                                    | boolean           | No       | IOS/Android | Yes               |
-
-
+| Name                 | Description                                                                                                    | Type              | Required | Platform    | HarmonyOS Support |
+| -------------------- | -------------------------------------------------------------------------------------------------------------- | ----------------- | -------- | ----------- | ----------------- |
+| svgKey               | 唯一 key                                                                                                       | string            | No       | IOS/Android | Yes               |
+| d                    | 形状由一系列命令定义（svg path data）                                                                          | string            | No       | IOS/Android | Yes               |
+| viewBox              | 定义用户空间中的位置和维度                                                                                     | Array<Number>(4)  | No       | IOS/Android | Yes               |
+| align                | preserveAspectRatio 属性的 align                                                                               | string            | No       | IOS/Android | No                |
+| aspect               | preserveAspectRatio 属性的 meetOrSlice                                                                         | meet/slice/none   | No       | IOS/Android | No                |
+| fillRule             | 路径内部填充规则                                                                                               | nonzero/evenodd   | No       | IOS/Android | No                |
+| strokeWidth          | 路径描边宽度                                                                                                   | number            | No       | IOS/Android | Yes               |
+| strokeCap            | 开放路径两端的形状                                                                                             | butt/round/square | No       | IOS/Android | Yes               |
+| strokeJoin           | 路径转角处使用的形状                                                                                           | bevel/miter/round | No       | IOS/Android | Yes               |
+| strokeMiter          | strokeJoin 值是 miter，设置夹角延伸                                                                            | number            | No       | IOS/Android | Yes               |
+| strokeStart          | IOS CAShapeLayer 描线开始的地方占总路径的百分比。默认值是 0。                                                  | number            | No       | IOS/Android | No                |
+| strokeEnd            | IOS CAShapeLayer 表示绘制结束的地方站总路径的百分比。默认值是 1，如果小于等于 strokeStart 则绘制不出任何内容。 | number            | No       | IOS/Android | No                |
+| translateZ           | 设置定位层级，相当于 index                                                                                     | number            | No       | IOS/Android | Yes               |
+| transX               | 在二维平面上水平方向移动元素                                                                                   | number            | No       | IOS/Android | Yes               |
+| transY               | 在二维平面上垂直方向移动元素                                                                                   | number            | No       | IOS/Android | Yes               |
+| transPercentageValue | transX、transY 使用百分比                                                                                      | boolean           | No       | IOS/Android | Yes               |
+| rot                  | 元素围绕一个定点旋转                                                                                           | number            | No       | IOS/Android | Yes               |
+| rotOx                | 旋转中心点水平位置                                                                                             | number            | No       | IOS/Android | Yes               |
+| rotOy                | 旋转中心点垂直位置                                                                                             | number            | No       | IOS/Android | Yes               |
+| rotPercentageValue   | rotOx、rotOy 使用百分比                                                                                        | boolean           | No       | IOS/Android | Yes               |
+| sc                   | 放大或缩小元素                                                                                                 | number            | No       | IOS/Android | Yes               |
+| scX                  | 水平缩放                                                                                                       | number            | No       | IOS/Android | Yes               |
+| scY                  | 垂直缩放                                                                                                       | number            | No       | IOS/Android | Yes               |
+| scO                  | 缩放中心点位置                                                                                                 | number            | No       | IOS/Android | Yes               |
+| scOx                 | 缩放中心点水平位置                                                                                             | number            | No       | IOS/Android | Yes               |
+| scOy                 | 缩放中心点垂直位置                                                                                             | number            | No       | IOS/Android | Yes               |
+| scPercentageValue    | scO、scOx、scOy 使用百分比                                                                                     | boolean           | No       | IOS/Android | Yes               |
 
 ## 遗留问题
+
 部分属性目前版本暂不支持，具体参考属性表格 `HarmonyOS ` 列。
 
 ## 其他
@@ -229,5 +212,4 @@ ohpm install
 
 本项目基于 [MIT License](https://github.com/react-native-oh-library/react-native-clippath/blob/sig/LICENSE) ，请自由地享受和参与开源。
 
-------------------------------------------------------------
-
+---

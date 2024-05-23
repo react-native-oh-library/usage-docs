@@ -128,24 +128,7 @@ ohpm install
 
 方法二：直接链接源码
 
-> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
-
-```json
-"dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "rnoh-camera-roll": "file:../../node_modules/@react-native-oh-tpl/camera-roll/harmony/camera_roll"
-  }
-```
-
-打开终端，执行：
-
-```bash
-cd entry
-ohpm install --no-link
-```
+> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
 ### 配置 CMakeLists 和引入 CameraRollPackage
 
@@ -213,7 +196,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 
 ### 应用权限申请
 
-> [!tip] "ohos.permission.READ_IMAGEVIDEO"，"ohos.permission.WRITE_IMAGEVIDEO"权限等级为<B>system_basic</B>，授权方式为<B>user_grant</B>，[使用ACL签名的配置指导](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/signing-0000001587684945-V3#section157591551175916)
+> [!tip] "ohos.permission.READ_IMAGEVIDEO"，"ohos.permission.WRITE_IMAGEVIDEO"权限等级为<B>system_basic</B>，授权方式为<B>user_grant</B>，[使用 ACL 签名的配置指导](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/signing-0000001587684945-V3#section157591551175916)
 
 在 `YourProject/entry/src/main/module.json5`补上配置
 
@@ -293,7 +276,7 @@ ohpm install
 - [ ] harmony 查找图片/视频部分查询条件和返回字段需要使用系统接口
 - [ ] harmony 纯图片相册暂未对外开放，系统相册不返回相册名
 - [ ] harmony 删除图片/视频需要使用系统接口
-- [ ] harmony 暂无对标ios图片列表刷新的方法
+- [ ] harmony 暂无对标 ios 图片列表刷新的方法
 
 ## 其他
 

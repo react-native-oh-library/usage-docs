@@ -123,24 +123,7 @@ ohpm install
 
 方法二：直接链接源码
 
-> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
-
-```json
-"dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "rnoh-pdf-view": "file:../../node_modules/@react-native-oh-tpl/react-native-pdf/harmony/pdfview"
-  }
-```
-
-打开终端，执行：
-
-```bash
-cd entry
-ohpm install --no-link
-```
+> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
 ### 配置 CMakeLists 和引入 PdfViewPackage
 
@@ -190,7 +173,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 在 ArkTs 侧引入 RTNPdfView组件
+### 在 ArkTs 侧引入 RTNPdfView 组件
 
 找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
@@ -311,7 +294,7 @@ ohpm install
 
 ## 遗留问题
 
-PDF处理能力持续完善中，敬请期待。
+PDF 处理能力持续完善中，敬请期待。
 
 ## 其他
 

@@ -105,24 +105,7 @@ ohpm install
 
 方法二：直接链接源码
 
-> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
-
-```json
-"dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "rnoh-flash-list": "file:../../node_modules/@react-native-oh-tpl/flash_list/harmony/flash_list"
-  }
-```
-
-打开终端，执行：
-
-```bash
-cd entry
-ohpm install --no-link
-```
+> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
 ### 配置 CMakeLists 和引入 FlashListPackage
 
@@ -291,7 +274,7 @@ ohpm install
 
 ## 遗留问题
 
-- [ ] flash-list部分属性未实现鸿蒙化: [issue#I8QVS0](https://gitee.com/react-native-oh-library/usage-docs/issues/I8QVS0)
+- [ ] flash-list 部分属性未实现鸿蒙化: [issue#I8QVS0](https://gitee.com/react-native-oh-library/usage-docs/issues/I8QVS0)
 
 ## 开源协议
 

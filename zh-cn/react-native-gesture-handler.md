@@ -83,7 +83,7 @@ class Circle extends Component {
                     {
                       translateX: Animated.add(
                         this._touchX,
-                        new Animated.Value(-circleRadius),
+                        new Animated.Value(-circleRadius)
                       ),
                     },
                   ],
@@ -140,24 +140,7 @@ ohpm install
 
 方法二：直接链接源码
 
-> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
-
-```json
-"dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "rnoh-gesture-handler": "file:../../node_modules/@react-native-oh-tpl/react-native-gesture-handler/harmony/gesture_handler"
-  }
-```
-
-打开终端，执行：
-
-```bash
-cd entry
-ohpm install --no-link
-```
+> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
 ### 配置 CMakeLists 和引入 GestureHandlerPackage
 
@@ -330,7 +313,7 @@ Creates a new instance of [PanGesture](https://docs.swmansion.com/react-native-g
 
 ### Touchables
 
-Gesture Handler 库提供了一种基于原生按钮的 React Native touchable 组件的实现，它不依赖于 React Native 的 JS responder system。这些组件的实现遵循相同的API，旨在替代 React Native 中的 touchable 组件
+Gesture Handler 库提供了一种基于原生按钮的 React Native touchable 组件的实现，它不依赖于 React Native 的 JS responder system。这些组件的实现遵循相同的 API，旨在替代 React Native 中的 touchable 组件
 
 目前支持：
 

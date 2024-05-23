@@ -43,14 +43,14 @@ yarn add @react-native-oh-tpl/react-native-maps@file:#
 > [!WARNING] 使用时 import 的库名不变。
 
 ```js
-import React from 'react';
-import {StyleSheet, View, Text, Dimensions} from 'react-native';
+import React from "react";
+import { StyleSheet, View, Text, Dimensions } from "react-native";
 
-import MapView, {Circle, Polygon, Polyline} from 'react-native-maps';
-import flagBlueImg from './assets/flag-blue.png';
-import flagPinkImg from './assets/flag-pink.png';
+import MapView, { Circle, Polygon, Polyline } from "react-native-maps";
+import flagBlueImg from "./assets/flag-blue.png";
+import flagPinkImg from "./assets/flag-pink.png";
 
-const {width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get("window");
 
 const ASPECT_RATIO = width / height;
 const LATITUDE = 39.9;
@@ -64,7 +64,7 @@ class Overlays extends React.Component<any, any> {
     super(props);
 
     this.state = {
-	  marker1: true,
+      marker1: true,
       region: {
         latitude: LATITUDE,
         longitude: LONGITUDE,
@@ -114,21 +114,22 @@ class Overlays extends React.Component<any, any> {
   }
 
   render() {
-    const {region, circle, polygon, polyline} = this.state;
+    const { region, circle, polygon, polyline } = this.state;
     return (
       <View style={styles.container}>
         <MapView
           provider={this.props.provider}
           style={styles.map}
-          initialRegion={region}>
+          initialRegion={region}
+        >
           <Marker
-            onPress={() => this.setState({marker1: !this.state.marker1})}
+            onPress={() => this.setState({ marker1: !this.state.marker1 })}
             coordinate={{
               latitude: LATITUDE + SPACE,
               longitude: LONGITUDE - SPACE,
             }}
-            centerOffset={{x: -42, y: -60}}
-            anchor={{x: 0.84, y: 1}}
+            centerOffset={{ x: -42, y: -60 }}
+            anchor={{ x: 0.84, y: 1 }}
             opacity={0.6}
             image={this.state.marker1 ? flagBlueImg : flagPinkImg}
           />
@@ -166,33 +167,33 @@ class Overlays extends React.Component<any, any> {
 const styles = StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFillObject,
-    justifyContent: 'flex-end',
-    alignItems: 'center',
+    justifyContent: "flex-end",
+    alignItems: "center",
   },
   map: {
     ...StyleSheet.absoluteFillObject,
   },
   bubble: {
     flex: 1,
-    backgroundColor: 'rgba(255,255,255,0.7)',
+    backgroundColor: "rgba(255,255,255,0.7)",
     paddingHorizontal: 18,
     paddingVertical: 12,
     borderRadius: 20,
   },
   latlng: {
     width: 200,
-    alignItems: 'stretch',
+    alignItems: "stretch",
   },
   button: {
     width: 80,
     paddingHorizontal: 12,
-    alignItems: 'center',
+    alignItems: "center",
     marginHorizontal: 10,
   },
   buttonContainer: {
-    flexDirection: 'row',
+    flexDirection: "row",
     marginVertical: 20,
-    backgroundColor: 'transparent',
+    backgroundColor: "transparent",
   },
 });
 ```
@@ -235,24 +236,7 @@ ohpm install
 
 方法二：直接链接源码
 
-> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
-
-```json
-"dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "rnoh-maps": "file:../../node_modules/@react-native-oh-tpl/react-native-maps/harmony/maps"
-  }
-```
-
-打开终端，执行：
-
-```bash
-cd entry
-ohpm install --no-link
-```
+> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
 ### 配置 CMakeLists 和引入 MapsPackge
 
@@ -302,7 +286,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 在 ArkTs 侧引入 AIRMap等 组件
+### 在 ArkTs 侧引入 AIRMap 等 组件
 
 找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
@@ -503,7 +487,7 @@ ohpm install
     ]
 ```
 
-3.打开 `工程目录/build-profile.json5` 在app节点下修改
+3.打开 `工程目录/build-profile.json5` 在 app 节点下修改
 
 ```
  signingConfigs: [
@@ -581,7 +565,7 @@ ohpm install
 | isAccessibilityElement          | Determines whether the MapView captures VoiceOver touches or forwards them to children. When `true`, map markers are not visible to VoiceOver. **Note:** iOS Maps only.                                                                                                                          | Boolean                                 | false      | no       | ios         | no                |
 | cameraZoomRange                 | Map camera distance limits. `minCenterCoordinateDistance` for minimum distance, `maxCenterCoordinateDistance` for maximum, `animated` for animated zoom range changes. Takes precedence if conflicting with `minZoomLevel`, `maxZoomLevel`. **Note**: iOS 13.0+ only.                            | cameraZoomRange                         |            | no       | ios         | no                |
 
-注：HarmonyOS侧的mapType支持以下字符串值
+注：HarmonyOS 侧的 mapType 支持以下字符串值
 
 'none' \ 'standard' \ 'terrain'
 
@@ -681,7 +665,7 @@ ohpm install
 | lineDashPattern | An array of numbers specifying the dash pattern to use for the path. The array contains one or more numbers that indicate the lengths (measured in points) of the line segments and gaps in the pattern. The values in the array alternate, starting with the first line segment length, followed by the first gap length, followed by the second line segment length, and so on.                                                                                                 | Array<Number> |                       | no       | ios/android | yes               |
 | tappable        | Boolean to allow a polyline to be tappable and use the onPress function.                                                                                                                                                                                                                                                                                                                                                                                                          | Bool          |                       | no       | ios/android | yes               |
 
-注：HarmonyOS侧的lineJoin支持以下字符串值
+注：HarmonyOS 侧的 lineJoin 支持以下字符串值
 
 'default' \ 'bevel' \ 'round'
 
@@ -709,7 +693,7 @@ ohpm install
 | tappable        | Boolean to allow a polygon to be tappable and use the onPress function.                                                                                                                                                                                                                                                                                                                                                                                                           | Bool                 | false                   | no       | ios/android | yes               |
 | zIndex          | (Android Only) The order in which this polygon overlay is drawn with respect to other overlays. An overlay with a larger z-index is drawn over overlays with smaller z-indices. The order of overlays with the same z-index is arbitrary. The default zIndex is 0.                                                                                                                                                                                                                | Number               | 0                       | no       | ios/android | yes               |
 
-注：HarmonyOS侧的lineJoin支持以下字符串值
+注：HarmonyOS 侧的 lineJoin 支持以下字符串值
 
 'default' \ 'bevel' \ 'round'
 
@@ -850,9 +834,9 @@ ohpm install
 ## 遗留问题
 
 - [ ] AIRMap 和 AIRMapMarker 中 Animated 未实现 [issues#1](https://github.com/react-native-oh-library/react-native-maps/issues/1)
-- [ ] AIRMapOverlay 组件目前华为地图中不支持往地图组件中添加自定义view [issues#2](https://github.com/react-native-oh-library/react-native-maps/issues/2)
-- [ ] AIRMap AIRMapMarker AIRMapPolyline AIRMapPolygon AIRMapCircle 组件在HarmonyOS中的不支持属性是因为华为地图没提供对应的属性 [issues#3](https://github.com/react-native-oh-library/react-native-maps/issues/3)
-- [ ] AIRMapCallout AIRMapCalloutSubview 组件为 marker 子组件，华为地图中marker有自带的，但是目前不支持自定义样式显示 [issues#4](https://github.com/react-native-oh-library/react-native-maps/issues/4)
+- [ ] AIRMapOverlay 组件目前华为地图中不支持往地图组件中添加自定义 view [issues#2](https://github.com/react-native-oh-library/react-native-maps/issues/2)
+- [ ] AIRMap AIRMapMarker AIRMapPolyline AIRMapPolygon AIRMapCircle 组件在 HarmonyOS 中的不支持属性是因为华为地图没提供对应的属性 [issues#3](https://github.com/react-native-oh-library/react-native-maps/issues/3)
+- [ ] AIRMapCallout AIRMapCalloutSubview 组件为 marker 子组件，华为地图中 marker 有自带的，但是目前不支持自定义样式显示 [issues#4](https://github.com/react-native-oh-library/react-native-maps/issues/4)
 - [ ] AIRMapUrlTile AIRMapWMSTile 瓦片地图加载方式华为地图不支持 [issues#5](https://github.com/react-native-oh-library/react-native-maps/issues/5)
 - [ ] Heatmap 华为地图不支持 [issues#6](https://github.com/react-native-oh-library/react-native-maps/issues/6)
 

@@ -43,7 +43,7 @@ yarn add @react-native-oh-tpl/react-native-linear-gradient@file:#
 > [!WARNING] 使用时 import 的库名不变。
 
 ```js
-import React, { ReactNode } from 'react';
+import React, { ReactNode } from "react";
 import {
   SafeAreaView,
   ScrollView,
@@ -51,19 +51,20 @@ import {
   StyleSheet,
   Text,
   View,
-} from 'react-native';
+} from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
 // Within your render function
 export const App = () => {
   return (
     <View style={styles.container}>
-        <LinearGradient
-          colors={["#4c669f", "#3b5998", "#192f6a"]}
-          style={styles.linearGradient}
-        >
-          <Text style={styles.buttonText}>Sign in with Facebook</Text>
-        </LinearGradient>;
+      <LinearGradient
+        colors={["#4c669f", "#3b5998", "#192f6a"]}
+        style={styles.linearGradient}
+      >
+        <Text style={styles.buttonText}>Sign in with Facebook</Text>
+      </LinearGradient>
+      ;
     </View>
   );
 };
@@ -125,24 +126,7 @@ ohpm install
 
 方法二：直接链接源码
 
-> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
-
-```json
-"dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "rnoh-linear-gradient": "file:../../node_modules/@react-native-oh-tpl/react-native-linear-gradient/harmony/linear_gradient"
-  }
-```
-
-打开终端，执行：
-
-```bash
-cd entry
-ohpm install --no-link
-```
+> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
 ### 配置 CMakeLists 和引入 LinearGradientPackage
 

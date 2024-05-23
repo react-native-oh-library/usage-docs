@@ -227,24 +227,7 @@ ohpm install
 
 方法二：直接链接源码
 
-> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
-
-```json
-"dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "rnoh-text-size": "file:../../node_modules/@react-native-oh-tpl/react-native-text-size/harmony/text_size"
-  }
-```
-
-打开终端，执行：
-
-```bash
-cd entry
-ohpm install --no-link
-```
+> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
 ### 配置 CMakeLists 和引入 RNTextSizePackage
 
@@ -363,14 +346,14 @@ Plain JS object with this properties (only `text` is required):
 
 This parameter is a subset of **TSMeasureParams**, so the details are omitted here.
 
-| Name          | Description  | Type                  | Required | Platform    | HarmonyOS Support |
-| ------------- | ------------ | --------------------- | -------- | ----------- | ----------------- |
-| fontFamily    | System Name  | string                | No       | IOS/Android | yes               |
-| fontWeight    | Font Weight  | number                | No       | IOS/Android | yes               |
-| fontSize      | Font Size    | TSFontStyle           | No       | IOS/Android | yes               |
-| fontStyle     | Font Style   | TSFontWeight          | No       | IOS/Android | yes               |
-| fontVariant   | Font Variant | TSFontVariant[]或null | No       | IOS/Android | yes               |
-| letterSpacing | Font spacing | number                | No       | IOS/Android | yes               |
+| Name          | Description  | Type                   | Required | Platform    | HarmonyOS Support |
+| ------------- | ------------ | ---------------------- | -------- | ----------- | ----------------- |
+| fontFamily    | System Name  | string                 | No       | IOS/Android | yes               |
+| fontWeight    | Font Weight  | number                 | No       | IOS/Android | yes               |
+| fontSize      | Font Size    | TSFontStyle            | No       | IOS/Android | yes               |
+| fontStyle     | Font Style   | TSFontWeight           | No       | IOS/Android | yes               |
+| fontVariant   | Font Variant | TSFontVariant[]或 null | No       | IOS/Android | yes               |
+| letterSpacing | Font spacing | number                 | No       | IOS/Android | yes               |
 
 **TSHeightsParams**
 
@@ -407,7 +390,7 @@ This is an object similar to the one you pass to `measure`, but the `text` optio
 
 ## 遗留问题
 
-- [ ] fontFamilyNames&fontNamesForFamilyName问题:需要依赖手机文件font目录下的json文件，该文件目前没有预置在手机目录下，会导致该接口调用为空。后续底层框架侧修复该问题 [issue#1](https://github.com/react-native-oh-library/react-native-text-size/issues/1)
+- [ ] fontFamilyNames&fontNamesForFamilyName 问题:需要依赖手机文件 font 目录下的 json 文件，该文件目前没有预置在手机目录下，会导致该接口调用为空。后续底层框架侧修复该问题 [issue#1](https://github.com/react-native-oh-library/react-native-text-size/issues/1)
 
 ## 其他
 

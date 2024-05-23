@@ -140,24 +140,7 @@ ohpm install
 
 方法二：直接链接源码
 
-> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
-
-```json
-"dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "rnoh-reanimated": "file:../../node_modules/@react-native-oh-tpl/react-native-reanimated/harmony/reanimated"
-  }
-```
-
-打开终端，执行：
-
-```bash
-cd entry
-ohpm install --no-link
-```
+> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
 ### 配置 CMakeLists 和引入 ReanimatedPackage
 
@@ -256,22 +239,21 @@ ohpm install
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name              | Description              | Type     | Required | Platform | HarmonyOS Support |
-| ----------------- | -------------------------| -------- | -------- | -------- | ----------------- |
-| `withTiming`         | withTiming lets you create an animation based on duration and easing.. | function | No       | All      | yes               |
-| `withSpring`         | withSpring lets you create spring-based animations. | function | No       | All      | yes               |
-| `withDecay`         | withDecay lets you create animations that mimic objects in motion with friction. The animation will start with the provided velocity and slow down over time according to the given deceleration rate until it stops. | function | No       | All      | yes               |
-| `withRepeat`         | withRepeat is an animation modifier that lets you repeat an animation given number of times or run it indefinitely. | function | No       | All      | yes               |
-| `useSharedValue`         | useSharedValue lets you define shared values in your components.| function | No       | All      | yes               |
-| `useAnimatedStyle`         | useAnimatedStyle lets you create a styles object, similar to StyleSheet styles, which can be animated using shared values.| function | No       | All      | yes               |
-| `useAnimatedRef`         | useAnimatedRef lets you get a reference of a view. Used alongside measure, scrollTo, and useScrollViewOffset functions.| function | No       | All      | yes               |
-| `useDerivedValue`         | useDerivedValue lets you create new shared values based on existing ones while keeping them reactive.| function | No       | All      | yes               |
-| `cancelAnimation`         | cancelAnimation lets you cancel a running animation paired to a shared value.| function | No       | All      | yes               |
-| `runOnJS`         | runOnJS lets you asynchronously run non-workletized functions that could not otherwise run on the UI thread. This applies to most external libraries as they do not have their functions marked with "worklet"; directive.| function | No       | All      | yes               |
-| `runOnUI`         | runOnUI lets you asynchronously run workletized functions on the UI thread.| function | No       | All      | yes               |
-| `measure`         | measure lets you synchronously get the dimensions and position of a view on the screen, all on the UI thread.| function | No       | All      | yes               |
-| `Easing`         | easing set motion trajectory| function | No       | All      | yes               |
-
+| Name               | Description                                                                                                                                                                                                                | Type     | Required | Platform | HarmonyOS Support |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | ----------------- |
+| `withTiming`       | withTiming lets you create an animation based on duration and easing..                                                                                                                                                     | function | No       | All      | yes               |
+| `withSpring`       | withSpring lets you create spring-based animations.                                                                                                                                                                        | function | No       | All      | yes               |
+| `withDecay`        | withDecay lets you create animations that mimic objects in motion with friction. The animation will start with the provided velocity and slow down over time according to the given deceleration rate until it stops.      | function | No       | All      | yes               |
+| `withRepeat`       | withRepeat is an animation modifier that lets you repeat an animation given number of times or run it indefinitely.                                                                                                        | function | No       | All      | yes               |
+| `useSharedValue`   | useSharedValue lets you define shared values in your components.                                                                                                                                                           | function | No       | All      | yes               |
+| `useAnimatedStyle` | useAnimatedStyle lets you create a styles object, similar to StyleSheet styles, which can be animated using shared values.                                                                                                 | function | No       | All      | yes               |
+| `useAnimatedRef`   | useAnimatedRef lets you get a reference of a view. Used alongside measure, scrollTo, and useScrollViewOffset functions.                                                                                                    | function | No       | All      | yes               |
+| `useDerivedValue`  | useDerivedValue lets you create new shared values based on existing ones while keeping them reactive.                                                                                                                      | function | No       | All      | yes               |
+| `cancelAnimation`  | cancelAnimation lets you cancel a running animation paired to a shared value.                                                                                                                                              | function | No       | All      | yes               |
+| `runOnJS`          | runOnJS lets you asynchronously run non-workletized functions that could not otherwise run on the UI thread. This applies to most external libraries as they do not have their functions marked with "worklet"; directive. | function | No       | All      | yes               |
+| `runOnUI`          | runOnUI lets you asynchronously run workletized functions on the UI thread.                                                                                                                                                | function | No       | All      | yes               |
+| `measure`          | measure lets you synchronously get the dimensions and position of a view on the screen, all on the UI thread.                                                                                                              | function | No       | All      | yes               |
+| `Easing`           | easing set motion trajectory                                                                                                                                                                                               | function | No       | All      | yes               |
 
 ## 遗留问题
 

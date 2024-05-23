@@ -69,7 +69,7 @@ function App(): React.JSX.Element {
       },
       (err) => {
         console.error("file mkdir: " + err.message);
-      },
+      }
     );
   };
   // 组件
@@ -181,24 +181,7 @@ ohpm install
 
 方法二：直接链接源码
 
-> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
-
-```json
-"dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "rnoh-fs": "file:../../node_modules/@react-native-oh-tpl/react-native-fs/harmony/fs"
-  }
-```
-
-打开终端，执行：
-
-```bash
-cd entry
-ohpm install --no-link
-```
+> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
 ### 配置 CMakeLists 和引入 FsPackge
 
@@ -357,8 +340,8 @@ ohpm install
 
 ## 遗留问题
 
-- HarmonyOS的hash哈希API中关于算法参数algorithm目前仅支持"md5"、"sha1"、 "sha256"，其他相关算法参数目前不支持，问题: [issue#1](https://github.com/react-native-oh-library/react-native-fs/issues/1)
-- 原库部分接口在HarmonyOS中没有对应文件路径常量及接口处理相关逻辑，问题: [issue#2](https://github.com/react-native-oh-library/react-native-fs/issues/2)
+- HarmonyOS 的 hash 哈希 API 中关于算法参数 algorithm 目前仅支持"md5"、"sha1"、 "sha256"，其他相关算法参数目前不支持，问题: [issue#1](https://github.com/react-native-oh-library/react-native-fs/issues/1)
+- 原库部分接口在 HarmonyOS 中没有对应文件路径常量及接口处理相关逻辑，问题: [issue#2](https://github.com/react-native-oh-library/react-native-fs/issues/2)
 
 ## 其他
 

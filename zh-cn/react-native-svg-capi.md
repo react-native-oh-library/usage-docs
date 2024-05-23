@@ -276,6 +276,10 @@ ohpm install
 
 **Image**： 图像元素，支持 JPEG、PNG 格式
 
+> [!WARNING]
+>
+> 注： Image 依赖 Canary3 Sp2 以上版本的 SDK 和 ROM。
+
 |        Name         |                Description                 |               Type               | Required | Platform | HarmonyOS Support |
 | :-----------------: | :----------------------------------------: | :------------------------------: | -------- | -------- | ----------------- |
 |          x          |             在 x 轴上平移距离              |         number\| string          | No       | All      | Yes               |
@@ -318,8 +322,6 @@ ohpm install
 
 **LinearGradient**：用于定义线性渐变
 
-> [!tip] 注： LinearGradient 目前仅支持 Path、Rect、Circle 组件，只支持在 fill 上使用，不支持 stroke
-
 |       Name        |              Description               |                  Type                   | Required | Platform | HarmonyOS Support |
 | :---------------: | :------------------------------------: | :-------------------------------------: | -------- | -------- | ----------------- |
 |        x1         |           在 x 轴上平移距离            |             number\| string             | No       | All      | Yes               |
@@ -331,7 +333,9 @@ ohpm install
 
 **RadialGradient**：用于定义线性渐变
 
-> [!tip] 注： RadialGradient 目前仅支持 Path、Rect、Circle 组件，只支持在 fill 上使用，不支持 stroke
+> [!WARNING]
+>
+> 注： RadialGradient 依赖 Canary3 Sp2 以上版本的 SDK 和 ROM。
 
 |       Name        |              Description               |                  Type                   | Required | Platform | HarmonyOS Support |
 | :---------------: | :------------------------------------: | :-------------------------------------: | -------- | -------- | ----------------- |
@@ -534,7 +538,9 @@ ohpm install
 | camelCase |    字符串首字母转成大写    | function |    No    |   All    |        Yes        |
 | fetchText | 将 svg 字符串解析成 JsxAST | function |    No    |   All    |        Yes        |
 
-**公共属性**：Common props 组件属性鸿蒙侧支持情况
+**公共属性**：
+
+Common props 组件属性鸿蒙侧支持情况
 
 |       Name       |                 Description                 |    Type     |  Default  | Required | Platform |
 | :--------------: | :-----------------------------------------: | :---------: | :-------: | :------: | :------: |
@@ -600,6 +606,8 @@ FontProps 组件属性鸿蒙侧支持情况
 | fontVariationSettings |                 设置字体的宽度、高度、倾斜度等                 |       string       | normal  |    No    |   All    |
 
 ## 遗留问题
+
+- [x] RadialGradient 和 Image 未实现：在 Canary3 Sp2 及以上的 ROM 和 SDK，使用@react-native-oh-tpl/react-native-svg 13.14.0-0.4.0 及以上版本两组件已实现 -- [PR#149](https://github.com/react-native-oh-library/react-native-harmony-svg/pull/149) [PR#142](https://github.com/react-native-oh-library/react-native-harmony-svg/pull/142)。
 
 ## 其他
 

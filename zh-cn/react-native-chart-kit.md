@@ -5,7 +5,7 @@
   </p >  
   <p align="center">
       <a>
-       <a href="https://github.com/glepur/react-native-swipe-gestures">
+       <a href="https://github.com/indiespirit/react-native-chart-kit">
         <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
      <a>

@@ -121,7 +121,7 @@ export default MyChart;
 
 本文档内容基于以下版本验证通过：
 
-1. RNOH: 0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.18;
+1. RNOH: 0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.300SP1; ROM：3.0.0.18;
 
 ## 属性
 

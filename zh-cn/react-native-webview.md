@@ -222,7 +222,7 @@ ohpm install
 
 本文档内容基于以下版本验证通过：
 
-RNOH: 0.72.26; SDK: HarmonyOS NEXT Developer Beta1 B.0.18; IDE: DevEco Studio 5.0.3.300; ROM: 3.0.0.22;
+RNOH: 0.72.26; SDK: HarmonyOS NEXT Developer Beta1; IDE: DevEco Studio 5.0.3.300; ROM: 3.0.0.22;
 
 ## 属性
 
@@ -231,10 +231,6 @@ RNOH: 0.72.26; SDK: HarmonyOS NEXT Developer Beta1 B.0.18; IDE: DevEco Studio 5.
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 详情请查看[webview 官方文档](https://github.com/react-native-webview/react-native-webview/blob/master/docs/Reference.md)
-
-如下是 webview 已经鸿蒙化的属性：
-
-> [!tip] "鸿蒙支持"列为 yes 的属性表示支持鸿蒙平台，并且效果对标"原库平台"列中的 ios 或 android 的效果。
 
 | Name                                               | Description                                                  | Type     | Required | Platform          | HarmonyOS Support                                            |
 | -------------------------------------------------- | ------------------------------------------------------------ | -------- | -------- | ----------------- | ------------------------------------------------------------ |

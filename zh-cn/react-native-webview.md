@@ -1,4 +1,4 @@
-> 模板版本：v0.1.3
+> 模板版本：v0.2.1
 
 <p align="center">
   <h1 align="center"> <code>react-native-webview</code> </h1>
@@ -45,7 +45,13 @@ yarn add @react-native-oh-tpl/react-native-webview@file:#
 ```js
 import { WebView } from "react-native-webview";
 
-<WebView source={{ uri: "https://reactnative.dev/" }} />;
+export default function WebViewDemo() {
+  return (
+    <View>
+      <WebView source={{ uri: "https://reactnative.dev/" }} />
+    </View>
+  );
+}
 ```
 
 ## Link
@@ -53,6 +59,19 @@ import { WebView } from "react-native-webview";
 目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
 
 首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
+
+### 在工程根目录的 `oh-package.json` 添加 overrides 字段
+
+
+```json
+{
+  ...
+  "overrides": {
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+  }
+}
+```
+
 
 ### 引入原生端代码
 
@@ -71,8 +90,8 @@ import { WebView } from "react-native-webview";
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
 
-    "rnoh-webview": "file:../../node_modules/@react-native-oh-tpl/react-native-webview/harmony/rn_webview.har"
-  }
+    "@react-native-oh-tpl/react-native-webview": "file:../../node_modules/@react-native-oh-tpl/react-native-webview/harmony/rn_webview.har"  
+}
 ```
 
 点击右上角的 `sync` 按钮
@@ -95,28 +114,38 @@ ohpm install
 ```diff
 project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
+set(CMAKE_SKIP_BUILD_RPATH TRUE)
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(OH_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
+set(LOG_VERBOSITY_LEVEL 1)
+set(CMAKE_ASM_FLAGS "-Wno-error=unused-command-line-argument -Qunused-arguments")
+set(CMAKE_CXX_FLAGS "-fstack-protector-strong -Wl,-z,relro,-z,now,-z,noexecstack -s -fPIE -pie")
+set(WITH_HITRACE_SYSTRACE 1) # for other CMakeLists.txt files to use
+add_compile_definitions(WITH_HITRACE_SYSTRACE)
 
 add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
-# RNOH_BEGIN: add_package_subdirectories
+# RNOH_BEGIN: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/rnoh-webview/src/main/cpp" ./webview)
-# RNOH_END: add_package_subdirectories
++ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/react-native-webview/src/main/cpp" ./webview)
+
+# RNOH_END: manual_package_linking_1
+
+file(GLOB GENERATED_CPP_FILES "./generated/*.cpp")
 
 add_library(rnoh_app SHARED
+    ${GENERATED_CPP_FILES}
     "./PackageProvider.cpp"
     "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
 )
-
 target_link_libraries(rnoh_app PUBLIC rnoh)
 
-# RNOH_BEGIN: link_packages
+# RNOH_BEGIN: manual_package_linking_2
 target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 + target_link_libraries(rnoh_app PUBLIC rnoh_webview)
-# RNOH_END: link_packages
+# RNOH_END: manual_package_linking_2
 ```
 
 打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
@@ -141,7 +170,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
-+ import { WebView, WEB_VIEW } from "rnoh-webview"
++ import { WebView, WEB_VIEW } from "@react-native-oh-tpl/react-native-webview"
 
 @Builder
 function buildCustomComponent(ctx: ComponentBuilderContext) {
@@ -152,7 +181,7 @@ function buildCustomComponent(ctx: ComponentBuilderContext) {
       buildCustomComponent: buildCustomComponent
     })
   }
-+ else if (ctx.componentName === WEB_VIEW) {
++ if (ctx.componentName === WEB_VIEW) {
 +   WebView({
 +     ctx: ctx.rnComponentContext,
 +     tag: ctx.tag
@@ -170,7 +199,7 @@ function buildCustomComponent(ctx: ComponentBuilderContext) {
 ```diff
 import type {RNPackageContext, RNPackage} from 'rnoh/ts';
 import {SamplePackage} from 'rnoh-sample-package/ts';
-+ import { WebViewPackage } from 'rnoh-webview/ts';
++ import { WebViewPackage } from '@react-native-oh-tpl/react-native-webview/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
@@ -201,6 +230,10 @@ ohpm install
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[ @react-native-oh-tpl/react-native-webview Releases](https://github.com/react-native-oh-library/react-native-webview/releases)
 
+本文档内容基于以下版本验证通过：
+
+RNOH: 0.72.26; SDK: HarmonyOS NEXT Developer Beta1; IDE: DevEco Studio 5.0.3.300; ROM: 3.0.0.22;
+
 ## 属性
 
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
@@ -209,34 +242,39 @@ ohpm install
 
 详情请查看[webview 官方文档](https://github.com/react-native-webview/react-native-webview/blob/master/docs/Reference.md)
 
-如下是 webview 已经鸿蒙化的属性：
-
-> [!tip] "鸿蒙支持"列为 yes 的属性表示支持鸿蒙平台，并且效果对标"原库平台"列中的 ios 或 android 的效果。
-
-| Name                                              | Description                                                                                                                             | Type     | Required | Platform          | HarmonyOS Support                                                                                                |
-| ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------------- | ---------------------------------------------------------------------------------------------------------------- |
-| `source`                                          | Loads static HTML or a URI (with optional headers) in the WebView                                                                       | object   | yes      | All               | partially (Only of: <br />**Load uri :**<br />uri <br />headers <br />**Static HTML :**<br />html <br />baseUrl) |
-| `injectedJavaScript?`                             | Set this to provide JavaScript that will be injected into the web page after the document finishes loading                              | string   | No       | All               | yes                                                                                                              |
-| `originWhitelist?`                                | List of origin strings to allow being navigated to.                                                                                     | string[] | No       | iOS,android,macOS | yes                                                                                                              |
-| `scalesPageToFit?`                                | Boolean that controls whether the web content is scaled to fit the view and enables the user to change the scale.                       | boolean  | No       | android           | yes                                                                                                              |
-| `startInLoadingState?`                            | Boolean value that forces the WebView to show the loading view on the first load.                                                       | boolean  | No       | iOS,android,macOS | yes                                                                                                              |
-| `style?`                                          | A style object that allow you to customize the WebView style.                                                                           | Style    | No       | ALL               | yes                                                                                                              |
-| `domStorageEnabled?`                              | Boolean value to control whether DOM Storage is enabled. Used only in Android and harmony.                                              | boolean  | No       | android           | yes                                                                                                              |
-| `javaScriptEnabled?`                              | Boolean value to enable JavaScript in the WebView.                                                                                      | boolean  | No       | All               | yes                                                                                                              |
-| `showsHorizontalScrollIndicator?`                 | Boolean value that determines whether a horizontal scroll indicator is shown in the WebView.                                            | boolean  | No       | iOS,android,macOS | yes                                                                                                              |
-| `showsVerticalScrollIndicator`                    | Boolean value that determines whether a vertical scroll indicator is shown in the WebView.                                              | boolean  | No       | iOS,android,macOS | yes                                                                                                              |
-| `cacheEnabled?`                                   | Sets whether WebView should use browser caching.                                                                                        | boolean  | No       | iOS,android,macOS | yes                                                                                                              |
-| `cacheMode?`                                      | Overrides the way the cache is used.                                                                                                    | string   | No       | android           | yes                                                                                                              |
-| `textZoom?`                                       | If the user has set a custom font size in the Android and harmony system, an undesirable scale of the site interface in WebView occurs. | number   | No       | android           | yes                                                                                                              |
-| ` injectJavaScript?: (script: string) => void`    | Executes the JavaScript string.                                                                                                         | function | No       | iOS,android,macOS | yes                                                                                                              |
-| ` onLoadEnd?: (event) => void`                    | Function that is invoked when the WebView load succeeds or fails used.                                                                  | function | No       | All               | yes                                                                                                              |
-| ` onMessage?: (event) => void`                    | Function that is invoked when the webview calls window.ReactNativeWebView.postMessage.                                                  | function | No       | iOS,android,macOS | yes                                                                                                              |
-| ` onShouldStartLoadWithRequest?: (event) => void` | Function that allows custom handling of any web view requests.                                                                          | function | No       | iOS,android,macOS | yes                                                                                                              |
+| Name                                               | Description                                                  | Type     | Required | Platform          | HarmonyOS Support                                            |
+| -------------------------------------------------- | ------------------------------------------------------------ | -------- | -------- | ----------------- | ------------------------------------------------------------ |
+| `source`                                           | Loads static HTML or a URI (with optional headers) in the WebView | object   | yes      | All               | partially (Only of:  **Load uri :** uri  headers  **Static HTML :** html  baseUrl) |
+| `injectedJavaScript?`                              | Set this to provide JavaScript that will be injected into the web page after the document finishes loading | string   | No       | All               | yes                                                          |
+| `originWhitelist?`                                 | List of origin strings to allow being navigated to.          | string[] | No       | iOS,android,macOS | yes                                                          |
+| `scalesPageToFit?`                                 | Boolean that controls whether the web content is scaled to fit the view and enables the user to change the scale. | boolean  | No       | android           | yes                                                          |
+| `startInLoadingState?`                             | Boolean value that forces the WebView to show the loading view on the first load. | boolean  | No       | iOS,android,macOS | yes                                                          |
+| `style?`                                           | A style object that allow you to customize the WebView style. | Style    | No       | ALL               | yes                                                          |
+| `domStorageEnabled?`                               | Boolean value to control whether DOM Storage is enabled. Used only in Android and harmony. | boolean  | No       | android           | yes                                                          |
+| `javaScriptEnabled?`                               | Boolean value to enable JavaScript in the WebView.           | boolean  | No       | All               | yes                                                          |
+| `showsHorizontalScrollIndicator?`                  | Boolean value that determines whether a horizontal scroll indicator is shown in the WebView. | boolean  | No       | iOS,android,macOS | yes                                                          |
+| `showsVerticalScrollIndicator`                     | Boolean value that determines whether a vertical scroll indicator is shown in the WebView. | boolean  | No       | iOS,android,macOS | yes                                                          |
+| `cacheEnabled?`                                    | Sets whether WebView should use browser caching.             | boolean  | No       | iOS,android,macOS | yes                                                          |
+| `cacheMode?`                                       | Overrides the way the cache is used.                         | string   | No       | android           | yes                                                          |
+| `textZoom?`                                        | If the user has set a custom font size in the Android and harmony system, an undesirable scale of the site interface in WebView occurs. | number   | No       | android           | yes                                                          |
+| `injectJavaScript?: (script: string) => void`      | Executes the JavaScript string.                              | function | No       | iOS,android,macOS | yes                                                          |
+| `onLoadEnd?: (event) => void`                      | Function that is invoked when the WebView load succeeds or fails used. | function | No       | All               | yes                                                          |
+| `onMessage?: (event) => void`                      | Function that is invoked when the webview calls window.ReactNativeWebView.postMessage. | function | No       | iOS,android,macOS | yes                                                          |
+| `onShouldStartLoadWithRequest?: (event) => void`   | Function that allows custom handling of any web view requests. | function | No       | iOS,android,macOS | yes                                                          |
+| `reload?`                                          | Reloads the current page.                                    | function | No       | iOS,android,macOS | yes                                                          |
+| `stopLoading?`                                     | Stop loading the current page.                               | function | No       | iOS,android,macOS | yes                                                          |
+| `goBack?`: () => void                              | Go back one page in the web view's history.                  | function | No       | iOS,android,macOS | yes                                                          |
+| `goForward?`: () => void                           | Go forward one page in the web view's history.               | function | No       | iOS,android,macOS | yes                                                          |
+| `requestFocus?`: () => void                        | Request the webView to ask for focus.                        | function | No       | iOS,android,macOS | yes                                                          |
+| `clearCache?`: (includeDiskFiles: boolean) => void | Clears the resource cache.                                   | function | No       | iOS,android,macOS | yes                                                          |
+| `clearHistory?`: () => void                        | Tells this WebView to clear its internal back/forward list.  | function | No       | android           | yes                                                          |
+| `loadUrl?`: (url: string) => void                  | Loads a specified URL.                                       | function | No       | -                 | yes                                                          |
+| `incognito?`                                       | Does not store any data within the lifetime of the WebView.  | boolean  | NO       | All               | yes                                                          |
 
 ## 遗留问题
 
-- [ ] webview 部分属性未实现鸿蒙化[issue#17](https://github.com/react-native-oh-library/react-native-webview/issues/17)
-- [x] 中文乱码[issue#18](https://github.com/react-native-oh-library/react-native-webview/issues/18)
+- [ ]  webview 部分属性未实现鸿蒙化[issue#17](https://github.com/react-native-oh-library/react-native-webview/issues/17)
+- [X]  中文乱码[issue#18](https://github.com/react-native-oh-library/react-native-webview/issues/18)
 
 ## 其他
 

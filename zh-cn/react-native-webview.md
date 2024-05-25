@@ -160,7 +160,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
-+ import { WebView, WEB_VIEW } from "rnoh-webview"
++ import { WebView, WEB_VIEW } from "@react-native-oh-tpl/react-native-webview"
 
 @Builder
 function buildCustomComponent(ctx: ComponentBuilderContext) {
@@ -189,7 +189,7 @@ function buildCustomComponent(ctx: ComponentBuilderContext) {
 ```diff
 import type {RNPackageContext, RNPackage} from 'rnoh/ts';
 import {SamplePackage} from 'rnoh-sample-package/ts';
-+ import { WebViewPackage } from 'rnoh-webview/ts';
++ import { WebViewPackage } from '@react-native-oh-tpl/react-native-webview/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [

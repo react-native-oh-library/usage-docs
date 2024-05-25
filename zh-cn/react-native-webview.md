@@ -115,14 +115,14 @@ ohpm install
 project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(OH_MODULE "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
 
 add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
 # RNOH_BEGIN: add_package_subdirectories
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE}/rnoh-webview/src/main/cpp" ./webview)
++ add_subdirectory("${OH_MODULE}/@react-native-oh-tpl/react-native-webview/src/main/cpp" ./webview)
 # RNOH_END: add_package_subdirectories
 
 add_library(rnoh_app SHARED

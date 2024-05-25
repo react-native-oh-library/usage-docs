@@ -90,8 +90,8 @@ export default function WebViewDemo() {
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
 
-    "rnoh-webview": "file:../../node_modules/@react-native-oh-tpl/react-native-webview/harmony/rn_webview.har"
-  }
+    "@react-native-oh-tpl/rnoh-webview": "file:../../node_modules/@react-native-oh-tpl/react-native-webview/harmony/rn_webview.har"  
+}
 ```
 
 点击右上角的 `sync` 按钮

@@ -129,7 +129,7 @@ add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
 # RNOH_BEGIN: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE}/@react-native-oh-tpl/react-native-webview/src/main/cpp" ./webview)
++ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/react-native-webview/src/main/cpp" ./webview)
 
 # RNOH_END: manual_package_linking_1
 

@@ -133,16 +133,17 @@ export const BarcodeBuilderExample = () => {
 
 该库为UI组件库，通过配置属性标签，实现对应的功能。
 
-| Name        |  Type       |Description                                                  | Default |Required |Platform      | HarmonyOS Support |
-| ----------- | -------------------------------------------------- | ------------ | ----------------- |-----------------|------- |-----|
-| value        |string|What the barcode stands for. | NA |yes      |IOS/Android| yes               |
-|format     |string | Which barcode type to use.     [learn more](https://github.com/lindell/JsBarcode#supported-barcodes)                                       | CODE128   | no |IOS/Android     | yes               |
-| width   |number| Width of a single bar.       | 2|no | IOS/Android|yes               |
-| height |number|Height of the barcode. | 100   |no   | IOS/Android     | yes               |
-| text        |string| Override text that is displayed.           | NA |no    | IOS/Android   | yes               |
-| lineColor        |string| Color of the bars and text.          |  #000000  |no   |IOS/Android    | yes               |
-|background       |string| Background color of the barcode.        |     #ffffff  |no   | IOS/Android|yes               |
-|onError      |function| Handler for invalid barcode of selected format.       |     NA  |no   |IOS/Android| yes               |
+| Name        |  Type       |Description  |Required |Platform      | HarmonyOS Support |
+| ----------- | -------------------------------------------------- | ------------  |-----------------|------- |-----|
+| value        |string|What the barcode stands for.  |yes      |IOS/Android| yes               |
+|format     |string | Which barcode type to use.     [learn more](https://github.com/lindell/JsBarcode#supported-barcodes) | no |IOS/Android     | yes               |
+| width   |number| Width of a single bar.       |no | IOS/Android|yes               |
+| height |number|Height of the barcode.   |no   | IOS/Android     | yes               |
+| text        |string| Override text that is displayed.    |no    | IOS/Android   | yes               |
+| lineColor        |string| Color of the bars.    |no   |IOS/Android    | yes               |
+| textColor        |string| Color of the text.    |no   |IOS/Android    | yes               |
+|background       |string| Background color of the barcode.   |no   | IOS/Android|yes               |
+|onError      |function| Handler for invalid barcode of selected format.   |no   |IOS/Android| yes               |
 
 
 ## 开源协议

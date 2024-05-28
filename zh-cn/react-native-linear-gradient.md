@@ -1,4 +1,4 @@
-> 模板版本：v0.1.2
+> 模板版本：v0.2.1
 
 <p align="center">
   <h1 align="center"> <code>react-native-linear-gradient</code> </h1>
@@ -43,32 +43,31 @@ yarn add @react-native-oh-tpl/react-native-linear-gradient@file:#
 > [!WARNING] 使用时 import 的库名不变。
 
 ```js
-import React, { ReactNode } from "react";
+import React, { ReactNode } from 'react';
 import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+    SafeAreaView,
+    ScrollView,
+    StatusBar,
+    StyleSheet,
+    Text,
+    View,
+} from 'react-native';
 import LinearGradient from "react-native-linear-gradient";
 
 // Within your render function
-export const App = () => {
-  return (
-    <View style={styles.container}>
-      <LinearGradient
-        colors={["#4c669f", "#3b5998", "#192f6a"]}
-        style={styles.linearGradient}
-      >
-        <Text style={styles.buttonText}>Sign in with Facebook</Text>
-      </LinearGradient>
-      ;
-    </View>
-  );
+function LinearGradientDemo() {
+    return (
+        <View style={styles.container}>
+            <LinearGradient
+                colors={["#4c669f", "#3b5998", "#192f6a"]}
+                style={styles.linearGradient}
+            >
+            <Text style={styles.buttonText}>Sign in with Facebook</Text>
+            </LinearGradient>;
+        </View>
+    );
 };
-
+export default LinearGradientDemo;
 // Later on in your styles..
 var styles = StyleSheet.create({
   linearGradient: {
@@ -94,6 +93,17 @@ var styles = StyleSheet.create({
 
 首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
 
+### 在工程根目录的 `oh-package.json` 添加 overrides 字段
+
+```json
+{
+  ...
+  "overrides": {
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+  }
+}
+```
+
 ### 引入原生端代码
 
 目前有两种方法：
@@ -101,7 +111,7 @@ var styles = StyleSheet.create({
 1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
 2. 直接链接源码。
 
-方法一：通过 har 包引入
+方法一：通过 har 包引入（推荐）
 
 > [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
 
@@ -111,7 +121,7 @@ var styles = StyleSheet.create({
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
 
-    "rnoh-linear-gradient": "file:../../node_modules/@react-native-oh-tpl/react-native-linear-gradient/harmony/linear_gradient.har"
+    "@react-native-oh-tpl/react-native-linear-gradient": "file:../../node_modules/@react-native-oh-tpl/react-native-linear-gradient/harmony/linear_gradient.har"
   }
 ```
 
@@ -135,34 +145,44 @@ ohpm install
 ```diff
 project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
+set(CMAKE_SKIP_BUILD_RPATH TRUE)
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(OH_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
+set(LOG_VERBOSITY_LEVEL 1)
+set(CMAKE_ASM_FLAGS "-Wno-error=unused-command-line-argument -Qunused-arguments")
+set(CMAKE_CXX_FLAGS "-fstack-protector-strong -Wl,-z,relro,-z,now,-z,noexecstack -s -fPIE -pie")
+set(WITH_HITRACE_SYSTRACE 1) # for other CMakeLists.txt files to use
+add_compile_definitions(WITH_HITRACE_SYSTRACE)
 
 add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
-# RNOH_BEGIN: add_package_subdirectories
+# RNOH_BEGIN: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/rnoh-linear-gradient/src/main/cpp" ./linear-gradient)
-# RNOH_END: add_package_subdirectories
++ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/react-native-linear-gradient/src/main/cpp" ./linear-gradient)
+# RNOH_END: manual_package_linking_1
+
+file(GLOB GENERATED_CPP_FILES "./generated/*.cpp")
 
 add_library(rnoh_app SHARED
+    ${GENERATED_CPP_FILES}
     "./PackageProvider.cpp"
     "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
 )
-
 target_link_libraries(rnoh_app PUBLIC rnoh)
 
-# RNOH_BEGIN: link_packages
+# RNOH_BEGIN: manual_package_linking_2
 target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 + target_link_libraries(rnoh_app PUBLIC rnoh_linear_gradient)
-# RNOH_END: link_packages
+# RNOH_END: manual_package_linking_2
 ```
 
 打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
 
 ```diff
 #include "RNOH/PackageProvider.h"
+#include "generated/RNOHGeneratedPackage.h"
 #include "SamplePackage.h"
 + #include "LinearGradientPackage.h"
 
@@ -170,30 +190,27 @@ using namespace rnoh;
 
 std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
     return {
+      std::make_shared<RNOHGeneratedPackage>(ctx),
       std::make_shared<SamplePackage>(ctx),
 +     std::make_shared<LinearGradientPackage>(ctx)
     };
 }
 ```
 
-### 在 ArkTs 侧引入 linear-gradient 组件
+### 在 ArkTs 侧引入 linear-gradient 组件（若需要运行 ArkTs 版本）
 
-找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
+> [!WARNING] Deprecated！该库已接入 CAPI。
+
+找到 `function buildCustomRNComponent()`，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
 ...
-+ import { RNLinearGradient, LINEAR_GRADIENT_TYPE, LinearGradientDescriptor } from "rnoh-linear-gradient"
++ import { RNLinearGradient, LINEAR_GRADIENT_TYPE, LinearGradientDescriptor } from "@react-native-oh-tpl/react-native-linear-gradient"
 
-  @Builder
-  function buildCustomRNComponent(ctx: ComponentBuilderContext) {
-    if (ctx.componentName === SAMPLE_VIEW_TYPE) {
-      SampleView({
-        ctx: ctx.rnComponentContext,
-        tag: ctx.tag,
-        buildCustomRNComponent: buildCustomRNComponent
-      })
-    }
-+   else if (ctx.componentName === LINEAR_GRADIENT_TYPE) {
+@Builder
+export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
+...
++ if (ctx.componentName === LINEAR_GRADIENT_TYPE) {
 +     RNLinearGradient({
 +       ctx: ctx.rnComponentContext,
 +       tag: ctx.tag,
@@ -226,21 +243,24 @@ ohpm install
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-linear-gradient Releases](https://github.com/react-native-oh-library/react-native-linear-gradient/releases)
 
+本文档内容基于以下版本验证通过：
+1. RNOH: 0.72.20-CAPI; SDK: HarmonyOS NEXT Developer Preview2; IDE: DevEco Studio 5.0.3.228; ROM: 3.0.0.23;
+
 ## 属性
 
 > [!tip] "鸿蒙支持"列为 yes 的 API 表示支持鸿蒙平台，并且效果对标"原库平台"列中的 ios 或 android 的效果。
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name        | Description                                              | Type                   | Required | Platform | HarmonyOS Support |
-| ----------- | -------------------------------------------------------- | ---------------------- | -------- | -------- | ----------------- |
-| colors      | Color Array                                              | (string\|number)[]     | NO       | All      | yes               |
-| locations   | Color for unknown array (length 0 or the same as colors) | number[]               | NO       | All      | yes               |
-| useAngle    | Use angle (default false)                                | boolean                | NO       | All      | yes               |
-| angle       | Angle (useAngle=true valid)                              | number                 | NO       | All      | yes               |
-| angleCenter | Middle angle coordinate                                  | { x: number,y: number} | NO       | All      | no                |
-| start       | Starting point coordinates (default value: {x: 0.5,1})   | { x: number,y: number} | NO       | All      | partial           |
-| end         | End point coordinates (default value: {x: 0.5,1})        | { x: number,y: number} | NO       | All      | partial           |
+| Name        | Description                                              | Type                   | Required | Platform | HarmonyOS Support (ArkTS) | HarmonyOS Support (CAPI) |
+| ----------- | -------------------------------------------------------- | ---------------------- | -------- | -------- |---------------------------|--------------------------|
+| colors      | Color Array                                              | (string\|number)[]     | NO       | All      | yes                       | yes                      |
+| locations   | Color for unknown array (length 0 or the same as colors) | number[]               | NO       | All      | yes                       | yes                      |
+| useAngle    | Use angle (default false)                                | boolean                | NO       | All      | yes                       | yes                      |
+| angle       | Angle (useAngle=true valid)                              | number                 | NO       | All      | yes                       | yes                      |
+| angleCenter | Middle angle coordinate                                  | { x: number,y: number} | NO       | All      | no                        | yes                      |
+| start       | Starting point coordinates (default value: {x: 0.5,1})   | { x: number,y: number} | NO       | All      | partial                   | yes                      |
+| end         | End point coordinates (default value: {x: 0.5,1})        | { x: number,y: number} | NO       | All      | partial                   | yes                      |
 
 ## 遗留问题
 

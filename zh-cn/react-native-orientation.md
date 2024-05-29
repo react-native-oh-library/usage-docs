@@ -1,4 +1,4 @@
-> 模板版本：v0.2.0
+> 模板版本：v0.2.1
 
 <p align="center">
   <h1 align="center"> <code>react-native-orientation</code> </h1>
@@ -7,7 +7,7 @@
     <a href="https://github.com/yamill/react-native-orientation">
         <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
-    <a href="https://github.com/react-native-oh-library/react-native-orientation/blob/sig/LICENSE.md">
+    <a href="https://github.com/react-native-orientation/blob/sig/LICENSE.md">
         <img src="https://img.shields.io/badge/license-ISC-green.svg" alt="License" />
     </a>
    

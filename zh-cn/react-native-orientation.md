@@ -1,4 +1,4 @@
-> 模板版本：v0.2.0
+> 模板版本：v0.2.1
 
 <p align="center">
   <h1 align="center"> <code>react-native-orientation</code> </h1>
@@ -7,7 +7,7 @@
     <a href="https://github.com/yamill/react-native-orientation">
         <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
-    <a href="https://github.com/react-native-oh-library/react-native-orientation/blob/sig/LICENSE.md">
+    <a href="https://github.com/react-native-orientation/blob/sig/LICENSE.md">
         <img src="https://img.shields.io/badge/license-ISC-green.svg" alt="License" />
     </a>
    
@@ -183,11 +183,21 @@ const styles = StyleSheet.create({
 
 首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
 
+### 在工程根目录的 `oh-package.json` 添加 overrides字段
+
+```json
+{
+  ...
+  "overrides": {
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+  }
+}
+```
 ### 引入原生端代码
 
 目前有两种方法：
 
-1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
+1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）;
 2. 直接链接源码。
 
 方法一：通过 har 包引入
@@ -199,7 +209,7 @@ const styles = StyleSheet.create({
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "rnoh-orientation": "../../node_modules/@react-native-oh-tpl/react-native-orientation/harmony/rn_orientation.har"
+    "@react-native-oh-tpl/rnoh-orientation": "file:../../node_modules/@react-native-oh-tpl/react-native-orientation/harmony/rn_orientation.har"
   }
 ```
 
@@ -214,17 +224,7 @@ ohpm install
 
 方法二：直接链接源码
 
-> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
-
-```json
-"dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "rnoh-orientation": "file:../../node_modules/@react-native-oh-tpl/react-native-orientation/harmony/rn_orientation"
-  }
-```
+> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
 打开终端，执行：
 
@@ -239,7 +239,7 @@ ohpm install --no-link
 
 ```diff
 ...
-+ import { RNOrientationPackage } from 'rnoh-orientation/ts';;
++ import { RNOrientationPackage } from '@react-native-oh-tpl/rnoh-orientation/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [

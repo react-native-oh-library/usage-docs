@@ -1,4 +1,4 @@
-> 模板版本：v0.1.3
+> 模板版本：v0.2.1
 
 <p align="center">
   <h1 align="center"> <code>react-native-MJRefresh</code> </h1>
@@ -7,8 +7,8 @@
     <a href="https://github.com/react-native-studio/react-native-MJRefresh">
         <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
-    <a href="https://github.com/react-native-oh-library/react-native-MJRefresh/blob/sig/LICENSE">
-        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
+    <a href="https://github.com/react-native-studio/react-native-MJRefresh/blob/master/LICENSE">
+        <img src="https://img.shields.io/badge/license-Apache-blue.svg" alt="License" />
         <!-- <img src="https://img.shields.io/badge/license-Apache-blue.svg" alt="License" /> -->
     </a>
 </p>
@@ -17,7 +17,7 @@
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[<@react-native-oh-library/react-native-MJRefresh> Releases](https://github.com/react-native-oh-library/react-native-MJRefresh/releases)，并下载适用版本的 tgz 包。
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-library/react-native-MJRefresh Releases](https://github.com/react-native-oh-library/react-native-MJRefresh/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
@@ -44,55 +44,72 @@ yarn add @react-native-oh-tpl/react-native-mjrefresh@file:#
 > [!WARNING] 使用时 import 的库名不变。
 
 ```tsx
-import React, { useState } from "react";
+import React, { Component } from "react";
 import { ScrollView, Text, View } from "react-native";
 import { MJRefreshControl } from "react-native-mjrefresh";
 
-export const MjRefreshDemo = () => {
-  const [state, setState] = useState<{
-    message?: string;
-  }>({
-    message: "",
-  });
-  const { message } = state;
-  let mjRefreshRef: React.RefObject<MJRefreshControl>;
-  return (
-    <View>
-      <ScrollView
-        style={{ width: "100%", height: "80%" }}
-        refreshControl={
-          <MJRefreshControl
-            ref={(ref) => (this.mjRefreshRef = ref)}
-            onRefresh={() => {
-              setState({ message: "正在刷新" });
-              console.log("------------onRefresh");
-              // 开始刷新
-              this.mjRefreshRef.beginRefresh();
-              // 自定义刷新结束事件
-              setTimeout(() => {
-                console.log("------------ Finish Refresh");
-                // 结束刷新
-                this.mjRefreshRef.finishRefresh();
-              }, 2000);
-            }}
-            onRefreshIdle={() => {
-              setState({ message: "下拉刷新" });
-              console.log("------------onRefreshIdle");
-            }}
-            onReleaseToRefresh={() => {
-              setState({ message: "释放刷新" });
-              console.log("------------onReleaseToRefresh");
-            }}
-            onPulling={() => {
-              setState({ message: "下拉刷新" });
-              console.log("------------onPulling");
-            }}
-          ></MJRefreshControl>
-        }
-      ></ScrollView>
-      <Text>Refresh State:{message}</Text>
-    </View>
-  );
+export default class MjRefreshDemo extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  state = {
+    text : "下拉刷新",
+    refreshing : false
+  }
+  _onRefresh = () => {
+     setTimeout(() => {
+                this._hw && this._hw.finishRefresh();
+              }, 1000);
+  }
+  render() {
+    return (
+           <ScrollView
+            refreshControl={
+              <MJRefreshControl
+                  ref={ref=>this._mjrefresh = ref}
+                  onRefresh={
+                  ()=>{
+                      this.setState({
+                          text:'正在刷新'
+                      })
+                      console.log('onRefresh')
+                      setTimeout(()=>{
+                          this._mjrefresh && this._mjrefresh.finishRefresh();
+                      },1000)
+                  }
+                  }
+                  onRefreshIdle={()=>console.log('onRefreshIdle')}
+                  onReleaseToRefresh={()=>{
+                      this.setState({
+                          text:'释放刷新'
+                      })
+                  }}
+                  onPulling={e=>{
+                      if(e.nativeEvent.percent<0.1){
+                          this.setState({
+                              text:'下拉刷新'
+                          })
+                      }
+                  }}
+
+                  HeaderComponent = {
+                  <View style={{height:100,backgroundColor:'red',
+                    justifyContent:'center',
+                    alignItems:'center',flexDirection:'row'
+                }}>
+                  <Text>{this.state.text}</Text>
+                </View>
+                  }
+              >
+                
+              </MJRefreshControl>
+            }
+        >
+          <Text>{"mjRefresh TEST mjRefresh TEST mjRefresh TEST mjRefresh TEST mjRefresh TEST"}</Text>
+        </ScrollView>
+      )
+  };
 };
 ```
 
@@ -101,6 +118,17 @@ export const MjRefreshDemo = () => {
 目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
 
 首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
+
+### 在工程根目录的 `oh-package.json` 添加 overrides字段
+
+```json
+{
+  ...
+  "overrides": {
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+  }
+}
+```
 
 ### 引入原生端代码
 
@@ -119,7 +147,7 @@ export const MjRefreshDemo = () => {
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
 
-    "rnoh-mjrefresh": "file:../../node_modules/@react-native-oh-tpl/react-native-mjrefresh/harmony/mjrefresh.har"
+    "@react-native-oh-tpl/react-native-mjrefresh": "file:../../node_modules/@react-native-oh-tpl/react-native-mjrefresh/harmony/mjrefresh.har"
   }
 ```
 
@@ -141,30 +169,39 @@ ohpm install
 打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
 
 ```diff
-txtproject(rnapp)
+project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
+set(CMAKE_SKIP_BUILD_RPATH TRUE)
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(OH_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
+set(LOG_VERBOSITY_LEVEL 1)
+set(CMAKE_ASM_FLAGS "-Wno-error=unused-command-line-argument -Qunused-arguments")
+set(CMAKE_CXX_FLAGS "-fstack-protector-strong -Wl,-z,relro,-z,now,-z,noexecstack -s -fPIE -pie")
+set(WITH_HITRACE_SYSTRACE 1) # for other CMakeLists.txt files to use
+add_compile_definitions(WITH_HITRACE_SYSTRACE)
 
 add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
-# RNOH_BEGIN: add_package_subdirectories
+# RNOH_BEGIN: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/rnoh-mjrefresh/src/main/cpp" ./mjrefresh)
-# RNOH_END: add_package_subdirectories
++ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/react-native-mjrefresh/src/main/cpp" ./mjrefresh)
+# RNOH_END: manual_package_linking_1
+
+file(GLOB GENERATED_CPP_FILES "./generated/*.cpp")
 
 add_library(rnoh_app SHARED
+    ${GENERATED_CPP_FILES}
     "./PackageProvider.cpp"
     "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
 )
-
 target_link_libraries(rnoh_app PUBLIC rnoh)
 
-# RNOH_BEGIN: link_packages
+# RNOH_BEGIN: manual_package_linking_2
 target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 + target_link_libraries(rnoh_app PUBLIC rnoh_mjrefresh)
-# RNOH_END: link_packages
+# RNOH_END: manual_package_linking_2
 ```
 
 打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
@@ -184,33 +221,29 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 在 ArkTs 侧引入 MJRefresh 组件
+### 在 ArkTs 侧引入 MJRefresh组件（若需要运行 ArkTs 版本）
+
+> [!WARNING] Deprecated！该库已接入 CAPI。
 
 找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
 ...
-+  import { MJRefresh, MJREFRESH_TYPE} from "rnoh-mjrefresh"
++ import { MJRefresh, MJREFRESH_TYPE} from "@react-native-oh-tpl/react-native-mjrefresh"
 
-  @Builder
-  function buildCustomComponent(ctx: ComponentBuilderContext) {
-    if (ctx.componentName === SAMPLE_VIEW_TYPE) {
-      SampleView({
-        ctx: ctx.rnComponentContext,
-        tag: ctx.tag,
-        buildCustomComponent: buildCustomComponent
-      })
-    }
-+   else if (ctx.componentName === MJREFRESH_TYPE) {
-+     MJRefresh({
+@Builder
+export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
+...
++ if (ctx.componentName === MJREFRESH_TYPE) {
++   MJRefresh({
 +       ctx: ctx.rnComponentContext,
 +       tag: ctx.tag,
 +       buildCustomComponent: buildCustomComponent
 +     })
-+   }
-    ...
-  }
-  ...
++ }
+...
+}
+...
 ```
 
 ### 运行
@@ -232,7 +265,7 @@ ohpm install
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[<@react-native-oh-library/react-native-MJRefresh> Releases](https://github.com/react-native-oh-library/react-native-MJRefresh/releases)
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-library/react-native-MJRefresh Releases](https://github.com/react-native-oh-library/react-native-MJRefresh/releases)
 
 ## 属性
 
@@ -242,12 +275,13 @@ ohpm install
 
 详情请见[react-native-MJRefresh](https://github.com/react-native-studio/react-native-MJRefresh)
 
-| Name               | Description | Type     | Required | Platform | HarmonyOS Support |
-| :----------------- | ----------- | -------- | -------- | -------- | ----------------- |
-| onRefresh          | System Path | function | No       | IOS      | yes               |
-| onRefreshIdle      | System Path | function | No       | IOS      | yes               |
-| onReleaseToRefresh | System Path | function | No       | IOS      | yes               |
-| onPulling          | System Path | function | No       | IOS      | yes               |
+| Name               | Description | Type     | Required | Platform | HarmonyOS Support (ArkTS) |HarmonyOS Support (CAPI) |
+| :----------------- | ----------- | -------- | -------- | -------- | ----------------- |----------------- |
+| onRefresh          | System Path | function | No       | IOS      | yes               |yes               |
+| onRefreshIdle      | System Path | function | No       | IOS      | yes               |yes               |
+| onReleaseToRefresh | System Path | function | No       | IOS      | yes               |yes               |
+| onPulling          | System Path | function | No       | IOS      | yes               |yes               |
+| HeaderComponent    | 设置自定义刷新头 | React.ReactNode | No       | No      | No              |yes               |
 
 ## 静态方法
 
@@ -257,13 +291,13 @@ ohpm install
 
 详情请见[react-native-MJRefresh](https://github.com/react-native-studio/react-native-MJRefresh)
 
-| Name          | Description | Type     | Required | Platform | HarmonyOS Support |
-| :------------ | ----------- | -------- | -------- | -------- | ----------------- |
-| beginRefresh  | System Path | function | No       | IOS      | yes               |
-| finishRefresh | System Path | function | No       | IOS      | yes               |
+| Name          | Description | Type     | Required | Platform | HarmonyOS Support (ArkTS) | HarmonyOS Support (CAPI) |
+| :------------ | ----------- | -------- | -------- | -------- | ----------------- |----------------- |
+| beginRefresh  | System Path | function | No       | IOS      | yes               |yes               |
+| finishRefresh | System Path | function | No       | IOS      | yes               |yes               |
 
 ## 其他
 
 ## 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/react-native-studio/react-native-MJRefresh/blob/master/LICENSE) ，请自由地享受和参与开源。
+本项目基于 [Apache License (Apache)](https://github.com/react-native-studio/react-native-MJRefresh/blob/master/LICENSE) ，请自由地享受和参与开源。

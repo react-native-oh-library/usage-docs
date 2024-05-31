@@ -14,6 +14,10 @@
 
 您可以对现有文档进行评价、简单更改、反馈文档质量问题、贡献您的原创内容，详细请参考[贡献文档](/zh-cn/contribute.md)。
 
+## 使用须知
+
+三方库大部分适配了 Codegen ，在使用前需要主动执行生成三方库桥接代码，详细请参考[Codegen 使用文档](/zh-cn/codegen.md)。
+
 ## RNOH 三方库总览
 
 >[!tip] NPM 公仓坐标：@react-native-oh-tpl

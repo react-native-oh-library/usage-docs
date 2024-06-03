@@ -1,4 +1,4 @@
-> 模板版本：v0.2.0
+> 模板版本：v0.2.1
 
 <p align="center">
   <h1 align="center"> <code>react-native-document-picker</code> </h1>
@@ -287,7 +287,7 @@ const styles = StyleSheet.create({
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/react-native-document-picker": "../../node_modules/@react-native-oh-tpl/react-native-document-picker/harmony/document_picker.har"
+    "@react-native-oh-tpl/react-native-document-picker": "file:../../node_modules/@react-native-oh-tpl/react-native-document-picker/harmony/document_picker.har"
   }
 ```
 
@@ -302,23 +302,7 @@ ohpm install
 
 方法二：直接链接源码
 
-> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
-
-```json
-"dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/react-native-document-picker": "../../node_modules/@react-native-oh-tpl/react-native-document-picker/harmony/document_picker"
-  }
-```
-
-打开终端，执行：
-
-```bash
-cd entry
-ohpm install --no-link
-```
+> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
 ### 在 ArkTs 侧引入 DocumentPickerPackage
 
@@ -389,10 +373,17 @@ ohpm install
 | pick    | The method for picking a file. | function | No       | IOS/Android | yes               |
 | pickSingle       | Select a single file       | function | No       | IOS/Android | yes  |
 | pickDirectory       | Opens a directory picker.       | function | No       | IOS/Android | no  |
+| isCancel       | If the user cancels the document picker without choosing a file (by pressing the system back button on Android or the Cancel button on iOS), the Promise will be rejected with a cancellation error. You can check for this error using DocumentPicker.isCancel(err).       | function | No       | IOS/Android | yes  |
+| isInProgress       | If the user somehow manages to open multiple file pickers (e.g. due the app being unresponsive), then only the picked result from the last opened picker will be considered and the promises from previous opened pickers will be rejected with an error that you can check using DocumentPicker.isInProgress()   | function | No       | IOS/Android | yes  |
+| releaseSecureAccess  | If mode is set to open, iOS is giving you secure access to a file located outside from your sandbox. In that case Apple is asking you to release the access as soon as you finish using the resource.   | function | No       | IOS | no  |
+| types       | File type object. eg type.images、types.pdf   | function | No       | IOS/Android | yes  |
+| perPlatformTypes       | Different platforms, file type object map   | function | No       | IOS/Android | yes  |
+
 
 ## 遗留问题
 
-- [ ] 鸿蒙端file picker selectMode设置选文件夹无效: [issue#1](https://github.com/react-native-oh-library/document-picker/issues/1)
+- [ ] 鸿蒙端file picker selectMode设置选文件夹无效: [issue#1](https://github.com/react-native-oh-library/document-picker/issues/1) 
+- [ ] releaseSecureAccess选择沙箱路径外文件无法实现，鸿蒙暂无此能力接口: [issue#2](https://github.com/react-native-oh-library/document-picker/issues/2)
 
 ## 其他
 

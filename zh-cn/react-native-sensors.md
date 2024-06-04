@@ -1,4 +1,4 @@
-> 模板版本：v0.2.0
+> 模板版本：v0.2.1
 
 <p align="center">
   <h1 align="center"> <code>react-native-sensors</code> </h1>
@@ -12,7 +12,7 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-sensors/react-native-sensors)
+> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-sensors)
 
 ## 安装与使用
 
@@ -136,65 +136,6 @@ ohpm install
 
 > [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
-### 配置 CMakeLists 和引入 SensorsPackage（codegen 方式忽略此步骤）
-
-打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
-
-```diff
-project(rnapp)
-cmake_minimum_required(VERSION 3.4.1)
-set(CMAKE_SKIP_BUILD_RPATH TRUE)
-set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
-+ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
-set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
-set(LOG_VERBOSITY_LEVEL 1)
-set(CMAKE_ASM_FLAGS "-Wno-error=unused-command-line-argument -Qunused-arguments")
-set(CMAKE_CXX_FLAGS "-fstack-protector-strong -Wl,-z,relro,-z,now,-z,noexecstack -s -fPIE -pie")
-set(WITH_HITRACE_SYSTRACE 1) # for other CMakeLists.txt files to use
-add_compile_definitions(WITH_HITRACE_SYSTRACE)
-
-add_subdirectory("${RNOH_CPP_DIR}" ./rn)
-
-# RNOH_BEGIN: manual_package_linking_1
-add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/react-native-sensors/src/main/cpp" ./sensors)
-# RNOH_END: manual_package_linking_1
-
-file(GLOB GENERATED_CPP_FILES "./generated/*.cpp")
-
-add_library(rnoh_app SHARED
-    ${GENERATED_CPP_FILES}
-    "./PackageProvider.cpp"
-    "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
-)
-target_link_libraries(rnoh_app PUBLIC rnoh)
-
-# RNOH_BEGIN: manual_package_linking_2
-target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
-+ target_link_libraries(rnoh_app PUBLIC rnoh_sensors)
-# RNOH_END: manual_package_linking_2
-```
-
-打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
-
-```diff
-#include "RNOH/PackageProvider.h"
-#include "generated/RNOHGeneratedPackage.h"
-#include "SamplePackage.h"
-+ #include "SensorsPackage.h"
-
-using namespace rnoh;
-
-std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
-    return {
-        std::make_shared<RNOHGeneratedPackage>(ctx),
-        std::make_shared<SamplePackage>(ctx),
-+       std::make_shared<SensorsPackage>(ctx)
-    };
-}
-```
-
 ### 在 ArkTs 侧引入 SensorsPackage
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
@@ -252,14 +193,14 @@ gyroscope 需要的权限：ohos.permission.GYROSCOPE
 
 | Name                     | Description  | Type       | Required | Platform    | HarmonyOS Support |
 | ------------------------ | ------------ | ---------- | -------- | ----------- | ----------------- |
-| accelerometer            | 加速度计     | Observable | no       | ios/Android | yes               |
-| gyroscope                | 陀螺仪       | Observable | no       | ios/Android | yes               |
-| magnetometer             | 磁力计       | Observable | no       | ios/Android | yes               |
-| barometer                | 气压计       | Observable | no       | ios/Android | yes               |
-| orientation              | 方向         | Observable | no       | ios/Android | yes               |
-| gravity                  | 重力         | Observable | no       | ios/Android | yes               |
-| setUpdateIntervalForType | 间隔时间     | function   | no       | ios/Android | yes               |
-| setLogLevelForType       | 日志打印级别 | function   | no       | ios/Android | yes               |
+| accelerometer            | accelerometer     | Observable | no       | ios/Android | yes               |
+| gyroscope                | gyroscope       | Observable | no       | ios/Android | yes               |
+| magnetometer             | magnetometer       | Observable | no       | ios/Android | yes               |
+| barometer                | barometer       | Observable | no       | ios/Android | yes               |
+| orientation              | orientation         | Observable | no       | ios/Android | yes               |
+| gravity                  | gravity         | Observable | no       | ios/Android | yes               |
+| setUpdateIntervalForType | setUpdateIntervalForType     | function   | no       | ios/Android | yes               |
+| setLogLevelForType       | setLogLevelForType | function   | no       | ios/Android | yes               |
 
 ## 遗留问题
 

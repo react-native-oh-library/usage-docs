@@ -1,4 +1,4 @@
-> 模板版本：v0.1.3
+> 模板版本：V0.2.1
 
 <p align="center">
   <h1 align="center"> <code>@react-native-community/image-editor</code> </h1>
@@ -36,10 +36,147 @@ yarn add @react-native-oh-tpl/image-editor@file:#
 > [!TIP] 使用时 import 的库名不变。
 
 ```js
+import React, { Component } from "react";
+import {
+  Image,
+  ScrollView,
+  Text,
+  View,
+  StyleSheet,
+  Button,
+  Alert,
+  KeyboardAvoidingView,
+} from "react-native";
+
 import ImageEditor from "@react-native-community/image-editor";
 
-ImageEditor.cropImage(uri, cropData).then((result) => {
-  console.log("Cropped image uri:", result);
+export interface Props {
+  // noop
+}
+
+interface Size {
+  width: number;
+  height: number;
+}
+
+interface State {
+  photoUri: any;
+  photoWidth: number;
+  photoHeight: number;
+  croppedImageURI: string | null;
+  targetSize?: Size;
+  cropHorizontal: boolean;
+}
+
+export default class ImageEditor extends Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      photoUri: "https://octodex.github.com/images/OctoAsians_dex_Full.png",
+      photoWidth: 896,
+      photoHeight: 896,
+      croppedImageURI: null,
+      targetSize: {
+        width: 0,
+        height: 0,
+      },
+      cropHorizontal: false,
+    };
+  }
+
+  _crop = async () => {
+    let cropData = {
+      offset: { x: 100, y: 100 },
+      size: { width: 300, height: 300 },
+      quality: 1,
+      format: "jpeg",
+    };
+    if (
+      cropData.size.width + cropData.offset.x > this.state.photoWidth ||
+      cropData.size.height + cropData.offset.y > this.state.photoHeight
+    ) {
+      Alert.alert("The cropped size exceeds the original size");
+      return;
+    }
+    const croppedImageURI = await ImageEditor.cropImage(
+      this.state.photoUri,
+      cropData
+    );
+    if (croppedImageURI) {
+      this.setState({
+        croppedImageURI,
+        targetSize: {
+          width: cropData.size.width,
+          height: cropData.size.height,
+        },
+      });
+
+      if (this.state.targetSize.width >= this.state.targetSize.height) {
+        this.setState({
+          cropHorizontal: true,
+        });
+      } else {
+        this.setState({
+          cropHorizontal: false,
+        });
+      }
+    }
+  };
+
+  render() {
+    const {
+      photoUri,
+      photoWidth,
+      photoHeight,
+      croppedImageURI,
+      targetSize,
+      cropHorizontal,
+    } = this.state;
+    return (
+      <KeyboardAvoidingView behavior="position">
+        <ScrollView>
+          <ScrollView style={{ height: photoHeight }} horizontal={true}>
+            <Image
+              source={{ uri: photoUri }}
+              style={{ width: photoWidth, height: photoHeight }}
+            />
+          </ScrollView>
+          {croppedImageURI ? (
+            <ScrollView
+              style={{ height: targetSize?.height }}
+              horizontal={cropHorizontal}
+            >
+              <Image
+                source={{ uri: croppedImageURI }}
+                style={{ width: targetSize?.width, height: targetSize?.height }}
+              />
+            </ScrollView>
+          ) : (
+            <Text>未生成图片</Text>
+          )}
+          <View style={styles.button}>
+            <Text>{croppedImageURI}</Text>
+            <Button title="确定" onPress={() => this._crop()} />
+          </View>
+        </ScrollView>
+      </KeyboardAvoidingView>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  button: {
+    padding: 10,
+  },
+  flex: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
+  },
 });
 ```
 
@@ -48,6 +185,17 @@ ImageEditor.cropImage(uri, cropData).then((result) => {
 目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
 
 首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
+
+### 在工程根目录的 `oh-package.json` 添加 overrides 字段
+
+```json
+{
+  ...
+  "overrides": {
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+  }
+}
+```
 
 ### 引入原生端代码
 
@@ -102,7 +250,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 
 点击右上角的 `sync` 按钮
 
-或者在终端执行：[react-native-image-editor.md](react-native-image-editor.md)
+或者在终端执行：
 
 ```bash
 cd entry
@@ -123,22 +271,30 @@ RNOH：0.72.20; SDK：HarmonyOS-NEXT-DB1; IDE：DevEco Studio 5.0.3.200; ROM：2
 
 ## API
 
-| Name      | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | Platform    | HarmonyOS Support |
-| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ----------------- |
-| cropImage | Crop the image specified by the URI param. If URI points to a remote image, it will be downloaded automatically. If the image cannot be loaded/downloaded, the promise will be rejected.<br/><br/>If the cropping process is successful, the resultant cropped image will be stored in the cache path, and the CropResult returned in the promise will point to the image in the cache path. ⚠️ Remember to delete the cropped image from the cache path when you are done with it. | ios/Android | yes               |
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
-cropData
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| 名称          | 类型                              | 说明                                                                                                                                                                                                      | 是否必填 | 原库平台 | 鸿蒙支持 |
-| ------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- |
-| `offset`      | { x: number, y: number }          | The top-left corner of the cropped image, specified in the original image's coordinate space                                                                                                              | yes      | All      | yes      |
-| `size`        | { width: number, height: number } | Size (dimensions) of the cropped image                                                                                                                                                                    | yes      | All      | yes      |
-| `displaySize` | { width: number, height: number } | Size to which you want to scale the cropped image                                                                                                                                                         | no       | All      | yes      |
-| `resizeMode`  | 'contain' \| 'cover' \| 'stretch' | Resizing mode to use when scaling the image**Default value**: `'cover'`                                                                                                                                   | no       | All      | yes      |
-| `quality`     | number                            | A value in range `0.0` - `1.0` specifying compression level of the result image. `1` means no compression (highest quality) and `0` the highest compression (lowest quality)<br/>**Default value**: `0.9` | no       | All      | yes      |
-| `format`      | 'jpeg' \| 'png' \| 'webp'         | The format of the resulting image.<br/>**Default value**: based on the provided image;<br/>if value determination is not possible, `'jpeg'` will be used as a fallback.                                   | no       | All      | yes      |
+| Name      | Type    | Description                                                  | Platform    | HarmonyOS Support |
+| --------- | -------- | ------------------------------------------------------------ | ----------- | ----------------- |
+| cropImage | function | Crop the image specified by the URI param. If URI points to a remote image, it will be downloaded automatically. If the image cannot be loaded/downloaded, the promise will be rejected.<br/><br/>If the cropping process is successful, the resultant cropped image will be stored in the cache path, and the CropResult returned in the promise will point to the image in the cache path. ⚠️ Remember to delete the cropped image from the cache path when you are done with it. | ios/Android | yes               |
 
-##
+## 属性
+
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+**cropData**
+
+| Name          | Value                             | Type   | Description                                                                                                                                                                                               | Required | Platform | HarmonyOS Support |
+| ------------- | --------------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------------- |
+| `offset`      | { x: number, y: number }          | object | The top-left corner of the cropped image, specified in the original image's coordinate space                                                                                                              | yes      | All      | yes               |
+| `size`        | { width: number, height: number } | object | Size (dimensions) of the cropped image                                                                                                                                                                    | yes      | All      | yes               |
+| `displaySize` | { width: number, height: number } | object | Size to which you want to scale the cropped image                                                                                                                                                         | no       | All      | yes               |
+| `resizeMode`  | 'contain' \| 'cover' \| 'stretch' | string | Resizing mode to use when scaling the image**Default value**: `'cover'`                                                                                                                                   | no       | All      | yes               |
+| `quality`     | 0.0 - 1.0                         | number | A value in range `0.0` - `1.0` specifying compression level of the result image. `1` means no compression (highest quality) and `0` the highest compression (lowest quality)<br/>**Default value**: `0.9` | no       | All      | yes               |
+| `format`      | 'jpeg' \| 'png' \| 'webp'         | string | The format of the resulting image.<br/>**Default value**: based on the provided image;<br/>if value determination is not possible, `'jpeg'` will be used as a fallback.                                   | no       | All      | yes               |
 
 ## 遗留问题
 

@@ -1,17 +1,17 @@
-模板版本：v0.1.3
+模板版本：v0.2.1
 
 <p align="center">
   <h1 align="center"> <code>immer</code> </h1>
 </p>
 <p align="center">
     <a href="https://github.com/immerjs/immer/blob/main/LICENSE">
+        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
+    </a>
+    <a href="https://github.com/immerjs/immer/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
+        <!-- <img src="https://img.shields.io/badge/license-Apache-blue.svg" alt="License" /> -->
     </a>
 </p>
-
-
-
-
 
 > [!TIP] [Github 地址](https://github.com/immerjs/immer)
 
@@ -19,14 +19,13 @@
 
 进入到工程目录并输入以下命令：
 
->[!TIP] # 处替换为 tgz 包的路径
 
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm immer@10.0.4
+npm i immer@10.0.4
 ```
 
 #### **yarn**
@@ -779,33 +778,35 @@ export default MyComponent;
 
 ## API
 
-详情见[Immer](https://immerjs.github.io/immer/zh-CN/api/)
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
-> | Name                      | Description                                                  | Required | Platform    | HarmonyOS Support |
-> | ------------------------- | ------------------------------------------------------------ | -------- | ----------- | ----------------- |
-> | `(default)`               | Immer 核心 API，通常命名为 `produce`: `import {produce} from "immer"` | NO       | Android IOS | YES               |
-> | `applyPatches`            | 给定一个基本 state 或 draft，以及一组 patches ，应用 patches | NO       | Android IOS | YES               |
-> | `castDraft`               | 将任何不可变类型转换为其可变对应物。这只是一个转换，实际上并没有做任何事情。 | NO       | Android IOS | YES               |
-> | `castImmutable`           | 将任何可变类型转换为其不可变对应物。这只是一个转换，实际上并没有做任何事情。 | NO       | Android IOS | YES               |
-> | `createDraft`             | 给定一个基本 state，创建一个可变 draft，任何修改都将被记录下来 | NO       | Android IOS | YES               |
-> | `current`                 | 给定一个 draft 对象（不必是对象的根结点），对 draft 的当前状态进行快照 | NO       | Android IOS | YES               |
-> | `Draft<T>`                | 暴露的 TypeScript 类型以将不可变类型转换为可变类型           | NO       | Android IOS | YES               |
-> | `enableMapSet()`          | 启用对 `Map` 和 `Set` 集合的支持。                           | NO       | Android IOS | YES               |
-> | `enablePatches()`         | 启用对 JSON patches 的支持                                   | NO       | Android IOS | YES               |
-> | `finishDraft`             | 给定使用 `createDraft` 创建的 draft，冻结 draft 并生成并返回下一个不可变状态，该状态捕获所有更改 | NO       | Android IOS | YES               |
-> | `freeze(obj, deep?)`      | 冻结可 draft 对象。返回原始对象。默认情况下浅冻结，但如果第二个参数为真，它将递归冻结。 | NO       | Android IOS | YES               |
-> | `Immer`                   | 可用于创建第二个“immer”实例（暴露此实例中列出的所有 API）的构造函数，它不与全局实例共享其设置 | NO       | Android IOS | YES               |
-> | `immerable`               | 可以添加到构造函数或原型的符号，表示 Immer 应该将类视为可以安全 draft 的东西 | NO       | Android IOS | YES               |
-> | `Immutable<T>`            | 暴露的 TypeScript 类型以将可变类型转换为不可变类型           | NO       | Android IOS | YES               |
-> | `isDraft`                 | 如果给定对象是 draft 对象，则返回 true                       | NO       | Android IOS | YES               |
-> | `isDraftable`             | 如果 Immer 能够将此对象变成 draft，则返回 true。这适用于：数组、没有原型的对象、以 `Object` 为原型的对象、在其构造函数或原型上具有 `immerable` 符号的对象 | NO       | Android IOS | YES               |
-> | `nothing`                 | 可以从 recipe 返回的值，以指示应生成 `undefined`             | NO       | Android IOS | YES               |
-> | `original`                | 给定一个 draft 对象（不必是对象的根结点），返回原始状态树中相同路径的原始对象（如果存在） | NO       | Android IOS | YES               |
-> | `Patch`                   | 暴露的 TypeScript 类型，描述（反向）patches 对象的形状       | NO       | Android IOS | YES               |
-> | `produce`                 | Immer 的核心 API，也暴露为 `default` 导出                    | NO       | Android IOS | YES               |
-> | `produceWithPatches`      | 与 `produce` 相同，但它不仅返回生成的对象，还返回一个由 `[result, patch, inversePatches]` 组成的元组 | NO       | Android IOS | YES               |
-> | `setAutoFreeze`           | 启用/禁用递归的自动冻结。默认启用                            | NO       | Android IOS | YES               |
-> | `setUseStrictShallowCopy` | 可用于启用严格浅拷贝，如果启用，immer将尽可能多地复制不可枚举属性 | NO       | Android IOS | YES               |
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+> | Name                      | Description                                                                                                                                               | Required | Type | Platform    | HarmonyOS Support |
+> | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- | ----------------- | ----------------- |
+> | (default)              | Immer Core API, usually named produce: import {produce} from "immer"                                                                                     | NO       | Function | Android IOS | YES               |
+> | applyPatches            | Given a basic state or draft, as well as a set of patches, apply patches                                                                                             | NO       | Function | Android IOS | YES               |
+> | castDraft               | Convert any immutable type to its mutable counterpart. This is just a conversion, and in fact, nothing has been done.                                                                              | NO       | Function | Android IOS | YES               |
+> | castImmutable           | Convert any mutable type to its immutable counterpart. This is just a conversion, and in fact, nothing has been done.                                                                              | NO       | Function | Android IOS | YES               |
+> | createDraft             | Given a basic state, create a variable draft, and any modifications will be recorded                                                                                            | NO       | Function | Android IOS | YES               |
+> | current                 | Given a draft object (not necessarily the root node of the object), take a snapshot of the current state of the draft                                                                                    | NO       | Function | Android IOS | YES               |
+> | Draft<T>                | Exposed TypeScript types to convert immutable types to mutable types                                                                                                        | NO       | Function | Android IOS | YES               |
+> | enableMapSet()          | Enable support for Map and Set collections.                                                                                                                        | NO       | Function | Android IOS | YES               |
+> | enablePatches()         | Enable support for JSON patches                                                                                                                                | NO       | Function | Android IOS | YES               |
+> | finishDraft             | Given a draft created using createDraft, freeze the draft and generate and return the next immutable state, which captures all changes                                                         | NO       | Function | Android IOS | YES               |
+> | freeze(obj, deep?)     | Freeze draftable objects. Return the original object. By default, it freezes lightly, but if the second parameter is true, it will recursively freeze.                                                                   | NO       | Function | Android IOS | YES               |
+> | Immer                   | Constructor that can be used to create a second "immer" instance (exposing all APIs listed in this instance), which does not share its settings with the global instance                                                            | NO       | Function | Android IOS | YES               |
+> | immerable               | Constructor that can be used to create a second "immer" instance (exposing all APIs listed in this instance), which does not share its settings with the global instance                                                                              | NO       | Function | Android IOS | YES               |
+> | Immutable<T>            | Exposed TypeScript types to convert mutable types to immutable classes                                                                                                        | NO       | Function | Android IOS | YES               |
+> | isDraft                 | If the given object is a draft object, return true                                                                                                                    | NO       | Function | Android IOS | YES               |
+> | isDraftable             | If Immer is able to turn this object into a draft, return true. This applies to: arrays, objects without prototypes, objects with prototypes based on Object, objects with 'immerable' symbols on their constructors or prototypes | NO       | Function | Android IOS | YES               |
+> | nothing                 | The value that can be returned from the recipe to indicate that it should be generated undefined                                                                                                          | NO       | Function | Android IOS | YES               |
+> | original                | Given a draft object (not necessarily the root node of the object), return the original object with the same path in the original state tree (if it exists)                                                                | NO       | Function | Android IOS | YES               |
+> | Patch                   | Exposed TypeScript type, describing (reverse) the shape of patches object                                                                                                    | NO       | Function | Android IOS | YES               |
+> | produce                 | The core API of Immer is also exposed as a default export                                                                                                                 | NO       | Function | Android IOS | YES               |
+> | produceWithPatches      | Same as product , but it not only returns the generated object, but also a tuple composed of [result, patch, invertPatches]                                                      | NO       | Function | Android IOS | YES               |
+> | setAutoFreeze           | Enable/disable recursive automatic freezing. Default enabled                                                                                                                         | NO       | Function | Android IOS | YES               |
+> | setUseStrictShallowCopy | Can be used to enable strict shallow copying, if enabled, the importer will replicate as many non enumerable attributes as possible                                                                                         | NO       | Function | Android IOS | YES               |
 
 ## 遗留问题
 

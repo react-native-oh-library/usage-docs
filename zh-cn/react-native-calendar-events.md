@@ -1,4 +1,4 @@
-> 模板版本：v0.2.0
+> 模板版本：v0.2.1
 
 <p align="center">
   <h1 align="center"> <code>react-native-calendar-events</code> </h1>
@@ -318,7 +318,7 @@ ohpm install
 
 RNOH：0.72.23; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.19
 
-### 权限要求（如有）
+### 权限要求
 
 #### 在 entry 目录下的module.json5中添加权限
 
@@ -372,17 +372,17 @@ RNOH：0.72.23; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name                  | Description                                                                                     | Required | Platform | HarmonyOS Support |
-|-----------------------|-------------------------------------------------------------------------------------------------| -------- |----------|-------------------|
-| requestPermissions()  | Request calendar authorization. Authorization must be granted before accessing calendar events. | No       | All      | yes               |
-| checkPermissions()    | Get calendar authorization status.                                                              | No       | All      | yes               |
-| findCalendars()       | Finds all the calendars on the device.                                                          | No       | All      | yes               |
-| saveCalendar()        | Create a calendar.                                                                              | No       | All      | yes               |
-| removeCalendar()      | Removes a calendar.                                                                             | No       | All      | yes               |
-| findEventById()       | Find calendar  by id.                                                                           | No       | All      | No                |
-| fetchAllEvents()      | Fetch all calendar events.                                                                      | No       | All      | yes               |
-| saveEvent()           | Creates or updates a calendar event. To update an event, the event id must be defined.          | No       | All      | yes               |
-| removeEvent()         | Removes calendar event.                                                                         | No       | All      | No                |
+| Name                  | Description                                                                                     | Type      | Required | Platform | HarmonyOS Support |
+|-----------------------|-------------------------------------------------------------------------------------------------|-----------| -------- |----------|------------------|
+| requestPermissions()  | Request calendar authorization. Authorization must be granted before accessing calendar events. | function  | No       | All      | yes              |
+| checkPermissions()    | Get calendar authorization status.                                                              | function  | No       | All      | yes              |
+| findCalendars()       | Finds all the calendars on the device.                                                          | function  | No       | All      | yes              |
+| saveCalendar()        | Create a calendar.                                                                              | function  | No       | All      | yes              |
+| removeCalendar()      | Removes a calendar.                                                                             | function  | No       | All      | yes              |
+| findEventById()       | Find calendar  by id.                                                                           | function  | No       | All      | yes              |
+| fetchAllEvents()      | Fetch all calendar events.                                                                      | function  | No       | All      | yes              |
+| saveEvent()           | Creates or updates a calendar event. To update an event, the event id must be defined.          | function  | No       | All      | yes              |
+| removeEvent()         | Removes calendar event.                                                                         | function  | No       | All      | yes              |
 
 ## 遗留问题
 - 无

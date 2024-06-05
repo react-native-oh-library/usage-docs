@@ -197,13 +197,13 @@ react-native-harmony：0.72.20; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevE
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| requestAuthorization  | Request microphone permission  | function  | YES | Android IOS | YES |
-| checkAuthorizationStatus  | Check authorization status  | function  | YES | Android IOS | YES |
-| prepareRecordingAtPath  | Initialize recording instance parameters  | function  | YES | Android IOS | YES |
-| startRecording  | start recording   | function  | YES | Android IOS | YES |
-| pauseRecording  | Pause recording  | function  | YES | Android IOS | YES |
-| resumeRecording  | Resume recording  | function  | YES | Android IOS | YES |
-| stopRecording  | stop recording   | function  | YES | Android IOS | YES |
+| requestAuthorization  | Request microphone permission  | function  | no | Android/IOS | yes |
+| checkAuthorizationStatus  | Check authorization status  | function  | no | Android/IOS | yes |
+| prepareRecordingAtPath  | Initialize recording instance parameters  | function  | no | Android/IOS | yes |
+| startRecording  | start recording   | function  | no | Android/IOS | yes |
+| pauseRecording  | Pause recording  | function  | no | Android/IOS | yes |
+| resumeRecording  | Resume recording  | function  | no | Android/IOS | yes |
+| stopRecording  | stop recording   | function  | no | Android/IOS | yes |
 
 ## 遗留问题
 

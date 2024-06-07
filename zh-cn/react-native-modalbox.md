@@ -27,13 +27,13 @@
 #### **npm**
 
 ```bash
-npm install react-native-modalbox@latest --save
+npm install react-native-modalbox@2.0.2 --save
 ```
 
 #### **yarn**
 
 ```bash
-yarn add react-native-modalbox@latest --save
+yarn add react-native-modalbox@2.0.2 --save
 ```
 
 <!-- tabs:end -->
@@ -230,11 +230,6 @@ const styles = StyleSheet.create({
 });
 ```
 
-## Link
-
-目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
-
-首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
 
 
 
@@ -250,47 +245,46 @@ RNOH：0.72.23; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.
 
 
 ## 属性
-
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Prop  | Default  | Type | Description |
-| :------------ |:---------------:| :---------------:| :-----|
-| isOpen | false | `bool` | Open/close the modal, optional, you can use the open/close methods instead  |
-| isDisabled | false | `bool` | Disable any action on the modal (open, close, swipe)  |
-| backdropPressToClose | true | `bool` | Close the the modal by pressing on the backdrop |
-| swipeToClose | true | `bool` | Set to `true` to enable the swipe down to close feature |
-| swipeThreshold | 50 | `number` | The threshold to reach in pixels to close the modal |
-| swipeArea | - | `number` | The height in pixels of the swipeable area, window height by default |
-| position | center | `string` | Control the modal position using `top` or `center` or `bottom` |
-| entry | bottom | `string` | Control the modal entry position `top` or `bottom` |
-| backdrop | true | `bool` | Display a backdrop behind the modal |
-| backdropOpacity | 0.5| `number` | Opacity of the backdrop |
-| backdropColor | black| `string` | backgroundColor of the backdrop |
-| backdropContent | null| `ReactElement` | Add an element in the backdrop (a close button for example) |
-| animationDuration | 400| `number` | Duration of the animation |
-| easing | Easing.elastic(0.8) | `function` | Easing function applied to opening modal animation |
-| backButtonClose | false | `bool` | (Android only) Close modal when receiving back button event |
-| startOpen | false | `bool` | Allow modal to appear open without animation upon first mount |
-| coverScreen | false | `bool` | Will use RN `Modal` component to cover the entire screen wherever the modal is mounted in the component hierarchy |
-| keyboardTopOffset | ios:22, android:0 | `number` | This property prevent the modal to cover the ios status bar when the modal is scrolling up because the keyboard is opening |
-| useNativeDriver | true | `bool` | Enables the hardware acceleration to animate the modal. Please note that enabling this can cause some flashes in a weird way when animating |
+| Name  | Description  | Type | Required  |Platform|HarmonyOS Support |
+| :------------ |:---------------:| :---------------:|:---------------:|:---------------:|:---------------:|
+| isOpen  | Open/close the modal, optional, you can use the open/close methods instead  | `bool`  | no  | IOS/Android  | yes  |
+| isDisabled  | Disable any action on the modal (open, close, swipe)  | `bool`  | no  | IOS/Android  | yes  |
+| backdropPressToClose  | Close the the modal by pressing on the backdrop  | `bool`  | no  | IOS/Android  | yes  |
+| swipeToClose  | Set to true to enable the swipe down to close feature | `bool`  | no  | IOS/Android  | yes  |
+| swipeThreshold  | The threshold to reach in pixels to close the modal | `number`  | no  | IOS/Android  | yes  |
+| swipeArea  | The height in pixels of the swipeable area, window height by default | `number`  | no  | IOS/Android  | yes  |
+| position  | Control the modal position using top or center or bottom | `string`  | no  | IOS/Android  | yes  |
+| entry  | Control the modal entry position top or bottom | `string`  | no  | IOS/Android  | yes  |
+| backdrop  | Display a backdrop behind the modal | `bool`  | no  | IOS/Android  | yes  |
+| backdropOpacity  | Opacity of the backdrop | `number`  | no  | IOS/Android  | yes  |
+| backdropColor  | backgroundColor of the backdrop | `string`  | no  | IOS/Android  | yes  |
+| backdropContent  | Add an element in the backdrop (a close button for example) | `ReactElement`  | no  | IOS/Android  | yes  |
+| animationDuration  | Duration of the animation | `number`  | no  | IOS/Android  | yes  |
+| easing  | Easing function applied to opening modal animation | `function`  | no  | IOS/Android  | yes  |
+| backButtonClose  | (Android only) Close modal when receiving back button event | `bool`  | no  | Android  | yes  |
+| startOpen  | Allow modal to appear open without animation upon first mount| `bool`  | no  | IOS/Android  | yes  |
+| coverScreen  | Will use RN Modal component to cover the entire screen wherever the modal is mounted in the component hierarchy| `bool`  | no  | IOS/Android  | yes  |
+| keyboardTopOffset  | This property prevent the modal to cover the ios status bar when the modal is scrolling up because the keyboard is opening| `number`  | no  | IOS/Android  | yes  |
+| useNativeDriver  | Enables the hardware acceleration to animate the modal. Please note that enabling this can cause some flashes in a weird way when animating| `bool`  | no  | IOS/Android  | yes  |
 
 ## 事件
-| Prop  | Params  | Description |
-| :------------ |:---------------:| :---------------:|
-| onClosed | - | When the modal is close and the animation is done |
-| onOpened | - | When the modal is open and the animation is done |
-| onClosingState | state `bool` | When the state of the swipe to close feature has changed (usefull to change the content of the modal, display a message for example) |
+| Name  | Description  | Type | Required  |Platform|HarmonyOS Support |
+| :------------ |:---------------:| :---------------:|:---------------:|:---------------:|:---------------:|
+| onClosed  | When the modal is close and the animation is done  | `function`  | no  | IOS/Android  | yes  |
+| onOpened  | When the modal is open and the animation is done | `function`  | no  | IOS/Android  | yes  |
+| onClosingState  | When the state of the swipe to close feature has changed (usefull to change the content of the modal, display a message for example)  | `function`  | no  | IOS/Android  | yes  |
 
 ## 方法
 hese methods are optional, you can use the isOpen property instead   
 
-| Prop  | Params  | Description |
-| :------------ |:---------------:| :---------------:|
-| open | - | Open the modal |
-| close | - | Close the modal |
+
+| Name  | Description  | Type | Required  |Platform|HarmonyOS Support |
+| :------------ |:---------------:| :---------------:|:---------------:|:---------------:|:---------------:|
+| open  | Open the modal  | `function`  | no  | IOS/Android  | yes  |
+| close  | Close the modal | `function`  | no  | IOS/Android  | yes  |
 
 
 

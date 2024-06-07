@@ -16,7 +16,7 @@
 
 ## 安装与使用
 
-请到github上的发布地址查看配套的版本信息：(https://github.com/maxs15/react-native-modalbox master)，并下载适用版本的 tgz 包。
+请到github上的发布地址查看配套的版本信息：(https://github.com/maxs15/react-native-modalbox)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
@@ -27,13 +27,13 @@
 #### **npm**
 
 ```bash
-npm install react-native-modalbox@2.0.2 --save
+npm install react-native-modalbox@2.0.2
 ```
 
 #### **yarn**
 
 ```bash
-yarn add react-native-modalbox@2.0.2 --save
+yarn add react-native-modalbox@2.0.2
 ```
 
 <!-- tabs:end -->

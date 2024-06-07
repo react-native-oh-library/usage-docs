@@ -1,4 +1,4 @@
-> 模板版本：v0.1.3
+> 模板版本：v0.2.1
 
 <p align="center">
   <h1 align="center"> <code>react-native-maps</code> </h1>
@@ -45,10 +45,7 @@ yarn add @react-native-oh-tpl/react-native-maps@file:#
 ```js
 import React from "react";
 import { StyleSheet, View, Text, Dimensions } from "react-native";
-
-import MapView, { Circle, Polygon, Polyline } from "react-native-maps";
-import flagBlueImg from "./assets/flag-blue.png";
-import flagPinkImg from "./assets/flag-pink.png";
+import MapView, { Circle, Polygon, Polyline, Marker } from "react-native-maps";
 
 const { width, height } = Dimensions.get("window");
 
@@ -131,7 +128,6 @@ class Overlays extends React.Component<any, any> {
             centerOffset={{ x: -42, y: -60 }}
             anchor={{ x: 0.84, y: 1 }}
             opacity={0.6}
-            image={this.state.marker1 ? flagBlueImg : flagPinkImg}
           />
           <Circle
             center={circle.center}
@@ -204,6 +200,17 @@ const styles = StyleSheet.create({
 
 首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
 
+### 在工程根目录的 `oh-package.json` 添加 overrides 字段
+
+```json
+{
+  ...
+  "overrides": {
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+  }
+}
+```
+
 ### 引入原生端代码
 
 目前有两种方法：
@@ -220,8 +227,7 @@ const styles = StyleSheet.create({
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "rnoh-maps": "file:../../node_modules/@react-native-oh-tpl/react-native-maps/harmony/maps.har"
+    "@react-native-oh-tpl/react-native-maps": "file:../../node_modules/@react-native-oh-tpl/react-native-maps/harmony/maps.har"
   }
 ```
 
@@ -245,34 +251,44 @@ ohpm install
 ```diff
 project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
+set(CMAKE_SKIP_BUILD_RPATH TRUE)
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(OH_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
+set(LOG_VERBOSITY_LEVEL 1)
+set(CMAKE_ASM_FLAGS "-Wno-error=unused-command-line-argument -Qunused-arguments")
+set(CMAKE_CXX_FLAGS "-fstack-protector-strong -Wl,-z,relro,-z,now,-z,noexecstack -s -fPIE -pie")
+set(WITH_HITRACE_SYSTRACE 1) # for other CMakeLists.txt files to use
+add_compile_definitions(WITH_HITRACE_SYSTRACE)
 
 add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
-# RNOH_BEGIN: add_package_subdirectories
+# RNOH_BEGIN: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/rnoh-maps/src/main/cpp" ./maps)
-# RNOH_END: add_package_subdirectories
++ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/react-native-maps/src/main/cpp" ./maps)
+# RNOH_END: manual_package_linking_1
+
+file(GLOB GENERATED_CPP_FILES "./generated/*.cpp")
 
 add_library(rnoh_app SHARED
+    ${GENERATED_CPP_FILES}
     "./PackageProvider.cpp"
     "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
 )
-
 target_link_libraries(rnoh_app PUBLIC rnoh)
 
-# RNOH_BEGIN: link_packages
+# RNOH_BEGIN: manual_package_linking_2
 target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 + target_link_libraries(rnoh_app PUBLIC rnoh_maps)
-# RNOH_END: link_packages
+# RNOH_END: manual_package_linking_2
 ```
 
 打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
 
 ```diff
 #include "RNOH/PackageProvider.h"
+#include "generated/RNOHGeneratedPackage.h"
 #include "SamplePackage.h"
 + #include "MapsPackage.h"
 
@@ -280,15 +296,17 @@ using namespace rnoh;
 
 std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
     return {
-      std::make_shared<SamplePackage>(ctx),
-+     std::make_shared<MapsPackage>(ctx)
+        std::make_shared<RNOHGeneratedPackage>(ctx),
+        std::make_shared<SamplePackage>(ctx),
++       std::make_shared<MapsPackage>(ctx)
     };
 }
 ```
 
-### 在 ArkTs 侧引入 AIRMap 等 组件
 
-找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
+### 在 ArkTs 侧引入 AIRMap 等组件
+
+找到 `function buildCustomRNComponent()`，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
 ...
@@ -304,93 +322,75 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 +  AIR_WMSTILE_TYPE,
 +  AIR_OVERLAY_TYPE,
 +  AIRMapOverlay
-+ } from "rnoh-maps"
++ } from "@react-native-oh-tpl/react-native-maps"
 
-  @Builder
-  function buildCustomComponent(ctx: ComponentBuilderContext) {
-    if (ctx.componentName === SAMPLE_VIEW_TYPE) {
-      SampleView({
-        ctx: ctx.rnComponentContext,
-        tag: ctx.tag,
-        buildCustomComponent: buildCustomComponent
-      })
-    }
-+   else if (ctx.componentName === AIR_MAP_TYPE) {
+@Builder
+export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
+...
++  if (ctx.componentName === AIR_MAP_TYPE) {
 +    AIRMap({
-+      ctx: ctx.rnohContext,
++      ctx: ctx.rnComponentContext,
 +      tag: ctx.tag,
-+      buildCustomComponent: CustomComponentBuilder
 +    })
 +  }else if (ctx.componentName === AIR_MAP_MARKER_TYPE) {
 +    AIRMapMarker({
-+      ctx: ctx.rnohContext,
++      ctx: ctx.rnComponentContext,
 +      tag: ctx.tag,
-+      buildCustomComponent: CustomComponentBuilder
 +    })
 +  }else if (ctx.componentName === AIR_MAP_POLYLINE_TYPE) {
 +    AIRMapPolyline({
-+      ctx: ctx.rnohContext,
++      ctx: ctx.rnComponentContext,
 +      tag: ctx.tag,
-+      buildCustomComponent: CustomComponentBuilder
 +    })
 +  }else if (ctx.componentName === AIR_MAP_POLYGON_TYPE) {
 +    AIRMapPolygon({
-+      ctx: ctx.rnohContext,
++      ctx: ctx.rnComponentContext,
 +      tag: ctx.tag,
-+      buildCustomComponent: CustomComponentBuilder
 +    })
 +  }else if (ctx.componentName === AIR_MAP_CIRCLE_TYPE) {
 +    AIRMapCircle({
-+      ctx: ctx.rnohContext,
++      ctx: ctx.rnComponentContext,
 +      tag: ctx.tag,
-+      buildCustomComponent: CustomComponentBuilder
 +    })
 +  }else if (ctx.componentName === AIR_MAP_CALLOUT_TYPE) {
 +    AIRMapCallout({
-+      ctx: ctx.rnohContext,
++      ctx: ctx.rnComponentContext,
 +      tag: ctx.tag,
-+      buildCustomComponent: CustomComponentBuilder
 +    })
 +  }else if (ctx.componentName === AIR_MAP_CALLOUT_SUBVIEW_TYPE) {
 +    AIRMapCalloutSubview({
-+      ctx: ctx.rnohContext,
++      ctx: ctx.rnComponentContext,
 +      tag: ctx.tag,
-+      buildCustomComponent: CustomComponentBuilder
 +    })
 +  }else if (ctx.componentName === AIR_MAP_CALLOUT_SUBVIEW_TYPE) {
 +    AIRMapCalloutSubview({
-+      ctx: ctx.rnohContext,
++      ctx: ctx.rnComponentContext,
 +      tag: ctx.tag,
-+      buildCustomComponent: CustomComponentBuilder
 +    })
 +  }else if (ctx.componentName === AIR_GEOJSON_TYPE) {
 +    Geojson({
-+      ctx: ctx.rnohContext,
++      ctx: ctx.rnComponentContext,
 +      tag: ctx.tag,
-+      buildCustomComponent: CustomComponentBuilder
 +    })
 +  }else if (ctx.componentName === AIR_URLTILE_TYPE) {
 +    AIRMapUrlTile({
-+      ctx: ctx.rnohContext,
++      ctx: ctx.rnComponentContext,
 +      tag: ctx.tag,
-+      buildCustomComponent: CustomComponentBuilder
 +    })
 +  }else if (ctx.componentName === AIR_WMSTILE_TYPE) {
 +    AIRMapWMSTile({
-+      ctx: ctx.rnohContext,
++      ctx: ctx.rnComponentContext,
 +      tag: ctx.tag,
-+      buildCustomComponent: CustomComponentBuilder
 +    })
 +  }else if (ctx.componentName === AIR_OVERLAY_TYPE) {
 +    AIRMapOverlay({
-+      ctx: ctx.rnohContext,
++      ctx: ctx.rnComponentContext,
 +      tag: ctx.tag,
-+      buildCustomComponent: CustomComponentBuilder
 +    })
 +  }
-    ...
-  }
-  ...
+...
+}
+...
 ```
 
 ### 在 ArkTs 侧引入 MapsPackage
@@ -399,7 +399,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ```diff
 ...
-+ import {MapsPackage} from 'rnoh-maps/ts';
++ import {MapsPackage} from '@react-native-oh-tpl/react-native-maps/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
@@ -435,11 +435,13 @@ ohpm install
 1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
 2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
 
-### 权限配置相关
+### 权限要求
 
 > [!tip] 如需自建项目使用华为地图可以跳过以下第一步，并前往[华为开发者联盟](https://developer.huawei.com/consumer/cn/wiki/index.php)平台申请对应项目和应用程序
->
-> [!tip] 以下是示例项目配置
+
+> [!tip] 详细配置参考华为开发者官网[地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appgallery-connect-0000001751989088)
+
+以下是示例项目配置
 
 1.打开 `工程目录/AppScope/app.json5`,修改
 

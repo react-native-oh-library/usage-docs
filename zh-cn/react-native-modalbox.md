@@ -16,11 +16,6 @@
 
 ## 安装与使用
 
-请到github上的发布地址查看配套的版本信息：(https://github.com/maxs15/react-native-modalbox)，并下载适用版本的 tgz 包。
-
-进入到工程目录并输入以下命令：
-
-> [!TIP] # 处替换为 tgz 包的路径
 
 <!-- tabs:start -->
 

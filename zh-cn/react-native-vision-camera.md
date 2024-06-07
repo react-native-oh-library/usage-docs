@@ -205,8 +205,6 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ### 在 ArkTs 侧引入 VisionCameraView 组件
 
-> [!WARNING] Deprecated！该库已接入 CAPI
-
 找到 `function buildCustomRNComponent()`，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
@@ -395,26 +393,26 @@ ohpm install
 
 ## 遗留问题
 
-- [ ] 不支持拍照HDR [#1](https://github.com/react-native-oh-library/react-native-vision-camera/issues/1) 
-- [ ] 不支持有损缓冲压缩 [#2 ](https://github.com/react-native-oh-library/react-native-vision-camera/issues/2) 
-- [ ] 没有夜景模式 [#3](https://github.com/react-native-oh-library/react-native-vision-camera/issues/3) 
-- [ ] 没有实现深度数据能力 [#4](https://github.com/react-native-oh-library/react-native-vision-camera/issues/4) 
-- [ ] 依赖三方库skia未鸿蒙化 [#5](https://github.com/react-native-oh-library/react-native-vision-camera/issues/5) 
-- [ ] 不支持内容失真校正 [#6](https://github.com/react-native-oh-library/react-native-vision-camera/issues/6) 
-- [ ] 不支持消除红眼 [#7](https://github.com/react-native-oh-library/react-native-vision-camera/issues/7) 
-- [ ] 快门声音无法独立控制 [#8](https://github.com/react-native-oh-library/react-native-vision-camera/issues/8) 
-- [ ] 不支持查询传感器旋转角度 [#9](https://github.com/react-native-oh-library/react-native-vision-camera/issues/9) 
-- [ ] 不支持查询硬件级别 [#10](https://github.com/react-native-oh-library/react-native-vision-camera/issues/10) 
-- [ ] 不支持查询设备正确对焦的最小距离 [#11](https://github.com/react-native-oh-library/react-native-vision-camera/issues/11) 
-- [ ] 不支持查询设备名称 [#12](https://github.com/react-native-oh-library/react-native-vision-camera/issues/12) 
-- [ ] 查询的CameraType一直是相机类型未指定 [#13](https://github.com/react-native-oh-library/react-native-vision-camera/issues/13) 
-- [ ] 不支持查询传感器旋转角度 [#14](https://github.com/react-native-oh-library/react-native-vision-camera/issues/14) 
-- [ ] 不支持查询是否支持弱光增强 [#15](https://github.com/react-native-oh-library/react-native-vision-camera/issues/15) 
-- [ ] 鸿蒙侧相机无法获取视频视野 [#16](https://github.com/react-native-oh-library/react-native-vision-camera/issues/16) 
-- [ ] 不支持查询maxISO和minISO [#17](https://github.com/react-native-oh-library/react-native-vision-camera/issues/17) 
-- [ ] 不支持保存快照 [#18](https://github.com/react-native-oh-library/react-native-vision-camera/issues/18) 
-- [ ] 视频录制取消时无法删除临时文件 [#19](https://github.com/react-native-oh-library/react-native-vision-camera/issues/19) 
-- [ ] 无法监听相机设备变更 [#20](https://github.com/react-native-oh-library/react-native-vision-camera/issues/20) 
+- [ ] 不支持拍照HDR [issue#1](https://github.com/react-native-oh-library/react-native-vision-camera/issues/1) 
+- [ ] 不支持有损缓冲压缩 [issue#2](https://github.com/react-native-oh-library/react-native-vision-camera/issues/2) 
+- [ ] 没有夜景模式 [issue#3](https://github.com/react-native-oh-library/react-native-vision-camera/issues/3) 
+- [ ] 没有实现深度数据能力 [issue#4](https://github.com/react-native-oh-library/react-native-vision-camera/issues/4) 
+- [ ] 依赖三方库skia未鸿蒙化 [issue#5](https://github.com/react-native-oh-library/react-native-vision-camera/issues/5) 
+- [ ] 不支持内容失真校正 [issue#6](https://github.com/react-native-oh-library/react-native-vision-camera/issues/6) 
+- [ ] 不支持消除红眼 [issue#7](https://github.com/react-native-oh-library/react-native-vision-camera/issues/7) 
+- [ ] 快门声音无法独立控制 [issue#8](https://github.com/react-native-oh-library/react-native-vision-camera/issues/8) 
+- [ ] 不支持查询传感器旋转角度 [issue#9](https://github.com/react-native-oh-library/react-native-vision-camera/issues/9) 
+- [ ] 不支持查询硬件级别 [issue#10](https://github.com/react-native-oh-library/react-native-vision-camera/issues/10) 
+- [ ] 不支持查询设备正确对焦的最小距离 [issue#11](https://github.com/react-native-oh-library/react-native-vision-camera/issues/11) 
+- [ ] 不支持查询设备名称 [issue#12](https://github.com/react-native-oh-library/react-native-vision-camera/issues/12) 
+- [ ] 查询的CameraType一直是相机类型未指定 [issue#13](https://github.com/react-native-oh-library/react-native-vision-camera/issues/13) 
+- [ ] 不支持查询传感器旋转角度 [issue#14](https://github.com/react-native-oh-library/react-native-vision-camera/issues/14) 
+- [ ] 不支持查询是否支持弱光增强 [issue#15](https://github.com/react-native-oh-library/react-native-vision-camera/issues/15) 
+- [ ] 鸿蒙侧相机无法获取视频视野 [issue#16](https://github.com/react-native-oh-library/react-native-vision-camera/issues/16) 
+- [ ] 不支持查询maxISO和minISO [issue#17](https://github.com/react-native-oh-library/react-native-vision-camera/issues/17) 
+- [ ] 不支持保存快照 [issue#18](https://github.com/react-native-oh-library/react-native-vision-camera/issues/18) 
+- [ ] 视频录制取消时无法删除临时文件 [issue#19](https://github.com/react-native-oh-library/react-native-vision-camera/issues/19) 
+- [ ] 无法监听相机设备变更 [issue#20](https://github.com/react-native-oh-library/react-native-vision-camera/issues/20) 
 
 ## 其他
 

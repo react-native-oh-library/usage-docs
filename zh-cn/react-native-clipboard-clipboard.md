@@ -174,6 +174,36 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 
 ```
 
+### 应用权限申请
+
+> [!tip] "ohos.permission.READ_PASTEBOARD"权限等级为<B>system_basic</B>，授权方式为<B>user_grant</B>，[使用 ACL 签名的配置指导](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/signing-0000001587684945-V3#section157591551175916)
+
+在 `YourProject/entry/src/main/module.json5`补上配置
+
+```diff
+{
+  "module": {
+    "name": "entry",
+    "type": "entry",
+
+  ···
+
+    "requestPermissions": [
++     { 
++		"name": "ohos.permission.READ_PASTEBOARD",
++		"reason": "xxxx",
++       "usedScene": {
++         "abilities": [
++           "EntryAbility"
++         ],
++         "when":"always"
++       }
++     }
+    ]
+  }
+}
+```
+
 ### 运行
 
 点击右上角的 `sync` 按钮

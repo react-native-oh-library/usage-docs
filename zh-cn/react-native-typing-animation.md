@@ -1,4 +1,4 @@
-> 模板版本：v0.2.0
+> 模板版本：v0.2.1
 
 <p align="center">
   <h1 align="center"> <code>react-native-typing-animation</code> </h1>
@@ -40,44 +40,132 @@ yarn add react-native-typing-animation@0.1.7
 >[!WARNING] 使用时 import 的库名不变。
 
 ```js
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useEffect, useRef, useState } from 'react';
+import {
+  Animated,
+  View,
+  Text,
+  PanResponder,
+  Button,
+  StyleSheet,
+  TouchableHighlight,
+  Alert,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
+import { TestSuite, Tester, TestCase } from '@rnoh/testerino';
 import { TypingAnimation } from 'react-native-typing-animation';
 
-const TypingAnimationDemo = () => {
-  const [isTyping, setIsTyping] = useState(false);
-
-  const startTyping = () => {
-    setIsTyping(true);
-    setTimeout(() => {
-      setIsTyping(false);
-    }, 5000);
-  };
-
+const TypingAnimationDemos = () => {
+  const typingAnimationProps = [
+    {
+      key: 'dotColor',
+      value: {
+        dotColor: 'green'
+      }
+    },
+    {
+      key: 'dotColor',
+      value: {
+        dotColor: 'red'
+      }
+    },
+    {
+      key: 'dotRadius',
+      value: {
+        dotRadius: 5
+      }
+    },
+    {
+      key: 'dotRadius',
+      value: {
+        dotRadius: 10
+      }
+    },
+    {
+      key: 'dotMargin',
+      value: {
+        dotMargin: 10
+      }
+    },
+    {
+      key: 'dotMargin',
+      value: {
+        dotMargin: 15
+      }
+    },
+    {
+      key: 'dotAmplitude',
+      value: {
+        dotAmplitude: 1
+      }
+    },
+    {
+      key: 'dotAmplitude',
+      value: {
+        dotAmplitude: 1
+      }
+    },
+    {
+      key: 'dotSpeed',
+      value: {
+        dotSpeed: 10
+      }
+    },
+    {
+      key: 'dotSpeed',
+      value: {
+        dotSpeed: 0.5
+      }
+    },
+    {
+      key: 'dotY',
+      value: {
+        dotY: 30
+      }
+    },
+    {
+      key: 'dotY',
+      value: {
+        dotY: 20
+      }
+    },
+    {
+      key: 'dotX',
+      value: {
+        dotX: 12
+      }
+    },
+    {
+      key: 'dotX',
+      value: {
+        dotX: 15
+      },
+    },
+  ];
   return (
-    <View style={styles.container}>
-      <TouchableOpacity onPress={startTyping} style={styles.button}>
-        <Text style={styles.buttonText}>测试按钮</Text>
-      </TouchableOpacity>
+    <ScrollView>
+      <Tester>
+        {typingAnimationProps.map((item) => {
+          return (
 
-      <View style={styles.animationContainer}>
-        {isTyping && (
-          <>
-            <Text style={styles.text}>正在输入中...</Text>
-            <TypingAnimation
-              style={styles.typingAnimation} 
-              dotColor="blue" 
-              dotRadius={10} 
-              dotMargin={20} 
-              dotAmplitude={5} 
-              dotSpeed={0.15}
-              dotY={6}
-              dotX={12}
-            />
-          </>
-        )}
-      </View>
-    </View>
+            <TestCase itShould={item.key} tags={['C_API']}>
+              <View
+                style={{
+                  height: 30,
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                }}>
+                <TypingAnimation
+                  {...item.value}
+                ></TypingAnimation>
+              </View>
+            </TestCase>
+          );
+        })}
+      </Tester>
+    </ScrollView>
   );
 };
 
@@ -86,7 +174,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
   button: {
     backgroundColor: 'blue',
@@ -107,12 +195,11 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   typingAnimation: {
-    flexDirection: 'row', 
+    flexDirection: 'row',
   },
 });
 
-export default TypingAnimationDemo;
-
+export default TypingAnimationDemos;
 ```
 
 ## 约束与限制
@@ -140,6 +227,7 @@ export default TypingAnimationDemo;
 |   dotSpeed   | Dot speed, the speed of the whole animation view; default is `0.15` | Integer |    No    | Android/ios |        Yes        |
 |     dotY     |        Dot y, the starting y coordinate; default is 6        | Integer |    No    | Android/ios |        Yes        |
 |     dotX     |  Dot x, the x coordinate of the center dot; default is `12`  | Integer |    No    | Android/ios |        Yes        |
+|     show     |  Visibility, whether the whole animation view is displayed or not; default is true  | Boolean |    No    | Android/ios |        Yes        |
 
 ## 遗留问题
 
@@ -147,5 +235,5 @@ export default TypingAnimationDemo;
 
 ## 开源协议
 
-本项目基于  [The MIT License (MIT)](https://github.com/watadarkstar/react-native-typing-animation?tab=MIT-1-ov-file) ，请自由地享受和参与开源。
+本项目基于  [The MIT License (MIT)](https://github.com/watadarkstar/react-native-typing-animation/blob/master/LICENSE) ，请自由地享受和参与开源。
 

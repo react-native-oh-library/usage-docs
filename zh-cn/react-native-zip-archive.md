@@ -480,7 +480,7 @@ add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
 
 ### 在 ArkTs 侧引入 ZipArchivePackage
 
-打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
+打开 `entry/src/main/cpp/RNPackagesFactory.ts`，添加：
 
 ```diff
 + import {ZipArchivePackage} from '@react-native-oh-tpl/react-native-zip-archive/ts';

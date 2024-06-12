@@ -2,7 +2,7 @@
 
 > [!ATTENTION] 使用模板时请将后面带有 (删除) 的语句删除。<>内是需要修改的内容。(删除)
 
-> 模板版本：v0.2.1
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code><原库 npm 包名></code> </h1>
@@ -77,6 +77,10 @@ const App = () => {
 
 export default App;
 ```
+
+## 使用 Codegen（如本库已适配了 Codegen ）
+
+本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/codegen.md)。
 
 ## Link
 
@@ -213,6 +217,19 @@ export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
 ...
 }
 ...
+```
+
+> [!TIP] 本库使用了混合方案，需要添加组件名。（如使用混合方案）
+
+在`entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets` 找到常量 `arkTsComponentNames` 在其数组里添加组件名
+
+```diff
+const arkTsComponentNames: Array<string> = [
+  SampleView.NAME,
+  GeneratedSampleView.NAME,
+  PropsDisplayer.NAME,
++ RNC_VIDEO_TYPE
+  ];
 ```
 
 **提示：TurboModule**（删除）

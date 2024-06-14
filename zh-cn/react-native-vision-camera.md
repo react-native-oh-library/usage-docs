@@ -1,4 +1,4 @@
-> 模板版本：v0.2.1
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-vision-camera</code> </h1>
@@ -264,49 +264,111 @@ ohpm install
 
 ### 权限要求
 
-以下权限已在har包中配置，在组件加载时会弹出对应的权限申请
+以下权限中有`system_basic` 权限，而默认的应用权限是 `normal` ，只能使用 `normal` 等级的权限，所以可能会在安装hap包时报错**9568289**，请参考 [文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/bm-tool-V5#ZH-CN_TOPIC_0000001884757326__%E5%AE%89%E8%A3%85hap%E6%97%B6%E6%8F%90%E7%A4%BAcode9568289-error-install-failed-due-to-grant-request-permissions-failed) 修改应用等级为 `system_basic`
 
-```json
+####  在 entry 目录下的module.json5中添加权限
+
+打开 `entry/src/main/module.json5`，添加：
+
+```diff
+...
+"requestPermissions": [
++  {
++    "name": "ohos.permission.CAMERA",
++    "reason": "$string:camera_reason",
++    "usedScene": {
++      "abilities": [
++        "EntryAbility"
++      ],
++      "when":"inuse"
++    }
++  },
++  {
++    "name": "ohos.permission.MICROPHONE",
++    "reason": "$string:microphone_reason",
++    "usedScene": {
++      "abilities": [
++        "EntryAbility"
++      ],
++      "when":"inuse"
++    }
++  },
++  {
++    "name": "ohos.permission.MEDIA_LOCATION",
++    "reason": "$string:media_location_reason",
++    "usedScene": {
++      "abilities": [
++        "EntryAbility"
++      ],
++      "when":"inuse"
++    }
++  },
++  {
++    "name": "ohos.permission.APPROXIMATELY_LOCATION",
++    "reason": "$string:location_reason",
++    "usedScene": {
++      "abilities": [
++        "EntryAbility"
++      ],
++      "when":"inuse"
++    }
++  },
++  {
++    "name": "ohos.permission.WRITE_IMAGEVIDEO",
++    "reason": "$string:write_media",
++    "usedScene": {
++      "abilities": [
++        "EntryAbility"
++      ],
++      "when":"inuse"
++    }
++  },
++  {
++    "name": "ohos.permission.READ_IMAGEVIDEO",
++    "reason": "$string:read_media",
++    "usedScene": {
++      "abilities": [
++        "EntryAbility"
++      ],
++      "when":"inuse"
++    }
++  }
+]
+```
+
+#### 在 entry 目录下添加申请以上权限的原因
+
+打开 `entry/src/main/resources/base/element/string.json`，添加：
+
+```diff
+...
 {
-  "module": {
-    "name": "vision_camera",
-    "type": "har",
-    "deviceTypes": [
-      "default"
-    ],
-    "requestPermissions": [
-      {
-        "name": "ohos.permission.CAMERA",
-        "reason": "$string:camera_reason",
-        "usedScene": {}
-      },
-      {
-        "name": "ohos.permission.MICROPHONE",
-        "reason": "$string:microphone_reason",
-        "usedScene": {}
-      },
-      {
-        "name": "ohos.permission.MEDIA_LOCATION",
-        "reason": "$string:media_location_reason",
-        "usedScene": {}
-      },
-      {
-        "name": "ohos.permission.APPROXIMATELY_LOCATION",
-        "reason": "$string:location_reason",
-        "usedScene": {}
-      },
-      {
-        "name": "ohos.permission.WRITE_IMAGEVIDEO",
-        "reason": "$string:write_media",
-        "usedScene": {}
-      },
-      {
-        "name": "ohos.permission.READ_IMAGEVIDEO",
-        "reason": "$string:write_media",
-        "usedScene": {}
-      }
-    ]
-  }
+  "string": [
++    {
++      "name": "camera_reason",
++      "value": "使用相机"
++    },
++    {
++      "name": "location_reason",
++      "value": "获取当前位置"
++    },
++    {
++      "name": "write_media",
++      "value": "输出媒体文件"
++    },
++    {
++      "name": "read_media",
++      "value": "读取媒体文件"
++    },
++    {
++      "name": "media_location_reason",
++      "value": "获取媒体文件位置信息"
++    },
++    {
++      "name": "microphone_reason",
++      "value": "使用麦克风"
++    },
+  ]
 }
 ```
 

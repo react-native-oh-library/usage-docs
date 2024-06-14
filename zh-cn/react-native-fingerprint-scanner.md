@@ -1,4 +1,4 @@
-> 模板版本：v0.2.1
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-fingerprint-scanner</code> </h1>
@@ -85,6 +85,10 @@ export default function App() {
 }
 ```
 
+## 使用 Codegen
+
+本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/codegen.md)。
+
 ## Link
 
 目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
@@ -109,7 +113,7 @@ export default function App() {
 1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
 2. 直接链接源码。
 
-方法一：通过 har 包引入
+方法一：通过 har 包引入（推荐）
 
 > [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
 
@@ -118,7 +122,6 @@ export default function App() {
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
     "@react-native-oh-tpl/react-native-fingerprint-scanner": "file:../../node_modules/@react-native-oh-tpl/react-native-fingerprint-scanner/harmony/fingerprint_scanner.har"
   }
 ```
@@ -136,6 +139,7 @@ ohpm install
 > [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
 ### 在 ArkTs 侧引入 FingerprintScannerPackage
+
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
@@ -172,8 +176,6 @@ ohpm install
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-fingerprint-scanner Releases](https://github.com/react-native-oh-library/react-native-fingerprint-scanner/releases)
 
-本文档内容基于以下版本验证通过：
-1. RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.18; 
 
 ### 权限要求
 > [!tip] "ohos.permission.ACCESS_BIOMETRIC"权限等级为<B>system_basic</B>
@@ -220,7 +222,7 @@ ohpm install
 
 ## 遗留问题
 
-- [ ] Harmony的指纹认证只支持title修改，并没有subTitle，description，cancelButton，fallbackEnabled参数， [issue#6](https://github.com/react-native-oh-library/react-native-fingerprint-scanner/issues/6) 
+- [ ] Harmony的指纹认证只支持title修改，并没有subTitle，description，cancelButton，fallbackEnabled参数， [issue#8](https://github.com/react-native-oh-library/react-native-fingerprint-scanner/issues/8) 
 - [ ] authenticate的参数不支持onAttempt，authenticate的参数onAttempt为回调方法，接口type形式不支持function,所以将onAttempt方法单独抽离出来 [issue#7](https://github.com/react-native-oh-library/react-native-fingerprint-scanner/issues/7) 
 
 

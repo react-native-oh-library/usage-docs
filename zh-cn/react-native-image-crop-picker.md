@@ -1,4 +1,4 @@
-> 模板版本：v0.2.1
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-image-crop-picker</code> </h1>
@@ -203,7 +203,7 @@ const ImageCropPickDemo = () => {
 
                 <View style={styles.TextInputBox}>
                     <Text style={styles.inputLable}>maxFiles:</Text>
-                    <TextInput 
+                    <TextInput
                        keyboardType="numeric"
                        maxLength={1}
                        style={styles.numberInput}
@@ -787,6 +787,10 @@ const styles = StyleSheet.create({
 export default ImageCropPickDemo;
 ```
 
+## 使用 Codegen（如本库已适配了 Codegen ）
+
+本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/codegen.md)。
+
 ## Link
 
 目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
@@ -853,7 +857,7 @@ export default class ImageEditAbility extends UIAbility {
 **2.在 entry/src/main/module.json5 注册 ImageEditAbility 并添加 requestPermissions**
 
 ```
-{
+"ablilities":[{
         "name": "ImageEditAbility",
         "srcEntrance": "./ets/entryability/ImageEditAbility.ets",
         "description": "$string:EntryAbility_desc",
@@ -863,6 +867,8 @@ export default class ImageEditAbility extends UIAbility {
         "visible": true,
 
 }
+...
+]
 
 "requestPermissions": [
       {
@@ -901,7 +907,7 @@ export default class ImageEditAbility extends UIAbility {
 **3.在 entry/src/main/ets/pages 下创建 ImageEdit.ets**
 
 ```
-import { ImageEditInfo } from 'rnoh-image-crop-picker';
+import { ImageEditInfo } from '@react-native-oh-tpl/react-native-image-crop-picker';
 
 @Entry
 @Component
@@ -930,6 +936,21 @@ struct ImageEdit {
 }
 ```
 
+**5.在 entry 目录下添加申请权限的原因**
+
+打开 `entry/src/main/resources/base/element/string.json`，添加：
+
+```
+{
+  "string": [
++    {
++      "name": "reason",
++      "value": "Access Write Media"
++    }
+  ]
+}
+```
+
 ### 引入原生端代码
 
 目前有两种方法：
@@ -946,7 +967,7 @@ struct ImageEdit {
 ```
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/react-native-image-crop-picker": "file:../../node_modules/@react-native-oh-tpl/react-native-image-crop-picker/harmony/react-native-image-crop-picker.har"
+    "@react-native-oh-tpl/react-native-image-crop-picker": "file:../../node_modules/@react-native-oh-tpl/react-native-image-crop-picker/harmony/image_crop_picke.har"
   }
 ```
 
@@ -969,7 +990,7 @@ ohpm install
 
 ```diff
 ...
-+ import { ImageCropPickerPackage } from '@react-native-oh-tpl/image-crop-picker/ts';
++ import { ImageCropPickerPackage } from '@react-native-oh-tpl/react-native-image-crop-picker/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
@@ -999,10 +1020,6 @@ ohpm install
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-image-crop-picker Releases ](https://github.com/react-native-oh-library/react-native-image-crop-picker/releases)
-
-本文档内容基于以下版本验证通过：
-
-RNOH：0.72.20; SDK：HarmonyOS-NEXT-DB1; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.21;
 
 ## API
 

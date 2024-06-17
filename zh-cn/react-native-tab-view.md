@@ -183,6 +183,21 @@ const styles = StyleSheet.create({
 
 如未引入请参照[@react-native-oh-tpl/react-native-pager-view 文档的 Link 章节](/zh-cn/react-native-pager-view.md#link)进行引入
 
+## Tip
+本库依赖react-native-pager-view的能力，react-native-pager-view的能力已从ArkTS切换至CAPI。开启CAPI配置后过渡动画功能才能正常生效。
+
+请在entry目录下的src/main/ets/pages/index.ets中的build函数中修改配置 
+```js
+   RNApp({   
+      rnInstanceConfig: {
+       ...,
+       //enableCAPIArchitecture 默认为false 需改成true 
+       enableCAPIArchitecture: true
+      },
+    ...
+    })
+```
+
 ## 约束与限制
 
 ## 兼容性

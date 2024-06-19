@@ -107,7 +107,7 @@ export default function RNScreenTest() {
 
 #### 禁用 `react-native-screens`
 
-因为 ArkUI(Navigation、NavRouter、NavDestination)没有代理任何独特功能，且无法映射到 main_page 通过页面容器优化性能，所以 react-native-screens 禁用鸿蒙原生屏幕使用 react-native views 即可，请在您的入口文件中添加以下代码。 (例如. `App.js`):
+因为 ArkUI(Navigation、NavRouter、NavDestination)没有代理任何独特功能，且无法映射到 main_page 通过页面容器优化性能，所以 react-native-screens 禁用 HarmonyOS 原生屏幕使用 react-native views 即可，请在您的入口文件中添加以下代码。 (例如. `App.js`):
 
 ```js
 import { enableScreens } from "react-native-screens";

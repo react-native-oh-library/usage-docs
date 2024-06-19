@@ -94,9 +94,9 @@ export default function VisionCameraDemo() {
 
 ## Link
 
-目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
 
-首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
+首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
 ### 在工程根目录的 `oh-package.json` 添加 overrides 字段
 
@@ -459,7 +459,7 @@ ohpm install
 - [ ] 不支持有损缓冲压缩 [issue#2](https://github.com/react-native-oh-library/react-native-vision-camera/issues/2) 
 - [ ] 没有夜景模式 [issue#3](https://github.com/react-native-oh-library/react-native-vision-camera/issues/3) 
 - [ ] 没有实现深度数据能力 [issue#4](https://github.com/react-native-oh-library/react-native-vision-camera/issues/4) 
-- [ ] 依赖三方库skia未鸿蒙化 [issue#5](https://github.com/react-native-oh-library/react-native-vision-camera/issues/5) 
+- [ ] 依赖三方库skia未 HarmonyOS 化 [issue#5](https://github.com/react-native-oh-library/react-native-vision-camera/issues/5) 
 - [ ] 不支持内容失真校正 [issue#6](https://github.com/react-native-oh-library/react-native-vision-camera/issues/6) 
 - [ ] 不支持消除红眼 [issue#7](https://github.com/react-native-oh-library/react-native-vision-camera/issues/7) 
 - [ ] 快门声音无法独立控制 [issue#8](https://github.com/react-native-oh-library/react-native-vision-camera/issues/8) 
@@ -470,7 +470,7 @@ ohpm install
 - [ ] 查询的CameraType一直是相机类型未指定 [issue#13](https://github.com/react-native-oh-library/react-native-vision-camera/issues/13) 
 - [ ] 不支持查询传感器旋转角度 [issue#14](https://github.com/react-native-oh-library/react-native-vision-camera/issues/14) 
 - [ ] 不支持查询是否支持弱光增强 [issue#15](https://github.com/react-native-oh-library/react-native-vision-camera/issues/15) 
-- [ ] 鸿蒙侧相机无法获取视频视野 [issue#16](https://github.com/react-native-oh-library/react-native-vision-camera/issues/16) 
+- [ ]  HarmonyOS 侧相机无法获取视频视野 [issue#16](https://github.com/react-native-oh-library/react-native-vision-camera/issues/16) 
 - [ ] 不支持查询maxISO和minISO [issue#17](https://github.com/react-native-oh-library/react-native-vision-camera/issues/17) 
 - [ ] 不支持保存快照 [issue#18](https://github.com/react-native-oh-library/react-native-vision-camera/issues/18) 
 - [ ] 视频录制取消时无法删除临时文件 [issue#19](https://github.com/react-native-oh-library/react-native-vision-camera/issues/19) 

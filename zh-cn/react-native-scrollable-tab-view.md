@@ -65,7 +65,7 @@ export default () => {
 
 ## Link
 
-本库鸿蒙侧实现依赖@react-native-oh-tpl/react-native-pager-view 的原生端代码，如已在鸿蒙工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-pager-view 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
 
 如未引入请参照[@react-native-oh-tpl/react-native-pager-view 文档的 Link 章节](https://gitee.com/react-native-oh-library/usage-docs/blob/de61c0d0684afb8fb93228aeaa3e7961d58682cf/zh-cn/react-native-pager-view.md#link)进行引入
 

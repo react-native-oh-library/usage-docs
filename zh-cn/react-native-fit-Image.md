@@ -310,7 +310,7 @@ export default FitImageDemo;
 ## 遗留问题
 
 1. 在react-native-fit-image三方库中`onError`.`onLoadStart`.`onLayout`回调方法，在原库文档（react-native-fit-image）作者已说明并没有适配（Some props are not working），有待开发[issues](https://github.com/huiseoul/react-native-fit-image/issues/76)
-2. `borderRadius`图片圆角属性，在鸿蒙，ios，安卓均不支持，官方文档互动有提到borderRadius不生效;[issues](https://github.com/huiseoul/react-native-fit-image/issues/111)
+2. `borderRadius`图片圆角属性，在 HarmonyOS ，ios，安卓均不支持，官方文档互动有提到borderRadius不生效;[issues](https://github.com/huiseoul/react-native-fit-image/issues/111)
 
 ## 其他
 

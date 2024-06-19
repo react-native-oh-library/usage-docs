@@ -125,7 +125,7 @@ export default RNCommunications;
 
 ## 遗留问题
 
-- [ ] 鸿蒙侧没有邮箱应用，导致email方法无法打开发送邮件界面问题: [issue#1](https://github.com/react-native-oh-library/react-native-communications/issues/1)
+- [ ]  HarmonyOS 侧没有邮箱应用，导致email方法无法打开发送邮件界面问题: [issue#1](https://github.com/react-native-oh-library/react-native-communications/issues/1)
 - [ ] text添加body之后，没法在短信界面拆分进短信输入栏问题: [issue#2](https://github.com/react-native-oh-library/react-native-communications/issues/2)
 
 ## 其他

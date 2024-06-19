@@ -152,8 +152,8 @@ BOTTOM | toast显示位置:BOTTOM | number | / | no
 CENTER | toast显示位置:CENTER | number | / | no
 
 ## 遗留问题
-- [ ] 鸿蒙toast不支持修改字体，背景色等样式[issue#3](https://github.com/react-native-oh-library/react-native-simple-toast/issues/3)
-- [ ] 鸿蒙rn框架toast组件不支持设置位置及偏移[issue#2](https://github.com/react-native-oh-library/react-native-simple-toast/issues/2)
+- [ ]  HarmonyOS toast不支持修改字体，背景色等样式[issue#3](https://github.com/react-native-oh-library/react-native-simple-toast/issues/3)
+- [ ]  HarmonyOS rn框架toast组件不支持设置位置及偏移[issue#2](https://github.com/react-native-oh-library/react-native-simple-toast/issues/2)
 
 ## 其他
 

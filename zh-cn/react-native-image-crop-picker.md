@@ -793,9 +793,9 @@ export default ImageCropPickDemo;
 
 ## Link
 
-目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
 
-首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 harmony
+首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 harmony
 
 ```
 在工程根目录的 oh-package.json 添加 overrides字段
@@ -1087,7 +1087,7 @@ ohpm install
 - [ ] Android Demo中 改变工具栏颜色 [#7](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/7)
 - [ ] 裁剪图像时，禁用裁剪库的颜色设置器 [#8](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/8)
 - [ ] 裁剪图像时，确定工具栏文本和按钮的颜色 [#9](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/9)
-- [ ] 调用ViewController“completion”块，Promise将解析/拒绝，鸿蒙不支持 [#10](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/10)
+- [ ] 调用ViewController“completion”块，Promise将解析/拒绝， HarmonyOS 不支持 [#10](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/10)
 - [ ] Ios支持智能相册列表  [#11](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/11)
 - [ ] Ios视频压缩的预设 [#12](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/12)
 - [ ] Ios智能相册排序  [#13](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/13)

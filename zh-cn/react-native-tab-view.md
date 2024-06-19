@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
 
 ## Link
 
-本库鸿蒙侧实现依赖@react-native-oh-tpl/react-native-pager-view 的原生端代码，如已在鸿蒙工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-pager-view 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
 
 如未引入请参照[@react-native-oh-tpl/react-native-pager-view 文档的 Link 章节](/zh-cn/react-native-pager-view.md#link)进行引入
 
@@ -214,9 +214,9 @@ const styles = StyleSheet.create({
 
 详情请查看[tabview 官方文档](https://github.com/react-navigation/react-navigation/blob/main/packages/react-native-tab-view/README.md)
 
-如下是 tabview 已经鸿蒙化的属性：
+如下是 tabview 已经 HarmonyOS 化的属性：
 
-> [!tip] "鸿蒙支持"列为 yes 的属性表示支持鸿蒙平台，并且效果对标"原库平台"列中的 ios 或 android 的效果。
+> [!tip] " HarmonyOS 支持"列为 yes 的属性表示支持 HarmonyOS 平台，并且效果对标"原库平台"列中的 ios 或 android 的效果。
 
 | Name                  | Description                                                                                            | Type     | Required | Platform | HarmonyOS Support |
 | --------------------- | ------------------------------------------------------------------------------------------------------ | -------- | -------- | -------- | ----------------- |

@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
 
 ### ActionButton:
 
-| 名称                      | 说明                                                                                                                                                                                                                                              | 类型     | 是否必填 | 原库平台 | 鸿蒙支持 |
+| 名称                      | 说明                                                                                                                                                                                                                                              | 类型     | 是否必填 | 原库平台 |  HarmonyOS 支持 |
 | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | -------- |
 | resetToken                | use this to reset the internal component state (expand/collapse) in a re-render cycle. Synchronize the component state.                                                                                                                           | any      | No       | /        | Yes      |
 | size                      | use this to change the size of the Button                                                                                                                                                                                                         | number   | No       | /        | Yes      |
@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
 
 ### ActionButton.Item:
 
-| 名称                      | 说明                                                                       | 类型     | 是否必填 | 原库平台 | 鸿蒙支持 |
+| 名称                      | 说明                                                                       | 类型     | 是否必填 | 原库平台 |  HarmonyOS 支持 |
 | ------------------------- | -------------------------------------------------------------------------- | -------- | -------- | -------- | -------- |
 | size                      | use this to change the size of the Button                                  | number   | No       | /        | Yes      |
 | buttonColor               | background color of the Button                                             | string   | No       | /        | Yes      |

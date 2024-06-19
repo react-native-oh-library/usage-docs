@@ -176,7 +176,7 @@ export default Shadow2Demo;
 
 ## Link
 
-本库鸿蒙侧实现依赖@react-native-oh-tpl/react-native-svg 的原生端代码，如已在鸿蒙工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-svg 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
 
 如未引入请参照[@react-native-oh-tpl/react-native-svg 文档的 Link 章节](/zh-cn/react-native-svg.md#link)进行引入
 
@@ -215,7 +215,7 @@ export default Shadow2Demo;
 
 目前可使用的属性，具体见上面已列出。
 
-- [ ] 由于react-native-shadow-2强依赖[`react-native-svg`](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-svg.md)库，但react-native-svg目前仅实现少部分属性，其余还未实现鸿蒙化， 导致属性offset、paintInside、corners不可用问题: [issue#5](https://github.com/react-native-oh-library/react-native-svg/issues/5)
+- [ ] 由于react-native-shadow-2强依赖[`react-native-svg`](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-svg.md)库，但react-native-svg目前仅实现少部分属性，其余还未实现 HarmonyOS 化， 导致属性offset、paintInside、corners不可用问题: [issue#5](https://github.com/react-native-oh-library/react-native-svg/issues/5)
 
 ## 其他
 

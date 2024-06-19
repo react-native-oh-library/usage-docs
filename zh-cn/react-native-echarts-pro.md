@@ -82,7 +82,7 @@ export default function RNEPDemo() {
 
 ## Link
 
-本库鸿蒙侧实现依赖@react-native-oh-tpl/react-native-webview 的原生端代码，如已在鸿蒙工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-webview 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
 
 如未引入请参照[@react-native-oh-tpl/react-native-webview 文档的 Link 章节](/zh-cn/react-native-webview.md)进行引入
 
@@ -119,7 +119,7 @@ export default function RNEPDemo() {
 
 ## 遗留问题
 
-- [ ] fontFamilies自定义字体属性未生效，该属性需要将字体文件转为base64字符串，拼接在html中的style标签中使用，经验证，这种用法在react-native-webview的最小化demo也不生效，一旦有base64字体加载，就会白屏并无法触发loadEnd，而原生鸿蒙webview上显示正常 [issues#20](https://github.com/react-native-oh-library/react-native-webview/issues/20)
+- [ ] fontFamilies自定义字体属性未生效，该属性需要将字体文件转为base64字符串，拼接在html中的style标签中使用，经验证，这种用法在react-native-webview的最小化demo也不生效，一旦有base64字体加载，就会白屏并无法触发loadEnd，而原生 HarmonyOS webview上显示正常 [issues#20](https://github.com/react-native-oh-library/react-native-webview/issues/20)
 
 ## 其他
 

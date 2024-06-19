@@ -75,7 +75,7 @@ function MyUI() {
 
 详情见 [styled-components 源库地址](https://github.com/styled-components/styled-components)
 
-| 名称              | 说明                                                                                                                                                                                  | 类型          | 是否必填 | 原库平台 | 鸿蒙支持 |
+| 名称              | 说明                                                                                                                                                                                  | 类型          | 是否必填 | 原库平台 |  HarmonyOS 支持 |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | -------- | -------- | -------- |
 | ThemeProvider     | A helper component for theming.                                                                                                                                                       | component     | No       | /        | Yes      |
 | css               | The css prop is a convenient way to iterate on your components without settling on fixed component boundaries yet                                                                     | prop          | No       | /        | Yes      |

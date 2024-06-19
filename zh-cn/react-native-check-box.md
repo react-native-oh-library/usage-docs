@@ -113,7 +113,7 @@ export default example;
 
 ### React-navite-check-box:
 
-| 名称                   | 说明                                                                                                                  | 类型                      | 是否必填 | 原库平台    | 鸿蒙支持 |
+| 名称                   | 说明                                                                                                                  | 类型                      | 是否必填 | 原库平台    |  HarmonyOS 支持 |
 | ---------------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------------- | -------- | ----------- | -------- |
 | style                  | Custom style checkbox                                                                                                 | ViewPropTypes.style       | No       | Android/IOS | Yes      |
 | leftText               | Custom left Text                                                                                                      | PropTypes.string          | No       | Android/IOS | Yes      |

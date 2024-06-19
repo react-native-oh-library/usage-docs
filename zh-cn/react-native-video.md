@@ -402,9 +402,9 @@ export default RNCVideoDemo;
 
 ## Link
 
-目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
 
-首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
+首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
 ### 引入原生端代码
 
@@ -565,7 +565,7 @@ ohpm install
 
 详情请查看[react-native-video 官方文档](https://github.com/react-native-video/react-native-video/blob/support/5.2.X/README.md)
 
-如下是 react-native-video 已经鸿蒙化的属性：
+如下是 react-native-video 已经 HarmonyOS 化的属性：
 
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 

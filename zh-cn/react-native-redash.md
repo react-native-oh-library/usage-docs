@@ -27,7 +27,7 @@ npm install react-native-redash@^18.1.3
 
 <!-- tabs:end -->
 
-redash库依赖react-native-reanimated动画库，为适配鸿蒙环境，需要把库里的依赖改成@react-native-oh-tpl/react-native-reanimated。下面的代码展示了这个库的基本使用场景：
+redash库依赖react-native-reanimated动画库，为适配 HarmonyOS 环境，需要把库里的依赖改成@react-native-oh-tpl/react-native-reanimated。下面的代码展示了这个库的基本使用场景：
 
 ```js
 // findLastIndex 为例
@@ -190,7 +190,7 @@ return (
 
 ## Link
 
-本库鸿蒙侧实现依赖@react-native-oh-tpl/react-native-reanimated 的原生端代码，如已在鸿蒙工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-reanimated 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
 
 如未引入请参照[@react-native-oh-tpl/react-native-reanimated 文档的 Link 章节](/zh-cn/react-native-reanimated.md#link)进行引入
 

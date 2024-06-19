@@ -92,9 +92,9 @@ const styles = StyleSheet.create({
 
 ## Link
 
-目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
 
-首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
+首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
 ### 在工程根目录的 `oh-package.json` 添加 overrides字段
 
@@ -213,7 +213,7 @@ ohpm install
 
 ## 遗留问题
 
-- [ ] 由于鸿蒙侧原生依赖鸿蒙三方库@ohos/video-cache中HttpProxyCacheServer实例化对象方法getProxyUrl暂为异步方法，导致本库同步方法convertToCache暂无法实现，问题：[issue#1](https://github.com/react-native-oh-library/react-native-video-cache/issues/1)
+- [ ] 由于 HarmonyOS 侧原生依赖 HarmonyOS 三方库@ohos/video-cache中HttpProxyCacheServer实例化对象方法getProxyUrl暂为异步方法，导致本库同步方法convertToCache暂无法实现，问题：[issue#1](https://github.com/react-native-oh-library/react-native-video-cache/issues/1)
 
 ## 开源协议
 

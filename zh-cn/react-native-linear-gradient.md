@@ -89,9 +89,9 @@ var styles = StyleSheet.create({
 
 ## Link
 
-目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
 
-首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
+首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
 ### 在工程根目录的 `oh-package.json` 添加 overrides 字段
 
@@ -248,7 +248,7 @@ ohpm install
 
 ## 属性
 
-> [!tip] "鸿蒙支持"列为 yes 的 API 表示支持鸿蒙平台，并且效果对标"原库平台"列中的 ios 或 android 的效果。
+> [!tip] " HarmonyOS 支持"列为 yes 的 API 表示支持 HarmonyOS 平台，并且效果对标"原库平台"列中的 ios 或 android 的效果。
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 

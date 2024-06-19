@@ -3,6 +3,7 @@
 - [首页](/zh-cn/README.md)
 - [贡献文档](/zh-cn/contribute.md)
 - [文档模板](/zh-cn/model.md)
+- [codegen使用指导](/zh-cn/codegen.md)
 - [链接源码](/zh-cn/link-source-code.md)
 - 三方库说明文档合集
   - RN 原生库

@@ -256,9 +256,9 @@ const styles = StyleSheet.create({
 
 ## Link
 
-目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
 
-首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
+首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
 ### 在工程根目录的 `oh-package.json` 添加 overrides字段
 
@@ -382,8 +382,8 @@ ohpm install
 
 ## 遗留问题
 
-- [ ] 鸿蒙端file picker selectMode设置选文件夹无效: [issue#1](https://github.com/react-native-oh-library/document-picker/issues/1) 
-- [ ] releaseSecureAccess选择沙箱路径外文件无法实现，鸿蒙暂无此能力接口: [issue#2](https://github.com/react-native-oh-library/document-picker/issues/2)
+- [ ]  HarmonyOS 端file picker selectMode设置选文件夹无效: [issue#1](https://github.com/react-native-oh-library/document-picker/issues/1) 
+- [ ] releaseSecureAccess选择沙箱路径外文件无法实现， HarmonyOS 暂无此能力接口: [issue#2](https://github.com/react-native-oh-library/document-picker/issues/2)
 
 ## 其他
 

@@ -178,9 +178,9 @@ export default App;
 
 ## Link
 
-目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
 
-首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
+首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
 ### 引入原生端代码
 
@@ -357,7 +357,7 @@ ohpm install
 
 仅组件支持渲染，在 RNOH0.72.10 版本中需要给 List 类型子组件添加 bounces = {false}属性，否则无法触发本组件的下拉。（0.72.11 版本已解决）
 
-| 名称           | 说明                     | 类型   | 是否必填 | 原库平台 | 鸿蒙支持 |
+| 名称           | 说明                     | 类型   | 是否必填 | 原库平台 |  HarmonyOS 支持 |
 | -------------- | ------------------------ | ------ | -------- | -------- | -------- |
 | `primaryColor` | 刷新组件 Header 的主调色 | string | No       | Android  | 不支持   |
 
@@ -365,7 +365,7 @@ ohpm install
 
 当前组件不支持
 
-| 名称           | 说明                     | 类型   | 是否必填 | 原库平台 | 鸿蒙支持 |
+| 名称           | 说明                     | 类型   | 是否必填 | 原库平台 |  HarmonyOS 支持 |
 | -------------- | ------------------------ | ------ | -------- | -------- | -------- |
 | `primaryColor` | 刷新组件 Header 的主调色 | string | No       | Android  | 不支持   |
 | `accentColor`  | 刷新组件 Header 的强调色 | string | No       | Android  | 不支持   |
@@ -374,7 +374,7 @@ ohpm install
 
 当前组件不支持
 
-| 名称        | 说明                        | 类型   | 是否必填 | 原库平台 | 鸿蒙支持 |
+| 名称        | 说明                        | 类型   | 是否必填 | 原库平台 |  HarmonyOS 支持 |
 | ----------- | --------------------------- | ------ | -------- | -------- | -------- |
 | `text`      | StoreHouseHeader 的文字     | string | No       | Android  | 不支持   |
 | `textColor` | StoreHouseHeader 的文字颜色 | string | No       | Android  | 不支持   |

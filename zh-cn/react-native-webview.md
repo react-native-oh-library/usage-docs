@@ -56,9 +56,9 @@ export default function WebViewDemo() {
 
 ## Link
 
-目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
 
-首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
+首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
 ### 在工程根目录的 `oh-package.json` 添加 overrides 字段
 
@@ -273,7 +273,7 @@ RNOH: 0.72.26; SDK: HarmonyOS NEXT Developer Beta1; IDE: DevEco Studio 5.0.3.300
 
 ## 遗留问题
 
-- [ ]  webview 部分属性未实现鸿蒙化[issue#17](https://github.com/react-native-oh-library/react-native-webview/issues/17)
+- [ ]  webview 部分属性未实现 HarmonyOS 化[issue#17](https://github.com/react-native-oh-library/react-native-webview/issues/17)
 - [X]  中文乱码[issue#18](https://github.com/react-native-oh-library/react-native-webview/issues/18)
 
 ## 其他

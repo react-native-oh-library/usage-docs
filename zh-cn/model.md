@@ -17,7 +17,7 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/<鸿蒙化源码仓地址>)
+> [!TIP] [Github 地址](https://github.com/< HarmonyOS 化源码仓地址>)
 
 如：
 
@@ -84,9 +84,9 @@ export default App;
 
 ## Link
 
-目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
 
-首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
+首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
 ### 在工程根目录的 `oh-package.json` 添加 overrides 字段
 
@@ -289,7 +289,7 @@ ohpm install
 
 （填入相关权限配置）
 
-**以下属性、静态方法、API 需要检查说明中手机平台描述，例如已支持鸿蒙的接口并且说明中提到 ios 和 android，那么需要检查是否补充 harmony 进到描述中。示例如下（删除）**
+**以下属性、静态方法、API 需要检查说明中手机平台描述，例如已支持 HarmonyOS 的接口并且说明中提到 ios 和 android，那么需要检查是否补充 harmony 进到描述中。示例如下（删除）**
 
 ```
 // 原描述

@@ -91,9 +91,9 @@ export default LocalizeDemo;
 
 ## Link
 
-目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
 
-首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
+首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
 ### 引入原生端代码
 
@@ -205,7 +205,7 @@ RNOH：0.72.23; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.
 | findBestLanguageTag()    | Returns the best language tag possible and its reading direction | No       | All      | yes               |
 
 ## 遗留问题
-- [ ] 鸿蒙侧无法获取温度及长度单位[issue#2](https://github.com/react-native-oh-library/react-native-localize/issues/2)
+- [ ]  HarmonyOS 侧无法获取温度及长度单位[issue#2](https://github.com/react-native-oh-library/react-native-localize/issues/2)
 
 ## 其他
 

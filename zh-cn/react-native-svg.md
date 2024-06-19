@@ -52,9 +52,9 @@ import Svg, { Path } from "react-native-svg";
 
 ## Link
 
-目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
 
-首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
+首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
 ### 在工程根目录的 `oh-package.json` 添加 overrides 字段
 
@@ -312,7 +312,7 @@ ohpm install
 | height |     元素高度      | number\| string | No       | All      | Yes               |
 |  href  |   图像资源引用    | source\| string | Yes      | All      | Yes               |
 
-**公共属性**：Common props 组件属性鸿蒙侧支持情况
+**公共属性**：Common props 组件属性 HarmonyOS 侧支持情况
 
 |    Name     |             Description              |  Type  | Default | Required | Platform | G   | Path | Rect | Circle | Polygon |
 | :---------: | :----------------------------------: | :----: | :-----: | :------: | -------- | --- | ---- | ---- | ------ | ------- |
@@ -322,7 +322,7 @@ ohpm install
 
 ## 遗留问题
 
-- [ ] svg 当前仅实现少部分属性（具体见上面已列出的属性），其余还未实现鸿蒙化[issue#5](https://github.com/react-native-oh-library/react-native-svg/issues/5)
+- [ ] svg 当前仅实现少部分属性（具体见上面已列出的属性），其余还未实现 HarmonyOS 化[issue#5](https://github.com/react-native-oh-library/react-native-svg/issues/5)
 
 ## 其他
 

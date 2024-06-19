@@ -89,9 +89,9 @@ export default App;
 
 详情请查看[react-native-intersection-observer](https://github.com/zhbhun/react-native-intersection-observer/blob/master/README.md)
 
-如下是已经鸿蒙化的属性：
+如下是已经 HarmonyOS 化的属性：
 
-> [!tip] "鸿蒙支持"列为 yes 的属性表示支持鸿蒙平台，并且效果对标"原库平台"列中的 ios 或 android 的效果。
+> [!tip] " HarmonyOS 支持"列为 yes 的属性表示支持 HarmonyOS 平台，并且效果对标"原库平台"列中的 ios 或 android 的效果。
 
 #### **IOScrollView** **组件**
 

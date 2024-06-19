@@ -89,7 +89,7 @@ render() {
 
 ## 遗留问题
 
-- [ ] cppcrash 问题：在鸿蒙测试时，当 network 里有数据时，tab 页从 network 切换到 info 时，会出现 cppcrash 问题，提示/system/lib64/module/application/libapplicationcontext.z.so 包不存在。
+- [ ] cppcrash 问题：在 HarmonyOS 测试时，当 network 里有数据时，tab 页从 network 切换到 info 时，会出现 cppcrash 问题，提示/system/lib64/module/application/libapplicationcontext.z.so 包不存在。
 
 ## 其他
 

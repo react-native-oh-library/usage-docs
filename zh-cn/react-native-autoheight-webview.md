@@ -50,7 +50,7 @@ import AutoHeightWebView from "react-native-autoheight-webview";
 
 ## Link
 
-本库鸿蒙侧实现依赖@react-native-oh-tpl/react-native-webview 的原生端代码，如已在鸿蒙工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-webview 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
 
 如未引入请参照[@react-native-oh-tpl/react-native-webview 文档的 Link 章节](https://gitee.com/react-native-oh-library/usage-docs/blob/master/vmall/react-native-webview.md#link)进行引入
 
@@ -85,7 +85,7 @@ import AutoHeightWebView from "react-native-autoheight-webview";
 
 ## 遗留问题
 
-- [ ] autoheight-webview 部分属性未实现鸿蒙化[issue#1](https://github.com/react-native-oh-library/react-native-autoheight-webview/issues/1)
+- [ ] autoheight-webview 部分属性未实现 HarmonyOS 化[issue#1](https://github.com/react-native-oh-library/react-native-autoheight-webview/issues/1)
 - [x] 中文乱码[issue#2](https://github.com/react-native-oh-library/react-native-autoheight-webview/issues/2)
 
 ## 其他

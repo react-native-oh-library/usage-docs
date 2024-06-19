@@ -50,9 +50,9 @@ import LottieView from "lottie-react-native";
 
 ## Link
 
-目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
 
-首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
+首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
 ### 引入原生端代码
 
@@ -187,7 +187,7 @@ ohpm install
 ### 权限要求
 
 - 如果 source 使用网络 url 应用需要申请网络权限
-- 如果使用的 json 文件里有依赖图片资源或使用 imageAssetsFolder 属性，需要将资源文件放置到鸿蒙工程 rawfile 下对应的路径中
+- 如果使用的 json 文件里有依赖图片资源或使用 imageAssetsFolder 属性，需要将资源文件放置到 HarmonyOS 工程 rawfile 下对应的路径中
 
 ## 属性
 

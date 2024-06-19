@@ -79,9 +79,9 @@ import MaskedView from "@react-native-masked-view/masked-view";
 
 ## Link
 
-目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
 
-首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
+首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
 ### 引入原生端代码
 
@@ -228,7 +228,7 @@ ohpm install
 
 ## 遗留问题
 
-- [ ] 鸿蒙侧未实现遮罩效果[issue#1](https://github.com/react-native-oh-library/masked-view/issues/1)
+- [ ]  HarmonyOS 侧未实现遮罩效果[issue#1](https://github.com/react-native-oh-library/masked-view/issues/1)
 
 ## 其他
 

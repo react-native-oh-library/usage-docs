@@ -73,7 +73,7 @@ export default function ZipArchiveDemo() {
     }
 
     useEffect(() => {
-        let filesDir = pathParameters(); // 获取鸿蒙应用文件路径
+        let filesDir = pathParameters(); // 获取 HarmonyOS 应用文件路径
         let newZipPath: any = filesDir + '.zip';
         let newSourcePath: any = filesDir;
         let newFolder: any = filesDir + 'Out';//解压时新建个文件夹
@@ -403,9 +403,9 @@ const styles = StyleSheet.create({
 
 ## Link
 
-目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
 
-首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
+首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
 ### 在工程根目录的 `oh-package.json` 添加 overrides 字段
 

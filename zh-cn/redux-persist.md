@@ -25,7 +25,7 @@ yarn add redux-persist@6.0.0
 npm install redux-persist@6.0.0
 ```
 
-实现持久化效果还需依赖`鸿蒙化的async-storage` 库用于原生数据库读写，安装使用文档如下：
+实现持久化效果还需依赖` HarmonyOS 化的async-storage` 库用于原生数据库读写，安装使用文档如下：
 
 > [async-storage 安装使用文档](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-async-storage-async-storage.md)
 

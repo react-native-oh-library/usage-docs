@@ -104,9 +104,9 @@ export default function App() {
 
 ## Link
 
-目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
 
-首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
+首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
 ### 引入原生端代码
 
@@ -194,7 +194,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 react-native-gesture-handler 在 2.x 版本里，不再从原生端引入 `<GestureHandlerRootView>`，而是在 JS 端添加。详情请看官方说明：[Migrating off RNGHEnabledRootView](https://docs.swmansion.com/react-native-gesture-handler/docs/guides/migrating-off-rnghenabledroot)。
 
-鸿蒙支持 1.x 在原生端替换 `RootView` 来添加 `<GestureHandlerRootView>` 的方式。
+ HarmonyOS 支持 1.x 在原生端替换 `RootView` 来添加 `<GestureHandlerRootView>` 的方式。
 
 **如果使用 2.x 方式，则把后面带有 `1.x` 注释的代码删掉即可**
 
@@ -294,7 +294,7 @@ GestureDetector 是 Gesture Handler 库 2.x 版本的一个主要组件。
 
 #### Gesture detector 属性
 
-| 名称       | 说明                                                                                             | 类型                                 | 是否必填 | 原库平台 | 鸿蒙支持 |
+| 名称       | 说明                                                                                             | 类型                                 | 是否必填 | 原库平台 |  HarmonyOS 支持 |
 | ---------- | ------------------------------------------------------------------------------------------------ | ------------------------------------ | -------- | -------- | -------- |
 | gesture    | A gesture object containing the configuration and callbacks.                                     | base gestures or any ComposedGesture | yes      | All      | yes      |
 | userSelect | This parameter allows to specify which userSelect property should be applied to underlying view. | ("none" \| "auto" \| "text")         | no       | Web      | no       |
@@ -327,7 +327,7 @@ Gesture Handler 库提供了一种基于原生按钮的 React Native touchable �
 
 ### Gesture handlers 通用属性
 
-| 名称                    | 说明                                                                                                                                              | 类型                         | 是否必填 | 原库平台 | 鸿蒙支持 |
+| 名称                    | 说明                                                                                                                                              | 类型                         | 是否必填 | 原库平台 |  HarmonyOS 支持 |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | -------- | -------- | -------- |
 | enabled                 | Indicates whether the given handler should be analyzing stream of touch events or not.                                                            | boolean                      | no       | All      | yes      |
 | shouldCancelWhenOutside | When true the handler will cancel or fail recognition (depending on its current state) whenever the finger leaves the area of the connected view. | boolean                      | no       | All      | no       |
@@ -344,7 +344,7 @@ Gesture Handler 库提供了一种基于原生按钮的 React Native touchable �
 
 以下是提供给 `onGestureEvent` 和 `onHandlerStateChange` 回调的通用事件数据:
 
-| 名称             | 说明                                                                        | 类型   | 原库平台 | 鸿蒙支持 |
+| 名称             | 说明                                                                        | 类型   | 原库平台 |  HarmonyOS 支持 |
 | ---------------- | --------------------------------------------------------------------------- | ------ | -------- | -------- |
 | state            | Current state of the handler.                                               | State  | All      | yes      |
 | numberOfPointers | Represents the number of pointers (fingers) currently placed on the screen. | number | All      | yes      |
@@ -353,7 +353,7 @@ Gesture Handler 库提供了一种基于原生按钮的 React Native touchable �
 
 #### PanGestureHandler 属性
 
-| 名称                           | 说明                                                                                                                                                                                        | 类型    | 是否必填 | 原库平台 | 鸿蒙支持 |
+| 名称                           | 说明                                                                                                                                                                                        | 类型    | 是否必填 | 原库平台 |  HarmonyOS 支持 |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------- | -------- | -------- |
 | minDist                        | Minimum distance the finger (or multiple finger) need to travel before the handler activates.                                                                                               | number  | no       | All      | yes      |
 | minPointers                    | A number of fingers that is required to be placed before handler can activate.                                                                                                              | number  | no       | All      | yes      |
@@ -403,7 +403,7 @@ Y coordinate of the current position of the pointer (finger or a leading pointer
 
 #### TapGestureHandler 属性
 
-| 名称          | 说明                                                                                                                               | 类型   | 是否必填 | 原库平台 | 鸿蒙支持 |
+| 名称          | 说明                                                                                                                               | 类型   | 是否必填 | 原库平台 |  HarmonyOS 支持 |
 | ------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------ | -------- | -------- | -------- |
 | minPointers   | Minimum number of pointers (fingers) required to be placed before the handler activates.                                           | number | no       | All      | yes      |
 | maxDurationMs | Maximum time, expressed in milliseconds, that defines how fast a finger must be released after a touch.                            | number | no       | All      | yes      |

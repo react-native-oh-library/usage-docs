@@ -210,9 +210,9 @@ const styles = StyleSheet.create({
 
 ## Link
 
-目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
 
-首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
+首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
 ### 在工程根目录的 `oh-package.json` 添加 overrides字段
 
@@ -335,7 +335,7 @@ RNOH: 0.72.20; SDK: HarmonyOS NEXT Developer Beta1 B.0.18; IDE: DevEco Studio 5.
 
 ## 遗留问题
 
-- [ ] 使用worker开的新线程中不支持RNOHContext序列化传参，底层OS暂不支持，导致无法在新线程中发送事件，需要底层OS框架实现相关业务功能。不开线程的情况下，因setTimeout属于异步方法，定时器效果不受影响。[worker线程遗留问题:start和stop接口，鸿蒙RN框架暂不支持](https://github.com/react-native-oh-library/react-native-background-timer/issues/3)
+- [ ] 使用worker开的新线程中不支持RNOHContext序列化传参，底层OS暂不支持，导致无法在新线程中发送事件，需要底层OS框架实现相关业务功能。不开线程的情况下，因setTimeout属于异步方法，定时器效果不受影响。[worker线程遗留问题:start和stop接口， HarmonyOS RN框架暂不支持](https://github.com/react-native-oh-library/react-native-background-timer/issues/3)
 
 ## 其他
 

@@ -68,9 +68,9 @@ export default App;
 
 ## Link
 
-目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
 
-首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
+首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
 ### 引入原生端代码
 
@@ -236,7 +236,7 @@ You should add `SafeAreaProvider` in your app root component. You may need to ad
 
 Note that providers should not be inside a View that is animated with Animated or inside a ScrollView since it can cause very frequent updates.
 
-| 名称             | 说明                                                                                                                                                            | 类型   | 是否必填 | 原库平台 | 鸿蒙支持 |
+| 名称             | 说明                                                                                                                                                            | 类型   | 是否必填 | 原库平台 |  HarmonyOS 支持 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | -------- | -------- | -------- |
 | `Props`          | Accepts all View props. Has a default style of {flex: 1}.                                                                                                       | object | no       | All      | yes      |
 | `initialMetrics` | Can be used to provide the initial value for frame and insets, this allows rendering immediatly. See optimization for more information on how to use this prop. | object | no       | All      | yes      |
@@ -245,7 +245,7 @@ Note that providers should not be inside a View that is animated with Animated o
 
 `SafeAreaView` is a regular View component with the safe area insets applied as padding or margin.
 
-| 名称    | 说明                                                                                            | 类型   | 是否必填 | 原库平台 | 鸿蒙支持 |
+| 名称    | 说明                                                                                            | 类型   | 是否必填 | 原库平台 |  HarmonyOS 支持 |
 | ------- | ----------------------------------------------------------------------------------------------- | ------ | -------- | -------- | -------- |
 | `Props` | Accepts all View props. Has a default style of {flex: 1}.                                       | object | no       | All      | yes      |
 | `edges` | Sets the edges to apply the safe area insets to. Defaults to all.                               | array  | no       | All      | yes      |

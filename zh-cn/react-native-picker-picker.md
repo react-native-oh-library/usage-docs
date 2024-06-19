@@ -58,9 +58,9 @@ const [selectedLanguage, setSelectedLanguage] = useState();
 
 ## Link
 
-目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
 
-首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
+首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
 ### 引入原生端代码
 
@@ -186,7 +186,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ### PickerProps
 
-| 名称                      | 说明                                                                                              | 类型                                                         | 是否必填 | 平台                  | 鸿蒙支持  |
+| 名称                      | 说明                                                                                              | 类型                                                         | 是否必填 | 平台                  |  HarmonyOS 支持  |
 | ------------------------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | -------- | --------------------- | --------- |
 | `onValueChange`           | Callback for when an item is selected.                                                            | function                                                     | No       | All                   | yes       |
 | `selectedValue`           | Value matching value of one of the items. Can be a string or an integer.                          | any                                                          | No       | All                   | yes       |
@@ -206,7 +206,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ### PickerItemProps
 
-| 名称                 | 说明                                                                                                     | 类型          | 是否必填 | 平台    | 鸿蒙支持 |
+| 名称                 | 说明                                                                                                     | 类型          | 是否必填 | 平台    |  HarmonyOS 支持 |
 | -------------------- | -------------------------------------------------------------------------------------------------------- | ------------- | -------- | ------- | -------- |
 | `label`              | Displayed value on the Picker Item.                                                                      | string        | yes      | All     | yes      |
 | `value`              | Actual value on the Picker Item.                                                                         | number,string | yes      | All     | yes      |
@@ -219,7 +219,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ## 静态方法
 
-| 名称    | 说明                            | 平台    | 鸿蒙支持 |
+| 名称    | 说明                            | 平台    |  HarmonyOS 支持 |
 | ------- | ------------------------------- | ------- | -------- |
 | `blur`  | Programmatically closes picker. | Android | no       |
 | `focus` | Programmatically opens picker.  | Android | no       |

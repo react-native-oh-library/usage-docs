@@ -78,9 +78,9 @@ export default App;
 
 ## Link
 
-目前鸿蒙暂不支持` AutoLink`，所以` Link` 步骤需要手动配置。
+目前 HarmonyOS 暂不支持` AutoLink`，所以` Link` 步骤需要手动配置。
 
-首先需要使用 `DevEco Studio` 打开项目里的鸿蒙工程 `harmony`
+首先需要使用 `DevEco Studio` 打开项目里的 HarmonyOS 工程 `harmony`
 
 ## 约束与限制
 
@@ -99,9 +99,9 @@ export default App;
 
 详情请查看[react-native-markdown-display](https://github.com/iamacup/react-native-markdown-display/blob/master/README.md)
 
-如下是已经鸿蒙化的属性：
+如下是已经 HarmonyOS 化的属性：
 
-> [!tip] "鸿蒙支持"列为 yes 的属性表示支持鸿蒙平台，并且效果对标"原库平台"列中的 ios 或 android 的效果。
+> [!tip] " HarmonyOS 支持"列为 yes 的属性表示支持 HarmonyOS 平台，并且效果对标"原库平台"列中的 ios 或 android 的效果。
 
 | Name                      | Description                                                                                                                                                                                           | Default                                                                                                                    | Required | Platform | HarmonyOS Support |
 | ------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------------- |

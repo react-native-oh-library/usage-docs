@@ -43,7 +43,7 @@ import JsBarCode from 'jsbarcode';
 
 ### **With svg:**
 
-> [!tip] [jsbarcode库依赖react-native-svg库进行条形码展示, svg 当前仅实现部分属性，其余还未实现鸿蒙化] > [!tip] [详见react-native-svg](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-svg.md)
+> [!tip] [jsbarcode库依赖react-native-svg库进行条形码展示, svg 当前仅实现部分属性，其余还未实现 HarmonyOS 化] > [!tip] [详见react-native-svg](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-svg.md)
 
 ```tsx
 import {ScrollView, StyleSheet, View, Text} from 'react-native';
@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
 
 ### **With canvas:**
 
-> [!tip] [react-native-canvas库暂未鸿蒙化，当前无法使用canvas渲染，下面用法仅供参考]
+> [!tip] [react-native-canvas库暂未 HarmonyOS 化，当前无法使用canvas渲染，下面用法仅供参考]
 
 ```js
 var JsBarcode = require("jsbarcode");
@@ -315,7 +315,7 @@ JsBarcode("#barcode", "29012343", {
 
 ## 遗留问题
 
-jsbarcode库依赖react-native-svg库进行条形码展示, 因svg 当前仅实现部分属性，其余还未实现鸿蒙化，目前在HarmonyOS上条形码的文本位置效果不对，fontSize显示比较小。
+jsbarcode库依赖react-native-svg库进行条形码展示, 因svg 当前仅实现部分属性，其余还未实现 HarmonyOS 化，目前在HarmonyOS上条形码的文本位置效果不对，fontSize显示比较小。
 
 ## 其他
 

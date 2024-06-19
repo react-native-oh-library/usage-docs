@@ -20,7 +20,7 @@
 > [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-barcode-builder)
 
 ## 安装与使用
-1、库依赖的@react-native-community/art停止维护，与鸿蒙侧不兼容，需引入@react-native-oh-tpl/react-native-svg 的原生端代码，请参照[@react-native-oh-tpl/react-native-svg 文档的 Link 章节](/zh-cn/react-native-svg.md#link)进行引入。
+1、库依赖的@react-native-community/art停止维护，与 HarmonyOS 侧不兼容，需引入@react-native-oh-tpl/react-native-svg 的原生端代码，请参照[@react-native-oh-tpl/react-native-svg 文档的 Link 章节](/zh-cn/react-native-svg.md#link)进行引入。
 
 2、请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-barcode-builder](https://github.com/react-native-oh-library/react-native-barcode-builder/releases)，并下载适用版本的 tgz 包。
 
@@ -109,7 +109,7 @@ export const BarcodeBuilderExample = () => {
 
 ## Link
 
-本库鸿蒙侧实现依赖@react-native-oh-tpl/react-native-svg 的原生端代码，如已在鸿蒙工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-svg 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
 
 如未引入请参照[@react-native-oh-tpl/react-native-svg 文档的 Link 章节](/zh-cn/react-native-svg.md#link)进行引入
 

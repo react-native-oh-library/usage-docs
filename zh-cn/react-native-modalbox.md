@@ -1,4 +1,4 @@
-> 模板版本：v0.2.1
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-modalbox</code> </h1>
@@ -278,7 +278,7 @@ hese methods are optional, you can use the isOpen property instead
 
 | Name  | Description  | Type | Required  |Platform|HarmonyOS Support |
 | :------------ |:---------------:| :---------------:|:---------------:|:---------------:|:---------------:|
-| open  | Open the modal  | `function`  | no  | IOS/Android  | yes  |
+| open  | Open the modal | `function`  | no  | IOS/Android  | yes  |
 | close  | Close the modal | `function`  | no  | IOS/Android  | yes  |
 
 

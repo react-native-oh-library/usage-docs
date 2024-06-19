@@ -109,6 +109,7 @@
     - [react-native-easy-toast](/zh-cn/react-native-easy-toast.md)
     - [react-native-feather](/zh-cn/react-native-feather.md)
     - [react-navigation-native-stack](/zh-cn/react-navigation-native-stack.md)
+    - [react-native-chart-kit](/zh-cn/react-native-chart-kit.md)
   - 纯 JS 库
     - [crypto-js](/zh-cn/crypto-js.md)
     - [deepmerge](/zh-cn/deepmerge.md)

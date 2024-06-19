@@ -47,8 +47,9 @@ yarn add react-native-chart-kit@^6.12.0
 
 > [!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
+
 ```js
-// 
 import React from 'react';
 import { View, Dimensions, StyleSheet } from 'react-native';
 import { LineChart } from 'react-native-chart-kit';
@@ -108,6 +109,8 @@ const styles = StyleSheet.create({
 
 export default MyChart;
 ```
+
+<!-- {% endraw %} -->
 
 ## Link
 

@@ -294,38 +294,8 @@ ohpm install
 +    }
 +  },
 +  {
-+    "name": "ohos.permission.MEDIA_LOCATION",
-+    "reason": "$string:media_location_reason",
-+    "usedScene": {
-+      "abilities": [
-+        "EntryAbility"
-+      ],
-+      "when":"inuse"
-+    }
-+  },
-+  {
 +    "name": "ohos.permission.APPROXIMATELY_LOCATION",
 +    "reason": "$string:location_reason",
-+    "usedScene": {
-+      "abilities": [
-+        "EntryAbility"
-+      ],
-+      "when":"inuse"
-+    }
-+  },
-+  {
-+    "name": "ohos.permission.WRITE_IMAGEVIDEO",
-+    "reason": "$string:write_media",
-+    "usedScene": {
-+      "abilities": [
-+        "EntryAbility"
-+      ],
-+      "when":"inuse"
-+    }
-+  },
-+  {
-+    "name": "ohos.permission.READ_IMAGEVIDEO",
-+    "reason": "$string:read_media",
 +    "usedScene": {
 +      "abilities": [
 +        "EntryAbility"
@@ -351,18 +321,6 @@ ohpm install
 +    {
 +      "name": "location_reason",
 +      "value": "获取当前位置"
-+    },
-+    {
-+      "name": "write_media",
-+      "value": "输出媒体文件"
-+    },
-+    {
-+      "name": "read_media",
-+      "value": "读取媒体文件"
-+    },
-+    {
-+      "name": "media_location_reason",
-+      "value": "获取媒体文件位置信息"
 +    },
 +    {
 +      "name": "microphone_reason",

@@ -36,7 +36,6 @@ yarn add react-native-render-html@6.3.4
 
 下面的代码展示了这个库的基本使用场景：
 
-<!-- {% raw %} -->
 ```js
 import React from "react";
 import { useWindowDimensions } from "react-native";
@@ -54,7 +53,6 @@ export default function App() {
   return <RenderHtml contentWidth={width} source={source} />;
 }
 ```
-<!-- {% endraw %} -->
 
 ## 约束与限制
 

@@ -38,7 +38,6 @@ yarn add @react-native-oh-tpl/react-native-image-crop-picker@file:#
 
 > [!TIP] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```
 import ImagePicker from 'react-native-image-crop-picker';
 import { openPicker } from 'react-native-image-crop-picker';
@@ -787,7 +786,6 @@ const styles = StyleSheet.create({
 });
 export default ImageCropPickDemo;
 ```
-<!-- {% endraw %} -->
 
 ## 使用 Codegen（如本库已适配了 Codegen ）
 

@@ -42,7 +42,6 @@ yarn add @react-native-oh-tpl/slider@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```js
 import Slider from "@react-native-community/slider";
 
@@ -54,7 +53,6 @@ import Slider from "@react-native-community/slider";
   maximumTrackTintColor="#000000"
 />;
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

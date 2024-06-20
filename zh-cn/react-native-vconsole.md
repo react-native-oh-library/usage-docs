@@ -35,7 +35,6 @@ yarn add @kafudev/react-native-vconsole@0.1.11
 
 下面的代码展示了这个库的基本使用场景：
 
-<!-- {% raw %} -->
 ```js
 import VConsole from '@kafudev/react-native-vconsole'
 /* INFO is optional */
@@ -62,7 +61,6 @@ render() {
   )
 }
 ```
-<!-- {% endraw %} -->
 
 ## 约束与限制
 

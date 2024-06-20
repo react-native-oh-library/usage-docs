@@ -40,7 +40,6 @@ yarn add react-native-easy-toast@2.3.0
 
 下面的代码展示了这个库的基本使用场景：
 
-<!-- {% raw %} -->
 ```js
 import React, { Component } from "react";
 import { Text, View, Button } from "react-native";
@@ -66,7 +65,6 @@ export default class App extends Component {
 
 
 ```
-<!-- {% endraw %} -->
 
 更多使用场景可查看 [react-native-easy-toast 源库地址](https://github.com/crazycodeboy/react-native-easy-toast)
 

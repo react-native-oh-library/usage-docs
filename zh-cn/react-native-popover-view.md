@@ -41,7 +41,6 @@ yarn add @react-native-oh-tpl/react-native-popover-view@file:#
 
 快速使用：
 
-<!-- {% raw %} -->
 ```typescript
 import React, { useState } from 'react';
 import {View, TouchableOpacity, Text, Button, Easing } from 'react-native';
@@ -138,7 +137,6 @@ const PopoverDemo = () => {
 
 export default PopoverDemo;
 ```
-<!-- {% endraw %} -->
 
 ## 约束与限制
 

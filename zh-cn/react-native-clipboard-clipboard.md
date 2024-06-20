@@ -42,7 +42,6 @@ yarn add @react-native-oh-tpl/clipboard@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```js
 import Clipboard from "@react-native-clipboard/clipboard";
 
@@ -68,7 +67,6 @@ const fetchCopiedText = async () => {
   <Text style={styles.copiedText}>{copiedText}</Text>
 </View>;
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

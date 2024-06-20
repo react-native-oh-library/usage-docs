@@ -37,7 +37,6 @@ yarn add react-native-image-header-scroll-view@0.10.3
 
 下面的代码展示了这个库的基本使用场景：
 
-<!-- {% raw %} -->
 ```js
 import { View, TouchableOpacity, Text } from "react-native";
 import React from "react";
@@ -74,7 +73,6 @@ export function ImageHeaderPropertyTest() {
   );
 }
 ```
-<!-- {% endraw %} -->
 
 ## 约束与限制
 

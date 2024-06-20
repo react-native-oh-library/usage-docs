@@ -31,7 +31,6 @@ npm install react-redux@^9.1.0
 
 1.创建一个命名为store.ts的文件
 
-<!-- {% raw %} -->
 ```ts
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "./action/counterSlice";
@@ -143,7 +142,6 @@ export function Counter() {
   // 省略渲染逻辑
 }
 ```
-<!-- {% endraw %} -->
 
 ### 兼容性
 

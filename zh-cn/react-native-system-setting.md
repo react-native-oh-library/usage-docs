@@ -46,7 +46,6 @@ yarn add @react-native-oh-tpl/react-native-system-setting@file:#
 
 >[!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```tsx
 import React, { useEffect, useState } from 'react'
 import SystemSetting, { EmitterSubscription } from 'react-native-system-setting'
@@ -155,7 +154,6 @@ const styles = StyleSheet.create({
 
 export default SystemSettingDemo
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

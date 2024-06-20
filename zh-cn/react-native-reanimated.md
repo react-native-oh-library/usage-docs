@@ -42,7 +42,6 @@ yarn add @react-native-oh-tpl/react-native-reanimated@file:#
 
 > [!TIP] 为什么需要添加这个？Reanimated Babel 插件会自动转换特殊的 JavaScript 函数（称为 worklet），以便它们可以被传递并在 UI 线程上运行。
 
-<!-- {% raw %} -->
 ```js
   module.exports = {
     presets: [
@@ -102,7 +101,6 @@ export default function App() {
   );
 }
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

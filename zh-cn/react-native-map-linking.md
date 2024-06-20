@@ -45,7 +45,6 @@ yarn add @react-native-oh-tpl/react-native-map-linking@file:#
 
 >[!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```js
 import React, { Component } from 'react';
 import {
@@ -102,7 +101,6 @@ const styles = StyleSheet.create({
 });
 export default MapLinkingDemo;  
 ```
-<!-- {% endraw %} -->
 
 
 

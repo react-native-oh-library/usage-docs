@@ -66,7 +66,6 @@ import moment from 'moment';
 
 下面的代码展示了这个库的基本使用示例：
 
-<!-- {% raw %} -->
 ```js
 // 获取今天0时0分0秒
 moment().startOf("day");
@@ -142,7 +141,6 @@ moment().format("HH时mm分ss秒");
 // 格式化时分秒(12小时制)：'xx:xx:xx am/pm'
 moment().format("hh:mm:ss a");
 ```
-<!-- {% endraw %} -->
 
 如下是已验证接口展示:
 

@@ -43,7 +43,6 @@ yarn add @react-native-oh-tpl/react-native-orientation@file:#
 
 >[!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```tsx
 
 import Orientation from 'react-native-orientation';
@@ -177,7 +176,6 @@ const styles = StyleSheet.create({
 
 
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

@@ -35,7 +35,6 @@ npm install redux-persist@6.0.0
 
 1.创建一个命名为store.ts的文件
 
-<!-- {% raw %} -->
 ```ts
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 
@@ -119,7 +118,6 @@ import store, {persistRootStore} from './store'
       </PersistGate>
     </Provider>
 ```
-<!-- {% endraw %} -->
 
 ### 兼容性
 

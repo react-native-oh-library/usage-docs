@@ -45,7 +45,6 @@ yarn add  @react-native-oh-tpl/react-naitve-svg-charts@file:#
 > [!WARNING] 使用时 import 的库名不变。
 
 areaChart：
-<!-- {% raw %} -->
 ```jsx
 import React from 'react'
 import { Path } from 'react-native-svg'
@@ -475,7 +474,6 @@ class PieChartWithLabelExample extends React.PureComponent {
 
 export default PieChartWithLabelExample
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

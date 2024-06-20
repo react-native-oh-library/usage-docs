@@ -48,7 +48,6 @@ yarn add @react-native-oh-tpl/react-native-barcode-builder@file:#
 
 >[!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```js
 import React, { useEffect } from 'react';
 import {
@@ -107,7 +106,6 @@ export const BarcodeBuilderExample = () => {
 }
 
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

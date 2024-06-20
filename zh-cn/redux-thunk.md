@@ -36,7 +36,6 @@ yarn add redux-thunk@3.1.0
 
 1.在Redux store中引入redux-thunk中间件
 
-<!-- {% raw %} -->
 ```js
 import React from "react";
 import { Provider } from "react-redux";
@@ -55,7 +54,6 @@ export const TodosExample = () => {
   );
 };
 ```
-<!-- {% endraw %} -->
 
 2.编写一个异步操作的action creator
 

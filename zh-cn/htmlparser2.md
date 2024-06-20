@@ -50,7 +50,6 @@ yarn add cheerio-select@2.1.0
 
 快速使用：
 
-<!-- {% raw %} -->
 ```js
 import * as htmlparser2 from "htmlparser2";
 
@@ -152,7 +151,6 @@ export interface CheerioOptions extends Parse5Options {
   quirksMode?: SelectOptions['quirksMode'];
 }
 ```
-<!-- {% endraw %} -->
 
 ## 兼容性
 

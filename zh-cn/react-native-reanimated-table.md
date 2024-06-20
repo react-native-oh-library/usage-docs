@@ -35,7 +35,6 @@ yarn add react-native-reanimated-table@^0.0.2
 
 >[!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```tsx
 import React, { Component } from 'react';
 import { StyleSheet, View } from 'react-native';
@@ -83,7 +82,6 @@ const styles = StyleSheet.create({
   text: { margin: 6 }
 });
 ```
-<!-- {% endraw %} -->
 
 ## 兼容性
 

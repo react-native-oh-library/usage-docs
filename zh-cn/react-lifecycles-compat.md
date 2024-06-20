@@ -35,7 +35,6 @@ yarn add react-lifecycles-compat@3.0.4
 
 下面的代码展示了这个库的基本使用场景：
 
-<!-- {% raw %} -->
 ```js
 import React from "react";
 import { Text, View, Button } from "react-native";
@@ -143,7 +142,6 @@ polyfill(ExampleComponent);
 
 export default ExampleComponent;
 ```
-<!-- {% endraw %} -->
 
 ### 兼容性
 

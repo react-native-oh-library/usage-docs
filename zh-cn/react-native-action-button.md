@@ -33,7 +33,6 @@ yarn add react-native-action-button@2.8.5
 
 下面的代码展示了这个库的基本使用场景：
 
-<!-- {% raw %} -->
 ```js
 import React, { Component } from "react";
 import { StyleSheet, View } from "react-native";
@@ -81,7 +80,6 @@ const styles = StyleSheet.create({
   },
 });
 ```
-<!-- {% endraw %} -->
 
 ## 兼容性
 

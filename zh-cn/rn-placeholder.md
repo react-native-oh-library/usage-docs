@@ -38,7 +38,6 @@ yarn add rn-placeholder@3.0.3
 
 下面的代码展示了这个库的基本使用场景：
 
-<!-- {% raw %} -->
 ```js
 import {
   Placeholder,
@@ -59,7 +58,6 @@ const App = () => (
   </Placeholder>
 );
 ```
-<!-- {% endraw %} -->
 
 ## 约束与限制
 

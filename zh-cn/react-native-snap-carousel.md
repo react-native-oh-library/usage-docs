@@ -35,7 +35,6 @@ $ yarn add @react-native-oh-tpl/react-native-snap-carousel@file:#
 
 下面的代码展示了这个库的基本使用场景：
 
-<!-- {% raw %} -->
 ```js
 import React, { useState } from "react";
 import { View, Text, Image, StyleSheet } from "react-native";
@@ -111,7 +110,6 @@ const styles = StyleSheet.create({
   }
 });
 ```
-<!-- {% endraw %} -->
 
 ### 兼容性
 

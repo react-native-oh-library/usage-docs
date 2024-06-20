@@ -33,7 +33,6 @@ yarn add eventbusjs@0.2.0
 
 下面的代码展示了这个库的基本使用场景：
 
-<!-- {% raw %} -->
 ```tsx
 import { useState, createContext } from "react";
 import {
@@ -302,7 +301,6 @@ function EventBusDemo() {
 }
 export default EventBusDemo;
 ```
-<!-- {% endraw %} -->
 
 ## 兼容性
 

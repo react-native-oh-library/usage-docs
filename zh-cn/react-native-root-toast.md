@@ -39,7 +39,6 @@ yarn add react-native-root-toast@3.5.1
 
 #### Calling api
 
-<!-- {% raw %} -->
 ```js
 import React, { useState } from "react";
 import {
@@ -83,7 +82,6 @@ export function ReactNativeRootToastExample() {
   );
 }
 ```
-<!-- {% endraw %} -->
 
 #### Using a Component
 

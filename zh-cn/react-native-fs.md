@@ -43,7 +43,6 @@ yarn add @react-native-oh-tpl/react-native-fs@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```tsx
 import React, { useState } from "react";
 import {
@@ -143,7 +142,6 @@ const styles = StyleSheet.create({
 
 export default App;
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

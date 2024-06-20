@@ -42,7 +42,6 @@ yarn add @react-native-oh-tpl/react-native-color-matrix-image-filters@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```js
 import { Image } from 'react-native'
 import {
@@ -74,7 +73,6 @@ const ColorMatrixImage = (imageProps) => (
   </ColorMatrix>
 )
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

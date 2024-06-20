@@ -43,7 +43,6 @@ yarn add @react-native-oh-tpl/react-native-swipe-list-view@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```tsx
 import { SwipeListView } from 'react-native-swipe-list-view';
 
@@ -206,7 +205,6 @@ const styles = StyleSheet.create({
   },
 });
 ```
-<!-- {% endraw %} -->
 
 ## 兼容性
 

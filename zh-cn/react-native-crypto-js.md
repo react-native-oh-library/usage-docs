@@ -36,7 +36,6 @@ yarn add react-native-crypto-js@1.0.0
 
 下面的代码展示了这个库的基本使用场景：
 
-<!-- {% raw %} -->
 ```js
 import React, { useState } from 'react';
 import {
@@ -139,7 +138,6 @@ export const ReactNativeCryptoJsExample = () => {
   );
 };
 ```
-<!-- {% endraw %} -->
 
 ## 约束与限制
 

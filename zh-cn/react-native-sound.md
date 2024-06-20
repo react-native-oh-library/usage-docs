@@ -43,7 +43,6 @@ yarn add @react-native-oh-tpl/react-native-sound@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```tsx
 import React, { useState } from "react";
 import type { PropsWithChildren } from "react";
@@ -156,7 +155,6 @@ const styles = StyleSheet.create({
 
 export default SoundDemo;
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

@@ -35,7 +35,6 @@ yarn add react-native-ratings@8.1.0
 
 下面的代码展示了这个库的基本使用场景：
 
-<!-- {% raw %} -->
 ```tsx
 import React, { useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
@@ -118,7 +117,6 @@ export function RatingsDemo () {
 };
 
 ```
-<!-- {% endraw %} -->
 
 ## 约束与限制
 

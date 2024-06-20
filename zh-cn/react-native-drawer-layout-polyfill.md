@@ -33,7 +33,6 @@ yarn add react-native-drawer-layout-polyfill@2.0.0
 
 下面的代码展示了这个库的基本使用场景：
 
-<!-- {% raw %} -->
 ```tsx
 import React, { useState, useRef } from "react";
 import { Button, Text, StyleSheet, View, TextInput } from "react-native";
@@ -220,7 +219,6 @@ const styles = StyleSheet.create({
 
 export default App;
 ```
-<!-- {% endraw %} -->
 
 ## 兼容性
 

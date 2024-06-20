@@ -39,7 +39,6 @@ yarn add @react-native-oh-tpl/react-native-transitiongroup@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```js
 import React, { useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity, Easing } from "react-native";
@@ -138,7 +137,6 @@ const styles = StyleSheet.create({
   },
 });
 ```
-<!-- {% endraw %} -->
 
 ## 约束与限制
 

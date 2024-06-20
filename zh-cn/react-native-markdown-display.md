@@ -42,7 +42,6 @@ yarn add @react-native-oh-tpl/react-native-markdown-display@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```js
 import React from 'react';
 import { SafeAreaView, ScrollView, StatusBar } from 'react-native';
@@ -76,7 +75,6 @@ const App: () => React$Node = () => {
 
 export default App;
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

@@ -38,7 +38,6 @@ npm install --save-dev @type/react-native-canvas@0.1.39
 
 下面的代码展示了这个库的基本使用场景：
 
-<!-- {% raw %} -->
 ```tsx
 import React, { useRef, useEffect } from "react";
 import { View, StyleSheet, Text, ScrollView } from "react-native";
@@ -126,7 +125,6 @@ const styles = StyleSheet.create({
 
 export default CanvasDemo;
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

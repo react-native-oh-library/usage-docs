@@ -33,7 +33,6 @@ yarn add react-native-animate-number@0.1.2
 
 下面的代码展示了这个库的基本使用场景：
 
-<!-- {% raw %} -->
 ```tsx
 import React, { useState } from "react";
 import { StyleSheet, Text, View, Button } from "react-native";
@@ -137,7 +136,6 @@ const styles = StyleSheet.create({
 
 export default App;
 ```
-<!-- {% endraw %} -->
 
 ## 兼容性
 

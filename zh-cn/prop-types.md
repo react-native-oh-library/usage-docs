@@ -31,7 +31,6 @@ yarn add prop-types
 
 下面的代码展示了这个库的基本使用场景：
 
-<!-- {% raw %} -->
 ```js
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -51,7 +50,6 @@ MyComponent.propTypes = {
 
 optionalEnum: PropTypes.oneOf(['News', 'Photos']),
 ```
-<!-- {% endraw %} -->
 
 ### 兼容性
 

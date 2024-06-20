@@ -42,7 +42,6 @@ yarn add @react-native-oh-tpl/react-native-contacts@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```js
 
 import React, {useState} from 'react';
@@ -297,7 +296,6 @@ export const ContactsDemo = () => {
     );
 }
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

@@ -40,7 +40,6 @@ yarn add @expo/react-native-action-sheet@4.0.1
 
 >[!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```js
 import { ActionSheetProvider, connectActionSheet, ActionSheetProps } from '@expo/react-native-action-sheet';
 import * as React from 'react';
@@ -188,7 +187,6 @@ const styles = StyleSheet.create({
   },
 });
 ```
-<!-- {% endraw %} -->
 ## 约束与限制
 
 ### 兼容性

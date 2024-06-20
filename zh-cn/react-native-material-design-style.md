@@ -43,7 +43,6 @@ yarn add react-native-material-design-styles@0.2.7
 
 
 
-<!-- {% raw %} -->
 ```js
 import { StyleSheet, Text, View, ScrollView } from 'react-native';
 import { typography, color } from 'react-native-material-design-styles';
@@ -110,7 +109,6 @@ const styles = StyleSheet.create({
     }
 })
 ```
-<!-- {% endraw %} -->
 
 
 ## 约束与限制

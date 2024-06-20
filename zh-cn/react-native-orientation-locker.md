@@ -42,7 +42,6 @@ yarn add @react-native-oh-tpl/react-native-orientation-locker@file:#
 
 >[!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```tsx
 
 import {
@@ -211,7 +210,6 @@ const styles = StyleSheet.create({
 
 
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

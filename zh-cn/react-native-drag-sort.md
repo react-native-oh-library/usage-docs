@@ -43,7 +43,6 @@ npm i react-native-drag-sort@2.4.4
 
 ##### DragSortableView组件使用
 
-<!-- {% raw %} -->
 ```js
 import React, { useState } from "react";
 import { View, Text, StyleSheet, SafeAreaView } from "react-native";
@@ -551,7 +550,6 @@ const styles = StyleSheet.create({
   },
 });
 ```
-<!-- {% endraw %} -->
 
 ## 约束与限制
 

@@ -47,7 +47,6 @@ $ npm install react-json-view@1.21.3
 
 ## 使用
 
-<!-- {% raw %} -->
 ```tsx
 /**
  * title: Default usage
@@ -104,7 +103,6 @@ export function WhyDidYouUpdate() {
   );
 };
 ```
-<!-- {% endraw %} -->
 
 
 

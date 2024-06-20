@@ -43,7 +43,6 @@ yarn add @react-native-oh-tpl/react-native-switch-pro@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```js
 import Switch from 'react-native-switch-pro'
 ...
@@ -57,7 +56,6 @@ import Switch from 'react-native-switch-pro'
 ...
 
 ```
-<!-- {% endraw %} -->
 ## 约束与限制
 
 ### 兼容性

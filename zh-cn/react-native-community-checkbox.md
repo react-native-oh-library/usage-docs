@@ -42,7 +42,6 @@ yarn add @react-native-oh-tpl/checkbox@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```js
 import CheckBox from "@react-native-community/checkbox";
 
@@ -66,7 +65,6 @@ import CheckBox from "@react-native-community/checkbox";
   }}
 />;
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

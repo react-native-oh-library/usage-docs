@@ -42,7 +42,6 @@ yarn add @react-native-oh-tpl/react-native-scrollable-tab-view@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```js
 import React from "react";
 import { Text, View } from "react-native";
@@ -63,7 +62,6 @@ export default () => {
   );
 };
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

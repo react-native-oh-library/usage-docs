@@ -35,7 +35,6 @@ yarn add @types/crypto-js@^4.2.1
 
 快速使用：
 
-<!-- {% raw %} -->
 ```typescript
 import React, { useState } from 'react';
 import { View, Button, Text } from 'react-native';
@@ -126,7 +125,6 @@ export default CryptoJSDemo;
 ```typescript
 import C from "crypto-js";
 ```
-<!-- {% endraw %} -->
 
 #### Base
 

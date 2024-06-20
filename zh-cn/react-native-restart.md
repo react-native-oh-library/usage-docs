@@ -43,6 +43,7 @@ yarn add @react-native-oh-tpl/react-native-restart@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```js
 import { Button, Text, View, Alert } from "react-native";
 import RNRestart from "react-native-restart";
@@ -58,6 +59,7 @@ export default function RestartDemo() {
   );
 }
 ```
+<!-- {% endraw %} -->
 
 ## Link
 

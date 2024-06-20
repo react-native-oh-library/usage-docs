@@ -38,6 +38,7 @@ yarn add react-native-lightbox-v2@0.9.0
 
 > [!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```ts
 import React, { useState } from 'react';
 import {
@@ -156,6 +157,7 @@ const styles = StyleSheet.create({
 });
 
 ```
+<!-- {% endraw %} -->
 
 
 ## 约束与限制

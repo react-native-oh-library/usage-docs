@@ -37,6 +37,7 @@ yarn add react-native-qrcode@0.2.7
 此库是一个React原生的生成二维码的组件，不仅仅支持英文。下面的代码展示了这个库的基本使用场景，更多详情请参考[使用教程](https://github.com/cssivision/react-native-qrcode/blob/master/README.md)：
 
 
+<!-- {% raw %} -->
 ```js
 import React, { Component ,useState,useEffect } from 'react'
 import { Image } from 'react-native';
@@ -73,6 +74,7 @@ return (
 );
 }
 ```
+<!-- {% endraw %} -->
 
 
 ## 约束与限制

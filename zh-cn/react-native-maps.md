@@ -42,6 +42,7 @@ yarn add @react-native-oh-tpl/react-native-maps@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```js
 import React from "react";
 import { StyleSheet, View, Text, Dimensions } from "react-native";
@@ -193,6 +194,7 @@ const styles = StyleSheet.create({
   },
 });
 ```
+<!-- {% endraw %} -->
 
 ## Link
 

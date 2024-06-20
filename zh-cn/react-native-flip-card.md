@@ -38,6 +38,7 @@ yarn add react-native-flip-card@3.5.7
 下面的代码展示了这个库的基本使用场景：
 >[!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```js
 import React, { useState } from 'react';
 import FlipCard from 'react-native-flip-card'
@@ -209,6 +210,7 @@ const createCard = (val, i) => <MyFlipCard key={i} val={val}/>
 
 }
 ```
+<!-- {% endraw %} -->
 ## 约束与限制
 
 ### 兼容性

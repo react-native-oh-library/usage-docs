@@ -42,11 +42,13 @@ yarn add @react-native-oh-tpl/lottie-react-native@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```js
 import LottieView from "lottie-react-native";
 
 <LottieView source={require("./assets/animations.json")} autoPlay loop />;
 ```
+<!-- {% endraw %} -->
 
 ## Link
 

@@ -41,6 +41,7 @@ yarn add react-native-switch-selector@2.3.0
 
 > [!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```js
 import SwitchSelector from "react-native-switch-selector";
 import React from 'react';
@@ -64,6 +65,7 @@ const SwitchSelectorDemo = () => {
 
 export default SwitchSelectorDemo;
 ```
+<!-- {% endraw %} -->
 
 ## 约束与限制
 

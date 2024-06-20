@@ -38,6 +38,7 @@ yarn add react-native-ezswiper@1.3.0 --save
 
 下面的代码展示了这个库的基本使用场景：
 
+<!-- {% raw %} -->
 ```js
 /**
  * Sample React Native App
@@ -295,6 +296,7 @@ const styles = StyleSheet.create({
     },
 });
 ```
+<!-- {% endraw %} -->
 
 
 

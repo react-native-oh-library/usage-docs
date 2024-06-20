@@ -39,6 +39,7 @@ yarn add react-native-shadow-2@7.0.8
 
 > [!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```tsx
 import { Text, ScrollView, View, StyleSheet } from "react-native";
 import { Shadow } from "react-native-shadow-2";
@@ -173,6 +174,7 @@ const styles = StyleSheet.create({
 
 export default Shadow2Demo;
 ```
+<!-- {% endraw %} -->
 
 ## Link
 

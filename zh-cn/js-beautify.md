@@ -36,6 +36,7 @@ ynpm install js-beautify@^1.15.1
 
 > [!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```js
 import React from 'react';
 import type {PropsWithChildren} from 'react';
@@ -714,6 +715,7 @@ const styles = StyleSheet.create({
 
 export default BeautifyDemo;
 ```
+<!-- {% endraw %} -->
 
 ## 约束与限制
 

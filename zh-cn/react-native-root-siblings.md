@@ -41,6 +41,7 @@ The easiest way to create overlays( `Modal` , `Popover` , `Dialog` etc) for both
 
 Make your own `showModal` and use it in any component without any `isShow` state or even in a pure function call.
 
+<!-- {% raw %} -->
 ```jsx
 import RootSiblingsManager from 'react-native-root-siblings';
 
@@ -262,6 +263,7 @@ var styles = StyleSheet.create({
 });
 
 ```
+<!-- {% endraw %} -->
 
 ## 约束与限制
 

@@ -42,6 +42,7 @@ yarn add @react-native-oh-tpl/progress-view@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```js
 import { ProgressView } from "@react-native-community/progress-view";
 
@@ -51,6 +52,7 @@ import { ProgressView } from "@react-native-community/progress-view";
   progress={0.7}
 />;
 ```
+<!-- {% endraw %} -->
 
 ## Link
 

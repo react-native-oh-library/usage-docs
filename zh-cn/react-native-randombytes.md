@@ -45,6 +45,7 @@ yarn add @react-native-oh-tpl/react-native-randombytes@file:#
 
 >[!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```tsx
 
 import React, { useState } from "react";
@@ -100,6 +101,7 @@ const styles = StyleSheet.create({
 });
 
 ```
+<!-- {% endraw %} -->
 
 ## Link
 

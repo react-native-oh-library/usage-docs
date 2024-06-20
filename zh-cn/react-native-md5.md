@@ -37,6 +37,7 @@ yarn add react-native-md5@1.0.0
 
 下面的代码展示了这个库的基本使用场景：
 
+<!-- {% raw %} -->
 ```js
 import {ScrollView, StyleSheet,View,Text,TextInput,TouchableHighlight} from 'react-native';
 import React,{ useState } from 'react';
@@ -90,6 +91,7 @@ export function md5TestExample() {
     );
 }
 ```
+<!-- {% endraw %} -->
 
 
 ## 约束与限制

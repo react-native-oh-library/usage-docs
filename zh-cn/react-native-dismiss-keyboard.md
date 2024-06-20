@@ -40,6 +40,7 @@ yarn add react-native-dismiss-keyboard@1.0.0
 
 >[!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```js
 import React, { Component } from 'react';
 import {
@@ -127,6 +128,7 @@ const styles = StyleSheet.create({
     },
 });
 ```
+<!-- {% endraw %} -->
 ## 约束与限制
 
 ### 兼容性

@@ -41,6 +41,7 @@ yarn add @react-native-oh-tpl/react-native-material-textfield@file:#
 
 下面的代码展示了这个库的基本使用场景：
 
+<!-- {% raw %} -->
 ```tsx
 
 import React, {useState} from 'react';
@@ -196,6 +197,7 @@ const styles = StyleSheet.create({
 });
 
 ```
+<!-- {% endraw %} -->
 
 ## 约束与限制
 

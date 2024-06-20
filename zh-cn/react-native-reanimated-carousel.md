@@ -33,6 +33,7 @@ npm install react-native-reanimated-carousel@^3.5.1
 
 下面的代码展示了这个库的基本使用场景：
 
+<!-- {% raw %} -->
 ```js
 import * as React from "react";
 import { ScrollView } from "react-native-gesture-handler";
@@ -279,6 +280,7 @@ function App() {
 export default App;
 
 ```
+<!-- {% endraw %} -->
 
 ## Link
 

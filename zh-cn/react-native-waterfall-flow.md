@@ -39,6 +39,7 @@ yarn add react-native-waterfall-flow@1.1.5 --save
 
 下面的代码展示了这个库的基本使用场景：
 
+<!-- {% raw %} -->
 ```js
 import { PureComponent, Component } from 'react'
 import { View, Dimensions, Image, Animated, ImageProps, ActivityIndicator, Text, Platform, TouchableOpacity, Alert } from 'react-native'
@@ -278,6 +279,7 @@ class FadeImage extends Component<ImageProps> {
   }
 }
 ```
+<!-- {% endraw %} -->
 
 
 

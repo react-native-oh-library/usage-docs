@@ -41,6 +41,7 @@ yarn add @react-native-oh-tpl/react-native-material-buttons@file:#
 
 下面的代码展示了这个库的基本使用场景：
 
+<!-- {% raw %} -->
 ```tsx
 import React, { Component } from 'react';
 import { AppRegistry, Text, ScrollView, View, SafeAreaView } from 'react-native';
@@ -198,6 +199,7 @@ export function MaterialButtons() {
 
 
 ```
+<!-- {% endraw %} -->
 
 ## 约束与限制
 

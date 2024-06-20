@@ -59,6 +59,7 @@ import dayjs from 'dayjs';
 
 下面的代码展示了这个库的基本使用示例：
 
+<!-- {% raw %} -->
 ```tsx
 import React, { useState, useEffect, useRef } from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
@@ -164,6 +165,7 @@ const styles = StyleSheet.create({
 });
 export default DayJsDemo;
 ```
+<!-- {% endraw %} -->
 
 如下是已验证接口展示:
 

@@ -44,6 +44,7 @@ yarn add @rneui/base@4.0.0-rc.8
 
 > [!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```js
 import React from 'react';
 import { View, ScrollView, StyleSheet } from 'react-native';
@@ -309,6 +310,7 @@ export default Avatars;
         //...
     }
 ```
+<!-- {% endraw %} -->
 
 > [!TIP] Demo中字体属于IconFont文件；自定义字体也需要用统一的方法在此注册。
 

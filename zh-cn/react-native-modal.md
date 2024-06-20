@@ -42,6 +42,7 @@ yarn add react-native-modal@13.0.1
 
 > [!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```js
 import React, { Component } from 'react';
 import {
@@ -136,6 +137,7 @@ const styles = StyleSheet.create({
 AppRegistry.registerComponent('RNApplyComponent', () => RNApplyComponent);
 
 ```
+<!-- {% endraw %} -->
  
 
 ## 约束与限制

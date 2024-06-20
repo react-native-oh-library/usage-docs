@@ -43,6 +43,7 @@ yarn add @react-native-oh-tpl/react-native-stickyheader@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```tsx
 import React, { useState, useCallback, useRef, useEffect } from "react";
 import { StyleSheet, Text, View, FlatList, Animated } from "react-native";
@@ -116,6 +117,7 @@ const styles = StyleSheet.create({
 
 export default App;
 ```
+<!-- {% endraw %} -->
 
 ## 约束与限制
 

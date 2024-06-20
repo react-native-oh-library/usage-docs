@@ -33,6 +33,7 @@ yarn add styled-components@6.1.8
 
 下面的代码展示了这个库的基本使用场景：
 
+<!-- {% raw %} -->
 ```js
 import React from "react";
 
@@ -62,6 +63,7 @@ function MyUI() {
   );
 }
 ```
+<!-- {% endraw %} -->
 
 ## 约束与限制
 

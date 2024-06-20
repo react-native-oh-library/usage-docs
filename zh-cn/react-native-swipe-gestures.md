@@ -42,6 +42,7 @@ yarn add react-native-swipe-gestures@^1.0.5
 
 >[!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```tsx
 'use strict';
 
@@ -124,6 +125,7 @@ class SomeComponent extends Component {
 
 export default SomeComponent;
 ```
+<!-- {% endraw %} -->
 
 ## 约束与限制
 

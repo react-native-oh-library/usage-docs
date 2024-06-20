@@ -33,6 +33,7 @@ yarn add parse5@7.1.2
 
 直接使用：
 
+<!-- {% raw %} -->
 ```js
 const parse5 = require("parse5");
 
@@ -67,6 +68,7 @@ const document = parse5.parseFragment("<div>Hello, <b>world</b>!</div>");
 const str = parse5.serializeOuter(document.childNodes[0]);
 console.log(str); //> '<div>Hello, <b>world</b>!</div>'
 ```
+<!-- {% endraw %} -->
 
 ## 约束与限制
 

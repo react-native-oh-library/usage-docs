@@ -33,7 +33,6 @@ yarn add deepmerge@^4.3.1
 
 快速使用：
 
-<!-- {% raw %} -->
 ```js
 import deepmerge from "deepmerge";
 
@@ -84,7 +83,6 @@ const output = {
 
 deepmerge(x, y); // => output
 ```
-<!-- {% endraw %} -->
 
 ## 约束与限制
 

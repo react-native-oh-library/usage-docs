@@ -43,7 +43,6 @@ yarn add @react-native-oh-tpl/react-native-nested-scroll-view@file:#
 
 > [! WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```js
 import {
   StyleSheet,
@@ -131,7 +130,6 @@ const styles = StyleSheet.create({
 
 export default NestedScrollViewDemo;
 ```
-<!-- {% endraw %} -->
 
 ## 约束与限制
 

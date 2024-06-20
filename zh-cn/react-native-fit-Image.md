@@ -35,7 +35,6 @@ yarn add react-native-fit-image@1.5.5
 
 下面的代码展示了这个库的基本使用场景：
 
-<!-- {% raw %} -->
 ```tsx
 import React,{useState,useEffect} from 'react'
 import {View,StyleSheet,Text,ScrollView,SafeAreaView,Image,Button} from "react-native"
@@ -276,7 +275,6 @@ const FitImageDemo=()=>{
 }
 export default FitImageDemo;
 ```
-<!-- {% endraw %} -->
 
 ## 兼容性
 

@@ -42,7 +42,6 @@ yarn add @react-native-oh-tpl/react-native-svg@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```js
 import Svg, { Path } from "react-native-svg";
 
@@ -50,7 +49,6 @@ import Svg, { Path } from "react-native-svg";
   <Path d="M90 0 L0 180 L180 180 Z" fill="red" />
 </Svg>;
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

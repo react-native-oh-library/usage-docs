@@ -31,7 +31,6 @@ yarn add lodash@^4.17.21
 
 直接使用：
 
-<!-- {% raw %} -->
 ```js
 // findLastIndex 为例
 import lodashStable from "lodash";
@@ -59,7 +58,6 @@ lodashStable.findLastIndex(users, ["active", false]);
 lodashStable.findLastIndex(users, "active");
 // => 0
 ```
-<!-- {% endraw %} -->
 
 ### 兼容性
 

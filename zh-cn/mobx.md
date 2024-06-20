@@ -33,7 +33,6 @@ yarn add mobx@^6.10.0
 
 快速使用：
 
-<!-- {% raw %} -->
 ```js
 module.exports = {
   presets: ["module:metro-react-native-babel-preset"],
@@ -91,7 +90,6 @@ setInterval(() => {
   myTimer.increase();
 }, 1000);
 ```
-<!-- {% endraw %} -->
 
 ### 兼容性
 

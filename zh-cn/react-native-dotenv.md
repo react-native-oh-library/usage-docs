@@ -57,7 +57,6 @@ API_TOKEN=abc123
 
 In **users.js**
 
-<!-- {% raw %} -->
 ```js
 import { API_URL, API_TOKEN } from "@env";
 
@@ -219,7 +218,6 @@ module.exports = {
   ...
 }
 ```
-<!-- {% endraw %} -->
 
 更多清除缓存的方法请参考 [react-naitve-dotenv 官方指引](https://github.com/goatandsheep/react-native-dotenv)
 

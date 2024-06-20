@@ -37,7 +37,6 @@ yarn add @react-native-oh-tpl/react-native-image-zoom@file:#
 
 下面的代码展示了这个库的基本使用场景：
 
-<!-- {% raw %} -->
 ```tsx
 import React, { useState } from "react";
 import {
@@ -484,7 +483,6 @@ const styles = StyleSheet.create({
 
 export default ImageZoomDemo;
 ```
-<!-- {% endraw %} -->
 
 ## 兼容性
 

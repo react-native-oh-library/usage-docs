@@ -42,7 +42,6 @@ yarn add @react-native-oh-tpl/react-native-geolocation@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```js
 // setRNConfiguration 为例
 Geolocation.setRNConfiguration(
@@ -54,7 +53,6 @@ Geolocation.setRNConfiguration(
   }
 ) => void
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

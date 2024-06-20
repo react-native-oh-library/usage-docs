@@ -39,7 +39,6 @@ yarn add @reduxjs/toolkit@2.2.1
 
 1.在index.js入口文件引入provider组件，并添加sotre属性
 
-<!-- {% raw %} -->
 ```js
 // index.js
 import React from "react";
@@ -145,7 +144,6 @@ export function Counter() {
   )
 }
 ```
-<!-- {% endraw %} -->
 
 ## 约束与限制
 

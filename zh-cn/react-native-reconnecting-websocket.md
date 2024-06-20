@@ -27,7 +27,6 @@ npm install react-native-reconnecting-websocket@^1.0.3
 
 下面的代码展示了这个库的基本使用场景：
 
-<!-- {% raw %} -->
 ```js
 import React, { useEffect, useRef } from 'react';
 import { View, Text, Button } from 'react-native';
@@ -109,7 +108,6 @@ const WebSocketExample = () => {
 
 export default WebSocketExample;
 ```
-<!-- {% endraw %} -->
 
 # 约束与限制
 

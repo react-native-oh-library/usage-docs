@@ -40,7 +40,6 @@ yarn add @react-native-oh-tpl/react-native-image-viewing@file:#
 
 快速使用：
 
-<!-- {% raw %} -->
 ```js
 import React, { useState } from "react";
 import {
@@ -183,7 +182,6 @@ const styles = StyleSheet.create({
 });
 
 ```
-<!-- {% endraw %} -->
 
 ## 兼容性
 

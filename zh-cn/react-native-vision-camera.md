@@ -45,7 +45,6 @@ yarn add @react-native-oh-tpl/react-native-vision-camera@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```jsx
 import { Button, Text, View } from 'react-native';
 import React, { useRef } from 'react';
@@ -92,7 +91,6 @@ export default function VisionCameraDemo() {
 }
 
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

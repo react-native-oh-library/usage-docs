@@ -33,7 +33,6 @@ yarn add axios@1.6.7
 
 Once the package is installed, you can import the library using `import` or `require` approach:
 
-<!-- {% raw %} -->
 ```js
 import axios, { isCancel, AxiosError } from "axios";
 ```
@@ -98,7 +97,6 @@ async function getUser() {
   }
 }
 ```
-<!-- {% endraw %} -->
 
 ## 约束与限制
 

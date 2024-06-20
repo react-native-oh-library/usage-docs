@@ -56,7 +56,6 @@ npm install react-native-aria@0.2.2
 
 下面的代码展示了useToggleButton的基本使用场景：
 
-<!-- {% raw %} -->
 ```js
 import React from "react";
 import { useToggleButton } from "@react-native-aria/button";
@@ -105,7 +104,6 @@ export default function AriaDemo() {
   );
 }
 ```
-<!-- {% endraw %} -->
 
 下面的代码展示了useCheckbox与useCheckboxGroup的基本使用场景：
 

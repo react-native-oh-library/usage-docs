@@ -43,7 +43,6 @@ yarn add @react-native-oh-library/react-native-intersection-observer@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```tsx
 import React, { useRef } from "react";
 import { Text } from "react-native";
@@ -75,7 +74,6 @@ function App() {
 
 export default App;
 ```
-<!-- {% endraw %} -->
 
 ## 约束与限制
 

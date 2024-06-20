@@ -42,7 +42,6 @@ yarn add @react-native-oh-tpl/react-native-gesture-handler@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```js
 import React, { Component } from "react";
 import { Animated, Dimensions } from "react-native";
@@ -102,7 +101,6 @@ export default function App() {
   return <Circle />;
 }
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

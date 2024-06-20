@@ -52,7 +52,6 @@ npm install react-redux
 
 // LoginType.ts
 
-<!-- {% raw %} -->
 ```ts
 export interface IAppUser {
   id: string;
@@ -269,7 +268,6 @@ const styles = StyleSheet.create({
   },
 });
 ```
-<!-- {% endraw %} -->
 
 ## 约束与限制
 

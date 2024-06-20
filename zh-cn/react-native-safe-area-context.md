@@ -42,7 +42,6 @@ yarn add @react-native-oh-tpl/react-native-safe-area-context@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```js
 import React from "react";
 import { Text, View } from "react-native";
@@ -66,7 +65,6 @@ const App = () => {
 
 export default App;
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

@@ -37,7 +37,6 @@ yarn add react-native-collapsible@1.6.1
 
 下面的代码展示了这个库的基本使用场景：
 
-<!-- {% raw %} -->
 ```js
 import React, { useState } from 'react';
 import { ScrollView, StyleSheet, Text, View, TouchableOpacity,Button } from 'react-native';
@@ -82,7 +81,6 @@ const CONTENT = [
     { title: 'Third', feet: '3', content: "c", },
 ];
 ```
-<!-- {% endraw %} -->
 
 
 ## 约束与限制

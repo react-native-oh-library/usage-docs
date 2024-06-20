@@ -42,7 +42,6 @@ yarn add @react-native-oh-tpl/react-native-video@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```js
 import React, { useState, useRef } from "react";
 import { View, ScrollView, StyleSheet, Text, TextInput } from "react-native";
@@ -400,7 +399,6 @@ const styles = StyleSheet.create({
 
 export default RNCVideoDemo;
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

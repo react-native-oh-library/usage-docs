@@ -42,7 +42,6 @@ yarn add @react-native-oh-tpl/react-native-sensors@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```js
 import {
   accelerometer,
@@ -86,7 +85,6 @@ gravity.subscribe(({ x, y, z, timestamp }) =>
 // setUpdateIntervalForType(type: string, interval: number)
 setUpdateIntervalForType(SensorTypes.accelerometer, 100);
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

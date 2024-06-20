@@ -42,7 +42,6 @@ yarn add @react-native-oh-tpl/react-native-smartrefreshlayout@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```js
 import React, { useState } from "react";
 import {
@@ -176,7 +175,6 @@ const styles = StyleSheet.create({
 
 export default App;
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

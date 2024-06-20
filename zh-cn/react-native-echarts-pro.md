@@ -37,7 +37,6 @@ yarn add react-native-echarts-pro@^1.9.1
 
 > [!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```tsx
 import React from "react";
 import { View } from "react-native";
@@ -80,7 +79,6 @@ export default function RNEPDemo() {
   );
 }
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

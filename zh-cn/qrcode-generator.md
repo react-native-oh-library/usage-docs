@@ -31,7 +31,6 @@ yarn add qrcode-generator@1.4.4
 
 快速使用：
 
-<!-- {% raw %} -->
 ```js
 import React, { useState, useEffect } from "react";
 import { View, Text, Image } from "react-native";
@@ -73,7 +72,6 @@ export const CustomQrCode = ({ text, style }) => {
 ```js
 import QRCode from "qrcode-generator";
 ```
-<!-- {% endraw %} -->
 
 #### Base
 

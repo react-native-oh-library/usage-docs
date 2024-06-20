@@ -39,7 +39,6 @@ yarn add react-native-typing-animation@0.1.7
 
 >[!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```js
 import React, { useEffect, useRef, useState } from 'react';
 import {
@@ -202,7 +201,6 @@ const styles = StyleSheet.create({
 
 export default TypingAnimationDemos;
 ```
-<!-- {% endraw %} -->
 
 ## 约束与限制
 

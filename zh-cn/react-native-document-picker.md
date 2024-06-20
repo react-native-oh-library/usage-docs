@@ -45,7 +45,6 @@ yarn add @react-native-oh-tpl/react-native-document-picker@file:#
 
 >[!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```tsx
 import React, { useState } from "react";
 import { Text, TouchableOpacity, View, StyleSheet, Switch, ScrollView } from 'react-native';
@@ -254,7 +253,6 @@ const styles = StyleSheet.create({
 
 
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

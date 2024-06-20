@@ -36,7 +36,6 @@ yarn add react-native-communications@2.2.1
 
 >[!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```js
 var React = require('react-native');
 var {
@@ -102,7 +101,6 @@ var styles = StyleSheet.create({
 
 export default RNCommunications;
 ```
-<!-- {% endraw %} -->
 ## 约束与限制
 
 ### 兼容性

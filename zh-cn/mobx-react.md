@@ -33,7 +33,6 @@ yarn add mobx-react@^7.6.0
 
 快速使用：
 
-<!-- {% raw %} -->
 ```js
 module.exports = {
   presets: ["module:metro-react-native-babel-preset"],
@@ -79,7 +78,6 @@ class TodoView extends React.Component {
 // ---- or just use function components: ----
 const TodoView = observer(({ todo }) => <div>{todo.title}</div>);
 ```
-<!-- {% endraw %} -->
 
 ### 兼容性
 

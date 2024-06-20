@@ -38,7 +38,6 @@ yarn add immer@10.0.4
 
 下面的代码展示了这个库的基本使用场景：
 
-<!-- {% raw %} -->
 ```js
 import React, {useState, useEffect, Component} from 'react';
 import {
@@ -770,7 +769,6 @@ export default MyComponent;
 
 
 ```
-<!-- {% endraw %} -->
 
 ## 兼容性
 

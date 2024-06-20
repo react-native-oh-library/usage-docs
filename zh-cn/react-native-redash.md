@@ -29,7 +29,6 @@ npm install react-native-redash@^18.1.3
 
 redash库依赖react-native-reanimated动画库，为适配 HarmonyOS 环境，需要把库里的依赖改成@react-native-oh-tpl/react-native-reanimated。下面的代码展示了这个库的基本使用场景：
 
-<!-- {% raw %} -->
 ```js
 // findLastIndex 为例
 import {
@@ -188,7 +187,6 @@ return (
   </View>
 );
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

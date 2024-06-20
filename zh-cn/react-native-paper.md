@@ -39,7 +39,6 @@ paper使用需要安装react-native-safe-area-context来处理安全区域。另
 
 1.将根组件包装在PaperProvider中。如果您有一个原始的 React Native 项目，最好将其添加到传递给 的组件中AppRegistry.registerComponent。这通常在index.js文件中
 
-<!-- {% raw %} -->
 ```js
 import { PaperProvider } from 'react-native-paper';
 import App from '../App';
@@ -86,7 +85,6 @@ const ActivityIndicatorDemo = () => (
 
 export default ActivityIndicatorDemo;
 ```
-<!-- {% endraw %} -->
 ## Link
 
 本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-safe-area-context和@react-native-oh-tpl/react-native-vector-icons的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。

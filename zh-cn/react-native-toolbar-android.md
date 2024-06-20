@@ -42,7 +42,6 @@ yarn add @react-native-oh-tpl/toolbar-android@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```tsx
 import React, { useState } from "react";
 import { StyleSheet, View, Text } from "react-native";
@@ -119,7 +118,6 @@ const styles = StyleSheet.create({
 
 export default App;
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

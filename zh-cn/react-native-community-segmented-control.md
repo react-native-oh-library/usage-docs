@@ -36,7 +36,6 @@ yarn add @react-native-segmented-control/segmented-control@^2.5.0
 
 下面的代码展示了这个库的基本使用场景：
 
-<!-- {% raw %} -->
 ```js
 import SegmentedControl from "@react-native-segmented-control/segmented-control";
 
@@ -50,7 +49,6 @@ return (
   />
 );
 ```
-<!-- {% endraw %} -->
 
 ## 约束与限制
 

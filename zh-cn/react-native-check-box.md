@@ -27,7 +27,6 @@ npm install react-native-check-box@2.1.0
 
 下面的代码展示了这个库的基本使用场景：
 
-<!-- {% raw %} -->
 ```js
 import React, {useEffect, useState} from 'react';
 import {StyleSheet, ScrollView, View, Image, Text} from 'react-native';
@@ -100,7 +99,6 @@ const styles = StyleSheet.create({
 export default example;
 
 ```
-<!-- {% endraw %} -->
 
 ## 兼容性
 

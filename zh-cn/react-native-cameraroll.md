@@ -42,7 +42,6 @@ yarn add @react-native-oh-tpl/camera-roll@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```js
 import { View, Button } from "react-native";
 import {
@@ -90,7 +89,6 @@ export default function App() {
   );
 }
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

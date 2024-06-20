@@ -42,7 +42,6 @@ yarn add @react-native-oh-tpl/masked-view@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 ```js
 import MaskedView from "@react-native-masked-view/masked-view";
 
@@ -77,7 +76,6 @@ import MaskedView from "@react-native-masked-view/masked-view";
   <View style={{ flex: 1, height: "100%", backgroundColor: "#e1e1e1" }} />
 </MaskedView>;
 ```
-<!-- {% endraw %} -->
 
 ## Link
 

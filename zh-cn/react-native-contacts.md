@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：v0.2.0
 
 <p align="center">
@@ -464,3 +465,5 @@ RNOH: 0.72.20-CAPI; SDK: HarmonyOS NEXT Developer Beta1(full sdk); IDE: DevEco S
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/morenoh149/react-native-contacts/blob/master/LICENSE) ，请自由地享受和参与开源。
+
+<!-- {% endraw %} -->

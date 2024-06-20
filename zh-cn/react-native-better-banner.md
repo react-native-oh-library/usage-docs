@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：v0.2.0
 
 <p align="center">
@@ -158,3 +159,5 @@ export default App;
 ## 开源协议
 
 本项目基于 [The ISC License (ISC)](https://www.isc.org/licenses/) ，请自由地享受和参与开源。
+
+<!-- {% endraw %} -->

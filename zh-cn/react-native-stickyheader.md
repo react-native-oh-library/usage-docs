@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：v0.1.3
 
 <p align="center">
@@ -141,3 +142,5 @@ export default App;
 ## 开源协议
 
 本项目基于 [MIT License](https://github.com/react-native-oh-library/react-native-stickyheader/blob/sig/LICENSE) ，请自由地享受和参与开源。
+
+<!-- {% endraw %} -->

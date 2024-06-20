@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 # 贡献文档
 
 非常欢迎您贡献文档，我们鼓励开发者以各种方式参与文档反馈和贡献。您可以对现有文档进行评价、简单更改、反馈文档质量问题、贡献您的原创内容。
@@ -46,3 +47,5 @@ react-native-pager-view -> react-native-pager-view.md
    `commit 信息模板`
    [Issues: #I8K7DK] 新增 react-native-svg 文档
    ```
+
+<!-- {% endraw %} -->

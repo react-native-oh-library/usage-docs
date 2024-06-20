@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：v0.2.1  
 
   <p align="center">  
@@ -47,7 +48,6 @@ yarn add react-native-chart-kit@^6.12.0
 
 > [!WARNING] 使用时 import 的库名不变。
 
-<!-- {% raw %} -->
 
 ```js
 import React from 'react';
@@ -110,7 +110,6 @@ const styles = StyleSheet.create({
 export default MyChart;
 ```
 
-<!-- {% endraw %} -->
 
 ## Link
 
@@ -280,3 +279,4 @@ export default MyChart;
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/indiespirit/react-native-chart-kit/blob/master/LICENSE) ，请自由地享受和参与开源。
+<!-- {% endraw %} -->

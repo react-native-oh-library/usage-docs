@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：v0.1.3
 
 <p align="center">
@@ -152,3 +153,5 @@ import { HeaderBackContext } from "@react-navigation/elements";
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/react-navigation/react-navigation/blob/6.x/packages/elements/LICENSE) ，请自由地享受和参与开源。
+
+<!-- {% endraw %} -->

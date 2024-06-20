@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 模板版本：v0.2.0
 
 <p align="center">
@@ -219,3 +220,5 @@ export function WhyDidYouUpdate() {
 ## 开源协议
 
 本项目基于 [MIT License](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Foblador%2Freact-native-progress%2Fblob%2Fmaster%2FLICENSE) ，请自由地享受和参与开源。
+
+<!-- {% endraw %} -->

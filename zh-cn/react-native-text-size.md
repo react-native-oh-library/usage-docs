@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：v0.1.3
 
 <p align="center">
@@ -397,3 +398,5 @@ This is an object similar to the one you pass to `measure`, but the `text` optio
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/callstack/react-native-slider/blob/main/LICENSE.md) ，请自由地享受和参与开源。
+
+<!-- {% endraw %} -->

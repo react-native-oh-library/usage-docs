@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：v0.2.0
 
 <p align="center">
@@ -119,3 +120,5 @@ isInteraction | 此动画是否在交互管理器上创建“交互控制柄”�
 本项目基于 [The MIT License (MIT)](https://github.com/oblador/react-native-animatable/blob/master/LICENSE) ，请自由地享受和参与开源。
 
 
+
+<!-- {% endraw %} -->

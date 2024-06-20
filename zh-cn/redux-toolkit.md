@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：v0.2.0
 
 <p align="center">
@@ -223,3 +224,5 @@ export function Counter() {
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/reduxjs/redux-toolkit?tab=readme-ov-file)，请自由地享受和参与开源。
+
+<!-- {% endraw %} -->

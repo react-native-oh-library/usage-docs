@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：v0.1.3
 
 <p align="center">
@@ -163,3 +164,5 @@ export default ExampleComponent;
 为了使polyfill工作，您的组件不能定义以下生命周期：componentWillMount，componentWillReceiveProps，componentWillUpdate.
 
 如果您的组件包含getSnapshotBeforeUpdate，那么也必须定义componentDidUpdate，如果不满足上述任何条件，将抛出错误.
+
+<!-- {% endraw %} -->

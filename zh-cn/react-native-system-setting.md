@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：v0.2.0
 
 <p align="center">
@@ -311,3 +312,4 @@ ohpm install
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/c19354837/react-native-system-setting/blob/master/LICENSE.md) ，请自由地享受和参与开源。
+<!-- {% endraw %} -->

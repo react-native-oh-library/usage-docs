@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：v0.1.3
 
 <p align="center">
@@ -442,3 +443,5 @@ Y coordinate, expressed in points, of the current position of the pointer (finge
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-linear-gradient/blob/harmony/LICENSE) ，请自由地享受和参与开源。
+
+<!-- {% endraw %} -->

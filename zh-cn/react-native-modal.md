@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
  
 
 > 模板版本：v0.2.0
@@ -203,3 +204,4 @@ RNOH: 0.72.20; SDK: HarmonyOS NEXT Developer Beta1; IDE: DevEco Studio 5.0.3.200
  本项目基于 [The ISC License (ISC)](https://github.com/react-native-modal/react-native-modal/blob/master/LICENSE.md) ，请自由地享受和参与开源。
 
  
+<!-- {% endraw %} -->

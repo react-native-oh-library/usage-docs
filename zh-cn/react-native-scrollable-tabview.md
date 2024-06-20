@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：v0.2.0
 
 <p align="center">
@@ -204,3 +205,5 @@ clearStacks(callback:   function.optional) | 清空栈以及相关状态   (Tabs
 本项目基于 [The MIT License (MIT)](https://github.com/itenl/react-native-scrollable-tabview/blob/main/LICENSE) ，请自由地享受和参与开源。
 
 
+
+<!-- {% endraw %} -->

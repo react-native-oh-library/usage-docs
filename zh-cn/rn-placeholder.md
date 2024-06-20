@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：v0.1.3
 
 <p align="center">
@@ -127,3 +128,5 @@ A PlaceholderMedia is the second of the two basic and visual components of a pla
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/mfrachet/rn-placeholder/blob/master/LICENSE.md) ，请自由地享受和参与开源。
+
+<!-- {% endraw %} -->

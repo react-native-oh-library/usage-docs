@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：v0.1.3
 
 <p align="center">
@@ -237,3 +238,5 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/callstack/react-native-slider/blob/main/LICENSE.md) ，请自由地享受和参与开源。
+
+<!-- {% endraw %} -->

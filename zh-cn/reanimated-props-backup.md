@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 ## 属性
 
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
@@ -169,3 +170,4 @@ This Animated object wraps React Native built-ins such as View,Text,ScrollView,I
 | useHandler          | This is low-level hook returning context object and value indicating whether worklet should be rebuilt, which should be used in order to create custom event handler hook like useAnimatedGestureHandler or useAnimatedScrollHandler. | Function | No       | iOS Android Web | No                |
 | dispatchCommand     | Allows to dispatch command on a native component synchronously from the UI thread.                                                                                                                                                    | Function | No       | iOS Android Web | No                |
 | setNativeProps      | setNativeProps lets you imperatively update component properties.                                                                                                                                                                     | Function | No       | iOS Android Web | No                |
+<!-- {% endraw %} -->

@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 模板版本：v0.2.0
 
 <p align="center">
@@ -539,3 +540,5 @@ export default ImageZoomDemo;
 - [ ] onPanResponderTerminationRequest方法，harmony端与android端表现不一致[#I9ATFE](https://gitee.com/wuyasmile/usage-docs/issues/I9ATFE)
 
 ## 其他
+
+<!-- {% endraw %} -->

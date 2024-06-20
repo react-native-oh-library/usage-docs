@@ -106,7 +106,7 @@ export default App;
 
 本文档内容基于以下版本验证通过：
 
-1. RNOH：0.72.26; SDK：HarmonyOS NEXT Developer Beta1；IDE：DevEco Studio 5.0.3.300; ROM：3.0.0.25;
+1. RNOH：0.72.26; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.300; ROM：3.0.0.25;
 
 ## 属性
 

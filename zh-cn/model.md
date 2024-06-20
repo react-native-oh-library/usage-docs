@@ -53,6 +53,7 @@ yarn add @react-native-oh-tpl/<库名>@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```js
 // react-native-safe-area-context 为例
 import React from "react";
@@ -77,6 +78,7 @@ const App = () => {
 
 export default App;
 ```
+<!-- {% endraw %} -->
 
 ## 使用 Codegen（如本库已适配了 Codegen ）
 

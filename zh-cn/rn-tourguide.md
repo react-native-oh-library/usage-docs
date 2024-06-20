@@ -44,6 +44,7 @@ yarn add @react-native-oh-tpl/rn-tourguide@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```jsx
 import * as React from 'react'
 import {
@@ -197,6 +198,7 @@ const styles = StyleSheet.create({
 })
 
 ```
+<!-- {% endraw %} -->
 
 ## Link
 

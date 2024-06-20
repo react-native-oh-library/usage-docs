@@ -37,6 +37,7 @@ yarn add @react-native-oh-tpl/clip-path@file:#
 
 下面的代码展示了这个库的基本使用场景：
 
+<!-- {% raw %} -->
 ```jsx
 import { View, Text, ScrollView } from "react-native";
 import React from "react";
@@ -57,6 +58,7 @@ export default function index() {
   );
 }
 ```
+<!-- {% endraw %} -->
 
 ## 兼容性
 

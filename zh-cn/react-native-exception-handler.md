@@ -44,6 +44,7 @@ yarn add @react-native-oh-tpl/react-native-exception-handler@file:#
 
 To catch <b>JS_Exceptions</b>
 
+<!-- {% raw %} -->
 ```typescript
 import {
   setJSExceptionHandler,
@@ -275,6 +276,7 @@ export default class MyAbilityStage extends AbilityStage {
   }
 }
 ```
+<!-- {% endraw %} -->
 
 在 `YourProject/entry/src/main/module.json5`补上配置
 

@@ -37,6 +37,7 @@ yarn add react-native-marquee-ab@1.2.6
 
 下面的代码展示了这个库的基本使用场景：
 
+<!-- {% raw %} -->
 ```tsx
 import React, { Component } from 'react';
 import {
@@ -74,6 +75,7 @@ export default class TestPage extends Component {
     }
 }
 ```
+<!-- {% endraw %} -->
 
 ## Props
 

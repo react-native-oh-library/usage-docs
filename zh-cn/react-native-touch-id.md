@@ -43,6 +43,7 @@ yarn add @react-native-oh-tpl/react-native-touch-id@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```js
 import React, { Component, useState } from 'react';
 import { Alert, View, Button, Text } from 'react-native';
@@ -78,6 +79,7 @@ const App = () => {
 export default App;
 
 ```
+<!-- {% endraw %} -->
 ## 使用 Codegen
 
 本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/codegen.md)。

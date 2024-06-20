@@ -31,6 +31,7 @@ npm install redux@^5.0.1
 
 1.编写子reducer，负责state具体变化的过程
 
+<!-- {% raw %} -->
 ```ts
 const defaultState = {
   number: 100,
@@ -100,6 +101,7 @@ export function Counter() {
   // 省略渲染逻辑
 }
 ```
+<!-- {% endraw %} -->
 
 ### 兼容性
 

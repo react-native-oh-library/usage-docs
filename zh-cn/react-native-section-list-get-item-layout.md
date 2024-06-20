@@ -36,6 +36,7 @@ yarn add react-native-section-list-get-item-layout@^2.2.3
 
 下面的代码展示了这个库的基本使用场景：
 
+<!-- {% raw %} -->
 ```js
 import sectionListGetItemLayout from "react-native-section-list-get-item-layout";
 
@@ -61,6 +62,7 @@ class MyComponent extends React.Component {
   }
 }
 ```
+<!-- {% endraw %} -->
 
 ## 约束与限制
 

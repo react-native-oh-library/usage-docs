@@ -42,6 +42,7 @@ yarn add @react-native-oh-tpl/react-native-fingerprint-scanner@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```js
 import { View, Button } from "react-native";
 import FingerprintScanner from 'react-native-fingerprint-scanner';
@@ -84,6 +85,7 @@ export default function App() {
   );
 }
 ```
+<!-- {% endraw %} -->
 
 ## 使用 Codegen
 

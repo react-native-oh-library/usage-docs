@@ -55,6 +55,7 @@ yarn add @react-native-oh-tpl/react-native-pull@file:#
 
 > 代码示例
 
+<!-- {% raw %} -->
 ```js
 import React, { Component, useState } from 'react';
 import {
@@ -330,6 +331,7 @@ const styles = StyleSheet.create({
 export default PullListDemo;
 
 ```
+<!-- {% endraw %} -->
 
 ## 约束与限制
 

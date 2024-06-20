@@ -33,6 +33,7 @@ yarn add styled-system@^5.1.5
 
 下面的代码展示了这个库的基本使用场景：
 
+<!-- {% raw %} -->
 ```js
 import styled from 'styled-components'
 import { space, layout, typography, color } from 'styled-system'
@@ -65,6 +66,7 @@ const Box = styled.div`
 // background color
 <Box bg='tomato' />
 ```
+<!-- {% endraw %} -->
 
 ## 约束与限制
 

@@ -40,6 +40,7 @@ yarn add react-native-feather@1.1.2
 
 >[!WARNING] 使用时 import 的库名不变。且该库强依赖[@react-native-oh-tpl/react-native-svg](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-svg.md)，请在使用前，安装svg库
 
+<!-- {% raw %} -->
 ```js
 import React from 'react';  
 import {Text, ScrollView } from 'react-native';   
@@ -67,6 +68,7 @@ const FeatherExample = () => {
   
 export default FeatherExample;
 ```
+<!-- {% endraw %} -->
 ## Link
 
 本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-svg 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。

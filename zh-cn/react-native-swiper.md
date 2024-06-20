@@ -31,6 +31,7 @@ yarn add react-native-swiper@1.6.0
 
 快速使用：
 
+<!-- {% raw %} -->
 ```js
 import React, { Component } from "react";
 import { AppRegistry, StyleSheet, Text, View } from "react-native";
@@ -203,6 +204,7 @@ var swiper = React.createClass({
   }
 })
 ```
+<!-- {% endraw %} -->
 
 > More ScrollResponder info, see: https://github.com/facebook/react-native/blob/master/Libraries/Components/ScrollResponder.js
 

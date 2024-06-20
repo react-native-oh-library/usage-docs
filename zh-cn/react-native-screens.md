@@ -50,6 +50,7 @@ yarn add react-native-screens
 
 下面的代码展示了这个库的基本使用场景：
 
+<!-- {% raw %} -->
 ```js
 import React from "react";
 import { NavigationContainer, ParamListBase } from "@react-navigation/native";
@@ -114,6 +115,7 @@ import { enableScreens } from "react-native-screens";
 
 enableScreens(false);
 ```
+<!-- {% endraw %} -->
 
 您还可以通过[`detachInactiveScreens`](https://reactnavigation.org/docs/stack-navigator#detachinactivescreens)在每个导航器中禁用使用原生屏幕。
 

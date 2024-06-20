@@ -41,6 +41,7 @@ HarmonyOS 中使用 react-native-cookies 需要配合 react-native-webview 使�
 
 > [!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```ts
 import React, { useState, useRef } from "react";
 import {
@@ -196,6 +197,7 @@ const styles = StyleSheet.create({
   },
 });
 ```
+<!-- {% endraw %} -->
 
 ## Link
 

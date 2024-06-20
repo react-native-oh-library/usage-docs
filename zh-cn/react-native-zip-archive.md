@@ -40,6 +40,7 @@ yarn add @react-native-oh-tpl/react-native-zip-archive@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```tsx
 import React, { useState, useEffect } from 'react';
 import { View, Button, StyleSheet, TextInput, Alert, Text, ActivityIndicator } from 'react-native';
@@ -398,6 +399,7 @@ const styles = StyleSheet.create({
     }
 })
 ```
+<!-- {% endraw %} -->
 
 
 

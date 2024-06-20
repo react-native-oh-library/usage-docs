@@ -33,6 +33,7 @@ yarn add react-native-linear-gradient-text@1.2.8
 
 下面的代码展示了这个库的基本使用场景：
 
+<!-- {% raw %} -->
 ```tsx
 import React from "react";
 import { View, StyleSheet } from "react-native";
@@ -61,6 +62,7 @@ const styles = StyleSheet.create({
   },
 });
 ```
+<!-- {% endraw %} -->
 
 ## 兼容性
 

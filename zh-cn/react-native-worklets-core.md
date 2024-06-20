@@ -42,6 +42,7 @@ yarn add @react-native-oh-tpl/react-native-worklets-core@file:#
 
 在项目根目录下的 `babel.config.js` 中添加 `babel` 插件
 
+<!-- {% raw %} -->
 ```js
 module.exports = {
   plugins: [
@@ -98,6 +99,7 @@ const App = () => {
 
 export default App;
 ```
+<!-- {% endraw %} -->
 
 ## Link
 

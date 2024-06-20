@@ -34,6 +34,7 @@ yarn add react-native-confirmation-code-field@7.3.2
 
 > [!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```js
 import React, { useState } from "react";
 import { SafeAreaView, Text, StyleSheet } from "react-native";
@@ -102,6 +103,7 @@ const App = () => {
 
 export default App;
 ```
+<!-- {% endraw %} -->
 
 ## 约束与限制
 

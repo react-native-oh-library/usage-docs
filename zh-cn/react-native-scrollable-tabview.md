@@ -39,6 +39,7 @@ yarn add @itenl/react-native-scrollable-tabview@1.1.7
 
 >[!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```js
 import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, Alert, Button } from 'react-native'
@@ -110,6 +111,7 @@ export default function ScrollTabsDemo() {
   );
 }
 ```
+<!-- {% endraw %} -->
 
 
 

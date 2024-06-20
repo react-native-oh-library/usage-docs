@@ -42,6 +42,7 @@ yarn add @react-native-oh-tpl/react-native-qrcode-svg@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```js
 import QRCode from 'react-native-qrcode-svg';
 
@@ -54,6 +55,7 @@ render() {
   );
 };
 ```
+<!-- {% endraw %} -->
 
 ## Link
 

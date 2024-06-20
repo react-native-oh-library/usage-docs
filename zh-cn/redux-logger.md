@@ -37,6 +37,7 @@ yarn add redux-logger@^3.0.6
 
 场景一：
 
+<!-- {% raw %} -->
 ```js
 import { applyMiddleware, createStore } from "redux";
 // Logger with default options
@@ -56,6 +57,7 @@ const logger = createLogger({
 
 const store = createStore(reducer, applyMiddleware(logger));
 ```
+<!-- {% endraw %} -->
 
 ## 约束与限制
 

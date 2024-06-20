@@ -48,6 +48,7 @@ yarn install @react-native-oh-tpl/react-native-safe-area-context
 
 下面的代码展示了这个库的基本使用场景：
 
+<!-- {% raw %} -->
 ```tsx
 import * as React from 'react';
 import { Button, View } from 'react-native';
@@ -127,6 +128,7 @@ export default function App() {
 }
 
 ```
+<!-- {% endraw %} -->
 
 ## Link
 

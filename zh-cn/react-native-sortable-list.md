@@ -45,6 +45,7 @@ yarn add react-native-sortable-list@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```tsx
 /**
  * Sample React Native App
@@ -284,6 +285,7 @@ const styles = StyleSheet.create({
 
 export default App;
 ```
+<!-- {% endraw %} -->
 
 ## 兼容性
 

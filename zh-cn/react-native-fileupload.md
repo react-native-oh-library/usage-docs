@@ -43,6 +43,7 @@ yarn add @react-native-oh-tpl/react-native-fileupload@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```tsx
 import React, {Component} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
@@ -97,6 +98,7 @@ let styles = StyleSheet.create({
   },
 });
 ```
+<!-- {% endraw %} -->
 
 ## Link
 

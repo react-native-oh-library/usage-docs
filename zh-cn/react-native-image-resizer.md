@@ -43,6 +43,7 @@ yarn add @react-native-oh-tpl/react-native-image-resizer@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```tsx
 import React, { useRef, useState } from 'react';
 import {
@@ -269,6 +270,7 @@ const styles = StyleSheet.create({
 
 export default ImageResizerDemo;    
 ```
+<!-- {% endraw %} -->
 
 ## Link
 

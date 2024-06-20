@@ -130,12 +130,14 @@ export default MyComponent;
 
 您可以传递以下属性来自定义渲染的标签和值：
 
+<!-- {% raw %} -->
 ```js
 <JSONTree
   labelRenderer={raw => <Text style={{ fontWeight: 'bold' }}>{raw}</Text>}
   valueRenderer={raw => <Text style={{ fontStyle: 'italic' }}>{raw}</Text>}
 />
 ```
+<!-- {% endraw %} -->
 
 ## 属性
 

@@ -42,12 +42,14 @@ npm install @react-native-oh-tpl/progress-bar-android@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```js
  import {ProgressBar} from '@react-native-community/progress-bar-android';
 
 <ProgressBar styleAttr="Horizontal" indeterminate={true} animating={true}  />
 <ProgressBar  indeterminate={true}/>
 ```
+<!-- {% endraw %} -->
 
 ## Link
 

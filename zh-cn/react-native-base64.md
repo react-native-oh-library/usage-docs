@@ -30,6 +30,7 @@ npm i @types/react-native-base64 -D
 
 下面的代码展示了这个库的基本使用场景：
 
+<!-- {% raw %} -->
 ```js
 import React, { useState } from 'react';
 import base64 from 'react-native-base64';
@@ -103,6 +104,7 @@ const styles = StyleSheet.create({
 });
 
 ```
+<!-- {% endraw %} -->
 
 ## 兼容性
 

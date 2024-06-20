@@ -39,6 +39,7 @@ yarn add @react-native-oh-tpl/react-native-progress@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```tsx
 import React, { useEffect } from "react";
 import { StyleSheet, View, Text } from "react-native";
@@ -124,6 +125,7 @@ const styles = StyleSheet.create({
   },
 });
 ```
+<!-- {% endraw %} -->
 
 ## Link
 

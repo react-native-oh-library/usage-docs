@@ -45,6 +45,7 @@ import JsBarCode from 'jsbarcode';
 
 > [!tip] [jsbarcode库依赖react-native-svg库进行条形码展示, svg 当前仅实现部分属性，其余还未实现 HarmonyOS 化] > [!tip] [详见react-native-svg](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-svg.md)
 
+<!-- {% raw %} -->
 ```tsx
 import {ScrollView, StyleSheet, View, Text} from 'react-native';
 import {Barcode} from './component/SvgComponent';
@@ -278,6 +279,7 @@ JsBarcode("#barcode", "29012343", {
   flat: true,
 });
 ```
+<!-- {% endraw %} -->
 ## 约束与限制
 
 ### 兼容性

@@ -33,6 +33,7 @@ yarn add react-native-popup-menu@0.16.1
 
 下面的代码展示了这个库的基本使用场景：
 
+<!-- {% raw %} -->
 ```js
 // your entry point
 import { MenuProvider } from "react-native-popup-menu";
@@ -71,6 +72,7 @@ export const YourComponent = () => (
   </View>
 );
 ```
+<!-- {% endraw %} -->
 
 ## 兼容性
 

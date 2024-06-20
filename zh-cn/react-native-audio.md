@@ -44,6 +44,7 @@ yarn add @react-native-oh-tpl/react-native-audio@file:#
 
 >[!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```js
 import { AudioRecorder, AudioUtils } from "@react-native-oh-tpl/react-native-audio";
 
@@ -98,6 +99,7 @@ AudioRecorder.onFinished = (data) => {
   console.log(data.audioFileURL);//audio file url
 }
 ```
+<!-- {% endraw %} -->
 
 ## Link
 

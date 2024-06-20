@@ -59,6 +59,7 @@ yarn add react-native-vector-icons@10.0.3
 
 ### 本库自带字体的使用
 
+<!-- {% raw %} -->
 ```js
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
@@ -495,6 +496,7 @@ export function VectorIconsDemo() {
         //...
     }
 ```
+<!-- {% endraw %} -->
 #### 提醒：自定义字体也需要用同样的方法在此注册
 
 ## 约束与限制

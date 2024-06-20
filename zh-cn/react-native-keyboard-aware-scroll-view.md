@@ -42,6 +42,7 @@ yarn add @react-native-oh-tpl/react-native-keyboard-aware-scroll-view@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```tsx
 import React from "react";
 import { TextInput, StyleSheet, ScrollView } from "react-native";
@@ -76,6 +77,7 @@ const styles = StyleSheet.create({
 
 export default KasvCom;
 ```
+<!-- {% endraw %} -->
 
 ## 约束与限制
 

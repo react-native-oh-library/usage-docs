@@ -42,6 +42,7 @@ yarn add @sentry/react-native@5.22.2
 
 >[!WARNING] 使用时 import 的库名不变。
 
+<!-- {% raw %} -->
 ```tsx
 
 // ============ index.js ==============
@@ -185,6 +186,7 @@ export default function SentryDemo() {
   );
 }
 ```
+<!-- {% endraw %} -->
 
 ## Link
 

@@ -36,6 +36,7 @@ yarn add react-router-dom@6.22.1
 
 下面的代码展示了这个库的基本使用场景：
 
+<!-- {% raw %} -->
 ```tsx
 import React from "react";
 import { ScrollView } from "react-native";
@@ -71,6 +72,7 @@ const DomDemo = () => {
 
 export default DomDemo;
 ```
+<!-- {% endraw %} -->
 
 ## 约束与限制
 

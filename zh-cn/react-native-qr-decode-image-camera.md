@@ -42,13 +42,14 @@ yarn add @react-native-oh-tpl/react-native-qr-decode-image-camera@file:#
 下面的代码展示了这个库的基本使用场景：
 
 > [!WARNING] 使用时 import 的库名不变。
+> 示例中：launchImageLibrary 方法需引入Harmony OS 的react-native-image-picker库，跳转 [react-native-image-picker](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-image-picker.md)查看使用方法。
 
 ```js
 import React, {useState} from 'react';
 import {View, Text, Button} from 'react-native';
 import {QRreader, QRscanner} from 'react-native-qr-decode-image-camera';
 import {TestSuite, TestCase, Tester} from '@rnoh/testerino';
-
+import { launchImageLibrary } from 'react-native-image-picker';
 export const QRreaderExp = () => {
   const [reader, setReader] = useState<any>('');
   const [scanned, setScanned] = useState<boolean>(false);
@@ -67,19 +68,25 @@ export const QRreaderExp = () => {
               <View>
                 <Button
                   onPress={() => {
-                    QRreader()
-                      .then(res => {
-                        console.log(JSON.stringify(res), 'click');
-                        setReader(res?.[0]?.originalValue);
-                        setState(res?.[0]?.originalValue);
-                      })
-                      .catch(error => {
-                        console.log(error);
-                      });
+                    launchImageLibrary({ mediaType: 'photo', selectionLimit: 1 }, (data) => {
+                      if (data.assets?.length) {
+                        const path = {
+                          uri:data.assets[0].originalPath
+                        }
+                        QRreader(path)
+                        .then(res => {
+                          setReader(res?.[0]?.originalValue);
+                          setState(res?.[0]?.originalValue);
+                        })
+                        .catch(error => {
+                          console.log(error);
+                        });
+                      }
+                    })
                   }}
                   title="点击选择二维码照片 "
                 />
-                <Text style={{fontSize: 40}}>{reader}</Text>
+                <Text style={{fontSize: 20}}>{reader}</Text>
               </View>
             );
           }}
@@ -87,75 +94,75 @@ export const QRreaderExp = () => {
             expect(state).to.be.eq(reader);
           }}
         />
-      </TestSuite>
-
-      <TestCase
-        itShould="QRScaner"
-        tags={['C_API']}
-        initialState={undefined as any}
-        arrange={({setState}) => {
-          return (
-            <View>
-              <Button
-                onPress={() => {
-                  setTextInfo('');
-                  setScanned(true); // 开启摄像头
-                }}
-                title="点击扫码 "
-              />
-              {scanned && (
-                <QRscanner
-                  onRead={e => {
-                    console.log(e?.nativeEvent?.result, 'click onRead');
-                    setTextInfo(e?.nativeEvent?.result);
-                    setState(e?.nativeEvent?.result);
-                    setScanned(false);
+        <TestCase
+          itShould="QRScaner"
+          tags={['C_API']}
+          initialState={undefined as any}
+          arrange={({setState}) => {
+            return (
+              <View >
+                <Button
+                  onPress={() => {
+                    setTextInfo('');
+                    setScanned(true); // 开启摄像头
                   }}
-                  flashMode={flashMode} //闪光灯
-                  renderTopView={() => (
-                    <View
-                      style={{
-                        height: 50,
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        backgroundColor: '#0000004D',
-                      }}>
-                      <Text style={{fontSize: 18, color: 'green'}}>
-                        将二维码放入框内，即可自动扫描
-                      </Text>
-                    </View>
-                  )}
-                  renderBottomView={() => (
-                    <View
-                      style={{
-                        height: 100,
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        backgroundColor: '#0000004D',
-                      }}>
-                      <Text
-                        style={{fontSize: 18, color: 'red'}}
-                        onPress={() => {
-                          setFlashMode(!flashMode);
-                          console.log('click 点击开启/关闭闪光灯');
-                        }}>
-                        点击开启/关闭闪光灯
-                      </Text>
-                    </View>
-                  )}
+                  title="点击扫码 "
                 />
-              )}
-              <Text style={{fontSize: 20, color: 'red'}}>{textInfo}</Text>
-            </View>
-          );
-        }}
-        assert={async ({expect, state}) => {
-          expect(state).to.be.eq(textInfo);
-        }}
-      />
+                {scanned && (
+                  <QRscanner
+                    onRead={e => {
+                      console.log(e?.nativeEvent?.result, 'click onRead');
+                      setTextInfo(e?.nativeEvent?.result);
+                      setState(e?.nativeEvent?.result);
+                      setScanned(false);
+                    }}
+                    flashMode={flashMode} //闪光灯
+                    renderTopView={() => (
+                      <View
+                        style={{
+                          height: 50,
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                          backgroundColor: '#0000004D',
+                        }}>
+                        <Text style={{fontSize: 18, color: 'green'}}>
+                          将二维码放入框内，即可自动扫描
+                        </Text>
+                      </View>
+                    )}
+                    renderBottomView={() => (
+                      <View
+                        style={{
+                          height: 100,
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                          backgroundColor: '#0000004D',
+                        }}>
+                        <Text
+                          style={{fontSize: 18, color: 'red'}}
+                          onPress={() => {
+                            setFlashMode(!flashMode);
+                            console.log('click 点击开启/关闭闪光灯');
+                          }}>
+                          点击开启/关闭闪光灯
+                        </Text>
+                      </View>
+                    )}
+                  />
+                )}
+                <Text style={{fontSize: 20, color: 'red'}}>{textInfo}</Text>
+              </View>
+            );
+          }}
+          assert={async ({expect, state}) => {
+            expect(state).to.be.eq(textInfo);
+          }}
+        />
+      </TestSuite>
     </Tester>
   );
 };
+
 ```
 ## 使用 Codegen
 
@@ -183,7 +190,7 @@ export const QRreaderExp = () => {
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/react-native-qr-decode-image-camera": "file:../../node_modules/@react-native-oh-tpl/qr_decode_image_camera/harmony/qr_decode_image_camera.har"
+    "@react-native-oh-tpl/react-native-qr-decode-image-camera": "file:../../node_modules/@react-native-oh-tpl/react-native-qr-decode-image-camera/harmony/qr_decode_image_camera.har"
   }
 ```
 
@@ -220,7 +227,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 
 ```diff
 ...
-+ import { NativeScan } from "@react-native-oh-tpl/react-native-qr-decode-image-camera/ts"
++ import { NativeScan } from "@react-native-oh-tpl/react-native-qr-decode-image-camera"
 
 @Builder
 export function buildCustomRNComponent(ctx: ComponentBuilderContext) {

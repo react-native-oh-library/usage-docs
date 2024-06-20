@@ -1,4 +1,4 @@
-> 模板版本：v0.2.1
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-maps</code> </h1>
@@ -392,6 +392,26 @@ export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
 }
 ...
 ```
+[!TIP] 本库使用了混合方案，需要添加组件名。
+
+在entry/src/main/ets/pages/index.ets 或 entry/src/main/ets/rn/LoadBundle.ets 找到常量 arkTsComponentNames 在其数组里添加组件名
+```diff
+const arkTsComponentNames: Array<string> = [
+  SampleView.NAME,
+  GeneratedSampleView.NAME,
+  PropsDisplayer.NAME,
++ AIR_MAP_TYPE, 
++ AIR_MAP_MARKER_TYPE, 
++ AIR_MAP_POLYLINE_TYPE, 
++ AIR_MAP_POLYGON_TYPE, 
++ AIR_MAP_CIRCLE_TYPE, 
++ AIR_MAP_CALLOUT_TYPE, 
++ AIR_GEOJSON_TYPE, 
++ AIR_URLTILE_TYPE, 
++ AIR_WMSTILE_TYPE, 
++ AIR_OVERLAY_TYPE
+  ];
+```
 
 ### 在 ArkTs 侧引入 MapsPackage
 
@@ -432,8 +452,7 @@ ohpm install
 
 本文档内容基于以下版本验证通过：
 
-1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
-2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
+1. RNOH：0.72.27; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.400SP7; ROM：3.0.0.25;
 
 ### 权限要求
 

@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：v0.1.3
 
 <p align="center">
@@ -89,3 +90,5 @@ class MyComponent extends React.Component {
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/jsoendermann/rn-section-list-get-item-layout/blob/master/LICENSE) ，请自由地享受和参与开源。
+
+<!-- {% endraw %} -->

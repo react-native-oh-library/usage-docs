@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：v0.1.3
 
 <p align="center">
@@ -102,3 +103,5 @@ MarqueText组件基本上继承了TextProps，以下是附加组件：
 ## 开源协议
 
 MIT Lisence
+
+<!-- {% endraw %} -->

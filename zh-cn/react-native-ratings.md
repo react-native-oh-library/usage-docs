@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：v0.2.0
 
 <p align="center">
@@ -184,3 +185,4 @@ RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.
 ## 开源协议
 
 本项目基于 [MIT License](https://github.com/Monte9/react-native-ratings/blob/master/LICENSE) ，请自由地享受和参与开源。
+<!-- {% endraw %} -->

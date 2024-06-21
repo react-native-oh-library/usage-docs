@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > [!WARNING] 本文档仅用于三方库使用指导，不涉及任何 React Native OpenHarmony 框架的信息，且会随着 React Native OpenHarmony 框架持续迭代更新，当前版本不代表最终展示版本。
 
 # 简介
@@ -171,3 +172,5 @@
 ## 社区
 
 [Github Organization: react-native-oh-library](https://github.com/react-native-oh-library)
+
+<!-- {% endraw %} -->

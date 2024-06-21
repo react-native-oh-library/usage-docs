@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：v0.2.0
 
 <p align="center">
@@ -212,3 +213,4 @@ RNOH：0.72.23; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/zoontek/react-native-localize/blob/master/LICENSE) ，请自由地享受和参与开源。
+<!-- {% endraw %} -->

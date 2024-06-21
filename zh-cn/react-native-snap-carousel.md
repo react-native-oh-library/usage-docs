@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：v0.1.3
 
 <p align="center">
@@ -160,3 +161,5 @@ const styles = StyleSheet.create({
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2FShopify%2Fflash-list%2Fblob%2Fmain%2FLICENSE.md) ，请自由地享受和参与开源。
+
+<!-- {% endraw %} -->

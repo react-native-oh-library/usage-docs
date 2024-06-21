@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：v0.1.3
 
 <p align="center">
@@ -246,3 +247,5 @@ const styles = StyleSheet.create({
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/satya164/react-native-tab-view/blob/main/LICENSE.md) ，请自由地享受和参与开源。
+
+<!-- {% endraw %} -->

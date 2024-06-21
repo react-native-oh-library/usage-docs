@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：v0.1.3
 
 <p align="center">
@@ -621,3 +622,5 @@ import C from "crypto-js";
 ## 开源协议
 
 本项目基于 [MIT License](https://github.com/brix/crypto-js/blob/4.2.0/LICENSE) ，请自由地享受和参与开源。
+
+<!-- {% endraw %} -->

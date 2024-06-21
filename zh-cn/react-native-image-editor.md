@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：V0.2.1
 
 <p align="center">
@@ -303,3 +304,4 @@ RNOH：0.72.20; SDK：HarmonyOS-NEXT-DB1; IDE：DevEco Studio 5.0.3.200; ROM：2
 ## 开源协议
 
 本项目基于 [ [The MIT License (MIT)]](https://github.com/callstack/react-native-image-editor/blob/master/LICENSE) ，请自由地享受和参与开源。
+<!-- {% endraw %} -->

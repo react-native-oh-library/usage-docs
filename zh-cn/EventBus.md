@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 模板版本：v0.2.0
 
 <p align="center">
@@ -323,3 +324,5 @@ export default EventBusDemo;
 ## 遗留问题
 
 ## 其他
+
+<!-- {% endraw %} -->

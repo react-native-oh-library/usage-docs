@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -228,3 +229,5 @@ In your `module.json5`
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/naoufal/react-native-touch-id?tab=readme-ov-file#license) ，请自由地享受和参与开源。
+
+<!-- {% endraw %} -->

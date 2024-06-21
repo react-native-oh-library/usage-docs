@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：v0.1.3
 
 <p align="center">
@@ -104,3 +105,5 @@ export default DomDemo;
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/remix-run/react-router/blob/main/LICENSE.md) ，请自由地享受和参与开源。
+
+<!-- {% endraw %} -->

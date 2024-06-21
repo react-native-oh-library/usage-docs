@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：v0.1.3
 
 <p align="center">
@@ -773,3 +774,5 @@ options对应的参数如下所示，当对应属性未指定时，均为如下�
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/beautifier/js-beautify/blob/main/LICENSE) ，请自由地享受和参与开源。
+
+<!-- {% endraw %} -->

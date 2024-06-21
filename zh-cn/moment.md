@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：v0.2.0
 
 <p align="center">
@@ -258,3 +259,5 @@ moment().format("hh:mm:ss a");
 ## 其他
 
 ## 开源协议
+
+<!-- {% endraw %} -->

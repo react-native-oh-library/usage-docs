@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：v0.1.3
 
 <p align="center">
@@ -258,3 +259,5 @@ Note that providers should not be inside a View that is animated with Animated o
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/th3rdwave/react-native-safe-area-context/blob/main/LICENSE) ，请自由地享受和参与开源。
+
+<!-- {% endraw %} -->

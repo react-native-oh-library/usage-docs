@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：v0.2.1
 
 <p align="center">
@@ -282,3 +283,5 @@ RNOH: 0.72.26; SDK: HarmonyOS NEXT Developer Beta1; IDE: DevEco Studio 5.0.3.300
 
 本项目基于 [The MIT License (MIT)](https://github.com/react-native-webview/react-native-webview/blob/master/LICENSE) ，请自由地享受和参与开源。
 [react-native-vconsole.md](react-native-vconsole.md)
+
+<!-- {% endraw %} -->

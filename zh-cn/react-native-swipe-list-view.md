@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：v0.2.1
 
 <p align="center">
@@ -307,3 +308,5 @@ const styles = StyleSheet.create({
 本项目基于 [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-swipe-list-view/blob/sig/LICENSE) ，请自由地享受和参与开源。
 
 
+
+<!-- {% endraw %} -->

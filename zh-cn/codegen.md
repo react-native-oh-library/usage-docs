@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 # Codegen 使用指导
 
 ## 简介
@@ -78,3 +79,5 @@ PackageProvider::getPackages(Package::Context ctx) {
     };
 }
 ```
+
+<!-- {% endraw %} -->

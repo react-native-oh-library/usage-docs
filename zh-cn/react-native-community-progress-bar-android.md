@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 > 模板版本：v0.1.3
 
 <p align="center">
@@ -211,3 +212,5 @@ Inherits [View Props](https://reactnative.dev/docs/view#props).
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/react-native-progress-view/progress-bar-android/blob/master/LICENSE) ，请自由地享受和参与开源。
+
+<!-- {% endraw %} -->

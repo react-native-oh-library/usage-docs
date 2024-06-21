@@ -1,3 +1,4 @@
+<!-- {% raw %} -->
 # 文档模板(删除)
 
 > [!ATTENTION] 使用模板时请将后面带有 (删除) 的语句删除。<>内是需要修改的内容。(删除)
@@ -342,3 +343,5 @@ Needed for Android and harmony to work properly with assets, iOS will ignore it.
 本项目基于 [XXX License (XXX)](https://github.com/xxx/xxx/blob/main/LICENSE.md) ，请自由地享受和参与开源。
 
 例子：本项目基于 [The MIT License (MIT)](https://github.com/callstack/react-native-slider/blob/main/LICENSE.md) ，请自由地享受和参与开源。(删除)
+
+<!-- {% endraw %} -->

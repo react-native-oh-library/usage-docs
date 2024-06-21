@@ -17,6 +17,8 @@
 
 ## 安装与使用
 
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-tab-navigator Releases](https://github.com/react-native-oh-library/react-native-tab-navigator/releases)，并下载适用版本的 tgz 包。
+
 进入到工程目录并输入以下命令：
 
 > [!TIP] # 处替换为 tgz 包的路径
@@ -104,9 +106,9 @@ export default App;
 
 ### 兼容性
 
-本文档内容基于以下版本验证通过：
+要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-1. RNOH：0.72.26; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.300; ROM：3.0.0.25;
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-tab-navigator Releases](https://github.com/react-native-oh-library/react-native-tab-navigator/releases)
 
 ## 属性
 

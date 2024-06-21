@@ -1,3 +1,5 @@
+<!-- {% raw %} -->
+
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -44,59 +46,71 @@ yarn add @react-native-oh-tpl/react-native-tab-navigator@file:#
 > [!WARNING] 使用时 import 的库名不变。
 
 ```ts
-import React, { useState } from 'react';
-import { View, StyleSheet, Text, Image } from 'react-native';
-import TabNavigator from 'react-native-tab-navigator';
+import React, { useState } from "react";
+import { View, StyleSheet, Text, Image } from "react-native";
+import TabNavigator from "react-native-tab-navigator";
 
-const HOME_IMAGE = [require('../assets/tab-navigator/home_unselected.svg'), require('../assets/tab-navigator/home_selected.svg')];
-const PROFILE_IMAGE = [require('../assets/tab-navigator/profile_unselected.svg'), require('../assets/tab-navigator/profile_selected.svg')];
+const HOME_IMAGE = [
+  require("../assets/tab-navigator/home_unselected.svg"),
+  require("../assets/tab-navigator/home_selected.svg"),
+];
+const PROFILE_IMAGE = [
+  require("../assets/tab-navigator/profile_unselected.svg"),
+  require("../assets/tab-navigator/profile_selected.svg"),
+];
 
 const App = () => {
-  const [selectedTab, setSelectedTab] = useState('home');
+  const [selectedTab, setSelectedTab] = useState("home");
   return (
     <View style={styles.container}>
-        <TabNavigator style={styles.tabContainer}>
-            <TabNavigator.Item
-                selected={selectedTab === 'home'}
-                title="Home"
-                selectedTitleStyle={{ color: "#3496f0" }}
-                renderIcon={() => <Image source={HOME_IMAGE[0]} style={styles.iconSize} />}
-                renderSelectedIcon={() => <Image source={HOME_IMAGE[1]} style={styles.iconSize} />}
-                onPress={() => setSelectedTab('home')}>
-                <Home />
-            </TabNavigator.Item>
-            <TabNavigator.Item
-                selected={selectedTab === 'profile'}
-                title="Profile"
-                selectedTitleStyle={{ color: "#3496f0" }}
-                renderIcon={() => <Image source={PROFILE_IMAGE[0]} style={styles.iconSize} />}
-                renderSelectedIcon={() => <Image source={PROFILE_IMAGE[1]} style={styles.iconSize} />}
-                onPress={() => setSelectedTab('profile')}>
-                <Profile />
-            </TabNavigator.Item>
-        </TabNavigator>
+      <TabNavigator style={styles.tabContainer}>
+        <TabNavigator.Item
+          selected={selectedTab === "home"}
+          title="Home"
+          selectedTitleStyle={{ color: "#3496f0" }}
+          renderIcon={() => (
+            <Image source={HOME_IMAGE[0]} style={styles.iconSize} />
+          )}
+          renderSelectedIcon={() => (
+            <Image source={HOME_IMAGE[1]} style={styles.iconSize} />
+          )}
+          onPress={() => setSelectedTab("home")}
+        >
+          <Home />
+        </TabNavigator.Item>
+        <TabNavigator.Item
+          selected={selectedTab === "profile"}
+          title="Profile"
+          selectedTitleStyle={{ color: "#3496f0" }}
+          renderIcon={() => (
+            <Image source={PROFILE_IMAGE[0]} style={styles.iconSize} />
+          )}
+          renderSelectedIcon={() => (
+            <Image source={PROFILE_IMAGE[1]} style={styles.iconSize} />
+          )}
+          onPress={() => setSelectedTab("profile")}
+        >
+          <Profile />
+        </TabNavigator.Item>
+      </TabNavigator>
     </View>
   );
 };
 
 function Home() {
-    return (
-        <View style={styles.tabContainer}>
-            <Text style={styles.welcome}>
-                Home
-            </Text>
-        </View>
-    );
+  return (
+    <View style={styles.tabContainer}>
+      <Text style={styles.welcome}>Home</Text>
+    </View>
+  );
 }
 
 function Profile() {
-    return (
-        <View style={styles.tabContainer}>
-            <Text style={styles.welcome}>
-                Profile
-            </Text>
-        </View>
-    );
+  return (
+    <View style={styles.tabContainer}>
+      <Text style={styles.welcome}>Profile</Text>
+    </View>
+  );
 }
 
 export default App;
@@ -118,31 +132,31 @@ export default App;
 
 ### TabNavigator props
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support  |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| sceneStyle  | define for rendered scene         | object (style)  | No | iOS/Android      | Yes |
-| tabBarStyle  | define style for TabBar         | object (style)  | No | iOS/Android      | Yes |
-| tabBarShadowStyle  | define shadow style for tabBar         | object (style)  | No | iOS/Android      | Yes |
-| hidesTabTouch  | disable onPress opacity for Tab         | boolean  | No | iOS/Android      | Yes |
+| Name              | Description                     | Type           | Required | Platform    | HarmonyOS Support |
+| ----------------- | ------------------------------- | -------------- | -------- | ----------- | ----------------- |
+| sceneStyle        | define for rendered scene       | object (style) | No       | iOS/Android | Yes               |
+| tabBarStyle       | define style for TabBar         | object (style) | No       | iOS/Android | Yes               |
+| tabBarShadowStyle | define shadow style for tabBar  | object (style) | No       | iOS/Android | Yes               |
+| hidesTabTouch     | disable onPress opacity for Tab | boolean        | No       | iOS/Android | Yes               |
 
 ### TabNavigator.Item props
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support  |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| renderIcon  | returns Item icon         | function  | No | iOS/Android      | Yes |
-| renderSelectedIcon  | returns selected Item icon         | function  | No | iOS/Android      | Yes |
-| badgeText  | text for Item badge         | string or number  | No | iOS/Android      | Yes |
-| renderBadge  | returns Item badge         | function  | No | iOS/Android      | Yes |
-| title  | Item title         | string  | No | iOS/Android      | Yes |
-| titleStyle  | styling for Item title         | style  | No | iOS/Android      | Yes |
-| selectedTitleStyle  | styling for selected Item title         | style  | No | iOS/Android      | Yes |
-| tabStyle  | styling for tab         | style  | No | iOS/Android      | Yes |
-| selected  | return whether the item is selected         | boolean  | No | iOS/Android      | Yes |
-| onPress  | onPress method for Item         | function  | No | iOS/Android      | Yes |
-| allowFontScaling  | allow font scaling for title         | boolean  | No | iOS/Android      | Yes |
-| accessible  | indicates if this item is an accessibility element         | boolean  | No | iOS/Android      | Yes |
-| accessibilityLabel  | override text for screen readers         | string  | No | iOS/Android      | Yes |
-| testID  | used to locate this item in end-to-end-tests         | string  | No | iOS/Android      | Yes |
+| Name               | Description                                        | Type             | Required | Platform    | HarmonyOS Support |
+| ------------------ | -------------------------------------------------- | ---------------- | -------- | ----------- | ----------------- |
+| renderIcon         | returns Item icon                                  | function         | No       | iOS/Android | Yes               |
+| renderSelectedIcon | returns selected Item icon                         | function         | No       | iOS/Android | Yes               |
+| badgeText          | text for Item badge                                | string or number | No       | iOS/Android | Yes               |
+| renderBadge        | returns Item badge                                 | function         | No       | iOS/Android | Yes               |
+| title              | Item title                                         | string           | No       | iOS/Android | Yes               |
+| titleStyle         | styling for Item title                             | style            | No       | iOS/Android | Yes               |
+| selectedTitleStyle | styling for selected Item title                    | style            | No       | iOS/Android | Yes               |
+| tabStyle           | styling for tab                                    | style            | No       | iOS/Android | Yes               |
+| selected           | return whether the item is selected                | boolean          | No       | iOS/Android | Yes               |
+| onPress            | onPress method for Item                            | function         | No       | iOS/Android | Yes               |
+| allowFontScaling   | allow font scaling for title                       | boolean          | No       | iOS/Android | Yes               |
+| accessible         | indicates if this item is an accessibility element | boolean          | No       | iOS/Android | Yes               |
+| accessibilityLabel | override text for screen readers                   | string           | No       | iOS/Android | Yes               |
+| testID             | used to locate this item in end-to-end-tests       | string           | No       | iOS/Android | Yes               |
 
 ## 遗留问题
 
@@ -151,3 +165,5 @@ export default App;
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/ptomasroos/react-native-tab-navigator/blob/master/LICENSE) ，请自由地享受和参与开源。
+
+<!-- {% endraw %} -->

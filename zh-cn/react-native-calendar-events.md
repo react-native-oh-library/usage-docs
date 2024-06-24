@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.2.1
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-calendar-events</code> </h1>
@@ -58,8 +58,8 @@ import {
     Platform,
 } from 'react-native';
 import {Header, Colors} from 'react-native/Libraries/NewAppScreen';
-import RNCalendarEvents from '@react-native-oh-tpl/react-native-calendar-events';
-import {CalendarType, EventType, ServiceType, RecurrenceFrequency} from "@react-native-oh-tpl/react-native-calendar-events/src/calendarType"
+import RNCalendarEvents from 'react-native-calendar-events';
+import {CalendarType, EventType, ServiceType, RecurrenceFrequency} from "react-native-calendar-events"
 
 const sourceStruct = {
     /** The Account name */
@@ -235,8 +235,27 @@ const styles = StyleSheet.create({
 export default CalendarDemo;
 ```
 
+## 使用 Codegen
+
+本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/codegen.md)。
+
 ## Link
 
+目前HarmonyOS暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+
+首先需要使用 DevEco Studio 打开项目里的HarmonyOS工程 `harmony`
+
+
+### 在工程根目录的 `oh-package.json` 添加 overrides 字段
+
+```json
+{
+  ...
+  "overrides": {
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+  }
+}
+```
 目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
 
 首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
@@ -315,9 +334,7 @@ ohpm install
 ### 兼容性
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机ROM。
 
-本文档内容基于以下版本验证通过：
-
-RNOH：0.72.23; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.19
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-calendar-events Releases](https://github.com/react-native-oh-library/react-native-calendar-events/releases)
 
 ### 权限要求
 
@@ -330,7 +347,7 @@ RNOH：0.72.23; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.
 "requestPermissions": [
 +  {
 +    "name": "ohos.permission.READ_CALENDAR",
-+    "reason": "$string:calendarPermission",
++    "reason": "$string:Access_calendar",
 +    "usedScene": {
 +      "abilities": [
 +        "FormAbility"
@@ -375,22 +392,22 @@ RNOH：0.72.23; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.
 
 | Name                  | Description                                                                                     | Type      | Required | Platform | HarmonyOS Support |
 |-----------------------|-------------------------------------------------------------------------------------------------|-----------| -------- |----------|------------------|
-| requestPermissions()  | Request calendar authorization. Authorization must be granted before accessing calendar events. | function  | No       | All      | yes              |
-| checkPermissions()    | Get calendar authorization status.                                                              | function  | No       | All      | yes              |
+| requestPermissions((readOnly = false))  | Request calendar authorization. Authorization must be granted before accessing calendar events. | function  | No       | All      | yes              |
+| checkPermissions((readOnly = false))    | Get calendar authorization status.                                                              | function  | No       | All      | yes              |
 | findCalendars()       | Finds all the calendars on the device.                                                          | function  | No       | All      | yes              |
-| saveCalendar()        | Create a calendar.                                                                              | function  | No       | All      | yes              |
-| removeCalendar()      | Removes a calendar.                                                                             | function  | No       | All      | yes              |
-| findEventById()       | Find calendar  by id.                                                                           | function  | No       | All      | yes              |
-| fetchAllEvents()      | Fetch all calendar events.                                                                      | function  | No       | All      | yes              |
-| saveEvent()           | Creates or updates a calendar event. To update an event, the event id must be defined.          | function  | No       | All      | yes              |
-| removeEvent()         | Removes calendar event.                                                                         | function  | No       | All      | yes              |
+| saveCalendar(calendar)        | Create a calendar.                                                                              | function  | No       | All      | yes              |
+| removeCalendar(id)      | Removes a calendar.                                                                             | function  | No       | All      | yes              |
+| findEventById(id)       | Find calendar  by id.                                                                           | function  | No       | All      | yes              |
+| fetchAllEvents(startDate, endDate, calendars)      | Fetch all calendar events.                                                                      | function  | No       | All      | yes              |
+| saveEvent(title, details, options)           | Creates or updates a calendar event. To update an event, the event id must be defined.          | function  | No       | All      | yes              |
+| removeEvent(id, options)         | Removes calendar event.                                                                         | function  | No       | All      | yes              |
 
 ## 遗留问题
-- 无
 
 ## 其他
 
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/wmcmahan/react-native-calendar-events/blob/master/LICENSE.md) ，请自由地享受和参与开源。
+
 <!-- {% endraw %} -->

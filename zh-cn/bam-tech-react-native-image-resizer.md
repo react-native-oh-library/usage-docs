@@ -1,8 +1,8 @@
 <!-- {% raw %} -->
-> 模板版本：v0.2.1
+> 模板版本：v0.2.2
 
 <p align="center">
-  <h1 align="center"> <code>react-native-image-resizer</code> </h1>
+  <h1 align="center"> <code>@bam.tech/react-native-image-resizer</code> </h1>
 </p>
 <p align="center">
     <a href="https://github.com/bamlab/react-native-image-resizer">
@@ -270,6 +270,10 @@ const styles = StyleSheet.create({
 
 export default ImageResizerDemo;    
 ```
+
+## 使用 Codegen（如本库已适配了 Codegen ）
+
+本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/codegen.md)。
 
 ## Link
 

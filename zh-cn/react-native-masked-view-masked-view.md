@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>@react-native-masked-view/masked-view</code> </h1>
@@ -8,12 +8,12 @@
     <a href="https://github.com/react-native-masked-view/masked-view">
         <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
-    <a href="https://opensource.org/license/mit/">
-        <img src="https://img.shields.io/npm/l/@react-native-masked-view/masked-view.svg?style=flat-square" alt="License" />
+    <a href="https://github.com/react-native-masked-view/masked-view/blob/master/LICENSE">
+        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
 
-[!tip] [Github 地址](https://github.com/react-native-oh-library/masked-view)
+> [!Tip] [Github 地址](https://github.com/react-native-oh-library/masked-view)
 
 ## 安装与使用
 
@@ -44,38 +44,63 @@ yarn add @react-native-oh-tpl/masked-view@file:#
 > [!WARNING] 使用时 import 的库名不变。
 
 ```js
-import MaskedView from "@react-native-masked-view/masked-view";
+import { StyleSheet, Text, View } from 'react-native';
+import MaskedView from '@react-native-masked-view/masked-view';
 
-<MaskedView
-  style={{ flex: 1, flexDirection: "row", height: "100%" }}
-  maskElement={
-    <View
-      style={{
-        // Transparent background because mask is based off alpha channel.
-        backgroundColor: "transparent",
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text
-        style={{
-          fontSize: 60,
-          color: "black",
-          fontWeight: "bold",
-        }}
-      >
-        Basic Mask
-      </Text>
-    </View>
-  }
->
-  {/* Shows behind the mask, you can put anything here, such as an image */}
-  <View style={{ flex: 1, height: "100%", backgroundColor: "#324376" }} />
-  <View style={{ flex: 1, height: "100%", backgroundColor: "#F5DD90" }} />
-  <View style={{ flex: 1, height: "100%", backgroundColor: "#F76C5E" }} />
-  <View style={{ flex: 1, height: "100%", backgroundColor: "#e1e1e1" }} />
-</MaskedView>;
+const MaskedDemo = () => {
+    return (
+        <MaskedView
+            style={styles.maskedView}
+            maskElement={
+                <View style={styles.maskElementView}>
+                    <Text style={styles.maskElementText}>Basic Mask</Text>
+                </View>
+            }
+        > 
+        <View style={{ width:'100%', height: 40, backgroundColor: '#fe4b83' }} />
+        <View style={{ width:'100%', height: 40, backgroundColor: '#F5DD90' }} />
+        </MaskedView>
+    )
+}
+
+const styles = StyleSheet.create({
+    maskedView: {
+        width:'100%',
+        height:'40%'
+    },
+    maskElementView: {
+        backgroundColor: 'transparent',
+        alignItems: 'center',
+        width:'100%',
+        height:'100%',
+        justifyContent: 'center',
+    },
+    maskElementText: {
+        color: Colors.black,
+        width:'100%',
+        height:60,
+        fontSize: 50,
+        fontWeight: 'bold',
+    },
+    textView: {
+        fontSize: 20,
+        alignItems: 'center',
+        width:'100%',
+        height:40,
+        flexDirection: 'row',
+        justifyContent: 'center',
+    },
+    text: {
+        color: Colors.darkChestnut,
+        fontSize: 8,
+        width:'100%',
+        height:40,
+        fontVariant: ['small-caps'],
+        fontWeight: 'bold',
+    },
+});
+
+export default MaskedDemo
 ```
 
 ## Link
@@ -84,6 +109,17 @@ import MaskedView from "@react-native-masked-view/masked-view";
 
 首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
+### 在工程根目录的 `oh-package.json` 添加 overrides 字段
+
+```json
+{
+  ...
+  "overrides": {
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+  }
+}
+```
+
 ### 引入原生端代码
 
 目前有两种方法：
@@ -91,7 +127,7 @@ import MaskedView from "@react-native-masked-view/masked-view";
 1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
 2. 直接链接源码。
 
-方法一：通过 har 包引入
+方法一：通过 har 包引入（推荐）
 
 > [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
 
@@ -101,7 +137,7 @@ import MaskedView from "@react-native-masked-view/masked-view";
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
 
-    "rnoh-masked-view": "file:../../node_modules/@react-native-oh-tpl/masked-view/harmony/masked_view.har",
+    "@react-native-oh-tpl/masked-view": "file:../../node_modules/@react-native-oh-tpl/masked-view/harmony/masked_view.har"
   }
 ```
 
@@ -125,34 +161,44 @@ ohpm install
 ```diff
 project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
+set(CMAKE_SKIP_BUILD_RPATH TRUE)
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(OH_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
+set(LOG_VERBOSITY_LEVEL 1)
+set(CMAKE_ASM_FLAGS "-Wno-error=unused-command-line-argument -Qunused-arguments")
+set(CMAKE_CXX_FLAGS "-fstack-protector-strong -Wl,-z,relro,-z,now,-z,noexecstack -s -fPIE -pie")
+set(WITH_HITRACE_SYSTRACE 1) # for other CMakeLists.txt files to use
+add_compile_definitions(WITH_HITRACE_SYSTRACE)
 
 add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
-# RNOH_BEGIN: add_package_subdirectories
+# RNOH_BEGIN: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/rnoh-masked-view/src/main/cpp" ./masked-view)
-# RNOH_END: add_package_subdirectories
++ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/masked-view/src/main/cpp" ./masked-view)
+# RNOH_END: manual_package_linking_1
+
+file(GLOB GENERATED_CPP_FILES "./generated/*.cpp")
 
 add_library(rnoh_app SHARED
+    ${GENERATED_CPP_FILES}
     "./PackageProvider.cpp"
     "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
 )
-
 target_link_libraries(rnoh_app PUBLIC rnoh)
 
-# RNOH_BEGIN: link_packages
+# RNOH_BEGIN: manual_package_linking_2
 target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 + target_link_libraries(rnoh_app PUBLIC rnoh_masked_view)
-# RNOH_END: link_packages
+# RNOH_END: manual_package_linking_2
 ```
 
 打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
 
 ```diff
 #include "RNOH/PackageProvider.h"
+#include "generated/RNOHGeneratedPackage.h"
 #include "SamplePackage.h"
 + #include "MaskedPackage.h"
 
@@ -160,41 +206,11 @@ using namespace rnoh;
 
 std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
     return {
-      std::make_shared<SamplePackage>(ctx),
-+     std::make_shared<MaskedPackage>(ctx)
+        std::make_shared<RNOHGeneratedPackage>(ctx),
+        std::make_shared<SamplePackage>(ctx),
++       std::make_shared<MaskedPackage>(ctx),
     };
 }
-```
-
-### 在 ArkTs 侧引入 MaskedView 组件
-
-找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
-
-```diff
-...
-import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-package"
-import { createRNPackages } from '../RNPackagesFactory'
-+ import { MaskedView, MASKED_VIEW_TYPE } from "rnoh-masked-view"
-
-  @Builder
-  function buildCustomComponent(ctx: ComponentBuilderContext) {
-    if (ctx.componentName === SAMPLE_VIEW_TYPE) {
-      SampleView({
-        ctx: ctx.rnComponentContext,
-        tag: ctx.tag,
-        buildCustomComponent: buildCustomComponent
-      })
-    }
-+   else if (ctx.componentName === MASKED_VIEW_TYPE) {
-+     MaskedView({
-+       ctx: ctx.rnComponentContext,
-+       tag: ctx.tag,
-+       buildCustomComponent: buildCustomComponent
-+     })
-+   }
-    ...
-  }
-  ...
 ```
 
 ### 运行
@@ -210,7 +226,9 @@ ohpm install
 
 然后编译、运行即可。
 
-## 兼容性
+## 约束与限制
+
+### 兼容性
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
@@ -229,7 +247,6 @@ ohpm install
 
 ## 遗留问题
 
-- [ ]  HarmonyOS 侧未实现遮罩效果[issue#1](https://github.com/react-native-oh-library/masked-view/issues/1)
 
 ## 其他
 

@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.2
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>RecyclerListView</code> </h1>
@@ -24,13 +24,13 @@
 #### **npm**
 
 ```bash
-npm install recyclerlistview
+npm install recyclerlistview@4.2.0
 ```
 
 #### **yarn**
 
 ```bash
-yarn add recyclerlistview
+yarn add recyclerlistview@4.2.0
 ```
 
 <!-- tabs:end -->
@@ -188,9 +188,13 @@ const styles = {
 
 本文档内容基于以下版本验证通过：
 
-1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52(SP22C00E52R1P17log);
+1. RNOH：0.72.26; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.300; ROM：3.0.0.25;
 
 ## 属性
+
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 详情见 [RecyclerListView 源库地址](https://github.com/Flipkart/recyclerlistview)
 

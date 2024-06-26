@@ -1,5 +1,6 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-dotenv</code> </h1>
@@ -17,7 +18,7 @@
 
 ## 安装与使用
 
-### 安装
+
 
 进入到工程目录并输入以下命令：
 
@@ -26,18 +27,48 @@
 #### **npm**
 
 ```bash
- npm install -D react-native-dotenv@^3.4.9
+ npm install -D react-native-dotenv@3.4.9
 ```
 
 #### **yarn**
 
 ```bash
-yarn add -D react-native-dotenv@^3.4.9
+yarn add -D react-native-dotenv@3.4.9
 ```
 
 <!-- tabs:end -->
 
-### 使用
+下面的代码展示了这个库的基本使用场景：
+
+> [!WARNING] 使用时 import 的库名不变。
+
+```js
+import {API_URL, API_TOKEN} from '@env';
+import {View, Text} from 'react-native';
+import {useState, useEffect} from 'react';
+
+export function TestDotenv() {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    fetch(`${API_URL}/product/mirrors.html`, {
+      headers: {
+        Authorization: `Bearer ${API_TOKEN}`,
+      },
+    })
+      .then(res => res.json())
+      .then(res => {
+        console.log(res);
+      });
+  }, []);
+
+  return (
+    <View>
+      <Text style={{color:"red",fontSize:30}}>{API_URL}</Text>
+    </View>
+  );
+}
+```
 
 基础配置：
 
@@ -54,18 +85,6 @@ yarn add -D react-native-dotenv@^3.4.9
 ```
 API_URL=https://api.example.org
 API_TOKEN=abc123
-```
-
-In **users.js**
-
-```js
-import { API_URL, API_TOKEN } from "@env";
-
-fetch(`${API_URL}/users`, {
-  headers: {
-    Authorization: `Bearer ${API_TOKEN}`,
-  },
-});
 ```
 
 ### 安全模式
@@ -228,8 +247,7 @@ module.exports = {
 
 本文档内容基于以下版本验证通过：
 
-1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
-2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
+1. RNOH：0.72.26; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.300; ROM：3.0.0.25;
 
 ## 遗留问题
 

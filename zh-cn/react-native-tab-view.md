@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-tab-view</code> </h1>
@@ -213,30 +213,85 @@ const styles = StyleSheet.create({
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-详情请查看[tabview 官方文档](https://github.com/react-navigation/react-navigation/blob/main/packages/react-native-tab-view/README.md)
+**SceneMap**：用于 renderScene 道具的函数, 接受route.key 映射到 React 组件的对象
 
-如下是 tabview 已经 HarmonyOS 化的属性：
+|        Name         |     Description      |      Type       | Required | Platform | HarmonyOS Support |
+| :-----------------: | :------------------: | :-------------: | :------: | :------: | :---------------: |
+|       scenes        |   创建元素的键值对    |     Object      |    Yes    |   All    |        Yes        |
+|       jumpTo        |    导航到其他选项卡   |     Function     |     No    |   All    |        Yes        |
 
-> [!tip] " HarmonyOS 支持"列为 yes 的属性表示支持 HarmonyOS 平台，并且效果对标"原库平台"列中的 ios 或 android 的效果。
+**TabView**：选项卡组件
+|        Name         |     Description      |      Type       | Required | Platform | HarmonyOS Support |
+| :-----------------: | :------------------: | :-------------: | :------: | :------: | :---------------: |
+|     renderScene     | Callback which returns a react element to render as the page for the tab      |   Function   |   Yes    |   All    |    Yes       |
+|       renderTabBar  | Callback which returns a custom React Element to use as the tab bar     |   Function   |     No   |   All    |        Yes        |
+|       lazy          |Function which takes an object with the current route and returns a boolean to indicate whether to lazily render the scenes |    Function |     No    |   All    |        Yes        |
+|   lazyPreloadDistance |  When lazy is enabled, you can specify how many adjacent routes should be preloaded with this prop.This value defaults to 0 which means lazy pages are loaded as they come into the viewport               |    Number    |     No    |   All    |        Yes        |
+|   renderLazyPlaceholder | Callback which returns a custom React Element to render for routes that haven't been rendered yet. Receives an object containing the route as the argument. The lazy prop also needs to be enabled                   |    Function  |     No    |   All    |        Yes        |
+|   keyboardDismissMode | String indicating whether the keyboard gets dismissed in response to a drag gesture. 'auto' (default)       |    String    |     No    |   All    |        Yes        |
+|   swipeEnabled | Boolean indicating whether to enable swipe gestures. Swipe gestures are enabled by default        |    Boolean   |     No    |   All    |        Yes        |
+|   animationEnabled |Enables animation when changing tab. By default it's true                                    |    Boolean   |     No    |   All    |        Yes        |
+|   onSwipeStart |  Callback which is called when the swipe gesture starts, i.e. the user touches the screen and moves it      |    Function  |     No    |   All    |        Yes        |
+|   onSwipeEnd |  Callback which is called when the swipe gesture ends, i.e. the user lifts their finger from the screen after the swipe gesture        |    Function  |     No    |   All    |        Yes        |
+|   initialLayout |  Object containing the initial height and width of the screens. Passing this will improve the initial rendering performance  |    Object    |     No     |   All    |        Yes        |
+|   overScrollMode |  Used to override default value of pager's overScroll mode    |    String    |     No     |   All    |        Yes        |
+|   sceneContainerStyle |  Style to apply to the view wrapping each screen. You can pass this to override some default styles such as overflow clipping                                         |    Object    |     No     |   All    |        Yes        |
+|   pagerStyle |  Style to apply to the pager view wrapping all the scenes |    Object    |     No     |   All    |        Yes        |
 
-| Name                  | Description                                                                                            | Type     | Required | Platform | HarmonyOS Support |
-| --------------------- | ------------------------------------------------------------------------------------------------------ | -------- | -------- | -------- | ----------------- |
-| `onIndexChange`       | Callback which is called on tab change, receives the index of the new tab as argument                  | function | No       | All      | yes               |
-| `renderScene`         | Callback which returns a react element to render as the page for the tab.                              | function | No       | All      | yes               |
-| `renderTabBar`        | Callback which returns a custom React Element to use as the tab bar.                                   | function | No       | All      | yes               |
-| `tabBarPosition`      | Position of the tab bar in the tab view.                                                               | string   | No       | All      | yes               |
-| `keyboardDismissMode` | String indicating whether the keyboard gets dismissed in response to a drag gesture.                   | string   | No       | All      | yes               |
-| `swipeEnabled`        | Passing false will disable swipe gestures, but the user can still switch tabs by pressing the tab bar. | boolean  | No       | All      | yes               |
-| `style`               | Style to apply to the pager view wrapping all the scenes.                                              | boolean  | No       | All      | yes               |
-| `tabStyle`            | Style to apply to the individual tab items in the tab bar.                                             | boolean  | No       | All      | yes               |
-| `indicatorStyle`      | Style to apply to the active indicator.                                                                | boolean  | No       | All      | yes               |
-| `labelStyle`          | Style to apply to the tab item label.                                                                  | boolean  | No       | All      | yes               |
-| `style`               | Style to apply to the tab bar container.                                                               | boolean  | No       | All      | yes               |
-| `activeColor`         | Custom color for icon and label in the active tab.                                                     | string   | No       | All      | yes               |
-| `inactiveColor`       | Custom color for icon and label in the inactive tab.                                                   | string   | No       | All      | yes               |
-| `scrollEnabled`       | Boolean indicating whether to make the tab bar scrollable.                                             | boolean  | No       | All      | yes               |
-| `bounces`             | Boolean indicating whether the tab bar bounces when scrolling.                                         | boolean  | No       | All      | yes               |
-| `gap`                 | Define a spacing between tabs.                                                                         | number   | No       | All      | yes               |
+ 
+**TabBar**：选项卡标签栏
+
+|        Name         |     Description      |      Type       | Required | Platform | HarmonyOS Support |
+| :-----------------: | :------------------: | :-------------: | :------: | :------: | :---------------: |
+|       renderIcon    |   Function which takes an object with the current route, focused status and color and returns a custom React Element to be used as a icon |   Function |     No    |   All    |        Yes        |
+|       renderLabel   |  Function which takes an object with the current route, focused status and color and returns a custom React Element to be used as a label  |   Function |    No    |   All    |        Yes        |
+|       renderTabBarItem | Function which takes a TabBarItemProps object and returns a custom React Element to be used as a tab button |  Function  |     No    |   All    |  Yes      |
+|       renderIndicator|  Function which takes an object with the current route and returns a custom React Element to be used as a tab indicator  | Function  | No  |   All |   Yes  |
+|       onTabPress    | Function to execute on tab press. It receives the scene for the pressed tab, useful for things like scroll to top. | Function |  No | All |Yes  |
+|       onTabLongPress| Function to execute on tab long press, use for things like showing a menu with more options  |   Function |     No    |   All    |        Yes   |
+|       activeColor   |Custom color for icon and label in the active tab        |  String    |     No    |   All    |        Yes         |
+|       inactiveColor |Custom color for icon and label in the inactive tab       |    String  |     No    |   All    |        Yes       |
+|       pressColor    |    Color for material ripple          |   String   |     No    |   All    |        Yes        |
+|       pressOpacity  |Opacity for pressed tab                   |   Number   |     No    |   All    |        Yes        |
+|       scrollEnabled |       Boolean indicating whether to make the tab bar scrollable             |   Boolean  |     No    |   All    |        Yes        |
+|       bounces       |       Boolean indicating whether the tab bar bounces when scrolling        |   Boolean  |     No    |   All    |        Yes        |
+|       tabStyle      |Style to apply to the individual tab items in the tab bar                      |   Object   |     No    |   All    |        Yes        |
+|       indicatorStyle|   Style to apply to the active indicator                         |   Object   |     No    |   All    |        Yes        |
+|       indicatorContainerStyle  |Style to apply to the container view for the indicator      |  Object    |     No    |   All    |        Yes        |
+|       labelStyle    |Style to apply to the tab item label                              |   Object   |     No    |   All    |        Yes        |
+|       contentContainerStyle  |Style to apply to the inner container for tabs     |   Object   |     No    |   All    |        Yes        |
+|       gap           |      Define a spacing between tabs     |  Number  |     No    |   All    |        Yes        |
+|       testID        |         Test id for the tabBar. Can be used for scrolling the tab bar in tests       |   String  |     No    |   All    |        Yes        |
+
+**TabBarIndicator**：选项卡指示器
+
+|        Name         |     Description      |      Type       | Required | Platform | HarmonyOS Support |
+| :-----------------: | :------------------: | :-------------: | :------: | :------: | :---------------: |
+|     getTabWidth     |   获取当前元素的宽度   |   Function      |   Yes    |   All    |    Yes            |
+|       width         | 元素宽度              |   Number        |    Yes   |   All    |        Yes        |
+
+**TabBarItem**：单个选项卡
+
+|        Name         |     Description      |      Type       | Required | Platform | HarmonyOS Support |
+| :-----------------: | :------------------: | :-------------: | :------: | :------: | :---------------: |
+|       route         | 路由元素              |   Object        |    Yes   |   All    |        Yes        |
+
+**公共属性**：
+
+Common props 组件属性 HarmonyOS 侧支持情况
+
+|       Name       |                 Description                 |    Type     |  Default  | Required | Platform | HarmonyOS Support |
+| :--------------: | :-----------------------------------------: | :---------: | :-------: | :------: | :------: | :---------------: |
+|   navigationState|   选项卡视图的状态,对象包含激活路由的索引以及呈现选项卡的路由对象列表的数组 |    Object    |      -     |   Yes    |    All          |    Yes   |
+|   onIndexChange  |  在选项卡更改时调用的回调，将接收新选项卡的索引作为参数。调用时需要更新导航状态，否则将删除更改。|   Function    |     -   |    Yes    |   All    | Yes    |
+|       style      |              要应用于容器的样式。            |   Object |     -    |   Yes    |        All        |  Yes   |
+|       layout     |             覆盖组件样式，宽高               |   Object    |    -      |   No     |   All    |  Yes   |
+|   tabBarPosition |            标签栏在标签视图中的位置           |    String    |    "top"   |   No    |        All        | Yes   |
+|       position   |   元素动画位置                               |    Animated.AnimatedInterpolation<number> |   -  |   Yes |    All        | Yes   |
+|    getLabelText  |  该函数接受具有当前路由的对象并返回选项卡的标签文本,默认情况下使用 route.title  |     Function  |    -    |   No    |        All   |Yes   |
+|    getTestID     | 该函数接受具有当前路由的对象，并返回制表符按钮的测试 ID，以便在测试中定位该制表符按钮        |  Function  |     -    |    No     |    All    |Yes   |
+|    getAccessible |   该函数接受具有当前路由的对象并返回一个布尔值                                            |   Function |      -    |    No     |    All   |Yes   |
+|   getAccessibilityLabel  |    该函数接受具有当前路由的对象并返回制表符按钮的可访问性标签。如果指定，则默认使用 route.accessibilityLabel，否则使用路由标题  |   Function |   -  |  No |All |Yes   |
 
 ## 遗留问题
 

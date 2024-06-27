@@ -1,5 +1,6 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>lottie-react-native</code> </h1>
@@ -39,14 +40,24 @@ yarn add @react-native-oh-tpl/lottie-react-native@file:#
 
 <!-- tabs:end -->
 
-快速使用：
+下面的代码展示了这个库的基本使用场景：
 
 > [!WARNING] 使用时 import 的库名不变。
 
 ```js
+import React from "react";
+import { View } from "react-native";
 import LottieView from "lottie-react-native";
 
-<LottieView source={require("./assets/animations.json")} autoPlay loop />;
+const App = () => {
+  return (
+    <View style={{ flex: 1 }}>
+      <LottieView source={require("./assets/xxx.json")} autoPlay loop />
+    </View>
+  );
+};
+
+export default App;
 ```
 
 ## Link
@@ -55,6 +66,17 @@ import LottieView from "lottie-react-native";
 
 首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
+### 在工程根目录的 `oh-package.json` 添加 overrides 字段
+
+```json
+{
+  ...
+  "overrides": {
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+  }
+}
+```
+
 ### 引入原生端代码
 
 目前有两种方法：
@@ -62,7 +84,7 @@ import LottieView from "lottie-react-native";
 1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
 2. 直接链接源码。
 
-方法一：通过 har 包引入
+方法一：通过 har 包引入（推荐）
 
 > [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
 
@@ -71,8 +93,7 @@ import LottieView from "lottie-react-native";
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "rnoh-lottie": "file:../../node_modules/@react-native-oh-tpl/lottie-react-native/harmony/lottie.har"
+    "@react-native-oh-tpl/lottie-react-native": "file:../../node_modules/@react-native-oh-tpl/lottie-react-native/harmony/lottie.har"
   }
 ```
 
@@ -96,28 +117,37 @@ ohpm install
 ```diff
 project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
+set(CMAKE_SKIP_BUILD_RPATH TRUE)
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(OH_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
+set(LOG_VERBOSITY_LEVEL 1)
+set(CMAKE_ASM_FLAGS "-Wno-error=unused-command-line-argument -Qunused-arguments")
+set(CMAKE_CXX_FLAGS "-fstack-protector-strong -Wl,-z,relro,-z,now,-z,noexecstack -s -fPIE -pie")
+set(WITH_HITRACE_SYSTRACE 1) # for other CMakeLists.txt files to use
+add_compile_definitions(WITH_HITRACE_SYSTRACE)
 
 add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
-# RNOH_BEGIN: add_package_subdirectories
+# RNOH_BEGIN: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/rnoh-lottie/src/main/cpp" ./lottie)
-# RNOH_END: add_package_subdirectories
++ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/lottie-react-native/src/main/cpp" ./lottie)
+# RNOH_END: manual_package_linking_1
+
+file(GLOB GENERATED_CPP_FILES "./generated/*.cpp")
 
 add_library(rnoh_app SHARED
+    ${GENERATED_CPP_FILES}
     "./PackageProvider.cpp"
     "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
 )
-
 target_link_libraries(rnoh_app PUBLIC rnoh)
 
-# RNOH_BEGIN: link_packages
+# RNOH_BEGIN: manual_package_linking_2
 target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 + target_link_libraries(rnoh_app PUBLIC rnoh_lottie)
-# RNOH_END: link_packages
+# RNOH_END: manual_package_linking_2
 ```
 
 打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
@@ -142,18 +172,18 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
-+ import { LottieAnimationView, LOTTIE_TYPE } from "rnoh-lottie"
+...
++ import { LottieAnimationView, LOTTIE_TYPE } from "@react-native-oh-tpl/lottie-react-native"
 
 @Builder
-function buildCustomComponent(ctx: ComponentBuilderContext) {
+export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
   if (ctx.componentName === SAMPLE_VIEW_TYPE) {
     SampleView({
       ctx: ctx.rnComponentContext,
       tag: ctx.tag,
-      buildCustomComponent: buildCustomComponent
     })
   }
-+ else if (ctx.componentName === LOTTIE_TYPE) {
++ if (ctx.componentName === LOTTIE_TYPE) {
 +   LottieAnimationView({
 +     ctx: ctx.rnComponentContext,
 +     tag: ctx.tag
@@ -161,7 +191,20 @@ function buildCustomComponent(ctx: ComponentBuilderContext) {
 + }
  ...
 }
-...
+
+```
+
+> [!TIP] 本库使用了混合方案，需要添加组件名。
+
+在`entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets` 找到常量 `arkTsComponentNames` 在其数组里添加组件名
+
+```diff
+const arkTsComponentNames: Array<string> = [
+  SampleView.NAME,
+  GeneratedSampleView.NAME,
+  PropsDisplayer.NAME,
++ LOTTIE_TYPE
+  ];
 ```
 
 ### 运行
@@ -188,7 +231,20 @@ ohpm install
 ### 权限要求
 
 - 如果 source 使用网络 url 应用需要申请网络权限
+
+  在`entry/src/main/module.json5`中添加
+
+```json
+requestPermissions: [
+  {
+    name: "ohos.permission.INTERNET",
+  },
+],
+```
+
 - 如果使用的 json 文件里有依赖图片资源或使用 imageAssetsFolder 属性，需要将资源文件放置到 HarmonyOS 工程 rawfile 下对应的路径中
+
+rawfile 路径：`entry/src/main/resources/rawfile`
 
 ## 属性
 
@@ -211,6 +267,8 @@ ohpm install
 | useNativeLooping   | Only Windows. When enabled, uses platform-level looping to improve smoothness, but onAnimationLoop will not fire and changing the loop prop will reset playback rather than finishing gracefully.                                                                                                                                                              | boolean                                     | false     | No       | Windows               | No                |
 | onAnimationLoop    | Only Windows and Web. A callback function invoked when the animation loops.                                                                                                                                                                                                                                                                                    | callback                                    | None      | No       | Windows, Web          | No                |
 | onAnimationFinish  | A callback function which will be called when animation is finished. This callback is called with a boolean isCancelled argument, indicating if the animation actually completed playing, or if it was cancelled, for instance by calling play() or reset() while is was still playing. Note that this callback will be called only when loop is set to false. | callback                                    | None      | No       | All                   | Yes               |
+| onAnimationFailure | A callback function which will be called if an error occurs while working with the animation (loading, running, etc). This callback is called with a string error argument, which contains the error message that occured.                                                                                                                                     | callback                                    | None      | No       | All                   | Yes               |
+| onAnimationLoaded  | A callback function which will be called when animation is done loading. This callback is called with no parameters.                                                                                                                                                                                                                                           | callback                                    | None      | No       | All                   | Yes               |
 | renderMode         | a String flag to set whether or not to render with HARDWARE or SOFTWARE acceleration                                                                                                                                                                                                                                                                           | 'AUTOMATIC'\| 'HARDWARE' \| 'SOFTWARE'      | AUTOMATIC | No       | iOS, Android          | No                |
 | cacheComposition   | Only Android and HarmonyOS, a boolean flag indicating whether or not the animation should do caching.                                                                                                                                                                                                                                                          | boolean                                     | true      | No       | Android               | Yes               |
 | colorFilters       | An array of objects denoting layers by KeyPath and a new color filter value (as hex string).                                                                                                                                                                                                                                                                   | Array<ColorFilter>                          | []        | No       | iOS, Android, Windows | No                |
@@ -219,7 +277,7 @@ ohpm install
 | hover              | Only Web, a boolean denoting whether to play on mouse hover.                                                                                                                                                                                                                                                                                                   | boolean                                     | false     | No       | Web                   | No                |
 | direction          | Only Web a number from 1 or -1 denoting playing direction.                                                                                                                                                                                                                                                                                                     | 1\| -1                                      | 1         | No       | Web                   | No                |
 
-## 方法 (Imperative API)
+## 静态方法 (Imperative API)
 
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 

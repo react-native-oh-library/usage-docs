@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-safe-area-context</code> </h1>
@@ -73,6 +73,17 @@ export default App;
 
 首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
+### 在工程根目录的 `oh-package.json` 添加 overrides 字段
+
+```json
+{
+  ...
+  "overrides": {
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+  }
+}
+```
+
 ### 引入原生端代码
 
 目前有两种方法：
@@ -90,7 +101,7 @@ export default App;
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
 
-    "rnoh-safe-area": "file:../../node_modules/@react-native-oh-tpl/react-native-safe-area-context/harmony/safe_area.har"
+    "@react-native-oh-tpl/react-native-safe-area-context": "file:../../node_modules/@react-native-oh-tpl/react-native-safe-area-context/harmony/safe_area.har"
   }
 ```
 
@@ -112,36 +123,47 @@ ohpm install
 打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
 
 ```diff
+```diff
 project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
+set(CMAKE_SKIP_BUILD_RPATH TRUE)
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(OH_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
+set(LOG_VERBOSITY_LEVEL 1)
+set(CMAKE_ASM_FLAGS "-Wno-error=unused-command-line-argument -Qunused-arguments")
+set(CMAKE_CXX_FLAGS "-fstack-protector-strong -Wl,-z,relro,-z,now,-z,noexecstack -s -fPIE -pie")
+set(WITH_HITRACE_SYSTRACE 1) # for other CMakeLists.txt files to use
+add_compile_definitions(WITH_HITRACE_SYSTRACE)
 
 add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
-# RNOH_BEGIN: add_package_subdirectories
+# RNOH_BEGIN: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/rnoh-safe-area/src/main/cpp" ./safe-area)
-# RNOH_END: add_package_subdirectories
++ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/react-native-safe-area-context/src/main/cpp" ./safe-area)
+# RNOH_END: manual_package_linking_1
+
+file(GLOB GENERATED_CPP_FILES "./generated/*.cpp")
 
 add_library(rnoh_app SHARED
+    ${GENERATED_CPP_FILES}
     "./PackageProvider.cpp"
     "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
 )
-
 target_link_libraries(rnoh_app PUBLIC rnoh)
 
-# RNOH_BEGIN: link_packages
+# RNOH_BEGIN: manual_package_linking_2
 target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 + target_link_libraries(rnoh_app PUBLIC rnoh_safe_area)
-# RNOH_END: link_packages
+# RNOH_END: manual_package_linking_2
 ```
 
 打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
 
 ```diff
 #include "RNOH/PackageProvider.h"
+#include "generated/RNOHGeneratedPackage.h"
 #include "SamplePackage.h"
 + #include "SafeAreaViewPackage.h"
 
@@ -149,48 +171,11 @@ using namespace rnoh;
 
 std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
     return {
-      std::make_shared<SamplePackage>(ctx),
-+     std::make_shared<SafeAreaViewPackage>(ctx)
+        std::make_shared<RNOHGeneratedPackage>(ctx),
+        std::make_shared<SamplePackage>(ctx),
++       std::make_shared<SafeAreaViewPackage>(ctx),
     };
 }
-```
-
-### 在 ArkTs 侧引入 react-native-safe-area-context 组件
-
-找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
-
-```diff
-...
-import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-package"
-import { createRNPackages } from '../RNPackagesFactory'
-+ import { SAFE_AREA_VIEW_TYPE, SafeAreaView, SAFE_AREA_PROVIDER_TYPE, SafeAreaProvider } from "rnoh-safe-area"
-
-@Builder
-function buildCustomComponent(ctx: ComponentBuilderContext) {
-  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
-    SampleView({
-      ctx: ctx.rnComponentContext,
-      tag: ctx.tag,
-      buildCustomComponent: buildCustomComponent
-    })
-  }
-+ else if (ctx.componentName === SAFE_AREA_VIEW_TYPE) {
-+   SafeAreaView({
-+     ctx: ctx.rnComponentContext,
-+     tag: ctx.tag,
-+     buildCustomComponent: buildCustomComponent
-+   })
-+ }
-+ else if (ctx.componentName === SAFE_AREA_PROVIDER_TYPE) {
-+   SafeAreaProvider({
-+     ctx: ctx.rnComponentContext,
-+     tag: ctx.tag,
-+     buildCustomComponent: buildCustomComponent
-+   })
-+ }
- ...
-}
-...
 ```
 
 ### 在 ArkTs 侧引入 SafeAreaViewPackage
@@ -198,9 +183,8 @@ function buildCustomComponent(ctx: ComponentBuilderContext) {
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-import type {RNPackageContext, RNPackage} from 'rnoh/ts';
-import {SamplePackage} from 'rnoh-sample-package/ts';
-+ import {SafeAreaViewPackage} from 'rnoh-safe-area/ts';
+...
++ import {SafeAreaViewPackage} from '@react-native-oh-tpl/react-native-safe-area-context/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
@@ -231,13 +215,17 @@ ohpm install
 
 ## 属性
 
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
 **组件 SafeAreaProvider**
 
 You should add `SafeAreaProvider` in your app root component. You may need to add it in other places like the root of modals and routes when using react-native-screens.
 
 Note that providers should not be inside a View that is animated with Animated or inside a ScrollView since it can cause very frequent updates.
 
-| 名称             | 说明                                                                                                                                                            | 类型   | 是否必填 | 原库平台 |  HarmonyOS 支持 |
+| Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | -------- | -------- | -------- |
 | `Props`          | Accepts all View props. Has a default style of {flex: 1}.                                                                                                       | object | no       | All      | yes      |
 | `initialMetrics` | Can be used to provide the initial value for frame and insets, this allows rendering immediatly. See optimization for more information on how to use this prop. | object | no       | All      | yes      |
@@ -246,11 +234,26 @@ Note that providers should not be inside a View that is animated with Animated o
 
 `SafeAreaView` is a regular View component with the safe area insets applied as padding or margin.
 
-| 名称    | 说明                                                                                            | 类型   | 是否必填 | 原库平台 |  HarmonyOS 支持 |
+| Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ------- | ----------------------------------------------------------------------------------------------- | ------ | -------- | -------- | -------- |
 | `Props` | Accepts all View props. Has a default style of {flex: 1}.                                       | object | no       | All      | yes      |
 | `edges` | Sets the edges to apply the safe area insets to. Defaults to all.                               | array  | no       | All      | yes      |
 | `mode`  | Optional, padding (default) or margin. Apply the safe area to either the padding or the margin. | string | no       | All      | yes      |
+
+# API
+
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name | Description | Type     | Required | Platform | HarmonyOS Support  |
+| ---- | ----------- |----------|----------| -------- | ------------------ |
+| useSafeAreaInsets  | Returns the safe area insets of the nearest provider.         | object   | no       | All      | yes   |
+| useSafeAreaFrame  | Returns the frame of the nearest provider. This can be used as an alternative to the Dimensions module.       | object | no       | All      | yes   |
+| SafeAreaInsetsContext  | React Context with the value of the safe area insets.         | object | no       | All      | yes  |
+| withSafeAreaInsets  | Higher order component that provides safe area insets as the insets prop.         | function | no       | All      | yes   |
+| SafeAreaFrameContext  | React Context with the value of the safe area frame.         | object | no       | All      | yes  |
+| initialWindowMetrics  | Insets and frame of the window on initial render. This can be used with the initialMetrics from SafeAreaProvider  | object | no       | All      | yes   |
 
 ## 遗留问题
 
@@ -259,5 +262,4 @@ Note that providers should not be inside a View that is animated with Animated o
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/th3rdwave/react-native-safe-area-context/blob/main/LICENSE) ，请自由地享受和参与开源。
-
 <!-- {% endraw %} -->

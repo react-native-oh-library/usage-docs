@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.2.1
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-webview</code> </h1>
@@ -193,6 +193,19 @@ function buildCustomComponent(ctx: ComponentBuilderContext) {
 ...
 ```
 
+> [!TIP] 本库使用了混合方案，需要添加组件名。（如使用混合方案）
+
+在`entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets` 找到常量 `arkTsComponentNames` 在其数组里添加组件名
+
+```diff
+const arkTsComponentNames: Array<string> = [
+  SampleView.NAME,
+  GeneratedSampleView.NAME,
+  PropsDisplayer.NAME,
++ WEB_VIEW
+  ];
+```
+
 ### 在 ArkTs 侧引入 WebViewPackage
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
@@ -230,10 +243,6 @@ ohpm install
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[ @react-native-oh-tpl/react-native-webview Releases](https://github.com/react-native-oh-library/react-native-webview/releases)
-
-本文档内容基于以下版本验证通过：
-
-RNOH: 0.72.26; SDK: HarmonyOS NEXT Developer Beta1; IDE: DevEco Studio 5.0.3.300; ROM: 3.0.0.22;
 
 ## 属性
 

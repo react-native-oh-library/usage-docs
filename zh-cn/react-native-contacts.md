@@ -1,5 +1,6 @@
 <!-- {% raw %} -->
-> 模板版本：v0.2.0
+
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-contacts</code> </h1>
@@ -44,259 +45,296 @@ yarn add @react-native-oh-tpl/react-native-contacts@file:#
 > [!WARNING] 使用时 import 的库名不变。
 
 ```js
-
-import React, {useState} from 'react';
-import {
-    ScrollView,
-    Button,
-    Alert
-} from 'react-native';
-import Contacts from 'react-native-contacts'
+import React, { useState } from "react";
+import { ScrollView, Button, Alert } from "react-native";
+import Contacts from "react-native-contacts";
 
 export const ContactsDemo = () => {
-    let emailAddress: Contacts.EmailAddress = {
-        label: "emailAddress",
-        email: "test@163.com",
-    }
-    let phoneNumber: Contacts.PhoneNumber = {
-        label: "phoneNumber",
-        number: "13142536789",
-    }
+  let emailAddress: Contacts.EmailAddress = {
+    label: "emailAddress",
+    email: "test@163.com",
+  };
+  let phoneNumber: Contacts.PhoneNumber = {
+    label: "phoneNumber",
+    number: "13142536789",
+  };
 
-    let postalAddress: Contacts.PostalAddress = {
-        label: "label",
-        formattedAddress: "formattedAddress",
-        street: "street",
-        pobox: "pobox",
-        neighborhood: "neighborhood",
-        city: "city",
-        region: "region",
-        state: "state",
-        postCode: "postCode",
-        country: "country",
-    }
+  let postalAddress: Contacts.PostalAddress = {
+    label: "label",
+    formattedAddress: "formattedAddress",
+    street: "street",
+    pobox: "pobox",
+    neighborhood: "neighborhood",
+    city: "city",
+    region: "region",
+    state: "state",
+    postCode: "postCode",
+    country: "country",
+  };
 
-    let birthday: Contacts.Birthday = {
-        day: 1,
-        month: 5,
-        year: 2024,
-    }
+  let birthday: Contacts.Birthday = {
+    day: 1,
+    month: 5,
+    year: 2024,
+  };
 
-    let instantMessageAddress: Contacts.InstantMessageAddress = {
-        username: "username",
-        service: "service",
-    }
+  let instantMessageAddress: Contacts.InstantMessageAddress = {
+    username: "username",
+    service: "service",
+  };
 
-    let urlAddress: Contacts.UrlAddress = {
-        url: "url",
-        label: "label"
-    }
-    let contact: Contacts.Contact = {
-        company: "addcompany",
-        emailAddresses: [emailAddress],
-        displayName: "adddisplayName",
-        familyName: "addfamilyName",
-        givenName: "addgivenName",
-        middleName: "addmiddleName",
-        jobTitle: "addjobTitle",
-        phoneNumbers: [phoneNumber],
-        hasThumbnail: false,
-        thumbnailPath: "addthumbnailPath",
-        isStarred: false,
-        postalAddresses: [postalAddress],
-        prefix: "addprefix",
-        suffix: "addsuffix",
-        department: "adddepartment",
-        birthday: birthday,
-        imAddresses: [instantMessageAddress],
-        urlAddresses: [urlAddress],
-        note: "addnote",
-    }
-    
-    return (
-        <ScrollView >
-            <Button
-                title="requestPermission"
-                onPress={() => {
-                    Contacts.requestPermission().then((data) => {
-                      console.log(`requestPermission:${JSON.stringify(data)}`)
-                      Alert.alert(`requestPermission:${JSON.stringify(data)}`)
-                    })
-                }} />
-            <Button
-                title="checkPermission"
-                onPress={() => {
-                    Contacts.checkPermission().then((data) => {
-                        console.log(`checkPermission:${JSON.stringify(data)}`)
-                        Alert.alert(`checkPermission:${JSON.stringify(data)}`)
-                    })
-                }} />
-            <Button
-                title="getAll"
-                onPress={() => {
-                    Contacts.getAll().then((contacts: Contacts.Contact[]) => {
-                        console.log(`getAll:${JSON.stringify(contacts)}`)
-                    })
-                }} />
-            <Button
-                title="getAllWithoutPhotos"
-                onPress={() => {
-                    Contacts.getAllWithoutPhotos().then((contacts:Contacts.Contact[]) => {
-                        console.log(`getAllWithoutPhotos:${JSON.stringify(contacts)}`)
-                    })
-                }} />
-            <Button
-                title="getContactById"
-                onPress={() => {
-                    Contacts.getContactById("1").then((contact: Contacts.Contact | null) => {
-                        console.log(`getContactById:${JSON.stringify(contact)}`)
-                    })
-                }} />
-            <Button
-                title="getCount"
-                onPress={() => {
-                    Contacts.getCount().then((count: number) => {
-                        console.log(`getCount:${count}`)
-                    })
-                }} />
-            <Button
-                title="getPhotoForId"
-                onPress={() => {
-                    Contacts.getPhotoForId("1").then((photoUrl: string) => {
-                        console.log(`getPhotoForId:${photoUrl}`)
-                    })
-                }} />
-            <Button
-                title="addContact"
-                onPress={() => {
-                    Contacts.addContact(contact).then((contact: Contacts.Contact) => {
-                        console.log(`addContact:${JSON.stringify(contact)}`)
-                    })
-                }} />
+  let urlAddress: Contacts.UrlAddress = {
+    url: "url",
+    label: "label",
+  };
+  let contact: Contacts.Contact = {
+    company: "addcompany",
+    emailAddresses: [emailAddress],
+    displayName: "adddisplayName",
+    familyName: "addfamilyName",
+    givenName: "addgivenName",
+    middleName: "addmiddleName",
+    jobTitle: "addjobTitle",
+    phoneNumbers: [phoneNumber],
+    hasThumbnail: false,
+    thumbnailPath: "addthumbnailPath",
+    isStarred: false,
+    postalAddresses: [postalAddress],
+    prefix: "addprefix",
+    suffix: "addsuffix",
+    department: "adddepartment",
+    birthday: birthday,
+    imAddresses: [instantMessageAddress],
+    urlAddresses: [urlAddress],
+    note: "addnote",
+  };
 
-            <Button
-                title="openContactForm"
-                onPress={() => { 
-                    Contacts.openContactForm(contact).then((contact: Contacts.Contact) => {
-                        console.log(`openContactForm:${JSON.stringify(contact)}`)
-                        Alert.alert(`openContactForm success`)
-                    })
-                }} />
-            <Button
-                title="openExistingContact"
-                onPress={() => { 
-                    Contacts.openExistingContact(
-                        {
-                            recordID: "1",
-                            phoneNumbers: [{
-                                label: "phoneNumber2",
-                                number: "13521456721",
-                            }],
-    
-                        }
-                    ).then((contact: Contacts.Contact) => {
-                        console.log(`openExistingContact:${JSON.stringify(contact)}`)
-                        Alert.alert(`openExistingContact success`)
-                    })
-                }} />
-            <Button
-                title="viewExistingContact"
-                onPress={() => { 
-                    Contacts.viewExistingContact(
-                        {
-                            recordID: "1",
-                            phoneNumbers: [{
-                                label: "phoneNumber2",
-                                number: "13521456721",
-                            },],
-    
-                        }
-                    ).then((contact: Contacts.Contact) => {
-                        console.log(`viewExistingContact:${JSON.stringify(contact)}`)
-                        Alert.alert(`viewExistingContact success`)
-                    })
-                }} />
-            <Button
-                title="editExistingContact"
-                onPress={() => { 
-                    Contacts.editExistingContact({
-                        recordID: "1",
-                        phoneNumbers: [{
-                            label: "phoneNumber2",
-                            number: "13521456721",
-                        }],
+  return (
+    <ScrollView>
+      <Button
+        title="requestPermission"
+        onPress={() => {
+          Contacts.requestPermission().then((data) => {
+            console.log(`requestPermission:${JSON.stringify(data)}`);
+            Alert.alert(`requestPermission:${JSON.stringify(data)}`);
+          });
+        }}
+      />
+      <Button
+        title="checkPermission"
+        onPress={() => {
+          Contacts.checkPermission().then((data) => {
+            console.log(`checkPermission:${JSON.stringify(data)}`);
+            Alert.alert(`checkPermission:${JSON.stringify(data)}`);
+          });
+        }}
+      />
+      <Button
+        title="getAll"
+        onPress={() => {
+          Contacts.getAll().then((contacts: Contacts.Contact[]) => {
+            console.log(`getAll:${JSON.stringify(contacts)}`);
+          });
+        }}
+      />
+      <Button
+        title="getAllWithoutPhotos"
+        onPress={() => {
+          Contacts.getAllWithoutPhotos().then(
+            (contacts: Contacts.Contact[]) => {
+              console.log(`getAllWithoutPhotos:${JSON.stringify(contacts)}`);
+            }
+          );
+        }}
+      />
+      <Button
+        title="getContactById"
+        onPress={() => {
+          Contacts.getContactById("1").then(
+            (contact: Contacts.Contact | null) => {
+              console.log(`getContactById:${JSON.stringify(contact)}`);
+            }
+          );
+        }}
+      />
+      <Button
+        title="getCount"
+        onPress={() => {
+          Contacts.getCount().then((count: number) => {
+            console.log(`getCount:${count}`);
+          });
+        }}
+      />
+      <Button
+        title="getPhotoForId"
+        onPress={() => {
+          Contacts.getPhotoForId("1").then((photoUrl: string) => {
+            console.log(`getPhotoForId:${photoUrl}`);
+          });
+        }}
+      />
+      <Button
+        title="addContact"
+        onPress={() => {
+          Contacts.addContact(contact).then((contact: Contacts.Contact) => {
+            console.log(`addContact:${JSON.stringify(contact)}`);
+          });
+        }}
+      />
 
-                    }).then((contact: Contacts.Contact) => {
-                        console.log(`editExistingContact:${JSON.stringify(contact)}`)
-                        Alert.alert(`editExistingContact success`)
-                    })
-                }} />
-            <Button
-                title="updateContact"
-                onPress={() => { 
-                    Contacts.updateContact({
-                        recordID: "1",
-                        familyName: 'updateContact',
-                        givenName:'updateContact',
-                        phoneNumbers: [{
-                            label: "phoneNumber2",
-                            number: "13521456721",
-                        },{
-                            label: "phoneNumber3",
-                            number: "13521456222",
-                        }],
-
-                    }).then(() => {
-                        Alert.alert(`updateContact success`)
-                    })
-                }} />
-            <Button
-                title="deleteContact"
-                onPress={() => { 
-                    Contacts.deleteContact({
-                        recordID: "3"
-                    }).then(() => {
-                        Alert.alert(`deleteContact success`)
-                    })
-                }} />
-            <Button
-                title="getContactsMatchingString"
-                onPress={() => { 
-                    Contacts.getContactsMatchingString("addfamilyName").then((contacts:Contacts.Contact[]) => {
-                        console.log(`getContactsMatchingString:${JSON.stringify(contacts)}`)
-                    })
-                }} />
-            <Button
-                title="getContactsByPhoneNumber"
-                onPress={() => { 
-                    Contacts.getContactsByPhoneNumber("789").then((contacts:Contacts.Contact[]) => {
-                        console.log(`getContactsByPhoneNumber:${JSON.stringify(contacts)}`)
-                    })
-                }} />
-            <Button
-                title="getContactsByEmailAddress"
-                onPress={() => { 
-                    Contacts.getContactsByEmailAddress("test@163.com").then((contacts:Contacts.Contact[]) => {
-                        console.log(`getContactsByEmailAddress:${JSON.stringify(contacts)}`)
-                    })
-                }} />
-            <Button
-                title="writePhotoToPath"
-                onPress={() => { 
-                    Contacts.writePhotoToPath("1","file").then((data) => {
-                        console.log(`writePhotoToPath:${JSON.stringify(data)}`)
-                    })
-                }} />
-            <Button
-                title="iosEnableNotesUsage"
-                onPress={() => { 
-                    Contacts.iosEnableNotesUsage(true)
-                    console.log(`iosEnableNotesUsage:true`)
-                }} />
-        </ScrollView>
-    );
-}
+      <Button
+        title="openContactForm"
+        onPress={() => {
+          Contacts.openContactForm(contact).then(
+            (contact: Contacts.Contact) => {
+              console.log(`openContactForm:${JSON.stringify(contact)}`);
+              Alert.alert(`openContactForm success`);
+            }
+          );
+        }}
+      />
+      <Button
+        title="openExistingContact"
+        onPress={() => {
+          Contacts.openExistingContact({
+            recordID: "1",
+            phoneNumbers: [
+              {
+                label: "phoneNumber2",
+                number: "13521456721",
+              },
+            ],
+          }).then((contact: Contacts.Contact) => {
+            console.log(`openExistingContact:${JSON.stringify(contact)}`);
+            Alert.alert(`openExistingContact success`);
+          });
+        }}
+      />
+      <Button
+        title="viewExistingContact"
+        onPress={() => {
+          Contacts.viewExistingContact({
+            recordID: "1",
+            phoneNumbers: [
+              {
+                label: "phoneNumber2",
+                number: "13521456721",
+              },
+            ],
+          }).then((contact: Contacts.Contact) => {
+            console.log(`viewExistingContact:${JSON.stringify(contact)}`);
+            Alert.alert(`viewExistingContact success`);
+          });
+        }}
+      />
+      <Button
+        title="editExistingContact"
+        onPress={() => {
+          Contacts.editExistingContact({
+            recordID: "1",
+            phoneNumbers: [
+              {
+                label: "phoneNumber2",
+                number: "13521456721",
+              },
+            ],
+          }).then((contact: Contacts.Contact) => {
+            console.log(`editExistingContact:${JSON.stringify(contact)}`);
+            Alert.alert(`editExistingContact success`);
+          });
+        }}
+      />
+      <Button
+        title="updateContact"
+        onPress={() => {
+          Contacts.updateContact({
+            recordID: "1",
+            familyName: "updateContact",
+            givenName: "updateContact",
+            phoneNumbers: [
+              {
+                label: "phoneNumber2",
+                number: "13521456721",
+              },
+              {
+                label: "phoneNumber3",
+                number: "13521456222",
+              },
+            ],
+          }).then(() => {
+            Alert.alert(`updateContact success`);
+          });
+        }}
+      />
+      <Button
+        title="deleteContact"
+        onPress={() => {
+          Contacts.deleteContact({
+            recordID: "3",
+          }).then(() => {
+            Alert.alert(`deleteContact success`);
+          });
+        }}
+      />
+      <Button
+        title="getContactsMatchingString"
+        onPress={() => {
+          Contacts.getContactsMatchingString("addfamilyName").then(
+            (contacts: Contacts.Contact[]) => {
+              console.log(
+                `getContactsMatchingString:${JSON.stringify(contacts)}`
+              );
+            }
+          );
+        }}
+      />
+      <Button
+        title="getContactsByPhoneNumber"
+        onPress={() => {
+          Contacts.getContactsByPhoneNumber("789").then(
+            (contacts: Contacts.Contact[]) => {
+              console.log(
+                `getContactsByPhoneNumber:${JSON.stringify(contacts)}`
+              );
+            }
+          );
+        }}
+      />
+      <Button
+        title="getContactsByEmailAddress"
+        onPress={() => {
+          Contacts.getContactsByEmailAddress("test@163.com").then(
+            (contacts: Contacts.Contact[]) => {
+              console.log(
+                `getContactsByEmailAddress:${JSON.stringify(contacts)}`
+              );
+            }
+          );
+        }}
+      />
+      <Button
+        title="writePhotoToPath"
+        onPress={() => {
+          Contacts.writePhotoToPath("1", "file").then((data) => {
+            console.log(`writePhotoToPath:${JSON.stringify(data)}`);
+          });
+        }}
+      />
+      <Button
+        title="iosEnableNotesUsage"
+        onPress={() => {
+          Contacts.iosEnableNotesUsage(true);
+          console.log(`iosEnableNotesUsage:true`);
+        }}
+      />
+    </ScrollView>
+  );
+};
 ```
+
+## 使用 Codegen
+
+本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/zh-cn/codegen.md)。
 
 ## Link
 
@@ -304,7 +342,7 @@ export const ContactsDemo = () => {
 
 首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
-### 在工程根目录的 `oh-package.json` 添加 overrides字段
+### 在工程根目录的 `oh-package.json` 添加 overrides 字段
 
 ```json
 {
@@ -346,23 +384,7 @@ ohpm install
 
 方法二：直接链接源码
 
-> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
-
-```json
-"dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/react-native-contacts": "file:../../node_modules/@react-native-oh-tpl/react-native-contacts/harmony/contacts"
-  }
-```
-
-打开终端，执行：
-
-```bash
-cd entry
-ohpm install --no-link
-```
+> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
 ### 在 ArkTs 侧引入 ContactsPackage
 
@@ -377,10 +399,6 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 +   new ContactsPackage(ctx)];
 }
 ```
-
-### 应用权限申请
-
-> [!tip] 'ohos.permission.READ_CONTACTS', 'ohos.permission.WRITE_CONTACTS'权限等级为<B>system_basic</B>，授权方式为<B>user_grant</B>，[使用ACL签名的配置指导](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/signing-0000001587684945-V3#section157591551175916)
 
 ### 运行
 
@@ -403,9 +421,37 @@ ohpm install
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-contacts Releases](https://github.com/react-native-oh-library/react-native-contacts/releases)
 
-本文档内容基于以下版本验证通过：
+### 权限要求
 
-RNOH: 0.72.20-CAPI; SDK: HarmonyOS NEXT Developer Beta1(full sdk); IDE: DevEco Studio 5.0.3.200; ROM: 3.0.0.18;
+[!tip] "ohos.permission.READ_CONTACTS"，"ohos.permission.WRITE_CONTACTS"权限等级为<B>system_basic</B>，授权方式为<B>user_grant</B>，[使用 ACL 签名的配置指导](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/signing-0000001587684945-V3#section157591551175916)
+
+打开`entry/src/main/module.json5`，添加：
+
+```json
+"requestPermissions": [
+     ...
+     {
+        "name": "ohos.permission.READ_CONTACTS",
+        "reason": "$string:read_contacts_reason",
+        "usedScene": {
+          "abilities": [
+            "EntryAbility"
+          ],
+          "when": "always"
+        }
+      },
+      {
+        "name": "ohos.permission.WRITE_CONTACTS",
+        "reason": "$string:write_contacts_reason",
+        "usedScene": {
+          "abilities": [
+            "EntryAbility"
+          ],
+          "when": "always"
+        }
+      }
+]
+```
 
 ## 属性
 
@@ -430,27 +476,27 @@ RNOH: 0.72.20-CAPI; SDK: HarmonyOS NEXT Developer Beta1(full sdk); IDE: DevEco S
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name                  | Description                                | Type     | Required | Platform    | HarmonyOS Support |
-| --------------------- | ------------------------------------------ | -------- | -------- | ----------- | ----------------- |
-| getAll              | 查询所有联系人              | function | no       | android,ios | yes                |
-| getAllWithoutPhotos | Android同getAll，但在iOS上，不会返回联系人照片的 uri（因为创建图像的开销很大）                               | function | no       | android,ios         | yes          |
-| getContactById      | 通过id查询联系人                               | function | no       | android,ios | yes               |
-| getCount            | 查询所有联系人数量                        | function | no       | android,ios | yes               |
-| getPhotoForId    | 通过联系人id查询头像URL | function | no       | android,ios | yes            |
-| addContact          | 添加联系人 | function | no       | android,ios | yes               |
-| openContactForm     | 创建一个新联系人并跳转到联系人界面 | function | no       | android,ios | partially     |
-| openExistingContact | 打开编辑联系人界面 | function | no       | android,ios | partially       |
-| viewExistingContact | 打开查看联系人信息界面 | function | no       | android,ios | partially       |
-| editExistingContact | 打开联系人号码号码编辑界面 | function | no       | android,ios | no                |
-| updateContact | 更新联系人信息    | function | no       | android,ios | yes             |
-| deleteContact | 删除联系人      | function | no       | android,ios | yes             |
-| getContactsMatchingString | 通过姓名查询联系人           | function | no       | android,ios | yes          |
-| getContactsByPhoneNumber | 通过电话查询联系人           | function | no       | android,ios | yes             |
-| getContactsByEmailAddress | 通过电子邮箱地址查询联系人           | function | no       | android,ios | yes             |
-| checkPermission | 检查是否有联系人读写权限           | function | no       | ios | yes             |
-| requestPermission |申请联系人读写权限           | function | no       | ios | yes             |
-| writePhotoToPath | 仅将联系人照片写入给定路径           | function | no       | android | no                |
-| iosEnableNotesUsage | 访问iOS 13上提交的注释         | function | no       | ios     | no                |
+| Name                      | Description                                                                        | Type     | Required | Platform    | HarmonyOS Support |
+| ------------------------- | ---------------------------------------------------------------------------------- | -------- | -------- | ----------- | ----------------- |
+| getAll                    | 查询所有联系人                                                                     | function | no       | android,ios | yes               |
+| getAllWithoutPhotos       | Android 同 getAll，但在 iOS 上，不会返回联系人照片的 uri（因为创建图像的开销很大） | function | no       | android,ios | yes               |
+| getContactById            | 通过 id 查询联系人                                                                 | function | no       | android,ios | yes               |
+| getCount                  | 查询所有联系人数量                                                                 | function | no       | android,ios | yes               |
+| getPhotoForId             | 通过联系人 id 查询头像 URL                                                         | function | no       | android,ios | yes               |
+| addContact                | 添加联系人                                                                         | function | no       | android,ios | yes               |
+| openContactForm           | 创建一个新联系人并跳转到联系人界面                                                 | function | no       | android,ios | partially         |
+| openExistingContact       | 打开编辑联系人界面                                                                 | function | no       | android,ios | partially         |
+| viewExistingContact       | 打开查看联系人信息界面                                                             | function | no       | android,ios | partially         |
+| editExistingContact       | 打开联系人号码号码编辑界面                                                         | function | no       | android,ios | no                |
+| updateContact             | 更新联系人信息                                                                     | function | no       | android,ios | yes               |
+| deleteContact             | 删除联系人                                                                         | function | no       | android,ios | yes               |
+| getContactsMatchingString | 通过姓名查询联系人                                                                 | function | no       | android,ios | yes               |
+| getContactsByPhoneNumber  | 通过电话查询联系人                                                                 | function | no       | android,ios | yes               |
+| getContactsByEmailAddress | 通过电子邮箱地址查询联系人                                                         | function | no       | android,ios | yes               |
+| checkPermission           | 检查是否有联系人读写权限                                                           | function | no       | ios         | yes               |
+| requestPermission         | 申请联系人读写权限                                                                 | function | no       | ios         | yes               |
+| writePhotoToPath          | 仅将联系人照片写入给定路径                                                         | function | no       | android     | no                |
+| iosEnableNotesUsage       | 访问 iOS 13 上提交的注释                                                           | function | no       | ios         | no                |
 
 ## 遗留问题
 

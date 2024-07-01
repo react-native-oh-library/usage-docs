@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-SmartRefreshLayout</code> </h1>
@@ -13,7 +13,7 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-smartrefreshlayout)
+> [!Tip] [Github 地址](https://github.com/react-native-oh-library/react-native-smartrefreshlayout)
 
 ## 安装与使用
 
@@ -147,7 +147,7 @@ const App = () => {
           setText1("时间：" + new Date().getTime() + "onRefresh触发刷新");
         }}
         HeaderComponent={
-          <AnyHeader>
+          <AnyHeader style = {{ height: 0 }}>
             <Text style={{ height: 66, width: "100%" }}>{text}</Text>
           </AnyHeader>
         }
@@ -183,6 +183,16 @@ export default App;
 
 首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
+### 在工程根目录的 `oh-package.json` 添加 overrides 字段
+
+```json
+{
+  ...
+  "overrides": {
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+  }
+}
+```
 ### 引入原生端代码
 
 目前有两种方法：
@@ -190,7 +200,7 @@ export default App;
 1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
 2. 直接链接源码。
 
-方法一：通过 har 包引入
+方法一：通过 har 包引入 （推荐）
 
 > [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
 
@@ -200,7 +210,7 @@ export default App;
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
 
-    "rnoh-smart-refresh-layout": "file:../../node_modules/@react-native-oh-tpl/react-native-smartrefreshlayout/harmony/smart_refresh_layout.har"
+    "@react-native-oh-tpl/react-native-smartrefreshlayout": "file:../../node_modules/@react-native-oh-tpl/react-native-smartrefreshlayout/harmony/smart_refresh_layout.har"
   }
 ```
 
@@ -224,16 +234,23 @@ ohpm install
 ```diff
 project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
+set(CMAKE_SKIP_BUILD_RPATH TRUE)
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(OH_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
+set(LOG_VERBOSITY_LEVEL 1)
+set(CMAKE_ASM_FLAGS "-Wno-error=unused-command-line-argument -Qunused-arguments")
+set(CMAKE_CXX_FLAGS "-fstack-protector-strong -Wl,-z,relro,-z,now,-z,noexecstack -s -fPIE -pie")
+set(WITH_HITRACE_SYSTRACE 1) # for other CMakeLists.txt files to use
+add_compile_definitions(WITH_HITRACE_SYSTRACE)
 
 add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
-# RNOH_BEGIN: add_package_subdirectories
+# RNOH_END: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/rnoh-smart-refresh-layout/src/main/cpp" ./smart-refresh-layout)
-# RNOH_END: add_package_subdirectories
++ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/react-native-smartrefreshlayout/src/main/cpp" ./smart-refresh-layout)
+# RNOH_END: manual_package_linking_1
 
 add_library(rnoh_app SHARED
     "./PackageProvider.cpp"
@@ -242,10 +259,10 @@ add_library(rnoh_app SHARED
 
 target_link_libraries(rnoh_app PUBLIC rnoh)
 
-# RNOH_BEGIN: link_packages
+# RNOH_BEGIN: manual_package_linking_2
 target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 + target_link_libraries(rnoh_app PUBLIC rnoh_smart_refresh_layout)
-# RNOH_END: link_packages
+# RNOH_BEGIN: manual_package_linking_2
 ```
 
 打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
@@ -265,47 +282,20 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 在 ArkTs 侧引入 SmartRefresh 组件
+### 在 ArkTs 侧引入 SmartRefreshPackage（版本>=0.6.7-0.2.9）
 
-找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
+打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
 ...
-import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-package"
-import { createRNPackages } from '../RNPackagesFactory'
-+ import { SmartRefreshControl,SMART_REFRESH_CONTROL_TYPE ,ANY_HEADER_TYPE,RNCAnyHeader,DEFAULT_HEADER_TYPE,RNCDefaultHeader} from "rnoh-smart-refresh-layout"
++ import { SmartRefreshPackage } from '@react-native-oh-tpl/react-native-smartrefreshlayout/ts';
 
-@Builder
-function buildCustomComponent(ctx: ComponentBuilderContext) {
-  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
-    SampleView({
-      ctx: ctx.rnComponentContext,
-      tag: ctx.tag,
-      buildCustomComponent: buildCustomComponent
-    })
-  }
-+ else if (ctx.componentName === SMART_REFRESH_CONTROL_TYPE){
-+    SmartRefreshControl({
-+      ctx: ctx.rnComponentContext,
-+      tag: ctx.tag,
-+      buildCustomComponent: buildCustomComponent
-+    })
-+  } else if (ctx.componentName === ANY_HEADER_TYPE){
-+    RNCAnyHeader({
-+      ctx: ctx.rnComponentContext,
-+      tag: ctx.tag,
-+      buildCustomComponent: buildCustomComponent
-+    })
-+  } else if (ctx.componentName === DEFAULT_HEADER_TYPE) {
-+    RNCDefaultHeader({
-+      ctx: ctx.rnComponentContext,
-+      tag: ctx.tag,
-+      buildCustomComponent: buildCustomComponent
-+    })
-+  }
- ...
+export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
+  return [
+    new SamplePackage(ctx),
++   new SmartRefreshPackage(ctx)
+  ];
 }
-...
 ```
 
 ### 运行
@@ -321,7 +311,9 @@ ohpm install
 
 然后编译、运行即可。
 
-## 兼容性
+## 约束与限制
+
+### 兼容性
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
@@ -339,53 +331,63 @@ ohpm install
 | --------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------- | -------- | -------- | ----------------- |
 | `HeaderComponent`     | 用于渲染 SmartRefreshLayout 组件的 header,默认为 DefaultHeader。 | Element                                                                      | No       | Android  | Yes               |
 | `renderHeader`        | 用于渲染 SmartRefreshLayout 组件的 header,默认为 DefaultHeader。 | Element/func                                                                 | No       | Android  | No                |
-| `enableRefresh`       | 是否启用下拉刷新,默认为 true                                     | boolean                                                                      | No       | Android  | No                |
+| `enableRefresh`       | 是否启用下拉刷新,默认为 true                                     | boolean                                                                      | No       | Android  | Yes                |
 | `headerHeight`        | 设定 header 的高度                                               | number                                                                       | No       | Android  | Yes               |
 | `primaryColor`        | 设置刷新组件的主调色                                             | string                                                                       | No       | Android  | Yes               |
-| `autoRefresh`         | 是否自动刷新                                                     | object:{refresh:boolean, time:number}                                        | No       | Android  | No                |
+| `autoRefresh`         | 是否自动刷新                                                     | object:{refresh:boolean, time:number}                                        | No       | Android  | Yes                |
 | `pureScroll`          | 是否启用纯滚动                                                   | boolean                                                                      | No       | Android  | No                |
 | `overScrollBounce`    | 是否启用越界拖动，类似 IOS 样式。                                | boolean                                                                      | No       | Android  | No                |
 | `dragRate`            | 设置组件下拉高度与手指真实下拉高度的比值,默认为 0.5。            | number                                                                       | No       | Android  | No                |
 | `maxDragRate`         | 设置最大显示下拉高度与 header 标准高度的比值，默认为 2.0。       | number                                                                       | No       | Android  | No                |
-| `onPullDownToRefresh` | 可下拉刷新时触发                                                 | function                                                                     | No       | Android  | No                |
-| `onReleaseToRefresh`  | 可释放刷新时触发                                                 | function                                                                     | No       | Android  | No                |
+| `onPullDownToRefresh` | 可下拉刷新时触发                                                 | function                                                                     | No       | Android  | Yes                |
+| `onReleaseToRefresh`  | 可释放刷新时触发                                                 | function                                                                     | No       | Android  | Yes                |
 | `onRefresh`           | 刷新时触发                                                       | function                                                                     | No       | Android  | Yes               |
-| `onHeaderReleased`    | Header 释放时触发                                                | function                                                                     | No       | Android  | No                |
+| `onHeaderReleased`    | Header 释放时触发                                                | function                                                                     | No       | Android  | Yes                |
 | `onHeaderMoving`      | header 移动过程中触发,包括下拉过程和释放过程。                   | ({nativeEvent: {percent:number, offset:number, headerHeight:number}})=>void; | No       | Android  | Yes               |
-| `finishRefresh`       | 完成刷新                                                         | Methods                                                                      | No       | Android  | Yes               |
+
 
 **组件 AnyHeader**
 
 仅组件支持渲染，在 RNOH0.72.10 版本中需要给 List 类型子组件添加 bounces = {false}属性，否则无法触发本组件的下拉。（0.72.11 版本已解决）
 
-| 名称           | 说明                     | 类型   | 是否必填 | 原库平台 |  HarmonyOS 支持 |
+| Name           | Description                      | Type   | Required | Platform |  HarmonyOS Support |
 | -------------- | ------------------------ | ------ | -------- | -------- | -------- |
-| `primaryColor` | 刷新组件 Header 的主调色 | string | No       | Android  | 不支持   |
+| `primaryColor` | 刷新组件 Header 的主调色 | string | No       | Android  | No   |
 
 **组件 DefaultHeader/ClassicsHeader**
 
-当前组件不支持
+当前组件支持
 
-| 名称           | 说明                     | 类型   | 是否必填 | 原库平台 |  HarmonyOS 支持 |
+| Name          | Description                      | Type   | Required  | Platform |  HarmonyOS Support |
 | -------------- | ------------------------ | ------ | -------- | -------- | -------- |
-| `primaryColor` | 刷新组件 Header 的主调色 | string | No       | Android  | 不支持   |
-| `accentColor`  | 刷新组件 Header 的强调色 | string | No       | Android  | 不支持   |
+| `primaryColor` | 刷新组件 Header 的主调色 | string | No       | Android  | No   |
+| `accentColor`  | 刷新组件 Header 的强调色 | string | No       | Android  | No   |
 
 **组件 StoreHouseHeader**
 
 当前组件不支持
 
-| 名称        | 说明                        | 类型   | 是否必填 | 原库平台 |  HarmonyOS 支持 |
+| Name       | Description                         | Type    | Required  | Platform |  HarmonyOS Support |
 | ----------- | --------------------------- | ------ | -------- | -------- | -------- |
-| `text`      | StoreHouseHeader 的文字     | string | No       | Android  | 不支持   |
-| `textColor` | StoreHouseHeader 的文字颜色 | string | No       | Android  | 不支持   |
-| `lineWidth` | StoreHouseHeader 的文字线宽 | number | No       | Android  | 不支持   |
+| `text`      | StoreHouseHeader 的文字     | string | No       | Android  | No   |
+| `textColor` | StoreHouseHeader 的文字颜色 | string | No       | Android  | No   |
+| `lineWidth` | StoreHouseHeader 的文字线宽 | number | No       | Android  | No   |
 
 ---
 
+## 静态方法
+
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name | Description | Type | Required | Platform | HarmonyOS Support  |
+| ---- | ----------- | ---- | -------- | -------- | ------------------ |
+| finishRefresh  | complete refresh         | function  | No | Android      | Yes |
+
 ## 遗留问题
 
-- [ ] SmartRefreshLayout 包裹 FlatList 组件，多次下拉刷新，item 会回弹。[Issue #11 ](https://github.com/react-native-oh-library/react-native-SmartRefreshLayout/issues/11)
+- [ ] SmartRefreshLayout 包裹 FlatList 组件，多次下拉刷新，item 会回弹：[Issue #11 ](https://github.com/react-native-oh-library/react-native-SmartRefreshLayout/issues/11)
 
 ## 其他
 

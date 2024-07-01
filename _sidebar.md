@@ -28,7 +28,7 @@
     - [react-native-reanimated](/zh-cn/react-native-reanimated.md)
     - [react-native-safe-area-context](/zh-cn/react-native-safe-area-context.md)
     - [react-native-SmartRefreshLayout](/zh-cn/react-native-SmartRefreshLayout.md)
-    - [react-native-svg](/zh-cn/react-native-svg.md)
+    - [react-native-svg](/zh-cn/react-native-svg-capi.md)
     - [react-native-vector-icons](/zh-cn/react-native-vector-icons.md)
     - [react-native-video](/zh-cn/react-native-video.md)
     - [react-native-view-shot](/zh-cn/react-native-view-shot.md)

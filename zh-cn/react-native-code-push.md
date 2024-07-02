@@ -336,6 +336,32 @@ build() {
 }
 ```
 
+打开`tester/harmony/entry/src/main/resources/base/element/string.json`，添加配置
+
+```diff
+{
+  "string": [
+   ...
++     {
++       "name": "Staging",
++       "value": "" //绑定服务平台，返回的测试环境的Key
++     },
++     {
++       "name": "Production",
++       "value": "" //绑定服务平台，返回的生产环境的Key
++     },
++     {
++       "name": "ServerUrl",
++       "value": "" //code-push-server服务地址
++     },
++     {
++       "name": "PublicKey",
++       "value": "PublicKey"
++     }
+  ]
+}
+```
+
 然后编译、运行即可。
 
 ## 约束与限制

@@ -17,7 +17,6 @@
 
 ## 安装与使用
 
-
 <!-- tabs:start -->
 
 #### **npm**
@@ -279,7 +278,7 @@ hese methods are optional, you can use the isOpen property instead
 
 | Name  | Description  | Type | Required  |Platform|HarmonyOS Support |
 | :------------ |:---------------:| :---------------:|:---------------:|:---------------:|:---------------:|
-| open  | Open the modal | `function`  | no  | IOS/Android  | yes  |
+| open  | Open the modal  | `function`  | no  | IOS/Android  | yes  |
 | close  | Close the modal | `function`  | no  | IOS/Android  | yes  |
 
 
@@ -289,5 +288,5 @@ hese methods are optional, you can use the isOpen property instead
 
 ## 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/wmcmahan/react-native-calendar-events/blob/master/LICENSE.md) ，请自由地享受和参与开源。
+本项目基于 [The MIT License (MIT)](https://github.com/maxs15/react-native-modalbox/blob/master/License.txt) ，请自由地享受和参与开源。
 <!-- {% endraw %} -->

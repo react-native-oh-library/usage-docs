@@ -173,62 +173,6 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 在 ArkTs 侧引入 FlashList 组件（若需要运行 ArkTs 版本）
-
-> [!WARNING] Deprecated！该库已接入 CAPI。
-
-找到 `function buildCustomRNComponent()`，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
-
-```diff
-...
-+ import { RNAutoLayoutView, FLASH_LIST_TYPE } from "@react-native-oh-tpl/flash-list"
-+ import { RNCellContainer, CELL_CONTAINER_TYPE } from "@react-native-oh-tpl/flash-list"
-
-  @Builder
-  function buildCustomComponent(ctx: ComponentBuilderContext) {
-    if (ctx.componentName === SAMPLE_VIEW_TYPE) {
-      SampleView({
-        ctx: ctx.rnComponentContext,
-        tag: ctx.tag,
-        buildCustomComponent: buildCustomRNComponent
-      })
-    }
-+   else if (ctx.componentName === FLASH_LIST_TYPE) {
-+     RNAutoLayoutView({
-+       ctx: ctx.rnComponentContext,
-+       tag: ctx.tag,
-+       buildCustomComponent: buildCustomRNComponent
-+     })
-+   } else if (ctx.componentName === CELL_CONTAINER_TYPE) {
-+     RNCellContainer({
-+       ctx: ctx.rnComponentContext,
-+       tag: ctx.tag,
-+       buildCustomComponent: buildCustomRNComponent
-+     })
-+   }
-
-    ...
-  }
-  ...
-```
-
-### 在 ArkTs 侧引入 FlashListPackage
-
-打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
-
-```diff
-...
-+ import {FlashListPackage} from '@react-native-oh-tpl/flash-list';
-
-export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
-  return [
-    new SamplePackage(ctx),
-+   new FlashListPackage(ctx)
-  ];
-}
-```
-
-
 ### 运行
 
 点击右上角的 `sync` 按钮

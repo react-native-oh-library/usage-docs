@@ -313,7 +313,7 @@ AppRegistry.registerComponent(appName, () => SQLiteDemo);
 
 ```
 
-## 使用 Codegen（如本库已适配了 Codegen ）
+## 使用 Codegen
 
 本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/zh-cn/codegen.md)。
 

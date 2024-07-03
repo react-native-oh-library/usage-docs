@@ -1,12 +1,13 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-video</code> </h1>
 </p>
 <p align="center">
     <a href="https://github.com/react-native-video/react-native-video/tree/support/5.2.X">
-        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20tvos%20|%20windows%20|%20harmony%20|%20react_native_dom%20-lightgrey.svg" alt="Supported platforms" />
+        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
     <a href="https://github.com/react-native-video/react-native-video/blob/support/5.2.X/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
@@ -407,6 +408,14 @@ export default RNCVideoDemo;
 
 首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
+```json
+{
+  ...
+  "overrides": {
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+  }
+}
+```
 ### 引入原生端代码
 
 目前有两种方法：
@@ -414,7 +423,7 @@ export default RNCVideoDemo;
 1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
 2. 直接链接源码。
 
-方法一：通过 har 包引入
+方法一：通过 har 包引入（推荐）
 
 > [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
 
@@ -423,8 +432,7 @@ export default RNCVideoDemo;
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "rnoh-video": "file:../../node_modules/@react-native-oh-tpl/react-native-video/harmony/rn_video.har"
+  + "@react-native-oh-tpl/react-native-video": "file:../../node_modules/@react-native-oh-tpl/react-native-video/harmony/rn_video.har"
   }
 ```
 
@@ -449,15 +457,15 @@ ohpm install
 project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(OH_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
 
 add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
-# RNOH_BEGIN: add_package_subdirectories
+# RNOH_BEGIN: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/rnoh-video/src/main/cpp" ./video)
-# RNOH_END: add_package_subdirectories
++ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/react-native-video/src/main/cpp" ./video)
+# RNOH_BEGIN: manual_package_linking_1
 
 add_library(rnoh_app SHARED
     "./PackageProvider.cpp"
@@ -466,10 +474,10 @@ add_library(rnoh_app SHARED
 
 target_link_libraries(rnoh_app PUBLIC rnoh)
 
-# RNOH_BEGIN: link_packages
+# RNOH_BEGIN: manual_package_linking_2
 target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 + target_link_libraries(rnoh_app PUBLIC rnoh_video)
-# RNOH_END: link_packages
+# RNOH_END: manual_package_linking_2
 ```
 
 打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
@@ -502,20 +510,13 @@ import {
   MetroJSBundleProvider,
   ResourceJSBundleProvider,
 } from 'rnoh'
-import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-package"
 import { createRNPackages } from '../RNPackagesFactory'
-+ import { RNCVideo, RNC_VIDEO_TYPE } from "rnoh-video"
++ import { RNCVideo, RNC_VIDEO_TYPE } from "@react-native-oh-tpl/react-native-video"
 
 @Builder
-function buildCustomComponent(ctx: ComponentBuilderContext) {
-  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
-    SampleView({
-      ctx: ctx.rnComponentContext,
-      tag: ctx.tag,
-      buildCustomComponent: buildCustomComponent
-    })
-  }
-+ else if (ctx.componentName === RNC_VIDEO_TYPE) {
+function buildCustomRNComponent(ctx: ComponentBuilderContext) {
+  ...
++ if (ctx.componentName === RNC_VIDEO_TYPE) {
 +   RNCVideo({
 +     ctx: ctx.rnComponentContext,
 +     tag: ctx.tag
@@ -526,14 +527,24 @@ function buildCustomComponent(ctx: ComponentBuilderContext) {
 ...
 ```
 
+> [!TIP] 本库使用了混合方案，需要添加组件名。（如使用混合方案）
+
+在`entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets` 找到常量 `arkTsComponentNames` 在其数组里添加组件名
+
+```diff
+const arkTsComponentNames: Array<string> = [
+  ...
++ RNC_VIDEO_TYPE
+  ];
+```
+
 ### 在 ArkTs 侧引入 RNCVideoPackage
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-import type {RNPackageContext, RNPackage} from 'rnoh/ts';
-import {SamplePackage} from 'rnoh-sample-package/ts';
-+ import { RNCVideoPackage } from 'rnoh-videoe/ts';
+...
++ import { RNCVideoPackage } from '@react-native-oh-tpl/react-native-video/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
@@ -572,9 +583,9 @@ ohpm install
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name               | Description                                                                                                                                                                                                                                                                                                                                 | Type   | Required | Platform                                                 | HarmonyOS Support              |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----- | -------- | -------------------------------------------------------- | ------------------------------ |
-| `source`           | Sets the media source. You can pass an asset loaded via require or an object with a uri.                                                                                                                                                                                                                                                    | object | Yes      | All                                                      | partially<br/>(仅支持网络适配) |
+| Name | Descriptio                 | Type   | Required  | Platform | HarmonyOS Support |
+| ---- | -------------------------- | :----- | --------- | -------- |------------------ |
+| `source`| Sets the media source. You can pass an asset loaded via require or an object with a uri.| object | Yes      | All                                                      | partially<br/>(仅支持网络适配) |
 | `disableFocus`     | Determines whether video audio should override background music/audio in Android and HarmonyOS devices.<br/>**false (default)**                                                                                                                                                                                                             | bool   | No       | Android Exoplayer                                        | yes                            |
 | `muted`            | Controls whether the audio is muted.<br/>**false (default)** - Don't mute audio                                                                                                                                                                                                                                                             | bool   | No       | All                                                      | yes                            |
 | `paused`           | Controls whether the media is paused.<br/>**false (default)** - Don't pause the media                                                                                                                                                                                                                                                       | bool   | No       | All                                                      | yes                            |
@@ -609,18 +620,18 @@ ohpm install
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name     | Description                                                                      | Type     | Required | Platform | HarmonyOS Support |
-| -------- | -------------------------------------------------------------------------------- | :------- | -------- | -------- | ----------------- |
+| -------- | -------------------------------------------------------------------------------- | -------- | -------- | -------- | ----------------- |
 | `seek()` | Seek to the specified position represented by seconds. seconds is a float value. | function | No       | All      | yes               |
 
 ## 遗留问题
 
-- [ ] source 暂时只支持在线 URL 资源。
-- [ ] 未适配无障碍
+- [ ] source 暂时只支持在线 URL 资源问题： [issue#34](https://github.com/react-native-oh-library/react-native-video/issues/34)。
+- [ ] react-native-video 部分属性和方法未实现 HarmonyOS 化： [issue#35](https://github.com/react-native-oh-library/react-native-video/issues/35)。
 
 ## 其他
 
 ## 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/callstack/react-native-slider/blob/main/LICENSE.md) ，请自由地享受和参与开源。
+本项目基于 [The MIT License (MIT)](https://github.com/TheWidlarzGroup/react-native-video/blob/master/LICENSE) ，请自由地享受和参与开源。
 
 <!-- {% endraw %} -->

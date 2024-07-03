@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-view-shot</code> </h1>
@@ -13,7 +13,7 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-view-shot)
+> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-view-shot)
 
 ## 安装与使用
 
@@ -48,18 +48,17 @@ import React from "react";
 import { View, Text, Button } from "react-native";
 import ViewShot, { captureRef, captureScreen } from "react-native-view-shot";
 
-export default function App() {
-  const view = React.useRef < View > null;
+export function ViewShotDemo() {
+  const view = React.useRef < View > (null);
   const ref = React.useRef(null);
-  const onCapture = (uri) => {
+  const onCapture = (res) => {
     console.info("onCapture callback");
-    setTxt(JSON.stringify(uri));
+    setTxt(JSON.stringify(res));
   };
   const onCaptureFailure = (err) => {
     console.info("onCaptureFailure " + JSON.stringify(err));
     setTxt(JSON.stringify(err));
   };
-  const [txt, setTxt] = React.useState < string > "";
 
   return (
     <View>
@@ -86,29 +85,28 @@ export default function App() {
           <Text style={{ color: "#000", marginBottom: 30 }}>Hello World</Text>
         </ViewShot>
 
-        <Text style={{ color: "#000", marginBottom: 30 }}>message:{txt}</Text>
       </View>
       <Button
         title="captureRef"
         onPress={() => {
-          captureRef(view).then((uri) => {
-            console.info(`captureRef: ${JSON.stringify(uri)}`);
+          captureRef(view).then((res) => {
+            console.info(`captureRef: ${JSON.stringify(res)}`);
           });
         }}
       />
       <Button
         title="ViewShot capture"
         onPress={() => {
-          captureRef(ref).then((uri) => {
-            console.info(`captureRef: ${uri}`);
+          captureRef(ref).then((res) => {
+            console.info(`captureRef: ${res}`);
           });
         }}
       />
       <Button
         title="captureScreen"
         onPress={() => {
-          captureScreen().then(() => {
-            console.info(`captureScreen success`);
+          captureScreen().then((res) => {
+            console.info(`captureScreen success: ${res}`);
           });
         }}
       />
@@ -123,6 +121,17 @@ export default function App() {
 
 首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
+### 在工程根目录的 `oh-package.json` 添加 overrides 字段
+
+```json
+{
+  ...
+  "overrides": {
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+  }
+}
+```
+
 ### 引入原生端代码
 
 目前有两种方法：
@@ -130,7 +139,7 @@ export default function App() {
 1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
 2. 直接链接源码。
 
-方法一：通过 har 包引入
+方法一：通过 har 包引入（推荐）
 
 > [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
 
@@ -139,8 +148,7 @@ export default function App() {
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "rnoh-view-shot": "file:../../node_modules/@react-native-oh-tpl/react-native-view-shot/harmony/view_shot.har"
+    "@react-native-oh-tpl/react-native-view-shot": "file:../../node_modules/@react-native-oh-tpl/react-native-view-shot/harmony/view_shot.har"
   }
 ```
 
@@ -165,15 +173,15 @@ ohpm install
 project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(OH_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
 
 add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
-# RNOH_BEGIN: add_package_subdirectories
+# RNOH_BEGIN: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/rnoh-view-shot/src/main/cpp" ./view-shot)
-# RNOH_END: add_package_subdirectories
++ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/react-native-view-shot/src/main/cpp" ./view-shot)
+# RNOH_BEGIN: manual_package_linking_1
 
 add_library(rnoh_app SHARED
     "./PackageProvider.cpp"
@@ -182,10 +190,10 @@ add_library(rnoh_app SHARED
 
 target_link_libraries(rnoh_app PUBLIC rnoh)
 
-# RNOH_BEGIN: link_packages
+# RNOH_BEGIN: manual_package_linking_2
 target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 + target_link_libraries(rnoh_app PUBLIC rnoh_view_shot)
-# RNOH_END: link_packages
+# RNOH_BEGIN: manual_package_linking_2
 ```
 
 打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
@@ -211,7 +219,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ```diff
 ...
-+ import { ViewShotPackage } from 'rnoh-view-shot/ts';
++ import { ViewShotPackage } from '@react-native-oh-tpl/react-native-view-shot/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
@@ -236,8 +244,26 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   ···
 
     "requestPermissions": [
-+     { "name": "ohos.permission.WRITE_IMAGEVIDEO" }，
-+     { "name": "ohos.permission.READ_IMAGEVIDEO" }
++      {
++        "name": "ohos.permission.WRITE_IMAGEVIDEO",
++        "reason": '$string:app_name',
++        "usedScene": {
++          "abilities": [
++            "FormAbility"
++         ],
++         "when":"inuse"
++       }
++      },
++      {
++        "name": "ohos.permission.READ_IMAGEVIDEO",
++        "reason": '$string:app_name',
++        "usedScene": {
++          "abilities": [
++            "FormAbility"
++          ],
++          "when":"inuse"
++        }
++      }
     ]
   }
 }
@@ -297,6 +323,6 @@ ohpm install
 
 ## 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-view-shot/blob/harmony/LICENSE) ，请自由地享受和参与开源。
+本项目基于 [The MIT License (MIT)](https://github.com/gre/react-native-view-shot/blob/master/LICENSE) ，请自由地享受和参与开源。
 
 <!-- {% endraw %} -->

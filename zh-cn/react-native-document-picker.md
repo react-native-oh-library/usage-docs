@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.2.1
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-document-picker</code> </h1>
@@ -254,6 +254,10 @@ const styles = StyleSheet.create({
 
 
 ```
+
+## 使用 Codegen（如本库已适配了 Codegen ）
+
+本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/zh-cn/codegen.md)。
 
 ## Link
 

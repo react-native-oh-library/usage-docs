@@ -1,8 +1,8 @@
 <!-- {% raw %} -->
-> 模板版本：v0.2.1
+> 模板版本：v0.2.2
 
 <p align="center">
-  <h1 align="center"> <code>sentry-react-native</code> </h1>
+  <h1 align="center"> <code>@sentry/react-native</code> </h1>
 </p>
 <p align="center">
     <a href="https://github.com/getsentry/sentry-react-native">
@@ -219,18 +219,39 @@ export default function SentryDemo() {
 
 常用api如下，详细请参考sentry官网: [https://docs.sentry.io/platforms/react-native/](https://docs.sentry.io/platforms/react-native/)
 
-| Name           | Description                   | Type | Required | Platform    | HarmonyOS Support |
-|----------------|-------------------------------| -- | -------- | ----------- | ----------------- |
-| addBreadcrumb    | 错误详情面板添加面包屑. | function | No       | IOS/Android | yes               |
-| setUser       | 设置用户信息.       | function | No       | IOS/Android | yes  |
-| setContext       | 错误详情面板设置context.       | function | No       | IOS/Android | yes  |
-| setTag      | 设置标签.       | function | No       | IOS/Android | yes  |
-| captureMessage       | 主动上报消息.       | function | No       | IOS/Android | yes  |
-| captureException       | 主动上报错误.       | function | No       | IOS/Android | yes  |
-| captureUserFeedBack       | 上报用户反馈信息.       | function | No       | IOS/Android | yes  |
-| withScope       | 隔离上下文环境.       | function | No       | IOS/Android | yes  |
-| addAttachment       | 设置附件.       | function | No       | IOS/Android | no  |
-| nativeCrash       | 抛出一个原生层错误. | function | No       | IOS/Android | no  |
+| Name                | Description      | Type     | Required | Platform    | HarmonyOS Support |
+|---------------------|------------------|----------|----------|-------------|-------------------|
+| addBreadcrumb       | 错误详情面板添加面包屑.     | function | No       | IOS/Android | yes               |
+| setUser             | 设置用户信息.          | function | No       | IOS/Android | yes               |
+| setContext          | 错误详情面板设置context. | function | No       | IOS/Android | yes               |
+| setTag              | 设置标签.            | function | No       | IOS/Android | yes               |
+| captureMessage      | 主动上报消息.          | function | No       | IOS/Android | yes               |
+| captureException    | 主动上报错误.          | function | No       | IOS/Android | yes               |
+| captureUserFeedBack | 上报用户反馈信息.        | function | No       | IOS/Android | yes               |
+| withScope           | 隔离上下文环境.         | function | No       | IOS/Android | yes               |
+| addAttachment       | 设置附件.            | function | No       | IOS/Android | no                |
+| nativeCrash         | 抛出一个原生层错误.       | function | No       | IOS/Android | no                |
+
+
+官网功能说明：[sentry-react-native features](https://docs.sentry.io/platforms/react-native/features/)
+
+功能清单和支持情况如下表：
+
+| Features                                                                                                 | support(yes/no） |
+|----------------------------------------------------------------------------------------------------------|-----------------|
+| Automatic Native Crash Error Tracking (js)                                                               | yes             |
+| Source Context shows snippets of your code around the location of stack frames. (js)                     | yes             |
+| Events enriched with device data.                                                                        | yes             |
+| User Interaction events (touch, gesture).                                                                | yes             |
+| User Feedback provides the ability to collect user information when an event occurs.                     | yes             |
+| hermes support                                                                                           | yes             |
+| Automatic Native Crash Error Tracking (HarmonyOs)                                                        | no              |
+| Source Context shows snippets of your code around the location of stack frames. (HarmonyOs)              | no              |
+| Offline caching when a device is offline; we send a report once the application is restarted             | no              |
+| Breadcrumbs created for outgoing http request with XHR and Fetch; UI and system events; and console logs | no              |
+| Attachments enrich your event by storing additional files, such as config or log files.                  | no              |
+| View Hierarchy shows the structure of native components at the time an error occurred.                   | no              |
+| Frame count, cpu, memory analysis                                                                        | no              |
 
 ## 遗留问题
 

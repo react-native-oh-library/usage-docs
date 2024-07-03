@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-autoheight-webview</code> </h1>
@@ -53,7 +53,7 @@ import AutoHeightWebView from "react-native-autoheight-webview";
 
 本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-webview 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
 
-如未引入请参照[@react-native-oh-tpl/react-native-webview 文档的 Link 章节](https://gitee.com/react-native-oh-library/usage-docs/blob/master/vmall/react-native-webview.md#link)进行引入
+如未引入请参照[@react-native-oh-tpl/react-native-webview 文档的 Link 章节](/zh-cn/react-native-webview.md)进行引入
 
 ## 约束与限制
 
@@ -87,6 +87,7 @@ import AutoHeightWebView from "react-native-autoheight-webview";
 ## 遗留问题
 
 - [ ] autoheight-webview 部分属性未实现 HarmonyOS 化[issue#1](https://github.com/react-native-oh-library/react-native-autoheight-webview/issues/1)
+- [ ] AutoHeightWebview依赖的webview 部分属性未实现 HarmonyOS 化[issue#17](https://github.com/react-native-oh-library/react-native-webview/issues/17)
 - [x] 中文乱码[issue#2](https://github.com/react-native-oh-library/react-native-autoheight-webview/issues/2)
 
 ## 其他

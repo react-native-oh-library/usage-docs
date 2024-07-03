@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>@react-native-community/progress-bar-android</code> </h1>
@@ -39,15 +39,21 @@ npm install @react-native-oh-tpl/progress-bar-android@file:#
 
 <!-- tabs:end -->
 
-快速使用：
+下面的代码展示了这个库的基本使用场景：
 
 > [!WARNING] 使用时 import 的库名不变。
 
 ```js
- import {ProgressBar} from '@react-native-community/progress-bar-android';
+import { ProgressBar } from '@react-native-community/progress-bar-android';
+export default function ProgressBarExample() {
+    return (
+        <>
+            <ProgressBar styleAttr="Horizontal" indeterminate={true} animating={true} />
+            <ProgressBar indeterminate={true} />
+        </>
+    )
+}
 
-<ProgressBar styleAttr="Horizontal" indeterminate={true} animating={true}  />
-<ProgressBar  indeterminate={true}/>
 ```
 
 ## Link
@@ -55,6 +61,17 @@ npm install @react-native-oh-tpl/progress-bar-android@file:#
 目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
 
 首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
+
+### 在工程根目录的 `oh-package.json` 添加 overrides 字段
+
+```json
+{
+  ...
+  "overrides": {
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+  }
+}
+```
 
 ### 引入原生端代码
 
@@ -73,7 +90,7 @@ npm install @react-native-oh-tpl/progress-bar-android@file:#
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
 
-  	"rnoh-progress-bar-android": "file:../../node_modules/@react-native-oh-tpl/progress-bar-android/harmony/progress_bar_android.har"
+  "@react-native-oh-tpl/progress-bar-android": "file:../../node_modules/@react-native-oh-tpl/progress-bar-android/harmony/progress_bar_android.har"
   }
 ```
 
@@ -98,14 +115,14 @@ ohpm install
 project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(OH_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
 
 add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
 # RNOH_BEGIN: add_package_subdirectories
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/rnoh-progress-bar-android/src/main/cpp" ./progress-bar-android)
++ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/progress-bar-android/src/main/cpp" ./progress-bar-android)
 # RNOH_END: add_package_subdirectories
 
 add_library(rnoh_app SHARED
@@ -140,24 +157,16 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ### 在 ArkTs 侧引入 ProgressBarAndroid 组件
 
-找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
+找到 **function buildCustomRNComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
 ...
-import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-package"
-import { createRNPackages } from '../RNPackagesFactory'
-+ import { ProgressBarAndroid, PROGRESS_BAR_TYPE } from "rnoh-progress-bar-android"
++ import { ProgressBarAndroid, PROGRESS_BAR_TYPE } from "@react-native-oh-tpl/progress-bar-android"
 
 @Builder
-function buildCustomComponent(ctx: ComponentBuilderContext) {
-  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
-    SampleView({
-      ctx: ctx.rnComponentContext,
-      tag: ctx.tag,
-      buildCustomComponent: buildCustomComponent
-    })
-  }
-+ else if (ctx.componentName === PROGRESS_BAR_TYPE){
+export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
+...
++ if (ctx.componentName === PROGRESS_BAR_TYPE){
 +     ProgressBarAndroid({
 +       ctx: ctx.rnComponentContext,
 +       tag: ctx.tag
@@ -167,6 +176,20 @@ function buildCustomComponent(ctx: ComponentBuilderContext) {
 }
 ...
 ```
+
+> [!TIP] 本库使用了混合方案，需要添加组件名。
+
+在`entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets` 找到常量 `arkTsComponentNames` 在其数组里添加组件名
+
+```diff
+const arkTsComponentNames: Array<string> = [
+  SampleView.NAME,
+  GeneratedSampleView.NAME,
+  PropsDisplayer.NAME,
++ PROGRESS_BAR_TYPE
+  ];
+```
+
 
 ### 运行
 

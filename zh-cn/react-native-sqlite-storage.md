@@ -143,25 +143,10 @@ class SQLiteDemo extends Component {
 
     this.updateProgress('Executing CREATE stmts');
 
-    tx.executeSql('CREATE TABLE IF NOT EXISTS Version( ' +'version_id INTEGER PRIMARY KEY NOT NULL); ',[],this.successCB,this.errorCB,);
-
-    tx.executeSql('CREATE TABLE IF NOT EXISTS Departments( ' +'department_id INTEGER PRIMARY KEY NOT NULL, ' +'name VARCHAR(30) ); ',[],this.successCB,this.errorCB,);
-
-    tx.executeSql('CREATE TABLE IF NOT EXISTS Offices( ' +'office_id INTEGER PRIMARY KEY NOT NULL, ' +'name VARCHAR(20), ' +'longtitude FLOAT, ' +'latitude FLOAT ) ; ',[],this.successCB,this.errorCB,);
-
-    tx.executeSql('CREATE TABLE IF NOT EXISTS Employees( ' +'employe_id INTEGER PRIMARY KEY NOT NULL, ' +'name VARCHAR(55), ' +'office INTEGER, ' +'department INTEGER, ' +'custom_info TEXT DEFAULT "",' +'FOREIGN KEY ( office ) REFERENCES Offices ( office_id ) ' +'FOREIGN KEY ( department ) REFERENCES Departments ( department_id ));',[],);
-
+   
     this.updateProgress('Executing INSERT stmts');
 
-    tx.executeSql('INSERT INTO Departments (name) VALUES ("Client Services");',[],);
-
-    tx.executeSql('INSERT INTO Offices (name, longtitude, latitude) VALUES ("Denver", 59.8,  34.);',[],);
-
-    tx.executeSql('INSERT INTO Employees (name, office, department, custom_info) VALUES ("Sylvester Stallone", 2, 4, \'{"known": true}\')',[],);
-    tx.executeSql('INSERT INTO Employees (name, office, department, custom_info) VALUES ("Elvis Presley", 2, 4, \'{"known": true}\')',[],);
-    tx.executeSql('INSERT INTO Employees (name, office, department, custom_info) VALUES ("Leslie Nelson", 3, 4, \'{"known": true}\')',[],);
-    tx.executeSql('INSERT INTO Employees (name, office, department, custom_info) VALUES ("Fidel Castro", 3, 3, \'{"known": true}\')',[],);
-    tx.executeSql('INSERT INTO Employees (name, office, department, custom_info) VALUES ("Bill Clinton", 1, 3, \'{"known": false}\')',[],);
+   
 
     console.log('all config SQL done');
   };
@@ -182,10 +167,7 @@ class SQLiteDemo extends Component {
 
     // 4. JSON_EXTRACT
     await tx.executeSql( "SELECT JSON_EXTRACT(e.custom_info, '$.known')  AS data FROM Employees e", [],this.querySuccess,this.errorCB,);
-
-    // 5. JSON_INSERT
-    // Expected: {"a":1,"b":2,"c":3}
-    await tx.executeSql('SELECT JSON_INSERT(\'{"a": 1, "b": 2}\', \'$.c\', 3)  AS data',[],this.querySuccess,this.errorCB,);
+      
   };
 
   querySuccess = (tx, results) => {

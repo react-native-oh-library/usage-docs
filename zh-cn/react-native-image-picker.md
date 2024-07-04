@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-image-picker</code> </h1>
@@ -13,7 +13,7 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-image-picker)
+> [!Tip] [Github 地址](https://github.com/react-native-oh-library/react-native-image-picker)
 
 ## 安装与使用
 
@@ -82,6 +82,17 @@ export default App;
 
 首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
+### 在工程根目录的 `oh-package.json` 添加 overrides 字段
+
+```json
+{
+  ...
+  "overrides": {
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+  }
+}
+```
+
 ### 引入原生端代码
 
 目前有两种方法：
@@ -99,7 +110,7 @@ export default App;
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
 
-    "rnoh-image-picker": "file:../../node_modules/@react-native-oh-tpl/react-native-image-picker/harmony/image_picker.har"
+    "@react-native-oh-tpl/react-native-image-picker": "file:../../node_modules/@react-native-oh-tpl/react-native-image-picker/harmony/image_picker.har"
   }
 ```
 
@@ -124,7 +135,7 @@ ohpm install
 project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(OH_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
++ set(OH_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
 
 add_subdirectory("${RNOH_CPP_DIR}" ./rn)
@@ -194,6 +205,8 @@ ohpm install
 
 然后编译、运行即可。
 
+## 约束与限制
+
 ## 兼容性
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
@@ -216,14 +229,14 @@ ohpm install
 | videoQuality            | low, medium, or high on iOS, low or high on Android.                                                                                                                             | string  | no       | iOS Android     | no                |
 | durationLimit           | Video max duration (in seconds).                                                                                                                                                 | number  | no       | iOS Android     | no                |
 | quality                 | 0 to 1, photos.                                                                                                                                                                  | number  | no       | iOS Android     | no                |
-| cameraType              | 'back' or 'front' (May not be supported in few android devices).                                                                                                                 | string  | no       | iOS Android     | no                |
-| includeBase64           | If true, creates base64 string of the image (Avoid using on large image files due to performance).                                                                               | boolean | no       | iOS Android Web | no                |
+| cameraType              | 'back' or 'front' (May not be supported in few android devices).                                                                                                                 | string  | no       | iOS Android     | yes                |
+| includeBase64           | If true, creates base64 string of the image (Avoid using on large image files due to performance).                                                                               | boolean | no       | iOS Android Web | yes                |
 | includeExtra            | If true, will include extra data which requires library permissions to be requested (i.e. exif data).                                                                            | boolean | no       | iOS Android     | no                |
-| saveToPhotos            | (Boolean) Only for launchCamera, saves the image/video file captured to public photo.                                                                                            | boolean | no       | iOS Android     | no                |
+| saveToPhotos            | (Boolean) Only for launchCamera, saves the image/video file captured to public photo.                                                                                            | boolean | no       | iOS Android     | yes                |
 | selectionLimit          | Supports providing any integer value. Use 0 to allow any number of files on iOS version >= 14 & Android version >= 13, Use 0 to allow up to 50 files on HarmonyOS. Default is 1. | number  | no       | iOS Android Web | yes               |
 | presentationStyle       | Controls how the picker is presented. currentContext, pageSheet, fullScreen, formSheet, popover, overFullScreen, overCurrentContext. Default is currentContext.                  | string  | no       | iOS             | no                |
 | formatAsMp4             | Converts the selected video to MP4 (iOS Only).                                                                                                                                   | boolean | no       | iOS             | no                |
-| assetRepresentationMode | A mode that determines which representation to use if an asset contains more than one. Possible values: 'auto', 'current', 'compatible'. Default is 'auto'.                      | boolean | no       | iOS             | no                |
+| assetRepresentationMode | A mode that determines which representation to use if an asset contains more than one. Possible values: 'auto', 'current', 'compatible'. Default is 'auto'.                      | string | no       | iOS             | no                |
 
 ### The Response Object
 
@@ -238,7 +251,7 @@ ohpm install
 
 | Name         | Description                                                                                                                                                                                                                                                                | Type   | Required | Platform        | HarmonyOS Support |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | -------- | --------------- | ----------------- |
-| base64       | The base64 string of the image (photos only)                                                                                                                                                                                                                               | string | no       | iOS Android Web | no                |
+| base64       | The base64 string of the image (photos only)                                                                                                                                                                                                                               | string | no       | iOS Android Web | yes                |
 | uri          | The file uri in app specific cache storage. Except when picking video from Android gallery where you will get read only content uri, to get file uri in this case copy the file to app specific storage using any react-native library. For web it uses the base64 as uri. | string | yes      | iOS Android Web | yes               |
 | originalPath | The original file path.                                                                                                                                                                                                                                                    | string | yes      | iOS Android Web | yes               |
 | width        | Asset dimensions                                                                                                                                                                                                                                                           | number | yes      | iOS Android Web | yes               |
@@ -249,18 +262,19 @@ ohpm install
 | duration     | The selected video duration in seconds                                                                                                                                                                                                                                     | number | no       | iOS Android     | no                |
 | bitrate      | The average bitrate (in bits/sec) of the selected video, if available. (Android only)                                                                                                                                                                                      | number | no       | Android         | no                |
 | timestamp    | Timestamp of the asset. Only included if 'includeExtra' is true                                                                                                                                                                                                            | string | no       | iOS Android     | no                |
-| id           | local identifier of the photo or video. On Android & HarmonyOS, this is the same as fileName                                                                                                                                                                               | string | no       | iOS Android     | yes               |
+| id           | local identifier of the photo or video. On Android & HarmonyOS, this is the same as | string | no       | iOS Android     | yes                |
 
 ## 静态方法
 
 | Name               | Description                            | Type     | Required | Platform        | HarmonyOS Support |
 | ------------------ | -------------------------------------- | -------- | -------- | --------------- | ----------------- |
-| launchCamera       | Launch camera to take photo or video.  | function | yes      | iOS Android Web | no                |
+| launchCamera       | Launch camera to take photo or video.  | function | yes      | iOS Android Web | yes                |
 | launchImageLibrary | Launch gallery to pick image or video. | function | yes      | iOS Android Web | yes               |
 
 ## 遗留问题
 
-- 只实现了选择图库的接口属性，相机功能暂未适配
+- [ ] image-picker部分属性未实现 HarmonyOS 化: [issue#14](https://github.com/react-native-oh-library/react-native-image-picker/issues/14)
+- [x] 只实现了选择图库的接口属性，相机功能暂未适配: [issue#13](https://github.com/react-native-oh-library/react-native-image-picker/issues/13)
 
 ## 其他
 

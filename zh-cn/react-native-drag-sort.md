@@ -1,15 +1,15 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-drag-sort</code> </h1>
 </p>
 <p align="center">
-    <a href="https://github.com/<原库源码仓地址>">
+    <a href="https://github.com/mochixuan/react-native-drag-sort">
         <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
-    <a href="https://github.com/<原库源码仓LICENSE的路径>">
-        <img src="https://github.com/mochixuan/react-native-drag-sort/blob/master/LICENSE" alt="License" />
+    <a href="https://github.com/mochixuan/react-native-drag-sort/blob/master/LICENSE">
+        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
         <!-- <img src="https://img.shields.io/badge/license-Apache-blue.svg" alt="License" /> -->
     </a>
 </p>
@@ -558,13 +558,11 @@ const styles = StyleSheet.create({
 
 在下述版本验证通过：
 
-1. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1(2.0.0.59); IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
+1. RNOH：0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.29(SP1); IDE：DevEco Studio 5.0.3.400; ROM：3.0.0.25;
 
-### 权限要求
+## 属性
 
-## API（AutoDragSortableView、DragSortableView）
-
-**isRequired if there is a \* in the name field**
+### AutoDragSortableView、DragSortableView
 
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
@@ -574,68 +572,67 @@ const styles = StyleSheet.create({
 
 |           Name           |                               Description                               |   Type   | Required |  Platform   | HarmonyOS Support |
 | :----------------------: | :---------------------------------------------------------------------: | :------: | :------: | :---------: | :---------------: |
-|    **dataSource** \*     |                                                                         |  array   |   Yes    | iOS/Android |        Yes        |
+|    **dataSource**        |                       DataSource array for list                         |  array   |   Yes    | iOS/Android |        Yes        |
 |     **parentWidth**      |                              parent width                               |  number  |    No    | iOS/Android |        Yes        |
-|  **childrenHeight** \*   |                            Each item height                             |  number  |   Yes    | iOS/Android |        Yes        |
-|   **childrenWidth** \*   |                             Each item width                             |  number  |   Yes    | iOS/Android |        Yes        |
+|  **childrenHeight**      |                            Each item height                             |  number  |   Yes    | iOS/Android |        Yes        |
+|   **childrenWidth**      |                             Each item width                             |  number  |   Yes    | iOS/Android |        Yes        |
 |  **marginChildrenTop**   | So the item's outermost view adds margin, you can only use this method. |  number  |    No    | iOS/Android |        Yes        |
-| **marginChildrenBottom** |                                                                         |  number  |    No    | iOS/Android |        Yes        |
-|  **marginChildrenLeft**  |                                                                         |  number  |    No    | iOS/Android |        Yes        |
-| **marginChildrenRight**  |                                                                         |  number  |    No    | iOS/Android |        Yes        |
+| **marginChildrenBottom** |                           Item bottom margin                            |  number  |    No    | iOS/Android |        Yes        |
+|  **marginChildrenLeft**  |                           Item left margin                              |  number  |    No    | iOS/Android |        Yes        |
+| **marginChildrenRight**  |                           Item right margin                             |  number  |    No    | iOS/Android |        Yes        |
 |       **sortable**       |                          Do not allow dragging                          |   bool   |    No    | iOS/Android |        Yes        |
 |     **onClickItem**      |                                  click                                  | function |    No    | iOS/Android |        Yes        |
-|     **onDragStart**      |                                                                         | function |    No    | iOS/Android |        Yes        |
-|      **onDragEnd**       |                                                                         | function |    No    | iOS/Android |        Yes        |
+|     **onDragStart**      |                        Called after dragging starts                     | function |    No    | iOS/Android |        Yes        |
+|      **onDragEnd**       |                        Called after dragging end                     | function |    No    | iOS/Android |        Yes        |
 |     **onDataChange**     |           This method is called every time the data changes.            | function |    No    | iOS/Android |        Yes        |
-|    **renderItem** \*     |                            render item view                             | function |   Yes    | iOS/Android |        Yes        |
+|    **renderItem**        |                            render item view                             | function |   Yes    | iOS/Android |        Yes        |
 |      **fixedItems**      |                                no remove                                |  array   |    No    | iOS/Android |        Yes        |
 |     **keyExtractor**     |                           (item,index) => key                           | function |    No    | iOS/Android |        Yes        |
-|    **delayLongPress**    |                                                                         |  number  |    No    | iOS/Android |        Yes        |
+|    **delayLongPress**    |                            Long press delay                             |  number  |    No    | iOS/Android |        Yes        |
 |     **isDragFreely**     |                     Whether to limit the drag space                     |   bool   |    No    | iOS/Android |        Yes        |
-|      **onDragging**      |                                                                         | function |    No    | iOS/Android |        Yes        |
-|       **maxScale**       |                                                                         |  number  |    No    | iOS/Android |        Yes        |
-|      **minOpacity**      |                                                                         |  number  |    No    | iOS/Android |        Yes        |
+|      **onDragging**      |                          Called when dragging                           | function |    No    | iOS/Android |        Yes        |
+|       **maxScale**       |                              max Scale                                  |  number  |    No    | iOS/Android |        Yes        |
+|      **minOpacity**      |                              min Opacity                                |  number  |    No    | iOS/Android |        Yes        |
 
-#### The following attributes belong only to AutoDragSortableView
+### The following attributes belong only to AutoDragSortableView
 
-|           Name            | Description |                           Type                           | Required |  Platform   | HarmonyOS Support |
-| :-----------------------: | :---------: | :------------------------------------------------------: | :------: | :---------: | :---------------: |
-|     **scaleDuration**     |             |                          number                          |    No    | iOS/Android |        Yes        |
-|     **slideDuration**     |             |                          number                          |    No    | iOS/Android |        Yes        |
-|     **autoThrottle**      |             |                          number                          |    No    | iOS/Android |        Yes        |
-| **autoThrottleDuration**  |             |                          number                          |    No    | iOS/Android |        Yes        |
-|   **renderHeaderView**    |             |                         element                          |    No    | iOS/Android |        Yes        |
-|   **headerViewHeight**    |             |                          number                          |    No    | iOS/Android |        Yes        |
-| **scrollIndicatorInsets** |             | ({top:number, left:number, bottom:number, right:number}) |    No    | iOS/Android |        Yes        |
-|   **renderBottomView**    |             |                         element                          |    No    | iOS/Android |        Yes        |
-|   **bottomViewHeight**    |             |                          number                          |    No    | iOS/Android |        Yes        |
-|   **onScrollListener**    |             |          (event: NativeSyntheticEvent) => void           |    No    | iOS/Android |        Yes        |
-|      **onScrollRef**      |             |                    (ref: any) => void                    |    No    | iOS/Android |        Yes        |
+|           Name            |     Description         |                           Type                           | Required |  Platform   | HarmonyOS Support |
+| :-----------------------: | :----------------------:| :------------------------------------------------------: | :------: | :---------: | :---------------: |
+|     **scaleDuration**     |     scale duration      |                          number                          |    No    | iOS/Android |        Yes        |
+|     **slideDuration**     |     slide duration      |                          number                          |    No    | iOS/Android |        Yes        |
+|     **autoThrottle**      |     auto  throttle      |                          number                          |    No    | iOS/Android |        Yes        |
+| **autoThrottleDuration**  |   auto throttle duration|                          number                          |    No    | iOS/Android |        Yes        |
+|   **renderHeaderView**    |    render header View   |                         element                          |    No    | iOS/Android |        Yes        |
+|   **headerViewHeight**    |    header view height   |                          number                          |    No    | iOS/Android |        Yes        |
+| **scrollIndicatorInsets** |    margin on scroll     | ({top:number, left:number, bottom:number, right:number}) |    No    | iOS/Android |        Yes        |
+|   **renderBottomView**    |    render Bottom View   |                         element                          |    No    | iOS/Android |        Yes        |
+|   **bottomViewHeight**    |    bottom view height   |                          number                          |    No    | iOS/Android |        Yes        |
+|   **onScrollListener**    | Listening callback during scrolling|          (event: NativeSyntheticEvent) => void           |    No    | iOS/Android |        Yes        |
+|      **onScrollRef**      |scroll reference callback|                    (ref: any) => void                    |    No    | iOS/Android |        Yes        |
 
-## **API（AnySizeDragSortableView）**
+### AnySizeDragSortableView
 
 |           Name            |                    Description                    |                           Type                           | Required |  Platform   | HarmonyOS Support |
 | :-----------------------: | :-----------------------------------------------: | :------------------------------------------------------: | :------: | :---------: | :---------------: |
-|     **renderItem** \*     |                 render item view                  |                         function                         |   Yes    | iOS/Android |        Yes        |
+|     **renderItem**         |                 render item view                  |                         function                         |   Yes    | iOS/Android |        Yes        |
 |     **onDataChange**      | This method is called every time the data changes |                         function                         |    No    | iOS/Android |        Yes        |
-|   **renderHeaderView**    |                                                   |                         element                          |    No    | iOS/Android |        Yes        |
-|   **headerViewHeight**    |                                                   |                          number                          |    No    | iOS/Android |        Yes        |
-|   **bottomViewHeight**    |                                                   |                          number                          |    No    | iOS/Android |        Yes        |
-|     **autoThrottle**      |                                                   |                          number                          |    No    | iOS/Android |        Yes        |
-| **autoThrottleDuration**  |                                                   |                          number                          |    No    | iOS/Android |        Yes        |
-| **scrollIndicatorInsets** |                                                   | ({top:number, left:number, bottom:number, right:number}) |    No    | iOS/Android |        Yes        |
-|   **onScrollListener**    |                                                   |          (event: NativeSyntheticEvent) => void           |    No    | iOS/Android |        Yes        |
-|      **onScrollRef**      |                                                   |                    (ref: any) => void                    |    No    | iOS/Android |        Yes        |
+|   **renderHeaderView**    |         render Header View                        |                         element                          |    No    | iOS/Android |        Yes        |
+|   **headerViewHeight**    |         header view height                        |                          number                          |    No    | iOS/Android |        Yes        |
+|   **bottomViewHeight**    |         bottom view height                        |                          number                          |    No    | iOS/Android |        Yes        |
+|     **autoThrottle**      |          auto  throttle                           |                          number                          |    No    | iOS/Android |        Yes        |
+| **autoThrottleDuration**  |         auto throttle duration                    |                          number                          |    No    | iOS/Android |        Yes        |
+| **scrollIndicatorInsets** |         margin on scroll                          | ({top:number, left:number, bottom:number, right:number}) |    No    | iOS/Android |        Yes        |
+|   **onScrollListener**    |Listening callback during scrolling                |          (event: NativeSyntheticEvent) => void           |    No    | iOS/Android |        Yes        |
+|      **onScrollRef**      | scroll reference callback                         |                    (ref: any) => void                    |    No    | iOS/Android |        Yes        |
 |   **areaOverlapRatio**    |             Must be greater than 0.5              |                          number                          |    No    | iOS/Android |        Yes        |
 |    **movedWrapStyle**     |                       style                       |                        StyleProp                         |    No    | iOS/Android |        Yes        |
-|    **childMarginTop**     |                                                   |                          number                          |    No    | iOS/Android |        Yes        |
-|   **childMarginBottom**   |                                                   |                          number                          |    No    | iOS/Android |        Yes        |
-|    **childMarginLeft**    |                                                   |                          number                          |    No    | iOS/Android |        Yes        |
-|   **childMarginRight**    |                                                   |                          number                          |    No    | iOS/Android |        Yes        |
-| **autoThrottleDuration**  |                                                   |                          number                          |    No    | iOS/Android |        Yes        |
-|       **onDragEnd**       |                                                   |                         function                         |    No    | iOS/Android |        Yes        |
-|     **dataSource** \*     |                                                   |                          array                           |   Yes    | iOS/Android |        Yes        |
-|     **keyExtractor**      |                (item,index) => key                |                   function.isRequired                    |    No    | iOS/Android |        Yes        |
+|    **childMarginTop**     |           Subpage top margin                      |                          number                          |    No    | iOS/Android |        Yes        |
+|   **childMarginBottom**   |          Subpage bottom margin                    |                          number                          |    No    | iOS/Android |        Yes        |
+|    **childMarginLeft**    |           Subpage left margin                     |                          number                          |    No    | iOS/Android |        Yes        |
+|   **childMarginRight**    |           Subpage right margin                    |                          number                          |    No    | iOS/Android |        Yes        |
+|       **onDragEnd**       |          Called after dragging end                |                         function                         |    No    | iOS/Android |        Yes        |
+|     **dataSource**        |          DataSource array for list                |                          array                           |   Yes    | iOS/Android |        Yes        |
+|     **keyExtractor**      |        item's unique key                          |                   (item,index) => key                    |    No    | iOS/Android |        Yes        |
 
 ## 遗留问题
 

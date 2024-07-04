@@ -211,8 +211,7 @@ export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
 + if (ctx.componentName === SAFE_AREA_VIEW_TYPE) {
 +   SafeAreaView({
 +     ctx: ctx.rnComponentContext,
-+     tag: ctx.tag,
-+     buildCustomComponent: buildCustomRNComponent
++     tag: ctx.tag
 +   })
 + }
 ...

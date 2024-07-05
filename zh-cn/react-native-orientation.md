@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.2.1
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-orientation</code> </h1>
@@ -18,7 +18,7 @@
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[<@react-native-oh-library/react-native-orientation> Releases](https://github.com/react-native-oh-library/react-native-orientation/releases)，并下载适用版本的 tgz 包。
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-library/react-native-orientation Releases](https://github.com/react-native-oh-library/react-native-orientation/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
@@ -177,6 +177,8 @@ const styles = StyleSheet.create({
 
 
 ```
+## 使用 Codegen 
+本库已经适配了 Codegen ，在使用前需要主动执行生成三方库桥接代码，详细请参考 [Codegen 文档](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/codegen.md)。
 
 ## Link
 
@@ -234,7 +236,7 @@ cd entry
 ohpm install --no-link
 ```
 
-### 在 ArkTs 侧引入 SoundPackage
+### 在 ArkTs 侧引入 RNOrientationPackage
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
@@ -269,7 +271,7 @@ ohpm install
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[<@react-native-oh-library/react-native-orientation> Releases](https://github.com/react-native-oh-library/react-native-orientation/releases)
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-library/react-native-orientation Releases](https://github.com/react-native-oh-library/react-native-orientation/releases)
 
 ## API
 

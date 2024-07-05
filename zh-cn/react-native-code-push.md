@@ -21,21 +21,23 @@
 
 ### code-push-cli
 
-请到三方库下载并安装[code-push-cli](https://github.com/react-native-oh-library/react-native-code-push/tree/sig/code-push-cli) 脚手架，本仓库的目的是为了适配开源的code-push-server.源库地址[code-push-cli](https://github.com/shm-open/code-push-cli)
+1.下载[code-push-cli](https://github.com/react-native-oh-library/code-push-cli)
+
+2.npm install -g <code-push-cli文件夹目录>
+
+3.常用命令：
 
 ```
-code-push -v  // 2.6.5
-code-push login //登录
-code-push app add <AppName> harmony react-native //创建应用
-code-push app list //列出账号下所有的app
-code-push deployment ls <AppName> -k //查询部署环境的key
-code-push deployment ls <AppName> //查看 应用部署信息
-code-push release <AppName> <bundle.harmony.js> "<版本号>" --description "<v1.0.0 测试更新>" -m //发布命令，加-m是强制更新, * 代表所有版本，例如：code-push release CodePush_Local ./bundle.harmony.js "*" --description "v1.0.0 测试更新"
+code-push -v
+code-push login <服务器地址>
+code-push app list //列出账号下面的所有app
+code-push app add <apppname> harmony react-native //创建应用
+code-push release <AppName> <bundle.harmony.js> "<版本号>" --description "<v1.0.0 测试更新>" -m //发包命令，加-m是强制更新, * 代表所有版本，例如：code-push release CodePush_Local ./bundle.harmony.js "*" --description "v1.0.0 测试更新"
 ```
 
 ### code-push-server
 
-请到三方库下载并搭建[code-push-server](https://github.com/react-native-oh-library/react-native-code-push/tree/sig/code-push-server) 服务，此库担任类似中间仓库的角色，开发者可以把更新（JS，HTML，CSS和图片）发布到这个仓库上，然后那些Apps就能查询到更新了.源库地址[code-push-server](https://github.com/shm-open/code-push-server)
+下载并搭建[code-push-server](https://github.com/react-native-oh-library/code-push-server) 服务
 
 ## 安装与使用
 
@@ -402,15 +404,15 @@ build() {
 
 当使用**CodePush.SyncStatus**时，codePushStatusDidChange回调函数中获取应用状态
 
-| Name                 | Description                                                         | Type     | Required | Platform    | HarmonyOS Support |
-| -------------------- | ------------------------------------------------------------------- | -------- | -------- | ----------- | ----------------- |
-| UP_TO_DATE           | 值为0，代表应用程序已完全更新到配置的部署,                                              | number   | no       | Android IOS | yes               |
-| UPDATE_INSTALLED     | 值为1，已安装可用更新，并将在syncStatusChangedCallback函数返回后立即运行或在下次应用程序恢复/重新启动时运行 | number   | no       | Android IOS | yes               |
-| UNKNOWN_ERROR        | 值为3，同步操作发现未知错误                                                      | number   | no       | Android IOS | yes               |
-| CHECKING_FOR_UPDATE  | 值为5，正在查询 CodePush 服务器是否有更新                                          | number   | no       | Android IOS | yes               |
-| AWAITING_USER_ACTION | 值为6，有更新可用，并向最终用户显示确认对话框。（仅在updateDialog使用时适用）                       | number   | no       | Android IOS | yes               |
-| DOWNLOADING_PACKAGE  | 值为7，在从 CodePush 服务器下载可用更新                                           | number   | no       | Android IOS | yes               |
-| INSTALLING_UPDATE    | 值为8，已下载可用更新并将安装                                                     | 参number数 | no       | Android IOS | yes               |
+| Name                 | Description                                                         | Type   | Required | Platform    | HarmonyOS Support |
+| -------------------- | ------------------------------------------------------------------- | ------ | -------- | ----------- | ----------------- |
+| UP_TO_DATE           | 值为0，代表应用程序已完全更新到配置的部署,                                              | number | no       | Android IOS | yes               |
+| UPDATE_INSTALLED     | 值为1，已安装可用更新，并将在syncStatusChangedCallback函数返回后立即运行或在下次应用程序恢复/重新启动时运行 | number | no       | Android IOS | yes               |
+| UNKNOWN_ERROR        | 值为3，同步操作发现未知错误                                                      | number | no       | Android IOS | yes               |
+| CHECKING_FOR_UPDATE  | 值为5，正在查询 CodePush 服务器是否有更新                                          | number | no       | Android IOS | yes               |
+| AWAITING_USER_ACTION | 值为6，有更新可用，并向最终用户显示确认对话框。（仅在updateDialog使用时适用）                       | number | no       | Android IOS | yes               |
+| DOWNLOADING_PACKAGE  | 值为7，在从 CodePush 服务器下载可用更新                                           | number | no       | Android IOS | yes               |
+| INSTALLING_UPDATE    | 值为8，已下载可用更新并将安装                                                     | number | no       | Android IOS | yes               |
 
 
 

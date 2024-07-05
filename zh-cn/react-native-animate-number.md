@@ -1,14 +1,19 @@
 <!-- {% raw %} -->
-模板版本：v0.2.0
+模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-animate-number</code> </h1>
 </p>
 <p align="center">
-    <a href="https://github.com/wkh237/react-native-animate-number">
+        <a href="https://github.com/wkh237/react-native-animate-number">
+        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20web%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
+    </a>
+    <a href="https://www.mit-license.org/">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
+
+
 
 > [!TIP] [Github 地址](https://github.com/wkh237/react-native-animate-number)
 
@@ -138,7 +143,9 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-## 兼容性
+## 约束与限制
+
+### 兼容性
 
 在以下版本验证通过
 
@@ -160,5 +167,9 @@ export default App;
 ## 遗留问题
 
 ## 其他
+
+## 开源协议
+
+本项目基于 [The MIT License (MIT)](https://www.mit-license.org/) ，请自由地享受和参与开源。
 
 <!-- {% endraw %} -->

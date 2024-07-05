@@ -1,10 +1,13 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
-  <h1 align="center"> <code>@react-native-cookies/cookies</code> </h1>
+  <h1 align="center"> <code>react-native-cookies-cookies</code> </h1>
 </p>
 <p align="center">
+    <a href="https://github.com/react-native-cookies/cookies/tree/master">
+        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
+    </a>
     <a href="https://github.com/react-native-cookies/cookies/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
@@ -28,7 +31,7 @@
 npm install @react-native-oh-tpl/cookies@file:#
 ```
 
-**yarn**
+#### **yarn**
 
 ```
 yarn add @react-native-oh-tpl/cookies@file:#
@@ -42,7 +45,7 @@ HarmonyOS 中使用 react-native-cookies 需要配合 react-native-webview 使�
 
 > [!WARNING] 使用时 import 的库名不变。
 
-```ts
+```js
 import React, { useState, useRef } from "react";
 import {
   ScrollView,
@@ -69,7 +72,7 @@ export interface Cookies {
   [key: string]: Cookie;
 }
 
-export function CookiesPage() {
+export default function CookiesPage() {
   const httpUrl = "https://www.baidu.com";
   const [result, setResult] = useState("请点击按钮，进行操作");
   const webViewRef = useRef(null);
@@ -203,6 +206,16 @@ const styles = StyleSheet.create({
 目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
 
 首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
+### 在工程根目录的 `oh-package.json` 添加 overrides 字段
+
+```json
+{
+  ...
+  "overrides": {
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+  }
+}
+```
 
 ### 引入原生端代码
 
@@ -219,10 +232,9 @@ const styles = StyleSheet.create({
 
 ```json
 "dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "rnoh-cookies": "file:../../node_modules/@react-native-oh-tpl/cookies/harmony/rn_cookies.har",
     ...
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+    "@react-native-oh-tpl/cookies": "file:../../node_modules/@react-native-oh-tpl/cookies/harmony/rn_cookies.har",
   }
 ```
 
@@ -239,7 +251,7 @@ ohpm install
 
 > [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
-### 配置 CMakeLists 和引入 cookies、webview
+### 配置 CMakeLists 和引入 CookiesPackage
 
 打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
 
@@ -247,18 +259,18 @@ ohpm install
 project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
 set(CMAKE_SKIP_BUILD_RPATH TRUE)
-set(OH_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
 set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
-set(RNOH_CPP_DIR "${OH_MODULE_DIR}/rnoh/src/main/cpp")
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+set(RNOH_CPP_DIR "${OH_MODULES}/rnoh/src/main/cpp")
 set(CMAKE_CXX_FLAGS "-fstack-protector-strong -Wl,-z,relro,-z,now,-z,noexecstack -s -fPIE -pie")
 add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
 # RNOH_BEGIN: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/rnoh-cookies/src/main/cpp" ./rn_cookies)
-+ add_subdirectory("${OH_MODULE_DIR}/rnoh-webview/src/main/cpp" ./rn_webview)
-# RNOH_END: manual_package_linking_1
++ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/cookies/src/main/cpp" ./rn_cookies)
+# RNOH_BEGIN: manual_package_linking_1
 
 file(GLOB GENERATED_CPP_FILES "./generated/*.cpp")
 
@@ -272,74 +284,37 @@ target_link_libraries(rnoh_app PUBLIC rnoh)
 # RNOH_BEGIN: manual_package_linking_2
 target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 + target_link_libraries(rnoh_app PUBLIC rnoh_cookies)
-+ target_link_libraries(rnoh_app PUBLIC rnoh_webview)
 # RNOH_END: manual_package_linking_2
 ```
 
 打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
 
 ```diff
-#include "RNOH/PackageProvider.h"
-#include "generated/RNOHGeneratedPackage.h"
-#include "SamplePackage.h"
+...
 + #include "CookiesPacakge.h"
-+ #include "WebViewPackage.h"
 
 using namespace rnoh;
 
 std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
     return {
-      std::make_shared<RNOHGeneratedPackage>(ctx), std::make_shared<SamplePackage>(ctx),
-+     std::make_shared<CookiesPackage>(ctx), std::make_shared<WebViewPackage>(ctx)};
+      ...
++     std::make_shared<CookiesPackage>(ctx);
     };
 }
 ```
 
-### 在 ArkTs 侧引入 webView 组件
-
-找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
-
-```diff
-...
-+ import { WebView, WEB_VIEW } from "rnoh-webview"
-
-  @Builder
-  function buildCustomComponent(ctx: ComponentBuilderContext) {
-    if (ctx.componentName === SAMPLE_VIEW_TYPE) {
-      SampleView({
-        ctx: ctx.rnComponentContext,
-        tag: ctx.tag,
-        buildCustomComponent: buildCustomComponent
-      })
-    }
-    ...
-+   else if (ctx.componentName === WEB_VIEW) {
-+     WebView({
-+       ctx: ctx.rnohContext,
-+       tag: ctx.tag,
-+       buildCustomComponent: buildCustomComponent
-+     })
-+   }
-    ...
-  }
-  ...
-```
-
-### 在 ArkTs 侧引入 CookiesPackage 和 WebViewPackage
+### 在 ArkTs 侧引入 CookiesPackage
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
-```
-import type {RNPackageContext, RNPackage} from 'rnoh/ts';
-import {SamplePackage} from 'rnoh-sample-package/ts';
-+ import {CookiesPackage} from 'rnoh-cookies/ts';
-+ import { WebViewPackage } from 'rnoh-webview/ts';
+```diff
+...
++ import {CookiesPackage} from '@react-native-oh-tpl/cookies/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
-    new SamplePackage(ctx),
+    ...
 +  	new CookiesPackage(ctx),
-+  	new WebViewPackage(ctx)
   ];
 }
 ```
@@ -365,26 +340,31 @@ ohpm install
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/cookies Releases](https://github.com/react-native-oh-library/react-native-cookies/releases)
 
-### 方法
+## 静态方法
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
-| Name                 | Description | Platform    | HarmonyOS Support |
-| -------------------- | ----------- | ----------- | ----------------- |
-| clearAll             |             | ios,android | yes               |
-| get                  |             | ios,android | yes               |
-| set                  |             | ios,android | yes               |
-| clearByName          |             | ios         | yes               |
-| flush                |             | android     | yes               |
-| removeSessionCookies |             | ios,android | yes               |
-| getAll               |             | ios         | no                |
-| setFromResponse      |             | ios         | no                |
-| getFromResponse      |             | ios         | no                |
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name                 | Description                                   | Type     | Required | Platform    | HarmonyOS Support |
+| -------------------- | --------------------------------------------- | ---------|----------| ------------|-------------------|
+| clearAll             |  Clear all cookies                            |function  |     NO   |ios,android  | yes               |
+| get                  |  Get cookies based on url                     |function  |     NO   | ios,android | yes               |
+| set                  |  Set cookie based on url                      |function  |     NO   | ios,android | yes               |
+| clearByName          |  Delete cookies by name                       |function  |     NO   | ios         | yes               |
+| flush                |  Refresh cookies                              |function  |     NO   | android     | yes               |
+| removeSessionCookies |  Clear session cookies                        |function  |     NO   | ios,android | yes               |
+| getAll               |  Get all cookies                              |function  |     NO   | ios         | no                |
+| setFromResponse      |  Set cookies from a response header           |function  |     NO   | ios         | no                |
+| getFromResponse      |  Get cookies from a response header           |function  |     NO   | ios         | no                |
 
 ## 遗留问题
+
+- [ ] 这三个方法getAll,setFromResponse,getFromResponse 在ios是可用的andriod不可用，Harmony还没有实现 问题: [issue#1](https://github.com/react-native-oh-library/react-native-cookies/issues/1)
 
 ## 其他
 
 ## 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-cookies/blob/sig/LICENSE) ，请自由地享受和参与开源。
+本项目基于 [The MIT License (MIT)](https://github.com/react-native-cookies/cookies/blob/master/LICENSE) ，请自由地享受和参与开源。
 
 <!-- {% endraw %} -->

@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-sound</code> </h1>
@@ -8,9 +8,8 @@
     <a href="https://github.com/zmxv/react-native-sound">
         <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
-    <a href="https://github.com/react-native-oh-library/react-native-sound/blob/sig/LICENSE">
+    <a href="https://github.com/zmxv/react-native-sound/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
-        <!-- <img src="https://img.shields.io/badge/license-Apache-blue.svg" alt="License" /> -->
     </a>
 </p>
 
@@ -18,7 +17,7 @@
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[<@react-native-oh-library/react-native-sound> Releases](https://github.com/react-native-oh-library/react-native-sound/releases)，并下载适用版本的 tgz 包。
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-library/react-native-sound Releases](https://github.com/react-native-oh-library/react-native-sound/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
@@ -163,6 +162,17 @@ export default SoundDemo;
 
 首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
+### 在工程根目录的 `oh-package.json` 添加 overrides 字段
+
+```json
+{
+  ...
+  "overrides": {
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+  }
+}
+```
+
 ### 引入原生端代码
 
 目前有两种方法：
@@ -170,7 +180,7 @@ export default SoundDemo;
 1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
 2. 直接链接源码。
 
-方法一：通过 har 包引入
+方法一：通过 har 包引入（推荐）
 
 > [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
 
@@ -179,8 +189,7 @@ export default SoundDemo;
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "rnoh-sound": "file:../../node_modules/@react-native-oh-tpl/react-native-sound/harmony/sound.har"
+    "@react-native-oh-tpl/react-native-sound": "file:../../node_modules/@react-native-oh-tpl/react-native-sound/harmony/sound.har"
   }
 ```
 
@@ -205,15 +214,15 @@ ohpm install
 txtproject(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(OH_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
 
 add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
-# RNOH_BEGIN: add_package_subdirectories
+# RNOH_BEGIN: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/rnoh-sound/src/main/cpp" ./sound)
-# RNOH_END: add_package_subdirectories
++ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/react-native-sound/src/main/cpp" ./sound)
+# RNOH_BEGIN: manual_package_linking_1
 
 add_library(rnoh_app SHARED
     "./PackageProvider.cpp"
@@ -222,10 +231,10 @@ add_library(rnoh_app SHARED
 
 target_link_libraries(rnoh_app PUBLIC rnoh)
 
-# RNOH_BEGIN: link_packages
+# RNOH_BEGIN: manual_package_linking_2
 target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 + target_link_libraries(rnoh_app PUBLIC rnoh_sound)
-# RNOH_END: link_packages
+# RNOH_BEGIN: manual_package_linking_2
 ```
 
 打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
@@ -251,7 +260,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ```diff
 ...
-+ import { SoundPackage } from 'rnoh-sound/ts';
++ import { SoundPackage } from '@react-native-oh-tpl/react-native-sound/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
@@ -280,7 +289,7 @@ ohpm install
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[<@react-native-oh-library/react-native-sound> Releases](https://github.com/react-native-oh-library/react-native-sound/releases)
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-library/react-native-sound Releases](https://github.com/react-native-oh-library/react-native-sound/releases)
 
 ## 静态方法
 
@@ -292,7 +301,7 @@ ohpm install
 
 | Name      | Description                      | Type   | Required | Platform    | HarmonyOS Support |
 | --------- | -------------------------------- | ------ | -------- | ----------- | ----------------- |
-| setActive | Set the device activation status | string | No       | IOS/Android | yes               |
+| setActive | Set the device activation status | string | No       | IOS、Android | yes               |
 
 ## API
 
@@ -304,18 +313,20 @@ ohpm install
 
 | Name           | Description                              | Type   | Required | Platform    | HarmonyOS Support |
 | -------------- | ---------------------------------------- | ------ | -------- | ----------- | ----------------- |
-| play           | Start playing audio.                     | string | No       | IOS/Android | yes               |
-| pause          | Pause audio playback.                    | string | No       | IOS/Android | yes               |
-| stop           | Stop playing audio.                      | string | No       | IOS/Android | yes               |
+| play           | Start playing audio.                     | string | No       | IOS、Android | yes               |
+| pause          | Pause audio playback.                    | string | No       | IOS、Android | yes               |
+| stop           | Stop playing audio.                      | string | No       | IOS、Android | yes               |
 | reset          | Reset Audio Status.                      | string | No       | Android     | yes               |
-| release        | Releasing audio resources.               | string | No       | IOS/Android | yes               |
-| getVolume      | Obtains the audio volume.                | string | No       | IOS/Android | yes               |
-| setVolume      | Setting the Relative Audio Volume.       | string | No       | IOS/Android | yes               |
-| getCurrentTime | Obtains the current playback time point. | string | No       | IOS/Android | yes               |
-| setCurrentTime | Sets the playback time point.            | string | No       | IOS/Android | yes               |
-| getSpeed       | Obtains the playback speed.              | string | No       | IOS/Android | yes               |
-| setSpeed       | Setting the Playback Speed               | string | No       | IOS/Android | yes               |
-| isPlaying      | Whether the audio is being played        | string | No       | IOS/Android | yes               |
+| release        | Releasing audio resources.               | string | No       | IOS、Android | yes               |
+| getVolume      | Obtains the audio volume.                | string | No       | IOS、Android | yes               |
+| setVolume      | Setting the Relative Audio Volume.       | string | No       | IOS、Android | yes               |
+| getCurrentTime | Obtains the current playback time point. | string | No       | IOS、Android | yes               |
+| setCurrentTime | Sets the playback time point.            | string | No       | IOS、Android | yes               |
+| getSpeed       | Obtains the playback speed.              | string | No       | IOS、Android | yes               |
+| setSpeed       | Setting the Playback Speed               | string | No       | IOS、Android | yes               |
+| isPlaying      | Whether the audio is being played        | string | No       | IOS、Android | yes               |
+
+## 遗留问题
 
 ## 其他
 

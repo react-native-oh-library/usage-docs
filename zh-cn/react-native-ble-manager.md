@@ -1,4 +1,5 @@
 <!-- {% raw %} -->
+
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -461,10 +462,13 @@ const styles = StyleSheet.create({
 
 打开 `entry/oh-package.json5`，添加以下依赖
 
+>[!TIP] 因本库需要两台手机去进行对端扫描和连接，所以需要装两个不同的har包编译（`ble_managerGatt` 和 `ble_managerServres`）
+
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/react-native-ble-manager": "file:../../node_modules/@react-native-oh-tpl/react-native-ble-manager/harmony/ble_manager.har"
+    "@react-native-oh-tpl/react-native-ble-manager": "file:../../node_modules/@react-native-oh-tpl/react-native-ble-manager/harmony/ble_managerGatt.har"，
+    "@react-native-oh-tpl/react-native-ble-manager": "file:../../node_modules/@react-native-oh-tpl/react-native-ble-manager/harmony/ble_managerServers.har"
   }
 ```
 
@@ -591,5 +595,5 @@ ohpm install
 
 本项目基于[The MIT License (MIT)](https://github.com/innoveit/react-native-ble-manager/blob/master/LICENSE) ，请自由地享受和参与开源。
 
-
 <!-- {% endraw %} -->
+

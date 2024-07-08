@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-reanimated</code> </h1>
@@ -13,7 +13,7 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-harmony-reanimated/tree/sig)
+> [!Tip] [Github 地址](https://github.com/react-native-oh-library/react-native-harmony-reanimated/tree/sig)
 
 ## 安装与使用
 
@@ -116,7 +116,7 @@ export default function App() {
 1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
 2. 直接链接源码。
 
-方法一：通过 har 包引入
+方法一：通过 har 包引入（推荐）
 
 > [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
 
@@ -126,7 +126,7 @@ export default function App() {
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
 
-    "rnoh-reanimated": "file:../../node_modules/@react-native-oh-tpl/react-native-reanimated/harmony/reanimated.har"
+    "@react-native-oh-tpl/react-native-reanimated": "file:../../node_modules/@react-native-oh-tpl/react-native-reanimated/harmony/reanimated.har"
   }
 ```
 
@@ -151,15 +151,16 @@ ohpm install
 project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(OH_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
++ set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
 
 add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
-# RNOH_BEGIN: add_package_subdirectories
+# RNOH_END: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/rnoh-reanimated/src/main/cpp" ./reanimated)
-# RNOH_END: add_package_subdirectories
++ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/react-native-reanimated/src/main/cpp" ./reanimated)
+# RNOH_END: manual_package_linking_1
 
 add_library(rnoh_app SHARED
     "./PackageProvider.cpp"
@@ -168,11 +169,12 @@ add_library(rnoh_app SHARED
 
 target_link_libraries(rnoh_app PUBLIC rnoh)
 
-# RNOH_BEGIN: link_packages
+# RNOH_BEGIN: manual_package_linking_2
 target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 + target_link_libraries(rnoh_app PUBLIC rnoh_reanimated)
-# RNOH_END: link_packages
+# RNOH_BEGIN: manual_package_linking_2
 ```
+> [!Tip] 注意：上面NODE_MODULES定义，为源库的安装路径，用户可以根据安装源库的路径定义NODE_MODULES
 
 打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
 
@@ -197,7 +199,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ```diff
 ...
-+ import { ReanimatedPackage } from 'rnoh-reanimated/ts';
++ import { ReanimatedPackage } from '@react-native-oh-tpl/react-native-reanimated/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
@@ -224,15 +226,9 @@ ohpm install
 
 ### 兼容性
 
-> [!WARNING] 本库的动画功能尚未实现，请关注之后发布的版本。
+该库是基于react-native-reanimated（version=3.6.0）进行适配，要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-本文档内容基于以下版本验证通过：
-
-1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
-2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
-3. 2. RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 4.1.3.700; ROM：3.0.0.19;
-
-详情见 [react-native-reanimated 源库地址](https://github.com/software-mansion/react-native-reanimated)
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-reanimated Releases](https://github.com/react-native-oh-library/react-native-harmony-reanimated/releases)
 
 ## API
 

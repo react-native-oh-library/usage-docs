@@ -7,13 +7,14 @@
 </p>
 <p align="center">
     <a href="https://github.com/innoveit/react-native-ble-manager">
-        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
+        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms"/>
     </a>
     <a href="https://github.com/innoveit/react-native-ble-manager/blob/master/LICENSE">
-        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
+        <img src="https://img.shields.io/badge/license-MIT-green.svg"alt="License"/>
         <!-- <img src="https://img.shields.io/badge/license-Apache-blue.svg" alt="License" /> -->
     </a>
 </p>
+
 
 
 > [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-ble-manager)
@@ -462,13 +463,23 @@ const styles = StyleSheet.create({
 
 打开 `entry/oh-package.json5`，添加以下依赖
 
->[!TIP] 因本库需要两台手机去进行对端扫描和连接，所以需要装两个不同的har包编译（`ble_managerGatt` 和 `ble_managerServres`）
+>[!TIP] 因本库需要两台手机去进行对端扫描和连接，所以两台手机各装一个har包编译（`ble_managerGatt.har` 和 `ble_managerServers.har`）
+
+第一台手机：`ble_managerGatt.har`
 
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/react-native-ble-manager": "file:../../node_modules/@react-native-oh-tpl/react-native-ble-manager/harmony/ble_managerGatt.har"，
-    "@react-native-oh-tpl/react-native-ble-manager": "file:../../node_modules/@react-native-oh-tpl/react-native-ble-manager/harmony/ble_managerServers.har"
+     "@react-native-oh-tpl/react-native-ble-manager": "file:../../node_modules/@react-native-oh-tpl/react-native-ble-manager/harmony/ble_managerGatt.har"，
+  }
+```
+
+第二台手机：`ble_managerServers.har`
+
+```json
+"dependencies": {
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+     "@react-native-oh-tpl/react-native-ble-manager": "file:../../node_modules/@react-native-oh-tpl/react-native-ble-manager/harmony/ble_managerServers.har"，
   }
 ```
 

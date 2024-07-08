@@ -72,12 +72,10 @@ yarn add @react-native-oh-tpl/react-native-code-push@file:#
 import React, {Component} from 'react'
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native'
 import CodePush from '@react-native-oh-tpl/react-native-code-push';
-import ProgressBarModal from './ProgressBarModal';
 class App extends Component<any,any>{
     constructor(props:any) {
         super(props);
         this.state={
-            progressModalVisible:false,
             syncMessage:'',
             progress:{}
         }
@@ -106,7 +104,6 @@ class App extends Component<any,any>{
     }
 
     codePushStatusDidChange(syncStatus:string|number) {
-        console.log('syncStatus='+syncStatus)
         switch (syncStatus) {
             case CodePush.SyncStatus.CHECKING_FOR_UPDATE:
                 this.setState({syncMessage: 'Checking for update.'});
@@ -139,23 +136,7 @@ class App extends Component<any,any>{
         this.setState({progress});
     }
 
-
     render(){
-        let progressView;
-        if (this.state.progress) {
-            let total = (this.state.progress.totalSize/(1024*1024)).toFixed(2);
-            let received = (this.state.progress.receiveSize/(1024*1024)).toFixed(2);
-            let progress = (received/total)*100;
-                  progressView = (
-                      <ProgressBarModal
-                          progress={progress}
-                          totalPackageSize={total}
-                          receivedPackageSize={received}
-                          progressModalVisible={this.state.progressModalVisible}
-                      />
-
-                  );
-        }
         return(
             <View style={styles.container}>
                 <Text style={styles.welcome}>欢迎使用热更新--test!</Text>
@@ -164,7 +145,6 @@ class App extends Component<any,any>{
                 <TouchableOpacity onPress={this.syncImmediate.bind(this)}>
                     <Text style={styles.syncButton}>Press for dialog-driven sync</Text>
                 </TouchableOpacity>
-                { progressView }
             </View>
         )
     }
@@ -289,6 +269,12 @@ struct Index {
   private logger!: RNOHLogger
 + bundlePath:string = 'bunlde.harmony.js'
 + @State hasBundle:boolean = false
+aboutToAppear() {
+     ...
++   this.checkBundleUpdated()
+    this.shouldShow = true
+    stopTracing()
+  }
 
 + async downloadBunlde(){
 +    let uint8Array = await context.resourceManager.getRawFileContent('rawfile/bundle.harmony.js');

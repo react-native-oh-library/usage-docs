@@ -454,7 +454,7 @@ ohpm install
 |-------------------------|----------------------------------|----------|----------|----------|-------------------|
 | zoomControlsVisible     | 显示或隐藏缩放控件，仅 Android              | Boolean  | no      | Android  | yes               |
 | trafficEnabled          | 是否启用交通图层                         | Boolean  | no      | All      | yes                |
-| baiduHeatMapEnabled     | 是否启用百度热力图                        | Boolean  | no      | All      | yes                |
+| baiduHeatMapEnabled     | 是否启用百度热力图                        | Boolean  | no      | All      | no                |
 | zoomGesturesEnabled     | 允许手势缩放                           | Boolean  | no      | All      | yes                |
 | scrollGesturesEnabled   | 允许拖动                             | Boolean  | no      | All      | yes                |
 | mapType                 | 地图类型                             | Number   | no      | All      | partially                |

@@ -1,15 +1,19 @@
 <!-- {% raw %} -->
-模板版本：v0.2.1
+模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-fit-image</code> </h1>
 </p>
 <p align="center">
+    <a href="https://github.com/huiseoul/react-native-fit-image/blob/master">
+        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|web|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
+    </a>
     <a href="https://github.com/huiseoul/react-native-fit-image/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/lisense-BEER-WARE?color=%238bb903
 " alt="License" />
     </a>
 </p>
+
 
 
 > [!TIP] [Github 地址](https://github.com/huiseoul/react-native-fit-image)
@@ -277,7 +281,9 @@ const FitImageDemo=()=>{
 export default FitImageDemo;
 ```
 
-## 兼容性
+## 约束与限制
+
+### 兼容性
 
 在以下版本验证通过
 
@@ -310,8 +316,8 @@ export default FitImageDemo;
 
 ## 遗留问题
 
-1. 在react-native-fit-image三方库中`onError`.`onLoadStart`.`onLayout`回调方法，在原库文档（react-native-fit-image）作者已说明并没有适配（Some props are not working），有待开发[issues](https://github.com/huiseoul/react-native-fit-image/issues/76)
-2. `borderRadius`图片圆角属性，在 HarmonyOS ，ios，安卓均不支持，官方文档互动有提到borderRadius不生效;[issues](https://github.com/huiseoul/react-native-fit-image/issues/111)
+- [ ] 在react-native-fit-image三方库中`onError`.`onLoadStart`.`onLayout`回调方法，在原库文档（react-native-fit-image）作者已说明并没有适配（Some props are not working），有待开发：[issues](https://github.com/huiseoul/react-native-fit-image/issues/76)
+- [ ] `borderRadius`图片圆角属性，在 HarmonyOS ，ios，安卓均不支持，官方文档互动有提到borderRadius不生效：[issues](https://github.com/huiseoul/react-native-fit-image/issues/111)
 
 ## 其他
 

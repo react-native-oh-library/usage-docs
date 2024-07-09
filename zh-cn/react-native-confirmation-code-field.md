@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-confirmation-code-field</code> </h1>
@@ -106,7 +106,7 @@ export default App;
 
 ## 约束与限制
 
-## 兼容性
+### 兼容性
 
 本文档内容基于以下版本验证通过：
 

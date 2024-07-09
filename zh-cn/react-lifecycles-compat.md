@@ -1,14 +1,20 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-lifecycles-compat</code> </h1>
 </p>
 <p align="center">
-    <a href="https://github.com/reactjs/react-lifecycles-compat">
+<a href="https://github.com/reactjs/react-lifecycles-compat/blob/master">
+        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20web%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
+    </a>
+    <a href="https://github.com/reactjs/react-lifecycles-compat/blob/master/LICENSE.md">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
+
+
+
 
 > [!TIP] [Github 地址](https://github.com/reactjs/react-lifecycles-compat)
 
@@ -144,6 +150,8 @@ polyfill(ExampleComponent);
 export default ExampleComponent;
 ```
 
+## 约束与限制
+
 ### 兼容性
 
 在以下版本验证通过
@@ -164,5 +172,9 @@ export default ExampleComponent;
 为了使polyfill工作，您的组件不能定义以下生命周期：componentWillMount，componentWillReceiveProps，componentWillUpdate.
 
 如果您的组件包含getSnapshotBeforeUpdate，那么也必须定义componentDidUpdate，如果不满足上述任何条件，将抛出错误.
+
+## 开源协议
+
+本项目基于 [The MIT License (MIT)](https://github.com/reactjs/react-lifecycles-compat/blob/master/LICENSE.md) ，请自由地享受和参与开源。
 
 <!-- {% endraw %} -->

@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>@react-native-community/toolbar-android</code> </h1>
@@ -8,7 +8,7 @@
     <a href="https://github.com/react-native-toolbar-android/toolbar-android">
         <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
-    <a href="https://github.com/react-native-oh-library/toolbar-android/blob/sig/LICENSE">
+    <a href="https://github.com/react-native-toolbar-android/toolbar-android/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
@@ -17,7 +17,7 @@
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[<@react-native-oh-tpl/toolbar-android> Releases](https://github.com/react-native-oh-library/toolbar-android/releases)，并下载适用版本的 tgz 包。
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/toolbar-android Releases](https://github.com/react-native-oh-library/toolbar-android/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
@@ -43,7 +43,7 @@ yarn add @react-native-oh-tpl/toolbar-android@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-```tsx
+```js
 import React, { useState } from "react";
 import { StyleSheet, View, Text } from "react-native";
 import ToolbarAndroid from "@react-native-community/toolbar-android";
@@ -126,6 +126,17 @@ export default App;
 
 首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
+### 在工程根目录的 `oh-package.json` 添加 overrides 字段
+
+```json
+{
+  ...
+  "overrides": {
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+  }
+}
+```
+
 ### 引入原生端代码
 
 目前有两种方法：
@@ -142,8 +153,7 @@ export default App;
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "rnoh-toolbar-android": "file:../../node_modules/@react-native-oh-tpl/toolbar-android/harmony/toolbar_android.har"
+    "@react-native-oh-tpl/toolbar-android": "file:../../node_modules/@react-native-oh-tpl/toolbar-android/harmony/toolbar_android.har"
   }
 ```
 
@@ -165,18 +175,23 @@ ohpm install
 打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
 
 ```diff
-txtproject(rnapp)
+project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
+set(CMAKE_SKIP_BUILD_RPATH TRUE)
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(OH_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
+set(LOG_VERBOSITY_LEVEL 1)
+set(CMAKE_ASM_FLAGS "-Wno-error=unused-command-line-argument -Qunused-arguments")
+set(CMAKE_CXX_FLAGS "-fstack-protector-strong -Wl,-z,relro,-z,now,-z,noexecstack -s -fPIE -pie")
+set(WITH_HITRACE_SYSTRACE 1) # for other CMakeLists.txt files to use
+add_compile_definitions(WITH_HITRACE_SYSTRACE)
 
-add_subdirectory("${RNOH_CPP_DIR}" ./rn)
-
-# RNOH_BEGIN: add_package_subdirectories
+# RNOH_BEGIN: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/rnoh-toolbar-android/src/main/cpp" ./toolbar-android)
-# RNOH_END: add_package_subdirectories
++ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/toolbar-android/src/main/cpp" ./toolbar-android)
+# RNOH_END: manual_package_linking_1
 
 add_library(rnoh_app SHARED
     "./PackageProvider.cpp"
@@ -194,15 +209,14 @@ target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
 
 ```diff
-#include "RNOH/PackageProvider.h"
-#include "SamplePackage.h"
+...
 + #include "ToolbarAndroidPackage.h"
 
 using namespace rnoh;
 
 std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
     return {
-      std::make_shared<SamplePackage>(ctx),
+      ...
 +     std::make_shared<ToolbarAndroidPackage>(ctx),
     };
 }
@@ -210,31 +224,35 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ### 在 ArkTs 侧引入 RNCToolbarAndroid 组件
 
-找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
+找到 **function buildCustomRNComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
 ...
-+ import { RNCToolbarAndroid, RNC_TOOLBAR_ANDROID_TYPE } from 'rnoh-toolbar-android/src/main/ets/RNCToolbarAndroid'
++ import { RNCToolbarAndroid, RNC_TOOLBAR_ANDROID_TYPE } from '@react-native-oh-tpl/toolbar-android/src/main/ets/RNCToolbarAndroid'
 
   @Builder
-  function buildCustomComponent(ctx: ComponentBuilderContext) {
-    if (ctx.componentName === SAMPLE_VIEW_TYPE) {
-      SampleView({
-        ctx: ctx.rnComponentContext,
-        tag: ctx.tag,
-        buildCustomComponent: buildCustomComponent
-      })
-    }
-+  else if (ctx.componentName === RNC_TOOLBAR_ANDROID_TYPE) {
-+    RNCToolbarAndroid({
-+      ctx: ctx.rnohContext,
+  function buildCustomRNComponent(ctx: ComponentBuilderContext) {
+    ...
++   if (ctx.componentName === RNC_TOOLBAR_ANDROID_TYPE) {
++     RNCToolbarAndroid({
++      ctx: ctx.rnComponentContext,
 +      tag: ctx.tag
-+    })
-+  }
++     })
++   }
     ...
   }
   ...
+```
 
+> [!TIP] 本库使用了混合方案，需要添加组件名。
+
+在`entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets` 找到常量 `arkTsComponentNames` 在其数组里添加组件名
+
+```diff
+const arkTsComponentNames: Array<string> = [
+  ...
++ RNC_TOOLBAR_ANDROID_TYPE
+];
 ```
 
 ### 运行
@@ -256,7 +274,7 @@ ohpm install
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[<@react-native-oh-tpl/toolbar-android> Releases](https://github.com/react-native-oh-library/toolbar-android/releases)
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/toolbar-android Releases](https://github.com/react-native-oh-library/toolbar-android/releases)
 
 ## 属性
 
@@ -289,6 +307,8 @@ Inherits [View Props](https://reactnative.dev/docs/view#props).
 | uri    | load image from a url, e.g. require('./some_icon.png') | string | Yes      | android  | yes               |
 | width  | the width of the image                                 | number | No       | android  | yes               |
 | height | the height of the image                                | number | No       | android  | yes               |
+
+## 遗留问题
 
 ## 其他
 

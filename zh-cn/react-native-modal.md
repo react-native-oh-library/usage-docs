@@ -1,40 +1,41 @@
 <!-- {% raw %} -->
- 
 
-> 模板版本：v0.2.0
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-modal</code> </h1>
 </p>
 <p align="center">
     <a href="https://github.com/react-native-modal/react-native-modal">
-        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="" />
+        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
-     <a href="https://github.com/react-native-modal/react-native-modal/blob/master/LICENSE.md">
+    <a href="https://github.com/react-native-modal/react-native-modal/blob/master/LICENSE.md">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-modal/react-native-modal)
-
- 
+> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-modal)
 
 ## 安装与使用
- 
+
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-modal Releases](https://github.com/react-native-oh-library/react-native-modal/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
- 
+
+> [!TIP] # 处替换为 tgz 包的路径
+
+<!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm i react-native-modal@13.0.1
+npm install @react-native-oh-tpl/react-native-modal@file:#
 ```
 
 #### **yarn**
 
 ```bash
-yarn add react-native-modal@13.0.1
+yarn add @react-native-oh-tpl/react-native-modal@file:#
 ```
 
 <!-- tabs:end -->
@@ -43,109 +44,93 @@ yarn add react-native-modal@13.0.1
 
 > [!WARNING] 使用时 import 的库名不变。
 
-```js
-import React, { Component } from 'react';
-import {
-    AppRegistry,
-    StyleSheet,
-    View,
-    Text
-} from 'react-native';
+```ts
+import React, { Component } from "react";
+import { Button, StyleSheet, Text, View } from "react-native";
+import Modal from "react-native-modal";
 
-import Modal from 'react-native-modal';
+type Props = {
+	onPress: () => any;
+};
+type State<P> = P & {
+	visible: boolean;
+};
 
-export default class RNApplyComponent extends Component {
+const DefaultModalContent: React.FC<Props> = (props) => (
+	<View style={styles.content}>
+		<Text style={styles.contentTitle}>Hi 👋!</Text>
+		<Button testID={"close-button"} onPress={props.onPress} title="Close" />
+	</View>
+);
 
-    //初始化state
-    constructor(props){
-        super(props);
-        this.state = {visible: false};
-    }
+abstract class ModalBaseScene<P extends object = {}> extends Component<any, State<P>> {
+	abstract renderModal(): React.ReactElement<any>;
+	// @ts-ignore
+	constructor(props, state?: P) {
+		super(props);
+		// @ts-ignore
+		this.state = {
+			...state,
+			visible: false
+		};
+	}
 
-    //显示
-    show(){
-        this.setState({
-            visible: true
-        });
-    }
+	open = () => this.setState({ visible: true } as any);
+	close = () => this.setState({ visible: false } as any);
+	isVisible = () => this.state.visible;
+	public renderButton(): React.ReactElement<any> {
+		return <Button testID={"modal-open-button"} onPress={this.open} title="Open" />;
+	}
+	render() {
+		return (
+			<View style={styles.view}>
+				{this.renderButton()}
+				{this.renderModal()}
+			</View>
+		);
+	}
+}
 
-    //隐藏
-    hide(){
-        this.setState({
-            visible: false
-        });
-    }
-
-    //弹框
-    _renderModal() {
-        return (
-            <Modal
-                isVisible={true}
-                animationIn={'bounceInUp'}
-                backdropColor={'red'}
-                backdropOpacity={0.4}
-                onBackdropPress={() => this.hide()}
-                onModalWillShow={() => { console.log("---onModalWillShow---")}}
-                onModalShow={() => { console.log("---onModalShow---")}}
-                onModalWillHide={() => { console.log("---onModalWillHide---")}}
-                onModalHide={() => { console.log("---onModalHide---")}}
-            >
-                <View style={[styles.center]}>
-                    <View style={[styles.parent,styles.center]}>
-                        <Text style={styles.content}>欢迎您的到来</Text>
-                    </View>
-                </View>
-            </Modal>
-        )
-    }
- 
-    render() {
-
-        return (
-            <View style={[styles.container,styles.center]}>
-                <Text style={styles.content} onPress={() => this.show()}>show</Text>
-                {
-                    this.state.visible ?  this._renderModal() : null
-                }
-            </View>
-        );
-    }
+class DefaultModal extends ModalBaseScene {
+	renderModal(): React.ReactElement<any> {
+		return (
+			<Modal testID={"modal"} isVisible={this.isVisible()}>
+				<DefaultModalContent onPress={this.close} />
+			</Modal>
+		);
+	}
 }
 
 const styles = StyleSheet.create({
-    container:{
-        flex: 1,
-        backgroundColor: '#FFFFFF'
-    },
-    center: {
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    parent: {
-        width:300,
-        height:200,
-        backgroundColor:'#FFFFFF',
-        borderRadius:10
-    },
-    content: {
-        fontSize: 25,
-        color: 'black',
-        textAlign: 'center'
-    }
+	view: {
+		flex: 1,
+		alignItems: "center",
+		justifyContent: "center"
+	},
+	content: {
+		backgroundColor: "white",
+		padding: 22,
+		justifyContent: "center",
+		alignItems: "center",
+		borderRadius: 4,
+		borderColor: "rgba(0, 0, 0, 0.1)"
+	},
+	contentTitle: {
+		fontSize: 20,
+		marginBottom: 12
+	}
 });
 
-AppRegistry.registerComponent('RNApplyComponent', () => RNApplyComponent);
-
+export default DefaultModal;
 ```
- 
 
 ## 约束与限制
 
 ### 兼容性
 
+要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-RNOH: 0.72.20; SDK: HarmonyOS NEXT Developer Beta1; IDE: DevEco Studio 5.0.3.200; ROM: 3.0.0.18;
- 
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-modal Releases](https://github.com/react-native-oh-library/react-native-modal/releases)
 
 ## 属性
 
@@ -153,55 +138,53 @@ RNOH: 0.72.20; SDK: HarmonyOS NEXT Developer Beta1; IDE: DevEco Studio 5.0.3.200
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
- 
- 
+| Name | Description | Type | Default | Required | Platform | HarmonyOS Support |
+| --- | --- | --- | --- | --- | --- | --- |
+| animationIn | Modal show animation | `string` or `object` | "slideInUp" | no | all | yes |
+| animationInTiming | Timing for the modal show animation (in ms) | `number` | 300 | no | all | yes |
+| animationOut | Modal hide animation | `string` or `object` | "slideOutDown" | no | all | yes |
+| animationOutTiming | Timing for the modal hide animation (in ms) | `number` | 300 | no | all | yes |
+| avoidKeyboard | Move the modal up if the keyboard is open | `bool` | false | no | all | yes |
+| coverScreen | Will use RN `Modal` component to cover the entire screen wherever the modal is mounted in the component hierarchy | `bool` | true | no | all | yes |
+| hasBackdrop | Render the backdrop | `bool` | true | no | all | yes |
+| backdropColor | The backdrop background color | `string` | "black" | no | all | yes |
+| backdropOpacity | The backdrop opacity when the modal is visible | `number` | 0.70 | no | all | yes |
+| backdropTransitionInTiming | The backdrop show timing (in ms) | `number` | 300 | no | all | yes |
+| backdropTransitionOutTiming | The backdrop hide timing (in ms) | `number` | 300 | no | all | yes |
+| customBackdrop | The custom backdrop element | `node` | null | no | all | yes |
+| children | The modal content | `node` | **REQUIRED** | yes | all | yes |
+| deviceHeight | Device height (useful on devices that can hide the navigation bar) | `bool` | null | no | all | yes |
+| deviceWidth | Device width (useful on devices that can hide the navigation bar) | `bool` | null | no | all | yes |
+| isVisible | Show the modal? | `bool` | **REQUIRED** | yes | all | yes |
+| onBackButtonPress | Called when the Android back button is pressed | `func` | () => null | no | Android | yes |
+| onBackdropPress | Called when the backdrop is pressed | `func` | () => null | no | all | yes |
+| onModalWillHide | Called before the modal hide animation begins | `func` | () => null | no | all | yes |
+| onModalHide | Called when the modal is completely hidden | `func` | () => null | no | all | yes |
+| onModalWillShow | Called before the modal show animation begins | `func` | () => null | no | all | yes |
+| onModalShow | Called when the modal is completely visible | `func` | () => null | no | all | yes |
+| onSwipeStart | Called when the swipe action started | `func` | () => null | no | all | yes |
+| onSwipeMove | Called on each swipe event | `func` | (percentageShown) => null | no | all | yes |
+| onSwipeComplete | Called when the `swipeThreshold` has been reached | `func` | ({ swipingDirection }) => null | no | all | yes |
+| onSwipeCancel | Called when the `swipeThreshold` has not been reached | `func` | () => null | no | all | yes |
+| panResponderThreshold | The threshold for when the panResponder should pick up swipe events | `number` | 4 | no | all | yes |
+| scrollOffset | When > 0, disables swipe-to-close, in order to implement scrollable content | `number` | 0 | no | all | yes |
+| scrollOffsetMax | Used to implement overscroll feel when content is scrollable. See `/example` directory | `number` | 0 | no | all | yes |
+| scrollTo | Used to implement scrollable modal. See `/example` directory for reference on how to use it | `func` | null | no | all | yes |
+| scrollHorizontal | Set to true if your scrollView is horizontal (for a correct scroll handling) | `bool` | false | no | all | yes |
+| swipeThreshold | Swiping threshold that when reached calls `onSwipeComplete` | `number` | 100 | no | all | yes |
+| swipeDirection | Defines the direction where the modal can be swiped. Can be 'up', 'down', 'left, or 'right', or a combination of them like `['up','down']` | `string` or `array` | null | no | all | yes |
+| useNativeDriver | Defines if animations should use native driver | `bool` | false | no | all | yes |
+| useNativeDriverForBackdrop | Defines if animations for backdrop should use native driver (to avoid flashing on android) | `bool` | null | no | all | yes |
+| hideModalContentWhileAnimating | Enhances the performance by hiding the modal content until the animations complete | `bool` | false | no | all | yes |
+| propagateSwipe | Allows swipe events to propagate to children components (eg a ScrollView inside a modal) | `bool` or `func` | false | no | all | yes |
+| style | Style applied to the modal | `any` | null | no | all | yes |
 
-| Name | Description | Type |Default | Required | Platform | HarmonyOS Support  |
-| ---- | ----------- | ---- | -------- | -------- | -------- | ------------------ |
-| animationIn  | 模态显示动画.   | string     | "slideInUp"  | no | all      | yes |
-| animationInTiming      | 模态显示动画计时（单位：ms）.                              |number            | 300           | no | all      | yes |
-| animationOutTiming | 模态隐藏动画计时，单位ms. |number | 300           | no               | all      | yes |
-| avoidKeyboard        | 如果键盘打开，则向上移动模态.   |bool         | false         | no           | all      | yes |
-| coverScreen        | 将使用RN模态组件覆盖整个屏幕，无论模态组件安装在组件层次结构中的哪个位置. |bool           | true         | no              | all      | yes |
-| hasBackdrop        | 渲染背景.           | bool         | true               | no      |  all      | yes |
-| backdropColor        | 背景色.   | string        | "black"         | no                    |  all      | yes |
-| backdropOpacity        | 模态可见时的背景不透明度.        |number     | 0.70         |no|  all      | yes |
-| backdropTransitionInTiming        | 背景显示计时（单位：ms）.           |number  | 300         | no      |  all      | yes |
-   | backdropTransitionOutTiming        | 后台隐藏时间（单位：ms）.          |number   | 300         | no      |  all      | yes |
- | customBackdrop        | 自定义背景元素.           | bool         | yes               |no      |  all      | yes |
-  | children        | 模态内容.           | bool         | yes               |no      |  all      | yes |
-| deviceHeight        | 设备高度（在可以隐藏导航栏的设备上很有用）.           | bool         | yes       |no      |  all      | yes |
- | deviceWidth        | 设备宽度（在可以隐藏导航栏的设备上很有用）).           | bool         | yes      |no      |  all      | yes |
- | isVisible        | 显示模态.           | bool         | yes               |yes      |  all      | yes |
-  | onBackButtonPress        | 当Android返回按钮被按下时调用.        | func   | () => null         | no      |  all      | yes
-| onBackdropPress        | 按下背景时调用.  | func         | () => null         | no              | all      | yes |
- | onModalWillHide        |在模态隐藏动画开始之前调用.       | func    | () => null         | no              | all      | yes |              | 
- | onModalHide        |当模态完全隐藏时调用.   | func        | () => null         | no              | all      | yes | 
- | onModalWillShow        |在模态显示动画开始之前调用.       | func    |   () => null         | no              | all      | yes |
-  | onSwipeStart        |当滑动动作开始时调用.   | func        |   () => null         | no              | all      | yes |
-   | onSwipeMove        |在每次滑动事件时调用.    | func       |   () => null         | no              | all      | yes |
- | onSwipeComplete        |当达到swipeThreshold时调用.      | func     |   () => null         | no              | all      | yes |
-| onSwipeCancel        |当未达到swipeThreshold时调用.      | func     |   () => null         | no              | all      | yes |
-| panResponderThreshold        |panResponder应何时拾取滑动事件的阈值.       | number   |   4        | no              | all      | yes |
-| scrollOffset        |当>0时，禁用滑动关闭，以实现可滚动内容.          | number  |   0         | no              | all      | yes | 
- | scrollOffsetMax        |用于在内容可滚动时实现过度滚动的感觉。请参见/example目录.       | number     |   0        | no              | all      | yes |
- | scrollTo        |用于实现可滚动的模态。有关如何使用它的参考，请参见/example目录.        | number    |   0         | no              | all      | yes |
- | scrollHorizontal        |如果您的scrollView是水平的，则设置为true（用于正确的滚动处理）.        | bool    |   false         | no              | all      | yes |
- | swipeThreshold        |达到时调用onSwipeComplete的滑动阈值.         | number   |   100        | no              | all      | yes |
- | useNativeDriver        |定义动画是否应使用本机驱动程序.           | bool   |   false        | no              | all      | yes |
- | hideModalContentWhileAnimating        |通过在动画完成之前隐藏模态内容来增强性能.          | bool    |   false        | no              | all      | yes |
- 
-
-
- 
 ## 遗留问题
-
- 
 
 ## 其他
 
 ## 开源协议
- 本项目基于 [The ISC License (ISC)](https://github.com/react-native-modal/react-native-modal/blob/master/LICENSE.md) ，请自由地享受和参与开源。
 
- 
+本项目基于 [The MIT License (MIT)](https://github.com/react-native-modal/react-native-modal/blob/master/LICENSE.md) ，请自由地享受和参与开源。
+
 <!-- {% endraw %} -->

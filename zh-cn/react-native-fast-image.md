@@ -1,5 +1,6 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-fast-image</code> </h1>
@@ -13,7 +14,7 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-fast-image)
+> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-fast-image)
 
 ## 安装与使用
 
@@ -44,19 +45,62 @@ yarn add @react-native-oh-tpl/react-native-fast-image@file:#
 > [!WARNING] 使用时 import 的库名不变。
 
 ```js
-import FastImage from "react-native-fast-image";
+import React from "react";
+import { StyleSheet, View, ScrollView } from "react-native";
+import FastImage, {
+  ResizeMode,
+  OnLoadEvent,
+  OnProgressEvent,
+} from "react-native-fast-image";
 
-const YourImage = () => (
-  <FastImage
-    style={{ width: 200, height: 200 }}
-    source={{
-      uri: "https://unsplash.it/400/400?image=1",
-      headers: { Authorization: "someAuthToken" },
-      priority: FastImage.priority.normal,
-    }}
-    resizeMode={FastImage.resizeMode.contain}
-  />
-);
+export const FastImageDemo = () => {
+  return (
+    <ScrollView>
+      <View>
+        <FastImage
+          style={styles.image}
+          source={{
+            uri: "https://res8.vmallres.com/pimages/uomcdn/CN/pms/202205/gbom/6941487259298/428_428_D7BFF22D4678EB68440F914B352214C4mp_tds.png",
+          }}
+          resizeMode={FastImage.resizeMode.contain}
+          onLoadStart={() => {
+            console.log("onLoadStart: success");
+          }}
+          onProgress={(e: OnProgressEvent) => {
+            console.log(
+              "onProgress: success loaded=" +
+                e.nativeEvent.loaded +
+                " total=" +
+                e.nativeEvent.total
+            );
+          }}
+          onLoad={(e: OnLoadEvent) => {
+            console.log(
+              "onLoad: success width=" +
+                e.nativeEvent.width +
+                " height=" +
+                e.nativeEvent.height
+            );
+          }}
+          onError={() => {
+            console.log("onError: success");
+          }}
+          onLoadEnd={() => {
+            console.log("onLoadEnd: success");
+          }}
+        />
+      </View>
+    </ScrollView>
+  );
+};
+
+const styles = StyleSheet.create({
+  image: {
+    width: 200,
+    height: 200,
+    margin: 20,
+  },
+});
 ```
 
 ## Link
@@ -65,6 +109,17 @@ const YourImage = () => (
 
 首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
+### 在工程根目录的 `oh-package.json` 添加 overrides 字段
+
+```json
+{
+  ...
+  "overrides": {
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+  }
+}
+```
+
 ### 引入原生端代码
 
 目前有两种方法：
@@ -72,7 +127,7 @@ const YourImage = () => (
 1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
 2. 直接链接源码。
 
-方法一：通过 har 包引入
+方法一：通过 har 包引入（推荐）
 
 > [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
 
@@ -81,8 +136,7 @@ const YourImage = () => (
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "rnoh-fast-image": "file:../../node_modules/@react-native-oh-tpl/react-native-fast-image/harmony/fast_image.har"
+    "@react-native-oh-tpl/react-native-fast-image": "file:../../node_modules/@react-native-oh-tpl/react-native-fast-image/harmony/fast_image.har"
   }
 ```
 
@@ -106,34 +160,44 @@ ohpm install
 ```diff
 project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
+set(CMAKE_SKIP_BUILD_RPATH TRUE)
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(OH_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
+set(LOG_VERBOSITY_LEVEL 1)
+set(CMAKE_ASM_FLAGS "-Wno-error=unused-command-line-argument -Qunused-arguments")
+set(CMAKE_CXX_FLAGS "-fstack-protector-strong -Wl,-z,relro,-z,now,-z,noexecstack -s -fPIE -pie")
+set(WITH_HITRACE_SYSTRACE 1) # for other CMakeLists.txt files to use
+add_compile_definitions(WITH_HITRACE_SYSTRACE)
 
 add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
-# RNOH_BEGIN: add_package_subdirectories
+# RNOH_BEGIN: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/rnoh-fast-image/src/main/cpp" ./fast-image)
-# RNOH_END: add_package_subdirectories
++ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/react-native-fast-image/src/main/cpp" ./fast-image)
+# RNOH_END: manual_package_linking_1
+
+file(GLOB GENERATED_CPP_FILES "./generated/*.cpp")
 
 add_library(rnoh_app SHARED
+    ${GENERATED_CPP_FILES}
     "./PackageProvider.cpp"
     "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
 )
-
 target_link_libraries(rnoh_app PUBLIC rnoh)
 
-# RNOH_BEGIN: link_packages
+# RNOH_BEGIN: manual_package_linking_2
 target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 + target_link_libraries(rnoh_app PUBLIC rnoh_fast_image)
-# RNOH_END: link_packages
+# RNOH_END: manual_package_linking_2
 ```
 
 打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
 
 ```diff
 #include "RNOH/PackageProvider.h"
+#include "generated/RNOHGeneratedPackage.h"
 #include "SamplePackage.h"
 + #include "FastImagePackage.h"
 
@@ -141,38 +205,11 @@ using namespace rnoh;
 
 std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
     return {
-      std::make_shared<SamplePackage>(ctx),
-+     std::make_shared<FastImagePackage>(ctx)
+        std::make_shared<RNOHGeneratedPackage>(ctx),
+        std::make_shared<SamplePackage>(ctx),
++       std::make_shared<FastImagePackage>(ctx),
     };
 }
-```
-
-### 在 ArkTs 侧引入 FastImage 组件
-
-找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
-
-```diff
-...
-+ import { RNFastImage, FAST_IMAGE_TYPE } from "rnoh-fast-image"
-
-@Builder
-function buildCustomComponent(ctx: ComponentBuilderContext) {
-  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
-    SampleView({
-      ctx: ctx.rnComponentContext,
-      tag: ctx.tag,
-      buildCustomComponent: buildCustomComponent
-    })
-  }
-+ else if (ctx.componentName === FAST_IMAGE_TYPE) {
-+   RNFastImage({
-+     ctx: ctx.rnComponentContext,
-+     tag: ctx.tag,
-+   })
-+ }
- ...
-}
-...
 ```
 
 ### 在 ArkTs 侧引入 FastImagePackage
@@ -180,9 +217,8 @@ function buildCustomComponent(ctx: ComponentBuilderContext) {
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-import type {RNPackageContext, RNPackage} from 'rnoh/ts';
-import {SamplePackage} from 'rnoh-sample-package/ts';
-+ import { FastImagePackage } from 'rnoh-fast-image/ts';
+...
++ import {FastImagePackage} from '@react-native-oh-tpl/react-native-fast-image/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
@@ -207,7 +243,7 @@ ohpm install
 
 ## 约束与限制
 
-## 兼容性
+### 兼容性
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
@@ -223,11 +259,11 @@ ohpm install
 | ------------------------------ | ----------------------------------------------------------------------------------------- | ---------------- | -------- | -------- | ----------------- |
 | `source.uri`                   | Source for the remote image to load.                                                      | string           | yes      | All      | yes               |
 | `source.headers?`              | Headers to load the image with. e.g. { Authorization: 'someAuthToken' }.                  | object           | yes      | All      | yes               |
-| `source.priority?`             | loading url priority                                                                      | enum             | No       | All      | no                |
-| `source.cache?`                | setting loading url cache mode                                                            | enum             | No       | All      | no                |
+| `source.priority?`             | loading url priority                                                                      | enum             | no       | All      | no                |
+| `source.cache?`                | setting loading url cache mode                                                            | enum             | no       | All      | no                |
 | `defaultSource?`               | An asset loaded with require(...).                                                        | number           | yes      | All      | yes               |
-| `resizeMode?`                  | loading image for scale mode                                                              | enum             | yes      | ALL      | yes               |
-| `onLoadStart?: () => void`     | Called when the image starts to load.                                                     | function         | yes      | ALL      | yes               |
+| `resizeMode?`                  | loading image for scale mode                                                              | enum             | yes      | All      | yes               |
+| `onLoadStart?: () => void`     | Called when the image starts to load.                                                     | function         | yes      | All      | yes               |
 | `onProgress?: (event) => void` | Called when the image is loading.                                                         | function         | yes      | All      | yes               |
 | `onLoad?: (event) => void`     | Called on a successful image fetch. Called with the width and height of the loaded image. | function         | yes      | All      | yes               |
 | `onError?: () => void`         | Called on an image fetching error.                                                        | function         | yes      | All      | yes               |

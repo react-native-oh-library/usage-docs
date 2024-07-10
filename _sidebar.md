@@ -72,7 +72,7 @@
     - [react-navigation](/zh-cn/react-navigation)
     - [recyclerlistview](/zh-cn/recyclerlistview.md)
     - [rn-placeholder](/zh-cn/rn-placeholder.md)
-    - [jeanregisser/react-native-slider](/zh-cn/jeanregisser-react-native-slider.md)
+    - [react-native-slider](/zh-cn/react-native-slider.md)
     - [react-native-base64](/zh-cn/react-native-base64.md)
     - [react-native-check-box](/zh-cn/react-native-check-box.md)
     - [react-native-crypto-js](/zh-cn/react-native-crypto-js.md)

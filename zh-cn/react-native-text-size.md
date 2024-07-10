@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-text-size</code> </h1>
@@ -8,9 +8,8 @@
     <a href="https://github.com/aMarCruz/react-native-text-size">
         <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
-    <a href="https://github.com/react-native-oh-library/react-native-text-size/blob/sig/LICENSE>">
-        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
-        <!-- <img src="https://img.shields.io/badge/license-Apache-blue.svg" alt="License" /> -->
+    <a href="https://github.com/aMarCruz/react-native-text-size/blob/master/LICENSE">
+        <img src="https://img.shields.io/badge/license-BSD-green.svg" alt="License" />
     </a>
 </p>
 
@@ -18,7 +17,7 @@
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[<@react-native-oh-tpl/react-native-text-size> Releases](https://github.com/react-native-oh-library/react-native-text-size/releases)，并下载适用版本的 tgz 包。
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-text-size Releases](https://github.com/react-native-oh-library/react-native-text-size/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
@@ -56,7 +55,7 @@ import {
 
 import RTNTextSize, { TSFontSpecs, TSFontInfo } from 'react-native-text-size'
 
-export function TextSizeExample() {
+export default function TextSizeExample() {
   const [res, setRes] = useState<string[]>([])
   const [res2, setRes2] = useState<string[]>([])
   const fontFamily = 'HarmonyOS Sans SC'
@@ -146,7 +145,7 @@ export function TextSizeExample() {
         </Text>
         {texts2.map(
           (texts2, index) => (
-            <Text style={{ height: heights2[index], ...fontSpecs2 }}>
+            <Text key = {index} style={{ height: heights2[index], ...fontSpecs2 }}>
               {texts2}
             </Text>
           )
@@ -212,8 +211,7 @@ export function TextSizeExample() {
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "rnoh-text-size": "file:../../node_modules/@react-native-oh-tpl/react-native-text-size/harmony/text_size.har"
+    "@react-native-oh-tpl/react-native-text-size": "file:../../node_modules/@react-native-oh-tpl/react-native-text-size/harmony/text_size.har"
   }
 ```
 
@@ -237,16 +235,23 @@ ohpm install
 ```diff
 project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
+set(CMAKE_SKIP_BUILD_RPATH TRUE)
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(OH_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
+set(LOG_VERBOSITY_LEVEL 1)
+set(CMAKE_ASM_FLAGS "-Wno-error=unused-command-line-argument -Qunused-arguments")
+set(CMAKE_CXX_FLAGS "-fstack-protector-strong -Wl,-z,relro,-z,now,-z,noexecstack -s -fPIE -pie")
+set(WITH_HITRACE_SYSTRACE 1) # for other CMakeLists.txt files to use
+add_compile_definitions(WITH_HITRACE_SYSTRACE)
 
 add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
-# RNOH_BEGIN: add_package_subdirectories
+# RNOH_BEGIN: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/rnoh-text-size/src/main/cpp" ./text-size)
-# RNOH_END: add_package_subdirectories
++ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/react-native-text-size/src/main/cpp" ./text-size)
+# RNOH_END: manual_package_linking_1
 
 add_library(rnoh_app SHARED
     "./PackageProvider.cpp"
@@ -255,24 +260,23 @@ add_library(rnoh_app SHARED
 
 target_link_libraries(rnoh_app PUBLIC rnoh)
 
-# RNOH_BEGIN: link_packages
+# RNOH_BEGIN: manual_package_linking_2
 target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 + target_link_libraries(rnoh_app PUBLIC rnoh_text_size)
-# RNOH_END: link_packages
+# RNOH_END: manual_package_linking_2
 ```
 
 打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
 
 ```diff
-#include "RNOH/PackageProvider.h"
-#include "SamplePackage.h"
+...
 + #include "RNTextSizePackage.h"
 
 using namespace rnoh;
 
 std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
     return {
-      std::make_shared<SamplePackage>(ctx),
+      ...
 +     std::make_shared<RNTextSizePackage>(ctx)
     };
 }
@@ -284,11 +288,11 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ```diff
 ...
-+ import { RNTextSizePackage } from 'rnoh-text-size/ts';
++ import { RNTextSizePackage } from '@react-native-oh-tpl/react-native-text-size/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
-    new SamplePackage(ctx),
+    ...
 +   new RNTextSizePackage(ctx)
   ];
 }
@@ -313,7 +317,7 @@ ohpm install
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[<@react-native-oh-tpl/react-native-text-size> Releases](https://github.com/react-native-oh-library/react-native-text-size/releases)
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-text-size Releases](https://github.com/react-native-oh-library/react-native-text-size/releases)
 
 ## 属性
 
@@ -324,8 +328,6 @@ ohpm install
 详情请见[react-native-text-size](https://github.com/react-native-oh-library/react-native-text-size)
 
 **TSMeasureParams**
-
-Plain JS object with this properties (only `text` is required):
 
 | Name               | Description                                        | Type     | Required | Platform    | HarmonyOS Support |
 | ------------------ | -------------------------------------------------- | -------- | -------- | ----------- | ----------------- |
@@ -345,8 +347,6 @@ Plain JS object with this properties (only `text` is required):
 
 **TSFontSpecs**
 
-This parameter is a subset of **TSMeasureParams**, so the details are omitted here.
-
 | Name          | Description  | Type                   | Required | Platform    | HarmonyOS Support |
 | ------------- | ------------ | ---------------------- | -------- | ----------- | ----------------- |
 | fontFamily    | System Name  | string                 | No       | IOS/Android | yes               |
@@ -357,8 +357,6 @@ This parameter is a subset of **TSMeasureParams**, so the details are omitted he
 | letterSpacing | Font spacing | number                 | No       | IOS/Android | yes               |
 
 **TSHeightsParams**
-
-This is an object similar to the one you pass to `measure`, but the `text` option is an array of strings and the `usePreciseWidth` and `lineInfoForLine` options are ignored.
 
 | Name               | Description                    | Type     | Required | Platform    | HarmonyOS Support |
 | ------------------ | ------------------------------ | -------- | -------- | ----------- | ----------------- |
@@ -397,6 +395,6 @@ This is an object similar to the one you pass to `measure`, but the `text` optio
 
 ## 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/callstack/react-native-slider/blob/main/LICENSE.md) ，请自由地享受和参与开源。
+本项目基于 [The BSD 2-Clause License（BSD）](https://github.com/aMarCruz/react-native-text-size/blob/master/LICENSE) ，请自由地享受和参与开源。
 
 <!-- {% endraw %} -->

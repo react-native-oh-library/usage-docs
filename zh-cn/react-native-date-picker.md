@@ -133,7 +133,7 @@ ohpm install
 > [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
 ### 在 ArkTs 侧引入 NativeDatePickerView 组件
-找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
+找到 **function buildCustomRNComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
 ...
@@ -181,43 +181,43 @@ ohpm install
 
 | props  | Description | Type | Required | Platform | HarmonyOS Support  |
 | ----  | ----------- | ---- | -------- | ---- | ------------ |
-| date | The currently selected date.   | Date  | yes |     all  |       yes|
-| onDateChange | Date change handler ( Inline only )   |  (date: Date) => void  | yes |     all  |       yes|
-| maximumDate | Maximum selectable date.Example: new Date("2021-12-31")   | Date  | yes |     all  |       partially|
-| minimumDate | Minimum selectable date.Example: new Date("2021-01-01")   | Date  | yes |     all  |       partially|
+| date | The currently selected date.   | Date  | no |     all  |       yes|
+| onDateChange | Date change handler ( Inline only )   |  (date: Date) => void  | no |     all  |       yes|
+| maximumDate | Maximum selectable date.Example: new Date("2021-12-31")   | Date  | no |     all  |       partially|
+| minimumDate | Minimum selectable date.Example: new Date("2021-01-01")   | Date  | no |     all  |       partially|
 | mode | The date picker mode. "datetime", "date", "time"   | “'date' \|'time' \| 'datetime'”  | yes |     all  |       yes|
-| onConfirm | Modal only: Date callback when user presses confirm button   | (date: Date) => void  | yes |     all  |       yes|
-| onCancel | odal only: Callback for when user presses cancel button or closing the modal by pressing outside it.   | () => void  | yes |     all  |       yes|
-| is24hourSource | Change how the 24h mode (am/pm) should be determined, by device settings or by locale. {'locale', 'device'} (android only, default: 'device')   | “'locale' \| 'device'”  | yes |     all  |       yes|
-| modal | Boolean indicating if modal should be used. Default: "false". When enabled, the other modal props needs to be used.   | boolean  | yes |     all  |       no|
-| open | Modal only: Boolean indicating if modal should be open.   | boolean  | yes |     all  |       yes|
-| minuteInterval | The interval at which minutes can be selected.   | 1 \| 2 \| 3 \| 4 \| 5 \| 6 \|  10 \|  12 \| 15 \|  20 \| 30  | yes |     all  |       no|
-| title | Modal only: Title text. Can be set to null to remove text.   | string  | yes |     all  |       no|
-| confirmText | Modal only: Confirm button text   | string  | yes |     all  |       no|
-| cancelText | Modal only: Cancel button text.   | string  | yes |     all  |       no|
-| theme | Modal only: The theme of the modal. "light", "dark", "auto". Defaults to "auto".   | 'light' \| 'dark' \| 'auto'  | yes |     all  |       no|
-| buttonColor | Color of the confirm and cancel buttons. (android modal only)   | string  | yes |     all  |       no|
-| dividerColor | Color of the divider / separator. (android only)   | string  | yes |     all  |       no|
-| onStateChange | Spinner state change handler. Triggered on changes between "idle" and "spinning" state (Android inline only)   | (state: 'spinning' \| 'idle') => void  | yes |     all  |       no|
-| locale | The locale for the date picker. Changes language, date order and am/pm preferences. Value needs to be a Locale ID.   | string  | yes |     all  |       no|
-| timeZoneOffsetInMinutes | imezone offset in minutes (default: device's timezone)   | number  | yes |     all  |       no|
+| onConfirm | Modal only: Date callback when user presses confirm button   | (date: Date) => void  | no |     all  |       yes|
+| onCancel | odal only: Callback for when user presses cancel button or closing the modal by pressing outside it.   | () => void  | no |     all  |       yes|
+| is24hourSource | Change how the 24h mode (am/pm) should be determined, by device settings or by locale. {'locale', 'device'} (android only, default: 'device')   | “'locale' \| 'device'”  | no |     all  |       no|
+| modal | Boolean indicating if modal should be used. Default: "false". When enabled, the other modal props needs to be used.   | boolean  | no |     all  |       no|
+| open | Modal only: Boolean indicating if modal should be open.   | boolean  | no |     all  |       yes|
+| minuteInterval | The interval at which minutes can be selected.   | 1 \| 2 \| 3 \| 4 \| 5 \| 6 \|  10 \|  12 \| 15 \|  20 \| 30  | no |     all  |       no|
+| title | Modal only: Title text. Can be set to null to remove text.   | string  | no |     all  |       no|
+| confirmText | Modal only: Confirm button text   | string  | no |     all  |       no|
+| cancelText | Modal only: Cancel button text.   | string  | no |     all  |       no|
+| theme | Modal only: The theme of the modal. "light", "dark", "auto". Defaults to "auto".   | 'light' \| 'dark' \| 'auto'  | no |     all  |       no|
+| buttonColor | Color of the confirm and cancel buttons. (android modal only)   | string  | no |     all  |       no|
+| dividerColor | Color of the divider / separator. (android only)   | string  | no |     all  |       no|
+| onStateChange | Spinner state change handler. Triggered on changes between "idle" and "spinning" state (Android inline only)   | (state: 'spinning' \| 'idle') => void  | no |     all  |       no|
+| locale | The locale for the date picker. Changes language, date order and am/pm preferences. Value needs to be a Locale ID.   | string  | no |     all  |       no|
+| timeZoneOffsetInMinutes | imezone offset in minutes (default: device's timezone)   | number  | no |     all  |       no|
 
 
 ## 遗留问题
  
-- [X]  不支持属性confirmText[issue#11](https://github.com/react-native-oh-library/react-native-date-picker/issues/11)
-- [X]  不支持属性cancelText[issue#12](https://github.com/react-native-oh-library/react-native-date-picker/issues/12)
-- [X]  不支持属性theme[issue#13](https://github.com/react-native-oh-library/react-native-date-picker/issues/13)
-- [X]  不支持属性buttonColor[issue#14](https://github.com/react-native-oh-library/react-native-date-picker/issues/14)
-- [X]  不支持属性dividerColor[issue#15](https://github.com/react-native-oh-library/react-native-date-picker/issues/15)
-- [X]  不支持属性onStateChange[issue#16](https://github.com/react-native-oh-library/react-native-date-picker/issues/16)
-- [X]  不支持属性locale[issue#17](https://github.com/react-native-oh-library/react-native-date-picker/issues/17)
-- [X]  不支持属性timeZoneOffsetInMinutes[issue#18](https://github.com/react-native-oh-library/react-native-date-picker/issues/18)
-- [X]  当属性mode属性为datetime时，不支持maximumDate属性。[issue#19](https://github.com/react-native-oh-library/react-native-date-picker/issues/19)
-- [X]  当属性mode属性为datetime时，不支持minimumDate属性。[issue#20](https://github.com/react-native-oh-library/react-native-date-picker/issues/20)
-- [X]  当属性modal为true，mode属性为datetime时，没有内联得datetime组件，目前是date和time上下组合排列。[issue#20](https://github.com/react-native-oh-library/react-native-date-picker/issues/22)
-- [X]  当属性modal属性为false时，不支持datetime属性。[issue#21](https://github.com/react-native-oh-library/react-native-date-picker/issues/21)
-
+- [ ]  不支持属性confirmText[issue#11](https://github.com/react-native-oh-library/react-native-date-picker/issues/11)
+- [ ]  不支持属性cancelText[issue#12](https://github.com/react-native-oh-library/react-native-date-picker/issues/12)
+- [ ]  不支持属性theme[issue#13](https://github.com/react-native-oh-library/react-native-date-picker/issues/13)
+- [ ]  不支持属性buttonColor[issue#14](https://github.com/react-native-oh-library/react-native-date-picker/issues/14)
+- [ ]  不支持属性dividerColor[issue#15](https://github.com/react-native-oh-library/react-native-date-picker/issues/15)
+- [ ]  不支持属性onStateChange[issue#16](https://github.com/react-native-oh-library/react-native-date-picker/issues/16)
+- [ ]  不支持属性locale[issue#17](https://github.com/react-native-oh-library/react-native-date-picker/issues/17)
+- [ ]  不支持属性timeZoneOffsetInMinutes[issue#18](https://github.com/react-native-oh-library/react-native-date-picker/issues/18)
+- [ ]  当属性mode属性为datetime时，不支持maximumDate属性。[issue#19](https://github.com/react-native-oh-library/react-native-date-picker/issues/19)
+- [ ]  当属性mode属性为datetime时，不支持minimumDate属性。[issue#20](https://github.com/react-native-oh-library/react-native-date-picker/issues/20)
+- [ ]  当属性modal为true，mode属性为datetime时，没有内联得datetime组件，目前是date和time上下组合排列。[issue#22](https://github.com/react-native-oh-library/react-native-date-picker/issues/22)
+- [ ]  当属性modal属性为false时，不支持datetime属性。[issue#21](https://github.com/react-native-oh-library/react-native-date-picker/issues/21)
+- [ ]  不支持is24hourSource属性。[issue#30](https://github.com/react-native-oh-library/react-native-date-picker/issues/30)
 ## 其他
 
 ## 开源协议

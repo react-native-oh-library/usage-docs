@@ -2,7 +2,7 @@
 > 模板版本：v0.2.2
 
 <p align="center">
-  <h1 align="center"> <code>react-native-clippath</code> </h1>
+  <h1 align="center"> <code>react-native-clippath(CAPI)</code> </h1>
 </p>
 <p align="center">
  <a href="https://github.com/Only-IceSoul/react-native-clippath">
@@ -41,10 +41,12 @@ yarn add @react-native-oh-tpl/react-native-clippathview@file:#
 
 下面的代码展示了这个库的基本使用场景：
 
+> [!WARNING] 使用时 import 的库名不变。
+
 ```jsx
 import { View, Text, ScrollView } from "react-native";
 import React from "react";
-import { ClipPathView } from "@react-native-oh-tpl/react-native-clippathview";
+import { ClipPathView } from "react-native-clippathview";
 
 export default function index() {
   const viewBox = [0, 0, 400, 400];

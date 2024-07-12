@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>rn-placeholder</code> </h1>
@@ -58,6 +58,7 @@ const App = () => (
     <PlaceholderLine width={30} />
   </Placeholder>
 );
+export default App;
 ```
 
 ## 约束与限制
@@ -66,7 +67,7 @@ const App = () => (
 
 本文档内容基于以下版本验证通过：
 
-1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52(SP22C00E52R1P17log);
+RNOH：0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.29(SP1) ; IDE：DevEco Studio 5.0.3.400; ROM：3.0.0.25;
 
 ## 属性
 

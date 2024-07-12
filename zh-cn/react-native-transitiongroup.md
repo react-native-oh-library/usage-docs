@@ -1,20 +1,24 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-transitiongroup</code> </h1>
 </p>
 <p align="center">
-     <a href="https://github.com/madsleejensen/react-native-transitiongroup/blob/master/README.md">
-        <img src="https://img.shields.io/badge/platforms-android%20%7C%20ios%20%7C%20harmony%20-lightgrey.svg" alt="Supported platforms" />
+    <a href="https://github.com/madsleejensen/react-native-transitiongroup">
+        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
+    </a>
+     <a href="https://www.mit-license.org">
+        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="Supported platforms" />
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-transitiongroup)
+
+> [!Tip] [Github 地址](https://github.com/react-native-oh-library/react-native-transitiongroup)
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[<@react-native-oh-tpl/库名> Releases](https://github.com/react-native-oh-library/react-native-transitiongroup/releases)，并下载适用版本的 tgz 包。
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-transitiongroup Releases](https://github.com/react-native-oh-library/react-native-transitiongroup/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
@@ -143,10 +147,9 @@ const styles = StyleSheet.create({
 
 ## 兼容性
 
-本文档内容基于以下版本验证通过：
+要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
-2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-transitiongroup Releases](https://github.com/react-native-oh-library/react-native-transitiongroup/releases)
 
 ## API
 
@@ -156,25 +159,25 @@ const styles = StyleSheet.create({
 >
 > 详情见 [react-native-transitiongroup 源库地址](https://github.com/madsleejensen/react-native-transitiongroup/blob/master/README.md)
 
-| 名称          | 描述                                   | 参数类型 | 是否必填 | Platform | HarmonyOS Support |
+| Name          | Description                            | type     | Required | Platform | HarmonyOS Support |
 | ------------- | -------------------------------------- | -------- | -------- | -------- | ----------------- |
-| easing        | 缓动函数                               | func     | yes      | All      | yes               |
-| inDelay       | 组件加载时开始动画前的延迟时间（毫秒） | number   | yes      | All      | yes               |
-| inDuration    | 组件加载时动画的持续时间（毫秒）       | number   | yes      | All      | yes               |
-| outDelay      | 组件销毁时开始动画前的延迟时间（毫秒） | number   | yes      | All      | yes               |
-| outDuration   | 组件销毁时动画的持续时间（毫秒）       | number   | yes      | All      | yes               |
-| pointerEvents | 控制View是否可以成为触摸事件的目标     | string   | yes      | All      | yes               |
-| style         | 组件样式                               | style    | yes      | All      | yes               |
+| easing        | 缓动函数                               | function | no       | All      | yes               |
+| inDelay       | 组件加载时开始动画前的延迟时间（毫秒） | number   | no       | All      | yes               |
+| inDuration    | 组件加载时动画的持续时间（毫秒）       | number   | no       | All      | yes               |
+| outDelay      | 组件销毁时开始动画前的延迟时间（毫秒） | number   | no       | All      | yes               |
+| outDuration   | 组件销毁时动画的持续时间（毫秒）       | number   | no       | All      | yes               |
+| pointerEvents | 控制View是否可以成为触摸事件的目标     | string   | no       | All      | yes               |
+| style         | 组件样式                               | style    | no       | All      | yes               |
 
 ## 遗留问题
 
-原库使用refs方法，现在改为使用react.createRef方法代替。
-原库中使用的ViewPropTypes，现在改为使用PropTypes方法代替。
+- [ ] 原库使用refs方法，现在改为使用react.createRef方法代替。问题: [issue#1](https://github.com/react-native-oh-library/react-native-transitiongroup/issues/1)
+- [ ] 原库中使用的ViewPropTypes，现在改为使用PropTypes方法代替。问题: [issue#2](https://github.com/react-native-oh-library/react-native-transitiongroup/issues/2)
 
 ## 其他
 
 ## 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/madsleejensen/react-native-transitiongroup/blob/master/package.json) ，请自由地享受和参与开源。
+本项目基于 [The MIT License (MIT)](https://www.mit-license.org) ，请自由地享受和参与开源。
 
 <!-- {% endraw %} -->

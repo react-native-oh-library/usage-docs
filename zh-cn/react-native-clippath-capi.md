@@ -208,33 +208,33 @@ ohpm install
 
 | Name                 | Description                                                                                                    | Type              | Required | Platform    | HarmonyOS Support |
 | -------------------- | -------------------------------------------------------------------------------------------------------------- | ----------------- | -------- | ----------- | ----------------- |
-| svgKey               | 唯一 key                                                                                                       | string            | No       | IOS/Android | Yes               |
-| d                    | 形状由一系列命令定义（svg path data）                                                                          | string            | No       | IOS/Android | Yes               |
-| viewBox              | 定义用户空间中的位置和维度                                                                                     | Array<Number>(4)  | No       | IOS/Android | Yes               |
-| align                | preserveAspectRatio 属性的 align                                                                               | string            | No       | IOS/Android | Yes                |
-| aspect               | preserveAspectRatio 属性的 meetOrSlice                                                                         | meet/slice/none   | No       | IOS/Android | Yes                |
-| fillRule             | 路径内部填充规则                                                                                               | nonzero/evenodd   | No       | IOS/Android | Yes                |
-| strokeWidth          | 路径描边宽度                                                                                                   | number            | No       | IOS/Android | Yes               |
-| strokeCap            | 开放路径两端的形状                                                                                             | butt/round/square | No       | IOS/Android | Yes               |
-| strokeJoin           | 路径转角处使用的形状                                                                                           | bevel/miter/round | No       | IOS/Android | Yes               |
-| strokeMiter          | strokeJoin 值是 miter，设置夹角延伸                                                                            | number            | No       | IOS/Android | Yes               |
-| strokeStart          | IOS CAShapeLayer 描线开始的地方占总路径的百分比。默认值是 0。                                                  | number            | No       | IOS/Android | Yes                |
-| strokeEnd            | IOS CAShapeLayer 表示绘制结束的地方站总路径的百分比。默认值是 1，如果小于等于 strokeStart 则绘制不出任何内容。 | number            | No       | IOS/Android | Yes                |
-| translateZ           | 设置定位层级，相当于 index                                                                                     | number            | No       | IOS/Android | Yes               |
-| transX               | 在二维平面上水平方向移动元素                                                                                   | number            | No       | IOS/Android | Yes               |
-| transY               | 在二维平面上垂直方向移动元素                                                                                   | number            | No       | IOS/Android | Yes               |
-| transPercentageValue | transX、transY 使用百分比                                                                                      | boolean           | No       | IOS/Android | Yes               |
-| rot                  | 元素围绕一个定点旋转                                                                                           | number            | No       | IOS/Android | Yes               |
-| rotOx                | 旋转中心点水平位置                                                                                             | number            | No       | IOS/Android | Yes               |
-| rotOy                | 旋转中心点垂直位置                                                                                             | number            | No       | IOS/Android | Yes               |
-| rotPercentageValue   | rotOx、rotOy 使用百分比                                                                                        | boolean           | No       | IOS/Android | Yes               |
-| sc                   | 放大或缩小元素                                                                                                 | number            | No       | IOS/Android | Yes               |
-| scX                  | 水平缩放                                                                                                       | number            | No       | IOS/Android | Yes               |
-| scY                  | 垂直缩放                                                                                                       | number            | No       | IOS/Android | Yes               |
-| scO                  | 缩放中心点位置                                                                                                 | number            | No       | IOS/Android | Yes               |
-| scOx                 | 缩放中心点水平位置                                                                                             | number            | No       | IOS/Android | Yes               |
-| scOy                 | 缩放中心点垂直位置                                                                                             | number            | No       | IOS/Android | Yes               |
-| scPercentageValue    | scO、scOx、scOy 使用百分比                                                                                     | boolean           | No       | IOS/Android | Yes               |
+| svgKey               | 唯一 key                                                                                                       | string            | No       | iOS/Android | Yes               |
+| d                    | 形状由一系列命令定义（svg path data）                                                                          | string            | No       | iOS/Android | Yes               |
+| viewBox              | 定义用户空间中的位置和维度                                                                                     | Array<Number>(4)  | No       | iOS/Android | Yes               |
+| align                | preserveAspectRatio 属性的 align                                                                               | string            | No       | iOS/Android | Yes                |
+| aspect               | preserveAspectRatio 属性的 meetOrSlice                                                                         | meet/slice/none   | No       | iOS/Android | Yes                |
+| fillRule             | 路径内部填充规则                                                                                               | nonzero/evenodd   | No       | iOS/Android | Yes                |
+| strokeWidth          | 路径描边宽度                                                                                                   | number            | No       | iOS/Android | Yes               |
+| strokeCap            | 开放路径两端的形状                                                                                             | butt/round/square | No       | iOS/Android | Yes               |
+| strokeJoin           | 路径转角处使用的形状                                                                                           | bevel/miter/round | No       | iOS/Android | Yes               |
+| strokeMiter          | strokeJoin 值是 miter，设置夹角延伸                                                                            | number            | No       | iOS/Android | Yes               |
+| strokeStart          | iOS CAShapeLayer 描线开始的地方占总路径的百分比。默认值是 0。                                                  | number            | No       | iOS/Android | Yes                |
+| strokeEnd            | iOS CAShapeLayer 表示绘制结束的地方站总路径的百分比。默认值是 1，如果小于等于 strokeStart 则绘制不出任何内容。 | number            | No       | iOS/Android | Yes                |
+| translateZ           | 设置定位层级，相当于 index                                                                                     | number            | No       | iOS/Android | Yes               |
+| transX               | 在二维平面上水平方向移动元素                                                                                   | number            | No       | iOS/Android | Yes               |
+| transY               | 在二维平面上垂直方向移动元素                                                                                   | number            | No       | iOS/Android | Yes               |
+| transPercentageValue | transX、transY 使用百分比                                                                                      | boolean           | No       | iOS/Android | Yes               |
+| rot                  | 元素围绕一个定点旋转                                                                                           | number            | No       | iOS/Android | Yes               |
+| rotOx                | 旋转中心点水平位置                                                                                             | number            | No       | iOS/Android | Yes               |
+| rotOy                | 旋转中心点垂直位置                                                                                             | number            | No       | iOS/Android | Yes               |
+| rotPercentageValue   | rotOx、rotOy 使用百分比                                                                                        | boolean           | No       | iOS/Android | Yes               |
+| sc                   | 放大或缩小元素                                                                                                 | number            | No       | iOS/Android | Yes               |
+| scX                  | 水平缩放                                                                                                       | number            | No       | iOS/Android | Yes               |
+| scY                  | 垂直缩放                                                                                                       | number            | No       | iOS/Android | Yes               |
+| scO                  | 缩放中心点位置                                                                                                 | number            | No       | iOS/Android | Yes               |
+| scOx                 | 缩放中心点水平位置                                                                                             | number            | No       | iOS/Android | Yes               |
+| scOy                 | 缩放中心点垂直位置                                                                                             | number            | No       | iOS/Android | Yes               |
+| scPercentageValue    | scO、scOx、scOy 使用百分比                                                                                     | boolean           | No       | iOS/Android | Yes               |
 
 ## 遗留问题
 
@@ -242,7 +242,7 @@ ohpm install
 
 ## 开源协议
 
-本项目基于 [MIT License](https://github.com/react-native-oh-library/react-native-clippath/blob/capi/LICENSE) ，请自由地享受和参与开源。
+本项目基于 [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-clippath/blob/capi/LICENSE) ，请自由地享受和参与开源。
 
 ---
 

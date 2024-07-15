@@ -211,11 +211,18 @@ ohpm install
 打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
 
 ```diff
-txtproject(rnapp)
+project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
+set(CMAKE_SKIP_BUILD_RPATH TRUE)
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
+set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
 + set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
+set(LOG_VERBOSITY_LEVEL 1)
+set(CMAKE_ASM_FLAGS "-Wno-error=unused-command-line-argument -Qunused-arguments")
+set(CMAKE_CXX_FLAGS "-fstack-protector-strong -Wl,-z,relro,-z,now,-z,noexecstack -s -fPIE -pie")
+set(WITH_HITRACE_SYSTRACE 1) # for other CMakeLists.txt files to use
+add_compile_definitions(WITH_HITRACE_SYSTRACE)
 
 add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
@@ -293,38 +300,43 @@ ohpm install
 
 ## 静态方法
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 详情请见[react-native-sound](https://github.com/react-native-oh-library/react-native-sound)
 
 | Name      | Description                      | Type   | Required | Platform    | HarmonyOS Support |
 | --------- | -------------------------------- | ------ | -------- | ----------- | ----------------- |
-| setActive | Set the device activation status | string | No       | IOS、Android | yes               |
+| setActive | Set the device activation status | string | No       | iOS、Android | yes               |
 
 ## API
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 详情请见[react-native-sound](https://github.com/react-native-oh-library/react-native-sound)
 
-| Name           | Description                              | Type   | Required | Platform    | HarmonyOS Support |
-| -------------- | ---------------------------------------- | ------ | -------- | ----------- | ----------------- |
-| play           | Start playing audio.                     | string | No       | IOS、Android | yes               |
-| pause          | Pause audio playback.                    | string | No       | IOS、Android | yes               |
-| stop           | Stop playing audio.                      | string | No       | IOS、Android | yes               |
-| reset          | Reset Audio Status.                      | string | No       | Android     | yes               |
-| release        | Releasing audio resources.               | string | No       | IOS、Android | yes               |
-| getVolume      | Obtains the audio volume.                | string | No       | IOS、Android | yes               |
-| setVolume      | Setting the Relative Audio Volume.       | string | No       | IOS、Android | yes               |
-| getCurrentTime | Obtains the current playback time point. | string | No       | IOS、Android | yes               |
-| setCurrentTime | Sets the playback time point.            | string | No       | IOS、Android | yes               |
-| getSpeed       | Obtains the playback speed.              | string | No       | IOS、Android | yes               |
-| setSpeed       | Setting the Playback Speed               | string | No       | IOS、Android | yes               |
-| isPlaying      | Whether the audio is being played        | string | No       | IOS、Android | yes               |
+| Name                    | Description                              | Type    | Required | Platform    | HarmonyOS Support |
+| ------------------------| ---------------------------------------- | ------- | -------- | ----------- | ----------------- |
+| play                    | Start playing audio.                     | string  | No       | iOS、Android | yes               |
+| pause                   | Pause audio playback.                    | string  | No       | iOS、Android | yes               |
+| stop                    | Stop playing audio.                      | string  | No       | iOS、Android | yes               |
+| reset                   | Reset Audio Status.                      | string  | No       | Android      | yes               |
+| release                 | Releasing audio resources.               | string  | No       | iOS、Android | yes               |
+| getVolume               | Obtains the audio volume.                | string  | No       | iOS、Android | yes               |
+| setVolume               | Setting the Relative Audio Volume.       | string  | No       | iOS、Android | yes               |
+| getCurrentTime          | Obtains the current playback time point. | string  | No       | iOS、Android | yes               |
+| setCurrentTime          | Sets the playback time point.            | string  | No       | iOS、Android | yes               |
+| getSpeed                | Obtains the playback speed.              | string  | No       | iOS、Android | yes               |
+| setSpeed                | Setting the Playback Speed               | string  | No       | iOS、Android | yes               |
+| getFilename             | Obtains the audio file name              | string  | No       | iOS、Android | yes               |
+| getDuration             | Obtains the audio duration               | string  | No       | iOS、Android | yes               |
+| getNumberOfLoops        | Obtains whether the audio loops          | boolean | No       | iOS、Android | yes               |
+| setNumberOfLoops        | Sets whether the audio loops             | boolean | No       | iOS、Android | yes               |
+| isPlaying               | Whether the audio is being played        | string  | No       | iOS、Android | yes               |
+
 
 ## 遗留问题
 

@@ -1,5 +1,6 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-pdf</code> </h1>
@@ -13,7 +14,7 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/wonday/react-native-pdf)
+> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-pdf)
 
 ## 安装与使用
 
@@ -92,6 +93,17 @@ const styles = StyleSheet.create({
 
 首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
+### 在工程根目录的 `oh-package.json` 添加 overrides 字段
+
+```json
+{
+   ...
+   "overrides": {
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+  }
+}
+```
+
 ### 引入原生端代码
 
 目前有两种方法：
@@ -99,7 +111,7 @@ const styles = StyleSheet.create({
 1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
 2. 直接链接源码。
 
-方法一：通过 har 包引入
+方法一：通过 har 包引入（推荐）
 
 > [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
 
@@ -108,8 +120,7 @@ const styles = StyleSheet.create({
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "rnoh-pdf-view": "file:../../node_modules/@react-native-oh-tpl/react-native-pdf/harmony/pdfview.har"
+    "@react-native-oh-tpl/react-native-pdf": "file:../../node_modules/@react-native-oh-tpl/react-native-pdf/harmony/pdfview.har"
   }
 ```
 
@@ -133,28 +144,37 @@ ohpm install
 ```diff
 project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
+set(CMAKE_SKIP_BUILD_RPATH TRUE)
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(OH_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
+set(LOG_VERBOSITY_LEVEL 1)
+set(CMAKE_ASM_FLAGS "-Wno-error=unused-command-line-argument -Qunused-arguments")
+set(CMAKE_CXX_FLAGS "-fstack-protector-strong -Wl,-z,relro,-z,now,-z,noexecstack -s -fPIE -pie")
+set(WITH_HITRACE_SYSTRACE 1) # for other CMakeLists.txt files to use
+add_compile_definitions(WITH_HITRACE_SYSTRACE)
 
 add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
-# RNOH_BEGIN: add_package_subdirectories
+# RNOH_BEGIN: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/rnoh-pdf-view/src/main/cpp" ./pdfview)
-# RNOH_END: add_package_subdirectories
++ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/react-native-pdf/src/main/cpp" ./pdfview)
+# RNOH_END: manual_package_linking_1
+
+file(GLOB GENERATED_CPP_FILES "./generated/*.cpp")
 
 add_library(rnoh_app SHARED
+    ${GENERATED_CPP_FILES}
     "./PackageProvider.cpp"
     "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
 )
-
 target_link_libraries(rnoh_app PUBLIC rnoh)
 
-# RNOH_BEGIN: link_packages
+# RNOH_BEGIN: manual_package_linking_2
 target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 + target_link_libraries(rnoh_app PUBLIC rnoh_pdf_view)
-# RNOH_END: link_packages
+# RNOH_END: manual_package_linking_2
 ```
 
 打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
@@ -176,32 +196,38 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ### 在 ArkTs 侧引入 RTNPdfView 组件
 
-找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
+找到 **function buildCustomRNComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
 ...
-+ import { RTNPdfView, PDF_VIEW_TYPE } from 'rnoh-pdf-view';
++ import { RTNPdfView, PDF_VIEW_TYPE } from '@react-native-oh-tpl/react-native-pdf';
 
   @Builder
-  function CustomComponentBuilder(ctx: ComponentBuilderContext) {
-    if (ctx.componentName === SAMPLE_VIEW_TYPE) {
-      SampleView({
-        ctx: ctx.rnComponentContext,
-        tag: ctx.tag,
-        buildCustomComponent: CustomComponentBuilder
-      })
-    }
-+   else if (ctx.componentName === PDF_VIEW_TYPE) {
+export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
+...
++  if (ctx.componentName === PDF_VIEW_TYPE) {
 +     RTNPdfView({
 +       ctx: ctx.rnComponentContext,
 +       tag: ctx.tag,
-+       buildCustomComponent: CustomComponentBuilder
 +     })
 +   }
     ...
   }
   ...
 
+```
+
+> [!TIP] 本库使用了混合方案，需要添加组件名。
+
+在`entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets` 找到常量 `arkTsComponentNames` 在其数组里添加组件名
+
+```diff
+const arkTsComponentNames: Array<string> = [
+  SampleView.NAME,
+  GeneratedSampleView.NAME,
+  PropsDisplayer.NAME,
++ PDF_VIEW_TYPE
+  ];
 ```
 
 ### 运行
@@ -227,80 +253,79 @@ ohpm install
 
 ## 属性
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name                           | Description                                                                                                                                                                    | Type                                                          | Required | Platform    | HarmonyOS Support |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------- | -------- | ----------- | ----------------- |
-| source                         | PDF source like {uri:xxx, cache:false}. see the following for detail.                                                                                                          | object                                                        | YES      | ios,android | yes               |
-| page                           | initial page index                                                                                                                                                             | number                                                        | NO       | ios,android | no                |
-| scale                          | should minScale<=scale<=maxScale                                                                                                                                               | number                                                        | NO       | ios,android | no                |
-| minScale                       | min scale                                                                                                                                                                      | number                                                        | NO       | ios,android | no                |
-| maxScale                       | max scale                                                                                                                                                                      | number                                                        | NO       | ios,android | no                |
-| horizontal                     | draw page direction, if you want to listen the orientation change, you can use [[react-native-orientation-locker\]](https://github.com/wonday/react-native-orientation-locker) | bool                                                          | NO       | ios,android | no                |
-| showsHorizontalScrollIndicator | shows or hides the horizontal scroll bar indicator on iOS                                                                                                                      | bool                                                          | NO       | ios         | no                |
-| showsVerticalScrollIndicator   | shows or hides the vertical scroll bar indicator on iOS                                                                                                                        | bool                                                          | NO       | ios         | no                |
-| fitWidth                       | if true fit the width of view, can not use fitWidth=true together with scale                                                                                                   | bool                                                          | NO       | ios,android | no                |
-| fitPolicy                      | 0:fit width, 1:fit height, 2:fit both(default)                                                                                                                                 | number                                                        | NO       | ios,android | no                |
-| spacing                        | the breaker size between pages                                                                                                                                                 | number                                                        | NO       | ios,android | no                |
-| password                       | pdf password, if password error, will call OnError() with message "Password required or incorrect password."                                                                   | string                                                        | NO       | ios,android | no                |
-| style                          | support normal view style, you can use this to set border/spacing color...                                                                                                     | object                                                        | NO       | ios,android | yes               |
-| renderActivityIndicator        | when loading show it as an indicator, you can use your component                                                                                                               | (progress) => Component                                       | NO       | ios,android | no                |
-| enableAntialiasing             | improve rendering a little bit on low-res screens, but maybe course some problem on Android 4.4, so add a switch                                                               | bool                                                          | NO       | ios,android | no                |
-| enablePaging                   | only show one page in screen                                                                                                                                                   | bool                                                          | NO       | ios,android | no                |
-| enableRTL                      | scroll page as "page3, page2, page1"                                                                                                                                           | bool                                                          | NO       | ios,android | no                |
-| enableAnnotationRendering      | enable rendering annotation, notice:iOS only support initial setting,not support realtime changing                                                                             | bool                                                          | NO       | ios         | no                |
-| enableDoubleTapZoom            | Enable double tap to zoom gesture                                                                                                                                              | bool                                                          | NO       | ios,android | no                |
-| trustAllCerts                  | Allow connections to servers with self-signed certification                                                                                                                    | bool                                                          | NO       | ios,android | no                |
-| singlePage                     | Only show first page, useful for thumbnail views                                                                                                                               | bool                                                          | NO       | ios,android | no                |
-| onLoadProgress                 | callback when loading, return loading progress (0-1)                                                                                                                           | function(percent)                                             | NO       | ios,android | no                |
-| onLoadComplete                 | callback when pdf load completed, return total page count, pdf local/cache path, {width,height} and table of contents                                                          | function(numberOfPages, path, {width, height}, tableContents) | NO       | ios,android | no                |
-| onPageChanged                  | callback when page changed ,return current page and total page count                                                                                                           | function(page,numberOfPages)                                  | NO       | ios,android | no                |
-| onError                        | callback when error happened                                                                                                                                                   | function(error)                                               | NO       | ios,android | no                |
-| onPageSingleTap                | callback when page was single tapped                                                                                                                                           | function(page)                                                | NO       | ios,android | no                |
-| onScaleChanged                 | callback when scale page                                                                                                                                                       | function(scale)                                               | NO       | ios,android | no                |
-| onPressLink                    | callback when link tapped                                                                                                                                                      | function(uri)                                                 | NO       | ios,android | no                |
+| Name                           | Description                                                                                                                                                                                     | Type                                                          | Required | Platform      | HarmonyOS Support |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- | -------- | ------------- | ----------------- |
+| source                         | PDF source like {uri:xxx, cache:false}. see the following for detail.                                                                                                                           | object                                                        | YES      | iOS / Android | yes               |
+| page                           | initial page index                                                                                                                                                                              | number                                                        | NO       | iOS / Android | no                |
+| scale                          | should minScale<=scale<=maxScale                                                                                                                                                                | number                                                        | NO       | iOS / Android | no                |
+| minScale                       | min scale                                                                                                                                                                                       | number                                                        | NO       | iOS / Android | no                |
+| maxScale                       | max scale                                                                                                                                                                                       | number                                                        | NO       | iOS / Android | no                |
+| horizontal                     | draw page direction, if you want to listen the orientation change, you can use [[react-native-orientation-locker\]](https://github.com/react-native-oh-library/react-native-orientation-locker) | bool                                                          | NO       | iOS / Android | no                |
+| showsHorizontalScrollIndicator | shows or hides the horizontal scroll bar indicator on iOS                                                                                                                                       | bool                                                          | NO       | iOS           | no                |
+| showsVerticalScrollIndicator   | shows or hides the vertical scroll bar indicator on iOS                                                                                                                                         | bool                                                          | NO       | iOS           | no                |
+| fitWidth                       | if true fit the width of view, can not use fitWidth=true together with scale                                                                                                                    | bool                                                          | NO       | iOS / Android | no                |
+| fitPolicy                      | 0:fit width, 1:fit height, 2:fit both(default)                                                                                                                                                  | number                                                        | NO       | iOS / Android | no                |
+| spacing                        | the breaker size between pages                                                                                                                                                                  | number                                                        | NO       | iOS / Android | no                |
+| password                       | pdf password, if password error, will call OnError() with message "Password required or incorrect password."                                                                                    | string                                                        | NO       | iOS / Android | no                |
+| style                          | support normal view style, you can use this to set border/spacing color...                                                                                                                      | object                                                        | NO       | iOS / Android | yes               |
+| renderActivityIndicator        | when loading show it as an indicator, you can use your component                                                                                                                                | (progress) => Component                                       | NO       | iOS / Android | no                |
+| enableAntialiasing             | improve rendering a little bit on low-res screens, but maybe course some problem on Android 4.4, so add a switch                                                                                | bool                                                          | NO       | iOS / Android | no                |
+| enablePaging                   | only show one page in screen                                                                                                                                                                    | bool                                                          | NO       | iOS / Android | no                |
+| enableRTL                      | scroll page as "page3, page2, page1"                                                                                                                                                            | bool                                                          | NO       | iOS / Android | no                |
+| enableAnnotationRendering      | enable rendering annotation, notice:iOS only support initial setting,not support realtime changing                                                                                              | bool                                                          | NO       | iOS           | no                |
+| enableDoubleTapZoom            | Enable double tap to zoom gesture                                                                                                                                                               | bool                                                          | NO       | iOS / Android | no                |
+| trustAllCerts                  | Allow connections to servers with self-signed certification                                                                                                                                     | bool                                                          | NO       | iOS / Android | no                |
+| singlePage                     | Only show first page, useful for thumbnail views                                                                                                                                                | bool                                                          | NO       | iOS / Android | no                |
+| onLoadProgress                 | callback when loading, return loading progress (0-1)                                                                                                                                            | function(percent)                                             | NO       | iOS / Android | no                |
+| onLoadComplete                 | callback when pdf load completed, return total page count, pdf local/cache path, {width,height} and table of contents                                                                           | function(numberOfPages, path, {width, height}, tableContents) | NO       | iOS / Android | no                |
+| onPageChanged                  | callback when page changed ,return current page and total page count                                                                                                                            | function(page,numberOfPages)                                  | NO       | iOS / Android | no                |
+| onError                        | callback when error happened                                                                                                                                                                    | function(error)                                               | NO       | iOS / Android | no                |
+| onPageSingleTap                | callback when page was single tapped                                                                                                                                                            | function(page)                                                | NO       | iOS / Android | no                |
+| onScaleChanged                 | callback when scale page                                                                                                                                                                        | function(scale)                                               | NO       | iOS / Android | no                |
+| onPressLink                    | callback when link tapped                                                                                                                                                                       | function(uri)                                                 | NO       | iOS / Android | no                |
 
-#### parameters of source
+#### Source
 
-| parameter     | Description                                   | Platform    | HarmonyOS Support |
-| ------------- | --------------------------------------------- | ----------- | ----------------- |
-| uri           | pdf source, see the forllowing for detail.    | ios,android | yes               |
-| cache         | use cache or not                              | ios,android | no                |
-| cacheFileName | specific file name for cached pdf file        | ios,android | no                |
-| expiration    | cache file expired seconds (0 is not expired) | ios,android | no                |
-| method        | request method when uri is a url              | ios,android | no                |
-| headers       | request headers when uri is a url             | ios,android | no                |
+| Name          | Description                                   | Type   | Required | Platform      | HarmonyOS Support |
+| ------------- | --------------------------------------------- | ------ | -------- | ------------- | ----------------- |
+| uri           | see the following for detail.                 | object | YES      | iOS / Android | yes               |
+| cache         | use cache or not                              | bool   | NO       | iOS / Android | no                |
+| cacheFileName | specific file name for cached pdf file        | string | NO       | iOS / Android | no                |
+| expiration    | cache file expired seconds (0 is not expired) | number | NO       | iOS / Android | no                |
+| method        | request method when uri is a url              | string | NO       | iOS / Android | no                |
+| headers       | request headers when uri is a url             | object | NO       | iOS / Android | no                |
 
-#### types of source.uri
+#### Uri
 
-| Usage                                                              | Description                                                                               | Platform    | HarmonyOS Support |
-| ------------------------------------------------------------------ | ----------------------------------------------------------------------------------------- | ----------- | ----------------- |
-| {uri:"http://xxx/xxx.pdf"}                                         | load pdf from a url                                                                       | ios,android | yes               |
-| {require("./test.pdf")}                                            | load pdf relate to js file (do not need add by xcode)                                     | ios         | yes               |
-| {uri:"bundle-assets://path/to/xxx.pdf"}                            | load pdf from assets, the file should be at android/app/src/main/assets/path/to/xxx.pdf   | android     | no                |
-| {uri:"bundle-assets://xxx.pdf"}                                    | load pdf from assets, you must add pdf to project by xcode. this does not support folder. | ios         | no                |
-| {uri:"data:application/pdf;base64,JVBERi0xLjcKJc..."}              | load pdf from base64 string                                                               | ios,android | no                |
-| {uri:"file:///absolute/path/to/xxx.pdf"}                           | load pdf from local file system                                                           | ios,android | no                |
-| {uri:"ms-appx:///xxx.pdf"}}                                        | load pdf bundled with UWP app                                                             | windows     | no                |
-| {uri:"content://com.example.blobs/xxxxxxxx-...?offset=0&size=xxx"} | load pdf from content URI                                                                 | ios         | no                |
-| {uri:"blob:xxxxxxxx-...?offset=0&size=xxx"}                        | load pdf from blob URL                                                                    | android     | no                |
+| Name                                                               | Description                                                                             | Type          | Required | Platform      | HarmonyOS Support |
+| ------------------------------------------------------------------ | --------------------------------------------------------------------------------------- | ------------- | -------- | ------------- | ----------------- |
+| {uri:"http://xxx/xxx.pdf"}                                         | load pdf from a url                                                                     | object        | NO       | iOS / Android | yes               |
+| {require("./test.pdf")}                                            | load pdf relate to js file (do not need add by xcode)                                   | require(path) | NO       | iOS           | yes               |
+| {uri:"bundle-assets://path/to/xxx.pdf"}                            | load pdf from assets, the file should be at Android/app/src/main/assets/path/to/xxx.pdf | object        | NO       | iOS           | no                |
+| {uri:"data:application/pdf;base64,JVBERi0xLjcKJc..."}              | load pdf from base64 string                                                             | object        | NO       | iOS / Android | no                |
+| {uri:"file:///absolute/path/to/xxx.pdf"}                           | load pdf from local file system                                                         | object        | NO       | iOS / Android | no                |
+| {uri:"ms-appx:///xxx.pdf"}                                         | load pdf bundled with UWP app                                                           | object        | NO       | Windows       | no                |
+| {uri:"content://com.example.blobs/xxxxxxxx-...?offset=0&size=xxx"} | load pdf from content URI                                                               | object        | NO       | iOS           | no                |
+| {uri:"blob:xxxxxxxx-...?offset=0&size=xxx"}                        | load pdf from blob URL                                                                  | object        | NO       | Android       | no                |
 
-## 方法
+## 静态方法
 
-| Name    | Description                                                                                                                              | Platform    | HarmonyOS Support |
-| ------- | ---------------------------------------------------------------------------------------------------------------------------------------- | ----------- | ----------------- |
-| setPage | Set the current page of the PDF component. pageNumber is a positive integer. If pageNumber > numberOfPages, current page is not changed. | ios,android | no                |
+| Name    | Description                                                                                                                              | Type                 | Required | Platform      | HarmonyOS Support |
+| ------- | ---------------------------------------------------------------------------------------------------------------------------------------- | -------------------- | -------- | ------------- | ----------------- |
+| setPage | Set the current page of the PDF component. pageNumber is a positive integer. If pageNumber > numberOfPages, current page is not changed. | function(pageNumber) | NO       | iOS / Android | no                |
 
 ## 遗留问题
 
-PDF 处理能力持续完善中，敬请期待。
+- [ ] react-nativepdf 仅支持 source 和 style 属性，其他属性暂未实现 HarmonyOS 化: [issue#20](https://github.com/react-native-oh-library/react-native-pdf/issues/20)
 
 ## 其他
 
 ## 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-pdf/blob/sig/LICENSE) ，请自由地享受和参与开源。
+本项目基于 [The MIT License (MIT)](https://github.com/wonday/react-native-pdf/blob/master/LICENSE) ，请自由地享受和参与开源。
 
 <!-- {% endraw %} -->

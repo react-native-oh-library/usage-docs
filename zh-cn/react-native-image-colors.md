@@ -341,6 +341,14 @@ HarmonyImageColors
 | `averageColor`  | `string`   |
 | `platform` | `harmony`   |
 
+### ImageColors.cache
+
+| Name       | Description             | Type     | Params                                | Platform | HarmonyOS Support |
+| ---------- | ----------------------- | -------- | ------------------------------------- | -------- | ----------------- |
+| getItem    | Read cache result.      | Function | key: string                           | all      | yes               |
+| setItem    | Set a cached result.    | Function | key: string, value: ImageColorsResult | all      | yes               |
+| removeItem | Delete a cached result. | Function | key: string                           | all      | yes               |
+| clear      | Clearing the cache.     | Function |                                       | all      | yes               |
 
 ## 遗留问题
 

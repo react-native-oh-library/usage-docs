@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > [!WARNING] 本文档仅用于三方库使用指导，不涉及任何 React Native OpenHarmony 框架的信息，且会随着 React Native OpenHarmony 框架持续迭代更新，当前版本不代表最终展示版本。
 
 # 简介
@@ -17,7 +16,8 @@
 
 ## 使用须知
 
-三方库大部分适配了 Codegen ，在使用前需要主动执行生成三方库桥接代码，详细请参考[Codegen 使用文档](/zh-cn/codegen.md)。
+- Codegen ：三方库大部分适配了 Codegen ，在使用前需要主动执行生成三方库桥接代码，详细请参考[Codegen 使用文档](/zh-cn/codegen.md)。
+- C-API 架构：三方库后续只基于RN C-API架构演进，详细介绍请参考 [C-API 架构](zh-cn/capi-architecture.md) 。
 
 ## RNOH 三方库总览
 
@@ -121,7 +121,7 @@
 | 94  | [react-native-snap-carousel](https://github.com/meliorence/react-native-snap-carousel)                                   | 3.9.1         | \-        | [@react-native-oh-tpl/react-native-snap-carousel](https://github.com/react-native-oh-library/react-native-snap-carousel/releases)                           | [链接](/zh-cn/react-native-snap-carousel.md)                   |
 | 95  | [react-native-sound](https://github.com/zmxv/react-native-sound)                                                         | 0.11.2        | 是         | [@react-native-oh-tpl/react-native-sound](https://github.com/react-native-oh-library/react-native-sound/releases)                                           | [链接](/zh-cn/react-native-sound.md)                           |
 | 96  | [react-native-stickyheader](https://github.com/react-native-oh-library/react-native-stickyheader)                        | 1.1.3         | \-        | [@react-native-oh-tpl/react-native-stickyheader](https://github.com/react-native-oh-library/react-native-stickyheader/releases)                             | [链接](/zh-cn/react-native-stickyheader.md)                    |
-| 97  | [react-native-svg](https://github.com/software-mansion/react-native-svg)                                                 | 13.14.0       | 是         | [@react-native-oh-tpl/react-native-svg](https://github.com/react-native-oh-library/react-native-svg/releases)                                               | [链接](/zh-cn/react-native-svg.md)                             |
+| 97  | [react-native-svg](https://github.com/software-mansion/react-native-svg)          			                                    | 15.0.0        | 是         | [@react-native-oh-tpl/react-native-harmony-svg](https://github.com/react-native-oh-library/react-native-harmony-svg/releases)                               | [链接](/zh-cn/react-native-svg-capi.md)                        |
 | 98  | [react-native-swipe-list-view](https://github.com/rnc-archive/react-native-drawer-layout-polyfill)                       | 3.2.9         | \-        | \-                                                                                                                                                          | [链接](/zh-cn/react-native-swipe-list-view.md)                 |
 | 99  | [react-native-swiper](https://github.com/leecade/react-native-swiper)                                                    | 1.6.0         | \-        | \-                                                                                                                                                          | [链接](/zh-cn/react-native-swiper.md)                          |
 | 100 | [react-native-tab-view](https://github.com/react-navigation/react-navigation/tree/6.x/packages/react-native-tab-view)    | 3.5.2         | \-        | [@react-native-oh-tpl/react-native-tab-view](https://github.com/react-native-oh-library/react-navigation/releases)                                          | [链接](/zh-cn/react-native-tab-view.md)                        |
@@ -180,9 +180,7 @@
 | 153 | [react-native-switch-pro](https://github.com/poberwong/react-native-switch-pro)                                          | 1.0.5         | 否         | [@react-native-oh-tpl/react-native-switch-pro](https://github.com/react-native-oh-library/react-native-switch-pro/releases)                                 | [链接](/zh-cn/react-native-switch-pro.md)                      |
 | 154 | [react-native-drop-shadow](https://github.com/hoanglam10499/react-native-drop-shadow)                                    | 1.0.0         | \-        | \-                                                                                                                                                          | [链接](/zh-cn/react-native-drop-shadow.md)                     |
 | 155 | [react-native-nested-scroll-view](https://github.com/cesardeazevedo/react-native-nested-scroll-view)                     | 9.0.0         | 否         | [@react-native-oh-tpl/react-native-nested-scroll-view](https://github.com/react-native-oh-library/react-native-nested-scroll-view/releases)                 | [链接](/zh-cn/react-native-nested-scroll-view.md)              |
-| 156 | [react-natice-code-push](https://github.com/react-native-oh-library/react-native-code-push)                              | 8.0.2         | 是         | [@react-native-oh-tpl/react-native-code-push](https://github.com/react-native-oh-library/react-native-code-push/releases)                                   | [链接](/zh-cn/react-native-code-push.md)                       |
+| 156 | [react-natice-code-push](https://github.com/react-native-oh-library/react-native-code-push)                              | 8.0.2         | 是         | [@react-native-oh-tpl/react-native-code-push](https://github.com/react-native-oh-library/react-native-code-push/releases)                                   | [链接](/zh-cn/react-native-code-push.md)                       |             |
 ## 社区
 
 [Github Organization: react-native-oh-library](https://github.com/react-native-oh-library)
-
-<!-- {% endraw %} -->

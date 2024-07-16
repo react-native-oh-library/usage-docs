@@ -16,7 +16,8 @@
 
 ## 使用须知
 
-三方库大部分适配了 Codegen ，在使用前需要主动执行生成三方库桥接代码，详细请参考[Codegen 使用文档](/zh-cn/codegen.md)。
+- Codegen ：三方库大部分适配了 Codegen ，在使用前需要主动执行生成三方库桥接代码，详细请参考[Codegen 使用文档](/zh-cn/codegen.md)。
+- C-API 架构：三方库后续只基于 RN C-API 架构演进，详细介绍请参考 [C-API 架构](zh-cn/capi-architecture.md) 。
 
 ## RNOH 三方库总览
 

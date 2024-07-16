@@ -1,19 +1,18 @@
-<!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-crypto-js</code> </h1>
 </p>
 <p align="center">
-    <a href="https://github.com/imchintan/react-native-crypto-js/blob/master/README.md">
-        <img src="https://img.shields.io/badge/platforms-android%20%7C%20ios%20%7C%20harmony%20-lightgrey.svg" alt="Supported platforms" />
+    <a href="https://github.com/imchintan/react-native-crypto-js">
+        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
     <a href="https://github.com/imchintan/react-native-crypto-js/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/imchintan/react-native-crypto-js)
+> [!TIP] [Github 地址](https://github.com/imchintan/react-native-crypto-js)
 
 ## 安装与使用
 
@@ -36,6 +35,8 @@ yarn add react-native-crypto-js@1.0.0
 <!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：
+
+> [!WARNING] 使用时 import 的库名不变。
 
 ```js
 import React, { useState } from 'react';
@@ -144,34 +145,29 @@ export const ReactNativeCryptoJsExample = () => {
 
 ## 兼容性
 
-本文档内容基于以下版本验证通过：
+在以下版本验证通过
 
-1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
-2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
+1. RNOH：0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.25; IDE：DevEco Studio 5.0.3.400; ROM：3.0.0.25;
 
 ## API
 
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
->
-> 详情见 [react-native-crypto-js 源库地址](https://github.com/imchintan/react-native-crypto-js/blob/master/README.md)
 
 | 名称                 | 描述            | 参数类型 | 是否必填 | Platform | HarmonyOS Support |
 | -------------------- | --------------- | -------- | -------- | -------- | ----------------- |
-| CryptoJS.AES.encrypt | AES算法加密     | string   | yes      | All      | yes               |
-| CryptoJS.AES.decrypt | AES算法解密     | string   | yes      | All      | yes               |
-| CryptoJS.MD5         | MD5算法加密     | string   | yes      | All      | yes               |
+| CryptoJS.AES.encrypt | AES算法加密     | string   | yes      | Android、iOS      | yes               |
+| CryptoJS.AES.decrypt | AES算法解密     | string   | yes      | Android、iOS      | yes               |
+| CryptoJS.MD5         | MD5算法加密     | string   | yes      | Android、iOS      | yes               |
 | CryptoJS.HmacMD5     | HmacMD5算法加密 | string   | yes      | no       | no                |
 
 ## 遗留问题
 
-原库使用CryptoJS.HmacMD5会报错"cannot readproperty ‘init’ of underfined"，如果需要使用HmacMD5算法可以安装使用rn-crypto-js库，用法与react-native-crypto-js相同。源库此问题 issues:[issue#4](https://github.com/imchintan/react-native-crypto-js/issues/3)
+- [ ] 原库使用CryptoJS.HmacMD5会报错"cannot readproperty ‘init’ of underfined"，如果需要使用HmacMD5算法可以安装使用rn-crypto-js库，用法与react-native-crypto-js相同: [issue#4](https://github.com/imchintan/react-native-crypto-js/issues/3)
 
 ## 其他
 
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/imchintan/react-native-crypto-js/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

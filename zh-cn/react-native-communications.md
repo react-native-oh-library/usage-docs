@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.2.0
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-communications</code> </h1>
@@ -56,7 +56,7 @@ const RNCommunications = () => {
     email(['email@xxx.com'], null, null, 'My Subject', 'My body text')
   }
   const handleButton3Press = () => {
-    text('13911111111')
+    text('0123456789')
   }
   const handleButton4Press = () => {
     web('https://www.baidu.com')
@@ -108,9 +108,8 @@ export default RNCommunications;
 
 本文档内容基于以下版本验证通过：
 
-1. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：204.1.0.59;
-2. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Beta1 B.0.18、HarmonyOS NEXT Developer Preview0 B.0.60、HarmonyOS NEXT Developer Preview2 B.0.73; IDE：DevEco Studio 5.0.3.200; ROM：2.0.0.18;
-## 方法
+1.RNOH: 0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.25; IDE：DevEco Studio 5.0.3.400SP7; ROM：3.0.0.25;
+## 静态方法
 
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
@@ -119,15 +118,15 @@ export default RNCommunications;
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
 | phonecall  | 拨打电话         | function  | yes | All      | yes |
-| email  | 发送文本消息         | function  | yes | All      | no |
-| text  | 发送文本消息，但是不进行编码处理         | function  | yes | All      | yes |
-| textWithoutEncoding  | 发送电子邮件         | function  | yes | All      | yes |
+| email  | 发送电子邮件      | function  | yes | All      | no |
+| text  | 发送文本消息          | function  | yes | All      | yes |
+| textWithoutEncoding  | 发送文本消息，但是不进行编码处理       | function  | yes | All      | yes |
 | web  | 打开指定的网页 URL         | function  | yes | All      | yes |
 
 ## 遗留问题
 
-- [ ]  HarmonyOS 侧没有邮箱应用，导致email方法无法打开发送邮件界面问题: [issue#1](https://github.com/react-native-oh-library/react-native-communications/issues/1)
-- [ ] text添加body之后，没法在短信界面拆分进短信输入栏问题: [issue#2](https://github.com/react-native-oh-library/react-native-communications/issues/2)
+- [ ] HarmonyOS 侧没有邮箱应用，导致email方法无法打开发送邮件界面。
+- [ ] text添加body之后，没法在短信界面拆分进短信输入栏，框架侧接口Linking.canOpenURL不支持。
 
 ## 其他
 

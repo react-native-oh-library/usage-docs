@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 # 文档模板(删除)
 
 > [!ATTENTION] 使用模板时请将后面带有 (删除) 的语句删除。<>内是需要修改的内容。(删除)
@@ -89,7 +88,7 @@ export default App;
 
 首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
-### 在工程根目录的 `oh-package.json` 添加 overrides 字段
+### 在工程根目录的 `oh-package.json5` 添加 overrides 字段
 
 ```json
 {
@@ -195,14 +194,13 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 **提示：ArkTs 侧引入 Fabric 组件**（删除）
 
-### 在 ArkTs 侧引入 xxx 组件（若需要运行 ArkTs 版本）
-
-> [!WARNING] Deprecated！该库已接入 CAPI。（若已经 CAPI 化则需要加上这行）
+### 在 ArkTs 侧引入 xxx 组件（若本库已 CAPI 化则需要删除本段）
 
 找到 `function buildCustomRNComponent()`，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
 ...
+
 + import { SAFE_AREA_VIEW_TYPE, SafeAreaView, SAFE_AREA_PROVIDER_TYPE, SafeAreaProvider } from "@react-native-oh-tpl/react-native-safe-area-context"
 
 @Builder
@@ -240,6 +238,7 @@ const arkTsComponentNames: Array<string> = [
 
 ```diff
 ...
+
 + import {SafeAreaViewPackage} from '@react-native-oh-tpl/react-native-safe-area-context/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
@@ -271,7 +270,7 @@ ohpm install
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[<xxx> Releases](https://github.com/<仓库地址>/releases)
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[<HarmonyOS npm 包名> Releases](https://github.com/<仓库地址>/releases)
 
 提示：[@react-native-oh-tpl/react-native-safe-area-context Releases](https://github.com/react-native-oh-library/react-native-safe-area-context/releases)（删除）
 
@@ -281,9 +280,7 @@ ohpm install
 
 (示例)
 
-1. RNOH: 0.72.11; SDK: OpenHarmony(api11) 4.1.0.53; IDE: DevEco Studio 4.1.3.412; ROM: 2.0.0.52;
-2. RNOH: 0.72.13; SDK: HarmonyOS NEXT Developer Preview1; IDE: DevEco Studio 4.1.3.500; ROM: 2.0.0.58;
-3. RNOH: 0.72.20-CAPI; SDK: HarmonyOS NEXT Developer Preview2; IDE: DevEco Studio 4.1.3.700; ROM: 3.0.0.19;
+1. RNOH: 0.72.27; SDK: HarmonyOS-Next-DB1 5.0.0.29(SP1); IDE: DevEco Studio 5.0.3.403; ROM: 3.0.0.25;
 
 ### 权限要求（如有）
 
@@ -342,5 +339,3 @@ Needed for Android and harmony to work properly with assets, iOS will ignore it.
 本项目基于 [XXX License (XXX)](https://github.com/xxx/xxx/blob/main/LICENSE.md) ，请自由地享受和参与开源。
 
 例子：本项目基于 [The MIT License (MIT)](https://github.com/callstack/react-native-slider/blob/main/LICENSE.md) ，请自由地享受和参与开源。(删除)
-
-<!-- {% endraw %} -->

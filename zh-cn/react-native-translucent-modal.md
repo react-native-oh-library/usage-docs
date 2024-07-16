@@ -1,11 +1,11 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-translucent-modal</code> </h1>
 </p>
 <p align="center">
-    <a href="https://github.com/software-mansion/react-native-translucent-modal">
+    <a href="https://github.com/23mf/react-native-translucent-modal">
         <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
         <a href="https://github.com/23mf/react-native-translucent-modal/blob/master/LICENSE.md">
@@ -39,79 +39,48 @@ yarn add @react-native-oh-tpl/react-native-translucent-modal@file:#
 
 <!-- tabs:end -->
 
-快速使用：
+下面的代码展示了这个库的基本使用场景：
 
 > [!WARNING] 使用时 import 的库名不变。
 
 ```js
-import React, { Component } from "react";
-import {
-  Text,
-  TouchableHighlight,
-  View,
-  StyleSheet,
-  TouchableWithoutFeedback,
-  Image,
-} from "react-native";
+import React, { useState } from "react";
+import { View, TouchableWithoutFeedback, Image, Button, StyleSheet } from "react-native-harmony";
+// @ts-expect-error
 import Modal from "react-native-translucent-modal";
 
-export default class App extends Component {
-  state = {
-    modalVisible: false,
-  };
+const STYLES = StyleSheet.create({
+    wrapper: {
+        flex: 1,
+    },
+    imageBackground: {
+        width: 300,
+        height: 200,
+    }
+});
 
-  setModalVisible(visible) {
-    this.setState({ modalVisible: visible });
-  }
+export const E_ReactNativeTranslucentModal: React.FC = (): JSX.Element => {
 
-  render() {
-    return (
-      <View style={{ marginTop: 22 }}>
-        <Modal
-          animationType="slide"
-          transparent={false}
-          visible={this.state.modalVisible}
-          onRequestClose={() => {
-            alert("Modal has been closed.");
-            this.setModalVisible(!this.state.modalVisible);
-          }}
-        >
-          <TouchableWithoutFeedback
-            style={styles.wrapper}
-            onPress={() => this.setModalVisible(!this.state.modalVisible)}
-          >
-            <Image
-              source={{
-                uri: "https://hbimg.huabanimg.com/ed258f740ab675e3b3a0b6e7abc44eb7bd832c523396b-cJL1G9_fw658",
-              }}
-              style={styles.imageBackground}
-            />
-          </TouchableWithoutFeedback>
+    const [transparent, setTransparent] = useState(false)
+    const [visible, setVisible] = useState(false)
+    const [animationType, setAnimationType] = useState('none')
+
+    return <View style={STYLES.wrapper}>
+        <Modal transparent={transparent} animationType={animationType}
+            visible={visible} onRequestClose={() => setVisible(!visible)}>
+            <TouchableWithoutFeedback onPress={() => setVisible(false)}>
+             {/* 注意：1、此图片组件为示例，需要根据自己的项目需求，去引入对应组件；
+                2、示例图片地址需要根据自己的项目情况去引入 */}
+                <Image source={{ uri: "https://hbimg.huabanimg.com/ed258f740ab675e3b3a0b6e7abc44eb7bd832c523396b-cJL1G9_fw658"}} style={STYLES.imageBackground} />
+            </TouchableWithoutFeedback>
         </Modal>
-
-        <TouchableHighlight
-          onPress={() => {
-            this.setModalVisible(true);
-          }}
-        >
-          <Text>Show Modal</Text>
-        </TouchableHighlight>
-      </View>
-    );
-  }
+        <Button title="显示Modal" onPress={() => setVisible(true)}></Button>
+        <Button title="设置transparent为true" onPress={() => setTransparent(true)}></Button>
+        <Button title="设置animationType为'slide'" onPress={() => setAnimationType('slide')}></Button>
+        <Button title="设置animationType为'fade'" onPress={() => setAnimationType('fade')}></Button>
+    </View>;
 }
 
-const styles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-    alignItems: "center",
-    backgroundColor: "#fff",
-  },
-  imageBackground: {
-    flex: 1,
-    resizeMode: "cover",
-  },
-});
 ```
 
 ## 约束与限制

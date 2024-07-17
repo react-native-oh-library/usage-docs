@@ -271,9 +271,9 @@ const styles = StyleSheet.create({
 export default ImageResizerDemo;    
 ```
 
-## 使用 Codegen（如本库已适配了 Codegen ）
+## 使用 Codegen
 
-本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/codegen.md)。
+本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/zh-cn/codegen.md)。
 
 ## Link
 
@@ -308,7 +308,7 @@ export default ImageResizerDemo;
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/react-native-image-resizer": "file:../../node_modules/@react-native-oh-tpl/react-native-image-resizer/harmony/imager_resizer.har"
+    "@react-native-oh-tpl/react-native-image-resizer": "file:../../node_modules/@react-native-oh-tpl/react-native-image-resizer/harmony/image_resizer.har"
   }
 ```
 
@@ -331,6 +331,7 @@ ohpm install
 
 ```diff
 ...
+
 + import {ImageResizerPackage} from '@react-native-oh-tpl/react-native-image-resizer/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
@@ -371,7 +372,24 @@ ohpm install
 
 | Name               | Description         | Type     | Required | Platform    | HarmonyOS Support |
 |--------------------|---------------------|----------|----------|-------------|-------------------|
-| createResizedImage | Resize local images | function | No       | Android/ios | Yes               |
+| createResizedImage | Resize local images | function | No       | Android/iOS | Yes               |
+
+### createResizedImage参数
+
+| Name                 | Description         | Type    | Platform    | HarmonyOS Support |
+|----------------------|---------------------|---------|-------------|-------------------|
+| path                 | Path of image file, or a base64 encoded image string prefixed with 'data:image/imagetype' where imagetype is jpeg or png. | string  | Android/iOS | Yes               |
+| width                | Width to resize to (see mode for more details) | number  | Android/iOS | Yes               |
+| height               | Height to resize to (see mode for more details) | number  | Android/iOS | Yes               |
+| compressFormat       | Can be either JPEG, PNG or WEBP. | string  | Android/iOS | Yes               |
+| quality              | A number between 0 and 100. Used for the JPEG compression. | number  | Android/iOS | Yes               |
+| rotation             | Rotation to apply to the image, in degrees. | number  | Android/iOS | Yes               |
+| outputPath           | The resized image path. If null, resized image will be stored in cache folder. To set outputPath make sure to add option for rotation too (if no rotation is needed, just set it to 0). | string  | Android/iOS | Yes               |
+| keepMeta             | If true, will attempt to preserve all file metadata/exif info, except the orientation value since the resizing also does rotation correction to the original image. Defaults to false, which means all metadata is lost. Note: This can only be true for JPEG images which are loaded from the file system (not Web). | boolean | Android/iOS | Yes               |
+| options.mode         | Similar to react-native Image's resizeMode: either contain (the default), cover, or stretch. contain will fit the image within width and height, preserving its ratio. cover preserves the aspect ratio, and makes sure the image is at least width wide or height tall. stretch will resize the image to exactly width and height. | string  | Android/iOS | Yes               |
+| options.onlyScaleDown | 	If true, will never enlarge the image, and will only make it smaller. | boolean | Android/iOS | Yes               |
+
+## 遗留问题
 
 ## 其他
 

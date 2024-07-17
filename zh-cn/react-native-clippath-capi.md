@@ -70,7 +70,7 @@ export default function index() {
 
 首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
-### 在工程根目录的 `oh-package.json` 添加 overrides 字段
+### 在工程根目录的 `oh-package.json5` 添加 overrides 字段
 
 ```json
 {

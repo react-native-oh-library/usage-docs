@@ -107,7 +107,7 @@ export default class ScrollToAndOnScrollExample extends React.Component {
 
 如为引入请参考[@react-native-oh-tpl/lottie-react-native文档的link章节](/zh-cn/lottie-react-native.md#link)进行引入
 
-### 在工程根目录的 `oh-package.json` 添加 overrides 字段
+### 在工程根目录的 `oh-package.json5` 添加 overrides 字段
 
 ```json
 {

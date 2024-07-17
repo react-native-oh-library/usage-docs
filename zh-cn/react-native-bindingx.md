@@ -45,13 +45,13 @@ yarn add @react-native-oh-tpl/react-native-bindingx@file:#
 > [!WARNING] 使用时 import 的库名不变。
 
 ```js
-import ReactBindingXModule from 'react-native-bindingx'    
+import bindingx from 'react-native-bindingx'    
 
 
 onBind() {
 
         let anchor = findNodeHandle(this.refs._anchor);
-        this._token = ReactBindingXModule.bind({
+        this._token = bindingx.bind({
             eventType: 'orientation',
             options: {
                 sceneType: '2d'
@@ -72,7 +72,7 @@ onBind() {
     }
 
     onUnBind() {
-        ReactBindingXModule.unbind({
+        bindingx.unbind({
             token:this._token,
             eventType: 'orientation'
         });

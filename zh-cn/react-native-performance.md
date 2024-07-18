@@ -289,9 +289,9 @@ ohpm install
 ## Performance
 
 默认导出Performance对象
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 #### Performance 属性
 
 | Name              | Description                                                                                                                                                                   | Type            | Required | Platform        | HarmonyOS Support  |
@@ -304,6 +304,7 @@ ohpm install
 | now          | 返回一个高分辨率时间戳（以毫秒为单位）                                                                                                                 | function            | yes      | IOS/Android     |      yes           |
 | mark            | 根据给出 markName 值，在性能输入缓冲区中创建一个timestamp(时间戳)                                                                                                                                     | function            | yes      | IOS/Android     |      yes           |
 | measure         | 性能记录缓存中使用 measure()创建一个新的测量记录如果仅指定了测量名称，则开始时间戳设置为零，结束时间戳（用于计算持续时间）是Performance.now()返回的值。可以使用字符串将PerformanceMark对象标识为开始标记和结束标记。要只提供一个endMark，您需要提供一个空的测量选项对象：performance.Measure（“myMeasure”，{}，“myEndMarker”）                                                                                                                                                   | function           | yes      | IOS/Android     |      yes           |
+| metric         | 如果您希望收集不基于时间的自定义度量，此模块将提供名为.metric（）的Performance API扩展，该扩展将生成类型为metric的条目   | function           | yes      | IOS/Android     |      yes           |
 | getEntries          | 对于给定的 filter，此方法返回 PerformanceEntry 对象数组，如果不带任何参数，返回全部 entries                                                                                                                 | function            | yes      | IOS/Android     |      yes           |
 | getEntriesByName  | 返回一个给定名称和 name 和 type 属性的PerformanceEntry对象数组                                                                                                                                                 | function | yes      | IOS/Android     |      yes           |
 | getEntriesByType  | 返回一个给定type 属性的PerformanceEntry对象数组                                                                                                                                                 | function | yes      | IOS/Android     |      yes           |
@@ -313,9 +314,9 @@ ohpm install
 ## PerformanceObserver
 
 给定的观察者 callback 生成一个新的 PerformanceObserver 对象。当通过 observe() 方法注册的 条目类型 的 性能条目事件 被记录下来时，调用该观察者回调。
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 #### PerformanceObserver 方法
 
@@ -325,9 +326,9 @@ ohpm install
 
 ## API
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name              | Description                                                                                                                                                                   | Type            | Required | Platform        | HarmonyOS Support  |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | -------- | ----------------| ------------------ |
@@ -341,4 +342,4 @@ ohpm install
 
 ## 开源协议
 
-本项目基于 [TTHE MIT License (MIT)](https://github.com/oblador/react-native-performance/blob/master/LICENSE) ，请自由地享受和参与开源。
+本项目基于 [The MIT License (MIT)](https://github.com/oblador/react-native-performance/blob/master/LICENSE) ，请自由地享受和参与开源。

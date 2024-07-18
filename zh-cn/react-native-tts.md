@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 >  模板版本：v0.2.2
 
 <p align="center">
@@ -6,13 +5,14 @@
 </p>
 <p align="center">
     <a href="https://github.com/ak1394/react-native-tts">
-        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
+        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20Windows%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
     <a href="https://github.com/ak1394/react-native-tts/blob/master/README.md#license">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
         <!-- <img src="https://img.shields.io/badge/license-Apache-blue.svg" alt="License" /> -->
     </a>
 </p>
+
 
 > [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-tts)
 
@@ -45,202 +45,104 @@ yarn add @react-native-oh-tpl/react-native-tts@file:#
 > [!WARNING] 使用时 import 的库名不变。
 
 ```js
-import {Text, StyleSheet, ScrollView} from 'react-native';
-import {Tester, TestSuite, TestCase} from '@rnoh/testerino';
-import Tts, {TtsEvents} from 'react-native-tts';
+import {useState, useCallback} from 'react';
+import {Text, View, StyleSheet, SafeAreaView} from 'react-native';
+import Tts from 'react-native-tts';
 
-const speakText = `炎炎夏日，阳光如烈火般炙烤大地。`;
+const cnText = `炎炎夏日，阳光如烈火般炙烤大地，空气中弥漫着热浪的气息。树荫下，蝉鸣声如同热浪中跳跃的音符，微风吹过，带来一丝清凉。远处的田野上，金黄的麦浪随风起伏，仿佛在舞动着夏天的节奏。天空湛蓝如洗，白云悠然飘过，似是一幅宁静而美丽的夏日画卷。`;
 
-const speakText2 = `秋天，一抹深沉的金黄漫过天际，叶片如蝶般飘零。微风拂过，树叶沙沙作响，落叶编织地面的金色地毯。秋天的色彩斑斓而美丽，仿佛大自然为世界穿上一袭金黄的盛装，宁静而充满生机。`;
+export function TTSDemo() {
+  const [speakText, setSpeakText] = useState<string>(cnText);
 
-type SetStateProps = React.Dispatch<React.SetStateAction<boolean>>;
+  const addEvent = useCallback(() => {
+    Tts.addEventListener('tts-start', res => {
+      console.log('tts-start', res);
+    });
+  }, []);
 
-type fnBackProps = Promise<boolean | string | number | void>;
+  const removeEvent = useCallback(() => {
+    Tts.addEventListener('tts-start', res => {
+      console.log('tts-start', res);
+    });
+  }, []);
 
-export default function TTSDemo() {
-  const eventTypes: TtsEvents[] = [
-    'tts-start',
-    'tts-finish',
-    'tts-error',
-    'tts-cancel',
-    'tts-progress',
-  ];
+  const stopSpeak = useCallback(() => {
+    Tts.stop();
+  }, []);
 
-  const caseAddEventList = eventTypes.map(event => {
-    return {
-      describe: `addEventListener（${event}）`,
-      cn: '添加事件监听',
-      key: `addEventListener （${event}）`,
-      name: 'addEventListener',
-      value: event,
-      defineFn: (setState?: SetStateProps) => {
-        Tts.addEventListener(event, () => {
-          setState?.(true);
-        });
-      },
-    };
-  });
+  const speakFc = useCallback(() => {
+    Tts.speak(speakText);
+  }, []);
 
-  const caseRemoveEventList = eventTypes.map(event => {
-    return {
-      describe: `removeEventListener（${event}）`,
-      cn: '移除事件监听',
-      key: `removeEventListener （${event}）`,
-      name: 'removeEventListener',
-      value: event,
-      defineFn: (setState?: SetStateProps) => {
-        Tts.removeEventListener(event, () => {
-          setState?.(true);
-        });
-      },
-    };
-  });
+  const getInitStatus = useCallback(() => {
+    Tts.getInitStatus().then(() => {
+      console.log('初始化已完成');
+    });
+  }, []);
 
-  const caseList = [
-    {
-      describe: 'getInitStatus',
-      cn: '获取初始化状态',
-      key: 'getInitStatus',
-      name: 'getInitStatus',
-      value: '',
-      fn: (): fnBackProps => Tts.getInitStatus(),
-    },
-    {
-      describe: 'speak（short）',
-      cn: '合成语音并播放',
-      key: 'speak_a',
-      name: 'speak',
-      value: speakText,
-      defineFn: (setState?: SetStateProps) => {
-        const id = Tts.speak(speakText);
-        setState?.(!!id);
-      },
-    },
-    {
-      describe: 'speak（long）',
-      cn: '合成语音并播放',
-      key: 'speak_b',
-      name: 'speak',
-      value: speakText2,
-      defineFn: (setState?: SetStateProps) => {
-        const id = Tts.speak(speakText2);
-        setState?.(!!id);
-      },
-    },
-    {
-      describe: 'stop',
-      cn: '结束播放',
-      key: 'stop',
-      name: 'stop',
-      value: false,
-      fn: (): fnBackProps => Tts.stop(false),
-    },
-    {
-      describe: 'pause',
-      cn: '暂停播放',
-      key: 'pause',
-      name: 'pause',
-      value: false,
-      fn: (): fnBackProps => Tts.pause(false),
-    },
-    {
-      describe: 'resume',
-      cn: '继续播放',
-      key: 'resume',
-      name: 'resume',
-      value: '',
-      fn: (): fnBackProps => Tts.resume(),
-    },
-    {
-      describe: 'setDefaultRate（2）',
-      cn: '设置默认语速，语速为2',
-      key: 'setDefaultRate(2)',
-      name: 'setDefaultRate',
-      value: 2,
-      fn: (): fnBackProps => Tts.setDefaultRate(2),
-    },
-    {
-      describe: 'setDefaultRate（0.5）',
-      cn: '设置默认语速，语速为0.5',
-      key: 'setDefaultRate(0.5)',
-      name: 'setDefaultRate',
-      value: 0.5,
-      fn: (): fnBackProps => Tts.setDefaultRate(0.5),
-    },
-    {
-      describe: 'setDefaultPitch(2)',
-      cn: '设置默认音调',
-      key: 'setDefaultPitch(2)',
-      name: 'setDefaultPitch',
-      value: 2,
-      fn: (): fnBackProps => Tts.setDefaultPitch(2),
-    },
-    {
-      describe: 'setDefaultPitch(0.5)',
-      cn: '设置默认音调',
-      key: 'setDefaultPitch(0.5)',
-      name: 'setDefaultPitch',
-      value: 0.5,
-      fn: (): fnBackProps => Tts.setDefaultPitch(0.5),
-    },
-    {
-      describe: 'voices',
-      cn: '获取音色列表',
-      key: 'voices',
-      name: 'voices',
-      value: '',
-      defineFn: (setState?: SetStateProps) => {
-        Tts.voices().then(res => {
-          setState?.(!!res.length);
-        });
-      },
-    },
-    ...caseAddEventList,
-    ...caseRemoveEventList,
-  ];
+  const pauseFc = useCallback(() => {
+    Tts.pause();
+  }, []);
+
+  const resumeFc = useCallback(() => {
+    Tts.resume();
+  }, []);
+
+  const setSpeakRate = useCallback(() => {
+    Tts.setDefaultRate(2);
+  }, []);
+
+  const setSpeakPitch = useCallback(() => {
+    Tts.setDefaultPitch(2);
+  }, []);
+
+  const queryVoices = useCallback(() => {
+    Tts.voices().then(res => {
+      const resTr = JSON.stringify(res);
+      setSpeakText(resTr);
+    });
+  }, []);
+
   return (
-    <Tester>
-      <ScrollView>
-        <TestSuite name="react-native-tts">
-          <TestCase tags={['C_API']} itShould="error回调专用">
-            <Text
-              style={styles.button}
-              onPress={() => {
-                Tts.speak(123);
-              }}>
-              触发异常
+    <>
+      <SafeAreaView style={styles.constainer}>
+        <Text style={styles.title}>react-native-tts功能验证</Text>
+        <View style={styles.content}>
+          <View style={styles.btnWrap}>
+            <Text style={styles.button} onPress={getInitStatus}>
+              getInitStatus
             </Text>
-          </TestCase>
-          {caseList.map(item => {
-            return (
-              <TestCase
-                tags={['C_API']}
-                itShould={item.describe + `（${item.cn}）`}
-                initialState={false}
-                key={item.key}
-                arrange={({setState}) => {
-                  return (
-                    <Text
-                      style={styles.button}
-                      onPress={() =>
-                        item.defineFn
-                          ? item.defineFn(setState)
-                          : item.fn().then(() => setState(true))
-                      }>
-                      {item.name}
-                    </Text>
-                  );
-                }}
-                assert={async ({expect, state}) => {
-                  expect(state).to.be.true;
-                }}
-              />
-            );
-          })}
-        </TestSuite>
-        <Text style={{marginBottom: 100}}></Text>
-      </ScrollView>
-    </Tester>
+            <Text style={styles.button} onPress={speakFc}>
+              speak（zh）
+            </Text>
+            <Text style={styles.button} onPress={stopSpeak}>
+              stop
+            </Text>
+            <Text style={styles.button} onPress={pauseFc}>
+              pause
+            </Text>
+            <Text style={styles.button} onPress={resumeFc}>
+              resume
+            </Text>
+            <Text style={styles.button} onPress={setSpeakRate}>
+              setDefaultRate
+            </Text>
+            <Text style={styles.button} onPress={setSpeakPitch}>
+              setDefaultPitch
+            </Text>
+            <Text style={styles.button} onPress={queryVoices}>
+              voices
+            </Text>
+            <Text style={styles.button} onPress={addEvent}>
+              addEventListener
+            </Text>
+            <Text style={styles.button} onPress={removeEvent}>
+              removeEventListener
+            </Text>
+          </View>
+        </View>
+      </SafeAreaView>
+    </>
   );
 }
 
@@ -263,7 +165,6 @@ const styles = StyleSheet.create({
   text: {
     padding: 20,
     fontSize: 20,
-    color: 'white',
   },
   title: {
     padding: 10,
@@ -341,7 +242,8 @@ ohpm install
 
 ```diff
 ...
-+ import { RNTTSPackage } from '@react-native-oh-tpl/react-native-tts/ts';
+
++   import { RNTTSPackage } from '@react-native-oh-tpl/react-native-tts/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
@@ -380,24 +282,24 @@ ohpm install
 
 | Name                  | Description                                                             | Type     | Required | Platform | HarmonyOS Support |
 | --------------------- | ----------------------------------------------------------------------- | -------- | -------- | -------- | ----------------- |
-| getInitStatus         | Returns a promise that resolves when the TTS engine is initialized.     | Function | No       | No       | All               |
-| requestInstallEngine  | Requests installation of the TTS engine if not already installed.       | Function | No       | android  | no                |
-| requestInstallData    | Requests installation of the TTS data if not already installed.         | Function | No       | android  | no                |
-| setDucking            | Sets whether the TTS engine should duck other audio when speaking.      | Function | No       | All      | no                |
-| setDefaultEngine      | Sets the default TTS engine.                                            | Function | No       | android  | no                |
-| setDefaultVoice       | Sets the default voice for the TTS engine.                              | Function | No       | All      | no                |
-| setDefaultRate        | Sets the default speech rate for the TTS engine.                        | Function | No       | All      | yes               |
-| setDefaultPitch       | Sets the default pitch for the TTS engine.                              | Function | No       | All      | yes               |
-| setDefaultLanguage    | Sets the default language for the TTS engine.                           | Function | No       | All      | no                |
-| setIgnoreSilentSwitch | Function                                                                | No       | ios      | no       |
-| voices                | Retrieves a list of available voices from the TTS engine.               | Function | No       | All      | yes               |
-| engines               | Retrieves a list of available TTS engines.                              | Function | No       | android  | no                |
-| speak                 | Speaks the given utterance and returns a promise with the utterance ID. | Function | No       | All      | yes               |
-| stop                  | Stops the current TTS utterance.                                        | Function | No       | All      | yes               |
-| pause                 | Pause the current TTS utterance.                                        | Function | No       | All      | yes               |
-| resume                | Resume the current TTS utterance.                                       | Function | No       | All      | yes               |
-| addEventListener      | Adding an Event Listener                                                | Function | No       | All      | yes               |
-| removeEventListener   | Remove Event Listener                                                   | Function | No       | All      | yes               |
+| getInitStatus         | Returns a promise that resolves when the TTS engine is initialized.     | Function | no     | All    | yes            |
+| requestInstallEngine  | Requests installation of the TTS engine if not already installed.       | Function | no     | Android | no                |
+| requestInstallData    | Requests installation of the TTS data if not already installed.         | Function | no     | Android | no                |
+| setDucking            | Sets whether the TTS engine should duck other audio when speaking.      | Function | no     | All      | no                |
+| setDefaultEngine      | Sets the default TTS engine.                                            | Function | no     | Android | no                |
+| setDefaultVoice       | Sets the default voice for the TTS engine.                              | Function | no     | All      | no                |
+| setDefaultRate        | Sets the default speech rate for the TTS engine.                        | Function | no     | All      | yes               |
+| setDefaultPitch       | Sets the default pitch for the TTS engine.                              | Function | no     | All      | yes               |
+| setDefaultLanguage    | Sets the default language for the TTS engine.                           | Function | no     | All      | no                |
+| setIgnoreSilentSwitch | Sets whether to ignore the silent button.                 | Function | no    | iOS |no|
+| voices                | Retrieves a list of available voices from the TTS engine.               | Function | no     | All      | yes               |
+| engines               | Retrieves a list of available TTS engines.                              | Function | no     | Android | no                |
+| speak                 | Speaks the given utterance and returns a promise with the utterance ID. | Function | no     | All      | yes               |
+| stop                  | Stops the current TTS utterance.                                        | Function | no     | All      | yes               |
+| pause                 | Pause the current TTS utterance.                                        | Function | no     | All      | yes               |
+| resume                | Resume the current TTS utterance.                                       | Function | no     | All      | yes               |
+| addEventListener      | Adding an Event Listener                                                | Function | no     | All      | yes               |
+| removeEventListener   | Remove Event Listener                                                   | Function | no     | All      | yes               |
 
 ## 遗留问题
 
@@ -414,4 +316,3 @@ ohpm install
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/ak1394/react-native-tts/blob/master/README.md#license)，请自由地享受和参与开源。
-<!-- {% endraw %} -->

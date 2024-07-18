@@ -291,7 +291,8 @@ target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 
 ```diff
 ...
-+ #include "CookiesPacakge.h"
+
++ #include "CookiesPackage.h"
 
 using namespace rnoh;
 
@@ -309,6 +310,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ```diff
 ...
+
 + import {CookiesPackage} from '@react-native-oh-tpl/cookies/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

@@ -1,0 +1,442 @@
+> 模板版本：v0.2.2
+
+<p align="center">
+  <h1 align="center"> <code>react-native-dropdownalert</code> </h1>
+</p>
+<p align="center">
+    <a href="https://github.com/react-native-oh-library/react-native-dropdownalert">
+        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
+    </a>
+    <a href="https://github.com/react-native-oh-library/react-native-dropdownalert/blob/master/LICENSE">
+        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
+    </a>
+</p>
+
+> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-dropdownalert)
+
+## 安装与使用
+
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-dropdownalert Releases](https://github.com/react-native-oh-library/react-native-dropdownalert/releases)，并下载适用版本的 tgz 包。
+
+进入到工程目录并输入以下命令：
+
+> [!TIP] # 处替换为 tgz 包的路径
+
+<!-- tabs:start -->
+
+#### **npm**
+
+```bash
+npm install @react-native-oh-tpl/react-native-dropdownalert@file:#
+```
+
+#### **yarn**
+
+```bash
+yarn add @react-native-oh-tpl/react-native-dropdownalert@file:#
+```
+
+<!-- tabs:end -->
+
+下面的代码展示了这个库的基本使用场景：
+
+> [!WARNING] 使用时 import 的库名不变。
+
+```js
+import React, { useRef, useState } from "react";
+import {
+  StyleSheet,
+  Text,
+  View,
+  FlatList,
+  SafeAreaView,
+  TouchableOpacity,
+  ImageSourcePropType,
+  ColorValue,
+} from "react-native";
+import DropdownAlert, {
+  DropdownAlertData,
+  DropdownAlertType,
+  DropdownAlertColor,
+  DropdownAlertProps,
+} from "react-native-dropdownalert";
+
+type ListItem = {
+  name: string,
+  alertData?: DropdownAlertData,
+  alertProps?: DropdownAlertProps,
+  color: ColorValue,
+};
+
+type ListItemIndex = {
+  item: ListItem,
+  index: number,
+};
+
+function App(): React.JSX.Element {
+  const defaultSelected: ListItem = {
+    name: "Default",
+    color: DropdownAlertColor.Default,
+  };
+  const [selected, setSelected] = useState(defaultSelected);
+  const [processing, setProcessing] = useState(false);
+  let alert = useRef(
+    (_data?: DropdownAlertData) =>
+      new Promise() < DropdownAlertData > ((res) => res)
+  );
+  let dismiss = useRef(() => {});
+  const reactNativeLogoSrc: ImageSourcePropType = {
+    uri: "https://reactnative.dev/docs/assets/favicon.png",
+  };
+
+  const items: ListItem[] = [
+    {
+      name: "Warn",
+      alertData: {
+        type: DropdownAlertType.Warn,
+        title: "Warn",
+        message:
+          "The device battery is low. It will go into low power mode in 5 minutes.",
+      },
+      color: DropdownAlertColor.Warn,
+    },
+    {
+      name: "Info",
+      alertData: {
+        type: DropdownAlertType.Info,
+        title: "Info",
+        message:
+          "The system goes offline from midnight to 3 AM for regular maintenance.",
+      },
+      color: DropdownAlertColor.Info,
+    },
+    {
+      name: "Success",
+      alertData: {
+        type: DropdownAlertType.Success,
+        title: "Success",
+        message: "The order is complete and details sent to email.",
+      },
+      color: DropdownAlertColor.Success,
+    },
+    {
+      name: "Error",
+      alertData: {
+        type: DropdownAlertType.Error,
+        title: "Error",
+        message:
+          "Something went wrong. Please contact support if error persists.",
+      },
+      color: DropdownAlertColor.Error,
+    },
+    {
+      name: "Custom",
+      alertData: {
+        type: "",
+        title: "Custom",
+        message:
+          "This demonstrates the ability to customize image, interval and style.",
+        source: reactNativeLogoSrc,
+        interval: 5000,
+      },
+      alertProps: {
+        alertViewStyle: styles.alertView,
+      },
+      color: styles.alertView.backgroundColor,
+    },
+    {
+      name: "Cancel",
+      alertData: {
+        type: DropdownAlertType.Info,
+        title: "Info",
+        message:
+          "This demonstrates an info alert with a cancel button. Tap cancel button to dismiss.",
+      },
+      alertProps: {
+        dismissInterval: 0,
+        showCancel: true,
+        onDismissPressDisabled: true,
+      },
+      color: "teal",
+    },
+    {
+      name: "Bottom",
+      alertData: {
+        type: DropdownAlertType.Info,
+        title: "Info",
+        message: "This demonstrates an info alert with bottom alert position.",
+      },
+      alertProps: {
+        alertPosition: "bottom",
+        infoColor: "green",
+      },
+      color: "green",
+    },
+  ];
+
+  function _renderItem(listItemIndex: ListItemIndex): React.JSX.Element {
+    const { item } = listItemIndex;
+    return (
+      <TouchableOpacity
+        style={[styles.item, { backgroundColor: item.color }]}
+        onPress={() => _onSelect(item)}
+        disabled={processing}
+      >
+        <Text style={styles.name}>{item.name}</Text>
+      </TouchableOpacity>
+    );
+  }
+
+  function _onSelect(item: ListItem): void {
+    setSelected(item);
+    setTimeout(async () => {
+      setProcessing(true);
+      await alert.current(item.alertData);
+      setProcessing(false);
+    }, 10);
+  }
+
+  return (
+    <View style={styles.view}>
+      <SafeAreaView>
+        <FlatList
+          keyExtractor={(_item, index) => `${index}`}
+          data={items}
+          initialNumToRender={items.length}
+          renderItem={_renderItem}
+        />
+      </SafeAreaView>
+      <DropdownAlert
+        alert={(func) => (alert.current = func)}
+        dismiss={(func) => (dismiss.current = func)}
+        {...selected.alertProps}
+      />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  view: {
+    flex: 1,
+    justifyContent: "center",
+    backgroundColor: "#F4F3E9",
+  },
+  item: {
+    padding: 12,
+    margin: 4,
+    borderRadius: 8,
+    borderColor: "black",
+    borderWidth: StyleSheet.hairlineWidth,
+  },
+  name: {
+    fontSize: 18,
+    fontWeight: "bold",
+    textAlign: "center",
+    color: "whitesmoke",
+  },
+  alertView: {
+    padding: 8,
+    backgroundColor: "#6441A4",
+  },
+});
+
+export default App;
+```
+
+## 约束与限制
+
+### 兼容性
+
+要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-dropdownalert Releases](https://github.com/react-native-oh-library/react-native-dropdownalert/releases)
+
+## DropdownAlert
+
+### DropdownAlertType
+
+DropdownAlertType 是 DropdownAlert 库导出的一个枚举对象，列举了弹框的类型。
+
+#### DropdownAlertType 属性
+
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name    | Description  | Type   | **Required** | Platform | HarmonyOS Support |
+| ------- | ------------ | ------ | ------------ | -------- | ----------------- |
+| Info    | 值为 info    | string | no           | All      | yes               |
+| Warn    | 值为 warn    | string | no           | All      | yes               |
+| Error   | 值为 error   | string | no           | All      | yes               |
+| Success | 值为 success | string | no           | All      | yes               |
+
+### DropdownAlertDismissAction
+
+DropdownAlertDismissAction 是 DropdownAlert 库导出的一个枚举对象，列举了弹框消失的动作类型。
+
+#### DropdownAlertDismissAction 属性
+
+| Name         | Description       | Type   | **Required** | Platform | HarmonyOS Support |
+| ------------ | ----------------- | ------ | ------------ | -------- | ----------------- |
+| Automatic    | 值为 automatic    | string | no           | All      | yes               |
+| Cancel       | 值为 cancel       | string | no           | All      | yes               |
+| Pan          | 值为 pan          | string | no           | All      | yes               |
+| Programmatic | 值为 programmatic | string | no           | All      | yes               |
+| Press        | 值为 press        | string | no           | All      | yes               |
+
+### DropdownAlertColor
+
+DropdownAlertColor 是 DropdownAlert 库导出的一个枚举对象，列举了弹框的颜色
+
+#### DropdownAlertColor 属性
+
+| Name    | Description    | Type   | **Required** | Platform | HarmonyOS Support |
+| ------- | -------------- | ------ | ------------ | -------- | ----------------- |
+| Info    | 值为'#2b73b6'  | string | no           | All      | yes               |
+| Warn    | 值为'#cd853f'  | string | no           | All      | yes               |
+| Error   | 值为'#cc3232'  | string | no           | All      | yes               |
+| Success | 值为'#32a54a'  | string | no           | All      | yes               |
+| Default | 值为''#000000' | string | no           | All      | yes               |
+
+### DropDownAlertImage
+
+DropDownAlertImage 是 DropdownAlert 库导出的一个枚举对象，列举了弹框的图片资源。
+
+#### DropDownAlertImage 属性
+
+| Name    | Description                                                            | Type                | **Required** | Platform | HarmonyOS Support |
+| ------- | ---------------------------------------------------------------------- | ------------------- | ------------ | -------- | ----------------- |
+| Info    | Info 时使用的图片资源，使用源库的资源 equire('./assets/info.png')      | ImageSourcePropType | no           | All      | yes               |
+| Warn    | Info 时使用的图片资源，使用源库的资源 require('./assets/warn.png')     | ImageSourcePropType | no           | All      | yes               |
+| Error   | Info 时使用的图片资源，使用源库的资源 require('./assets/error.png')    | ImageSourcePropType | no           | All      | yes               |
+| Success | Info 时使用的图片资源，使用源库的资源 require('./assets/success.png')  | ImageSourcePropType | no           | All      | yes               |
+| Cancel  | cancel 时使用的图片资源，使用源库的资源 require('./assets/cancel.png') | ImageSourcePropType | no           | All      | yes               |
+
+### DropdownAlertToValue
+
+DropdownAlertToValue 是 DropdownAlert 库导出的一个枚举对象，有两种值 Alert 和 Dismiss。
+
+#### DropdownAlertToValue 属性
+
+| Name    | Description | Type   | **Required** | Platform | HarmonyOS Support |
+| ------- | ----------- | ------ | ------------ | -------- | ----------------- |
+| Alert   | 值为 1      | number | no           | All      | yes               |
+| Dismiss | 值为 0      | number | no           | All      | yes               |
+
+### DropDownAlertTestID
+
+DropDownAlertTestID 是 DropdownAlert 库导出的一个枚举对象，列举了弹框的测试 ID。
+
+#### DropDownAlertTestID 属性
+
+| Name         | Description       | Type   | **Required** | Platform | HarmonyOS Support |
+| ------------ | ----------------- | ------ | ------------ | -------- | ----------------- |
+| AnimatedView | 值为 animatedView | string | no           | All      | yes               |
+| SafeView     | 值为 safeView     | string | no           | All      | yes               |
+| TextView     | 值为 textView     | string | no           | All      | yes               |
+| Alert        | 值为 alert        | string | no           | All      | yes               |
+| Image        | 值为 image        | string | no           | All      | yes               |
+| Title        | 值为 title        | string | no           | All      | yes               |
+| Message      | 值为 message      | string | no           | All      | yes               |
+| Cancel       | 值为 cancel       | string | no           | All      | yes               |
+| CancelImage  | 值为 cancelImage  | string | no           | All      | yes               |
+
+### DropdownAlertData
+
+DropdownAlertData 是 DropdownAlert 库导出的一个 class 对象，定义了弹框的数据内容，如标题、提示信息等。
+
+#### DropdownAlertData 属性
+
+| Name     | Description                             | Type                | **Required** | Platform | HarmonyOS Support |
+| -------- | --------------------------------------- | ------------------- | ------------ | -------- | ----------------- |
+| type     | 弹窗类型，传入 DropdownAlertType 的枚举 | DropdownAlertType   | no           | All      | yes               |
+| title    | 弹窗的消息标题                          | string              | no           | All      | yes               |
+| message  | 弹窗的消息正文                          | string              | no           | All      | yes               |
+| source   | 弹窗的图片类型                          | ImageSourcePropType | no           | All      | yes               |
+| interval | 自动消失的时间，单位毫秒值              | number              | no           | All      | yes               |
+| resolve  | 弹窗被处理的触发的事件                  | function            | no           | All      | yes               |
+
+### DropdownAlertPosition
+
+DropdownAlertData 是 DropdownAlert 库导出的一个 class 对象，定义了弹框弹出位置，有顶部弹出和底部弹出两种。
+
+#### DropdownAlertPosition 属性
+
+| Name   | Description            | Type              | **Required** | Platform | HarmonyOS Support |
+| ------ | ---------------------- | ----------------- | ------------ | -------- | ----------------- |
+| Top    | 顶部弹出，值为'top'    | DropdownAlertType | no           | All      | yes               |
+| Bottom | 底部弹出，值为'bottom' | string            | no           | All      | yes               |
+
+### DropdownAlert 组件
+
+DropdownAlert 是 DropdownAlert 库导出的核心组件，定义了弹框所有属性，与 DropdownAlertProps 属性一致。
+
+#### DropdownAlert 属性
+
+| Name                             | Description                                                                                                  | Type                           | **Required** | Platform | HarmonyOS Support |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------ | ------------ | -------- | ----------------- |
+| imageSrc                         | 弹框未指定图片资源的时候使用的默认自定义图片                                                                 | ImageSourcePropType            | no           | All      | yes               |
+| infoImageSrc                     | 弹框未指定类型为 Info 时，使用的自定义图片                                                                   | ImageSourcePropType            | no           | All      | yes               |
+| warnImageSrc                     | 弹框未指定类型为 Warn 时，使用的自定义图片                                                                   | ImageSourcePropType            | no           | All      | yes               |
+| errorImageSrc                    | 弹框未指定类型为 Error 时，使用的自定义图片                                                                  | ImageSourcePropType            | no           | All      | yes               |
+| successImageSrc                  | 弹框未指定类型为 Success 时，使用的自定义图片                                                                | ImageSourcePropType            | no           | All      | yes               |
+| cancelImageSrc                   | 弹框未指定类型为 Cancel 时，使用的自定义图片                                                                 | ImageSourcePropType            | no           | All      | yes               |
+| infoColor                        | 弹框未指定类型为 Info 时，使用的自定义颜色                                                                   | ColorValue                     | no           | All      | yes               |
+| warnColor                        | 弹框未指定类型为 Warn 时，使用的自定义颜色                                                                   | ColorValue                     | no           | All      | yes               |
+| errorColor                       | 弹框未指定类型为 Error 时，使用的自定义颜色                                                                  | ColorValue                     | no           | All      | yes               |
+| successColor                     | 弹框未指定类型为 Success 时，使用的自定义颜色                                                                | ColorValue                     | no           | All      | yes               |
+| activeStatusBarBackgroundColor   | 弹框出现时，将状态栏置为设置的颜色，需要配合 updateStatusBar=true 才生效                                     | ColorValue                     | no           | Android  | yes               |
+| inactiveStatusBarBackgroundColor | 弹框消失时，将状态栏置为设置的颜色，需要配合 updateStatusBar=true 才生效                                     | ColorValue                     | no           | Android  | yes               |
+| dismissInterval                  | 弹窗自动消失的时间毫秒值                                                                                     | number                         | no           | All      | yes               |
+| titleNumberOfLines               | 弹窗标题的最大行数，                                                                                         | number                         | no           | All      | yes               |
+| messageNumberOfLines             | 弹窗正文的最大行数，超过则省略                                                                               | number                         | no           | All      | yes               |
+| elevation                        | 高度                                                                                                         | number                         | no           | All      | yes               |
+| zIndex                           | z 轴的值，类型                                                                                               | number                         | no           | All      | yes               |
+| panResponderDismissDistance      | 下滑弹窗消失距离                                                                                             | number                         | no           | All      | yes               |
+| animatedViewStyle                | DropAlert 对象内部的 animatedView 样式                                                                       | ViewStyle                      | no           | All      | yes               |
+| alertViewStyle                   | DropAlert 对象内部的 alertViewStyle 样式                                                                     | ViewStyle                      | no           | All      | yes               |
+| safeViewStyle                    | DropAlert 对象内部的 safeView 样式                                                                           | ViewStyle                      | no           | All      | yes               |
+| textViewStyle                    | DropAlert 对象内部的 textView 样式                                                                           | ViewStyle                      | no           | All      | yes               |
+| cancelViewStyle                  | DropAlert 对象内部的 cancelView 样式                                                                         | ViewStyle                      | no           | All      | yes               |
+| titleTextStyle                   | DropAlert 对象内部的 titleText 样式                                                                          | TextStyle                      | no           | All      | yes               |
+| messageTextStyle                 | DropAlert 对象内部的 messageText 文字样式                                                                    | TextStyle                      | no           | All      | yes               |
+| imageStyle                       | DropAlert 对象内部的 image 样式                                                                              | ImageStyle                     | no           | All      | yes               |
+| cancelImageStyle                 | DropAlert 对象内部的 cancelImage 图片样式                                                                    | ImageStyle                     | no           | All      | yes               |
+| onDismissAutomatic               | 弹窗关闭触发的函数，支持的关闭方式为自动关闭                                                                 | function                       | no           | All      | yes               |
+| onDismissCancel                  | 弹窗关闭触发的函数，支持的关闭方式为点击 cancel                                                              | function                       | no           | All      | yes               |
+| onDismissPress                   | 弹窗关闭触发的函数，支持的关闭方式为点击弹窗                                                                 | function                       | no           | All      | yes               |
+| onDismissPanResponder            | 弹窗关闭触发的函数，支持的关闭方式为向下滑动，仅在 alertPosition 为“bottom”时生效                            | function                       | no           | All      | yes               |
+| onDismissProgrammatic            | 弹窗关闭触发的函数，支持的关闭方式为程序式关闭，也是默认的值，如果非上面四种关闭方式，则默认触发此关闭函数。 | function                       | no           | All      | yes               |
+| showCancel                       | 是否显示弹窗的 cancel 模块                                                                                   | boolean                        | no           | All      | yes               |
+| onDismissPressDisabled           | 是否允许通过点击关闭弹窗                                                                                     | boolean                        | no           | All      | yes               |
+| panResponderEnabled              | 是否允许通过向下滑动关闭弹窗，仅在 alertPosition 为“bottom”时生效                                            | boolean                        | no           | All      | yes               |
+| translucent                      | 是否半透明                                                                                                   | boolean                        | no           | All      | yes               |
+| updateStatusBar                  | 是否更新状态栏                                                                                               | boolean                        | no           | All      | yes               |
+| activeStatusBarStyle             | 弹框出现时，将状态栏置为设置的样式，需要配合 updateStatusBar=true 才生效                                     | StatusBarStyle                 | no           | Android  | yes               |
+| inactiveStatusBarStyle           | 弹框消失时，将状态栏置为设置的样式，需要配合 updateStatusBar=true 才生效                                     | StatusBarStyle                 | no           | Android  | yes               |
+| renderImage                      | 函数式返回的图片                                                                                             | render function                | no           | All      | yes               |
+| renderCancel                     | 函数式返回的取消                                                                                             | render function                | no           | All      | yes               |
+| renderTitle                      | 函数式返回的弹窗消息标题                                                                                     | render function                | no           | All      | yes               |
+| renderMessage                    | 函数式返回的弹窗消息正文                                                                                     | render function                | no           | All      | yes               |
+| titleTextProps                   | 消息标题文字样式                                                                                             | TextProps                      | no           | All      | yes               |
+| messageTextProps                 | 消息正文文字样式                                                                                             | TextProps                      | no           | All      | yes               |
+| animatedViewProps                | DropAlert 对象内部的 animatedView 属性                                                                       | ViewProps                      | no           | All      | yes               |
+| alertTouchableOpacityProps       | 弹窗透明度样式设置                                                                                           | TouchableOpacityProps          | no           | All      | yes               |
+| safeViewProps                    | DropAlert 对象内部的 safeView 属性                                                                           | ViewProps                      | no           | All      | yes               |
+| textViewProps                    | DropAlert 对象内部的 text 属性                                                                               | ViewProps                      | no           | All      | yes               |
+| imageProps                       | DropAlert 对象内部的 image 属性                                                                              | ImageProps                     | no           | All      | yes               |
+| cancelTouchableOpacityProps      | DropAlert 对象内部的 cancelTouchableOpacityProps 配置                                                        | TouchableOpacityProps          | no           | All      | yes               |
+| cancelImageProps                 | DropAlert 对象内部的 cancelImageProps 属性                                                                   | ImageProps                     | no           | All      | yes               |
+| alert                            | 弹窗弹出触发事件                                                                                             | function                       | no           | All      | yes               |
+| dismiss                          | 弹窗消失触发事件                                                                                             | function                       | no           | All      | yes               |
+| springAnimationConfig            | 弹簧效果参数                                                                                                 | Animated.SpringAnimationConfig | no           | All      | yes               |
+| children                         | 弹窗子元素                                                                                                   | ReactNode                      | no           | All      | yes               |
+| alertPosition                    | top' 或者 'bottom'                                                                                           | string                         | no           | All      | yes               |
+
+## 遗留问题
+
+## 其他
+
+## 开源协议
+
+本项目基于 [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-dropdownalert/blob/master/LICENSE) ，请自由地享受和参与开源。

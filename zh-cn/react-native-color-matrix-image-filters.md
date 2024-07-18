@@ -54,7 +54,7 @@ import {
   invert,
   contrast,
   saturate
-} from '@react-native-oh-tpl/react-native-color-matrix-image-filters'
+} from 'react-native-color-matrix-image-filters'
 
 const GrayscaledImage = (imageProps) => (
   <Grayscale>

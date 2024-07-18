@@ -146,12 +146,13 @@ ohpm install
 
 ```diff
 ...
-+ import { FingerprintScannerPackage } from '@react-native-oh-tpl/react-native-fingerprint-scanner/ts';
+
++ import { RNFingerprintScannerPackage } from '@react-native-oh-tpl/react-native-fingerprint-scanner/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
     new SamplePackage(ctx),
-+   new FingerprintScannerPackage(ctx)
++   new RNFingerprintScannerPackage(ctx)
   ];
 }
 ```

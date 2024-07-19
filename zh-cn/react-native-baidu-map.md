@@ -270,7 +270,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import {BaiduMapPackage} from '@react-native-oh-tpl/react-native-baidu-map/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
@@ -287,7 +287,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
-...
+  ...
 + import {
 +  BAIDU_MAP_OVERLAY_CIRCLE_TYPE,
 +  BAIDU_MAP_OVERLAY_MARKER_TYPE,
@@ -304,7 +304,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 
 @Builder
 export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
-...
+  ...
 + if (ctx.componentName === BAIDU_MAP_VIEW_TYPE) {
 +      BaiduMapView({
 +        ctx: ctx.rnComponentContext,

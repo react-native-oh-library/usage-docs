@@ -162,7 +162,7 @@ ohpm install --no-link
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 +   import { RNVideoCachePackage } from '@react-native-oh-tpl/rnoh-video-cache/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

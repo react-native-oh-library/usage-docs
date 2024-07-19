@@ -368,7 +368,7 @@ ohpm install
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import {SQLitePluginPackage} from '@react-native-oh-tpl/react-native-sqlite-storage/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

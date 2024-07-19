@@ -199,13 +199,12 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 找到 `function buildCustomRNComponent()`，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
-...
-
+  ...
 + import { SAFE_AREA_VIEW_TYPE, SafeAreaView, SAFE_AREA_PROVIDER_TYPE, SafeAreaProvider } from "@react-native-oh-tpl/react-native-safe-area-context"
 
 @Builder
 export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
-...
+  ...
 + if (ctx.componentName === SAFE_AREA_VIEW_TYPE) {
 +   SafeAreaView({
 +     ctx: ctx.rnComponentContext,
@@ -237,8 +236,7 @@ const arkTsComponentNames: Array<string> = [
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
-
+  ...
 + import {SafeAreaViewPackage} from '@react-native-oh-tpl/react-native-safe-area-context/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

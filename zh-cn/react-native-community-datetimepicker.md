@@ -212,11 +212,12 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
+  ...
 + import { RNDateTimePicker, DATETIME_PICKER_VIEW_TYPE } from "@react-native-oh-tpl/datetimepicker"
 
 @Builder
 export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
-...
+  ...
 + if (ctx.componentName === DATETIME_PICKER_VIEW_TYPE) {
 +   RNDateTimePicker({
 +     ctx: ctx.rnComponentContext,

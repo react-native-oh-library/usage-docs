@@ -384,7 +384,7 @@ ohpm install
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import { DocViewPackage } from "@react-native-oh-tpl/react-native-doc-viewer/ts"
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

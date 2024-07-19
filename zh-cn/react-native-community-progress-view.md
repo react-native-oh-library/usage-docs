@@ -167,7 +167,7 @@ import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-packag
 
 @Builder
 export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
-...  
+  ...  
 + if (ctx.componentName === PROGRESS_VIEW_TYPE) {
 +   RNCProgressView({
 +     ctx: ctx.rnComponentContext,

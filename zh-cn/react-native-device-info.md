@@ -117,7 +117,7 @@ ohpm install
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import {RNDeviceInfoPackage} from '@react-native-oh-tpl/react-native-device-info/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

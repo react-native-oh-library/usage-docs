@@ -292,7 +292,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 打开 `entry/src/main/ets/pages/index.ets`，添加：
 
 ````diff
-...
+  ...
 + import {  BlurView, BLUR_TYPE } from "rnoh-blur"
 
 @Builder

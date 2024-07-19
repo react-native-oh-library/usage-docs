@@ -192,7 +192,7 @@ ohpm install
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import { RNFileViewerPackage } from '@react-native-oh-tpl/react-native-file-viewer/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

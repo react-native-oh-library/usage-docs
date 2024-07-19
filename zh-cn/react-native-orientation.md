@@ -241,7 +241,7 @@ ohpm install --no-link
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import { RNOrientationPackage } from '@react-native-oh-tpl/rnoh-orientation/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

@@ -208,7 +208,7 @@ ohpm install
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import {RNBootSplashPackage} from '@react-native-oh-tpl/react-native-bootsplash/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

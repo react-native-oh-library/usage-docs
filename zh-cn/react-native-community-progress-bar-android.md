@@ -160,12 +160,12 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 找到 **function buildCustomRNComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
-...
+  ...
 + import { ProgressBarAndroid, PROGRESS_BAR_TYPE } from "@react-native-oh-tpl/progress-bar-android"
 
 @Builder
 export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
-...
+  ...
 + if (ctx.componentName === PROGRESS_BAR_TYPE){
 +     ProgressBarAndroid({
 +       ctx: ctx.rnComponentContext,

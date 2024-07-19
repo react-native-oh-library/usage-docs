@@ -193,12 +193,12 @@ ohpm install
 找到 `function buildCustomRNComponent()`，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
-...
+  ...
 + import { SignatureCaptureArkView } from '@react-native-oh-tpl/react-native-signature-capture'
 
 @Builder
 export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
-...
+  ...
 +    if (ctx.componentName === SignatureCaptureArkView.NAME) {
 +      SignatureCaptureArkView({
 +        ctx: ctx.rnComponentContext,
@@ -228,7 +228,7 @@ const arkTsComponentNames: Array<string> = [
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import { SignatureCapturePackage } from '@react-native-oh-tpl/react-native-signature-capture/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

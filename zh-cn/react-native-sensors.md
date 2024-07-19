@@ -142,7 +142,7 @@ ohpm install
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import {SensorsPackage} from '@react-native-oh-tpl/react-native-sensors/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

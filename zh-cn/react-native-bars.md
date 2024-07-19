@@ -135,7 +135,7 @@ ohpm install
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import {RNBarsPackage} from '@react-native-oh-tpl/react-native-bars/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

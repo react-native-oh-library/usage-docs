@@ -280,11 +280,14 @@ ohpm install --no-link
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
-import { BackgroundTimerTurboModulePackage } from '@react-native-oh-tpl/react-native-background-timer/ts';
+  ...
++ import { BackgroundTimerTurboModulePackage } from '@react-native-oh-tpl/react-native-background-timer/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
-  return [new SamplePackage(ctx), new BackgroundTimerTurboModulePackage(ctx)];
+  return [
+    new SamplePackage(ctx), 
++   new BackgroundTimerTurboModulePackage(ctx)
+    ];
 }
 ```
 

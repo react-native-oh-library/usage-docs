@@ -314,7 +314,7 @@ ohpm install
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import { DocumentPickerPackage } from '@react-native-oh-tpl/react-native-document-picker/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

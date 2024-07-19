@@ -207,7 +207,7 @@ ohpm install
 
 ```diff
 import type { RNPackageContext, RNPackage } from 'rnoh/ts';
-...
+  ...
 + import { FsPackage } from '@react-native-oh-tpl/react-native-fs/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

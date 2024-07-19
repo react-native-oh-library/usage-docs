@@ -158,7 +158,7 @@ ohpm install
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import {RNMailPackage} from '@react-native-oh-tpl/react-native-mail/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

@@ -310,7 +310,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 找到 `function buildCustomRNComponent()`，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
-...
+  ...
 + import { AIRMap, AIR_MAP_TYPE, AIRMapMarker, AIR_MAP_MARKER_TYPE, AIRMapPolyline, AIR_MAP_POLYLINE_TYPE, AIRMapPolygon,
 +  AIR_MAP_POLYGON_TYPE, AIRMapCircle, AIR_MAP_CIRCLE_TYPE, AIR_MAP_CALLOUT_SUBVIEW_TYPE, AIR_MAP_CALLOUT_TYPE,
 +  AIRMapCallout,
@@ -327,7 +327,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 @Builder
 export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
-...
+  ...
 +  if (ctx.componentName === AIR_MAP_TYPE) {
 +    AIRMap({
 +      ctx: ctx.rnComponentContext,
@@ -419,7 +419,7 @@ const arkTsComponentNames: Array<string> = [
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import {MapsPackage} from '@react-native-oh-tpl/react-native-maps/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

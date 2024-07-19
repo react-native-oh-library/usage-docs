@@ -467,7 +467,7 @@ ohpm install
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import {BlobUtilPackage} from '@react-native-oh-tpl/rnoh-blob-util/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

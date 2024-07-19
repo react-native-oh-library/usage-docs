@@ -138,7 +138,7 @@ ohpm install
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import { TouchIdPackage } from "@react-native-oh-tpl/react-native-touch-id/ts";
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

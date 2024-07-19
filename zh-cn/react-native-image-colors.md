@@ -258,7 +258,7 @@ ohpm install
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import { RNImageColorsPackage } from "@react-native-oh-tpl/react-native-image-colors/ts";
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

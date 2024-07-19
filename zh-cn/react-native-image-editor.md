@@ -236,7 +236,7 @@ ohpm install
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import {ImageEditorPackage} from "@react-native-oh-tpl/image-editor/ts";
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

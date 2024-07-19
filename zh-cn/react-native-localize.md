@@ -150,7 +150,7 @@ ohpm install --no-link
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import { RNLocalizePackage } from "@react-native-oh-tpl/react-native-localize/ts";
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

@@ -501,7 +501,7 @@ ohpm install
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import { BlePackage } from '@react-native-oh-tpl/react-native-ble-manager/ts';
 
 

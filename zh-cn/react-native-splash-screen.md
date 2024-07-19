@@ -150,7 +150,7 @@ ohpm install
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import {SplashScreenPackage} from '@react-native-oh-tpl/react-native-splash-screen/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

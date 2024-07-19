@@ -229,12 +229,12 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
-...
+  ...
 + import { MJRefresh, MJREFRESH_TYPE} from "@react-native-oh-tpl/react-native-mjrefresh"
 
 @Builder
 export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
-...
+  ...
 + if (ctx.componentName === MJREFRESH_TYPE) {
 +   MJRefresh({
 +       ctx: ctx.rnComponentContext,

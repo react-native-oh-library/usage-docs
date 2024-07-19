@@ -213,7 +213,7 @@ ohpm install
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import { RNQrDecodeImageCameraPackage } from "@react-native-oh-tpl/react-native-qr-decode-image-camera/ts";
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
@@ -227,12 +227,12 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 找到 function buildCustomRNComponent()，一般位于 entry/src/main/ets/pages/index.ets 或 entry/src/main/ets/rn/LoadBundle.ets，添加：
 
 ```diff
-...
+  ...
 + import { NativeScan } from "@react-native-oh-tpl/react-native-qr-decode-image-camera"
 
 @Builder
 export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
-...
+  ...
 + if (ctx.componentName === NativeScan.NAME) {
 +   NativeScan({
 +     ctx: ctx.rnComponentContext,

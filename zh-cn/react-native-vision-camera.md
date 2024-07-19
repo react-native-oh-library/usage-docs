@@ -209,12 +209,12 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 找到 `function buildCustomRNComponent()`，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
-...
+  ...
 + import { VisionCameraView } from "@react-native-oh-tpl/react-native-vision-camera";
 
 @Builder
 export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
-...
+  ...
 + if (ctx.componentName === VisionCameraView.NAME) {
 +   VisionCameraView({
 +     ctx: ctx.rnComponentContext,
@@ -231,7 +231,7 @@ export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import { VisionCameraModulePackage } from "@react-native-oh-tpl/react-native-vision-camera/ts";
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

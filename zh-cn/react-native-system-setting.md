@@ -216,7 +216,7 @@ ohpm install --no-link
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import { RNSystemSettingPackage } from '@react-native-oh-tpl/rnoh-system-setting/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

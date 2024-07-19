@@ -180,6 +180,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
+  ...
 + import { RNCViewPager, PAGER_VIEW_TYPE } from "@react-native-oh-tpl/react-native-pager-view"
 
 @Builder
@@ -209,7 +210,7 @@ function buildCustomComponent(ctx: ComponentBuilderContext) {
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import { ViewPagerPackage } from '@react-native-oh-tpl/react-native-pager-view/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

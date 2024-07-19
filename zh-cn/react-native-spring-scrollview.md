@@ -215,7 +215,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import {SpringScrollViewPackage} from '@react-native-oh-tpl/react-native-spring-scrollview/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

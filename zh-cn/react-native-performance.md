@@ -254,7 +254,7 @@ ohpm install
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import {RNPerformancePackage} from '@react-native-oh-tpl/react-native-performance/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

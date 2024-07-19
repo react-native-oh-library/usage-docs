@@ -161,7 +161,7 @@ ohpm install
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import { RandomBytesPackage } from '@react-native-oh-tpl/react-native-randombytes/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

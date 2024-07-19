@@ -132,7 +132,7 @@ ohpm install
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import { ShakePackage } from "@react-native-oh-tpl/rnoh-shake-package/ts";
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

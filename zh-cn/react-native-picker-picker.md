@@ -124,7 +124,7 @@ ohpm install
 找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
-...
+  ...
 + import { RNCPicker, PICKER_TYPE } from "@react-native-oh-tpl/picker"
 
   @Builder
@@ -165,7 +165,7 @@ const arkTsComponentNames: Array<string> = [
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import { RNCPickerPackage } from '@react-native-oh-tpl/picker/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

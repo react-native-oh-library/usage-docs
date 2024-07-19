@@ -330,8 +330,7 @@ ohpm install
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
-
+  ...
 + import {ImageResizerPackage} from '@react-native-oh-tpl/react-native-image-resizer/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

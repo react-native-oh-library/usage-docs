@@ -1,26 +1,21 @@
 <!-- {% raw %} -->
-> 模板版本：v0.2.0
+> 模板版本：v0.2.2
 
 <p align="center">
 <h1 align="center"> <code>react-native-pull</code> </h1>
 </p>
 <p align="center">
- <a href="https://github.com/react-native-oh-library/react-native-pull">
+ <a href="https://github.com/greatbsky/react-native-pull/blob/master">
      <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
  </a>
-     <a href="https://github.com/react-native-oh-library/react-native-pull/blob/main/LICENSE">
+     <a href="https://github.com/greatbsky/react-native-pull/blob/master/LICENSE">
      <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
  </a>
 </p>
 
 
+
 > [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-pull)
-
-## 简介
-
-react-native-pull包含两个（`PullView` & `PullList`）可以实现`下拉刷新`的react native组件，可支持android & ios，简单易用！
-
-纯js代码，基于`ScrollView` & `FlatList`封装. 比scrollview & FlatList更强大，有三个下拉状态: **pulling**, **pullok**, **pullrelease**. `PullView`可以让你使用refreshControl或提供的相关属性实现类似于scrollview的pull-to-refresh. `PullList`可以让你使用`FlatList`的所有属性。你也可以使用`topIndicatorRender `和`onPushing`方法实现带有动画效果的自定义的topIndicator头部。
 
 ## 安装与使用
 
@@ -51,8 +46,6 @@ yarn add @react-native-oh-tpl/react-native-pull@file:#
 > [!WARNING] 使用时 import 的库名不变。
 
 **PullViewDemo**
-
-![img](https://raw.githubusercontent.com/greatbsky/react-native-pull-demo/master/PullViewDemo/image/demo.gif)
 
 > 代码示例
 
@@ -129,7 +122,7 @@ const onPullRelease = (resolve) => {
            topIndicatorRender={topIndicatorRender}
            topIndicatorHeight={60}>
 			<View style={{backgroundColor: '#eeeeee'}}>
-			    <Text>1***************</Text>
+			 <Text>1***************</Text>
              <Text>onPulling:{testObj.pulling}</Text>
              <Text>3</Text>
              <Text>onPullOk:{testObj.pullok}</Text>
@@ -156,8 +149,6 @@ const styles = StyleSheet.create({
 
 **PullListDemo**
 
-![img](https://raw.githubusercontent.com/greatbsky/react-native-pull-demo/master/PullListDemo/image/demo.gif)
-
 > 代码示例
 
 ```jsx
@@ -168,6 +159,7 @@ import {
   View,
   ActivityIndicator,
   Dimensions,
+  RefreshControl
 } from 'react-native';
 import {PullList} from 'react-native-pull';
 
@@ -183,32 +175,58 @@ const PullListDemo = () => {
 
    const [count, setCount] = useState(0);
    const [data, setData] = useState(testObj);
-    const [stateList, setStateList] = useState([
-      {
-        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb2cba',
-        title: 'First Item1',
-      },
-      {
-        id: '3ac68afc-c605-48d3-a4f8-fbd91a397f63',
-        title: 'Second Item2',
-      },
-      {
-        id: '58694a0f-3da1-471f-bd96-145573e29d72',
-        title: 'Third Item3',
-      },
-      {
-        id: 'bd7acbea-c1b1-26c2-aed5-3ad53abb2cba',
-        title: 'First Item4',
-      },
-      {
-        id: '3ac68afc-c605-4843-a4f8-fbd91a397f63',
-        title: 'Second Item5',
-      },
-      {
-        id: '58694a0f-3da1-451f-bd96-145573e29d72',
-        title: 'Third Item6',
-      },
-    ]);
+    const [stateList, setStateList] = useState(
+         [
+                 {
+                   id: 1,
+                   title: '------>Item1',
+                 },
+                 {
+                   id: 2,
+                   title: '------>Item2',
+                 },
+                 {
+                   id: 3,
+                   title: '------>Item3',
+                 },
+                 {
+                   id: 4,
+                   title: '------>Item4',
+                 },
+                 {
+                   id: 5,
+                   title: '------>Item5',
+                 },
+                 {
+                   id: 6,
+                   title: '------>Item6',
+                 },
+                 {
+                   id: 7,
+                   title: '------>Item7',
+                 },
+                 {
+                   id: 8,
+                   title: '------>Item8',
+                 },
+                 {
+                   id: 9,
+                   title: '------>Item9',
+                 },
+                  {
+                    id: 10,
+                    title: '------>Item10',
+                  },
+                  {
+                    id: 11,
+                    title: '------>Item11',
+                  },
+                  {
+                    id: 12,
+                    title: '------>Item12',
+                  },
+               ]
+    );
 
    const onPulling = () => {
       testObj.pulling='pulling--------->'
@@ -225,6 +243,56 @@ const PullListDemo = () => {
         testObj.pullrelease='pullrelease--------->'
         setData(testObj)
         setTimeout(() => {
+         setStateList([
+                                       {
+                                         id: 1,
+                                         title: '------>Item1',
+                                       },
+                                       {
+                                         id: 2,
+                                         title: '------>Item2',
+                                       },
+                                       {
+                                         id: 3,
+                                         title: '------>Item3',
+                                       },
+                                       {
+                                         id: 4,
+                                         title: '------>Item4',
+                                       },
+                                       {
+                                         id: 5,
+                                         title: '------>Item5',
+                                       },
+                                       {
+                                         id: 6,
+                                         title: '------>Item6',
+                                       },
+                                       {
+                                         id: 7,
+                                         title: '------>Item7',
+                                       },
+                                       {
+                                         id: 8,
+                                         title: '------>Item8',
+                                       },
+                                       {
+                                         id: 9,
+                                         title: '------>Item9',
+                                       },
+                                        {
+                                          id: 10,
+                                          title: '------>Item10',
+                                        },
+                                        {
+                                          id: 11,
+                                          title: '------>Item11',
+                                        },
+                                        {
+                                          id: 12,
+                                          title: '------>Item12',
+                                        },
+                                     ]);
             resolve();
         }, 3000);
     };
@@ -237,11 +305,11 @@ const PullListDemo = () => {
 
     const topIndicatorRender = (pulling, pullok, pullrelease) => {
       if (pulling) {
-          setCount('下拉刷新pulling...')
+          setCount('当前PullList状态: pulling...')
       } else if (pullok) {
-          setCount('松开刷新pullok......')
+          setCount('当前PullList状态: pullok......')
       } else if (pullrelease) {
-          setCount('玩命刷新中pullrelease......')
+          setCount('当前PullList状态: pullrelease......')
       }
 
   return (
@@ -264,7 +332,6 @@ const PullListDemo = () => {
     }
 
    const renderRow = ({item}) => {
-     console.log('renderRow', item.title)
       return (
           <View style={{height: 50, backgroundColor: '#fafafa', alignItems: 'center', justifyContent: 'center'}}>
               <Text>{item.title}</Text>
@@ -281,50 +348,84 @@ const PullListDemo = () => {
     }
 
    const loadMore = () => {
-      const list = [ {
-        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-        title: 'First Item',
-      }]
+      const list = []
+      const num = stateList.length
         for(var i = 0; i < 5; i++) {
             list.push({
-                id: (i + 1) + '',
-                title: `this is ${i}`,
+                id: (i + 1 + num) + '',
+                title: `------>Item${(i+num+1)}`,
             })
         }
-        setTimeout(() => {
+       setTimeout(() => {
           setStateList([...stateList,...list]);
         }, 1000);
     }
+
+    const [refreshing, setRefreshing] = useState(false)
+    const onRefresh = () => {
+      // 加载数据的逻辑
+      setRefreshing(true)
+      // 数据加载完成后
+      setTimeout(() => {
+        setRefreshing(false)
+      }, 2000); // 假设数据加载需要2秒
+    };
+    const refreshControl = (
+      <RefreshControl
+        refreshing={refreshing}
+        onRefresh={onRefresh}
+        tintColor="#ff0000" // 可选，设置刷新指示器的颜色
+        title="Loading..." // 可选，设置刷新时显示的文本
+        colors={['#ff0000', '#00ff00', '#0000ff']} // 可选，设置刷新指示器的颜色数组
+        progressBackgroundColor="#ffffff" // 可选，设置进度背景色
+      />
+    );
+
     return (
       <View style={[styles.container]}>
-		<PullList style={{width: Dimensions.get('window').width}}
-          onPulling={onPulling}
-          onPullOk={onPullOk}
-          isPullEnd={true}
-          onPullRelease={onPullRelease}
-          onPushing={onPushing}
-          topIndicatorRender={topIndicatorRender}
-          topIndicatorHeight={60}
-          pageSize={5}
-          initialListSize={5}
-          onEndReached={loadMore}
-          onEndReachedThreshold={60}
-          renderItem={renderRow}
-          ListFooterComponent={renderFooter}
-          ListHeaderComponent={renderHeader}
-          data={stateList}
-          keyExtractor={(item:any) => item.id}
-        />
+      <PullList style={{width: Dimensions.get('window').width}}
+            onPulling={onPulling}
+            onPullOk={onPullOk}
+            isPullEnd={true}
+            onPullRelease={onPullRelease}
+            onPushing={onPushing}
+            topIndicatorRender={topIndicatorRender}
+            topIndicatorHeight={60}
+            pageSize={5}
+            scrollViewProps={{
+                scrollEventThrottle: 16, // 减少滚动事件的延迟，提高滚动的响应性
+              }}
+            initialListSize={5}
+            onEndReached={loadMore}
+            onEndReachedThreshold={60}
+            renderItem={renderRow}
+            ListFooterComponent={renderFooter}
+            ListHeaderComponent={renderHeader}
+            data={stateList}
+            keyExtractor={(item:any) => item.id}
+          />
       </View>
     );
 };
 
 const styles = StyleSheet.create({
-  container: {
+ container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    flexDirection: 'column',
     backgroundColor: '#F5FCFF',
+    width:'100%',
+    height:'100%',
+    overflow: 'scroll'
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
   },
 });
 
@@ -335,13 +436,12 @@ export default PullListDemo;
 ## 约束与限制
 
 ### 兼容性
-本文档内容基于以下版本验证通过：
 
-1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.21;
+要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-请到三方库相应的发布地址查看版本信息：[@react-native-oh-tpl/react-native-pull/releases](https://github.com/react-native-oh-library/react-native-pull/releases)
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-pull/releases](https://github.com/react-native-oh-library/react-native-pull/releases)
 
-## 属性配置项
+## 属性
 
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
@@ -368,6 +468,6 @@ export default PullListDemo;
 
 ## 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-pull/blob/main/LICENSE) ，请自由地享受和参与开源。
+本项目基于 [The MIT License (MIT)](https://github.com/greatbsky/react-native-pull/blob/master/LICENSE) ，请自由地享受和参与开源。
 
 <!-- {% endraw %} -->

@@ -1,24 +1,25 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-stickyheader</code> </h1>
 </p>
 <p align="center">
-    <a href="https://github.com/react-native-oh-library/react-native-stickyheader">
+    <a href="https://github.com/jiasongs/react-native-stickyheader/blob/master">
         <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
-    <a href="https://github.com/react-native-oh-library/react-native-stickyheader/tree/sig/LICENSE">
+    <a href="https://github.com/jiasongs/react-native-stickyheader/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
         <!-- <img src="https://img.shields.io/badge/license-Apache-blue.svg" alt="License" /> -->
     </a>
 </p>
 
+
 > [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-stickyheader/tree/sig)
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[<@react-native-oh-tpl/react-native-stickyheader> Releases](https://github.com/react-native-oh-library/react-native-stickyheader/releases)，并下载适用版本的 tgz 包。
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-stickyheader Releases](https://github.com/react-native-oh-library/react-native-stickyheader/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
@@ -126,9 +127,13 @@ export default App;
 
 1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：205.0.0.18;
 
-#### 属性
+## 属性
 
-### 此组件有以下属性:
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+此组件有以下属性:
 
 | Property      | Type   | Required | Description       | Platform         | HarmonyOS <br/>Support |
 | ------------- | ------ | -------- | ----------------- | ---------------- | ---------------------- |
@@ -141,6 +146,7 @@ export default App;
 
 ## 开源协议
 
-本项目基于 [MIT License](https://github.com/react-native-oh-library/react-native-stickyheader/blob/sig/LICENSE) ，请自由地享受和参与开源。
+本项目基于 [The MIT License (MIT)](https://github.com/jiasongs/react-native-stickyheader/blob/master/LICENSE) ，请自由地享受和参与开源。
 
 <!-- {% endraw %} -->
+

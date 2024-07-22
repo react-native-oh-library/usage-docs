@@ -1,14 +1,18 @@
 <!-- {% raw %} -->
-模板版本：v0.2.0
+模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-drawer-layout-polyfill</code> </h1>
 </p>
 <p align="center">
     <a href="https://github.com/rnc-archive/react-native-drawer-layout-polyfill">
+        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
+    </a>
+    <a href="https://www.mit-license.org/">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
+
 
 > [!TIP] [Github 地址](https://github.com/rnc-archive/react-native-drawer-layout-polyfill)
 
@@ -221,13 +225,19 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-## 兼容性
+## 约束与限制
+
+### 兼容性
 
 在以下版本验证通过
 
 1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：205.0.0.18;
 
 ## 属性
+
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 详情见[react-native-drawer-layout-polyfill](https://reactnative.dev/docs/drawerlayoutandroid)
 
@@ -254,6 +264,12 @@ export default App;
 
 ## 遗留问题
 
+- [ ] 属性statusBarBackgroundColor 鸿蒙暂不支持。[issue#10](https://github.com/rnc-archive/react-native-drawer-layout-polyfill/issues/10)
+
 ## 其他
+
+## 开源协议
+
+本项目基于 [The MIT License (MIT)](https://www.mit-license.org/) ，请自由地享受和参与开源。
 
 <!-- {% endraw %} -->

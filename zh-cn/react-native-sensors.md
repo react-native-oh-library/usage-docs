@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.2.1
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-sensors</code> </h1>
@@ -86,6 +86,10 @@ gravity.subscribe(({ x, y, z, timestamp }) =>
 // setUpdateIntervalForType(type: string, interval: number)
 setUpdateIntervalForType(SensorTypes.accelerometer, 100);
 ```
+
+## 使用 Codegen
+
+本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/zh-cn/codegen.md)。
 
 ## Link
 
@@ -209,6 +213,6 @@ gyroscope 需要的权限：ohos.permission.GYROSCOPE
 
 ## 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-sensors/blob/sig/LICENSE) ，请自由地享受和参与开源。
+本项目基于 [The MIT License (MIT)](https://github.com/react-native-sensors/react-native-sensors/blob/master/LICENSE) ，请自由地享受和参与开源。
 
 <!-- {% endraw %} -->

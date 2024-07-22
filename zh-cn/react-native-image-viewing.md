@@ -1,23 +1,25 @@
 <!-- {% raw %} -->
-> 模板版本：v0.2.0
+
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-image-viewing</code> </h1>
 </p>
 <p align="center">
-    <a href="https://github.com/react-native-oh-library/react-native-image-viewer">
+    <a href="https://github.com/jobtoday/react-native-image-viewing/blob/master">
         <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
-    <a href="https://github.com/react-native-oh-library/react-native-image-viewer/blob/sig/LICENSE">
+    <a href="https://github.com/jobtoday/react-native-image-viewing/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
+
 
 > [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-image-viewing)
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[<@react-native-oh-tpl/react-native-image-viewing> Releases](https://github.com/react-native-oh-library/react-native-image-viewing/releases)，并下载适用版本的 tgz 包。
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-image-viewing Releases](https://github.com/react-native-oh-library/react-native-image-viewing/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
@@ -184,40 +186,46 @@ const styles = StyleSheet.create({
 
 ```
 
-## 兼容性
+## 约束与限制
 
-在下述版本验证通过:
+### 兼容性
 
-1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：205.0.0.18;
+要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-## API列表
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-image-viewing Releases](https://github.com/react-native-oh-library/react-native-image-viewing/releases)
 
-| Name                   | Description                                                                                 | Type                                                        | Required | HarmonyOS Support |
-| ---------------------- | ------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | -------- | ----------------- |
-| images                 | Array of images to display                                                                  | ImageSource[]                                               | Yes      | Yes               |
-| keyExtractor           | Uniqely identifying each image                                                              | (imageSrc: ImageSource, index: number) => string            | No       | Yes               |
-| imageIndex             | Current index of image to display                                                           | number                                                      | Yes      | Yes               |
-| visible                | Is modal shown or not                                                                       | boolean                                                     | No       | Yes               |
-| onRequestClose         | Function called to close the modal                                                          | function                                                    | Yes      | Yes               |
-| onImageIndexChange     | Function called when image index has been changed                                           | function                                                    | No       | Yes               |
-| onLongPress            | Function called when image long pressed                                                     | function (event: GestureResponderEvent, image: ImageSource) | No       | Yes               |
-| delayLongPress         | Delay in ms, before onLongPress is called: default                                          | number                                                      | No       | Yes               |
-| animationType          | Animation modal presented with: default                                                     | none, fade, slide                                           | No       | Yes               |
-| presentationStyle      | Modal presentation style: default: fullScreen Android: Use overFullScreen to hide StatusBar | fullScreen, pageSheet, formSheet, overFullScreen            | No       | Yes               |
-| backgroundColor        | Background color of the modal in HEX                                                        | string                                                      | No       | Yes               |
-| swipeToCloseEnabled    | Close modal with swipe up or down: default                                                  | boolean                                                     | No       | Yes               |
-| doubleTapToZoomEnabled | Zoom image by double tap on it: default                                                     | boolean                                                     | No       | Yes               |
-| HeaderComponent        | Header component, gets current imageIndex as a prop                                         | component, function                                         | No       | Yes               |
-| FooterComponent        | Footer component, gets current imageIndex as a prop                                         | component, function                                         | No       | Yes               |
+## 属性
+
+> [!TIP]  "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name                   | Description                                                  | Type                                                        | Platform | Required | HarmonyOS Support |
+| ---------------------- | ------------------------------------------------------------ | ----------------------------------------------------------- | -------- | -------- | ----------------- |
+| images                 | Array of images to display                                   | ImageSource[]                                               | All      | Yes      | Yes               |
+| keyExtractor           | Uniqely identifying each image                               | (imageSrc: ImageSource, index: number) => string            | All      | No       | Yes               |
+| imageIndex             | Current index of image to display                            | number                                                      | All      | Yes      | Yes               |
+| visible                | Is modal shown or not                                        | boolean                                                     | All      | No       | Yes               |
+| onRequestClose         | Function called to close the modal                           | function                                                    | All      | Yes      | Yes               |
+| onImageIndexChange     | Function called when image index has been changed            | function                                                    | All      | No       | Yes               |
+| onLongPress            | Function called when image long pressed                      | function (event: GestureResponderEvent, image: ImageSource) | All      | No       | Yes               |
+| delayLongPress         | Delay in ms, before onLongPress is called: default           | number                                                      | All      | No       | Yes               |
+| animationType          | Animation modal presented with: default                      | none, fade, slide                                           | All      | No       | Yes               |
+| presentationStyle      | Modal presentation style: default: fullScreen Android: Use overFullScreen to hide StatusBar | fullScreen, pageSheet, formSheet, overFullScreen            | All      | No       | Yes               |
+| backgroundColor        | Background color of the modal in HEX                         | string                                                      | All      | No       | Yes               |
+| swipeToCloseEnabled    | Close modal with swipe up or down: default                   | boolean                                                     | All      | No       | Yes               |
+| doubleTapToZoomEnabled | Zoom image by double tap on it: default                      | boolean                                                     | All      | No       | Yes               |
+| HeaderComponent        | Header component, gets current imageIndex as a prop          | component, function                                         | All      | No       | Yes               |
+| FooterComponent        | Footer component, gets current imageIndex as a prop          | component, function                                         | All      | No       | Yes               |
 
 ## 遗留问题
 
-- [ ] 本库 swipeToCloseEnabled，doubleTapToZoomEnabled，animationType 还未完全HarmonyOS化，暂不支持上下滑动关闭、双击放大与动画效果功能 （未解决）[#I9DNQU](https://gitee.com/react-native-oh-library/usage-docs/issues/I9DQPA)
+- [ ] 本库 swipeToCloseEnabled，doubleTapToZoomEnabled，animationType HarmonyOS暂不支持，上下滑动关闭、双击放大与动画效果功能 [#I9DNQU](https://gitee.com/react-native-oh-library/usage-docs/issues/I9DQPA)
 
 ## 其他
 
 ## 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/facebook/prop-types/blob/v15.8.1/LICENSE) ，请自由地享受和参与开源。
+本项目基于 [The MIT License (MIT)](https://github.com/jobtoday/react-native-image-viewing/blob/master/LICENSE) ，请自由地享受和参与开源。
 
 <!-- {% endraw %} -->

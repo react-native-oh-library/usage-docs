@@ -1,14 +1,19 @@
 <!-- {% raw %} -->
-模板版本：v0.2.0
+模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-canvas</code> </h1>
 </p>
 <p align="center">
-    <a href="https://github.com/iddan/react-native-canvas/blob/v0.1.39/license.txt">
+        <a href="https://github.com/iddan/react-native-canvas">
+        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20windows%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
+    </a>
+    <a href="https://github.com/iddan/react-native-canvas/blob/master/license.txt">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
+
+
 
 > [!TIP] [Github 地址](https://github.com/iddan/react-native-canvas)
 
@@ -38,6 +43,8 @@ npm install --save-dev @type/react-native-canvas@0.1.39
 <!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：
+
+> [!WARNING] 使用时 import 的库名不变。
 
 ```tsx
 import React, { useRef, useEffect } from "react";
@@ -131,9 +138,11 @@ export default CanvasDemo;
 
 本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-webview 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
 
-如未引入请参照[@react-native-oh-tpl/react-native-webview 文档的 Link 章节](https://gitee.com/zhanghao2519/usage-docs/blob/master/zh-cn/react-native-webview.md)进行引入
+如未引入请参照[@react-native-oh-tpl/react-native-webview ](react-native-webview.md)文档的 Link 章节进行引入
 
-## 兼容性
+## 约束与限制
+
+### 兼容性
 
 在以下版本验证通过
 

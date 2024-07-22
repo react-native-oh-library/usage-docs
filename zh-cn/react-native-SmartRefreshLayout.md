@@ -321,24 +321,24 @@ ohpm install
 
 ## 属性
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!Tip] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!Tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 **组件 SmartRefreshControl**
 
 | Name                  | Description                                                      | Type                                                                         | Required | Platform | HarmonyOS Support |
 | --------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------- | -------- | -------- | ----------------- |
 | `HeaderComponent`     | 用于渲染 SmartRefreshLayout 组件的 header,默认为 DefaultHeader。 | Element                                                                      | No       | Android  | Yes               |
-| `renderHeader`        | 用于渲染 SmartRefreshLayout 组件的 header,默认为 DefaultHeader。 | Element/func                                                                 | No       | Android  | No                |
+| `renderHeader`        | 用于渲染 SmartRefreshLayout 组件的 header,默认为 DefaultHeader。 | Element/func                                                                 | No       | Android  | Yes                |
 | `enableRefresh`       | 是否启用下拉刷新,默认为 true                                     | boolean                                                                      | No       | Android  | Yes                |
 | `headerHeight`        | 设定 header 的高度                                               | number                                                                       | No       | Android  | Yes               |
 | `primaryColor`        | 设置刷新组件的主调色                                             | string                                                                       | No       | Android  | Yes               |
 | `autoRefresh`         | 是否自动刷新                                                     | object:{refresh:boolean, time:number}                                        | No       | Android  | Yes                |
 | `pureScroll`          | 是否启用纯滚动                                                   | boolean                                                                      | No       | Android  | No                |
 | `overScrollBounce`    | 是否启用越界拖动，类似 IOS 样式。                                | boolean                                                                      | No       | Android  | No                |
-| `dragRate`            | 设置组件下拉高度与手指真实下拉高度的比值,默认为 0.5。            | number                                                                       | No       | Android  | No                |
-| `maxDragRate`         | 设置最大显示下拉高度与 header 标准高度的比值，默认为 2.0。       | number                                                                       | No       | Android  | No                |
+| `dragRate`            | 设置组件下拉高度与手指真实下拉高度的比值,默认为 0.5。            | number                                                                       | No       | Android  | Yes                |
+| `maxDragRate`         | 设置最大显示下拉高度与 header 标准高度的比值，默认为 2.0。       | number                                                                       | No       | Android  | Yes                |
 | `onPullDownToRefresh` | 可下拉刷新时触发                                                 | function                                                                     | No       | Android  | Yes                |
 | `onReleaseToRefresh`  | 可释放刷新时触发                                                 | function                                                                     | No       | Android  | Yes                |
 | `onRefresh`           | 刷新时触发                                                       | function                                                                     | No       | Android  | Yes               |
@@ -348,11 +348,11 @@ ohpm install
 
 **组件 AnyHeader**
 
-仅组件支持渲染，在 RNOH0.72.10 版本中需要给 List 类型子组件添加 bounces = {false}属性，否则无法触发本组件的下拉。（0.72.11 版本已解决）
+当前组件支持
 
 | Name           | Description                      | Type   | Required | Platform |  HarmonyOS Support |
 | -------------- | ------------------------ | ------ | -------- | -------- | -------- |
-| `primaryColor` | 刷新组件 Header 的主调色 | string | No       | Android  | No   |
+| `primaryColor` | 刷新组件 Header 的主调色 | string | No       | Android  | Yes   |
 
 **组件 DefaultHeader/ClassicsHeader**
 
@@ -360,26 +360,26 @@ ohpm install
 
 | Name          | Description                      | Type   | Required  | Platform |  HarmonyOS Support |
 | -------------- | ------------------------ | ------ | -------- | -------- | -------- |
-| `primaryColor` | 刷新组件 Header 的主调色 | string | No       | Android  | No   |
-| `accentColor`  | 刷新组件 Header 的强调色 | string | No       | Android  | No   |
+| `primaryColor` | 刷新组件 Header 的主调色 | string | No       | Android  | Yes   |
+| `accentColor`  | 刷新组件 Header 的强调色 | string | No       | Android  | Yes   |
 
 **组件 StoreHouseHeader**
 
-当前组件不支持
+当前组件支持
 
 | Name       | Description                         | Type    | Required  | Platform |  HarmonyOS Support |
 | ----------- | --------------------------- | ------ | -------- | -------- | -------- |
-| `text`      | StoreHouseHeader 的文字     | string | No       | Android  | No   |
-| `textColor` | StoreHouseHeader 的文字颜色 | string | No       | Android  | No   |
-| `lineWidth` | StoreHouseHeader 的文字线宽 | number | No       | Android  | No   |
+| `text`      | StoreHouseHeader 的文字     | string | No       | Android  | Yes   |
+| `textColor` | StoreHouseHeader 的文字颜色 | string | No       | Android  | Yes   |
+| `lineWidth` | StoreHouseHeader 的文字线宽 | number | No       | Android  | Yes   |
 
 ---
 
 ## 静态方法
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!Tip] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!Tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
@@ -387,7 +387,8 @@ ohpm install
 
 ## 遗留问题
 
-- [ ] SmartRefreshLayout 包裹 FlatList 组件，多次下拉刷新，item 会回弹：[Issue #11 ](https://github.com/react-native-oh-library/react-native-SmartRefreshLayout/issues/11)
+- [X] SmartRefreshLayout 包裹 FlatList 组件，多次下拉刷新，item 会回弹：[Issue #11 ](https://github.com/react-native-oh-library/react-native-SmartRefreshLayout/issues/11)
+- [ ] SmartRefreshLayout 的StoreHouseHeader刷新头，暂不支持透明度的变化：[Issue #45 ](https://github.com/react-native-oh-library/react-native-SmartRefreshLayout/issues/45)
 
 ## 其他
 

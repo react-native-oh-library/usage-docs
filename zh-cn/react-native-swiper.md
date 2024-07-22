@@ -1,14 +1,18 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-swiper</code> </h1>
 </p>
 <p align="center">
+        <a href="https://github.com/leecade/react-native-swiper/blob/master">
+        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
+    </a>
     <a href="https://github.com/leecade/react-native-swiper/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
+
 
 > [!tip] [Github 地址](https://github.com/leecade/react-native-swiper)
 
@@ -86,14 +90,15 @@ export default class SwiperComponent extends Component {
 AppRegistry.registerComponent("myproject", () => SwiperComponent);
 ```
 
+## 约束与限制
+
 ### 兼容性
 
-在下述版本验证通过:
-1.RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
+在以下版本验证通过
 
-2.RNOH：0.72.20; SDK:HarmonyOS NEXT Developer Preview2 B.0.73; IDE：DevEco Studio 5.0.3.29; ROM：205.0.0.18;
+1. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
 
-### 属性
+## 属性
 
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
@@ -101,48 +106,48 @@ AppRegistry.registerComponent("myproject", () => SwiperComponent);
 
 #### basics
 
-| Prop           |     Default     |   Type   | Description                                                                                                 | platform | HarmonyOS Support | remark |
-| :------------- | :-------------: | :------: | :---------------------------------------------------------------------------------------------------------- | -------- | ----------------- | ------ |
-| horizontal     |      true       |  `bool`  | If `true`, the scroll view's children are arranged horizontally in a row instead of vertically in a column. | All      | YES               | --     |
-| loop           |      true       |  `bool`  | Set to `false` to disable continuous loop mode.                                                             | All      | YES               | --     |
-| index          |        0        | `number` | Index number of initial slide.                                                                              | All      | YES               | --     |
-| showsButtons   |      false      |  `bool`  | Set to `true` make control buttons visible.                                                                 | All      | YES               | --     |
-| autoplay       |      false      |  `bool`  | Set to `true` enable auto play mode.                                                                        | All      | YES               | --     |
-| onIndexChanged | (index) => null |  `func`  | Called with the new index when the user swiped                                                              | All      | YES               | --     |
+| Name           | Description                                                  |   Type   |     Default     | platform | HarmonyOS Support |
+| :------------- | ------------------------------------------------------------ | :------: | :-------------: | -------- | ----------------- |
+| horizontal     | If `true`, the scroll view's children are arranged horizontally in a row instead of vertically in a column. |  `bool`  |      true       | All      | YES               |
+| loop           | Set to `false` to disable continuous loop mode.              |  `bool`  |      true       | All      | YES               |
+| index          | Index number of initial slide.                               | `number` |        0        | All      | YES               |
+| showsButtons   | Set to `true` make control buttons visible.                  |  `bool`  |      false      | All      | YES               |
+| autoplay       | Set to `true` enable auto play mode.                         |  `bool`  |      false      | All      | YES               |
+| onIndexChanged | Called with the new index when the user swiped               |  `func`  | (index) => null | All      | YES               |
 
 #### Custom basic style & content
 
-| Prop              |         Default         |   Type    | Description                                                                | platform | HarmonyOS Support | remark |
-| :---------------- | :---------------------: | :-------: | :------------------------------------------------------------------------- | -------- | ----------------- | ------ |
-| width             |            -            | `number`  | If no specify default enable fullscreen mode by `flex: 1`.                 | All      | YES               | --     |
-| height            |            -            | `number`  | If no specify default fullscreen mode by `flex: 1`.                        | All      | YES               | --     |
-| style             |          {...}          |  `style`  | See default style in source.                                               | All      | YES               | --     |
-| containerStyle    |          {...}          |  `style`  | See default container style in source.                                     | All      | YES               | --     |
-| loadMinimal       |          false          |  `bool`   | Only load current index slide , `loadMinimalSize` slides before and after. | All      | YES               | --     |
-| loadMinimalSize   |            1            | `number`  | see `loadMinimal`                                                          | All      | YES               | --     |
-| loadMinimalLoader | `<ActivityIndicator />` | `element` | Custom loader to display when slides aren't loaded                         | All      | YES               | --     |
+| Name              | Description                                                  |   Type    |         Default         | platform | HarmonyOS Support |
+| :---------------- | :----------------------------------------------------------- | :-------: | :---------------------: | -------- | ----------------- |
+| width             | If no specify default enable fullscreen mode by `flex: 1`.   | `number`  |            -            | All      | YES               |
+| height            | If no specify default fullscreen mode by `flex: 1`.          | `number`  |            -            | All      | YES               |
+| style             | See default style in source.                                 |  `style`  |          {...}          | All      | YES               |
+| containerStyle    | See default container style in source.                       |  `style`  |          {...}          | All      | YES               |
+| loadMinimal       | Only load current index slide , `loadMinimalSize` slides before and after. |  `bool`   |          false          | All      | YES               |
+| loadMinimalSize   | see `loadMinimal`                                            | `number`  |            1            | All      | YES               |
+| loadMinimalLoader | Custom loader to display when slides aren't loaded           | `element` | `<ActivityIndicator />` | All      | YES               |
 
 #### Pagination
 
-| Prop             |                                                                          Default                                                                          |    Type    | Description                                                                                                                                                                                   | platform | HarmonyOS Support | remark |
-| :--------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------: | :--------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------------- | ------ |
-| showsPagination  |                                                                           true                                                                            |   `bool`   | Set to `true` make pagination visible.                                                                                                                                                        | All      | YES               | --     |
-| paginationStyle  |                                                                           {...}                                                                           |  `style`   | Custom styles will merge with the default styles.                                                                                                                                             | All      | YES               | --     |
-| renderPagination |                                                                             -                                                                             | `function` | Complete control how to render pagination with three params (`index`, `total`, `context`) ref to `this.state.index` / `this.state.total` / `this`, For example: show numbers instead of dots. | All      | YES               | --     |
-| dot              | `<View style={{backgroundColor:'rgba(0,0,0,.2)', width: 8, height: 8,borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}} />` | `element`  | Allow custom the dot element.                                                                                                                                                                 | All      | YES               | --     |
-| activeDot        |   `<View style={{backgroundColor: '#007aff', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}} />`    | `element`  | Allow custom the active-dot element.                                                                                                                                                          | All      | YES               | --     |
-| dotStyle         |                                                                             -                                                                             |  `object`  | Allow custom the dot element.                                                                                                                                                                 | All      | YES               | --     |
-| dotColor         |                                                                             -                                                                             |  `string`  | Allow custom the dot element.                                                                                                                                                                 | All      | YES               | --     |
-| activeDotColor   |                                                                             -                                                                             |  `string`  | Allow custom the active-dot element.                                                                                                                                                          | All      | YES               | --     |
-| activeDotStyle   |                                                                             -                                                                             |  `object`  | Allow custom the active-dot element.                                                                                                                                                          | All      | YES               | --     |
+| Name             | Description                                                  |    Type    |                           Default                            | platform | HarmonyOS Support |
+| :--------------- | :----------------------------------------------------------- | :--------: | :----------------------------------------------------------: | -------- | ----------------- |
+| showsPagination  | Set to `true` make pagination visible.                       |   `bool`   |                             true                             | All      | YES               |
+| paginationStyle  | Custom styles will merge with the default styles.            |  `style`   |                            {...}                             | All      | YES               |
+| renderPagination | Complete control how to render pagination with three params (`index`, `total`, `context`) ref to `this.state.index` / `this.state.total` / `this`, For example: show numbers instead of dots. | `function` |                              -                               | All      | YES               |
+| dot              | Allow custom the dot element.                                | `element`  | `<View style={{backgroundColor:'rgba(0,0,0,.2)', width: 8, height: 8,borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}} />` | All      | YES               |
+| activeDot        | Allow custom the active-dot element.                         | `element`  | `<View style={{backgroundColor: '#007aff', width: 8, height: 8, borderRadius: 4, marginLeft: 3, marginRight: 3, marginTop: 3, marginBottom: 3,}} />` | All      | YES               |
+| dotStyle         | Allow custom the dot element.                                |  `object`  |                              -                               | All      | YES               |
+| dotColor         | Allow custom the dot element.                                |  `string`  |                              -                               | All      | YES               |
+| activeDotColor   | Allow custom the active-dot element.                         |  `string`  |                              -                               | All      | YES               |
+| activeDotStyle   | Allow custom the active-dot element.                         |  `object`  |                              -                               | All      | YES               |
 
 #### Autoplay
 
-| Prop              | Default |   Type   | Description                                      | platform | HarmonyOS Support | remark |
-| :---------------- | :-----: | :------: | :----------------------------------------------- | -------- | ----------------- | ------ |
-| autoplay          |  true   |  `bool`  | Set to `true` enable auto play mode.             | All      | YES               | --     |
-| autoplayTimeout   |   2.5   | `number` | Delay between auto play transitions (in second). | All      | YES               | --     |
-| autoplayDirection |  true   |  `bool`  | Cycle direction control.                         | All      | YES               | --     |
+| Name              | Description                                      |   Type   | Default | platform | HarmonyOS Support |
+| :---------------- | :----------------------------------------------- | :------: | :-----: | -------- | ----------------- |
+| autoplay          | Set to `true` enable auto play mode.             |  `bool`  |  true   | All      | YES               |
+| autoplayTimeout   | Delay between auto play transitions (in second). | `number` |   2.5   | All      | YES               |
+| autoplayDirection | Cycle direction control.                         |  `bool`  |  true   | All      | YES               |
 
 #### Control buttons
 
@@ -155,37 +160,37 @@ AppRegistry.registerComponent("myproject", () => SwiperComponent);
 
 #### Props of Children
 
-| Prop  |               Default                |   Type    | Description                                                    | platform | HarmonyOS Support | remark |
-| :---- | :----------------------------------: | :-------: | :------------------------------------------------------------- | -------- | ----------------- | ------ |
-| style |                {...}                 |  `style`  | Custom styles will merge with the default styles.              | All      | YES               | --     |
-| title | {<Text numberOfLines={1}>...</Text>} | `element` | If this parameter is not specified, will not render the title. | All      | YES               | --     |
+| Name  | Description                                                  |   Type    |               Default                | platform | HarmonyOS Support |
+| :---- | :----------------------------------------------------------- | :-------: | :----------------------------------: | -------- | ----------------- |
+| style | Custom styles will merge with the default styles.            |  `style`  |                {...}                 | All      | YES               |
+| title | If this parameter is not specified, will not render the title. | `element` | {<Text numberOfLines={1}>...</Text>} | All      | YES               |
 
 #### Basic props of `<ScrollView />`
 
-| Prop                             | Default |  Type  | Description                                                                                                                                                                                                                                     | platform | HarmonyOS Support | remark                                                                             |
-| :------------------------------- | :-----: | :----: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------------- | ---------------------------------------------------------------------------------- |
-| horizontal                       |  true   | `bool` | If `true`, the scroll view's children are arranged horizontally in a row instead of vertically in a column.                                                                                                                                     | All      | YES               | --                                                                                 |
-| pagingEnabled                    |  true   | `bool` | If true, the scroll view stops on multiples of the scroll view's size when scrolling. This can be used for horizontal pagination.                                                                                                               | All      | YES               | --                                                                                 |
-| showsHorizontalScrollIndicator   |  false  | `bool` | Set to `true` if you want to show horizontal scroll bar.                                                                                                                                                                                        | All      | YES               | --                                                                                 |
-| showsVerticalScrollIndicator     |  false  | `bool` | Set to `true` if you want to show vertical scroll bar.                                                                                                                                                                                          | All      | YES               | --                                                                                 |
-| bounces                          |  false  | `bool` | If `true`, the scroll view bounces when it reaches the end of the content if the content is larger then the scroll view along the axis of the scroll direction. If `false`, it disables all bouncing even if the alwaysBounce\* props are true. | All      | YES               | --                                                                                 |
-| scrollsToTop                     |  false  | `bool` | If true, the scroll view scrolls to top when the status bar is tapped.                                                                                                                                                                          | All      | NO                | 组件属性继承RNOH scrollview,当前RNOH中的scrollsToTop暂时不支持                     |
-| removeClippedSubviews            |  true   | `bool` | If true, offscreen child views (whose overflow value is hidden) are removed from their native backing superview when offscreen. This canimprove scrolling performance on long lists.                                                            | All      | NO                | 组件属性继承RNOH scrollview,当前RNOH中的removeClippedSubviews暂时不支持            |
-| automaticallyAdjustContentInsets |  false  | `bool` | Set to `true` if you need adjust content insets automation.                                                                                                                                                                                     | All      | NO                | 组件属性继承RNOH scrollview,当前RNOH中的automaticallyAdjustContentInsets暂时不支持 |
-| scrollEnabled                    |  true   | `bool` | Enables/Disables swiping                                                                                                                                                                                                                        | All      | YES               | --                                                                                 |
+| Name                             | Description                                                  |  Type  | Default | platform | HarmonyOS Support | remark                                                       |
+| :------------------------------- | :----------------------------------------------------------- | :----: | :-----: | -------- | ----------------- | ------------------------------------------------------------ |
+| horizontal                       | If `true`, the scroll view's children are arranged horizontally in a row instead of vertically in a column. | `bool` |  true   | All      | YES               | --                                                           |
+| pagingEnabled                    | If true, the scroll view stops on multiples of the scroll view's size when scrolling. This can be used for horizontal pagination. | `bool` |  true   | All      | YES               | --                                                           |
+| showsHorizontalScrollIndicator   | Set to `true` if you want to show horizontal scroll bar.     | `bool` |  false  | All      | YES               | --                                                           |
+| showsVerticalScrollIndicator     | Set to `true` if you want to show vertical scroll bar.       | `bool` |  false  | All      | YES               | --                                                           |
+| bounces                          | If `true`, the scroll view bounces when it reaches the end of the content if the content is larger then the scroll view along the axis of the scroll direction. If `false`, it disables all bouncing even if the alwaysBounce\* props are true. | `bool` |  false  | All      | YES               | --                                                           |
+| scrollsToTop                     | If true, the scroll view scrolls to top when the status bar is tapped. | `bool` |  false  | All      | NO                | 组件属性继承RNOH scrollview,当前RNOH中的scrollsToTop暂时不支持 |
+| removeClippedSubviews            | If true, offscreen child views (whose overflow value is hidden) are removed from their native backing superview when offscreen. This canimprove scrolling performance on long lists. | `bool` |  true   | All      | NO                | 组件属性继承RNOH scrollview,当前RNOH中的removeClippedSubviews暂时不支持 |
+| automaticallyAdjustContentInsets | Set to `true` if you need adjust content insets automation.  | `bool` |  false  | All      | NO                | 组件属性继承RNOH scrollview,当前RNOH中的automaticallyAdjustContentInsets暂时不支持 |
+| scrollEnabled                    | Enables/Disables swiping                                     | `bool` |  true   | All      | YES               | --                                                           |
 
 > @see: http://facebook.github.io/react-native/docs/scrollview.html
 
 #### Supported ScrollResponder
 
-| Prop                |          Params           |    Type    | Description                                                 | platform | HarmonyOS Support | remark |
-| :------------------ | :-----------------------: | :--------: | :---------------------------------------------------------- | -------- | ----------------- | ------ |
-| onScrollBeginDrag   | `e` / `state` / `context` | `function` | When animation begins after letting up                      | All      | YES               | --     |
-| onMomentumScrollEnd | `e` / `state` / `context` | `function` | Makes no sense why this occurs first during bounce          | All      | YES               | --     |
-| onTouchStartCapture | `e` / `state` / `context` | `function` | Immediately after `onMomentumScrollEnd`                     | All      | YES               | --     |
-| onTouchStart        | `e` / `state` / `context` | `function` | Same, but bubble phase                                      | All      | YES               | --     |
-| onTouchEnd          | `e` / `state` / `context` | `function` | You could hold the touch start for a long time              | All      | YES               | --     |
-| onResponderRelease  | `e` / `state` / `context` | `function` | When lifting up - you could pause forever before \* lifting | All      | YES               | --     |
+| Name                | Description                                                 |    Type    |          Params           | platform | HarmonyOS Support |
+| :------------------ | :---------------------------------------------------------- | :--------: | :-----------------------: | -------- | ----------------- |
+| onScrollBeginDrag   | When animation begins after letting up                      | `function` | `e` / `state` / `context` | All      | YES               |
+| onMomentumScrollEnd | Makes no sense why this occurs first during bounce          | `function` | `e` / `state` / `context` | All      | YES               |
+| onTouchStartCapture | Immediately after `onMomentumScrollEnd`                     | `function` | `e` / `state` / `context` | All      | YES               |
+| onTouchStart        | Same, but bubble phase                                      | `function` | `e` / `state` / `context` | All      | YES               |
+| onTouchEnd          | You could hold the touch start for a long time              | `function` | `e` / `state` / `context` | All      | YES               |
+| onResponderRelease  | When lifting up - you could pause forever before \* lifting | `function` | `e` / `state` / `context` | All      | YES               |
 
 > Note: each ScrollResponder be injected with two params: `state` and `context`, you can get `state` and `context`(ref to swiper's `this`) from params, for example:
 
@@ -205,23 +210,21 @@ var swiper = React.createClass({
 })
 ```
 
-> More ScrollResponder info, see: https://github.com/facebook/react-native/blob/master/Libraries/Components/ScrollResponder.js
-
 ### 方法
 
 #### scrollBy(index, animated)
 
-| Name     |   Type   |   default   | Description  | platform | HarmonyOS Support | remark |
-| :------- | :------: | :---------: | :----------- | -------- | ----------------- | ------ |
-| index    | `number` | `undefined` | offset index | All      | YES               | --     |
-| animated |  `bool`  |   `true`    | offset index | All      | YES               | --     |
+| Name     | Description  |   Type   |   default   | platform | HarmonyOS Support |
+| :------- | :----------- | :------: | :---------: | -------- | ----------------- |
+| index    | offset index | `number` | `undefined` | All      | YES               |
+| animated | offset index |  `bool`  |   `true`    | All      | YES               |
 
 ### 遗留问题
 
 - [ ] 组件属性继承RNOH scrollview,当前RNOH中的scrollsToTop暂时不支持
 - [ ] 组件属性继承RNOH scrollview,当前RNOH中的removeClippedSubviews暂时不支持
 - [ ] 组件属性继承RNOH scrollview,当前RNOH中的automaticallyAdjustContentInsets暂时不支持
-- [ ] 组件轮播图roh版本为0.72.13暂时有不居中问题，在roh版本为0.72.19上解决
+- [ ] 组件轮播图RNOH版本为0.72.13暂时有不居中问题，在RNOH版本为0.72.19上解决
 
 ### 其他
 

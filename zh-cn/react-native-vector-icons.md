@@ -1,12 +1,11 @@
-<!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"><code><a href="https://github.com/oblador/react-native-vector-icons">react-native-vector-icons</a></code> </h1>
 </p>
 <p align="center">
     <a href="https://github.com/oblador/react-native-vector-icons">
-        <img src="https://cloud.githubusercontent.com/assets/378279/12009887/33f4ae1c-ac8d-11e5-8666-7a87458753ee.png" alt="Supported platforms" />
+        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
     <a href="https://github.com/oblador/react-native-vector-icons/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
@@ -36,7 +35,9 @@ yarn add react-native-vector-icons@10.0.3
 
 <!-- tabs:end -->
 
-### 基本使用
+下面的代码展示了这个库的基本使用场景：
+
+> [!WARNING] 使用时 import 的库名不变。
 
 #### 自带字体图标对照网页
 
@@ -72,6 +73,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 ```
 
 ### 外部字体使用
+> [!ATTENTION] 使用外部字体时，请确保entry/src/main/ets/assets/fonts和entry/src/main/resource/rawfile/assets/assets/fonts下同时拥有要使用的ttf文件
 使用外部字体时，不管是用户自己制作的字体文件还是从网站下载的字体文件，都需要有 *.ttf 和 *.json 文件(文件目录不固定，能引用到就可以了)
 
 #### 用户自制字体文件
@@ -81,9 +83,9 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import { createIconSet } from 'react-native-vector-icons';
 
 const CustomTest = createIconSet(
-    require('../assets/fonts/test.json'),
+    require('../assets/fonts/test.json'), // 引入本地assets下的字体资源
     'poppy-icon',
-    '../assets/fonts/test.ttf',
+    '../assets/fonts/test.ttf',  // 引入本地assets下的字体资源
   );
 
 <CustomFont.Button
@@ -104,7 +106,7 @@ import fontelloConfig from '../assets/fonts/config.json';
 const CustomFontello = createIconSetFromFontello(
     fontelloConfig,
     'fontello',
-    '../assets/fonts/fontello.ttf',
+    '../assets/fonts/fontello.ttf', // 引入本地assets下的字体资源
   );
 
 <CustomFontello.Button
@@ -120,12 +122,12 @@ const CustomFontello = createIconSetFromFontello(
 
 ```js
 import { createIconSetFromIcoMoon } from 'react-native-vector-icons';
-import icoMoonConfig from '../assets/fonts/selection.json';
+import icoMoonConfig from '../assets/fonts/selection.json'; // 引入本地assets下的字体资源
 
 const CustomFontIcoMoon = createIconSetFromIcoMoon(
     icoMoonConfig,
     'icomoon',
-    '../assets/fonts/icomoon.ttf',
+    '../assets/fonts/icomoon.ttf', // 引入本地assets下的字体资源
   );
 
 <CustomFontIcoMoon.Button
@@ -168,23 +170,23 @@ export function VectorIconsDemo() {
 
   //引入用户自制字体
   const CustomTest = createIconSet(
-    require('../assets/fonts/test.json'),
+    require('../assets/fonts/test.json'), // 引入本地assets下的字体资源
     'poppy-icon',
-    '../assets/fonts/test.ttf',
+    '../assets/fonts/test.ttf', // 引入本地assets下的字体资源
   );
 
   //引入 IcoMoon 自定义字体
   const CustomIconMoon = createIconSetFromIcoMoon(
     icoMoonConfig,
     'icomoon',
-    '../assets/fonts/icomoon.ttf'
+    '../assets/fonts/icomoon.ttf' // 引入本地assets下的字体资源
   );
 
   //引入 fontello 自定义字体
   const CustomFontello = createIconSetFromFontello(
     fontelloConfig,
     'fontello',
-    '../assets/fonts/fontello.ttf'
+    '../assets/fonts/fontello.ttf' // 引入本地assets下的字体资源
   );
 
   return (
@@ -516,5 +518,3 @@ export function VectorIconsDemo() {
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/oblador/react-native-vector-icons/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

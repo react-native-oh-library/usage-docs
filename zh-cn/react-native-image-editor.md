@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：V0.2.1
+> 模板版本：V0.2.2
 
 <p align="center">
   <h1 align="center"> <code>@react-native-community/image-editor</code> </h1>
@@ -181,6 +181,10 @@ const styles = StyleSheet.create({
 });
 ```
 
+## 使用 Codegen
+
+本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/zh-cn/codegen.md)。
+
 ## Link
 
 目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
@@ -264,9 +268,7 @@ ohpm install
 
 ### 兼容性
 
-本文档内容基于以下版本验证通过：
-
-RNOH：0.72.20; SDK：HarmonyOS-NEXT-DB1; IDE：DevEco Studio 5.0.3.200; ROM：2.0.0.13;
+要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[Releases](https://github.com/react-native-oh-library/react-native-image-editor/releases)
 

@@ -166,6 +166,22 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
+### 在 ArkTs 侧引入 LinearTextGradientPackage
+
+打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+
+```diff
+  ...
++ import {LinearTextGradientPackage} from '@react-native-oh-tpl/react-native-text-gradient/ts';
+
+export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
+  return [
+    new SamplePackage(ctx),
++   new LinearTextGradientPackage(ctx)
+  ];
+}
+```
+
 ### 运行
 
 点击右上角的 `sync` 按钮
@@ -191,18 +207,18 @@ ohpm install
 
 ## 属性
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name            |                                                                           Description                                                               |  Type  | Required | Platform     | HarmonyOS Support  |
 | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------| ------ | -------- | -------------| ------------------ |
-| start           | Coordinates declare the position that the gradient starts at, as a fraction of the overall size of the gradient, starting from the top left corner. | number |   yes    | IOS/Android  |       yes          |
-| end             | Same as start, but for the end of the gradient.                                                                                                     | number |   yes    | IOS/Android  |       yes          |
-| loactions       | An optional array of numbers defining the location of each gradient color stop, mapping to the color with the same index in prop.                   | number[]  |   yes    | IOS/Android  |       yes          |
-| colors          | An array of at least two color values that represent gradient colors.                                                                               | string   |   yes    | IOS/Android  |       yes          |
-| useViewFrame    | Optional. If true gradient will be calculated for text view background frame rather than text frame.                                                | boolean  |   yes    | IOS/Android  |       yes          |
-| useGlobalCache  |  accessing or managing a cache that is available globally throughout the application.                                                               | boolean  |   yes    | IOS/Android  |       yes         |
+| start           | Coordinates declare the position that the gradient starts at, as a fraction of the overall size of the gradient, starting from the top left corner. | number |   yes    | iOS/Android  |       yes          |
+| end             | Same as start, but for the end of the gradient.                                                                                                     | number |   yes    | iOS/Android  |       yes          |
+| loactions       | An optional array of numbers defining the location of each gradient color stop, mapping to the color with the same index in prop.                   | number[]  |   yes    | iOS/Android  |       yes          |
+| colors          | An array of at least two color values that represent gradient colors.                                                                               | string   |   yes    | iOS/Android  |       yes          |
+| useViewFrame    | Optional. If true gradient will be calculated for text view background frame rather than text frame.                                                | boolean  |   yes    | iOS/Android  |       yes          |
+| useGlobalCache  |  accessing or managing a cache that is available globally throughout the application.                                                               | boolean  |   yes    | iOS/Android  |       yes         |
 
 
 ## 遗留问题

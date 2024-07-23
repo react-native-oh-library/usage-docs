@@ -852,10 +852,14 @@ export default class ImageEditAbility extends UIAbility {
       windowInstance.setPreferredOrientation(orientation);
     })
   }
+
+  onBackground() {
+    this.context.terminateSelf();
+  }
 }
 ```
 
-**2.在 entry/src/main/module.json5 注册 ImageEditAbility 并添加 requestPermissions**
+**2.在 entry/src/main/module.json5 注册 ImageEditAbility**
 
 ```
 "ablilities":[{
@@ -865,44 +869,12 @@ export default class ImageEditAbility extends UIAbility {
         "icon": "$media:icon",
         "startWindowIcon": "$media:startIcon",
         "startWindowBackground": "$color:start_window_background",
-        "visible": true,
+        "removeMissionAfterTerminate": true,
 
 }
 ...
 ]
 
-"requestPermissions": [
-      {
-        "name": "ohos.permission.MEDIA_LOCATION",
-        "reason": "$string:reason",
-        "usedScene": {
-          "abilities": [
-            "ImageEditAbility"
-          ],
-          "when": "inuse"
-        }
-      },
-      {
-        "name": "ohos.permission.READ_MEDIA",
-        "reason": "$string:reason",
-        "usedScene": {
-          "abilities": [
-            "ImageEditAbility"
-          ],
-          "when": "inuse"
-        }
-      },
-      {
-        "name": "ohos.permission.WRITE_MEDIA",
-        "reason": "$string:reason",
-        "usedScene": {
-          "abilities": [
-            "ImageEditAbility"
-          ],
-          "when": "inuse"
-        }
-      }
-    ]
 ```
 
 **3.在 entry/src/main/ets/pages 下创建 ImageEdit.ets**
@@ -934,21 +906,6 @@ struct ImageEdit {
   "pages/Index",
   "pages/ImageEdit"
  ]
-}
-```
-
-**5.在 entry 目录下添加申请权限的原因**
-
-打开 `entry/src/main/resources/base/element/string.json`，添加：
-
-```
-{
-  "string": [
-+    {
-+      "name": "reason",
-+      "value": "Access Write Media"
-+    }
-  ]
 }
 ```
 
@@ -1024,17 +981,23 @@ ohpm install
 
 ## API
 
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+
 > [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name        | Description                                                  | Type     | Required | Platform    | HarmonyOS Support |
 | ----------- | ------------------------------------------------------------ | -------- | -------- | ----------- | ----------------- |
-| openPicker  | Call single image picker with cropping                       | function | no       | ios/Android | yes               |
-| clean       | Module is creating tmp images which are going to be cleaned up automatically somewhere in the future. If you want to force cleanup, you can use `clean` to clean all tmp files, or `cleanSingle(path)` to clean single tmp file. | function | no       | ios/Android | yes               |
-| openCropper | Crop image and rotate,                                       | function | no       | ios/Android | yes               |
-| cleanSingle | Delete a single cache file                                   | function | no       | ios/Android | yes               |
-| openCamera  | Select from camera                                           | function | no       | ios/Android | yes               |
+| openPicker  | Call single image picker with cropping                       | function | no       | iOS/Android | yes               |
+| clean       | Module is creating tmp images which are going to be cleaned up automatically somewhere in the future. If you want to force cleanup, you can use `clean` to clean all tmp files, or `cleanSingle(path)` to clean single tmp file. | function | no       | iOS/Android | yes               |
+| openCropper | Crop image and rotate,                                       | function | no       | iOS/Android | yes               |
+| cleanSingle | Delete a single cache file                                   | function | no       | iOS/Android | yes               |
+| openCamera  | Select from camera                                           | function | no       | iOS/Android | yes               |
 
 ## 属性
+
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 **cropData**
 
@@ -1044,41 +1007,41 @@ ohpm install
 | `width`                                   | number                                                       | Width of result image when used with `cropping` option       | no       | All      | yes      |
 | height                                    | number                                                       | Height of result image when used with `cropping` option      | no       | All      | yes      |
 | multiple                                  | bool (default false)                                         | Enable or disable multiple image selection                   | no       | All      | yes      |
-| writeTempFile (ios only)                  | bool (default true)                                          | When set to false, does not write temporary files for the selected images. This is useful to improve performance when you are retrieving file contents with the `includeBase64` option and don't need to read files from disk. | no       | ios      | yes      |
+| writeTempFile (iOS only)               | bool (default true)                                          | When set to false, does not write temporary files for the selected images. This is useful to improve performance when you are retrieving file contents with the `includeBase64` option and don't need to read files from disk. | no       | iOS   | yes      |
 | includeBase64                             | bool (default false)                                         | When set to true, the image file content will be available as a base64-encoded string in the `data` property. Hint: To use this string as an image source, use it like: `<Image source={{uri: `data:image.mime;base64,𝑖𝑚𝑎𝑔𝑒.𝑚𝑖𝑚𝑒;𝑏𝑎𝑠𝑒64,{image.data}`}} />` | no       | All      | yes      |
 | includeExif                               | bool (default false)                                         | Include image exif data in the response                      | no       | All      | yes      |
-| avoidEmptySpaceAroundImage (ios only)     | bool (default true)                                          | When set to true, the image will always fill the mask space. | no       | ios      | no       |
-| cropperActiveWidgetColor (android only)   | string (default `"#424242"`)                                 | When cropping image, determines ActiveWidget color.          | no       | android  | no       |
-| cropperStatusBarColor (android only)      | string (default `#424242`)                                   | When cropping image, determines the color of StatusBar.      | no       | android  | no       |
-| cropperToolbarColor (android only)        | string (default `#424242`)                                   | When cropping image, determines the color of Toolbar.        | no       | android  | no       |
-| cropperToolbarWidgetColor (android only)  | string (default `darker orange`)                             | When cropping image, determines the color of Toolbar text and buttons. | no       | android  | no       |
+| avoidEmptySpaceAroundImage (iOS only)  | bool (default true)                                          | When set to true, the image will always fill the mask space. | no       | iOS   | no       |
+| cropperActiveWidgetColor (Android only) | string (default `"#424242"`)                                 | When cropping image, determines ActiveWidget color.          | no       | Android | no       |
+| cropperStatusBarColor (Android only) | string (default `#424242`)                                   | When cropping image, determines the color of StatusBar.      | no       | Android | no       |
+| cropperToolbarColor (Android only) | string (default `#424242`)                                   | When cropping image, determines the color of Toolbar.        | no       | Android | no       |
+| cropperToolbarWidgetColor (Android only) | string (default `darker orange`)                             | When cropping image, determines the color of Toolbar text and buttons. | no       | Android | no       |
 | freeStyleCropEnabled                      | bool (default false)                                         | Enables user to apply custom rectangle area for cropping     | no       | All      | yes      |
 | cropperToolbarTitle                       | string (default `Edit Photo`)                                | When cropping image, determines the title of Toolbar.        | no       | All      | yes      |
 | cropperCircleOverlay                      | bool (default false)                                         | Enable or disable circular cropping mask.                    | no       | All      | yes      |
-| disableCropperColorSetters (android only) | bool (default false)                                         | When cropping image, disables the color setters for cropping library. | no       | All      | no       |
-| minFiles (ios only)                       | number (default 1)                                           | Min number of files to select when using `multiple` option   | no       | ios      | yes      |
-| maxFiles (ios only)                       | number (default 5)                                           | Max number of files to select when using `multiple` option   | no       | ios      | yes      |
-| waitAnimationEnd (ios only)               | bool (default true)                                          | Promise will resolve/reject once ViewController `completion` block is called | no       | ios      | no       |
-| smartAlbums (ios only)                    | array ([supported values](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Fivpusic%2Freact-native-image-crop-picker%2Fblob%2Fmaster%2FREADME.md%23smart-album-types-ios)) (default ['UserLibrary', 'PhotoStream', 'Panoramas', 'Videos', 'Bursts']) | List of smart albums to choose from                          | no       | ios      | no       |
+| disableCropperColorSetters (Android only) | bool (default false)                                         | When cropping image, disables the color setters for cropping library. | no       | Android | no       |
+| minFiles (iOS only)                    | number (default 1)                                           | Min number of files to select when using `multiple` option   | no       | iOS   | yes      |
+| maxFiles (iOS only)                    | number (default 5)                                           | Max number of files to select when using `multiple` option   | no       | iOS   | yes      |
+| waitAnimationEnd (iOS only)            | bool (default true)                                          | Promise will resolve/reject once ViewController `completion` block is called | no       | iOS   | no       |
+| smartAlbums (iOS only)                 | array ([supported values](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Fivpusic%2Freact-native-image-crop-picker%2Fblob%2Fmaster%2FREADME.md%23smart-album-types-ios)) (default ['UserLibrary', 'PhotoStream', 'Panoramas', 'Videos', 'Bursts']) | List of smart albums to choose from                          | no       | iOS   | no       |
 | useFrontCamera                            | bool (default false)                                         | Whether to default to the front/'selfie' camera when opened. Please note that not all Android devices handle this parameter, see [issue #1058](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Fivpusic%2Freact-native-image-crop-picker%2Fissues%2F1058) | no       | All      | yes      |
-| compressVideoPreset (ios only)            | string (default MediumQuality)                               | Choose which preset will be used for video compression       | no       | ios      | no       |
+| compressVideoPreset (iOS only)         | string (default MediumQuality)                               | Choose which preset will be used for video compression       | no       | iOS   | no       |
 | compressImageMaxWidth                     | number (default none)                                        | Compress image with maximum width                            | no       | All      | yes      |
 | compressImageMaxHeight                    | number (default none)                                        | Compress image with maximum height                           | no       | All      | yes      |
 | compressImageQuality                      | number (default 1 (Android)/0.8 (iOS))                       | Compress image with quality (from 0 to 1, where 1 is best quality). On iOS, values larger than 0.8 don't produce a noticeable quality increase in most images, while a value of 0.8 will reduce the file size by about half or less compared to a value of 1. | no       | All      | yes      |
-| loadingLabelText (ios only)               | string (default "Processing assets...")                      | Text displayed while photo is loading in picker              | no       | ios      | yes      |
+| loadingLabelText (iOS only)            | string (default "Processing assets...")                      | Text displayed while photo is loading in picker              | no       | iOS   | yes      |
 | mediaType                                 | string (default any)                                         | Accepted mediaType for image selection, can be one of: 'photo', 'video', or 'any' | no       | All      | yes      |
-| showsSelectedCount (ios only)             | bool (default true)                                          | Whether to show the number of selected assets                | no       | ios      | yes      |
-| sortOrder (ios only)                      | string (default 'none', supported values: 'asc', 'desc', 'none') | Applies a sort order on the creation date on how media is displayed within the albums/detail photo views when opening the image picker | no       | ios      | no       |
-| forceJpg (ios only)                       | bool (default false)                                         | Whether to convert photos to JPG. This will also convert any Live Photo into its JPG representation | no       | ios      | yes      |
-| showCropGuidelines (android only)         | bool (default true)                                          | Whether to show the 3x3 grid on top of the image during cropping | no       | android  | yes      |
-| showCropFrame (android only)              | bool (default true)                                          | Whether to show crop frame during cropping                   | no       | android  | yes      |
-| hideBottomControls (android only)         | bool (default false)                                         | Whether to display bottom controls                           | no       | android  | no       |
-| enableRotationGesture (android only)      | bool (default false)                                         | Whether to enable rotating the image by hand gesture         | no       | android  | yes      |
-| cropperChooseText (ios only)              | string (default choose)                                      | Choose button text                                           | no       | ios      | yes      |
-| cropperChooseColor (ios only)             | string (default `#FFCC00`)                                   | HEX format color for the Choose button. [Default color is controlled by TOCropViewController](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2FTimOliver%2FTOCropViewController%2Fblob%2Fa942414508012b13102f776eb65dac655f31cabb%2FObjective-C%2FTOCropViewController%2FViews%2FTOCropToolbar.m%23L444). | no       | ios      | yes      |
-| cropperCancelText (ios only)              | string (default Cancel)                                      | Cancel button text                                           | no       | ios      | yes      |
-| cropperCancelColor (ios only)             | string (default tint `iOS` color )                           | HEX format color for the Cancel button. Default value is the default tint iOS color [controlled by TOCropViewController](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2FTimOliver%2FTOCropViewController%2Fblob%2Fa942414508012b13102f776eb65dac655f31cabb%2FObjective-C%2FTOCropViewController%2FViews%2FTOCropToolbar.m%23L433) | no       | ios      | yes      |
-| cropperRotateButtonsHidden (ios only)     | bool (default false)                                         | Enable or disable cropper rotate buttons                     | no       | ios      | yes      |
+| showsSelectedCount (iOS only)          | bool (default true)                                          | Whether to show the number of selected assets                | no       | iOS   | yes      |
+| sortOrder (iOS only)                   | string (default 'none', supported values: 'asc', 'desc', 'none') | Applies a sort order on the creation date on how media is displayed within the albums/detail photo views when opening the image picker | no       | iOS   | no       |
+| forceJpg (iOS only)                    | bool (default false)                                         | Whether to convert photos to JPG. This will also convert any Live Photo into its JPG representation | no       | iOS   | yes      |
+| showCropGuidelines (Android only) | bool (default true)                                          | Whether to show the 3x3 grid on top of the image during cropping | no       | Android | yes      |
+| showCropFrame (Android only)      | bool (default true)                                          | Whether to show crop frame during cropping                   | no       | Android | yes      |
+| hideBottomControls (Android only) | bool (default false)                                         | Whether to display bottom controls                           | no       | Android | no       |
+| enableRotationGesture (Android only) | bool (default false)                                         | Whether to enable rotating the image by hand gesture         | no       | Android | yes      |
+| cropperChooseText (iOS only)           | string (default choose)                                      | Choose button text                                           | no       | iOS   | yes      |
+| cropperChooseColor (iOS only)          | string (default `#FFCC00`)                                   | HEX format color for the Choose button. [Default color is controlled by TOCropViewController](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2FTimOliver%2FTOCropViewController%2Fblob%2Fa942414508012b13102f776eb65dac655f31cabb%2FObjective-C%2FTOCropViewController%2FViews%2FTOCropToolbar.m%23L444). | no       | iOS   | yes      |
+| cropperCancelText (iOS only)           | string (default Cancel)                                      | Cancel button text                                           | no       | iOS   | yes      |
+| cropperCancelColor (iOS only)          | string (default tint `iOS` color )                           | HEX format color for the Cancel button. Default value is the default tint iOS color [controlled by TOCropViewController](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2FTimOliver%2FTOCropViewController%2Fblob%2Fa942414508012b13102f776eb65dac655f31cabb%2FObjective-C%2FTOCropViewController%2FViews%2FTOCropToolbar.m%23L433) | no       | iOS   | yes      |
+| cropperRotateButtonsHidden (iOS only)  | bool (default false)                                         | Enable or disable cropper rotate buttons                     | no       | iOS   | yes      |
 
 ## 遗留问题
 
@@ -1089,9 +1052,9 @@ ohpm install
 - [ ] 裁剪图像时，禁用裁剪库的颜色设置器 [#8](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/8)
 - [ ] 裁剪图像时，确定工具栏文本和按钮的颜色 [#9](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/9)
 - [ ] 调用ViewController“completion”块，Promise将解析/拒绝， HarmonyOS 不支持 [#10](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/10)
-- [ ] Ios支持智能相册列表  [#11](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/11)
-- [ ] Ios视频压缩的预设 [#12](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/12)
-- [ ] Ios智能相册排序  [#13](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/13)
+- [ ] iOS支持智能相册列表  [#11](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/11)
+- [ ] iOS视频压缩的预设 [#12](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/12)
+- [ ] iOS智能相册排序  [#13](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/13)
 - [ ] Android Demo 设置是否显示底部控件 [#14](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/14)
 
 ## 其他

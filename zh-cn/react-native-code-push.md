@@ -71,7 +71,7 @@ yarn add @react-native-oh-tpl/react-native-code-push@file:#
 
 import React, {Component} from 'react'
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native'
-import CodePush from '@react-native-oh-tpl/react-native-code-push';
+import CodePush from 'react-native-code-push';
 class App extends Component<any,any>{
     constructor(props:any) {
         super(props);
@@ -260,92 +260,86 @@ ohpm install
 
 ```diff
 ...
-+ import fs from  "@ohos.file.fs";
 + import common from '@ohos.app.ability.common';
 + let context = getContext(this) as common.UIAbilityContext;
++ import BuildProfile from 'BuildProfile';
++ interface CodePushConfig{
++  Staging:String;
++  Production:String;
++  ServerUrl:String;
++  PublicKey:String;
++ }
 struct Index {
   @StorageLink('RNOHCoreContext') private rnohCoreContext: RNOHCoreContext | undefined = undefined
   @State shouldShow: boolean = false
   private logger!: RNOHLogger
-+ bundlePath:string = 'bunlde.harmony.js'
-+ @State hasBundle:boolean = false
++ bundlePath:string = 'bundle.harmony.js'
 aboutToAppear() {
      ...
-+   this.checkBundleUpdated()
++   this.setCodeConfig()
     this.shouldShow = true
     stopTracing()
   }
-
-+ async downloadBunlde(){
-+    let uint8Array = await context.resourceManager.getRawFileContent('rawfile/bundle.harmony.js');
-+    let rawBuffer = uint8Array.buffer;
-+    const bundlePath = context.filesDir + '/' + this.bundlePath;
-+    let stream = fs.createStreamSync(bundlePath,'w');
-+    stream.writeSync(rawBuffer);
-+    stream.closeSync();
-+    this.hasBundle = true;
++ setCodeConfig(){
++    const CodePushConfig: CodePushConfig = {
++      Staging:BuildProfile.Staging,
++      Production:BuildProfile.Production,
++      ServerUrl:BuildProfile.ServerUrl,
++      PublicKey:BuildProfile.PublicKey
++    }
++    AppStorage.SetOrCreate('CodePushConfig',CodePushConfig)
 +  }
-
-+ checkBundleUpdated():void{
-+    if(context){
-+     const bundlePath = context.filesDir + '/' + this.bundlePath;
-+     try{
-+       const  stat = fs.statSync(bundlePath)
-+       if(stat.size == 0){
-+         this.downloadBunlde()
-+       }else{
-+         this.hasBundle = true
-+       }
-+     } catch (e) {
-+       this.downloadBunlde()
-+     }
-+   }
-+  }
-
 build() {
    Column() {
     ...
-+if(context && this.hasBundle){
     RNApp({
-      ...
-      //替换jsBundleProvider
-+    jsBundleProvider: new FileJSBundleProvider(context.filesDir + '/' + this.bundlePath)
+    jsBundleProvider:new TraceJSBundleProviderDecorator(
+            new AnyJSBundleProvider([
+              new MetroJSBundleProvider(),
+              // NOTE: to load the bundle from file, place it in
+              // `/data/app/el2/100/base/com.rnoh.tester/files/bundle.harmony.js`
+              // on your device. The path mismatch is due to app sandboxing on HarmonyOS
++              new FileJSBundleProvider(context.filesDir + '/' + this.bundlePath),
+              new FileJSBundleProvider('/data/storage/el2/base/files/bundle.harmony.js'),
+              new ResourceJSBundleProvider(this.rnohCoreContext.uiAbilityContext.resourceManager, 'hermes_bundle.hbc'),
+              new ResourceJSBundleProvider(this.rnohCoreContext.uiAbilityContext.resourceManager, 'bundle.harmony.js')
+            ]),
+            this.rnohCoreContext.logger),
     })
-+}else {
-+    Row(){
-+       Text('未加载bundle');
-+   }
-+   .height(100)
-+}
-    }
 
    }
 
 }
 ```
 
-打开`tester/harmony/entry/src/main/resources/base/element/string.json`，添加配置
+打开`tester/harmony/entry/build-profile.json5`，添加配置
 
 ```diff
 {
-  "string": [
-   ...
-+     {
-+       "name": "Staging",
-+       "value": "" //绑定服务平台，返回的测试环境的Key
-+     },
-+     {
-+       "name": "Production",
-+       "value": "" //绑定服务平台，返回的生产环境的Key
-+     },
-+     {
-+       "name": "ServerUrl",
-+       "value": "" //code-push-server服务地址
-+     },
-+     {
-+       "name": "PublicKey",
-+       "value": "PublicKey"
-+     }
+  "apiType": 'stageMode',
+  "buildOption": {
+    "externalNativeOptions": {
+      "path": "./src/main/cpp/CMakeLists.txt",
+      "arguments": "",
+      "cppFlags": "-s",
+    },
++    "arkOptions": {
++      "buildProfileFields": {
++        "Staging": "", //测试环境Key
++        "Production": "",//生产环境Key
++        "ServerUrl": "",//服务端地址
++        "PublicKey": "PublicKey"
+      }
+    }
+  },
+  "targets": [
+    {
+      "name": "default",
+      "runtimeOS": "HarmonyOS"
+    },
+    {
+      "name": "ohosTest",
+    }
   ]
 }
 ```
@@ -362,14 +356,14 @@ build() {
 
 ## API
 
-| Name              | Description                                                                                                                  | Type     | Required | Platform    | HarmonyOS Support |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------- | ----------------- |
+| Name              | Description                                                                                                                  | Type     | Required | Platform                                | HarmonyOS Support |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | --------------------------------------- | ----------------- |
 | sync              | sync方法，自动模式更新                                                                                                                | function | yes      | Android IOS | yes               |
-| getUpdateMetadata | 获取当前已安装更新的元数据(RemotePackage),当使用sync方法时，不需要调用本方法，因为sync会自动调用                                                                 | function | no       | Android IOS | yes               |
-| DownloadProgress  | 下载中的进度回调，当使用sync方法时，不需要调用本方法，因为sync会自动调用                                                                                     | function | no       | Android IOS | yes               |
-| restartApp        | 重启App，当使用sync方法时，不需要调用本方法，因为sync会自动调用                                                                                        | function | no       | Android IOS | yes               |
-| getCurrentPackage | 获取应用版本信息，当使用sync方法时，不需要调用本方法，因为sync会自动调用                                                                                     | function | no       | Android IOS | yes               |
-| getConfiguration  | 获取应用配置信息，appVersion（版本号），deploymentKey（deploymentKey），serverUrl（服务器地址），clientUniqueId（唯一标识码）,当使用sync方法时，不需要调用本方法，因为sync会自动调用 | function | no       | Android IOS | yes               |
+| getUpdateMetadata | 获取当前已安装更新的元数据(RemotePackage),当使用sync方法时，不需要调用本方法，因为sync会自动调用                                                                 | function | no       | Android iOS                             | yes               |
+| DownloadProgress  | 下载中的进度回调，当使用sync方法时，不需要调用本方法，因为sync会自动调用                                                                                     | function | no       | Android iOS                             | yes               |
+| restartApp        | 重启App，当使用sync方法时，不需要调用本方法，因为sync会自动调用                                                                                        | function | no       | Android iOS                             | yes               |
+| getCurrentPackage | 获取应用版本信息，当使用sync方法时，不需要调用本方法，因为sync会自动调用                                                                                     | function | no       | Android iOS                             | yes               |
+| getConfiguration  | 获取应用配置信息，appVersion（版本号），deploymentKey（deploymentKey），serverUrl（服务器地址），clientUniqueId（唯一标识码）,当使用sync方法时，不需要调用本方法，因为sync会自动调用 | function | no       | Android iOS                             | yes               |
 
 **updateDialog**
 
@@ -377,14 +371,14 @@ build() {
 
 | Name                         | Description                                                                      | Type    | Required | Platform    | HarmonyOS Support |
 | ---------------------------- | -------------------------------------------------------------------------------- | ------- | -------- | ----------- | ----------------- |
-| appendReleaseDescription     | 是否显示更新description，默认为false                                                       | boolean | no       | Android IOS | yes               |
-| descriptionPrefix            | 更新说明的前缀。 默认是” Description:                                                       | string  | no       | Android IOS | yes               |
-| mandatoryContinueButtonLabel | 强制更新的按钮文字，默认为continue                                                            | string  | no       | Android IOS | yes               |
-| mandatoryUpdateMessage       | 强制更新时，更新通知. Defaults to “An update is available that must be installed.”         | string  | no       | Android IOS | yes               |
-| optionalIgnoreButtonLabel    | updateDialog非强制更新时，取消按钮文字,默认是ignore                                              | string  | no       | Android IOS | yes               |
-| optionalInstallButtonLabel   | 非强制更新时，确认文字. Defaults to “Install”                                               | string  | no       | Android IOS | yes               |
-| optionalUpdateMessage        | 非强制更新时，更新通知. Defaults to “An update is available. Would you like to install it?” | string  | no       | Android IOS | yes               |
-| title                        | 要显示的更新通知的标题. Defaults to “Update available”.                                     | string  | no       | Android IOS | yes               |
+| appendReleaseDescription     | 是否显示更新description，默认为false                                                       | boolean | no       | Android iOS | yes               |
+| descriptionPrefix            | 更新说明的前缀。 默认是” Description:                                                       | string  | no       | Android iOS | yes               |
+| mandatoryContinueButtonLabel | 强制更新的按钮文字，默认为continue                                                            | string  | no       | Android iOS | yes               |
+| mandatoryUpdateMessage       | 强制更新时，更新通知. Defaults to “An update is available that must be installed.”         | string  | no       | Android iOS | yes               |
+| optionalIgnoreButtonLabel    | updateDialog非强制更新时，取消按钮文字,默认是ignore                                              | string  | no       | Android iOS | yes               |
+| optionalInstallButtonLabel   | 非强制更新时，确认文字. Defaults to “Install”                                               | string  | no       | Android iOS | yes               |
+| optionalUpdateMessage        | 非强制更新时，更新通知. Defaults to “An update is available. Would you like to install it?” | string  | no       | Android iOS | yes               |
+| title                        | 要显示的更新通知的标题. Defaults to “Update available”.                                     | string  | no       | Android iOS | yes               |
 
 **SyncStatus**
 
@@ -392,13 +386,13 @@ build() {
 
 | Name                 | Description                                                         | Type   | Required | Platform    | HarmonyOS Support |
 | -------------------- | ------------------------------------------------------------------- | ------ | -------- | ----------- | ----------------- |
-| UP_TO_DATE           | 值为0，代表应用程序已完全更新到配置的部署,                                              | number | no       | Android IOS | yes               |
-| UPDATE_INSTALLED     | 值为1，已安装可用更新，并将在syncStatusChangedCallback函数返回后立即运行或在下次应用程序恢复/重新启动时运行 | number | no       | Android IOS | yes               |
-| UNKNOWN_ERROR        | 值为3，同步操作发现未知错误                                                      | number | no       | Android IOS | yes               |
-| CHECKING_FOR_UPDATE  | 值为5，正在查询 CodePush 服务器是否有更新                                          | number | no       | Android IOS | yes               |
-| AWAITING_USER_ACTION | 值为6，有更新可用，并向最终用户显示确认对话框。（仅在updateDialog使用时适用）                       | number | no       | Android IOS | yes               |
-| DOWNLOADING_PACKAGE  | 值为7，在从 CodePush 服务器下载可用更新                                           | number | no       | Android IOS | yes               |
-| INSTALLING_UPDATE    | 值为8，已下载可用更新并将安装                                                     | number | no       | Android IOS | yes               |
+| UP_TO_DATE           | 值为0，代表应用程序已完全更新到配置的部署,                                              | number | no       | Android iOS | yes               |
+| UPDATE_INSTALLED     | 值为1，已安装可用更新，并将在syncStatusChangedCallback函数返回后立即运行或在下次应用程序恢复/重新启动时运行 | number | no       | Android iOS | yes               |
+| UNKNOWN_ERROR        | 值为3，同步操作发现未知错误                                                      | number | no       | Android iOS | yes               |
+| CHECKING_FOR_UPDATE  | 值为5，正在查询 CodePush 服务器是否有更新                                          | number | no       | Android iOS | yes               |
+| AWAITING_USER_ACTION | 值为6，有更新可用，并向最终用户显示确认对话框。（仅在updateDialog使用时适用）                       | number | no       | Android iOS | yes               |
+| DOWNLOADING_PACKAGE  | 值为7，在从 CodePush 服务器下载可用更新                                           | number | no       | Android iOS | yes               |
+| INSTALLING_UPDATE    | 值为8，已下载可用更新并将安装                                                     | number | no       | Android iOS | yes               |
 
 
 

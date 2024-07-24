@@ -341,12 +341,8 @@ ReactButton 属性
 | overshootLeft | a boolean value indicating if the swipeable panel can be pulled further than the left actions panel's width. | boolean | All | yes |
 | overshootRight | a boolean value indicating if the swipeable panel can be pulled further than the right actions panel's width. I | boolean | All | yes |
 | overshootFriction | a number that specifies how much the visual interaction will be delayed compared to the gesture distance at overshoot. | number                   | All | yes |
-| onSwipeableLeftOpen | method that is called when left action panel gets open. | function                 | All | yes |
-| onSwipeableRightOpen | method that is called when right action panel gets open. | function | All | yes |
 | onSwipeableOpen | method that is called when action panel gets open | function(direction: 'left' \| 'right', swipeable: Swipeable) | All | yes |
 | onSwipeableClose | method that is called when action panel is closed. | function(direction: 'left' \| 'right', swipeable: Swipeable) | All | yes |
-| onSwipeableLeftWillOpen | alled when left action panel starts animating on open. | function | All | yes |
-| onSwipeableRightWillOpen | Called when right action panel starts animating on open. | function | All | yes |
 | onSwipeableWillOpen | Called when action panel starts animating on open (either right or left). | function((direction: 'left' \| 'right')) | All | yes |
 | onSwipeableWillClose | Called when action panel starts animating on close. | function((direction: 'left' \| 'right')) | All | yes |
 | renderLeftActions | This map describes the values to use as inputRange for extra interpolation: AnimatedValue: [startValue, endValue] | function(progressAnimatedValue: AnimatedInterpolation,<br/>    dragAnimatedValue: AnimatedInterpolation,<br/>    swipeable: Swipeable) | All | yes |
@@ -397,14 +393,6 @@ ReactButton 属性
 | maxPointers                    | When the given number of fingers is placed on the screen and handler hasn't yet activated it will fail recognizing the gesture.                                                             | number  | no       | All      | yes      |
 | activeOffsetX                  | Range along X axis (in points) where fingers travels without activation of handler.                                                                                                         | number  | no       | All      | yes      |
 | activeOffsetY                  | Range along Y axis (in points) where fingers travels without activation of handler.                                                                                                         | number  | no       | All      | yes      |
-| failOffsetY                    | When the finger moves outside this range (in points) along Y axis and handler hasn't yet activated it will fail recognizing the gesture.                                                    | number  | no       | All      | yes      |
-| failOffsetX                    | When the finger moves outside this range (in points) along X axis and handler hasn't yet activated it will fail recognizing the gesture. Range can be given as an array or a single number. | number  | no       | All      | yes      |
-| maxDeltaX                      | This method is deprecated but supported for backward compatibility. Instead of using maxDeltaX={N} you can do failOffsetX={[-N, N]}.                                                        | number  | no       | All      | yes      |
-| maxDeltaY                      | This method is deprecated but supported for backward compatibility. Instead of using maxDeltaY={N} you can do failOffsetY={[-N, N]}.                                                        | number  | no       | All      | yes      |
-| minOffsetX                     | This method is deprecated but supported for backward compatibility. Instead of using minOffsetX={N} you can do activeOffsetX={N}.                                                           | number  | no       | All      | yes      |
-| minOffsetY                     | This method is deprecated but supported for backward compatibility. Instead of using minOffsetY={N} you can do activeOffsetY={N}.                                                           | number  | no       | All      | yes      |
-| minDeltaX                      | This method is deprecated but supported for backward compatibility. Instead of using minDeltaX={N} you can do activeOffsetX={[-N, N]}.                                                      | number  | no       | All      | yes      |
-| minDeltaY                      | This method is deprecated but supported for backward compatibility. Instead of using minDeltaY={N} you can do activeOffsetY={[-N, N]}.                                                      | number  | no       | All      | yes      |
 
 #### PanGestureHandler 事件数据
 

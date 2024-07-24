@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> 模板版本：v0.2.1
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-restart</code> </h1>
@@ -45,24 +44,47 @@ yarn add @react-native-oh-tpl/react-native-restart@file:#
 > [!WARNING] 使用时 import 的库名不变。
 
 ```js
-import { Button, Text, View, Alert } from "react-native";
-import RNRestart from "react-native-restart";
+import {Text, View, StyleSheet} from 'react-native';
+import RNRestart from 'react-native-restart';
 
 export default function RestartDemo() {
   return (
     <View>
       <Text>重启restart</Text>
-      <Button title="重启(restart)" onPress={() => RNRestart.restart()} />
+      <Text style={styles.button} onPress={() => RNRestart.restart()}>
+        重启(restart)
+      </Text>
       <Text>重启Restart</Text>
-      <Button title="重启(Restart)" onPress={() => RNRestart.Restart()} />
+      <Text style={styles.button} onPress={() => RNRestart.Restart()}>
+        重启(Restart)
+      </Text>
+      <Text>上次restart的原因（getReason）</Text>
+      <Text style={styles.button} onPress={() => RNRestart.getReason()}>
+        getReason
+      </Text>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  button: {
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    backgroundColor: 'hsl(193, 95%, 68%)',
+    borderWidth: 2,
+    borderColor: 'hsl(193, 95%, 30%)',
+  },
+});
+
 ```
+
+## 使用 Codegen
+
+本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/zh-cn/codegen.md)。
 
 ## Link
 
-目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+目前HarmonyOS暂不支持 AutoLink，所以 Link 步骤需要手动配置。
 
 首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 ### 在工程根目录的 `oh-package.json5` 添加 overrides字段
@@ -92,7 +114,7 @@ export default function RestartDemo() {
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-   	"@react-native-oh-tpl/react-native-restart": "file:../../node_modules/@react-native-oh-tpl/react-native-restart/harmony/restart.har",
+   	"@react-native-oh-tpl/react-native-restart": "file:../../node_modules/@react-native-oh-tpl/react-native-restart/harmony/rn_restart.har",
   }
 ```
 
@@ -134,29 +156,21 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-restart Releases](https://github.com/react-native-oh-library/react-native-restart/releases)
 
-本文档内容基于以下版本验证通过：
-
-1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Beta1 B.0.18； IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.18;
-
 ## 静态方法
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name                | Description         | Type     | Required | Platform | HarmonyOS Support |
-| ------------------- | ------------------- | -------- | -------- | -------- | ----------------- |
-| restart: () => void | To Restart Your App | Function | No       | All      | YES               |
-| Restart: () => void | To Restart Your App | Function | No       | All      | YES               |
-
+| Name      | Description                       | Type     | Required | Platform | HarmonyOS Support |
+| --------- | --------------------------------- | -------- | -------- | -------- | ----------------- |
+| restart   | restart your react native project | Function | no       | All      | yes               |
+| Restart   | restart your react native project | Function | no       | All      | yes               |
+| getReason | get the cause of the last restart | Function | no       | All      | yes               |
 ## 遗留问题
 
 ## 其他
 
- HarmonyOS 提供的重启方案每隔10s只能调用一次，所以10s内只能调用react-native-restart的`restart`重启一次，期间多次重复调用会抛出error`{ code: 16000064, message: 'Restart too frequently. Try again at least 10s later.' }`。
-
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/avishayil/react-native-restart/blob/master/LICENSE)，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

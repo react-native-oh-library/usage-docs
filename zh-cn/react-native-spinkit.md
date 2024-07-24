@@ -154,7 +154,7 @@ const arkTsComponentNames: Array<string> = [
 + SpinKitView.NAME
   ];
 ```
-### 在 ArkTs 侧引入 xxx Package
+### 在 ArkTs 侧引入 SpinKitPackage Package
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 

@@ -105,12 +105,6 @@ function AMapDemo() {
     onLongPress={(event: ReactNative.NativeSyntheticEvent<LatLng>)=>{
       console.info("AMapViewEventType map3d demo longevent===" + event.nativeEvent.latitude + "===" + event.nativeEvent.longitude)
     }}
-    onCameraMove={(event: ReactNative.NativeSyntheticEvent<CameraPosition>)=>{
-      console.info("AMapViewEventType map3d demo " + event.nativeEvent.target?.latitude + "===" + event.nativeEvent.target?.longitude)
-    }}
-    onCameraIdle={(event: ReactNative.NativeSyntheticEvent<CameraPosition>)=>{
-      console.info("AMapViewEventType map3d demo " + event.nativeEvent.target?.latitude + "===" + event.nativeEvent.target?.longitude)
-    }}
     onLoad={(event: ReactNative.NativeSyntheticEvent<voidEvent>) => {
       Alert.alert("onLoad successful")
     }}
@@ -122,33 +116,15 @@ function AMapDemo() {
       radius={500}
       center={{ latitude: 39.906901, longitude: 116.397972 }}
     />
-    <Circle
-      strokeWidth={10}
-      strokeColor="rgba(22, 69, 55, 0.5)"
-      fillColor="rgba(36, 21, 36, 0.5)"
-      radius={500}
-      center={{ latitude: 39.966901, longitude: 116.397972 }}
-    />
     <Polygon
       strokeWidth={5}
       strokeColor="rgba(0, 0, 255, 0.5)"
       fillColor="rgba(255, 0, 0, 0.5)"
       points={points}
     />
-    <Polygon
-      strokeWidth={10}
-      strokeColor="rgba(95, 36, 202, 0.5)"
-      fillColor="rgba(255, 235, 123, 0.5)"
-      points={points2}
-    />
     <Polyline width={100}  color="rgba(0, 255, 0, 0.5)" points={line1} onPress={() => { console.info("AMapViewEventType map3d polyline onPress width 200")}} />
-    <Polyline
-      width={100}
-      colors={["#f44336", "#4caf50", "#00ff23"]}
-      points={line3}
-    />
     <Marker
-      draggable
+      draggable={true}
       position={{ latitude: 39.806901, longitude: 116.397972 }}
       onPress={() => Alert.alert("onPress")}
       onDragEnd={({ nativeEvent }) =>
@@ -168,10 +144,6 @@ const styles = StyleSheet.create({
 });
 export default AMapDemo;
 ```
-
-## 使用 Codegen
-
-本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/zh-cn/codegen.md)。
 
 ## Link
 
@@ -361,6 +333,7 @@ const arkTsComponentNames: Array<string> = [
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
+
 ```diff  
   ... 
 + import {MapViewPackage} from '@react-native-oh-tpl/react-native-amap3d/ts';
@@ -404,11 +377,11 @@ ohpm install
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
 | mapType  | 地图类型         | int  | yes | iOS      | yes |
 | initialCameraPosition  | 初始状态         | CameraPosition  | yes | iOS      | yes |
-| myLocationEnabled  | 是否显示当前定位         | boolean  | yes | iOS      | yes |
+| myLocationEnabled  | 是否显示当前定位         | boolean  | yes | iOS      | no |
 | indoorViewEnabled  | 是否显示室内地图         | boolean  | yes | iOS      | no |
 | buildingsEnabled  | 是否显示3D建筑         | boolean  | yes | iOS      | yes |
 | labelsEnabled  | 是否显示标注         | boolean  | yes | iOS      | yes |
-| compassEnabled  | 是否显示指南针         | boolean  | yes | iOS      | yes |
+| compassEnabled  | 是否显示指南针         | boolean  | yes | iOS      | no |
 | zoomControlsEnabled  | 是否显示放大缩小按钮         | boolean  | yes | iOS      | yes |
 | scaleControlsEnabled  | 是否显示比例尺         | boolean  | yes | iOS      | yes |
 | trafficEnabled  | 是否显示路况         | boolean  | yes | iOS      | yes |
@@ -418,7 +391,7 @@ ohpm install
 | scrollGesturesEnabled  | 是否启用滑动手势，用于平移         | boolean  | yes | iOS      | yes |
 | rotateGesturesEnabled  | 是否启用旋转手势，用于调整方向         | boolean  | yes | iOS      | yes |
 | tiltGesturesEnabled  | 是否启用倾斜手势，用于改变视角         | boolean  | yes | iOS      | yes |
-| distanceFilter  | 设定定位的最小更新距离         | float  | yes | iOS      | yes|
+| distanceFilter  | 设定定位的最小更新距离         | float  | yes | iOS      | no|
 | headingFilter  | 设定最小更新角度，默认为 1 度         | float  | yes | iOS      | no |
 
 ### Circle
@@ -513,10 +486,15 @@ ohpm install
 - [ ] getVersion：hramony暂不支持: [issue#17](https://github.com/react-native-oh-library/react-native-amap3d/issues/17)
 ### MapView
 - [ ] indoorViewEnabled：高德SDK暂不支持: [issue#6](https://github.com/react-native-oh-library/react-native-amap3d/issues/6)
+- [ ] compassEnabled：高德SDK暂不支持: [issue#7](https://github.com/react-native-oh-library/react-native-amap3d/issues/7)
+- [ ] myLocationEnabled：高德SDK暂不支持: [issue#29](https://github.com/react-native-oh-library/react-native-amap3d/issues/29)
 - [ ] distanceFilter：高德SDK暂不支持: [issue#11](https://github.com/react-native-oh-library/react-native-amap3d/issues/11)
+- [X] zoomControlsEnabled：高德SDK暂不支持: [issue#8](https://github.com/react-native-oh-library/react-native-amap3d/issues/8)
+- [X] scaleControlsEnabled：高德SDK暂不支持: [issue#9](https://github.com/react-native-oh-library/react-native-amap3d/issues/9)
 - [ ] headingFilter：高德SDK暂不支持: [issue#12](https://github.com/react-native-oh-library/react-native-amap3d/issues/12)
 - [ ] onCameraMove: 高德SDK暂不支持： [issue#14](https://github.com/react-native-oh-library/react-native-amap3d/issues/14)
 - [ ] onCameraIdle: 高德SDK暂不支持: [issue#15](https://github.com/react-native-oh-library/react-native-amap3d/issues/15)
+- [X] onPressPoi：高德SDK暂不支持: [issue#13](https://github.com/react-native-oh-library/react-native-amap3d/issues/13)
 - [ ] onLocation：高德SDK暂不支持: [issue#10](https://github.com/react-native-oh-library/react-native-amap3d/issues/10)
 - [ ] onCallback：高德SDK部分支持: [issue#21](https://github.com/react-native-oh-library/react-native-amap3d/issues/21)
 - [ ] moveCamera：harmony暂不支持: [issue#19](https://github.com/react-native-oh-library/react-native-amap3d/issues/19)

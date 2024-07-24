@@ -1,14 +1,19 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-popup-menu</code> </h1>
 </p>
 <p align="center">
+        <a href="https://github.com/instea/react-native-popup-menu/blob/master">
+        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
+    </a>
     <a href="https://github.com/instea/react-native-popup-menu/blob/master/LICENSE">
-        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
+        <img src="https://img.shields.io/badge/license-ISC-green.svg" alt="License" />
     </a>
 </p>
+
+
 
 > [!TIP] [Github 地址](https://github.com/instea/react-native-popup-menu)
 
@@ -73,7 +78,9 @@ export const YourComponent = () => (
 );
 ```
 
-## 兼容性
+## 约束与限制
+
+### 兼容性
 
 在以下版本验证通过
 
@@ -81,9 +88,11 @@ export const YourComponent = () => (
 
 ## 属性
 
-详情见[react-native-popup-menu](https://github.com/instea/react-native-popup-menu/blob/master/doc/api.md)
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
-## 组件
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+详情见[react-native-popup-menu](https://github.com/instea/react-native-popup-menu/blob/master/doc/api.md)
 
 #### MenuProvider
 
@@ -147,6 +156,6 @@ export const YourComponent = () => (
 
 ## 开源协议
 
-本项目基于 [MIT License](https://github.com/instea/react-native-popup-menu/blob/master/LICENSE) ，请自由地享受和参与开源。
+本项目基于 [The ISC License (ISC)](https://github.com/instea/react-native-popup-menu/blob/master/LICENSE) ，请自由地享受和参与开源。
 
 <!-- {% endraw %} -->

@@ -44,35 +44,37 @@ yarn add @react-native-oh-tpl/react-native-color-matrix-image-filters@file:#
 > [!WARNING] 使用时 import 的库名不变。
 
 ```js
-import { Image } from 'react-native'
 import {
-  Grayscale,
-  Sepia,
-  Tint,
-  ColorMatrix,
-  concatColorMatrices,
-  invert,
-  contrast,
-  saturate
-} from 'react-native-color-matrix-image-filters'
+    Achromatomaly,
+    Achromatopsia,
+    Brightness
+} from 'react-native-color-matrix-image-filters';
 
-const GrayscaledImage = (imageProps) => (
-  <Grayscale>
-    <Image {...imageProps} />
-  </Grayscale>
-)
+import { View, StyleSheet, Image } from 'react-native';
 
-const CombinedFiltersImage = (imageProps) => (
-  <ColorMatrix matrix={concatColorMatrices(sepia(), tint(1.25))}>
-    <Image {...imageProps} />
-  </ColorMatrix>
-)
+export const ColorMatrixImageFiltersTest = () => {
 
-const ColorMatrixImage = (imageProps) => (
-  <ColorMatrix matrix={concatColorMatrices(saturate(-0.9), contrast(5.2), invert())}>
-    <Image {...imageProps} />
-  </ColorMatrix>
-)
+    return (<View>
+        <Achromatomaly>
+            <Image style={styles.image} source={require('./mini-parrot.jpg')} resizeMode={'stretch'} />
+        </Achromatomaly>
+        <Achromatopsia>
+            <Image style={styles.image} source={require('./mini-parrot.jpg')} resizeMode={'stretch'} />
+        </Achromatopsia>
+        <Brightness>
+            <Image style={styles.image} source={require('./mini-parrot.jpg')} resizeMode={'stretch'} />
+        </Brightness>
+    </View>)
+}
+
+const styles = StyleSheet.create({
+    image: {
+        width: 150,
+        height: 100,
+        justifyContent: 'center',
+        alignItems: 'center'
+    }
+})
 ```
 
 ## Link
@@ -230,13 +232,13 @@ ohpm install
 
 ## 属性
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| matrix  | Matrix parameter transfer for image filter settings         | number[]  | yes | ios，android      | yes |
+| matrix  | Matrix parameter transfer for image filter settings         | number[]  | yes | iOS/Android      | yes |
 
 
 ### Supported filters

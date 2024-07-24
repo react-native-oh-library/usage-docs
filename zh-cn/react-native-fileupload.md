@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.2.1
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-fileupload</code> </h1>
@@ -44,33 +44,55 @@ yarn add @react-native-oh-tpl/react-native-fileupload@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
+此库需要在entry模块下的module.json下加入：
+
+```json
+"requestPermissions": [ 
+  { 
+    "name": "ohos.permission.INTERNET", 
+  }
+]
+```
+
 ```tsx
 import React, {Component} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import FileUpload from 'react-native-fileupload';
+import Toast from 'react-native-toast';
 
 export default class FileUploadDemo extends Component {
 
   componentDidMount () {
     var obj = {
-        uploadUrl: 'http://47.108.234.230:9990/upload',
-        method: 'POST',
+        uploadUrl: 'http://1.2.27.230:9990/upload',// The real server Url
+        method: 'POST', // default 'POST',support 'POST' and 'PUT'
         headers: {
           
           'Content-Type': 'multipart/form-data',
         },
+        fields: {
+            name: 'hello',value: 'world',
+        },
         files: [
           {
-            name: 'file',
+            name: 'file',// optional
             filename: 'assets_placeholder2000x2000.jpg',
-            filetype: 'jpg',
+            filepath: '/xxx/assets_placeholder2000x2000.jpg',// The real server filepath
+            filetype: 'jpg',// optional
+          },
+          {
+            name: 'one', // optional
+            filename: 'one.w4a',
+            filepath: '/xxx/one.w4a', // The real server filepath
+            filetype: 'audio/x-m4a',// optional
           },
         ]
     };
-    FileUpload.upload(obj).then((result)=>{
-      console.log("fileUplodae successfully!",result);
-    },(error)=>{
-      console.log("fileUplodae fail!",error);
+    FileUpload.upload(obj, function(err,result) {
+      console.log("upload",err,result);
+      if(err || result) {
+        Toast.showShortCenter(err + result)
+      }
     })
   }
   render() {
@@ -98,6 +120,10 @@ let styles = StyleSheet.create({
   },
 });
 ```
+
+## 使用 Codegen
+
+本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/zh-cn/codegen.md)。
 
 ## Link
 
@@ -187,17 +213,20 @@ ohpm install
 
 ## API
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
 | upload | File upload  | `Promise<string>`  | yes | iOS/Android  | yes     |
+
+## 遗留问题
 
 ## 其他
 
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/PhilippKrone/react-native-fileupload/blob/master/LICENSE) ，请自由地享受和参与开源。
+
 <!-- {% endraw %} -->

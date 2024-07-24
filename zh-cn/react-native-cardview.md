@@ -242,20 +242,23 @@ ohpm install
 
 ## 属性
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+  cardview组件接收所有[React Native Text](https://reactnative.dev/docs/text)组件的Props。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| cornerRadius       | An attribute to set the elevation of the card.                                          | number | No       | All      | yes               |
-| cardElevation       | An attribute to support shadow on pre-lollipop device in android.                 | number | No       | All      | yes               |
-| cardMaxElevation    | An attribute to set the radius of the card.                                               | number | No       | All      | yes               |
-| useCompatPadding     | CardView adds additional padding to draw shadows on platforms before Lollipop.         | boolean | No       | All      | yes               |
-| cornerOverlap        | On pre-Lollipop platforms, CardView does not clip the bounds of the Card for the rounded corners. | boolean | No   | All  | yes               |
-| backgroundColor      | The background color of the card.                                                          | number | No       | All      | yes               |
+| cornerRadius       | An attribute to set the elevation of the card.                                          | number | No       | iOS/Android      | yes               |
+| cardElevation       | An attribute to support shadow on pre-lollipop device in android.                 | number | No       | iOS/Android      | yes               |
+| cardMaxElevation    | An attribute to set the radius of the card.                                               | number | No       | Android      | yes               |
+| useCompatPadding     | CardView adds additional padding to draw shadows on platforms before Lollipop.         | boolean | No       | Android       | no                |
+| cornerOverlap        | On pre-Lollipop platforms, CardView does not clip the bounds of the Card for the rounded corners. | boolean | No   | Android   | no               |
 
 ## 遗留问题
+
+- [ ] cornerRadius和cardElevation属性同时调用的时会导致阴影不显示: [#issues14](https://github.com/react-native-oh-library/react-native-cardview/issues/14)
 
 ## 其他
 

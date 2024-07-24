@@ -24,13 +24,13 @@
 #### **npm**
 
 ```bash
-$ npm install --save react-native-autocomplete-input@5.4.0
+npm install --save react-native-autocomplete-input@5.4.0
 ```
 
 #### **yarn**
 
 ```bash
-$ yarn add react-native-autocomplete-input@5.4.0
+yarn add react-native-autocomplete-input@5.4.0
 ```
 
 <!-- tabs:end -->

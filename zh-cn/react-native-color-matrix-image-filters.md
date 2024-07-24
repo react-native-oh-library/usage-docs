@@ -165,7 +165,7 @@ add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
 # RNOH_BEGIN: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/react-native-color-matrix-image-filters/src/main/cpp" ./color_matrix_image_filters)
++ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/react-native-color-matrix-image-filters/src/main/cpp" ./color_matrix_image_filters)
 # RNOH_END: manual_package_linking_1
 
 file(GLOB GENERATED_CPP_FILES "./generated/*.cpp")
@@ -224,11 +224,6 @@ ohpm install
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-color-matrix-image-filters Releases](https://github.com/react-native-oh-library/react-native-color-matrix-image-filters/releases)
 
-本文档内容基于以下版本验证通过：
-
-1. RNOH: 0.72.20; SDK: HarmonyOS NEXT Developer Preview2; IDE: DevEco Studio 4.1.3.600; ROM: 3.0.0.19;
-2. RNOH: 0.72.20; SDK: HarmonyOS NEXT Developer Preview2; IDE: DevEco Studio 5.0.3.29; ROM: 3.0.0.19;
-
 
 ## 属性
 
@@ -284,7 +279,6 @@ ohpm install
 
 
 ## 遗留问题
- 无
 
 ## 其他
 

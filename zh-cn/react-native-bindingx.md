@@ -45,82 +45,115 @@ yarn add @react-native-oh-tpl/react-native-bindingx@file:#
 > [!WARNING] 使用时 import 的库名不变。
 
 ```js
-import bindingx from 'react-native-bindingx'    
+import React, {Component} from 'react';
+import {
+  StyleSheet,
+  View,
+  Text,
+  findNodeHandle,
+  TouchableHighlight,
+  PanResponder
+} from 'react-native';
 
+import bindingx from 'react-native-bindingx';
 
-onBind() {
+export default class App extends Component {
 
-        let anchor = findNodeHandle(this.refs._anchor);
-        this._token = bindingx.bind({
-            eventType: 'orientation',
-            options: {
-                sceneType: '2d'
-            },
-            props: [
-                {
-                    element: anchor,
-                    property: 'transform.translateX',
-                    expression: 'x+0'
-                },
-                {
-                    element: anchor,
-                    property: 'transform.translateY',
-                    expression: 'y+0'
-                }
-            ]
-        });
+  _panResponder = PanResponder.create({
+    onStartShouldSetPanResponder: (evt, gestureState) => true,
+    onPanResponderGrant: (evt, gestureState) => {
+      this.onBind();
     }
+  });
 
-    onUnBind() {
-        bindingx.unbind({
-            token:this._token,
-            eventType: 'orientation'
-        });
+  _x = 0;
+  _y = 0;
+
+  componentDidMount() {
+    let anchor = findNodeHandle(this.refs._anchor);
+    bindingx.prepare({
+      eventType: 'pan',
+      anchor: anchor
+    });
+  }
+
+  onPanEnd = (e) => {
+    if (e.state === 'end') {
+      this._x += e.deltaX;
+      this._y += e.deltaY;
     }
+  }
 
+  onBind() {
 
-render() {
-        return (
-            <View style={styles.container}>
+    let expression_x_origin = "x+" + this._x;
 
-                <TouchableHighlight
-                    onPress={() => { this.onBind() }}
-                    style={styles.button}
-                >
-                    <Text style={styles.text}>Bind</Text>
-                </TouchableHighlight>
+    let expression_y_origin = "y+" + this._y;
 
-                <TouchableHighlight
-                    onPress={() => { this.onUnBind() }}
-                    style={styles.button}
-                >
-                    <Text style={styles.text}>Unbind</Text>
-                </TouchableHighlight>
+    let anchor = findNodeHandle(this.refs._anchor);
+    let token = bindingx.bind({
+      eventType: 'pan',
+      anchor: anchor,
+      props: [
+        {
+          element: anchor,
+          property: 'transform.translateX',
+          expression: expression_x_origin
+        },
+        {
+          element: anchor,
+          property: 'transform.translateY',
+          expression: expression_y_origin
+        }
+      ]
+    },this.onPanEnd);
+  }
 
-                <View style={{
-                    width: 240,
-                    height: 240,
-                    backgroundColor: '#0000ff',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    marginTop: 20,
-                    marginLeft: 80
-                }}>
-                    <Animated.View ref="_anchor"
-                        style={{
-                            width: 100,
-                            height: 100,
-                            backgroundColor: '#00ff00',
-                            justifyContent: 'center',
-                            alignItems: 'center'
-                        }}>
-                            <Text style={styles.text}>Target</Text>
-                    </Animated.View>
-                </View>
+  render() {
+    return (
+      <View style={styles.container}>
+        <View
+          ref="_anchor"
+          style={styles.anchor}
+          {...this._panResponder.panHandlers}
+        />
 
-            </View>
-        );
-    }
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#F5FCFF',
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 10,
+  },
+  text: {
+    textAlign: 'center',
+    color: '#ffffff',
+  },
+  wrapper: {
+    backgroundColor: '#0000ff',
+    height: 48,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  margin: {
+    marginTop: 20
+  },
+  anchor: {
+    width: 80,
+    height: 80,
+    backgroundColor: '#ff0000',
+    marginTop: 48
+  }
+});
+
 ```
 
 ## Link
@@ -273,17 +306,17 @@ ohpm install
 
 ## API
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name              | Description                                                                                                                                                                   | Type            | Required | Platform        | HarmonyOS Support  |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- | -------- | ----------------| ------------------ |
-| bind              | Build a specific event type of binding instance. When the event is triggered, corresponding expression will be executed and touch off transform in specified element.         | string          | yes      | IOS/Android     |      yes           |
-| unbind            | unbind specified binding instance.                                                                                                                                            | void            | yes      | IOS/Android     |      yes           |
-| unbindAll         | unbind all binding instance                                                                                                                                                   | void            | yes      | IOS/Android     |      yes           |
-| prepare           | launch bind. This method is only useful for pan type binding.                                                                                                                 | void            | yes      | IOS/Android     |      yes           |
-| getComputedStyle  | get styles of specified view.                                                                                                                                                 | Promise<string> | yes      | IOS/Android     |      yes           |
+| bind              | Build a specific event type of binding instance. When the event is triggered, corresponding expression will be executed and touch off transform in specified element.         | string          | yes      | iOS/Android     |      yes           |
+| unbind            | unbind specified binding instance.                                                                                                                                            | void            | yes      | iOS/Android     |      yes           |
+| unbindAll         | unbind all binding instance                                                                                                                                                   | void            | yes      | iOS/Android     |      yes           |
+| prepare           | launch bind. This method is only useful for pan type binding.                                                                                                                 | void            | yes      | iOS/Android     |      yes           |
+| getComputedStyle  | get styles of specified view.                                                                                                                                                 | Promise<string> | yes      | iOS/Android     |      yes           |
 
 ## 遗留问题
 

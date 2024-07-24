@@ -134,7 +134,7 @@ export default class ScrollToAndOnScrollExample extends React.Component {
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/react-native-spring-scrollview": "file:../../node_modules/@react-native-oh-tpl/react-native-spring-scrollview/harmony/spring-scrollview.har",
+    "@react-native-oh-tpl/react-native-spring-scrollview": "file:../../node_modules/@react-native-oh-tpl/react-native-spring-scrollview/harmony/spring_scrollview.har",
   }
 ```
 
@@ -173,7 +173,7 @@ add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
 # RNOH_BEGIN: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/react-native-spring-scrollview/src/main/cpp" ./spring-scrollview)
++ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/react-native-spring-scrollview/src/main/cpp" ./spring_scrollview)
 # RNOH_END: manual_package_linking_1
 
 file(GLOB GENERATED_CPP_FILES "./generated/*.cpp")
@@ -256,9 +256,9 @@ ohpm install
 
 ## 属性
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |

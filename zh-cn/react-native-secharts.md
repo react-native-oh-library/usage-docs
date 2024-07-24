@@ -1,5 +1,3 @@
-<!-- {% raw %} -->
-
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -119,6 +117,8 @@ const styles = StyleSheet.create({
 
 ## Link
 
+> [!tip] 本库依赖的@react-native-oh-tpl/react-native-webview 使用的版本为 13.10.2-0.2.0
+
 本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-webview 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
 
 如未引入请参照[@react-native-oh-tpl/react-native-webview 文档的 Link 章节](/zh-cn/react-native-webview.md)进行引入
@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
 
 本文档内容基于以下版本验证通过：
 
-1. RNOH：0.72.26; SDK：HarmonyOS NEXT Developer Beta1；IDE：DevEco Studio 5.0.3.300; ROM：3.0.0.24;
+1. RNOH：0.72.27; SDK：HarmonyOS NEXT Developer Beta1 5.0.0.25；IDE：DevEco Studio 5.0.3.400SP7; ROM：3.0.0.25;
 
 ## 属性
 
@@ -137,14 +137,14 @@ const styles = StyleSheet.create({
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Prop              | Description                                                  | Type     | Required | Platform | HarmonyOS Support |
-| ----------------- | ------------------------------------------------------------ | -------- | -------- | -------- | ----------------- |
-| `option`          | echarts 配置项，option详情参见 https://echarts.apache.org/zh/option.html#title | object   | yes      | All      | yes               |
-| `backgroundColor` | 图表画布背景色                                               | string   | no       | All      | yes               |
-| `width`           | 画布宽度                                                     | number   | no       | All      | yes               |
-| `height`          | 画布高度                                                     | number   | no       | All      | yes               |
+| Name              | Description                                                                                                                            | Type     | Required | Platform | HarmonyOS Support |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | ----------------- |
+| `option`          | echarts 配置项，option 详情参见 https://echarts.apache.org/zh/option.html#title                                                        | object   | yes      | All      | yes               |
+| `backgroundColor` | 图表画布背景色                                                                                                                         | string   | no       | All      | yes               |
+| `width`           | 画布宽度                                                                                                                               | number   | no       | All      | yes               |
+| `height`          | 画布高度                                                                                                                               | number   | no       | All      | yes               |
 | `renderLoading`   | loading 时遮罩，默认不支持自定义，如需自定义，请修改 react-native-secharts 依赖的源码 main/dist/index.js 中 startInLoadingState={true} | function | no       | All      | yes               |
-| `onPress`         | 画布中数据点击事件                                           | function | no       | All      | yes               |
+| `onPress`         | 画布中数据点击事件                                                                                                                     | function | no       | All      | yes               |
 
 ## 实例方法
 
@@ -152,19 +152,20 @@ const styles = StyleSheet.create({
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Prop        | Description                                                  | Type     | Required | Platform | HarmonyOS Support |
-| ----------- | ------------------------------------------------------------ | -------- | -------- | -------- | ----------------- |
-| `setOption` | 该参数接收option对象，1.5.0 之后版本的 react-native-secharts 不建议使用此方法了，可以直接用 react 的组件内 state 进行绑定，如果需要变更，直接 setstate 新的 option 即可。） | function | no       | All      | yes               |
-| `getImage`  | 返回函数的参数 base64，可结合 RNFS 写入相册                  | function | no       | All      | yes               |
-| `clear`     | 清空 echarts 画布                                            | function | no       | All      | yes               |
+| Prop        | Description                                                                                                                                                                   | Type     | Required | Platform | HarmonyOS Support |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | ----------------- |
+| `setOption` | 该参数接收 option 对象，1.5.0 之后版本的 react-native-secharts 不建议使用此方法了，可以直接用 react 的组件内 state 进行绑定，如果需要变更，直接 setstate 新的 option 即可。） | function | no       | All      | yes               |
+| `getImage`  | 返回函数的参数 base64，可结合 RNFS 写入相册                                                                                                                                   | function | no       | All      | yes               |
+| `clear`     | 清空 echarts 画布                                                                                                                                                             | function | no       | All      | yes               |
 
 ## 遗留问题
 
 ## 其他
 
+renderLoading 属性在 Android 和 iOS 设置之后不生效，HarmonyOS 与 Android,iOS 表现一致。 [issue#109](https://github.com/shifeng1993/react-native-secharts/issues/109)
+
+原库使用了在线 CDN，Echarts 组件需在网络支持下才能正常展示，HarmonyOS 与 Android,iOS 表现一致。 [issue#79](https://github.com/shifeng1993/react-native-secharts/issues/79)
+
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/shifeng1993/react-native-secharts/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->
-

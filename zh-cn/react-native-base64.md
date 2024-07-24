@@ -1,16 +1,18 @@
-<!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-base64</code> </h1>
 </p>
 <p align="center">
+    <a href="https://github.com/eranbo/react-native-base64">
+        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
+    </a>
     <a href="https://github.com/eranbo/react-native-base64/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/eranbo/react-native-base64)
+> [!TIP] [Github 地址](https://github.com/eranbo/react-native-base64)
 
 ## 安装与使用
 
@@ -22,14 +24,19 @@
 
 ```bash
 npm i react-native-base64@0.2.1
+```
 
-// typescript 项目需下载对应包的类型声明
-npm i @types/react-native-base64 -D
+#### **yarn**
+
+```bash
+yarn add react-native-base64@0.2.1
 ```
 
 <!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：
+
+> [!WARNING] 使用时 import 的库名不变。
 
 ```js
 import React, { useState } from 'react';
@@ -70,7 +77,6 @@ export function Base64Page(): JSX.Element {
    };
 
   return (
-    <>
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
@@ -90,7 +96,6 @@ export function Base64Page(): JSX.Element {
           </View>
         </View>
       </ScrollView>
-    </>
   );
 
 }
@@ -105,20 +110,25 @@ const styles = StyleSheet.create({
 
 ```
 
-## 兼容性
+## 约束与限制
+
+### 兼容性
 
 在以下版本验证通过：
 
-1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
-2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
+1. RNOH：0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.29(SP1); IDE：DevEco Studio 5.0.3.400; ROM：3.0.0.25;
 
-### base64 提供的方法:
+## 静态方法:
 
-| Name                | Description            | Type       | Required | HarmonyOS Support |
-| ------------------- | ---------------------- | ---------- | -------- | ----------------- |
-| encode              | encode from string     | string     | No       | Yes               |
-| decode              | decode base64 strings  | string     | No       | Yes               |
-| encodeFromByteArray | encode from Unit8Array | Unit8Array | No       | Yes               |
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name | Description | Type | Required | Platform | HarmonyOS Support  |
+| ---- | ----------- | ---- | -------- | -------- | ------------------ |
+| encode  | encode from string  | string  | no | Android、iOS | yes |
+| decode  | decode base64 strings   | string  | no | Android、iOS | yes |
+| encodeFromByteArray  | encode from Unit8Array  | Unit8Array  | no | Android、iOS | yes |
 
 ## 遗留问题
 
@@ -126,6 +136,4 @@ const styles = StyleSheet.create({
 
 ## 开源协议
 
-本项目基于 [MIT License](https://github.com/eranbo/react-native-base64/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->
+本项目基于 [The MIT License (MIT)](https://github.com/eranbo/react-native-base64/blob/master/LICENSE) ，请自由地享受和参与开源。

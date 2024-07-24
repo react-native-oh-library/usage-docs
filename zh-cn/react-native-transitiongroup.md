@@ -171,10 +171,10 @@ const styles = StyleSheet.create({
 
 ## 遗留问题
 
+## 其他
+
 - [ ] 原库使用refs方法，现在改为使用react.createRef方法代替。问题: [issue#1](https://github.com/react-native-oh-library/react-native-transitiongroup/issues/1)
 - [ ] 原库中使用的ViewPropTypes，现在改为使用PropTypes方法代替。问题: [issue#2](https://github.com/react-native-oh-library/react-native-transitiongroup/issues/2)
-
-## 其他
 
 ## 开源协议
 

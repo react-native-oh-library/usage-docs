@@ -45,10 +45,12 @@ yarn add @react-native-oh-tpl/react-native-splash-screen@file:#
 > [!WARNING] 使用时 import 的库名不变。
 
 
-##### **新建启动页SplashScreenPage.ets**
+##### **在 entry/src/main/ets/pages 目录下新建启动页SplashScreenPage.ets**
 
 ```ets
-import { SplashScreen } from 'react-native-splash-screen'
+import { SplashScreenView } from '@react-native-oh-tpl/react-native-splash-screen/src/main/ets/SplashScreenView'
+
+@Entry
 @Component
 export struct SplashScreenPage {
   build() {
@@ -59,7 +61,7 @@ export struct SplashScreenPage {
 }
 ```
 
-##### **main_pages.json 内添加 `SplashScreenPage`**
+##### **在 entry/src/resources/base/profile/main_pages.json 内添加 `pages/SplashScreenPage`**
 ```json
 {
   "src": [
@@ -68,16 +70,20 @@ export struct SplashScreenPage {
 }
 ```
 
-##### **修改EntryAbility.ets**
+##### **在 entry/src/main/ets/entryability/EntryAbility.ets 内添加**
 ```ets
-import { SplashScreen } from 'react-native-splash-screen'
-onWindowStageCreate(windowStage: window.WindowStage): void {
-  let startWindowIcon = $r('app.media.splashIcon'); // 启动页图片
-  let startWindowBackground = "#FFFFFF"; // 启动页背景色
-  let startPageUrl = 'pages/SplashScreenPage'; // 启动页
-  SplashScreen.show(this.context, windowStage, startWindowIcon, startWindowBackground, startPageUrl).then(() => {
-    super.onWindowStageCreate(windowStage);
-  })
+import window from '@ohos.window';
+import { SplashScreen } from '@react-native-oh-tpl/react-native-splash-screen/src/main/ets/SplashScreen'
+
+export default class EntryAbility extends RNAbility {
+  onWindowStageCreate(windowStage: window.WindowStage): void {
+    let startWindowIcon = $r('app.media.splashIcon'); // 启动页图片
+    let startWindowBackground = "#FFFFFF"; // 启动页背景色
+    let startPageUrl = 'pages/SplashScreenPage'; // 启动页
+    SplashScreen.show(this.context, windowStage, startWindowIcon, startWindowBackground, startPageUrl).then(() => {
+      super.onWindowStageCreate(windowStage);
+    })
+  }
 }
 ```
 
@@ -128,7 +134,7 @@ export default class WelcomePage extends Component {
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/react-native-splash-screen": "file:../../node_modules/@react-native-oh-tpl/react-native-splash-screen/harmony/splash-screen.har"
+    "@react-native-oh-tpl/react-native-splash-screen": "file:../../node_modules/@react-native-oh-tpl/react-native-splash-screen/harmony/splash_screen.har"
   }
 ```
 
@@ -186,19 +192,19 @@ ohpm install
 
 ## API
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 
 Name | Description | Type | Required | Platform | HarmonyOS Support
 -- | -- | -- | -- | -- | --
-show() | 显示启动屏幕(原生方法) | void | Yes | iOS | No  
-show(abilityContext: UIAbilityContext, windowStage: window.WindowStage, iconResource: any, backgroundColor: string, pageUrl: string) | 显示启动屏幕(原生方法) | void | Yes | iOS/Android | Yes  
-hide() | 隐藏启动屏幕 | void | Yes | iOS/Android | Yes  
+show() | 显示启动屏幕(原生方法) | function | Yes | iOS | No  
+show(abilityContext: UIAbilityContext, windowStage: window.WindowStage, iconResource: any, backgroundColor: string, pageUrl: string) | 显示启动屏幕(原生方法) | function | Yes | iOS/Android | Yes  
+hide() | 隐藏启动屏幕 | function | Yes | iOS/Android | Yes  
 
 
-> [!tip] **show(abilityContext: UIAbilityContext, windowStage: window.WindowStage, iconResource: any, backgroundColor: string, pageUrl: string) 方法的参数说明：**
+> [!TIP] **show(abilityContext: UIAbilityContext, windowStage: window.WindowStage, iconResource: any, backgroundColor: string, pageUrl: string) 方法的参数说明：**
 
 | Name                                                      | Description                                                                                                         | Type     |
 | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | -------- |
@@ -217,5 +223,5 @@ HarmonyOS 中，在入口 onWindowStageCreate 中调用 windowStage.loadContent 
 
 ## 开源协议
 
-本项目基于 [MIT License](https://github.com/crazycodeboy/react-native-splash-screen/blob/master/LICENSE) ，请自由地享受和参与开源。
+本项目基于 [The MIT License (MIT)](https://github.com/crazycodeboy/react-native-splash-screen/blob/master/LICENSE) ，请自由地享受和参与开源。
 <!-- {% endraw %} -->

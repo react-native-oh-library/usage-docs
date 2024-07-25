@@ -246,12 +246,12 @@ ohpm install
 
 ```diff
 ...
-+ import {AmapGeolocationPackage} from '@react-native-oh-tpl/react-native-amap-geolocation';
++ import {AMapGeolocationPackage} from '@react-native-oh-tpl/react-native-amap-geolocation';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
     new SamplePackage(ctx),
-+   new AmapGeolocationPackage(ctx)
++   new AMapGeolocationPackage(ctx)
   ];
 }
 ```
@@ -277,43 +277,54 @@ ohpm install
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-amap-geolocation Releases](https://github.com/react-native-oh-library/react-native-amap-geolocation/releases)
 
+### 权限要求
 
-## 属性
+#### 在 entry 目录下的module.json5中添加权限
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+打开 `entry/src/main/module.json5`，添加：
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+```
+...
+"requestPermissions": [
+  {
+    "name": "ohos.permission.LOCATION",
+    "reason": "$string:Access_Location",
+    "usedScene": {
+      "when":"inuse"
+    }
+  },
+  {
+    "name": "ohos.permission.APPROXIMATELY_LOCATION",
+    "reason": "$string:Access_AppRoximatelyLocation",
+    "usedScene": {
+      "when":"inuse"
+    }
+  }
+  {
+    "name": "ohos.permission.INTERNET",
+  }
+]
+```
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support  |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| code  | 错误代码         | number  | yes | iOS/Android      | yes |
-| message  | 错误信息         | string  | yes | iOS/Android      | yes |
-| android  | Android平台         | string | yes | iOS/Android      | yes |
-| iOS  | iOS平台         | string  | yes | iOS/Android      | yes |
-| accuracy  | 定位精度 (米)        | number  | yes | iOS/Android      | yes |
-| altitude  | 海拔（米），需要 GPS         | number  | yes | iOS/Android      | yes |
-| altitudeAccuracy  | 海拔精度         | number  | yes | iOS/Android      | yes |
-| latitude  | 经度，[-180, 180]         | number  | yes | iOS/Android      | yes |
-| longitude  | 纬度，[-90, 90]         | number  | yes | iOS/Android      | yes |
-| speed  | 移动速度（米/秒），需要 GPS         | number  | yes | iOS/Android      | yes |
-| coordinateType  | 坐标系类型       | string  | yes | Android      | yes |
-| errorInfo  | 错误信息         | string | yes | iOS/Android      | yes |
-| heading  | 移动方向，需要 GPS         | number  | yes | iOS/Android      | yes |
-| locationDetail  | 定位信息描述         | string  | yes | Android      | yes |
-| timestamp  | 定位时间（毫秒）         | number  | yes | iOS/Android      | yes |
-| distanceFilter  | 位置信息的距离过滤器，用于限制位置更新的触发频率         | number  | yes | iOS/Android      | yes |
-| enableHighAccuracy  | 是否启用高精度模式来获取位置信息。        | boolean | yes | iOS/Android      | yes |
-| maximumAge  | 获取位置信息的最大缓存时间        | number  | yes | iOS/Android      | yes |
-| timeout  |  获取位置信息的超时时间   | number  | yes | iOS/Android      | yes |
-| address  | 详细地址         | number  | yes | iOS/Android      | yes |
-|city  | 城市         | string  | yes | iOS/Android      | yes |
-| cityCode  | 城市编码        | string | yes | iOS/Android      | yes |
-| country  | 国家        | string  | yes | iOS/Android      | yes |
-| district  | 地区         | string  | yes | iOS/Android      | yes |
-| poiName | 兴趣点        | string  | yes | iOS/Android      | yes |
-| province  | 省份       | string  | yes | iOS/Android      | yes |
-| street  | 街道         | string | yes | iOS/Android      | yes |
-| streetNumber  | 门牌号        | string  | yes | iOS/Android      | yes |
+#### 在 entry 目录下添加位置权限的原因
+
+打开 `entry/src/main/resources/base/element/string.json`，添加：
+
+```
+...
+{
+  "string": [
+    {
+      "name": "Access_Location",
+      "value": "access Location"
+    }
+    {
+      "name": "Access_AppRoximatelyLocation",
+      "value": "access AppRoximatelyLocation"
+    }
+  ]
+}
+```
 
 
 ## API
@@ -334,7 +345,7 @@ ohpm install
 | setGpsFirstTimeout  | 设置优先返回卫星定位信息时等待卫星定位结果的超时时间（毫秒） | void  | yes | Android      | no                |
 | setHttpTimeout  | 设置联网超时时间（毫秒） | void  | yes | Android      | no                |
 | setInterval  | 设置发起定位请求的时间间隔（毫秒），默认 2000，最小值为 1000 | void  | yes | Android      | yes               |
-| setLocatingWithReGeocode  | 连续定位是否返回逆地理编码 | void  | yes | iOS      | yes               |
+| setLocatingWithReGeocode  | 连续定位是否返回逆地理编码 | void  | yes | iOS      | no               |
 | setLocationCacheEnable  | 设置是否使用缓存策略 | void  | yes | Android     | no                |
 | setLocationMode  | 设置定位模式 | void  | yes | Android     | no                |
 | setLocationPurpose  | 设置定位场景 | void  | yes | Android      | no                |
@@ -367,6 +378,7 @@ ohpm install
 - [ ] setLocationCacheEnable()接口获取当前是否正在定位的状态,harmony暂不支持[issue#13](https://github.com/react-native-oh-library/react-native-amap-geolocation/issues/13)
 - [ ] setLocationMode()接口获取当前是否正在定位的状态,harmony暂不支持[issue#14](https://github.com/react-native-oh-library/react-native-amap-geolocation/issues/14)
 - [ ] setLocationPurpose()接口获取当前是否正在定位的状态,harmony暂不支持[issue#15](https://github.com/react-native-oh-library/react-native-amap-geolocation/issues/15)
+- [ ] setLocatingWithReGeocode()接口获取当前是否正在定位的状态设置连续定位是否返回逆地理编码,harmony暂不支持[issue#19](https://github.com/react-native-oh-library/react-native-amap-geolocation/issues/19)
 
 
 ## 其他

@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.2.0
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-root-modal</code> </h1>
@@ -44,61 +44,126 @@ yarn add @react-native-oh-tpl/react-native-root-modal@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-Import library any where inside your code before `AppRegistry.registerComponent` is called.
+```jsx
+import React, {
+    StyleSheet,
+    Text,
+    View,
+    TouchableHighlight,
+} from 'react-native';
 
+import Modal from 'react-native-root-modal';
+import { Component } from 'react';
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff'
+    },
+    button: {
+        backgroundColor: '#ccc',
+        borderRadius: 5,
+        padding: 10,
+    },
+    modal: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'rgba(58, 93, 15, 0.8)',
+        borderRadius: 40,
+        height: '80%',
+        width: '80%',
+        bottom: 100,
+        flex: 1,
+        position: 'absolute',
+    },
+    close: {
+        position: 'absolute',
+        width: 20,
+        height: 20,
+        borderRadius: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        right: 20,
+        top: 40,
+        backgroundColor: 'red'
+    },
+    modalContainer: {
+        height: 100,
+        width: 200,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'blue',
+        margin: 50
+    },
+    text: {
+        color: '#fff'
+    }
+});
+
+class CustomStyleDemo extends Component{
+    constructor() {
+        super(...arguments);
+        this.state = {
+            visible: false
+        };
+    }
+
+    showModal = () => {
+        this.setState({
+            visible: true
+        });
+    };
+
+    hideModal = () => {
+        this.setState({
+            visible: false
+        });
+    };
+
+    render() {
+        return <View style={styles.container}>
+             <TouchableHighlight
+                style={styles.button}
+                underlayColor="#aaa"
+                onPress={this.showModal}
+            >
+                <Text>Show Modal</Text>
+            </TouchableHighlight>
+            <Modal style={styles.modal} visible={this.state.visible}>
+                <TouchableHighlight
+                    style={[styles.button, styles.close]}
+                    underlayColor="#aaa"
+                    onPress={this.hideModal}
+                >
+                    <Text>X</Text>
+                </TouchableHighlight>
+
+                <View style={styles.modalContainer}>
+                    <Text style={styles.text}>You can custom your own Modal style</Text>
+                </View>
+            </Modal>
+        </View>;
+    }
+
+}
+
+export default CustomStyleDemo;
 ```
-import Modal, { AnimatedModal, ModalManager } from 'react-native-root-modal';
+
+### 运行
+
+点击右上角的 `sync` 按钮
+
+或者在终端执行：
+
+```bash
+cd entry
+ohpm install
 ```
 
-Invoked by `React element` way.
-
-```
-....other elements before
-<Modal
-    style={{
-        top: 0,
-        right: 0,
-        bottom: 0,
-        left: 0,
-        backgroundColor: 'rgba(0, 0, 0, 0.2)',
-        transform: [{scale: this.state.scaleAnimation}]
-    }}
-
-    visible={this.state.modalVisible}
->
-    ... You can add anything inside
-</Modal>
-....other elements after
-
-```
-
-Just put `<Modal />` element anywhere, And it will be front of other elements.
-And you can set `<Modal />` element\`s style or other properties inherited from `<View />` element
-
-
-Or you can invoke it by `JavaScript class` way
-
-Import modal Manager class.
-```
-import { ModalManager } from 'react-native-root-modal';
-
-```
-
-Invoke it.
-```
-// Create a Modal element on screen.
-let modal = new ModalManager(<View style={modal container style}>
-    ...modal contents here.
-</View>);
-
-// Update (replace) the modal element which is already existed.
-modal.update(<View style={modal container style}>
-    ...other modal contents here.
-</View>);
-
-// Destroy it
-modal.destroy();
-```
+然后编译、运行即可。
 
 ## 约束与限制
 
@@ -108,9 +173,6 @@ modal.destroy();
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-root-modal Releases](https://github.com/react-native-oh-library/react-native-root-modal/releases)
 
-本文档内容基于以下版本验证通过：
-
-RNOH: 0.72.23; SDK: HarmonyOS NEXT Developer Beta1; IDE: DevEco Studio: 5.0.3.27; ROM: 3.0.0.19;
 
 ## 属性
 
@@ -118,10 +180,12 @@ RNOH: 0.72.23; SDK: HarmonyOS NEXT Developer Beta1; IDE: DevEco Studio: 5.0.3.27
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
+react-native-root-modal组件接收所有[React Native View](https://reactnative.dev/docs/view#props)组件的Props.
+
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| visible  | 控制模态框是否可见  | boolean  | no | Android/IOS  | yes |
-| style  | 设置modal的样式，可以使用常规的样式属性  | style  | no | Android/IOS  | yes |
+| visible  | 控制模态框是否可见  | boolean  | no | Android/iOS  | yes |
+| style  | 设置modal的样式，可以使用常规的样式属性  | style  | no | Android/iOS  | yes |
 
 ## 遗留问题
 

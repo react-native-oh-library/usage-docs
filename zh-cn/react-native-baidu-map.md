@@ -318,7 +318,7 @@ export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
 +      })
 +    }
 +    if (ctx.componentName === BAIDU_MAP_OVERLAY_MARKER_TYPE) {
-+      BaiduMapOverlayMarkerS({
++      BaiduMapOverlayMarker({
 +        ctx: ctx.rnComponentContext,
 +        tag: ctx.tag
 +      })
@@ -452,7 +452,7 @@ ohpm install
 
 | Name                    | Description                      | Type     | Required | Platform | HarmonyOS Support |
 |-------------------------|----------------------------------|----------|----------|----------|-------------------|
-| zoomControlsVisible     | 显示或隐藏缩放控件，仅 Android              | Boolean  | no      | Android  | yes               |
+| zoomControlsVisible     | 显示或隐藏缩放控件              | Boolean  | no      | Android  | yes               |
 | trafficEnabled          | 是否启用交通图层                         | Boolean  | no      | All      | yes                |
 | baiduHeatMapEnabled     | 是否启用百度热力图                        | Boolean  | no      | All      | no                |
 | zoomGesturesEnabled     | 允许手势缩放                           | Boolean  | no      | All      | yes                |
@@ -462,9 +462,9 @@ ohpm install
 | showsUserLocation       | 是否显示定位                           | Boolean  | no      | All      | yes                |
 | locationData            | 定位信息 {latitude: 0, longitude: 0} | Object   | no      | All      | yes                |
 | center                  | {latitude: 0, longitude: 0}      | Object   | no      | All      | yes                |
-| onMapStatusChangeStart  | 地图状态开始变化时的回调函数，仅 Android         | Function | no      | Android  | no                |
+| onMapStatusChangeStart  | 地图状态开始变化时的回调函数         | Function | no      | Android  | no                |
 | onMapStatusChange       | 地图状态变化时的回调函数                     | Function | no      | All      | no                |
-| onMapStatusChangeFinish | 地图状态变化完成时的回调函数，仅 Android         | Function | no      | Android  | no                |
+| onMapStatusChangeFinish | 地图状态变化完成时的回调函数        | Function | no      | Android  | no                |
 | onMapLoaded             | 地图加载完成时的回调函数                     | Function | no      | All      | yes                |
 | onMapClick              | 地图被点击时的回调函数                      | Function | no      | All      | yes                |
 | onMapDoubleClick        | 地图被双击时的回调函数                      | Function | no      | All      | yes                |
@@ -476,15 +476,15 @@ ohpm install
 | Name         | Description                              | Type     | Required | Platform | HarmonyOS Support |
 |--------------|------------------------------------------|----------|----------|----------|-------------------|
 | title        | 如果没有 InfoWindow，将会根据 title 生成 InfoWindow | String   | no       | All      | no                |
-| titleOffsetY | title 作为 InfoWindow 展示的 y 轴偏移量，仅 Android | Number   | no       | Android  | no                |
+| titleOffsetY | title 作为 InfoWindow 展示的 y 轴偏移量 | Number   | no       | Android  | no                |
 | location     | 标记的经纬度坐标位置                               | Object   | yes      | All      | yes               |
-| perspective  | 是否启用标记的透视效果，仅 Android                    | Boolean  | no       | Android  | yes               |
-| flat         | 是否使标记扁平化，仅 Android                       | Boolean  | no       | Android  | yes               |
-| rotate       | 旋转角度，仅 Android                           | Number   | no       | Android  | yes               |
+| perspective  | 是否启用标记的透视效果                   | Boolean  | no       | Android  | yes               |
+| flat         | 是否使标记扁平化                     | Boolean  | no       | Android  | yes               |
+| rotate       | 旋转角度                         | Number   | no       | Android  | yes               |
 | icon         | icon图片，同  的 source 属性                    | Object   | no       | All      | yes               |
-| alpha        | 透明度，仅 Android                            | Number   | no       | Android  | yes               |
-| animateType  | 动画效果：drop/grow/jump (iOS 仅支持 drop)       | String   | no       | All      | yes               |
-| pinColor     | red/green/purple，大头针颜色，仅 iOS             | String   | no       | IOS      | no                |
+| alpha        | 透明度                         | Number   | no       | Android  | yes               |
+| animateType  | 动画效果：drop/grow/jump       | String   | no       | All      | yes               |
+| pinColor     | red/green/purple，大头针颜色             | String   | no       | IOS      | no                |
 | onClick      | 当标记被点击时触发的回调函数                           | Function | no       | All      | yes               |
 
 #### Cluster 点聚合
@@ -495,7 +495,7 @@ ohpm install
 |--------|----------------|---------|----------|----------|-------------------|
 | stroke | 当标记被点击时触发的回调函数 | Object  | yes      | All      | no                |
 | points | 数值长度必须为        | Object  | yes      | All      | no                |
-| dash   | 是否为虚线，仅 iOS    | Boolean | yes      | iOS      | no                |
+| dash   | 是否为虚线    | Boolean | yes      | iOS      | no                |
 
 #### Circle Props 属性
 
@@ -511,7 +511,7 @@ ohpm install
 | Name   | Description | Type   | Required | Platform | HarmonyOS Support |
 |--------|-------------|--------|----------|----------|-------------------|
 | points | 折线的顶点坐标数组   | Object | yes      | All      | yes               |
-| stroke | 折线的描边样式     | Object | yes      | All      | yes               |
+| stroke | 折线的描边样式     | Object | yes      | All      | no               |
 
 #### Polygon Props 属性
 
@@ -540,7 +540,7 @@ ohpm install
 
 | Name    | Description                    | Type   | Required | Platform | HarmonyOS Support |
 |---------|--------------------------------|--------|----------|----------|-------------------|
-| offsetY | 相对于 point 在 y 轴的偏移量，仅 Android	 | Object | yes      | Android  | no                |
+| offsetY | 相对于 point 在 y 轴的偏移量	 | Object | yes      | Android  | no                |
 
 #### HeatMap Props 属性
 
@@ -598,6 +598,7 @@ ohpm install
 - [ ] marker的title、pincolor属性未实现 [#21](https://github.com/react-native-oh-library/react-native-baidu-map/issues/21)
 - [ ] Geolocation 静态类功能未实现  [#22](https://github.com/react-native-oh-library/react-native-baidu-map/issues/22)
 - [ ] GetDistance静态类功能未实现 [#23](https://github.com/react-native-oh-library/react-native-baidu-map/issues/23)
+- [ ] Polyline的stroke属性未实现 [#21](https://github.com/react-native-oh-library/react-native-baidu-map/issues/29)
 
 
 ## 其他

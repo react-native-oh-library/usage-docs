@@ -1,5 +1,3 @@
-<!-- {% raw %} -->
-
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -295,9 +293,9 @@ ohpm install
 ### ImageColors.getColors(uri: string, config?: Config): Promise
 
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name      | Description                           | Type     | Required | Platform | HarmonyOS Support |
 | --------- | ------------------------------------- | -------- | -------- | -------- | ----------------- |
@@ -310,7 +308,7 @@ A string which can be:
 
 | Name      | Description                           | Type     | Required | Platform | HarmonyOS Support |
 | --------- | ------------------------------------- | -------- | -------- | -------- | ----------------- |
-| uri |  1. URL: [`https://i.imgur.com/O3XSdU7.jpg`](https://i.imgur.com/O3XSdU7.jpg);<br>2. Local file: const catImg = require('./images/cat.jpg');<br>3. Base64: const catImgBase64 = 'data:image/jpeg;base64,/9j/4Ri...' | string | yes      | all      | yes               |
+| uri |  1. URL: [`https://i.imgur.com/O3XSdU7.jpg`](https://i.imgur.com/O3XSdU7.jpg);<br>2. Local file: const catImg = require('./images/cat.jpg');<br>3. Base64: const catImgBase64 = 'data:image/jpeg;base64,/9j/4Ri...' | string | yes      | all | yes               |
 
   > The mime type prefix for base64 is required (e.g. data:image/png;base64).
 
@@ -318,14 +316,14 @@ A string which can be:
 
 The config object is optional.
 
-| Property       | Description                                                                                                                                                                                    | Type                                                   | Default     | Supported platforms |
-| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ----------- | ------------------- |
-| `fallback`     | If a color property couldn't be retrieved, it will default to this hex color string                                                         | `string`                                               | `"#000000"` | All                 |
-| `cache`        | Enables in-memory caching of the result - skip downloading the same image next time.                                                                                                           | `boolean`                                              | `false`     | All                 |
-| `key`          | Unique key to use for the cache entry. The image URI is used as the unique key by default. You should explicitly pass a key if you enable caching and you're using a base64 string as the URI. | `string`                                               | `undefined` | All                 |
-| `headers`      | HTTP headers to be sent along with the GET request to download the image                                                                                                                       | `Record<string, string>`                               | `undefined` | iOS, Android, harmonyOS        |
-| `pixelSpacing` | How many pixels to skip when iterating over image pixels. Higher means better performance (**note**: value cannot be lower than 1).                                                            | `number`                                               | `5`         | Android             |
-| `quality`      | Highest implies no downscaling and very good colors.                                                                                                                                           | `'lowest'` <br> `'low'` <br> `'high'` <br> `'highest'` | `"low"`     | iOS, Web, harmonyOS           |
+| Name       | Description                                                                                                                                                                                    | Type                                                   | Required                                           | Default     | Supported | HarmonyOS Support |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ----------- | ------------------- | ----------------- | ----------------- |
+| `fallback`     | If a color property couldn't be retrieved, it will default to this hex color string                                                         | `string`                                               | no                                             | `"#000000"` | all              | yes |
+| `cache`        | Enables in-memory caching of the result - skip downloading the same image next time.                                                                                                           | `boolean`                                              | no                                            | `false`     | all              | yes |
+| `key`          | Unique key to use for the cache entry. The image URI is used as the unique key by default. You should explicitly pass a key if you enable caching and you're using a base64 string as the URI. | `string`                                               | no                                             | `undefined` | all              | yes |
+| `headers`      | HTTP headers to be sent along with the GET request to download the image                                                                                                                       | `Record<string, string>`                               | no                             | `undefined` | iOS, Android        | yes |
+| `pixelSpacing` | How many pixels to skip when iterating over image pixels. Higher means better performance (**note**: value cannot be lower than 1).                                                            | `number`                                               | no                                             | `5`         | Android             | yes |
+| `quality`      | Highest implies no downscaling and very good colors.                                                                                                                                           | `'lowest'` <br> `'low'` <br> `'high'` <br> `'highest'` | no | `"low"`     | iOS, Web          | yes |
 
 ### ImageColorsResult
 
@@ -333,22 +331,28 @@ Every result object contains a respective `platform` key to help narrow down the
 
 HarmonyImageColors
 
-| Property       | Type        |
-| -------------- | ----------- |
-| `mainColor`     | `string`   |
-| `largestProportionColor`      | `string`   |
-| `highestSaturationColor`      | `string`   |
-| `averageColor`  | `string`   |
-| `platform` | `harmony`   |
+| Name                     | Description                                         | Type        | Required | Platform  | HarmonyOS Support |
+| ------------------------ | --------------------------------------------------- | ----------- | -------- | --------- | ----------------- |
+| `mainColor`              | The main colors of the image.                       | `string`    | no       | harmonyOS | yes               |
+| `largestProportionColor` | The color with the highest proportion in the image. | `string`    | no       | harmonyOS | yes               |
+| `highestSaturationColor` | The color with the highest saturation in the image. | `string`    | no       | harmonyOS | yes               |
+| `averageColor`           | The average color of the image.                     | `string`    | no       | harmonyOS | yes               |
+| `platform`               | platform                                            | `"harmony"` | no       | harmonyOS | yes               |
 
 ### ImageColors.cache
 
-| Name       | Description             | Type     | Params                                | Platform | HarmonyOS Support |
-| ---------- | ----------------------- | -------- | ------------------------------------- | -------- | ----------------- |
-| getItem    | Read cache result.      | Function | key: string                           | all      | yes               |
-| setItem    | Set a cached result.    | Function | key: string, value: ImageColorsResult | all      | yes               |
-| removeItem | Delete a cached result. | Function | key: string                           | all      | yes               |
-| clear      | Clearing the cache.     | Function |                                       | all      | yes               |
+| Name      | Description                           | Type     | Required | Params | Platform | HarmonyOS Support |
+| --------- | ------------------------------------- | -------- | -------- | -------- | -------- | ----------------- |
+| getItem | Read cache result. | Function | no      | key: string      | all      | yes               |
+| setItem | Set a cached result. | Function | no      | key: string, value: ImageColorsResult      | all      | yes               |
+| removeItem | Delete a cached result. | Function | no      | key: string      | all      | yes               |
+| clear | Clearing the cache. | Function | no      |                  | all      | yes               |
+
+
+### Notes
+- Since the implementation of each platform is different you can get **different color results for each**.
+- This module is a wrapper around the [Palette](https://developer.android.com/reference/androidx/palette/graphics/Palette) class on Android, [UIImageColors](https://github.com/jathu/UIImageColors) on iOS and [node-vibrant](https://github.com/Vibrant-Colors/node-vibrant) for the web and [@ohos.effectKit](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/js-apis-effectkit-V5) on harmonyOS.
+
 
 ## 遗留问题
 
@@ -358,5 +362,3 @@ HarmonyImageColors
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/osamaqarem/react-native-image-colors/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

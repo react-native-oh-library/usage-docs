@@ -46,15 +46,49 @@ yarn add @react-native-oh-tpl/react-native-text-gradient@file:#
 > [!WARNING] 使用时 import 的库名不变。
 
 ```js
-import {LinearTextGradient} from 'react-native-text-gradient';
+import React from 'react';
+import {StyleSheet, Text, View } from 'react-native';
+import { LinearTextGradient } from 'react-native-text-gradient';
+const TextGradientTest = () => {
+  return (
+      <View style={styles.container}>
+        <LinearTextGradient
+          style={styles.welcome}
+          locations={[0, 1]}
+          colors={['blue', 'red']}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 0 }}
+        >Welcome to React Native!
+        </LinearTextGradient>
+        <Text style={styles.instructions}>To get started, edit App.js</Text>
+        <Text style={styles.instructions}>{'Double tap R on your keyboard to reload,\n' +
+          'Shake or press menu button for dev menu'}</Text>
+      </View>
+  );
+}
+export default TextGradientTest;
 
-<LinearTextGradient
- style={styles.welcome}
- locations={[0,1]}
- colors={['blue','red']}
- start={{x:0,y:0}}
- end={{x:0,y:0}}
- >Welcome to React Native!</LinearTextGradient>
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#ffffff',
+    marginTop: 100
+  },
+  welcome: {
+    fontSize: 20,
+    width: 'auto',
+    height: 'auto',
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+});
+
 ```
 
 ## Link
@@ -217,13 +251,15 @@ ohpm install
 | end             | Same as start, but for the end of the gradient.                                                                                                     | number |   yes    | iOS/Android  |       yes          |
 | loactions       | An optional array of numbers defining the location of each gradient color stop, mapping to the color with the same index in prop.                   | number[]  |   yes    | iOS/Android  |       yes          |
 | colors          | An array of at least two color values that represent gradient colors.                                                                               | string   |   yes    | iOS/Android  |       yes          |
-| useViewFrame    | Optional. If true gradient will be calculated for text view background frame rather than text frame.                                                | boolean  |   yes    | iOS/Android  |       yes          |
-| useGlobalCache  |  accessing or managing a cache that is available globally throughout the application.                                                               | boolean  |   yes    | iOS/Android  |       yes         |
+| useViewFrame    | Optional. If true gradient will be calculated for text view background frame rather than text frame.                                                | boolean  |   yes    | iOS/Android  |       no          |
+| useGlobalCache  |  accessing or managing a cache that is available globally throughout the application.                                                               | boolean  |   yes    | iOS  |       no         |
 
 
 ## 遗留问题
 
-- [x] useViewFrame()接口harmony暂不支持[issue#1](https://github.com/react-native-oh-library/react-native-text-gradient/issues/1)
+- [ ] useGlobalCache()接口HarmonyOS暂不支持[issue#7](https://github.com/react-native-oh-library/react-native-text-gradient/issues/7)
+- [ ] useViewFrame()接口HarmonyOS暂不支持[issue#1](https://github.com/react-native-oh-library/react-native-text-gradient/issues/1)
+
 
 ## 其他
 

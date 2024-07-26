@@ -348,19 +348,20 @@ ohpm install
 
 | Name                 | Description                                   | Type     | Required | Platform    | HarmonyOS Support |
 | -------------------- | --------------------------------------------- | ---------|----------| ------------|-------------------|
-| clearAll             |  Clear all cookies                            |function  |     NO   |ios,android  | yes               |
-| get                  |  Get cookies based on url                     |function  |     NO   | ios,android | yes               |
-| set                  |  Set cookie based on url                      |function  |     NO   | ios,android | yes               |
-| clearByName          |  Delete cookies by name                       |function  |     NO   | ios         | yes               |
-| flush                |  Refresh cookies                              |function  |     NO   | android     | yes               |
-| removeSessionCookies |  Clear session cookies                        |function  |     NO   | ios,android | yes               |
-| getAll               |  Get all cookies                              |function  |     NO   | ios         | no                |
-| setFromResponse      |  Set cookies from a response header           |function  |     NO   | ios         | no                |
-| getFromResponse      |  Get cookies from a response header           |function  |     NO   | ios         | no                |
+| clearAll             |  Clear all cookies                            |function  |     NO   |iOS,android  | yes               |
+| get                  |  Get cookies based on url                     |function  |     NO   | iOS,android | yes               |
+| set                  |  Set cookie based on url                      |function  |     NO   | iOS,android | yes               |
+| clearByName          |  Delete cookies by name                       |function  |     NO   | iOS         | yes               |
+| flush                |  Refresh cookies                              |function  |     NO   | android     | no                |
+| flushForHarmony      |  Refresh cookies                              |function  |     NO   |             | yes               |
+| removeSessionCookies |  Clear session cookies                        |function  |     NO   | iOS,android | yes               |
+| getAll               |  Get all cookies                              |function  |     NO   | iOS         | no                |
+| setFromResponse      |  Set cookies from a response header           |function  |     NO   | iOS         | no                |
+| getFromResponse      |  Get cookies from a response header           |function  |     NO   | iOS         | no                |
 
 ## 遗留问题
 
-- [ ] 这三个方法getAll,setFromResponse,getFromResponse 在ios是可用的andriod不可用，Harmony还没有实现 问题: [issue#1](https://github.com/react-native-oh-library/react-native-cookies/issues/1)
+- [ ] 这三个方法getAll,setFromResponse,getFromResponse 在ios是可用的andriod不可用，Harmony没有对应的api 问题: [issue#1](https://github.com/react-native-oh-library/react-native-cookies/issues/1)
 
 ## 其他
 

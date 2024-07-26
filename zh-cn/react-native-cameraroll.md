@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-cameraroll</code> </h1>
@@ -13,7 +12,7 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-cameraroll)
+> [!Tip] [Github 地址](https://github.com/react-native-oh-library/react-native-cameraroll)
 
 ## 安装与使用
 
@@ -39,7 +38,7 @@ yarn add @react-native-oh-tpl/camera-roll@file:#
 
 <!-- tabs:end -->
 
-快速使用：
+下面的代码展示了这个库的基本使用场景：
 
 > [!WARNING] 使用时 import 的库名不变。
 
@@ -49,7 +48,7 @@ import {
   CameraRoll,
   harmonyRequestAddOnlyGalleryPermission,
   harmonyRequestReadWriteGalleryPermission,
-} from "react-native-camera-roll/camera-roll";
+} from "@react-native-camera-roll/camera-roll";
 
 export default function App() {
   return (
@@ -97,6 +96,17 @@ export default function App() {
 
 首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
+### 在工程根目录的 `oh-package.json5` 添加 overrides 字段
+
+```json
+{
+  ...
+  "overrides": {
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+  }
+}
+```
+
 ### 引入原生端代码
 
 目前有两种方法：
@@ -114,7 +124,7 @@ export default function App() {
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
 
-    "rnoh-camera-roll": "file:../../node_modules/@react-native-oh-tpl/camera-roll/harmony/camera_roll.har"
+    "@react-native-oh-tpl/camera-roll": "file:../../node_modules/@react-native-oh-tpl/camera-roll/harmony/camera_roll.har"
   }
 ```
 
@@ -138,28 +148,37 @@ ohpm install
 ```diff
 project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
+set(CMAKE_SKIP_BUILD_RPATH TRUE)
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(OH_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
+set(LOG_VERBOSITY_LEVEL 1)
+set(CMAKE_ASM_FLAGS "-Wno-error=unused-command-line-argument -Qunused-arguments")
+set(CMAKE_CXX_FLAGS "-fstack-protector-strong -Wl,-z,relro,-z,now,-z,noexecstack -s -fPIE -pie")
+set(WITH_HITRACE_SYSTRACE 1) # for other CMakeLists.txt files to use
+add_compile_definitions(WITH_HITRACE_SYSTRACE)
 
 add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
-# RNOH_BEGIN: add_package_subdirectories
+# RNOH_BEGIN: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/rnoh-camera-roll/src/main/cpp" ./camera-roll)
-# RNOH_END: add_package_subdirectories
++ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/camera-roll/src/main/cpp" ./camera-roll)
+# RNOH_END: manual_package_linking_1
+
+file(GLOB GENERATED_CPP_FILES "./generated/*.cpp")
 
 add_library(rnoh_app SHARED
+    ${GENERATED_CPP_FILES}
     "./PackageProvider.cpp"
     "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
 )
-
 target_link_libraries(rnoh_app PUBLIC rnoh)
 
-# RNOH_BEGIN: link_packages
+# RNOH_BEGIN: manual_package_linking_2
 target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 + target_link_libraries(rnoh_app PUBLIC rnoh_camera_roll)
-# RNOH_END: link_packages
+# RNOH_END: manual_package_linking_2
 ```
 
 打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
@@ -185,7 +204,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ```diff
   ...
-+ import { CameraRollPackage } from 'rnoh-camera-roll/ts';
++ import { CameraRollPackage } from '@react-native-oh-tpl/camera-roll/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
@@ -210,10 +229,41 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   ···
 
     "requestPermissions": [
-+     { "name": "ohos.permission.READ_IMAGEVIDEO" },
-+     { "name": "ohos.permission.WRITE_IMAGEVIDEO" }
++    {
++        "name": "ohos.permission.READ_IMAGEVIDEO",
++        "reason": '$string:app_name',  
++        "usedScene": {
++          "abilities": [
++            "FormAbility"
++          ],
++          "when":"inuse"
++        }
++      },
++      {
++        "name": "ohos.permission.WRITE_IMAGEVIDEO",
++        "reason": '$string:app_name',
++        "usedScene": {
++          "abilities": [
++            "FormAbility"
++          ],
++          "when":"inuse"
++        }
++      }
     ]
   }
+}
+```
+
+在 `YourProject/AppScope/resource/base/element/string.json`补上配置
+
+```diff
+{
++  "string": [
++    {
++      "name": "app_name",
++      "value": "RN Tester"
++    }
++  ]
 }
 ```
 
@@ -247,7 +297,7 @@ ohpm install
 **CameraRoll**
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| saveToCameraRoll | 保存图片/视频 | function | no | android,ios | no |
+| save | 保存图片/视频 | function | no | android,ios | partially |
 | getPhotos | 查找图片/视频 | function | no | android,ios | partially |
 | getAlbums | 查找相册 | function | no | android,ios | partially |
 | deletePhotos | 删除图片/视频 | function | no | android,ios | no |
@@ -273,16 +323,10 @@ ohpm install
 
 ## 遗留问题
 
-- [ ] harmony 保存图片/视频到指定相册需要使用系统接口
-- [ ] harmony 查找图片/视频部分查询条件和返回字段需要使用系统接口
-- [ ] harmony 纯图片相册暂未对外开放，系统相册不返回相册名
-- [ ] harmony 删除图片/视频需要使用系统接口
-- [ ] harmony 暂无对标 ios 图片列表刷新的方法
+- [ ] deletePhotos删除图片/视频，未实现 HarmonyOS 化:  [issue#5](https://github.com/react-native-oh-library/react-native-cameraroll/issues/5)
 
 ## 其他
 
 ## 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-linear-gradient/blob/harmony/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->
+本项目基于 [The MIT License (MIT)](https://github.com/react-native-cameraroll/react-native-cameraroll/blob/master/LICENCE) ，请自由地享受和参与开源。

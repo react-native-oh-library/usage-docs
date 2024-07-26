@@ -379,7 +379,7 @@ ohpm install
 | initialCameraPosition  | 初始状态         | CameraPosition  | yes | iOS      | yes |
 | myLocationEnabled  | 是否显示当前定位         | boolean  | yes | iOS      | no |
 | indoorViewEnabled  | 是否显示室内地图         | boolean  | yes | iOS      | no |
-| buildingsEnabled  | 是否显示3D建筑         | boolean  | yes | iOS      | yes |
+| buildingsEnabled  | 是否显示3D建筑         | boolean  | yes | iOS      | no |
 | labelsEnabled  | 是否显示标注         | boolean  | yes | iOS      | yes |
 | compassEnabled  | 是否显示指南针         | boolean  | yes | iOS      | no |
 | zoomControlsEnabled  | 是否显示放大缩小按钮         | boolean  | yes | iOS      | yes |
@@ -412,8 +412,8 @@ ohpm install
 | draggable  | 是否可拖拽         | boolean  | yes | iOS      | yes |
 | flat  | 是否平贴地图         | boolean  | yes | iOS      | yes |
 | zIndex  | 层级         | Float  | yes | iOS      | yes |
-| anchor  | 覆盖物锚点比例         | Point  | yes | iOS      | yes |
-| centerOffset  | 覆盖物偏移位置         | Float  | yes | iOS      | yes |
+| anchor  | 覆盖物锚点比例         | Point  | yes | iOS      | no |
+| centerOffset  | 覆盖物偏移位置         | Float  | yes | iOS      | no |
 
 ### Polygon
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
@@ -433,7 +433,7 @@ ohpm install
 | zIndex  | 层级         | Float  | yes | iOS      | yes |
 | colors  | 多段颜色        | ColorValue[]  | yes | iOS      | yes |
 | gradient  | 是否使用颜色渐变        | boolean  | yes | iOS      | yes |
-| geodesic  | 是否绘制大地线        | boolean  | yes | iOS      | yes |
+| geodesic  | 是否绘制大地线        | boolean  | yes | iOS      | no |
 | dotted  | 是否绘制虚线        | boolean  | yes | iOS      | yes |
 
 ## 静态方法
@@ -463,7 +463,7 @@ ohpm install
 | onDragStart  | 拖放开始事件        | void | yes | iOS      | yes |
 | onDrag  | 拖放进行事件，类似于mousemove，在结束之前会不断调用        | void | yes | iOS      | yes |
 | onDragEnd  | 拖放结束事件        | LatLng | yes | iOS      | yes |
-| update  | 触发自定义view更新        | void | yes | iOS      | no |
+| update  | 触发自定义view更新        | void | yes | iOS      | no | 
 
 ### Polyline
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
@@ -487,11 +487,15 @@ ohpm install
 ### MapView
 - [ ] indoorViewEnabled：高德SDK暂不支持: [issue#6](https://github.com/react-native-oh-library/react-native-amap3d/issues/6)
 - [ ] compassEnabled：高德SDK暂不支持: [issue#7](https://github.com/react-native-oh-library/react-native-amap3d/issues/7)
+- [ ] buildingsEnabled：高德SDK暂不支持: [issue#33](https://github.com/react-native-oh-library/react-native-amap3d/issues/33)
 - [ ] myLocationEnabled：高德SDK暂不支持: [issue#29](https://github.com/react-native-oh-library/react-native-amap3d/issues/29)
 - [ ] distanceFilter：高德SDK暂不支持: [issue#11](https://github.com/react-native-oh-library/react-native-amap3d/issues/11)
+- [ ] anchor:高德SDK暂不支持: [issue#34](https://github.com/react-native-oh-library/react-native-amap3d/issues/34)
+- [ ] centerOffset:高德SDK暂不支持: [issue#35](https://github.com/react-native-oh-library/react-native-amap3d/issues/35)
 - [X] zoomControlsEnabled：高德SDK暂不支持: [issue#8](https://github.com/react-native-oh-library/react-native-amap3d/issues/8)
 - [X] scaleControlsEnabled：高德SDK暂不支持: [issue#9](https://github.com/react-native-oh-library/react-native-amap3d/issues/9)
 - [ ] headingFilter：高德SDK暂不支持: [issue#12](https://github.com/react-native-oh-library/react-native-amap3d/issues/12)
+- [ ] geodesic：高德SDK暂不支持: [issue#36](https://github.com/react-native-oh-library/react-native-amap3d/issues/36)
 - [ ] onCameraMove: 高德SDK暂不支持： [issue#14](https://github.com/react-native-oh-library/react-native-amap3d/issues/14)
 - [ ] onCameraIdle: 高德SDK暂不支持: [issue#15](https://github.com/react-native-oh-library/react-native-amap3d/issues/15)
 - [X] onPressPoi：高德SDK暂不支持: [issue#13](https://github.com/react-native-oh-library/react-native-amap3d/issues/13)

@@ -58,7 +58,7 @@ yarn add @react-native-oh-tpl/react-native-fileupload@file:#
 import React, {Component} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import FileUpload from 'react-native-fileupload';
-import Toast from 'react-native-toast';
+import Toast from '@remobile/react-native-toast';
 
 export default class FileUploadDemo extends Component {
 
@@ -81,7 +81,6 @@ export default class FileUploadDemo extends Component {
             filetype: 'jpg',// optional
           },
           {
-            name: 'one', // optional
             filename: 'one.w4a',
             filepath: '/xxx/one.w4a', // The real server filepath
             filetype: 'audio/x-m4a',// optional
@@ -219,7 +218,7 @@ ohpm install
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| upload | File upload  | `Promise<string>`  | yes | iOS/Android  | yes     |
+| upload | File upload  | void  | yes | iOS/Android  | yes     |
 
 ## 遗留问题
 

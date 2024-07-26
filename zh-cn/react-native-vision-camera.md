@@ -225,6 +225,15 @@ export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
 }
 ...
 ```
+在`entry/src/main/ets/pages/index.ets`中，如果当前文件中存在`arkTsComponentNames`数组(后续版本新增内容)，则需要在其中追加：`VisionCameraView.NAME`;
+
+```ts
+  ...
+ const arkTsComponentNames: Array<string> = [..., VisionCameraView.NAME]; 
+  ...
+```
+
+
 
 ### 在 ArkTs 侧引入 VisionCameraModulePackage
 

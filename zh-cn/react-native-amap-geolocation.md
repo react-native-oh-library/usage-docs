@@ -246,7 +246,7 @@ ohpm install
 
 ```diff
 ...
-+ import {AMapGeolocationPackage} from '@react-native-oh-tpl/react-native-amap-geolocation';
++  import {AMapGeolocationPackage} from '@react-native-oh-tpl/react-native-amap-geolocation/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
@@ -299,7 +299,7 @@ ohpm install
     "usedScene": {
       "when":"inuse"
     }
-  }
+  },
   {
     "name": "ohos.permission.INTERNET",
   }
@@ -317,7 +317,7 @@ ohpm install
     {
       "name": "Access_Location",
       "value": "access Location"
-    }
+    },
     {
       "name": "Access_AppRoximatelyLocation",
       "value": "access AppRoximatelyLocation"

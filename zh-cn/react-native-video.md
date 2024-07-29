@@ -68,12 +68,10 @@ function RNCVideoDemo() {
   const [onVideoProgress, setOnVideoProgress] = useState("onVideoProgress");
   const [onVideoEnd, setOnVideoEnd] = useState("onVideoEnd");
   const [onVideoBuffer, setOnVideoBuffer] = useState("onVideoBuffer");
-  const [onPlaybackStalled, setOnPlaybackStalled] =
-    useState("onPlaybackStalled");
+  const [onPlaybackStalled, setOnPlaybackStalled] = useState("onPlaybackStalled");
   const [onPlaybackResume, setOnPlaybackResume] = useState("onPlaybackResume");
 
-  const scrollRef = React.useRef < ScrollView > null;
-  const videoRef = React.useRef < typeof RNCVideo > null;
+  const videoRef = React.useRef<typeof RNCVideo>();
 
   const toggleMuted = () => {
     setMuted((prevMuted) => !prevMuted);
@@ -108,7 +106,7 @@ function RNCVideoDemo() {
   };
 
   return (
-    <ScrollView style={styles.container} ref={scrollRef}>
+    <ScrollView style={styles.container}>
       <View style={styles.container}>
         <Text style={styles.title}>网络视频demo</Text>
         <Text style={styles.labelB}>{onVideoLoad}</Text>
@@ -264,11 +262,6 @@ function RNCVideoDemo() {
         <RNCVideo
           style={styles.video}
           ref={videoRef}
-          drm={{
-            type: "fairplay",
-            certificateUrl: "sasddd",
-            drmType: "drmfairplay",
-          }}
           source={{ uri: uri, isNetwork: true }}
           paused={paused}
           muted={muted}
@@ -279,7 +272,7 @@ function RNCVideoDemo() {
           poster={
             "https://res.vmallres.com/pimages/uomcdn/CN/pms/202304/sbom/4002010007801/group/800_800_9B1356F1330EADDCB20D35D2AE1F46E0.jpg"
           }
-          posterResizeMode={posterResizeMode}
+         posterResizeMode={posterResizeMode}
           onLoad={(e) => {
             setOnVideoLoad(
               "onVideoLoad currentTime =" +
@@ -333,7 +326,7 @@ function RNCVideoDemo() {
           onReadyForDisplay={() => {
             console.log(`onReadyForDisplay :setShowPoster(false)`);
           }}
-        ></RNCVideo>
+        />
       </View>
     </ScrollView>
   );
@@ -347,7 +340,7 @@ const styles = StyleSheet.create({
   container: {
     width: "100%",
     height: "100%",
-    backgroundColor: "#333",
+    backgroundColor: "#f8f8f8",
   },
   title: {
     color: "white",

@@ -15,26 +15,28 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/bolan9999/react-native-largelist)
+> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-largelist)
 
 ## 安装与使用
 
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-largelist Releases](https://github.com/react-native-oh-library/react-native-largelist/releases)，并下载适用版本的 tgz 包。
+
 进入到工程目录并输入以下命令：
 
-> [!TIP] 由于依赖包存在冲突问题，需加上--legacy-peer-deps
+>[!TIP] # 处替换为 tgz 包的路径
 
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm install react-native-largelist@3.1.0-rc.2 --legacy-peer-deps
+npm install @react-native-oh-tpl/react-native-largelist@file:#
 ```
 
 #### **yarn**
 
 ```bash
-yarn add react-native-largelist@3.1.0-rc.2 --legacy-peer-deps
+yarn add @react-native-oh-tpl/react-native-largelist@file:#
 ```
 <!-- tabs:end -->
 
@@ -146,9 +148,9 @@ ohpm install
 
 ### 兼容性
 
-本文档内容基于以下版本验证通过：
+要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-RNOH: 0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.29; IDE: DevEco Studio 5.0.3.300; ROM: 3.0.0.29;
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-largelist Releases](https://github.com/react-native-oh-library/react-native-largelist/releases)
 
 ## 属性
 
@@ -173,8 +175,6 @@ RNOH: 0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.29; IDE: DevEco Studio 5.0.3.300; 
 | renderHeader                   | 列表的头部组件函数                                                                                                                                                                                                                    | `()=> React.ReactElement <any>`                                                                               | no       | Android/iOS | yes               |
 | renderFooter                   | 列表的尾部组件函数                                                                                                                                                                                                                    | `()=> React.ReactElement <any>`                                                                               | no       | Android/iOS | yes               |
 | inverted                       | 翻转滚动方向，适配聊天App                                                                                                                                                                                                             | boolean                                                                                                       | no       | Android/iOS | yes               |
-| pagingEnabled                  | 当值为 true 时，滚动条会停在设置的pageSize整数倍位置。这个属性在iOS和安卓上都支持双向分页。                                                                                                                                           | boolean                                                                                                       | no       | Android/iOS | yes               |
-| pageSize                       | 配合pagingEnabled使用分页，使滑动停止在设置的整数倍位置。同时支持水平和垂直双向分页。0代表使用LargeList的视口大小。                                                                                                                   | {width:number,height:number}                                                                                  | no       | Android/iOS | yes               |
 | onRefresh                      | 下拉刷新的回调函数,如果设置了此属性，则会在顶部加一个刷新Header                                                                                                                                                                       | ()=>any                                                                                                       | no       | Android/iOS | yes               |
 | refreshHeader                  | 选择下拉刷新的组件，用户如果不希望高度自定义，则可以不设定直接使用NormalHeader,如果需要高度自定义                                                                                                                                     | [RefreshHeader](https://github.com/bolan9999/react-native-spring-scrollview/blob/master/src/RefreshHeader.js) | no       | Android/iOS | yes               |
 | onLoading                      | 上拉加载的回调函数,如果设置了此属性，则会在底部加一个加载组件                                                                                                                                                                         | ()=>any                                                                                                       | no       | Android/iOS | yes               |
@@ -216,6 +216,8 @@ RNOH: 0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.29; IDE: DevEco Studio 5.0.3.300; 
 ## 遗留问题
 
 ## 其他
+
+react-native-largelist组件：[列表数据显示不完整，列表后有空白](https://github.com/bolan9999/react-native-largelist/issues/489)
 
 ## 开源协议
 

@@ -154,7 +154,7 @@ SyanImagePicker.openVideoPicker(options, (err, videos) => {
 }
 ```
 
-## 使用 Codegen（如本库已适配了 Codegen ）
+## 使用 Codegen
 
 本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/zh-cn/codegen.md)。
 
@@ -262,7 +262,7 @@ release未发布。
 
 | Name                            | Description                                                  | Type    | Required |  Platform   | HarmonyOS Support |
 | ------------------------------- | ------------------------------------------------------------ | ------- | :------: | :---------: | :---------------: |
-| imageCoun                       | 最大选择图片数目，默认6                                      | number  |   yes    | iOS/Android |        yes        |
+| imageCount                      | 最大选择图片数目，默认6                                      | number  |   yes    | iOS/Android |        yes        |
 | isCamera                        | 是否允许用户在内部拍照，默认true                             | boolean |   yes    | iOS/Android |        yes        |
 | isCrop                          | 是否允许裁剪，默认false, imageCount 为1才生效                | boolean |   yes    | iOS/Android |        yes        |
 | compress                        | 是否压缩照片                                                 | boolean |   yes    | iOS/Android |        yes        |
@@ -320,7 +320,7 @@ release未发布。
 | deleteCache          | 清除缓存                           | void                                                     | yes      | iOS/Android | yes               |
 | removePhotoAtIndex   | 删除已选择照片的索引               | void                                                     | yes      | iOS/Android | yes               |
 | removeAllPhoto       | 删除所有已选择的照片               | void                                                     | yes      | iOS/Android | yes               |
-| openVideoPicker      | 打开视频选择器                     | callback: (err: null \| string, photos: SelectedPhoto[]) | yes      | iOS/Android | yes               |
+| openVideoPicker      | 打开视频选择器,选择视频            | callback: (err: null \| string, photos: SelectedPhoto[]) | yes      | iOS/Android | yes               |
 
 ## 遗留问题
 

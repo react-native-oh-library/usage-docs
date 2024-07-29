@@ -47,8 +47,7 @@ yarn add @react-native-oh-tpl/react-native-sqlite-storage@file:#
  * @format
  */
 import React, {Component} from 'react';
-import {AppRegistry, StyleSheet, Text, View, FlatList} from 'react-native';
-import {name as appName} from './app.json';
+import { StyleSheet, Text, View, FlatList} from 'react-native';
 import SQLite from 'react-native-sqlite-storage';
 SQLite.DEBUG(true);
 SQLite.enablePromise(false);
@@ -114,7 +113,10 @@ class SQLiteDemo extends Component {
   // eslint-disable-next-line no-shadow
   populateDatabase = db => {
     this.updateProgress('Database integrity check');
-    db.executeSql('SELECT 1 FROM Version LIMIT 1',[],() => {
+    db.executeSql(
+      'SELECT 1 FROM Version LIMIT 1',
+      [],
+      () => {
         this.updateProgress('Database is ready ... executing query ...');
         db.transaction(this.queryEmployees, this.errorCB, () => {
           this.updateProgress('Processing completed');
@@ -128,13 +130,14 @@ class SQLiteDemo extends Component {
           db.transaction(this.queryEmployees, this.errorCB, () => {
             console.log('Transaction is now finished');
             this.updateProgress('Processing completed');
+            // this.closeDatabase();
           });
         });
       },
     );
   };
 
-   populateDB = tx => {
+  populateDB = tx => {
     this.updateProgress('Executing DROP stmts');
 
     tx.executeSql('DROP TABLE IF EXISTS Employees;');
@@ -143,20 +146,115 @@ class SQLiteDemo extends Component {
 
     this.updateProgress('Executing CREATE stmts');
 
-    tx.executeSql('CREATE TABLE IF NOT EXISTS Version( ' +'version_id INTEGER PRIMARY KEY NOT NULL); ',[],this.successCB,this.errorCB,);
+    tx.executeSql(
+      'CREATE TABLE IF NOT EXISTS Version( ' +
+        'version_id INTEGER PRIMARY KEY NOT NULL); ',
+      [],
+      this.successCB,
+      this.errorCB,
+    );
 
-    tx.executeSql('CREATE TABLE IF NOT EXISTS Departments( ' +'department_id INTEGER PRIMARY KEY NOT NULL, ' +'name VARCHAR(30) ); ',[],this.successCB,this.errorCB,);
+    tx.executeSql(
+      'CREATE TABLE IF NOT EXISTS Departments( ' +
+        'department_id INTEGER PRIMARY KEY NOT NULL, ' +
+        'name VARCHAR(30) ); ',
+      [],
+      this.successCB,
+      this.errorCB,
+    );
 
-    tx.executeSql('CREATE TABLE IF NOT EXISTS Offices( ' +'office_id INTEGER PRIMARY KEY NOT NULL, ' +'name VARCHAR(20), ' +'longtitude FLOAT, ' +'latitude FLOAT ) ; ',[],this.successCB,this.errorCB,);
+    tx.executeSql(
+      'CREATE TABLE IF NOT EXISTS Offices( ' +
+        'office_id INTEGER PRIMARY KEY NOT NULL, ' +
+        'name VARCHAR(20), ' +
+        'longtitude FLOAT, ' +
+        'latitude FLOAT ) ; ',
+      [],
+      this.successCB,
+      this.errorCB,
+    );
 
-    tx.executeSql('CREATE TABLE IF NOT EXISTS Employees( ' +'employe_id INTEGER PRIMARY KEY NOT NULL, ' +'name VARCHAR(55), ' +'office INTEGER, ' +'department INTEGER, ' +'custom_info TEXT DEFAULT "",' +'FOREIGN KEY ( office ) REFERENCES Offices ( office_id ) ' +'FOREIGN KEY ( department ) REFERENCES Departments ( department_id ));',[],);
-
+    tx.executeSql(
+      'CREATE TABLE IF NOT EXISTS Employees( ' +
+        'employe_id INTEGER PRIMARY KEY NOT NULL, ' +
+        'name VARCHAR(55), ' +
+        'office INTEGER, ' +
+        'department INTEGER, ' +
+        'custom_info TEXT DEFAULT "",' +
+        'FOREIGN KEY ( office ) REFERENCES Offices ( office_id ) ' +
+        'FOREIGN KEY ( department ) REFERENCES Departments ( department_id ));',
+      [],
+    );
 
     this.updateProgress('Executing INSERT stmts');
-       
-    tx.executeSql('INSERT INTO Departments (name) VALUES ("Client Services");',[],);
 
-    tx.executeSql('INSERT INTO Offices (name, longtitude, latitude) VALUES ("Denver", 59.8,  34.);',[],);
+    tx.executeSql(
+      'INSERT INTO Departments (name) VALUES ("Client Services");',
+      [],
+    );
+    tx.executeSql(
+      'INSERT INTO Departments (name) VALUES ("Investor Services");',
+      [],
+    );
+    tx.executeSql('INSERT INTO Departments (name) VALUES ("Shipping");', []);
+    tx.executeSql(
+      'INSERT INTO Departments (name) VALUES ("Direct Sales");',
+      [],
+    );
+
+    tx.executeSql(
+      'INSERT INTO Offices (name, longtitude, latitude) VALUES ("Denver", 59.8,  34.);',
+      [],
+    );
+    tx.executeSql(
+      'INSERT INTO Offices (name, longtitude, latitude) VALUES ("Warsaw", 15.7, 54.);',
+      [],
+    );
+    tx.executeSql(
+      'INSERT INTO Offices (name, longtitude, latitude) VALUES ("Berlin", 35.3, 12.);',
+      [],
+    );
+    tx.executeSql(
+      'INSERT INTO Offices (name, longtitude, latitude) VALUES ("Paris", 10.7, 14.);',
+      [],
+    );
+
+    tx.executeSql(
+      'INSERT INTO Employees (name, office, department, custom_info) VALUES ("Sylvester Stallone", 2, 4, \'{"known": true}\')',
+      [],
+    );
+    tx.executeSql(
+      'INSERT INTO Employees (name, office, department, custom_info) VALUES ("Elvis Presley", 2, 4, \'{"known": true}\')',
+      [],
+    );
+    tx.executeSql(
+      'INSERT INTO Employees (name, office, department, custom_info) VALUES ("Leslie Nelson", 3, 4, \'{"known": true}\')',
+      [],
+    );
+    tx.executeSql(
+      'INSERT INTO Employees (name, office, department, custom_info) VALUES ("Fidel Castro", 3, 3, \'{"known": true}\')',
+      [],
+    );
+    tx.executeSql(
+      'INSERT INTO Employees (name, office, department, custom_info) VALUES ("Bill Clinton", 1, 3, \'{"known": false}\')',
+      [],
+    );
+    tx.executeSql(
+      'INSERT INTO Employees (name, office, department, custom_info) VALUES ("Margaret Thatcher", 1, 3, \'{"known": true}\')',
+      [],
+    );
+    tx.executeSql(
+      'INSERT INTO Employees (name, office, department, custom_info) VALUES ("Donald Trump", 2, 4, \'{"known": true, "impeached": true}\')',
+      [],
+    );
+    tx.executeSql(
+      'INSERT INTO Employees (name, office, department, custom_info) VALUES ("Dr DRE", 2, 2, \'{"known": true}\')',
+      [],
+    );
+    tx.executeSql(
+      'INSERT INTO Employees (name, office, department, custom_info) VALUES ("Samantha Fox", 2, 1, \'{"known": true}\')',
+      [],
+    );
 
     console.log('all config SQL done');
   };
@@ -165,22 +263,101 @@ class SQLiteDemo extends Component {
     console.log('Executing JSON1 queries...');
 
     // 1. JSON_OBJECT
-    await tx.executeSql( "SELECT JSON_OBJECT('name', e.name, 'office_id', e.office, 'department_id', e.department) AS data FROM Employees e",[],this.querySuccess,this.errorCB,);
+    await tx.executeSql(
+      "SELECT JSON_OBJECT('name', e.name, 'office_id', e.office, 'department_id', e.department) AS data FROM Employees e",
+      [],
+      this.querySuccess,
+      this.errorCB,
+    );
 
     // 2. JSON_ARRAY
     // Expected: [1,2,"3",4]
-    await tx.executeSql("SELECT JSON_ARRAY(1, 2, '3', 4) AS data ",[],this.querySuccess,this.errorCB,);
+    await tx.executeSql(
+      "SELECT JSON_ARRAY(1, 2, '3', 4) AS data ",
+      [],
+      this.querySuccess,
+      this.errorCB,
+    );
 
     // 3. JSON_ARRAY_LENGTH
     // Expected: 4
-    await tx.executeSql("SELECT JSON_ARRAY_LENGTH('[1, 2, 3, 4]') AS data",[],this.querySuccess,this.errorCB,);
+    await tx.executeSql(
+      "SELECT JSON_ARRAY_LENGTH('[1, 2, 3, 4]') AS data",
+      [],
+      this.querySuccess,
+      this.errorCB,
+    );
 
     // 4. JSON_EXTRACT
-    await tx.executeSql( "SELECT JSON_EXTRACT(e.custom_info, '$.known')  AS data FROM Employees e", [],this.querySuccess,this.errorCB,);
-      
+    await tx.executeSql(
+      "SELECT JSON_EXTRACT(e.custom_info, '$.known')  AS data FROM Employees e",
+      [],
+      this.querySuccess,
+      this.errorCB,
+    );
+
     // 5. JSON_INSERT
     // Expected: {"a":1,"b":2,"c":3}
-    await tx.executeSql('SELECT JSON_INSERT(\'{"a": 1, "b": 2}\', \'$.c\', 3)  AS data',[],this.querySuccess,this.errorCB,);
+    await tx.executeSql(
+      'SELECT JSON_INSERT(\'{"a": 1, "b": 2}\', \'$.c\', 3)  AS data',
+      [],
+      this.querySuccess,
+      this.errorCB,
+    );
+
+    // 6. JSON_REPLACE
+    // Expected: {"a":1,"b":3}
+    await tx.executeSql(
+      'SELECT JSON_REPLACE(\'{"a": 1, "b": 2}\', \'$.b\', 3)  AS data',
+      [],
+      this.querySuccess,
+      this.errorCB,
+    );
+
+    // 7. JSON_SET
+    // Expected: {"a":1,"b":123}
+    await tx.executeSql(
+      'SELECT JSON_SET(\'{"a": 1, "b": 2}\', \'$.b\', 123)  AS data',
+      [],
+      this.querySuccess,
+      this.errorCB,
+    );
+
+    // 8. JSON_REMOVE
+    // Expected: {"a":1"}
+    await tx.executeSql(
+      'SELECT JSON_REMOVE(\'{"a": 1, "b": 2}\', \'$.b\')  AS data',
+      [],
+      this.querySuccess,
+      this.errorCB,
+    );
+
+    // 9. JSON_TYPE
+    // Expected: integer
+    await tx.executeSql(
+      'SELECT JSON_TYPE(\'{"a": 1, "b": 2}\', \'$.a\')  AS data',
+      [],
+      this.querySuccess,
+      this.errorCB,
+    );
+
+    // 10. JSON_VALID
+    // Expected: 0
+    await tx.executeSql(
+      'SELECT JSON_VALID(\'{"a": 1, "b": 2\')  AS data',
+      [],
+      this.querySuccess,
+      this.errorCB,
+    );
+
+    // 11. JSON_QUOTE
+    // Expected: "value"
+    await tx.executeSql(
+      "SELECT JSON_QUOTE('value')  AS data",
+      [],
+      this.querySuccess,
+      this.errorCB,
+    );
   };
 
   querySuccess = (tx, results) => {
@@ -195,7 +372,14 @@ class SQLiteDemo extends Component {
   loadAndQueryDB = () => {
     this.updateProgress('Opening database ...', true);
     this.updateProgress('Database OPEN');
-    db = SQLite.openDatabase(database_name,database_version,database_displayname,database_size,this.openCB,this.errorCB,);
+    db = SQLite.openDatabase(
+      database_name,
+      database_version,
+      database_displayname,
+      database_size,
+      this.openCB,
+      this.errorCB,
+    );
     this.populateDatabase(db);
   };
 
@@ -211,6 +395,7 @@ class SQLiteDemo extends Component {
       db.close(this.closeCB, this.errorCB);
     } else {
       this.updateProgress('Database CLOSE callback function error');
+      // this.updateProgress('Database was not OPENED');
     }
   };
 
@@ -218,6 +403,22 @@ class SQLiteDemo extends Component {
     this.updateProgress('Starting SQLite Callback Demo', true);
     this.loadAndQueryDB();
   };
+
+  attachDatabase = () =>{
+    if (db!=null) {
+      this.updateProgress('Attach database ...');
+      let dbMaster = SQLite.openDatabase('test2.db',database_version,database_displayname,database_size,
+        () => {
+          dbMaster.attach( database_name, database_displayname, () => console.log("Database attached successfully"), () => console.log("ERROR"))
+          this.updateProgress('Attach database successfully');
+        },
+        this.errorCB,
+      );
+    } else {
+      this.updateProgress('Database not open');
+    } 
+
+  }
 
   renderProgressEntry = entry => {
     return (
@@ -233,9 +434,18 @@ class SQLiteDemo extends Component {
     return (
       <View style={styles.mainContainer}>
         <View style={styles.toolbar}>
-          <Text style={styles.toolbarButton} onPress={this.runDemo}>Run Demo</Text>
-          <Text style={styles.toolbarButton} onPress={this.closeDatabase}>Close DB</Text>
-          <Text style={styles.toolbarButton} onPress={this.deleteDatabase}>Delete DB</Text>
+          <Text style={styles.toolbarButton} onPress={this.runDemo}>
+            Run Demo
+          </Text>
+          <Text style={styles.toolbarButton} onPress={this.attachDatabase}>
+            Attach DB
+          </Text>
+          <Text style={styles.toolbarButton} onPress={this.closeDatabase}>
+            Close DB
+          </Text>
+          <Text style={styles.toolbarButton} onPress={this.deleteDatabase}>
+            Delete DB
+          </Text>
         </View>
         <FlatList
           data={this.state.progress}
@@ -304,7 +514,7 @@ var styles = StyleSheet.create({
     flex: 1,
   },
 });
-AppRegistry.registerComponent(appName, () => SQLiteDemo);
+export default SQLiteDemo;
 
 ```
 
@@ -398,40 +608,17 @@ ohpm install
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-sqlite-storage Releases](https://github.com/react-native-oh-library/react-native-sqlite-storage/releases)
 
-## 属性
-
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-| Name | Description | Type | Required | Platform | HarmonyOS Support  |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| qid  | 	Unique identifier for the query        | number  | yes | All      | yes |
-| sql  | SQL statement to be executed        | string  | yes| All     | yes |
-| params  | Parameter list for the SQL statement       |any[]  | yes | All      | yes |
-
 ## 静态方法
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| echoStringValue  | Adapter method    | void  | yes |All     |  yes |
 | open  | Opens or initializes        | void  | yes |All     |  yes |
 | close  |Closes or releases a previously opened resource      | void  |  yes |All     |  yes |
 | delete  |Deletes a resource       |void   |  yes | All   |  yes |
 |attach  | Connects or associates with an external resource or database  |  void  |  yes | All   |  yes|
 | backgroundExecuteSqlBatch  |Executes a batch of SQL statements in the background without blocking the current thread or process | void   |  yes |All     |  yes |
-| execute  |   Bridge execution method   | boolean   |  yes |All     |  yes |
-|  startDatabase |   Opens a database    | void   |  yes |All     |  yes |
-| closeDatabase  |  Closes a database      | void   |  yes |All     |  yes |
-| deleteDatabase  | Deletes a database     | void   |  yes |All     |  yes |
-| executeSqlBatchDatabase  | Executes a batch of SQL statements on a database     | void   |  yes |All     |  yes |
-| attachDatabase  | Bridges a database  | void   |  yes |All     |  yes |
-| INIT | Creates a database sandbox directory and retrieves the database file from the app's rawfile | void   |  yes |All     |  yes |
-| saveFileToCache |  Reads the database file from the app's rawfile and saves it to the database sandbox directory  | void   |  yes |All     |  yes |
 
 ## 遗留问题
 

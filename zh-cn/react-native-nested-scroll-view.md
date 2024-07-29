@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.2.0
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-nested-scroll-view</code> </h1>
@@ -14,7 +14,7 @@
     </a>
 </p>
 
-> [! TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-nested-scroll-view)
+> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-nested-scroll-view)
 
 ## 安装与使用
 
@@ -22,7 +22,7 @@
 
 进入到工程目录并输入以下命令：
 
-> [! TIP] # 处替换为 tgz 包的路径
+> [!TIP] # 处替换为 tgz 包的路径
 
 <!-- tabs:start -->
 
@@ -42,95 +42,75 @@ yarn add @react-native-oh-tpl/react-native-nested-scroll-view@file:#
 
 下面的代码展示了这个库的基本使用场景：
 
-> [! WARNING] 使用时 import 的库名不变。
+> [!WARNING] 使用时 import 的库名不变。
 
 ```js
-import {
-  StyleSheet,
-  Text,
-  StatusBar,
-  Button,
-  View
-} from 'react-native';
-import React, {
-  useRef
-} from 'react';
-
+import React from 'react';
+import { View, ScrollView, Text, StyleSheet } from 'react-native';
 import NestedScrollView from 'react-native-nested-scroll-view';
 
-const NestedScrollViewDemo = () => {
-  const scrollViewRef = useRef();
-
-  const scrollToSpecificCoordinate = () => {
-    scrollViewRef.current?.scrollTo({
-      x: 300,
-      y: 500,
-      animated: true
-    })
-  };
-
-  return ( <
-    View style = {
-      styles.container
-    } >
-    <
-    NestedScrollView ref = {
-      scrollViewRef
-    }
-    style = {
-      styles.scrollView
-    }
-    contentContainerStyle = {
-      {
-        flexGrow: 1
-      }
-    } >
-    <
-    Text style = {
-      styles.text
-    } >
-    A component that encapsulates the platform 's ScrollView, while also integrating a touch-locked "responder" system.
-    Keep in mind that the ScrollView must have a definite height in order
-    for it to work,
-    because what it actually does is pack a series of sub - components of indeterminate height into a container with a definite height(via scrolling).To give a ScrollView a definite height, either set the height to it directly(not recommended), or make sure that all parent containers have a definite height.Generally speaking, we will set the ScrollView to automatically fill the empty space of the parent container, but only
-    if all the parent containers themselves are also flex or have a height specified, otherwise it will not scroll properly,
-    and you can use the Element Viewer to find out which layer is the correct height.flex: 1 Other responders inside ScrollView can 't yet prevent ScrollView from becoming a responder itself. < /
-    Text > <
-    /NestedScrollView> <
-    View style = {
-      {
-        justifyContent: 'center',
-        alignItems: 'center'
-      }
-    } >
-    <
-    Button title = "滚动到特定坐标"
-    onPress = {
-      scrollToSpecificCoordinate
-    }
-    /> < /
-    View > <
-    /View>
+const NestedScrollViewExample = () => {
+  return (
+    <NestedScrollView style={{ flex: 1 }}>
+      <ScrollView contentContainerStyle={styles.scrollViewContent}>
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((item) => (
+          <View key={item} style={styles.itemContainer}>
+            <Text style={styles.itemTitle}>Item {item}</Text>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((subItem) => (
+                <View key={subItem} style={styles.subItem}>
+                  <Text>content {subItem}</Text>
+                </View>
+              ))}
+            </ScrollView>
+          </View>
+        ))}
+      </ScrollView>
+    </NestedScrollView>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: StatusBar.currentHeight,
-    paddingBottom: 40
+  scrollViewContent: {
+    paddingVertical: 20,
+    paddingHorizontal: 10,
   },
-  scrollView: {
-    backgroundColor: 'pink',
-    marginHorizontal: 20,
+  itemContainer: {
+    marginBottom: 20,
+    padding: 10,
+    backgroundColor: '#f0f0f0',
+    borderRadius: 10,
   },
-  text: {
-    fontSize: 42,
+  itemTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  subItem: {
+    width: 100,
+    height: 100,
+    backgroundColor: '#b0e0e6',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal: 5,
   },
 });
 
-export default NestedScrollViewDemo;
+export default NestedScrollViewExample;
 ```
+
+### 运行
+
+点击右上角的 `sync` 按钮
+
+或者在终端执行：
+
+```bash
+cd entry
+ohpm install
+```
+
+然后编译、运行即可。
 
 ## 约束与限制
 
@@ -140,11 +120,9 @@ export default NestedScrollViewDemo;
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-nested-scroll-view Releases](https://github.com/react-native-oh-library/react-native-nested-scroll-view/releases)
 
-本文档内容基于以下版本验证通过：
-
-RNOH: 0.72.23; SDK: HarmonyOS NEXT Developer Beta1; IDE: DevEco Studio: 5.0.3.27; ROM: 3.0.0.19; 
-
 ## 属性
+
+Android的ScrollView并不支持像iOS的ScrollView那样的嵌套滚动，在React Native中直接使用原生的ScrollView实现嵌套滚动时，会出现一些滚动上的问题，例如嵌套滚动不流畅或无法正确响应滚动事件等，因此Android使用react-native-nested-scroll-view来解决嵌套滚动的问题；而iOS使用的是React Native中的ScrollView来实现嵌套滚动，HarmonyOS与iOS保持一致，接受所有[React Native ScrollView](https://reactnative.dev/docs/scrollview#props) 组件的Props
 
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
@@ -178,7 +156,10 @@ RNOH: 0.72.23; SDK: HarmonyOS NEXT Developer Beta1; IDE: DevEco Studio: 5.0.3.27
 | removeClippedSubviews  | 当此属性为 true 时，屏幕之外的子视图（子视图的overflow样式需要设为hidden）会被移除         | boolean  | no | Android/IOS | yes               |
 | refreshControl  | 用于为 ScrollView 提供下拉刷新功能。只能用于垂直视图，即horizontal不能为true | React. Element<any>  | no | Android/IOS | yes               |
 
+
 ## API
+
+Android的ScrollView并不支持像iOS的ScrollView那样的嵌套滚动，在React Native中直接使用原生的ScrollView实现嵌套滚动时，会出现一些滚动上的问题，例如嵌套滚动不流畅或无法正确响应滚动事件等，因此Android使用react-native-nested-scroll-view来解决嵌套滚动的问题；而iOS使用的是React Native中的ScrollView来实现嵌套滚动，HarmonyOS与iOS保持一致，接受所有[React Native ScrollView](https://reactnative.dev/docs/scrollview#methods) 组件的Methods
 
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
@@ -189,6 +170,7 @@ RNOH: 0.72.23; SDK: HarmonyOS NEXT Developer Beta1; IDE: DevEco Studio: 5.0.3.27
 | scrollTo  | 该方法用于滚动到指定位置。可以通过x和y参数指定滚动的偏移量，animated参数用于指定是否使用动画效果。| function  | no       | Android/IOS  | yes        |
 | scrollToEnd  | 该方法用于滚动到内容的末尾。可以通过animated参数指定是否使用动画效果。| function  | no       | Android/IOS  | yes                |
 | flashScrollIndicators  | 该方法用于显示滚动指示器，通常在需要提醒用户可以滚动时使用。| function  | no       | Android/IOS  | yes                |
+
 
 ## 遗留问题
 

@@ -24,13 +24,13 @@
 #### **npm**
 
 ```bash
-npm install react-native-flash-message@0.2.2
+npm install react-native-flash-message@0.4.2
 ```
 
 #### **yarn**
 
 ```bash
-yarn add react-native-flash-message@0.2.2
+yarn add react-native-flash-message@0.4.2
 ```
 
 <!-- tabs:end -->

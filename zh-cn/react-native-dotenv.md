@@ -1,5 +1,3 @@
-<!-- {% raw %} -->
-
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -14,7 +12,7 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/goatandsheep/react-native-dotenv)
+> [!TIP] [Github 地址](https://github.com/goatandsheep/react-native-dotenv)
 
 ## 安装与使用
 
@@ -72,11 +70,40 @@ export function TestDotenv() {
 
 基础配置：
 
-**.babelrc**
+**.babelrc 或 babel.config.js**
 
 ```json
 {
   "plugins": [["module:react-native-dotenv"]]
+}
+```
+
+**.babelrc 或 babel.config.js**
+
+> [!TIP] 如果默认值不适合您项目，这里会列出 Babel 配置的可用选项及其各自的默认值，但如果您使用默认设置，则无需添加它们。
+
+```json
+module.exports = function(api) {
+  api.cache(false)
+  module.exports = {
+    plugins: [
+      [
+        'module:react-native-dotenv',
+        {
+          envName: 'APP_ENV',
+          moduleName: '@env',
+          path: '.env',
+          blocklist: null, // 黑名单 string[]
+          allowlist: null, // 白名单 string[]
+          blacklist: null, // DEPRECATED 弃用
+          whitelist: null, // DEPRECATED 弃用
+          safe: false, // 安全模式
+          allowUndefined: true, // 允许变量未定义
+          verbose: false, // 
+        },
+      ],
+    ],
+  };
 }
 ```
 
@@ -143,6 +170,24 @@ console.log(UNDEFINED_VAR === undefined); // true
 
 若要进行选择，需要为每个环境使用 NODE_ENV 设置脚本
 
+```json
+module.exports = function(api) {
+  api.cache(false)
+  module.exports = {
+    plugins: [
+      [
+        'module:react-native-dotenv',
+        {
+          moduleName: '@env',
+          // 多环境须修改 path：'.env.development' 或 '.env.Production' 或 '.env.test'
+          path: '.env', 
+        },
+      ],
+    ],
+  };
+}
+```
+
 **package.json**
 
 <!-- tabs:start -->
@@ -176,7 +221,7 @@ console.log(UNDEFINED_VAR === undefined); // true
 对于使用 TypeScript 的库，需要手动指定类型：
 
 - 在你的工程创建 `types` 文件夹
-- 进入文件夹，创建 `*.d.tsx` 文件，比如 `env.d.ts`
+- 进入文件夹，创建 `*.d.ts` 文件，比如 `env.d.ts`
 - 在此文件中，以下面的形式声明一个 module
 
 ```ts
@@ -247,7 +292,7 @@ module.exports = {
 
 本文档内容基于以下版本验证通过：
 
-1. RNOH：0.72.26; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.300; ROM：3.0.0.25;
+1. RNOH：0.72.27; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.1.430; ROM：3.0.0.26;
 
 ## 遗留问题
 
@@ -256,5 +301,3 @@ module.exports = {
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/goatandsheep/react-native-dotenv/blob/main/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

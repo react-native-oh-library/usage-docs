@@ -160,12 +160,12 @@ const arkTsComponentNames: Array<string> = [
 
 ```diff
   ...
-+ import { SpinKitPackage } from '@react-native-oh-tpl/react-native-spinkit/ts';
++ import { RNSpinKitPackage } from '@react-native-oh-tpl/react-native-spinkit/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
     new SamplePackage(ctx),
-+   new SpinKitPackage(ctx)
++   new RNSpinKitPackage(ctx)
   ];
 }
 ```

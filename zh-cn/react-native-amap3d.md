@@ -329,18 +329,18 @@ const arkTsComponentNames: Array<string> = [
   ];
 ```
 
-### 在 ArkTs 侧引入 MapViewPackage
+### 在 ArkTs 侧引入 AMap3DPackage
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 
 ```diff  
   ... 
-+ import {MapViewPackage} from '@react-native-oh-tpl/react-native-amap3d/ts';
++ import {AMap3DPackage} from '@react-native-oh-tpl/react-native-amap3d/ts';
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
     new SamplePackage(ctx),
-+   new MapViewPackage(ctx)
++   new AMap3DPackage(ctx)
   ];
 }
 ```

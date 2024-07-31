@@ -39,43 +39,49 @@ yarn add react-native-shimmer-placeholder@2.0.9
 > [!WARNING] 使用时 import 的库名不变。
 
 ```js
+import React, { Component } from "react";
+import { View, Image } from "react-native";
 import { createShimmerPlaceholder } from "react-native-shimmer-placeholder";
 import LinearGradient from "react-native-linear-gradient";
 
 const ShimmerPlaceholder = createShimmerPlaceholder(LinearGradient);
-const FacebookContent = () => {
-  // Handle animation
-  const avatarRef = React.createRef();
-  const firstLineRef = React.createRef();
-  const secondLineRef = React.createRef();
-  const thirdLineRef = React.createRef();
-
-  React.useEffect(() => {
-    const facebookAnimated = Animated.stagger(400, [
-      avatarRef.current.getAnimated(),
-      Animated.parallel([
-        firstLineRef.current.getAnimated(),
-        secondLineRef.current.getAnimated(),
-        thirdLineRef.current.getAnimated(),
-      ]),
-    ]);
-    Animated.loop(facebookAnimated).start();
-  }, []);
-
-  return (
-    <View>
-      <View style={{ flexDirection: "row" }}>
-        <ShimmerPlaceholder ref={avatarRef} stopAutoRun />
-        <View style={{ justifyContent: "space-between" }}>
-          <ShimmerPlaceholder ref={firstLineRef} stopAutoRun />
-          <ShimmerPlaceholder ref={secondLineRef} stopAutoRun />
-          <ShimmerPlaceholder ref={thirdLineRef} stopAutoRun />
-        </View>
+export class ShimmerPlaceholderTest extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      visible: false,
+    };
+  }
+  render() {
+    return (
+      <View>
+        <ShimmerPlaceholder
+          width={150}
+          height={150}
+          shimmerStyle={{ borderRadius: 100 }}
+          visible={this.state.visible}
+        >
+          <Image
+            style={{ width: 150, height: 150, borderRadius: 100 }}
+            source={{ uri: "https://unsplash.it/150/150" }}
+            onLoadEnd={() => {
+              this.setState({ visible: true });
+            }}
+          />
+        </ShimmerPlaceholder>
       </View>
-    </View>
-  );
-};
+    );
+  }
+}
 ```
+
+## Link
+
+> [!TIP] 本库依赖的@react-native-oh-tpl/react-native-linear-gradient 使用的版本为 3.0.0-0.4.5
+
+本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-linear-gradient 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+
+如未引入请参照[@react-native-oh-tpl/react-native-linear-gradient 文档](/zh-cn/react-native-linear-gradient.md)进行引入
 
 ## 约束与限制
 
@@ -87,9 +93,9 @@ const FacebookContent = () => {
 
 ## 属性
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name                       | Description                                                                                            | Required | Type      | Platform | HarmonyOS Support |
 | -------------------------- | ------------------------------------------------------------------------------------------------------ | -------- | --------- | -------- | ----------------- |
@@ -113,9 +119,9 @@ const FacebookContent = () => {
 
 ## 静态方法
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Method          | Description                 | Type     | **Required** | Platform | HarmonyOS Support |
 | --------------- | --------------------------- | -------- | ------------ | -------- | ----------------- |

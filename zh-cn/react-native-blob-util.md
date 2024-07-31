@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.2.1
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-blob-util</code> </h1>
@@ -411,6 +411,10 @@ const styles = StyleSheet.create({
 });
 ```
 
+## 使用 Codegen
+
+本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/zh-cn/codegen.md)。
+
 ## Link
 
 目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
@@ -444,7 +448,7 @@ const styles = StyleSheet.create({
 ```json
 "dependencies": {
      "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/rnoh-blob-util": "file:../../node_modules/@react-native-oh-tpl/react-native-blob-util/harmony/blobUtil.har"
+     "@react-native-oh-tpl/react-native-blob-util": "file:../../node_modules/@react-native-oh-tpl/react-native-blob-util/harmony/blobUtil.har"
   }
 ```
 
@@ -461,14 +465,13 @@ ohpm install
 
 > [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
-
 ### 在 ArkTs 侧引入 BlobUtilPackage
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-  ...
-+ import {BlobUtilPackage} from '@react-native-oh-tpl/rnoh-blob-util/ts';
+...
++ import {BlobUtilPackage} from '@react-native-oh-tpl/react-native-blob-util/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
@@ -499,10 +502,6 @@ ohpm install
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-blob-util Releases](https://github.com/react-native-oh-library/react-native-blob-util/releases)
 
-本文档内容基于以下版本验证通过：
-
-1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.18
-
 ## API
 
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
@@ -525,26 +524,26 @@ ohpm install
 
 |    Name     |            Description             | Required |  Platform   | HarmonyOS Support |
 | :---------: | :--------------------------------: | :------: | :---------: | :---------------: |
-|    dirs     |                目录                |    NO    | IOS/Android |        Yes        |
-| createFile  |              创建文件              |    NO    | IOS/Android |        Yes        |
-|  writeFile  |               写文件               |    NO    | IOS/Android |        Yes        |
-| writeStream |                写流                |    NO    | IOS/Android |        Yes        |
-| appendFile  |              追加文件              |    NO    | IOS/Android |        Yes        |
-|  readFile   |              读取文件              |    NO    | IOS/Android |        Yes        |
-|    hash     |                哈希                |    NO    | IOS/Android |        Yes        |
-| readStream  |                读流                |    NO    | IOS/Android |        Yes        |
-|    mkdir    |              创建目录              |    NO    | IOS/Android |        Yes        |
-|     ls      |        查看当下的文件和目录        |    NO    | IOS/Android |        Yes        |
-|     mv      |            移动文件位置            |    NO    | IOS/Android |        Yes        |
-|     cp      |              复制文件              |    NO    | IOS/Android |        Yes        |
-|   exists    |          检查文件是否存在          |    NO    | IOS/Android |        Yes        |
-|    isDir    |             是否是目录             |    NO    | IOS/Android |        Yes        |
-|   unlink    |              删除文件              |    NO    | IOS/Android |        Yes        |
-|    lstat    |      获取目录下文件的统计数据      |    NO    | IOS/Android |        Yes        |
-|    stat     |   类似地获取数据或目录的统计信息   |    NO    | IOS/Android |        Yes        |
+|    dirs     |                目录                |    NO    | iOS/Android |        Yes        |
+| createFile  |              创建文件              |    NO    | iOS/Android |        Yes        |
+|  writeFile  |               写文件               |    NO    | iOS/Android |        Yes        |
+| writeStream |                写流                |    NO    | iOS/Android |        Yes        |
+| appendFile  |              追加文件              |    NO    | iOS/Android |        Yes        |
+|  readFile   |              读取文件              |    NO    | iOS/Android |        Yes        |
+|    hash     |                哈希                |    NO    | iOS/Android |        Yes        |
+| readStream  |                读流                |    NO    | iOS/Android |        Yes        |
+|    mkdir    |              创建目录              |    NO    | iOS/Android |        Yes        |
+|     ls      |        查看当下的文件和目录        |    NO    | iOS/Android |        Yes        |
+|     mv      |            移动文件位置            |    NO    | iOS/Android |        Yes        |
+|     cp      |              复制文件              |    NO    | iOS/Android |        Yes        |
+|   exists    |          检查文件是否存在          |    NO    | iOS/Android |        Yes        |
+|    isDir    |             是否是目录             |    NO    | iOS/Android |        Yes        |
+|   unlink    |              删除文件              |    NO    | iOS/Android |        Yes        |
+|    lstat    |      获取目录下文件的统计数据      |    NO    | iOS/Android |        Yes        |
+|    stat     |   类似地获取数据或目录的统计信息   |    NO    | iOS/Android |        Yes        |
 |  scanFile   |              扫描文件              |    NO    |   Android   |        No         |
-|    asset    |                资产                |    NO    | IOS/Android |        Yes        |
-|     df      | 获取设备的可用磁盘空间和总磁盘空间 |    NO    | IOS/Android |        Yes        |
+|    asset    |                资产                |    NO    | iOS/Android |        Yes        |
+|     df      | 获取设备的可用磁盘空间和总磁盘空间 |    NO    | iOS/Android |        Yes        |
 
 #### iOS API
 
@@ -561,8 +560,8 @@ ohpm install
 
 | Name          | Description | Required | Platform    | HarmonyOS Support |
 | ------------- | ----------- | -------- | ----------- | ----------------- |
-| getCookies    | 获取 cookie | No       | IOS/Android | No                |
-| removeCookies | 删除 cookie | No       | IOS/Android | No                |
+| getCookies    | 获取 cookie | No       | iOS/Android | No                |
+| removeCookies | 删除 cookie | No       | iOS/Android | No                |
 
 #### Session API
 
@@ -570,7 +569,7 @@ ohpm install
 
 | Name    | Description | Required | Platform    | HarmonyOS Support |
 | ------- | ----------- | -------- | ----------- | ----------------- |
-| session | 会话        | No       | IOS/Android | No                |
+| session | 会话        | No       | iOS/Android | No                |
 
 #### MediaStore(Android Media Storage)
 
@@ -587,8 +586,8 @@ ohpm install
 
 | Name   | Description | Required | Platform    | HarmonyOS Support |
 | ------ | ----------- | -------- | ----------- | ----------------- |
-| wrap   |             | No       | Android/IOS | No                |
-| base64 |             | No       | Android/IOS | No                |
+| wrap   |             | No       | iOS/Android | No                |
+| base64 |             | No       | iOS/Android | No                |
 
 ## 遗留问题
 
@@ -596,6 +595,7 @@ ohpm install
 
 ## 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-blob-util/blob/master/LICENSE) ，请自由地享受和参与开源。
+本项目基于 [The MIT License (MIT)](https://github.com/RonRadtke/react-native-blob-util/blob/master/LICENSE) ，请自由地享受和参与开源。
 
 <!-- {% endraw %} -->
+

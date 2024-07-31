@@ -1,5 +1,3 @@
-<!-- {% raw %} -->
-
 模板版本：v0.2.2
 
 <p align="center">
@@ -19,18 +17,20 @@
 
 ## 安装与使用
 
+进入到工程目录并输入以下命令：
+
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm install react-native-hyperlink@0.0.21
+npm install react-native-hyperlink@0.0.22
 ```
 
 #### **yarn**
 
 ```bash
-yarn add react-native-hyperlink@0.0.21
+yarn add react-native-hyperlink@0.0.22
 ```
 
 <!-- tabs:end -->
@@ -75,19 +75,19 @@ export default function App() {
 
 ## 属性
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Props           | Description                                                                       | Type                        | Required | Platform | HarmonyOS Support |
-| --------------- | --------------------------------------------------------------------------------- | --------------------------- | -------- | -------- | ----------------- |
-| linkify         | linkify-it object, for custom schema                                              | object                      | no       | all      | yes               |
-| linkStyle       | highlight clickable text with styles                                              | Text.propTypes.style        | no       | all      | yes               |
-| linkText        | A string or a func to replace parsed text                                         | oneOfType([ string, func ]) | no       | all      | yes               |
-| onPress         | Func to handle click over a clickable text with parsed text as arg                | func                        | no       | all      | yes               |
-| onLongPress     | Func to handle long click over a clickable text with parsed text as arg           | func                        | no       | all      | yes               |
-| linkDefault     | A platform specific fallback to handle onPress. Uses Linking. Disabled by default | bool                        | no       | all      | yes               |
-| injectViewProps | Func with url as a param to inject props to the clickable component               | func                        | no       | all      | yes               |
+| Name            | Description                                                                       | Type                     | Required | Platform | HarmonyOS Support |
+| --------------- | --------------------------------------------------------------------------------- | ------------------------ | -------- | -------- | ----------------- |
+| linkify         | linkify-it object, for custom schema                                              | object                   | no       | all      | yes               |
+| linkStyle       | highlight clickable text with styles                                              | object                   | no       | all      | yes               |
+| linkText        | A string or a func to replace parsed text                                         | string   &#124; function | no       | all      | yes               |
+| onPress         | Func to handle click over a clickable text with parsed text as arg                | function                 | no       | all      | yes               |
+| onLongPress     | Func to handle long click over a clickable text with parsed text as arg           | function                 | no       | all      | yes               |
+| linkDefault     | A platform specific fallback to handle onPress. Uses Linking. Disabled by default | boolean                  | no       | all      | yes               |
+| injectViewProps | Func with url as a param to inject props to the clickable component               | function                 | no       | all      | yes               |
 
 ## 遗留问题
 
@@ -96,5 +96,3 @@ export default function App() {
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/obipawan/react-native-hyperlink/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

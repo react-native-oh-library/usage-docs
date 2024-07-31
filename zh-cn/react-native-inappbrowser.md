@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -283,61 +282,63 @@ export const tryDeepLinking = async () => {
 **1.在 entry/src/main/ets/entryability 下创建 BrowserManagerAbility.ets**
 
 ```
-import UIAbility from '@ohos.app.ability.UIAbility'
-import window from '@ohos.window'
-
-const TAG = 'BrowserManagerAbility';
+import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
+import { hilog } from '@kit.PerformanceAnalysisKit';
+import { window } from '@kit.ArkUI';
 
 export default class BrowserManagerAbility extends UIAbility {
 
-  onWindowStageCreate(windowStage: window.WindowStage) {
-    this.setWindowOrientation(windowStage, window.Orientation.PORTRAIT)
-    windowStage.loadContent('pages/BrowserManagerPage', (err, data) => {
-      if (err.code) {
-        console.info(TAG,'Failed to load the content. Cause: %{public}s',
-          JSON.stringify(err) ?? '')
-        return;
-      }
-      console.info(TAG,'Succeeded in loading the content')
-    });
-    try {
-      windowStage.getMainWindowSync().setWindowLayoutFullScreen(true, (err)=>{
-        if (err.code) {
-          console.error('Failed to enable the full-screen mode. Cause: ' + JSON.stringify(err));
-          return;
-        }
-        console.info('Succeeded in enabling the full-screen mode.');
-      })
-    } catch (exception) {
-      console.error('Failed to set the system bar to be invisible. Cause: ' + JSON.stringify(exception));
-    }
+  onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {
+    hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onCreate');
   }
 
-  setWindowOrientation(stage: window.WindowStage, orientation: window.Orientation): void {
-    console.info(TAG,"into setWindowOrientation :")
-    if (!stage || !orientation) {
-      return;
-    }
-    stage.getMainWindow().then(windowInstance => {
-      windowInstance.setPreferredOrientation(orientation);
-    })
+  onDestroy(): void {
+    hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onDestroy');
+  }
+
+  onWindowStageCreate(windowStage: window.WindowStage): void {
+    // Main window is created, set main page for this ability
+    hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
+
+    windowStage.loadContent('pages/BrowserManagerPage', (err) => {
+      if (err.code) {
+        hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
+        return;
+      }
+      hilog.info(0x0000, 'testTag', 'Succeeded in loading the content.');
+    });
+  }
+
+  onWindowStageDestroy(): void {
+    // Main window is destroyed, release UI related resources
+    hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageDestroy');
+  }
+
+  onForeground(): void {
+    // Ability has brought to foreground
+    hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onForeground');
+  }
+
+  onBackground(): void {
+    // Ability has back to background
+    hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onBackground');
   }
 }
+
 ```
 
 **2.在 entry/src/main/module.json5注册BrowserManagerAbility**
 
 ```
 "ablilities":[{
-        "name": "BrowserManagerAbility",
-        "srcEntrance": "./ets/entryability/BrowserManagerAbility.ets",
-        "description": "$string:EntryAbility_desc",
-        "icon": "$media:icon",
-        "startWindowIcon": "$media:startIcon",
-        "startWindowBackground": "$color:start_window_background",
-        "visible": true,
-
-}
+    "name": "BrowserManagerAbility",
+    "srcEntrance": "./ets/entryability/BrowserManagerAbility.ets",
+    "description": "$string:EntryAbility_desc",
+    "icon": "$media:icon",
+    "startWindowIcon": "$media:startIcon",
+    "startWindowBackground": "$color:start_window_background",
+    "visible": true,
+  }
 ...
 ]
 ```
@@ -426,7 +427,7 @@ ohpm install
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import { RNInAppBrowserPackage } from '@react-native-oh-tpl/react-native-inappbrowser-reborn/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
@@ -524,5 +525,3 @@ ohpm install
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/proyecto26/react-native-inappbrowser/blob/develop/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

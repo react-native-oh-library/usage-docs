@@ -478,7 +478,7 @@ ohpm install
 | title        | 如果没有 InfoWindow，将会根据 title 生成 InfoWindow | String   | no       | All      | no                |
 | titleOffsetY | title 作为 InfoWindow 展示的 y 轴偏移量 | Number   | no       | Android  | no                |
 | location     | 标记的经纬度坐标位置                               | Object   | yes      | All      | yes               |
-| perspective  | 是否启用标记的透视效果                   | Boolean  | no       | Android  | yes               |
+| perspective  | 远大近小的效果                   | Boolean  | no       | Android  | no               |
 | flat         | 是否使标记扁平化                     | Boolean  | no       | Android  | yes               |
 | rotate       | 旋转角度                         | Number   | no       | Android  | yes               |
 | icon         | icon图片，同  的 source 属性                    | Object   | no       | All      | yes               |
@@ -595,7 +595,7 @@ ohpm install
 - [ ] Cluster 覆盖物未实现 [#18](https://github.com/react-native-oh-library/react-native-baidu-map/issues/18)
 - [ ] MarkerIcon 覆盖物未实现 [#19](https://github.com/react-native-oh-library/react-native-baidu-map/issues/19)
 - [ ] MapView部分事件未实现 [#20](https://github.com/react-native-oh-library/react-native-baidu-map/issues/20)
-- [ ] marker的title、pincolor属性未实现 [#21](https://github.com/react-native-oh-library/react-native-baidu-map/issues/21)
+- [ ] marker的title、pincolor、perspective属性未实现 [#21](https://github.com/react-native-oh-library/react-native-baidu-map/issues/21)
 - [ ] Geolocation 静态类功能未实现  [#22](https://github.com/react-native-oh-library/react-native-baidu-map/issues/22)
 - [ ] GetDistance静态类功能未实现 [#23](https://github.com/react-native-oh-library/react-native-baidu-map/issues/23)
 - [ ] Polyline的stroke属性未实现 [#21](https://github.com/react-native-oh-library/react-native-baidu-map/issues/29)

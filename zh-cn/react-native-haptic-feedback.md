@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-模板版本：v0.2.2
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-haptic-feedback</code> </h1>
@@ -80,10 +79,11 @@ export const HapticFeedbackExample = () => {
       <ScrollView>
         {methods.map((item) => {
           return (
-            <Button 
-            title={item}
-            onPress={() => ReactNativeHapticFeedback.trigger(item, options)}>
-            </Button>
+            <Button
+              title={item}
+              onPress={() => ReactNativeHapticFeedback.trigger(item, options)}
+              key={item}
+            ></Button>
           )
         })}
       </ScrollView>
@@ -152,8 +152,9 @@ ohpm install
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-  ...
-+ import { RNHapticFeedbackPackage } from '@react-native-oh-tpl/react-native-haptic-feedback/ts';
+...
+
++  import { RNHapticFeedbackPackage } from '@react-native-oh-tpl/react-native-haptic-feedback/ts'
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
@@ -190,47 +191,44 @@ ohpm install
 
 > [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该方法；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-
 ### Available Methods
 
 `trigger(method, options)`
 Use this method to trigger haptic feedback
 
-| Name                              | Description                                                                                                                           | Type    | Required | Platform    | HarmonyOS Support |
+| Name                                  | Description                                                                                                                           | Type    | Required | Platform    | HarmonyOS Support |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------- | ----------- | ----------------- |
 | `method`                              | Specifies the type of haptic feedback. See the list of available methods below.                                                       | string  | yes      | iOS/Android | yes               |
 | `options.enableVibrateFallback`       | iOS only. If haptic feedback is unavailable (iOS < 10 OR Device < iPhone6s), vibrate with default method (heavy 1s) (default: false). | boolean | no       | iOS         | no                |
-| `options.ignoreAndroidSystemSettings` | Ignoreing phone mute mode setting and triggering haptic feedback. (default: false).      | boolean | no       | Android     | yes               |
-
- 
+| `options.ignoreAndroidSystemSettings` | Ignoreing phone mute mode setting and triggering haptic feedback. (default: false).                                                   | boolean | no       | Android     | yes               |
 
 ### method Overview
 
 Here's an overview of the available methods and their compatibility
-| Name |  Description | Type |Required|Platform|HarmonyOS Support|
+| Name | Description | Type |Required|Platform|HarmonyOS Support|
 | ---- | :-----: | :----: |:---: |:----: |:------: |
-| `impactLight`   | impactLight feedback |   string |no|iOS/Android|yes|
-| `impactMedium`  | impactMedium feedback |   string |no|iOS/Android|yes|
-| `impactHeavy`   | impactHeavy feedback |   string |no|iOS/Android|yes|
-| `rigid`               | rigid feedback |    string |no|iOS/Android|yes|
-| `soft`                | soft feedback |   string |no|iOS/Android|yes|
-| `notificationSuccess` | notificationSuccess feedback |   string |no|iOS/Android|yes|
-| `notificationWarning` | notificationWarning feedback |   string |no|iOS/Android|yes|
-| `notificationError`   | notificationError feedback |     string |no|iOS/Android|yes|
-| `selection`           |     selection feedback    |    string |no|iOS|yes|
-| `clockTick`           |   clockTick feedback   |      string |no|Android|yes|
-| `contextClick`        |   contextClick feedback  |     string |no|Android|yes|
-| `keyboardPress`       |  keyboardPress feedback  |      string |no|Android|yes|
-| `keyboardRelease`     |  keyboardRelease feedback  |     string |no|Android|yes|
-| `keyboardTap`         |  keyboardTap feedback  |    string |no|Android|yes|
-| `longPress`           |  longPress feedback  |     string |no|Android|yes|
-| `textHandleMove`      |   textHandleMove feedback  |     string |no|Android|yes|
-| `virtualKey`          |  virtualKey feedback  |     string |no|Android|yes|
-| `virtualKeyRelease`   |   virtualKeyRelease feedback  |    string |no|Android|yes|
-| `effectClick`         | effectClick feedback  |   string |no|Android|yes|
-| `effectDoubleClick`   |   effectDoubleClick feedback  |     string |no|Android|yes|
-| `effectHeavyClick`    |   effectHeavyClick feedback  |     string |no|Android|yes|
-| `effectTick`          |   effectTick feedback   |   string |no|Android|yes|
+| `impactLight` | impactLight feedback | string |no|iOS/Android|yes|
+| `impactMedium` | impactMedium feedback | string |no|iOS/Android|yes|
+| `impactHeavy` | impactHeavy feedback | string |no|iOS/Android|yes|
+| `rigid` | rigid feedback | string |no|iOS/Android|yes|
+| `soft` | soft feedback | string |no|iOS/Android|yes|
+| `notificationSuccess` | notificationSuccess feedback | string |no|iOS/Android|yes|
+| `notificationWarning` | notificationWarning feedback | string |no|iOS/Android|yes|
+| `notificationError` | notificationError feedback | string |no|iOS/Android|yes|
+| `selection` | selection feedback | string |no|iOS|yes|
+| `clockTick` | clockTick feedback | string |no|Android|yes|
+| `contextClick` | contextClick feedback | string |no|Android|yes|
+| `keyboardPress` | keyboardPress feedback | string |no|Android|yes|
+| `keyboardRelease` | keyboardRelease feedback | string |no|Android|yes|
+| `keyboardTap` | keyboardTap feedback | string |no|Android|yes|
+| `longPress` | longPress feedback | string |no|Android|yes|
+| `textHandleMove` | textHandleMove feedback | string |no|Android|yes|
+| `virtualKey` | virtualKey feedback | string |no|Android|yes|
+| `virtualKeyRelease` | virtualKeyRelease feedback | string |no|Android|yes|
+| `effectClick` | effectClick feedback | string |no|Android|yes|
+| `effectDoubleClick` | effectDoubleClick feedback | string |no|Android|yes|
+| `effectHeavyClick` | effectHeavyClick feedback | string |no|Android|yes|
+| `effectTick` | effectTick feedback | string |no|Android|yes|
 
 ## 遗留问题
 
@@ -241,4 +239,3 @@ Here's an overview of the available methods and their compatibility
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/mkuczera/react-native-haptic-feedback/blob/master/LICENSE) ，请自由地享受和参与开源。
-<!-- {% endraw %} -->

@@ -35,6 +35,7 @@ yarn add @ant-design/react-native@5.1.0
 ```
 >[!TIP] 本库还依赖了[@react-native-oh-tpl/slider](/zh-cn/react-native-community-slider.md)、[@react-native-oh-tpl/react-native-gesture-handler](/zh-cn/react-native-gesture-handler.md)、[@react-native-oh-tpl/react-native-modal-popover](/zh-cn/react-native-modal-popover.md)和[react-native-community/segmented-control](/zh-cn/react-native-community-segmented-control.md)
 
+> [!WARNING] @bang88/react-native-ultimate-listview这个依赖库还没鸿蒙化，会影响到里面的一个ListView组件，如果想暂时解决掉这个报错的话，可以在node_modules\@bang88\react-native-ultimate-listview\src目录下添加一个refreshableScrollView.js文件。
 
 ## 链接字体图标
 
@@ -57,7 +58,7 @@ npx react-native-asset
 > [!WARNING] 使用时 import 的库名不变。
 
 步骤一：
-复制字体文件到 `entry/src/main/ets/assets/fonts` 目录下(如使用了外部字体文件，需要将\*.ttf 文件复制过来)
+复制字体文件到 `entry/src/main/ets/assets/fonts`和`entry/src/main/resources/rawfile/assets/assets/fonts` 目录下(如使用了外部字体文件，需要将\*.ttf 文件复制过来)
 
 步骤二：
 打开 `entry/src/main/ets/pages/Index.ets`，添加以下代码

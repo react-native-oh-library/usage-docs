@@ -44,7 +44,7 @@ yarn add @react-native-oh-tpl/react-native-fileupload@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-此库需要在entry模块下的module.json下加入：
+此库需要在`entry/src/main/module.json5`下加入：
 
 ```json
 "requestPermissions": [ 

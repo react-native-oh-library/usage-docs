@@ -208,7 +208,7 @@ ohpm install
 
 | Name                 | Description                                                                                                    | Type              | Required | Platform    | HarmonyOS Support |
 | -------------------- | -------------------------------------------------------------------------------------------------------------- | ----------------- | -------- | ----------- | ----------------- |
-| svgKey               | 唯一 key                                                                                                       | string            | No       | iOS/Android | Yes               |
+| svgKey               | 唯一 key                                                                                                       | string            | No       | Web | No               |
 | d                    | 形状由一系列命令定义（svg path data）                                                                          | string            | No       | iOS/Android | Yes               |
 | viewBox              | 定义用户空间中的位置和维度                                                                                     | Array<Number>(4)  | No       | iOS/Android | Yes               |
 | align                | preserveAspectRatio 属性的 align                                                                               | string            | No       | iOS/Android | Yes                |

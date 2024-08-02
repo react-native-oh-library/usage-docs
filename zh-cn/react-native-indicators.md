@@ -235,7 +235,7 @@ const styles = {
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
 | color  | Component color    | String  | NO | ALL      | YES |
-| trackWidth  | Indicator track width    | Number  | NO | ALL      | YES |
+| count  | Component count    | Number  | NO | ALL      | YES |
 | size  | Base component size    | Number  | NO | ALL      | YES |
 | minScale  | Minimum component scale    | Number  | NO | ALL      | YES |
 | maxScale  | Maximum component scale    | Number  | NO | ALL      | YES |
@@ -245,7 +245,7 @@ const styles = {
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
 | color  | Component color    | String  | NO | ALL      | YES |
-| trackWidth  | Indicator track width    | Number  | NO | ALL      | YES |
+| count  | Component count    | Number  | NO | ALL      | YES |
 | size  | Base component size    | Number  | NO | ALL      | YES |
 
 ### WaveIndicator     
@@ -253,7 +253,7 @@ const styles = {
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
 | color  | Component color    | String  | NO | ALL      | YES |
-| trackWidth  | Indicator track width    | Number  | NO | ALL      | YES |
+| count  | Component count    | Number  | NO | ALL      | YES |
 | size  | Base component size    | Number  | NO | ALL      | YES |
 | waveFactor  | Wave base number   | Number  | NO | ALL      | YES |
 | waveMode  | Wave appearance    | String  | NO | ALL      | YES |

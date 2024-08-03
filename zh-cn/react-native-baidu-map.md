@@ -299,6 +299,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 +  BaiduMapOverlayPolygon,
 +  BaiduMapOverlayPolyline,
 +  BaiduMapOverlayText,
++  BaiduMapOverlayMarker,
 +  BaiduMapView
 +} from '@react-native-oh-tpl/react-native-baidu-map';
 

@@ -322,8 +322,8 @@ The config object is optional.
 | `cache`        | Enables in-memory caching of the result - skip downloading the same image next time.                                                                                                           | `boolean`                                              | no                                            | `false`     | all              | yes |
 | `key`          | Unique key to use for the cache entry. The image URI is used as the unique key by default. You should explicitly pass a key if you enable caching and you're using a base64 string as the URI. | `string`                                               | no                                             | `undefined` | all              | yes |
 | `headers`      | HTTP headers to be sent along with the GET request to download the image                                                                                                                       | `Record<string, string>`                               | no                             | `undefined` | iOS, Android        | yes |
-| `pixelSpacing` | How many pixels to skip when iterating over image pixels. Higher means better performance (**note**: value cannot be lower than 1).                                                            | `number`                                               | no                                             | `5`         | Android             | yes |
-| `quality`      | Highest implies no downscaling and very good colors.                                                                                                                                           | `'lowest'` <br> `'low'` <br> `'high'` <br> `'highest'` | no | `"low"`     | iOS, Web          | yes |
+| `pixelSpacing` | How many pixels to skip when iterating over image pixels. Higher means better performance (**note**: value cannot be lower than 1).                                                            | `number`                                               | no                                             | `5`         | Android             | no |
+| `quality`      | Highest implies no downscaling and very good colors.                                                                                                                                           | `'lowest'` <br> `'low'` <br> `'high'` <br> `'highest'` | no | `'low'`     | iOS, Web          | no |
 
 ### ImageColorsResult
 
@@ -337,7 +337,7 @@ HarmonyImageColors
 | `largestProportionColor` | The color with the highest proportion in the image. | `string`    | no       | harmonyOS | yes               |
 | `highestSaturationColor` | The color with the highest saturation in the image. | `string`    | no       | harmonyOS | yes               |
 | `averageColor`           | The average color of the image.                     | `string`    | no       | harmonyOS | yes               |
-| `platform`               | platform                                            | `"harmony"` | no       | harmonyOS | yes               |
+| `platform`               | The platform is HarmonyOS.                | `string` | no       | all | yes               |
 
 ### ImageColors.cache
 
@@ -356,6 +356,7 @@ HarmonyImageColors
 
 ## 遗留问题
 
+- [x] harmonyOS获取颜色值暂时只能得到固定的一种颜色，暂不支持通过传入`pixelSpacing`或`quality`参数来计算获取不同精确度的颜色值。[issue链接](https://github.com/react-native-oh-library/react-native-image-colors/issues/16) 
 
 ## 其他
 

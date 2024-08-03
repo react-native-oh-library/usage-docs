@@ -614,11 +614,12 @@ ohpm install
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| open  | Opens or initializes        | void  | yes |All     |  yes |
+| openDatabase  | Opens or initializes        | void  | yes |All     |  yes |
+| transaction  | SQL transaction distribution        | void  | yes |All     |  yes |
 | close  |Closes or releases a previously opened resource      | void  |  yes |All     |  yes |
-| delete  |Deletes a resource       |void   |  yes | All   |  yes |
-|attach  | Connects or associates with an external resource or database  |  void  |  yes | All   |  yes|
-| backgroundExecuteSqlBatch  |Executes a batch of SQL statements in the background without blocking the current thread or process | void   |  yes |All     |  yes |
+| deleteDatabase  |Deletes a resource       |void   |  yes | All   |  yes |
+| attach  | Connects or associates with an external resource or database  |  void  |  yes | All   |  yes|
+| executeSql  |Executes a batch of SQL statements in the background without blocking the current thread or process | void   |  yes |All     |  yes |
 
 ## 遗留问题
 

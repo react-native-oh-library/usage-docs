@@ -94,7 +94,7 @@ It's the wrapper around all of the other components. Using alone will not produc
 | ShineOverlay | This applies a tiny overlay from left to right of the placeholder. It's pretty neat but it has the drawback to only work without style customization: only on white background with gray lines |ComponentType| no | All | Yes |
 | Shine | The shine animation is an attempt to overcome the overlay problem of the ShineOverlay animation by animating only the differnt part of the placeholder | ComponentType | no | All | Yes |
 | Loader | A simple placeholder animation based on the standard loader (ActivityIndicator) of each platforms | ComponentType | no | All | Yes |
-| Progressive | I'm feel a bit guilty about that but I've stolen the idea from a design system and I can't remember which one. But I like the way it behaves | ComponentType | no | All | Yes |
+| Progressive | A progressive loading animation effect | ComponentType | no | All | Yes |
 | Tweaking existing animations | It's possible to tweak a specific animation by passing it additional props. However keep in mind that it's important to spread the props from the Animation render function. Else you will be in strange behaviors| ComponentType | no | All | Yes |
 
 **组件 PlaceholderLine**

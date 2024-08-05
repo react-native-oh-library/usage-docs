@@ -18,6 +18,7 @@
 
 - Codegen ：三方库大部分适配了 Codegen ，在使用前需要主动执行生成三方库桥接代码，详细请参考[Codegen 使用文档](/zh-cn/codegen.md)。
 - C-API 架构：三方库后续只基于RN C-API架构演进，详细介绍请参考 [C-API 架构](zh-cn/capi-architecture.md) 。
+- RN 三方库补丁化移植：为避免对三方库其他平台产生影响，移植使用了补丁化移植，详细介绍请参考 [RN 三方库补丁化移植](zh-cn/patch.md) 。
 
 ## RNOH 三方库总览
 

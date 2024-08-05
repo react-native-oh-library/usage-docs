@@ -13,4 +13,4 @@
 
 <!-- 检查项, 请自行排查并打钩, 通过: [X] -->
 
-- [ ] 是否对照[usage-docs-checklist](../zh-cn/usage-docs-checklist)的每一项进行检查；
+- [ ] 是否对照[usage-docs-checklist](/react-native-oh-library/usage-docs/blob/master/zh-cn/usage-docs-checklist.md)的每一项进行检查；

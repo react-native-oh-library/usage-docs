@@ -44,68 +44,106 @@ yarn add @react-native-oh-tpl/react-native-ble-plx@file:#
 > [!WARNING] 使用时 import 的库名不变。
 
 ```js
-import type { TextProps, Text, StyleSheet, TouchableOpacity, View} from 'react-native'
-import styled, { css } from 'styled-components'
-import { Device } from 'react-native-ble-plx'
+import {
+  BleError,
+  BleErrorCode,
+  BleManager,
+  Device,
+  State as BluetoothState,
+  LogLevel,
+  type DeviceId,
+  type TransactionId,
+  type UUID,
+  type Characteristic,
+  type Base64,
+  type Subscription
+} from 'react-native-ble-plx'
 
-const Container = styled(View)
-  flex-direction: row;
-  flex-wrap: wrap;
+class BLEServiceInstance {
+  manager: BleManager
+  device: Device | null
 
-const StyledTitleText = styled(AppText)
-  font-weight: 800;
-
-function AppText(props: TextProps) {
-  return <StyledText {...props} />
-}
-
-const StyledText = styled(Text)
-  ${({ theme }) => css
-    font-size: ${theme.sizes.defaultFontSize}px;
-    font-weight: 800;
+  constructor() {
+    this.device = null
+    this.manager = new BleManager()
   }
 
-const StyledValueText = styled(AppText)
-  font-weight: 500;
-  
-type DevicePropertyProps = {
-  name: string
-  value?: number | string | null
-}
+  scanDevices = async (onDeviceFound: (device: Device) => void, UUIDs: UUID[] | null = null) => {
+    this.manager.startDeviceScan(UUIDs, null, (error, device) => {
+      if (error) {
+        console.error(error.message)
+        this.manager.stopDeviceScan()
+        return
+      }
+      if (device) {
+        onDeviceFound(device)
+      }
+    })
+  }
 
-function DeviceProperty({ name, value }: DevicePropertyProps) {
-  return (
-    <Container>
-      <StyledTitleText>{name}:</StyledTitleText>
-      <StyledValueText>{value || '-'}</StyledValueText>
-    </Container>
-  )
-}  
+  connectToDevice = (deviceId: DeviceId) =>
+    new Promise<Device>((resolve, reject) => {
+      this.manager.stopDeviceScan()
+      this.manager
+        .connectToDevice(deviceId)
+        .then(device => {
+          this.device = device
+          resolve(device)
+        })
+        .catch(error => {
+          if (error.errorCode === BleErrorCode.DeviceAlreadyConnected && this.device) {
+            resolve(this.device)
+          } else {
+            console.error(error.message)
+            reject(error)
+          }
+        })
+    })
 
-export type BleDeviceProps = {
-  onPress: (device: Device) => void
-  device: Device
-}
+  discoverAllServicesAndCharacteristicsForDevice = async () =>
+    new Promise<Device>((resolve, reject) => {
+      if (!this.device) {
+        reject(new Error(deviceNotConnectedErrorText))
+        return
+      }
+      this.manager
+        .discoverAllServicesAndCharacteristicsForDevice(this.device.id)
+        .then(device => {
+          resolve(device)
+          this.device = device
+        })
+        .catch(error => {
+          reject(error)
+        })
+    })
 
-export function BleDevice({ device, onPress }: BleDeviceProps) {
-  const isConnectableInfoValueIsUnavailable = typeof device.isConnectable !== 'boolean'
-  const isConnectableValue = device.isConnectable ? 'true' : 'false'
-  const parsedIsConnectable = isConnectableInfoValueIsUnavailable ? '-' : isConnectableValue
-  return (
-    <TouchableOpacity onPress={() => onPress(device)}>
-      <View style = {styles.container}>
-        <DeviceProperty name="name" value={device.name} />
-        <DeviceProperty name="localName" value={device.localName} />
-        <DeviceProperty name="id" value={device.id} />
-        <DeviceProperty name="manufacturerData" value={device.manufacturerData} />
-        <DeviceProperty name="rawScanRecord" value={device.rawScanRecord} />
-        <DeviceProperty name="isConnectable" value={parsedIsConnectable} />
-        <DeviceProperty name="mtu" value={device.mtu.toString()} />
-        <DeviceProperty name="rssi" value={device.rssi} />
-      </View>
-    </TouchableOpacity>
-  )
-}
+  readCharacteristicForDevice = async (serviceUUID: UUID, characteristicUUID: UUID) =>
+    new Promise<Characteristic>((resolve, reject) => {
+      if (!this.device) {
+        reject(new Error(deviceNotConnectedErrorText))
+        return
+      }
+      this.manager
+        .readCharacteristicForDevice(this.device.id, serviceUUID, characteristicUUID)
+        .then(characteristic => {
+          resolve(characteristic)
+        })
+        .catch(error => {
+          console.error(error.message)
+        })
+    })
+
+  writeCharacteristicWithResponseForDevice = async (serviceUUID: UUID, characteristicUUID: UUID, time: Base64) => {
+    if (!this.device) {
+      console.error(deviceNotConnectedErrorText)
+      throw new Error(deviceNotConnectedErrorText)
+    }
+    return this.manager
+      .writeCharacteristicWithResponseForDevice(this.device.id, serviceUUID, characteristicUUID, time)
+      .catch(error => {
+        console.error(error.message)
+      })
+  }
 ```
 
 ## 使用 Codegen
@@ -199,6 +237,12 @@ ohpm install
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-ble-plx Releases](https://github.com/react-native-oh-library/react-native-ble-plx/releases)
 
+### 权限要求
+
+- 由于此库涉及蓝牙系统控制功能，使用对应接口时则需要配置对应的权限，权限需配置在entry/src/main目录下module.json5文件中。其中部分权限需弹窗向用户申请授权。具体权限配置见文档：[程序访问控制](https://gitee.com/openharmony/docs/blob/master/zh-cn/application-dev/security/AccessToken/Readme-CN.md#/openharmony/docs/blob/master/zh-cn/application-dev/security/AccessToken/app-permission-mgmt-overview.md)。
+
+- 此库部分功能与接口需要normal权限：ohos.permission.ACCESS_BLUETOOTH。
+
 ## API
 
 > [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
@@ -207,8 +251,6 @@ ohpm install
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| addListener(eventName:string)  | add bluetooth listener eventname        | void | yes | iOS/Android      | yes |
-| removeListeners(count: number)  | bluetooth remove listeners count         | void | yes | iOS/Android      | yes |
 | createClient(restoreStateIdentifier?: string)  | creat client         | void | yes | iOS/Android      | yes |
 | destroyClient()  | remove client         | Promise<void> | yes | iOS/Android      | yes |
 | cancelTransaction(transactionId: string)  | cancel transcation         | Promise<void> | yes | iOS/Android      | no |

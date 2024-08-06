@@ -1,8 +1,8 @@
 <!-- {% raw %} -->
-> 模板版本：v0.2.0
+> 模板版本：v0.2.2
 
 <p align="center">
-  <h1 align="center"> <code>react-native-map-link</code> </h1>
+  <h1 align="center"> <code>react-native-map-linking</code> </h1>
 </p>
 <p align="center">
     <a href="https://github.com/starlight36/react-native-map-linking">
@@ -14,12 +14,13 @@
 </p>
 
 
+
 > [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-map-linking)
 
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-map-linking Releases](https://github.com/react-native-oh-library/react-native-map-linking/releases/tag/1.0.1-0.0.1)，并下载适用版本的 tgz 包。
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-map-linking Releases](https://github.com/react-native-oh-library/react-native-map-linking/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
@@ -108,11 +109,9 @@ export default MapLinkingDemo;
 ## 约束与限制
 
 ### 兼容性
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 电脑ROM。
+要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-本文档内容基于以下版本验证通过：
-
-1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Beta1 B.0.18； IDE：DevEco Studio 5.0.3.200; ROM：2.0.0.18;
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-map-linking Releases](https://github.com/react-native-oh-library/react-native-map-linking/releases)
 
 
 ## 属性
@@ -123,14 +122,14 @@ export default MapLinkingDemo;
 
 Name | Description | Optional | Required | Platform | HarmonyOS   Support
 -- | -- | -- | -- | -- | --
-markLocation(location, title, content) | 在地图上标记一个点的位置 | location 位置坐标, 是一个对象, 包括: **lat** - 经度**lng** - 纬度 **type** - 坐标类型, 支持`gcj02`(国测局坐标), `wgs84`(GPS坐标) **title** 地点标记名称 **content** 地点标记说明 | / | all | yes
-planRoute(srcLocation, distLocation, mode) | 规划两点之间的线路 | srcLocation 起始位置坐标, 是一个对象, 包括:  **lat** - 经度 **lng** - 纬度 **title** - 起始位置名称 distLocation 结束位置坐标, 是一个对象, 包括:  **lat** - 经度 **lng** - 纬度 **type** - 坐标类型, 支持`gcj02`(国测局坐标), `wgs84`(GPS坐标) **title** - 结束位置名称 mode 路线模式  drive - 驾车 bus - 公交 walk - 步行 | / | all | yes
-navigate(distLocation) | 启动当前位置到目标位置的导航 | distLocation 结束位置坐标, 是一个对象, 包括:  **lat** - 经度 **lng** - 纬度 **type** - 坐标类型, 支持`gcj02`(国测局坐标), `wgs84`(GPS坐标) **title** - 结束位置名称 | / | all | yes
+markLocation(location, title, content) | 在地图上标记一个点的位置 | location 位置坐标, 是一个对象, 包括: **lat** - 经度**lng** - 纬度 **type** - 坐标类型, 支持`gcj02`(国测局坐标), `wgs84`(GPS坐标) **title** 地点标记名称 **content** 地点标记说明 | no | all | yes
+planRoute(srcLocation, distLocation, mode) | 规划两点之间的线路 | srcLocation 起始位置坐标, 是一个对象, 包括:  **lat** - 经度 **lng** - 纬度 **title** - 起始位置名称 distLocation 结束位置坐标, 是一个对象, 包括:  **lat** - 经度 **lng** - 纬度 **type** - 坐标类型, 支持`gcj02`(国测局坐标), `wgs84`(GPS坐标) **title** - 结束位置名称 mode 路线模式  drive - 驾车 bus - 公交 walk - 步行 | no | all | yes
+navigate(distLocation) | 启动当前位置到目标位置的导航 | distLocation 结束位置坐标, 是一个对象, 包括:  **lat** - 经度 **lng** - 纬度 **type** - 坐标类型, 支持`gcj02`(国测局坐标), `wgs84`(GPS坐标) **title** - 结束位置名称 | no | all | yes
 
 ## 遗留问题
 
-- [ ] 百度地图暂未提供应用市场地址和具体参数（未解决）[#I9OE8Z](https://gitee.com/allisonzhou/usage-docs/issues/I9OE8Z)
-- [ ] 高德地图暂未提供具体参数（未解决）[#I9OE7H](https://gitee.com/allisonzhou/usage-docs/issues/I9OE7H)
+- [ ] react-native-map-link目前无法唤起百度地图，未提供应用市场地址和具体参数供react-native-map-link调用 [issue#1](https://github.com/react-native-oh-library/react-native-map-linking/issues/1)
+- [ ] react-native-map-link目前无法唤起高德地图，未提供具体参数供react-native-map-link调用 [issue#2](https://github.com/react-native-oh-library/react-native-map-linking/issues/2)
 
 ## 其他
 
@@ -141,17 +140,17 @@ navigate(distLocation) | 启动当前位置到目标位置的导航 | distLocati
 ### Harmony配置Schema支持
 
 Harmony系统下需要在module.json5中配置querySchemes支持才能唤起花瓣地图，后续要唤起高德地图和百度地图，也需要将它们的scheme加到这里。
-  
+
 ```
 "querySchemes":[
   "maps"
 ]
 ```
+
   
-  
-  
+
 ### iOS配置Schema支持
-  
+
 iOS系统下需要在App的`info.plist`中配置Schema支持才能唤起地图:
 
  ```

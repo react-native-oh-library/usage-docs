@@ -46,7 +46,6 @@ yarn add @react-native-oh-tpl/react-native-modal-popover@file:#
 ```js
 
 import React from 'react';
-import { TestSuite, Tester, TestCase } from '@rnoh/testerino';
 import { Button, StyleSheet, Text, View, Dimensions } from 'react-native';
 import { Popover, usePopover } from 'react-native-modal-popover';
 const { width, height } = Dimensions.get('window');
@@ -55,7 +54,7 @@ const styles = StyleSheet.create({
   app: {
     ...StyleSheet.absoluteFillObject,
     width: '100%',
-    height: height - 200,
+    height: height - 100,
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'flex-start',
@@ -141,9 +140,6 @@ export function PopoverCenterExample() {
   } = usePopover();
   const title = <Text ref={touchableRef} >Press me!222</Text>
   return (
-    <Tester>
-      <TestSuite name='popoverTesteCenterDemo'>
-        <TestCase itShould='popover' tags={['C_API']}>
           <View style={styles.app} >
             <View style={{ width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-between' }}>
               <Button title='Press1' ref={touchableRef} onPress={openPopover} />
@@ -263,10 +259,6 @@ export function PopoverCenterExample() {
               <Text>Hello33!</Text>
             </Popover>
           </View>
-        </TestCase>
-
-      </TestSuite>
-    </Tester>
   );
 };
 ```
@@ -282,9 +274,9 @@ export function PopoverCenterExample() {
 
 ## 属性
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 
 ### Popover
@@ -296,28 +288,32 @@ export function PopoverCenterExample() {
 | displayArea  | Area where the popover is allowed to be displayed. Important note: if you use non-default value here and you want to handle screen orientation changes, it is your responsibility to change this value when screen orientation changes.      | Rect  | NO | ALL      | YES |
 | placement  | How to position the popover top or bottom or start or end or auto. When 'auto' is specified, it will determine the ideal placement so that the popover is fully visible within displayArea.      | string  | NO | ALL      | YES |
 | onClose  | Callback to be fired when the user closes the popover      | function  | NO | ALL      | YES |
-| onDismiss  | Callback to be fired after the popup closes      | function  | NO | ALL      | YES |
+| onDismiss  | Callback to be fired after the popup closes      | function  | NO |  iOS    | NO |
 |backgroundStyle  | Custom style to be applied to background overlay      | ViewStyle  | NO | ALL      | YES |
 | contentStyle  | Custom style to be applied to popover reactangle. Use it to set round corners, background color, etc.      | ViewStyle  | NO | ALL      | YES |
 | arrowStyle  | Custom style to be applied to popover arrow. Use borderTopColor to match content backgroundColor      | ViewStyle  | NO | ALL      | YES |
 | duration  | Animation duration     | number  | NO | ALL      | YES |
 | easing  | Function that returns easing function for show or hide animation, depending on show argument     | (show: boolean) => (value: number) => number  | NO | ALL      | YES |
 | useNativeDriver  | Defines if animations should use native driver     | bool  | NO | ALL      | YES |
-| supportedOrientations  | This prop is passed to react-native Modal, see react-native docs. Set this to ['portrait', 'landscape'] if you want your popover to resprect screen orientation.     | array of enum('portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right')  | NO | ALL      | YES |
-| calculateStatusBar  | Defines if while use status bar height while calculating "Y" origin of anchor.     | bool  | NO | ALL      | YES |
-| PopoverController  | openPopover  | Call this function when you want to open popover, e.g. pass to onPress of a Button     | () => void  | NO | ALL      | YES |
+| supportedOrientations  | This prop is passed to react-native Modal, see react-native docs. Set this to ['portrait', 'landscape'] if you want your popover to resprect screen orientation.     | array of enum('portrait', 'portrait-upside-down', 'landscape', 'landscape-left', 'landscape-right')  | NO |  iOS    | NO |
+| calculateStatusBar  | Defines if while use status bar height while calculating "Y" origin of anchor.     | bool  | NO |    NO   | NO |
+
 
 
 ### PopoverController
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
+|  openPopover  | Call this function when you want to open popover, e.g. pass to onPress of a Button     | () => void  | NO | ALL      | YES |
 | closePopover  | Call this function when you want to close popover. Typically you pass this as onClose prop of Popover, which will make popover close when tapped outside. If you have a button inside popover which should close the popover, pass this function to this button.     | () => void  | NO | ALL      | YES |
 | popoverVisible  | CPass this to visible prop of Popover component   | bool  | NO | ALL      | YES |
 | setPopoverAnchor (PopoverController) / touchableRef (usePopover)  | Pass this as ref to popover UI handle. This will bind popover display position to the position of this UI handle.   | ref function  | NO | ALL      | YES |
  | popoverAnchorRect  | Pass this as fromRect prop of Popover component   | Rect  | YES | ALL      | YES |
 
 ## 遗留问题
+- [ ] 不支持属性onDismiss [issue#4](https://github.com/react-native-oh-library/react-native-modal-popover/issues/4)
+- [ ] 不支持属性supportedOrientations [issue#5](https://github.com/react-native-oh-library/react-native-modal-popover/issues/5)
+- [ ]  不支持属性calculateStatusBar [issue#105](https://github.com/doomsower/react-native-modal-popover/issues/105)
 
 ## 其他
 

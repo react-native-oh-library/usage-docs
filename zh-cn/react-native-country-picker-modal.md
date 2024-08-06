@@ -275,8 +275,8 @@ export function CountryPickerTest() {
 | countryCodes         | Country Code | [CountryCode](https://github.com/xcarpentier/react-native-country-picker-modal/blob/master/src/types.ts#L252) | No     | All | Yes |
 | theme        | theme | [Theme](https://github.com/xcarpentier/react-native-country-picker-modal/blob/7611d34fa35744dbec3fbcdd9b4401494b1ba8c4/src/CountryTheme.ts#L5) | No       | All | Yes |
 | translation           | Translation Language Code                                    | [TranslationLanguageCode](https://github.com/xcarpentier/react-native-country-picker-modal/blob/master/src/types.ts#L309) | No     | All | Yes |
-| modalProps       | [ModalProps](https://facebook.github.io/react-native/docs/modal#props) | [ModalProps](https://facebook.github.io/react-native/docs/modal#props) | No       | All | Yes |
-| filterProps              | [CountryFilterProps](https://facebook.github.io/react-native/docs/textinput#props) | [CountryFilterProps](https://facebook.github.io/react-native/docs/textinput#props) | No        | All | Yes |
+| modalProps       | ModalProps | [ModalProps](https://facebook.github.io/react-native/docs/modal#props) | No       | All | Yes |
+| filterProps              | CountryFilterProps | [CountryFilterProps](https://facebook.github.io/react-native/docs/textinput#props) | No        | All | Yes |
 | flatListProps        | extends flatListProps | [FlatListProps<Country>](https://facebook.github.io/react-native/docs/flatlist#props) | No        | All | Yes |
 | withAlphaFilter   | Use AlphaFilter                        | boolean                                       | No        | All | Yes |
 | withCallingCode  | Using the CallingCode                  | boolean                                       | No        | All | Yes |

@@ -1,5 +1,3 @@
-<!-- {% raw %} -->
-
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -20,11 +18,11 @@
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[https://github.com/react-native-oh-library/react-native-mail Releases](https://github.com/react-native-oh-library/react-native-mail/releases)，并下载适用版本的 tgz 包
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-mail Releases](https://github.com/react-native-oh-library/react-native-mail/releases)，并下载适用版本的 tgz 包
 
 进入到工程目录并输入以下命令：
 
->[!TIP] # 处替换为 tgz 包的路径
+> [!TIP] # 处替换为 tgz 包的路径
 
 <!-- tabs:start -->
 
@@ -47,46 +45,56 @@ yarn add @react-native-oh-tpl/react-native-mail@file:#
 > [!WARNING] 使用时 import 的库名不变。
 
 ```jsx
-import React, { Component } from 'react';
-import { View, Alert, Button } from 'react-native';
-import Mailer from 'react-native-mail';
+import React, { Component } from "react";
+import { View, Alert, Button } from "react-native";
+import Mailer from "react-native-mail";
 
 export default class App extends Component {
-
   handleEmail = () => {
-    Mailer.mail({
-      subject: 'need help',
-      recipients: ['support@example.com'],
-      ccRecipients: ['supportCC@example.com'],
-      bccRecipients: ['supportBCC@example.com'],
-      body: '<b>A Bold Body</b>',
-      customChooserTitle: 'This is my new title', // Android only (defaults to "Send Mail")
-      isHTML: true,
-      attachments: [{
-        // Specify either `path` or `uri` to indicate where to find the file data.
-        path: '', // /data/storage/el2/base/haps/entry/files/11.png
-        uri: '', // file://<packageName>/data/storage/el2/base/haps/entry/files/11.png
-        // Specify either `type` or `mimeType` to indicate the type of data.
-        type: '', // Mime Type: jpg, png, doc, ppt, html, pdf, csv
-        mimeType: '', // - use only if you want to use custom type
-        name: '', // Optional: Custom filename for attachment
-      }]
-    }, (error, event) => {
-      Alert.alert(
-        error,
-        event,
-        [
-          {text: 'Ok', onPress: () => console.log('OK: Email Error Response')},
-          {text: 'Cancel', onPress: () => console.log('CANCEL: Email Error Response')}
+    Mailer.mail(
+      {
+        subject: "need help",
+        recipients: ["support@example.com"],
+        ccRecipients: ["supportCC@example.com"],
+        bccRecipients: ["supportBCC@example.com"],
+        body: "<b>A Bold Body</b>",
+        customChooserTitle: "This is my new title", // Android only (defaults to "Send Mail")
+        isHTML: true,
+        attachments: [
+          {
+            // Specify either `path` or `uri` to indicate where to find the file data.
+            path: "", // /data/storage/el2/base/haps/entry/files/11.png
+            uri: "", // file://<packageName>/data/storage/el2/base/haps/entry/files/11.png
+            // Specify either `type` or `mimeType` to indicate the type of data.
+            type: "", // Mime Type: jpg, png, doc, ppt, html, pdf, csv
+            mimeType: "", // - use only if you want to use custom type
+            name: "", // Optional: Custom filename for attachment
+          },
         ],
-        { cancelable: true }
-      )
-    });
-  }
+      },
+      (error, event) => {
+        Alert.alert(
+          error,
+          event,
+          [
+            {
+              text: "Ok",
+              onPress: () => console.log("OK: Email Error Response"),
+            },
+            {
+              text: "Cancel",
+              onPress: () => console.log("CANCEL: Email Error Response"),
+            },
+          ],
+          { cancelable: true }
+        );
+      }
+    );
+  };
 
   render() {
     return (
-      <View style={styles.container}>
+      <View>
         <Button
           onPress={this.handleEmail}
           title="Email Me"
@@ -97,8 +105,8 @@ export default class App extends Component {
     );
   }
 }
-
 ```
+
 ## 使用 Codegen
 
 本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/zh-cn/codegen.md)。
@@ -192,37 +200,35 @@ ohpm install
 
 ## API
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support  |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| mail  | 拉起邮箱并向邮箱传递收件人、发件人、抄送人等信息，通过callback函数返回错误信息。         | Function(options,callback)  | yes | all      | yes |
+| Name | Description                                                                        | Type                       | Required | Platform | HarmonyOS Support |
+| ---- | ---------------------------------------------------------------------------------- | -------------------------- | -------- | -------- | ----------------- |
+| mail | 拉起邮箱并向邮箱传递收件人、发件人、抄送人等信息，通过 callback 函数返回错误信息。 | Function(options,callback) | yes      | all      | yes               |
 
 **options**
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support  |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| subject        | 邮件主题       | string  | no | all      | yes |
-| recipients     | 收件人         | string[]  | no | all      | yes |
-| ccRecipients   | 抄送收件人     | string[]  | no | all      | yes |
-| bccRecipients  | 密件抄送收件人 | string[]  | no | all      | yes |
-| body           | 邮件内容      | string  | no | all      | yes |
-| customChooserTitle  | 自定义选择器标题 | string  | no | android      | no |
-| isHTML  | 邮件内容是否为html        | boolean  | no | all      | yes |
-| attachments  | 附件信息         | object[]  | no | all      | no |
+| Name               | Description         | Type     | Required | Platform | HarmonyOS Support |
+| ------------------ | ------------------- | -------- | -------- | -------- | ----------------- |
+| subject            | 邮件主题            | string   | no       | all      | yes               |
+| recipients         | 收件人              | string[] | no       | all      | yes               |
+| ccRecipients       | 抄送收件人          | string[] | no       | all      | yes               |
+| bccRecipients      | 密件抄送收件人      | string[] | no       | all      | yes               |
+| body               | 邮件内容            | string   | no       | all      | yes               |
+| customChooserTitle | 自定义选择器标题    | string   | no       | android  | no                |
+| isHTML             | 邮件内容是否为 html | boolean  | no       | all      | yes               |
+| attachments        | 附件信息            | object[] | no       | all      | no                |
 
 ## 遗留问题
 
-- [ ] 不支持attachments附件传递: [issue#1](https://github.com/react-native-oh-library/react-native-mail/issues/1)
-- [ ] 不支持customChooserTitle: [issue#4](https://github.com/react-native-oh-library/react-native-mail/issues/4)
-- [ ] 邮箱应用上body显示异常: [issue#2](https://github.com/react-native-oh-library/react-native-mail/issues/2)
+- [ ] 不支持 attachments 附件传递: [issue#1](https://github.com/react-native-oh-library/react-native-mail/issues/1)
+- [ ] 不支持 customChooserTitle: [issue#4](https://github.com/react-native-oh-library/react-native-mail/issues/4)
+- [x] 邮箱应用上 body 显示异常: [issue#2](https://github.com/react-native-oh-library/react-native-mail/issues/2)
 
 ## 其他
 
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/chirag04/react-native-mail/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

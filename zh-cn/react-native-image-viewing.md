@@ -99,7 +99,9 @@ const ImageList = ({ images, shift = 0, onPress }: Props) => (
         activeOpacity={0.8}
         onPress={() => onPress(index)}
       >
-        <Image source={{ uri: imageUrl }} style={styles1.image} />
+        {
+          typeof imageUrl === 'string' ? <Image source={{ uri: imageUrl }} key={`${index}`} style={styles1.image} /> : <Image source={ imageUrl } key={`${index}`} doubleTapToZoomEnabled={true} style={styles1.image} />
+        }
       </TouchableOpacity>
     ))}
   </ScrollView>
@@ -213,14 +215,16 @@ const styles = StyleSheet.create({
 | animationType          | Animation modal presented with: default                      | none, fade, slide                                           | All      | No       | Yes               |
 | presentationStyle      | Modal presentation style: default: fullScreen Android: Use overFullScreen to hide StatusBar | fullScreen, pageSheet, formSheet, overFullScreen            | All      | No       | Yes               |
 | backgroundColor        | Background color of the modal in HEX                         | string                                                      | All      | No       | Yes               |
-| swipeToCloseEnabled    | Close modal with swipe up or down: default                   | boolean                                                     | All      | No       | Yes               |
-| doubleTapToZoomEnabled | Zoom image by double tap on it: default                      | boolean                                                     | All      | No       | Yes               |
+| swipeToCloseEnabled    | Close modal with swipe up or down: default                   | boolean                                                     | All      | No       | No                |
+| doubleTapToZoomEnabled | Zoom image by double tap on it: default                      | boolean                                                     | All      | No       | No                |
 | HeaderComponent        | Header component, gets current imageIndex as a prop          | component, function                                         | All      | No       | Yes               |
 | FooterComponent        | Footer component, gets current imageIndex as a prop          | component, function                                         | All      | No       | Yes               |
 
 ## 遗留问题
 
-- [ ] 本库 swipeToCloseEnabled，doubleTapToZoomEnabled，animationType HarmonyOS暂不支持，上下滑动关闭、双击放大与动画效果功能 [#I9DNQU](https://gitee.com/react-native-oh-library/usage-docs/issues/I9DQPA)
+- [ ] 组件上下滑动关闭暂未实现，由于 scrollView的naticeEvent.velocity属性HarmonyOS暂不支持 [issue#6](https://github.com/react-native-oh-library/react-native-image-viewing/issues/6)
+- [ ] 组件双击放大方法暂未实现，由于doubleTapToZoomEnabled属性HarmonyOS暂不支持 [issue#7](https://github.com/react-native-oh-library/react-native-image-viewing/issues/7)
+- [ ] 组件animationType淡入淡出效果暂未实现，由于modal组件未适配 [issue#8](https://github.com/react-native-oh-library/react-native-image-viewing/issues/8)
 
 ## 其他
 

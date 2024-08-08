@@ -231,8 +231,8 @@ ohpm install
 | `maximumValue`      | Initial maximum value of the slider.<br/>Default value is 1.                      | number      | No   | All      | yes       |
 | `minimumTrackTintColor` | The color used for the track to the left of the button.<br/>Overrides the default blue gradient image on iOS.  | [color](https://reactnative.dev/docs/colors) | No   | All      | yes       |
 | `minimumValue`      | Initial minimum value of the slider.<br/>Default value is 0.       | number      | No   | All      | yes       |
-| `lowerLimit`        | Slide lower limit. The user won't be able to slide below this limit.              | number      | No   | Android, iOS | no        |
-| `upperLimit`        | Slide upper limit. The user won't be able to slide above this limit.              | number      | No   | Android, iOS | no        |
+| `lowerLimit`        | Slide lower limit. The user won't be able to slide below this limit.              | number      | No   | Android, iOS | yes      |
+| `upperLimit`        | Slide upper limit. The user won't be able to slide above this limit.              | number      | No   | Android, iOS | yes        |
 | `onSlidingStart`    | Callback that is called when the user picks up the slider.<br/>The initial value is passed as an argument to the callback handler.       | function    | No   | All      | yes       |
 | `onSlidingComplete`     | Callback that is called when the user releases the slider, regardless if the value has changed.<br/>The current value is passed as an argument to the callback handler.    | function    | No   | All      | yes       |
 | `onValueChange`     | Callback continuously called while the user is dragging the slider.| function    | No   | All      | yes       |
@@ -253,7 +253,7 @@ ohpm install
 
 ## 遗留问题
 
-- [ ] upperLimit 和 lowerLimit 只对数值生效，滑动限制不生效: [issue#2](https://github.com/react-native-oh-library/react-native-slider/issues/2)
+- [x] upperLimit 和 lowerLimit 只对数值生效，滑动限制不生效: [issue#2](https://github.com/react-native-oh-library/react-native-slider/issues/2)
 - [ ] 不支持滑轨设置图片: [issue#3](https://github.com/react-native-oh-library/react-native-slider/issues/3)
 - [ ] 未适配无障碍: [issue#9](https://github.com/react-native-oh-library/react-native-slider/issues/9)
 - [ ] 不支持点击滑块轨道来设置拇指位置，不支持指定最大轨迹图像，不支持分配最小轨道图像: [issue#10](https://github.com/react-native-oh-library/react-native-slider/issues/10)

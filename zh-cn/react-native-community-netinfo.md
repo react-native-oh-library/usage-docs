@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>@react-native-community/netinfo</code> </h1>
@@ -71,6 +71,7 @@ const App = () => {
     </View>
   );
 };
+export default App;
 ```
 
 ## Link
@@ -193,9 +194,10 @@ ohpm install
 
 ## 兼容性
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+本文档内容基于以下版本验证通过：
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/netinfo Releases](https://github.com/react-native-oh-library/react-native-netinfo/releases)
+RNOH：0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.29(SP1) ; IDE：DevEco Studio 5.0.3.400; ROM：3.0.0.25;
+
 
 ## 属性
 

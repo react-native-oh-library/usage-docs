@@ -1,17 +1,17 @@
-<!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
-  <h1 align="center"> <code>rn-section-list-get-item-layout</code> </h1>
+  <h1 align="center"> <code>react-native-section-list-get-item-layout</code> </h1>
 </p>
 <p align="center">
     <a href="https://github.com/jsoendermann/rn-section-list-get-item-layout">
-        <img src="https://img.shields.io/badge/platforms-ios%20|%20android%20|%20web%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
+        <img src="https://img.shields.io/badge/platforms-android%20%7C%20ios%20%7C%20windows%20%7C%20macos%20%7C%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
     <a href="https://github.com/jsoendermann/rn-section-list-get-item-layout/blob/master/README.md">
-        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
+        <img src="https://img.shields.io/badge/license-Apache%202.0-blue.svg" alt="License" />
     </a>
 </p>
+
 
 > [!tip] [Github 地址](https://github.com/jsoendermann/rn-section-list-get-item-layout)
 
@@ -19,18 +19,18 @@
 
 进入到工程目录并输入以下命令：
 
-<!-- tabs:start -->
+<!-- tabs:start --> 
 
 #### **npm**
 
 ```bash
-npm install react-native-section-list-get-item-layout@^2.2.3
+npm install react-native-section-list-get-item-layout@2.2.3
 ```
 
 #### **yarn**
 
 ```bash
-yarn add react-native-section-list-get-item-layout@^2.2.3
+yarn add react-native-section-list-get-item-layout@2.2.3
 ```
 
 <!-- tabs:end -->
@@ -61,6 +61,8 @@ class MyComponent extends React.Component {
     return <SectionList {...otherStuff} getItemLayout={this.getItemLayout} />;
   }
 }
+
+export default MyComponent
 ```
 
 ## 约束与限制
@@ -69,7 +71,7 @@ class MyComponent extends React.Component {
 
 本文档内容基于以下版本验证通过：
 
-1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52(SP22C00E52R1P17log);
+1. RNOH：0.72.26; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.300; ROM：3.0.0.25;
 
 ## API
 
@@ -79,8 +81,8 @@ class MyComponent extends React.Component {
 
 详情见 [rn-section-list-get-item-layout 源库地址](https://github.com/jsoendermann/rn-section-list-get-item-layout)
 
-| Name                                                                                                                          | Description                                                                                                                                                                                       | Type     | Required | Platform | HarmonyOS Support |
-| ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | ----------------- |
+| Name                                                         | Description                                                  | Type     | Required | Platform | HarmonyOS Support |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | -------- | -------- | -------- | ----------------- |
 | sectionListGetItemLayout({getItemHeight, getSeparatorHeight, getSectionHeaderHeight,getSectionFooterHeight,listHeaderHeight}) | This package provides a function that helps you construct the getItemLayout function for your SectionLists. For an explanation of why this exists, see this post. It's meant to be used like this | function | Yes      | All      | Yes               |
 
 ## 遗留问题
@@ -90,5 +92,3 @@ class MyComponent extends React.Component {
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/jsoendermann/rn-section-list-get-item-layout/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

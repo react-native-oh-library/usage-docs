@@ -132,7 +132,7 @@ export {MultiSelectExample}
 
 本文档内容基于以下版本验证通过：
 
-1. RNOH：0.72.26; SDK：HarmonyOS-NEXT-Developer-Beta1 5.0.0.22；IDE：DevEco Studio 5.0.3.300; ROM：3.0.0.25;
+1. RNOH: 0.72.27; SDK: HarmonyOS-Next-DB1 5.0.0.25; IDE: DevEco Studio 5.0.3.400SP7; ROM: 3.0.0.25;
 
 ## 属性
 
@@ -161,6 +161,7 @@ export {MultiSelectExample}
 | `noItemsText`  |  Text that replace default "no items to display"| String  |  no     | All   | yes      |
 | `onAddItem`  | JavaScript function passed in as an argument. The function is called everytime a new item is added, and receives the entire list of items. Here you should ensure that the new items are added to your provided list of items in addition to any other consequences of new items being added| function  |  no     | All   | yes      |
 | `onChangeInput`  | JavaScript function passed in as an argument. The function is called everytime TextInput is changed with the value| function  |  no     | All   | yes      |
+| `onClearSelector`  | JavaScript function passeed in as an argument. The function is called everytime back button is pressed| function  |  no     | All   | yes      |
 | `onSelectedItemsChange`  | JavaScript function passed in as an argument. The function is to be defined with an argument (selectedItems). Triggered when Submit button is clicked (for multi select) or item is clicked (for single select). (Check sample above)| function  |  yes     | All   | yes      |
 | `onToggleList`  | JavaScript function passed in as an argument. The function is called everytime the multiselect component is pressed| function  |  no     | All   | yes      |
 | `searchInputPlaceholderText`  | Placeholder text displayed in multi-select filter input| String  |  no     | All   | yes      |

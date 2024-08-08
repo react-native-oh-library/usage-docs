@@ -60,6 +60,7 @@ yarn add react-native-vector-icons@10.0.3
 - [`SimpleLineIcons`](https://simplelineicons.github.io/) crafted by Sabbir & Contributors (v2.5.5 with *189* icons)
 
 ### 本库自带字体的使用
+> [!ATTENTION] 使用字体时，请确保entry/src/main/ets/assets/fonts和entry/src/main/resource/rawfile/assets/assets/fonts下同时拥有要使用的ttf文件，否则图标不能正常显示
 
 ```js
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -73,7 +74,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 ```
 
 ### 外部字体使用
-> [!ATTENTION] 使用外部字体时，请确保entry/src/main/ets/assets/fonts和entry/src/main/resource/rawfile/assets/assets/fonts下同时拥有要使用的ttf文件
+> [!ATTENTION] 使用外部字体时，请确保entry/src/main/ets/assets/fonts和entry/src/main/resource/rawfile/assets/assets/fonts下同时拥有要使用的ttf文件，否则图标不能正常显示
 使用外部字体时，不管是用户自己制作的字体文件还是从网站下载的字体文件，都需要有 *.ttf 和 *.json 文件(文件目录不固定，能引用到就可以了)
 
 #### 用户自制字体文件

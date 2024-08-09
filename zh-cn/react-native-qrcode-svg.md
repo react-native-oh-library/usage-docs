@@ -1,11 +1,11 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-qrcode-svg</code> </h1>
 </p>
 <p align="center">
-    <a href="https://github.com/react-native-oh-library/react-native-qrcode-svg">
+    <a href="https://github.com/awesomejerry/react-native-qrcode-svg">
         <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
     <a href="https://github.com/awesomejerry/react-native-qrcode-svg/blob/master/LICENSE">
@@ -43,24 +43,29 @@ yarn add @react-native-oh-tpl/react-native-qrcode-svg@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
+
 ```js
+import {  Text, View } from "react-native";
 import QRCode from 'react-native-qrcode-svg';
 
-// Simple usage, defaults for all but the value
-render() {
-  return (
-    <QRCode
-      value="react-native-qrcode-svg"
-    />
-  );
-};
+export const SvgDemo = () => {
+    return (
+        <View style={{ flex: 1, backgroundColor: '#FFFFFF' }}>
+            <QRCode
+                size={300}
+              
+                value="http://awesome.link.qr"
+            />
+        </View>
+    )
+}
 ```
 
 ## Link
 
 本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-svg 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
 
-如未引入请参照[@react-native-oh-tpl/react-native-svg 文档的 Link 章节](/zh-cn/react-native-svg.md#link)进行引入
+如未引入请参照[@react-native-oh-tpl/react-native-svg-capi 文档的 Link 章节](/zh-cn/react-native-svg-capi.md)进行引入
 
 ## 约束与限制
 
@@ -78,22 +83,22 @@ render() {
 
 | Name                   | Description                                                                                                               | Type     | Required | Platform | HarmonyOS Support |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | ----------------- |
-| `size`                 | Size of rendered image in pixels                                                                                          | number   | No       | All      | yes               |
-| `value`                | String Value of the QR code                                                                                               | string   | yes      | All      | yes               |
-| `color`                | Color of the QR code                                                                                                      | string   | No       | All      | yes               |
-| `backgroundColor`      | Color of the background                                                                                                   | string   | No       | All      | yes               |
-| `enableLinearGradient` | enables or disables linear gradient                                                                                       | boolean  | No       | All      | no                |
-| `linearGradient`       | array of 2 rgb colors used to create the linear gradient                                                                  | string[] | No       | All      | no                |
-| `gradientDirection`    | the direction of the linear gradient                                                                                      | string   | No       | All      | no                |
-| `logo`                 | Image source object. Ex. {uri: 'base64string'} or {require('pathToImage')}                                                | object   | No       | All      | yes               |
-| `logoSize`             | Size of the imprinted logo. Bigger logo = less error correction in QR code                                                | number   | No       | All      | yes               |
-| `logoBackgroundColor`  | The logo gets a filled quadratic background with this color. Use 'transparent' if your logo already has its own backdrop. | string   | No       | All      | yes               |
-| `logoMargin`           | logo's distance to its wrapper                                                                                            | number   | No       | All      | yes               |
-| `logoBorderRadius`     | the border-radius of logo image (Android is not supported)                                                                | number   | No       | ios      | no                |
-| `quietZone`            | quiet zone around the qr in pixels (useful when saving image to gallery)                                                  | number   | No       | All      | no                |
-| `getRef`               | Get SVG ref for further usage                                                                                             | callback | No       | All      | 不涉及            |
-| `ecl`                  | Error correction level                                                                                                    | string   | No       | All      | yes               |
-| `onError(error)`       | Callback fired when exception happened during the code generating process                                                 | callback | No       | All      | 不涉及            |
+| `size`                 | Size of rendered image in pixels                                                                                          | number   | No       | iOS,Android      | yes               |
+| `value`                | String Value of the QR code                                                                                               | string   | yes      | iOS,Android      | yes               |
+| `color`                | Color of the QR code                                                                                                      | string   | No       | iOS,Android      | yes               |
+| `backgroundColor`      | Color of the background                                                                                                   | string   | No       | iOS,Android      | yes               |
+| `enableLinearGradient` | enables or disables linear gradient                                                                                       | boolean  | No       | iOS,Android      | yes                |
+| `linearGradient`       | array of 2 rgb colors used to create the linear gradient                                                                  | string[] | No       | iOS,Android      | yes                |
+| `gradientDirection`    | the direction of the linear gradient                                                                                      | string   | No       | iOS,Android      | yes                |
+| `logo`                 | Image source object. Ex. {uri: 'base64string'} or {require('pathToImage')}                                                | object   | No       | iOS,Android      | yes               |
+| `logoSize`             | Size of the imprinted logo. Bigger logo = less error correction in QR code                                                | number   | No       | iOS,Android      | yes               |
+| `logoBackgroundColor`  | The logo gets a filled quadratic background with this color. Use 'transparent' if your logo already has its own backdrop. | string   | No       | iOS,Android      | yes               |
+| `logoMargin`           | logo's distance to its wrapper                                                                                            | number   | No       | iOS,Android      | yes               |
+| `logoBorderRadius`     | the border-radius of logo image (Android is not supported)                                                                | number   | No       | iOS      | yes                |
+| `quietZone`            | quiet zone around the qr in pixels (useful when saving image to gallery)                                                  | number   | No       | iOS,Android      | yes                |
+| `getRef`               | Get SVG ref for further usage                                                                                             | callback | No       | iOS,Android      | yes            |
+| `ecl`                  | Error correction level                                                                                                    | string   | No       | iOS,Android      | yes               |
+| `onError(error)`       | Callback fired when exception happened during the code generating process                                                 | callback | No       | iOS,Android      | yes            |
 
 ## 遗留问题
 

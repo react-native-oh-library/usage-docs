@@ -24,6 +24,10 @@
 
 > [!tip] NPM 公仓坐标：@react-native-oh-tpl
 
+> [!tip] "原库是否支持新架构"列为 "-" 表示该库不涉及新架构和老架构
+
+> [!tip] "HarmonyOSReleases"列为 "-" 表示该库在适配 HarmonyOS 平台过程不涉及代码修改，可直接使用源库代码
+
 | 序号  | 原库名                                                                                                                      | 原库基线版本        | 原库是否支持新架构 | HarmonyOSReleases                                                                                                                                           | 文档链接（相对路径）                                                   |
 |-----|--------------------------------------------------------------------------------------------------------------------------|---------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------|
 | 1   | [@react-native-async-storage/async-storage](https://github.com/react-native-async-storage/async-storage)                 | 1.21.0        | 是         | [@react-native-oh-tpl/async-storage](https://github.com/react-native-oh-library/async-storage/releases)                                                     | [链接](/zh-cn/react-native-async-storage-async-storage.md)     |
@@ -261,7 +265,7 @@
 | 233  | [react-native-signature-capture](https://github.com/RepairShopr/react-native-signature-capture) |   0.4.11     | 否                 |  [@react-native-oh-tpl/react-native-signature-capture](https://github.com/react-native-oh-library/react-native-signature-capture/releases)  | [链接](/zh-cn/react-native-signature-capture.md)                     |
 | 234  | [react-native-deck-swiper](https://github.com/alexbrillant/react-native-deck-swiper) |   2.0.17     | -                 |  -  | [链接](/zh-cn/react-native-deck-swiper.md)                     |
 | 235  | [react-native-autocomplete-dropdown](https://github.com/onmotion/react-native-autocomplete-dropdown) |   4.0.0-rc.5     | -                 |  -  | [链接](/zh-cn/react-native-autocomplete-dropdown.md)                     |
-| 236  | [@klarna/react-native-vector-drawable](https://github.com/klarna-incubator/react-native-vector-drawable) |   0.5.1     | 是                 |  [@react-native-oh-tpl/react-native-vector-drawable](https://github.com/react-native-oh-library/react-native-vector-drawable/releases)  | [链接](/zh-cn/react-native-vector-drawable.md)                     |
+| 236  | [@klarna/react-native-vector-drawable](https://github.com/klarna-incubator/react-native-vector-drawable) |   0.5.1     | 是                 |  开发中  | 开发中                     |
 | 237  | [react-native-material-buttons](https://github.com/n4kz/react-native-material-buttons) |   0.6.0     | 否                 |  [@react-native-oh-tpl/react-native-material-buttons](https://github.com/react-native-oh-library/react-native-material-buttons/releases)  | [链接](/zh-cn/react-native-material-buttons.md)                     |
 | 238  | [@expo/react-native-action-sheet](https://github.com/expo/react-native-action-sheet) |   4.0.1     | -                 |  -  | [链接](/zh-cn/react-native-action-sheet.md)                     |
 | 239  | [react-native-communications](https://github.com/davebeehively/react-native-communications) |   2.2.1     | -                 |  -  | [链接](/zh-cn/react-native-communications.md)                     |

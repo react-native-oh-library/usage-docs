@@ -155,7 +155,7 @@ export default function App() {
 | activityIndicatorSize      | Changes the default size of the ActivityIndicator.                                                               | number                                                             | no       | All      | yes               |
 | searchable                 | Enables the search feature in the drop-down menu / modal.                                                        | boolean                                                            | no       | All      | yes               |
 | searchTextInputProps       | Adds native props for the text input.                                                                            | object                                                             | no       | All      | yes               |
-| searchWithRegionalAccents  | Allows searching without typing local accents.                                                                   | boolean                                                            | no       | All      | yes               |
+| searchWithRegionalAccents  | Allows searching without typing local accents.                                                                   | boolean                                                            | no       | All      | no               |
 | disableLocalSearch         | Disables search between local items. This comes in handy for remote search.                                      | boolean                                                            | no       | All      | yes               |
 | addCustomItem              | Shows the searched text as an item when there's nothing to show.                                                 | boolean                                                            | no       | All      | yes               |
 | searchPlaceholder          | Changes the placeholder text of the text input. Both of the following properties are available.                  | string                                                             | no       | All      | yes               |
@@ -225,6 +225,8 @@ export default function App() {
 | addTheme          | Add a theme                                           | function | no       | All      | yes               |
 | setTheme          | Change the default theme​                             | function | no       | All      | yes               |
 ## 遗留问题
+
+- [ ] 方法String.prototype.normalize('NFD')在RN框架下有问题，导致属性searchWithRegionalAccents不生效。
 
 ## 其他
 

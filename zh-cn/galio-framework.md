@@ -387,7 +387,7 @@ export default CardDemo;
 |      disabled       |        Whether the switch is disabled        |                           boolean                            |    no    | iOS/Android |        Yes        |
 |    initialValue     |                Initial value                 |                           boolean                            |    no    | iOS/Android |        Yes        |
 |     trackColor      |                 track Color                  |                            object                            |    no    | iOS/Android |        Yes        |
-| ios_backgroundColor |             ios background color             |                            string                            |    no    |     No      |        No         |
+| ios_backgroundColor |             ios background color             |                            string                            |    no    | iOS/Android |        Yes        |
 |      onChange       | Events that occur when the switch is changed |                           function                           |   yes    | iOS/Android |        Yes        |
 
 ### [GalioTheme](https://galio.io/docs/?ref=galio-repo#/GalioTheme?id=galiotheme-usage)

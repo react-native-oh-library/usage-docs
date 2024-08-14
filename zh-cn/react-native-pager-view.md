@@ -173,38 +173,6 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 在 ArkTs 侧引入 RNCViewPager 组件
-
-> [!WARNING] Deprecated！该库已接入 CAPI。
-
-找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
-
-```diff
-  ...
-+ import { RNCViewPager, PAGER_VIEW_TYPE } from "@react-native-oh-tpl/react-native-pager-view"
-
-@Builder
-function buildCustomComponent(ctx: ComponentBuilderContext) {
-  if (ctx.componentName === SAMPLE_VIEW_TYPE) {
-    SampleView({
-      ctx: ctx.rnComponentContext,
-      tag: ctx.tag,
-      buildCustomComponent: buildCustomComponent
-    })
-  }
-+ else if (ctx.componentName === PAGER_VIEW_TYPE) {
-+   RNCViewPager({
-+     ctx: ctx.rnComponentContext,
-+     tag: ctx.tag,
-+     buildCustomComponent: buildCustomComponent
-+   })
-+ }
- ...
-}
-...
-```
-
-
 ### 在 ArkTs 侧引入 ViewPagerPackage
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
@@ -270,7 +238,7 @@ ohpm install
 
 ## 遗留问题
 
-- offscreenPageLimit 未实现 HarmonyOS 化[issue#7](https://github.com/react-native-oh-library/react-native-pager-view/issues/7)
+- [ ] offscreenPageLimit 未实现 HarmonyOS 化[issue#7](https://github.com/react-native-oh-library/react-native-pager-view/issues/7)
 
 ## 其他
 

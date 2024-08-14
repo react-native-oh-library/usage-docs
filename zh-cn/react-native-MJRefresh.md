@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.2.1
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-MJRefresh</code> </h1>
@@ -46,8 +46,8 @@ yarn add @react-native-oh-tpl/react-native-mjrefresh@file:#
 
 ```tsx
 import React, { Component } from "react";
-import { ScrollView, Text, View } from "react-native";
-import { MJRefreshControl } from "react-native-mjrefresh";
+import { Text, View } from "react-native";
+import MJRefresh, { ScrollView } from "react-native-mjrefresh";
 
 export default class MjRefreshDemo extends Component {
   constructor(props) {
@@ -55,61 +55,59 @@ export default class MjRefreshDemo extends Component {
   }
 
   state = {
-    text : "下拉刷新",
-    refreshing : false
+    text: "下拉刷新",
+    refreshing: false
   }
   _onRefresh = () => {
-     setTimeout(() => {
-                this._hw && this._hw.finishRefresh();
-              }, 1000);
+    setTimeout(() => {
+      this._hw && this._hw.finishRefresh();
+    }, 1000);
   }
   render() {
     return (
-           <ScrollView
-            refreshControl={
-              <MJRefreshControl
-                  ref={ref=>this._mjrefresh = ref}
-                  onRefresh={
-                  ()=>{
-                      this.setState({
-                          text:'正在刷新'
-                      })
-                      console.log('onRefresh')
-                      setTimeout(()=>{
-                          this._mjrefresh && this._mjrefresh.finishRefresh();
-                      },1000)
-                  }
-                  }
-                  onRefreshIdle={()=>console.log('onRefreshIdle')}
-                  onReleaseToRefresh={()=>{
-                      this.setState({
-                          text:'释放刷新'
-                      })
-                  }}
-                  onPulling={e=>{
-                      if(e.nativeEvent.percent<0.1){
-                          this.setState({
-                              text:'下拉刷新'
-                          })
-                      }
-                  }}
-
-                  HeaderComponent = {
-                  <View style={{height:100,backgroundColor:'red',
-                    justifyContent:'center',
-                    alignItems:'center',flexDirection:'row'
-                }}>
-                  <Text>{this.state.text}</Text>
-                </View>
-                  }
-              >
-                
-              </MJRefreshControl>
+      <ScrollView
+        refreshControl={
+          <MJRefresh
+            ref={ref => this._mjrefresh = ref}
+            onRefresh={
+              () => {
+                this.setState({
+                  text: '正在刷新'
+                })
+                console.log('onRefresh')
+                setTimeout(() => {
+                  this._mjrefresh && this._mjrefresh.finishRefresh();
+                }, 1000)
+              }
             }
-        >
-          <Text>{"mjRefresh TEST mjRefresh TEST mjRefresh TEST mjRefresh TEST mjRefresh TEST"}</Text>
-        </ScrollView>
-      )
+            onRefreshIdle={() => console.log('onRefreshIdle')}
+            onReleaseToRefresh={() => {
+              this.setState({
+                text: '释放刷新'
+              })
+            }}
+            onPulling={e => {
+              console.log('cbdtest onPulling:' + e.nativeEvent.percent)
+              if (e.nativeEvent.percent < 0.1) {
+                this.setState({
+                  text: '下拉刷新'
+                })
+              }
+            }}
+          >
+            <View style={{
+              height: 100, backgroundColor: 'red',
+              justifyContent: 'center',
+              alignItems: 'center', flexDirection: 'row'
+            }}>
+              <Text>{this.state.text}</Text>
+            </View>
+          </MJRefresh>
+        }
+      >
+        <Text>{"mjRefresh TEST mjRefresh TEST mjRefresh TEST mjRefresh TEST mjRefresh TEST"}</Text>
+      </ScrollView>
+    )
   };
 };
 ```
@@ -222,31 +220,6 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 在 ArkTs 侧引入 MJRefresh组件（若需要运行 ArkTs 版本）
-
-> [!WARNING] Deprecated！该库已接入 CAPI。
-
-找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
-
-```diff
-  ...
-+ import { MJRefresh, MJREFRESH_TYPE} from "@react-native-oh-tpl/react-native-mjrefresh"
-
-@Builder
-export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
-  ...
-+ if (ctx.componentName === MJREFRESH_TYPE) {
-+   MJRefresh({
-+       ctx: ctx.rnComponentContext,
-+       tag: ctx.tag,
-+       buildCustomComponent: buildCustomComponent
-+     })
-+ }
-...
-}
-...
-```
-
 ### 运行
 
 点击右上角的 `sync` 按钮
@@ -282,7 +255,6 @@ ohpm install
 | onRefreshIdle      | System Path | function | No       | IOS      | yes               |yes               |
 | onReleaseToRefresh | System Path | function | No       | IOS      | yes               |yes               |
 | onPulling          | System Path | function | No       | IOS      | yes               |yes               |
-| HeaderComponent    | 设置自定义刷新头 | React.ReactNode | No       | No      | No              |yes               |
 
 ## 静态方法
 

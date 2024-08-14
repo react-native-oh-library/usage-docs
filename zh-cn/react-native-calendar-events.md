@@ -275,7 +275,7 @@ export default CalendarDemo;
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/react-native-calendar-events": "file:../../node_modules/@react-native-oh-tpl/react-native-calendar-events/harmony/calendar-events.har"
+    "@react-native-oh-tpl/react-native-calendar-events": "file:../../node_modules/@react-native-oh-tpl/react-native-calendar-events/harmony/calendar_events.har"
   }
 ```
 

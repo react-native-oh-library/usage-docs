@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -48,9 +47,7 @@ import { WebView } from "react-native-webview";
 
 export default function WebViewDemo() {
   return (
-    <View>
       <WebView source={{ uri: "https://reactnative.dev/" }} />
-    </View>
   );
 }
 ```
@@ -63,7 +60,6 @@ export default function WebViewDemo() {
 
 ### 在工程根目录的 `oh-package.json5` 添加 overrides 字段
 
-
 ```json
 {
   ...
@@ -72,7 +68,6 @@ export default function WebViewDemo() {
   }
 }
 ```
-
 
 ### 引入原生端代码
 
@@ -264,11 +259,13 @@ ohpm install
 | `javaScriptEnabled?`                               | Boolean value to enable JavaScript in the WebView.           | boolean  | No       | All               | yes                                                          |
 | `showsHorizontalScrollIndicator?`                  | Boolean value that determines whether a horizontal scroll indicator is shown in the WebView. | boolean  | No       | iOS,android,macOS | yes                                                          |
 | `showsVerticalScrollIndicator`                     | Boolean value that determines whether a vertical scroll indicator is shown in the WebView. | boolean  | No       | iOS,android,macOS | yes                                                          |
+| `ignoreSilentHardwareSwitch`                     | Boolean value that When set to true the hardware silent switch is ignored. | boolean  | No       | iOS | yes                                                          |
 | `cacheEnabled?`                                    | Sets whether WebView should use browser caching.             | boolean  | No       | iOS,android,macOS | yes                                                          |
 | `cacheMode?`                                       | Overrides the way the cache is used.                         | string   | No       | android           | yes                                                          |
 | `textZoom?`                                        | If the user has set a custom font size in the Android and harmony system, an undesirable scale of the site interface in WebView occurs. | number   | No       | android           | yes                                                          |
 | `injectJavaScript?: (script: string) => void`      | Executes the JavaScript string.                              | function | No       | iOS,android,macOS | yes                                                          |
 | `onLoadEnd?: (event) => void`                      | Function that is invoked when the WebView load succeeds or fails used. | function | No       | All               | yes                                                          |
+| `onLoadProgress?: (event) => void`                      | Function that is invoked when the WebView is loading. | function | No       | All               | yes                                                          |
 | `onMessage?: (event) => void`                      | Function that is invoked when the webview calls window.ReactNativeWebView.postMessage. | function | No       | iOS,android,macOS | yes                                                          |
 | `onShouldStartLoadWithRequest?: (event) => void`   | Function that allows custom handling of any web view requests. | function | No       | iOS,android,macOS | yes                                                          |
 | `reload?`                                          | Reloads the current page.                                    | function | No       | iOS,android,macOS | yes                                                          |
@@ -292,5 +289,3 @@ ohpm install
 
 本项目基于 [The MIT License (MIT)](https://github.com/react-native-webview/react-native-webview/blob/master/LICENSE) ，请自由地享受和参与开源。
 [react-native-vconsole.md](react-native-vconsole.md)
-
-<!-- {% endraw %} -->

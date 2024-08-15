@@ -43,6 +43,11 @@ yarn add react-native-material-ui@file:#
 下面的代码展示了这个库的基本使用场景：
 
 > [!WARNING] 使用时 import 的库名不变。
+ 
+### 外部字体使用
+> [!ATTENTION] 使用外部字体时，请确保entry/src/main/ets/assets/fonts和entry/src/main/resource/rawfile/assets/assets/fonts下同时拥有要使用的ttf文件，否则图标不能正常显示
+使用外部字体时，不管是用户自己制作的字体文件还是从网站下载的字体文件，都需要有 *.ttf 和 *.json 文件(文件目录不固定，能引用到就可以了)
+
 ```js
 
 import { ActionButton} from 'react-native-material-ui';

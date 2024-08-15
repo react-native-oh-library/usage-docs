@@ -106,9 +106,9 @@ export default class ImageEditAbility extends UIAbility {
 **2.在 entry/src/main/module.json5 注册 ImageEditAbility 并添加 requestPermissions**
 
 ```json
-"ablilities":[{
+"abilities":[{
         "name": "ImageEditAbility",
-        "srcEntrance": "./ets/entryability/ImageEditAbility.ets",
+        "srcEntry": "./ets/entryability/ImageEditAbility.ets",
         "description": "$string:EntryAbility_desc",
         "icon": "$media:icon",
         "startWindowIcon": "$media:startIcon",
@@ -214,7 +214,7 @@ struct ImageEdit {
 ```
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/react-native-image-crop-picker": "file:../../node_modules/@react-native-oh-tpl/react-native-image-crop-picker/harmony/image_crop_picke.har"
+    "@react-native-oh-tpl/react-native-image-crop-picker": "file:../../node_modules/@react-native-oh-tpl/react-native-image-crop-picker/harmony/image_crop_picker.har"
   }
 ```
 

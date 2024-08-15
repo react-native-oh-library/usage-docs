@@ -97,7 +97,7 @@ const MyList = () => {
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/flash-list": "file:../../node_modules/@react-native-oh-tpl/flash-list/harmony/flash-list.har"
+    "@react-native-oh-tpl/flash-list": "file:../../node_modules/@react-native-oh-tpl/flash-list/harmony/flash_list.har"
   }
 ```
 

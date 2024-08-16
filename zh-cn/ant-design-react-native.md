@@ -77,12 +77,12 @@ npx react-native-asset
         familySrc: '/assets/fonts/FontAwesome.ttf'
       },
      {
-        familyName: 'antfill',
-        familySrc: '/assets/fonts/antfill.ttf'
+++       familyName: 'antfill',
+++       familySrc: '/assets/fonts/antfill.ttf'
      },
      {
-        familyName: 'antoutline',
-        familySrc: '/assets/fonts/antoutline.ttf'
+++       familyName: 'antoutline',
+++       familySrc: '/assets/fonts/antoutline.ttf'
      }
     ]
 
@@ -99,6 +99,17 @@ npx react-native-asset
             }
         }
         //...
+         RNApp({
+          rnInstanceConfig: {
+            createRNPackages,
+            enableNDKTextMeasuring: true,
+            enableBackgroundExecutor: false,
+            enableCAPIArchitecture: true,
+            arkTsComponentNames: arkTsComponentNames,
+++          fontOptions: fonts
+          },
+        //...
+         )
     }
 ```
 

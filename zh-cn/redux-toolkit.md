@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.2.0
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>redux-toolkit</code> </h1>
@@ -16,6 +16,8 @@
 > [!tip] [Github 地址](https://github.com/reduxjs/redux-toolkit)
 
 ## 安装与使用
+
+> [!tip] 该库依赖react-redux，可参考[react-redux文档](./react-redux.md)安装
 
 请到三方库的 Releases 发布地址查看配套的版本信息：[redux-toolkit Releases](https://github.com/reduxjs/redux-toolkit/releases)，并下载适用版本的 tgz 包。
 进入到工程目录并输入以下命令：
@@ -116,6 +118,7 @@ export type AppDispatch = typeof store.dispatch
 ```js
 // features/counter/Counter.js
 import React from 'react'
+import {View, Button, Text} from 'react-native'
 import type { RootState } from '../../app/store'
 import { useSelector, useDispatch } from 'react-redux'
 import { decrement, increment } from './counterSlice'
@@ -125,30 +128,29 @@ export function Counter() {
   const dispatch = useDispatch()
 
   return (
-    <div>
-      <div>
-        <button
-          aria-label="Increment value"
+    <View>
+      <View>
+        <Button
+          title="Increment value"
           onClick={() => dispatch(increment())}
         >
-          Increment
-        </button>
-        <span>{count}</span>
-        <button
-          aria-label="Decrement value"
+        </Button>
+        <Text>{count}</Text>
+        <Button
+          title="Decrement value"
           onClick={() => dispatch(decrement())}
         >
           Decrement
-        </button>
-      </div>
-    </div>
+        </Button>
+      </View>
+    </View>
   )
 }
 ```
 
 ## 约束与限制
 
-## 兼容性
+### 兼容性
 
 本文档内容基于以下版本验证通过：
 

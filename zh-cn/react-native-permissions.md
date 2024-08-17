@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-permissions</code> </h1>
@@ -39,12 +39,12 @@ yarn add @react-native-oh-tpl/react-native-permissions@file:#
 
 下面的代码展示了这个库的基本使用场景：
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] 在使用import...from "react-native-permissions" 导入时因为原库没有抛出关于Harmony OS 有关字段,在使用PERMISSIONS.HARMONY.ACCESS_BLUETOOTH编辑器会报ts类型错误没有HARMONY字段（使用可以正常编译运行），所以想要使用PERMISSIONS.HARMONY.ACCESS_BLUETOOTH，可以使用 import...from "@react-native-oh-tpl/react-native-permissions"
 
 ```js
 import { ScrollView, StyleSheet, View, Text, Button } from "react-native";
 import React from "react";
-import RTNPermissions, { Permission } from "react-native-permissions";
+import RTNPermissions, { Permission } from "@react-native-oh-tpl/react-native-permissions";
 
 const permissionNormal: Permission[] = [
   "ohos.permission.APPROXIMATELY_LOCATION",
@@ -78,7 +78,7 @@ export function PermissionsExample() {
         }}
       />
       <Button
-        label={"查询多个权限"}
+        title={"查询多个权限"}
         onPress={async () => {
           let checkMultiple = await RTNPermissions.checkMultiple(
             permissionNormal
@@ -87,7 +87,7 @@ export function PermissionsExample() {
         }}
       />
       <Button
-        label={"设置多个权限"}
+        title={"设置多个权限"}
         onPress={async () => {
           let requestMultiple = await RTNPermissions.requestMultiple(
             permissionNormal
@@ -121,6 +121,17 @@ const styles = StyleSheet.create({
 
 首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
+### 在工程根目录的 `oh-package.json5` 添加 overrides 字段
+
+```json
+{
+  ...
+  "overrides": {
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+  }
+}
+```
+
 ### 引入原生端代码
 
 目前有两种方法：
@@ -138,7 +149,7 @@ const styles = StyleSheet.create({
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
 
-    "react-native-permissions": "file:../../node_modules/@react-native-oh-tpl/react-native-permissions/harmony/permissions.har"
+    "@react-native-oh-tpl/react-native-permissions": "file:../../node_modules/@react-native-oh-tpl/react-native-permissions/harmony/permissions.har"
   }
 ```
 
@@ -162,29 +173,43 @@ ohpm install
 ```diff
 project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
+set(CMAKE_SKIP_BUILD_RPATH TRUE)
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(OH_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
+set(LOG_VERBOSITY_LEVEL 1)
+set(CMAKE_ASM_FLAGS "-Wno-error=unused-command-line-argument -Qunused-arguments")
+set(CMAKE_CXX_FLAGS "-fstack-protector-strong -Wl,-z,relro,-z,now,-z,noexecstack -s -fPIE -pie")
+set(WITH_HITRACE_SYSTRACE 1) # for other CMakeLists.txt files to use
+add_compile_definitions(WITH_HITRACE_SYSTRACE)
 
 add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
-# RNOH_BEGIN: add_package_subdirectories
+# RNOH_BEGIN: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/react-native-permissions/src/main/cpp" ./permissions)
-# RNOH_END: add_package_subdirectories
++ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/react-native-permissions/src/main/cpp" ./permissions)
+# RNOH_END: manual_package_linking_1
+
+file(GLOB GENERATED_CPP_FILES "./generated/*.cpp")
 
 add_library(rnoh_app SHARED
+    ${GENERATED_CPP_FILES}
     "./PackageProvider.cpp"
     "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
 )
-
 target_link_libraries(rnoh_app PUBLIC rnoh)
 
-# RNOH_BEGIN: link_packages
+# RNOH_BEGIN: manual_package_linking_2
 target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 + target_link_libraries(rnoh_app PUBLIC rnoh_permissions)
-# RNOH_END: link_packages
+# RNOH_END: manual_package_linking_2
+
+
+
 ```
+
+
 
 打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
 
@@ -209,11 +234,10 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ```diff
   ...
-+ import {PermissionsPackage} from 'react-native-permissions/ts';
++ import {PermissionsPackage} from '@react-native-oh-tpl/react-native-permissions/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
-    new SamplePackage(ctx),
 +   new PermissionsPackage(ctx),
   ];
 }
@@ -404,20 +428,20 @@ ohos.permission.LOCATION_IN_BACKGROUND 允许应用在后台运行时获取设�
 当用户点击弹窗授予前台位置权限后，应用通过弹窗、提示窗等形式告知用户前往设置界面授予后台位置权限。
 用户在设置界面中的选择“始终允许”应用访问位置信息权限，完成手动授予。
 
-## 方法
+## API
 
-| Name                    | Description                | Platform    | HarmonyOS Support        |
-| ----------------------- | -------------------------- | ----------- | ------------------------ |
-| check                   | 检查单个权限               | ios,android | yes                      |
-| checkNotifications      | 检查通知权限               | ios,android | yes                      |
-| openSettings            | 打开设置页                 | ios,android | yes                      |
-| request                 | 设置单个权限               | ios,android | yes                      |
-| requestNotifications    | 设置通知权限               | ios,android | yes                      |
-| checkMultiple           | 检查多个权限               | android     | yes                      |
-| requestMultiple         | 设置多个权限               | android     | yes                      |
-| checkLocationAccuracy   | 检查设备位置权限           | ios         | no(使用 check()查询权限) |
-| requestLocationAccuracy | 请求访问设备位置的权限     | ios         | no(使用 check()设置权限) |
-| openPhotoPicker         | 请求访问设备本地图片的权限 | ios         | no(使用 check()设置权限) |
+| Name                    | Description    | Type           | Required | Platform    | HarmonyOS Support        |
+| ----------------------- | ------------------|----|---------| ----------- | ------------------------ |
+| check                   | 检查单个权限    | Function          | no      | iOS,Android | yes                      |
+| checkNotifications      | 检查通知权限    | Function          | no      | iOS,Android | yes                      |
+| openSettings            | 打开设置页      | Function          | no      | iOS,Android | yes                      |
+| request                 | 设置单个权限    | Function          | no      | iOS,Android | yes                      |
+| requestNotifications    | 设置通知权限    | Function          | no      | iOS,Android | yes                      |
+| checkMultiple           | 检查多个权限    | Function          | no      | Android     | yes                      |
+| requestMultiple         | 设置多个权限    | Function          | no      | Android     | yes                      |
+| checkLocationAccuracy   | 检查设备位置权限  | Function          | no      | iOS         | no(使用 check()查询权限) |
+| requestLocationAccuracy | 请求访问设备位置的权限  | Function          | no      | iOS         | no(使用 request()设置权限) |
+| openPhotoPicker         | 打开图片选择 | Function          | no      | iOS         | yes( iOS 需要在`PhotoLibrary`权限为`limited`才能调用，Harmony OS不需要任何权限直接调用) |
 
 ## 遗留问题
 

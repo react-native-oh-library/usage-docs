@@ -306,9 +306,14 @@ ohpm install
 
 详情请见[react-native-sound](https://github.com/react-native-oh-library/react-native-sound)
 
-| Name      | Description                      | Type   | Required | Platform    | HarmonyOS Support |
-| --------- | -------------------------------- | ------ | -------- | ----------- | ----------------- |
-| setActive | Set the device activation status | string | No       | iOS、Android | yes               |
+| Name                     | Description                               | Type   | Required | Platform    | HarmonyOS Support |
+| ------------------------ | ------------------------------------------ | ------ | -------- | ----------- | ----------------- |
+| setActive                | Set the device activation status           | function | No       | iOS、Android | yes               |
+| setCategory              | Set the device activation status            | function | No       | iOS、Android | no               |
+| enable                   | Enable or disable audio playback           | function  | No       | iOS       | no               |
+| enableInSilenceMode      | Whether to enable playback in silence mode | function  | No       | iOS       | no               |
+| setMode                  | Set session mode                            | function  | No       | iOS       | no               |
+| setSpeakerphoneOn       | Set up speakers                          | function  | No       | Android       | no               |
 
 ## API
 
@@ -320,26 +325,36 @@ ohpm install
 
 | Name                    | Description                              | Type    | Required | Platform    | HarmonyOS Support |
 | ------------------------| ---------------------------------------- | ------- | -------- | ----------- | ----------------- |
-| play                    | Start playing audio.                     | string  | No       | iOS、Android | yes               |
-| pause                   | Pause audio playback.                    | string  | No       | iOS、Android | yes               |
-| stop                    | Stop playing audio.                      | string  | No       | iOS、Android | yes               |
-| reset                   | Reset Audio Status.                      | string  | No       | Android      | yes               |
-| release                 | Releasing audio resources.               | string  | No       | iOS、Android | yes               |
-| getVolume               | Obtains the audio volume.                | string  | No       | iOS、Android | yes               |
-| setVolume               | Setting the Relative Audio Volume.       | string  | No       | iOS、Android | yes               |
-| getCurrentTime          | Obtains the current playback time point. | string  | No       | iOS、Android | yes               |
-| setCurrentTime          | Sets the playback time point.            | string  | No       | iOS、Android | yes               |
-| getSpeed                | Obtains the playback speed.              | string  | No       | iOS、Android | yes               |
-| setSpeed                | Setting the Playback Speed               | string  | No       | iOS、Android | yes               |
-| getFilename             | Obtains the audio file name              | string  | No       | iOS、Android | yes               |
-| getDuration             | Obtains the audio duration               | string  | No       | iOS、Android | yes               |
-| getNumberOfLoops        | Obtains whether the audio loops          | boolean | No       | iOS、Android | yes               |
-| setNumberOfLoops        | Sets whether the audio loops             | boolean | No       | iOS、Android | yes               |
-| isPlaying               | Whether the audio is being played        | string  | No       | iOS、Android | yes               |
+| play                    | Start playing audio.                     | function  | No       | iOS、Android | yes               |
+| pause                   | Pause audio playback.                    | function  | No       | iOS、Android | yes               |
+| stop                    | Stop playing audio.                      | function  | No       | iOS、Android | yes               |
+| reset                   | Reset Audio Status.                      | function  | No       | Android      | yes               |
+| release                 | Releasing audio resources.               | function  | No       | iOS、Android | yes               |
+| getVolume               | Obtains the audio volume.                | function  | No       | iOS、Android | yes               |
+| setVolume               | Setting the Relative Audio Volume.       | function  | No       | iOS、Android | yes               |
+| getCurrentTime          | Obtains the current playback time point. | function  | No       | iOS、Android | yes               |
+| setCurrentTime          | Sets the playback time point.            | function  | No       | iOS、Android | yes               |
+| getSpeed                | Obtains the playback speed.              | function  | No       | iOS、Android | yes               |
+| setSpeed                | Setting the Playback Speed               | function  | No       | iOS、Android | yes               |
+| getFilename             | Obtains the audio file name              | function  | No       | iOS、Android | yes               |
+| getDuration             | Obtains the audio duration               | function  | No       | iOS、Android | yes               |
+| getNumberOfLoops        | Obtains whether the audio loops          | function | No       | iOS、Android | yes               |
+| setNumberOfLoops        | Sets whether the audio loops             | function | No       | iOS、Android | yes               |
+| isPlaying               | Whether the audio is being played        |function  | No       | iOS、Android | yes               |
+| isLoaded                | Is loading completed                     | function  | No       | iOS、Android | yes               |
+| getPitch                | get pitch                                | function  | No       | Android      | no               |
+| setPitch                | Set pitch                                | function  | No       | Android      | no               |
+| getPan                  | set left and right channel balance       | function  | No  | iOS、Android      | no               |
+| setPan                  | set left and right channel balance       | function  | No  | iOS、Android      | no               |
+| getSystemVolume         | set system volume                        | function  | No       | iOS、Android       | no               |
+| setSystemVolume         | set system volume                        | function  | No       | iOS、Android       | no               |
+| getNumberOfChannels      | get the number of channels              | function  | No       | iOS、Android       | no               |
+
+
 
 
 ## 遗留问题
-
+- [ ] 方法getNumberOfChannels,setSystemVolume,getSystemVolume,setPan，getPan，setPitch，getPitch，setSpeakerphoneOn，setMode，enableInSilenceMode，enable，setCategory 在Harmony没有对应的api 问题: [issue#1](https://github.com/react-native-oh-library/react-native-sound/issues/21)
 ## 其他
 
 ## 开源协议

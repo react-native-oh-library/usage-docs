@@ -21,13 +21,13 @@
 #### **npm**
 
 ```bash
-npm install deepmerge@^4.3.1
+npm install deepmerge@4.3.1
 ```
 
 #### **yarn**
 
 ```bash
-yarn add deepmerge@^4.3.1
+yarn add deepmerge@4.3.1
 ```
 
 <!-- tabs:end -->
@@ -35,54 +35,68 @@ yarn add deepmerge@^4.3.1
 快速使用：
 
 ```js
-import deepmerge from "deepmerge";
+import React from 'react';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import deepmerge from 'deepmerge';
 
-const x = {
-  foo: { bar: 3 },
-  array: [
-    {
-      does: "work",
-      too: [1, 2, 3],
+const App = () => {
+  // 定义两个需要合并的对象
+  const object1 = {
+    name: 'John',
+    age: 30,
+    address: {
+      street: '123 Main St',
+      city: 'Springfield',
     },
-  ],
+  };
+
+  const object2 = {
+    age: 31,
+    address: {
+      country: 'USA',
+    },
+    hobbies: ['Reading', 'Hiking'],
+  };
+
+  // 使用 deepmerge 合并两个对象
+  const mergedObject = deepmerge(object1, object2);
+
+  return (
+    <ScrollView contentContainerStyle={styles.container}>
+      <Text style={styles.title}>Object 1:</Text>
+      <Text style={styles.text}>{JSON.stringify(object1, null, 2)}</Text>
+
+      <Text style={styles.title}>Object 2:</Text>
+      <Text style={styles.text}>{JSON.stringify(object2, null, 2)}</Text>
+
+      <Text style={styles.title}>Merged Object:</Text>
+      <Text style={styles.text}>{JSON.stringify(mergedObject, null, 2)}</Text>
+    </ScrollView>
+  );
 };
 
-const y = {
-  foo: { baz: 4 },
-  quux: 5,
-  array: [
-    {
-      does: "work",
-      too: [4, 5, 6],
-    },
-    {
-      really: "yes",
-    },
-  ],
-};
-
-const output = {
-  foo: {
-    bar: 3,
-    baz: 4,
+const styles = StyleSheet.create({
+  container: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f5fcff',
+    padding: 20,
   },
-  array: [
-    {
-      does: "work",
-      too: [1, 2, 3],
-    },
-    {
-      does: "work",
-      too: [4, 5, 6],
-    },
-    {
-      really: "yes",
-    },
-  ],
-  quux: 5,
-};
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginVertical: 10,
+  },
+  text: {
+    fontSize: 16,
+    marginBottom: 20,
+    textAlign: 'left',
+    width: '100%',
+  },
+});
 
-deepmerge(x, y); // => output
+export default App;
 ```
 
 ## 约束与限制

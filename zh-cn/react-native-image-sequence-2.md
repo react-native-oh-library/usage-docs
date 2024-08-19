@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> 模板版本：v0.2.1
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-image-sequence</code> </h1>
@@ -43,6 +42,8 @@ yarn add @react-native-oh-tpl/react-native-image-sequence-2@file:#
 下面的代码展示了这个库的基本使用场景：
 
 > [!WARNING] 使用时 import 的库名不变。
+
+TestDemo.tsx
 
 ```js
 import React, { useState } from "react";
@@ -247,6 +248,8 @@ const styles = StyleSheet.create({
 export default ImageSequenceDemo;
 ```
 
+TestDemo2.tsx
+
 ```js
 import { StyleSheet, View } from "react-native";
 import ImageSequence from 'react-native-image-sequence-2'
@@ -334,6 +337,12 @@ ohpm install
   ...
 + import { RNImageSequence } from "@react-native-oh-tpl/react-native-image-sequence-2"
 
+const arkTsComponentNames: Array<string> = ["SampleView", 
+"Generated",
+"PropsDisplayer",
++ RNImageSequence.NAME
+]
+
 @Builder
 export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
   ...
@@ -411,5 +420,3 @@ ohpm install
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/bwindsor/react-native-image-sequence/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

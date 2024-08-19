@@ -366,7 +366,6 @@ ohpm install
 | :-----------------: | :------------------: | :-------------: | -------- | -------- | ----------------- |
 | preserveAspectRatio | 是否强制进行统一缩放 |     string      | No       | All      | Yes               |
 |       viewBox       |       组件视区       |     string      | No       | All      | Yes               |
-|       opacity       |        透明度        | number\| string | No       | All      | Yes               |
 
 **ClipPath**：该元素定义一条剪切路径，可作为其他元素的 clipPath 属性的值
 
@@ -410,7 +409,6 @@ ohpm install
 |         id          |                           为元素分配唯一的名称                            |     string      | Yes      | All      | Yes               |
 |       viewBox       |                     定义视窗在用户空间中的位置和尺寸                      |     string      | No       | All      | Yes               |
 | preserveAspectRatio | 指示具有提供给定宽高比的 viewBox 的元素必须如何适应具有不同宽高比的视口。 |     string      | No       | All      | Yes               |
-|       opacity       |      指定一个对象或一组对象的透明度，即元素后面的背景被覆盖的程度。       | number\| string | No       | All      | Yes               |
 
 **Line**：SVG 基本形状，用于创建连接两点的线。
 
@@ -464,9 +462,6 @@ ohpm install
 | :------: | :--------------------------: | :------: | :------: | :------: | :---------------: |
 |   ast    | 解析 svg 字符串得到的 ast 树 |  JsxAST  |   Yes    |   All    |        Yes        |
 | override |    覆盖 svg 样式，如宽高     |  object  |    No    |   All    |        Yes        |
-| onError  |          错误时触发          | function |    No    |   All    |        Yes        |
-|  onLoad  |        加载成功后触发        | function |    No    |   All    |        Yes        |
-| fallback |          加载中元素          | function |    No    |   All    |        Yes        |
 
 **SvgFromUri**：该组件通过传入 uri 地址来渲染出 svg
 
@@ -474,9 +469,6 @@ ohpm install
 | :------: | :-------------------: | :------: | :------: | :------: | :---------------: |
 |   uri    |     svg 资源地址      |  string  |   Yes    |   All    |        Yes        |
 | override | 覆盖 svg 样式，如宽高 |  object  |    No    |   All    |        Yes        |
-| onError  |      错误时触发       | function |    No    |   All    |        Yes        |
-|  onLoad  |    加载成功后触发     | function |    No    |   All    |        Yes        |
-| fallback |      加载中元素       | function |    No    |   All    |        Yes        |
 
 **SvgFromXml**：该组件通过传入字符串来渲染出 svg
 
@@ -484,9 +476,6 @@ ohpm install
 | :------: | :-------------------: | :------: | :------: | :------: | :---------------: |
 |   xml    |   svg 代码的字符串    |  string  |   Yes    |   All    |        Yes        |
 | override | 覆盖 svg 样式，如宽高 |  object  |    No    |   All    |        Yes        |
-| onError  |      错误时触发       | function |    No    |   All    |        Yes        |
-|  onLoad  |    加载成功后触发     | function |    No    |   All    |        Yes        |
-| fallback |      加载中元素       | function |    No    |   All    |        Yes        |
 
 **SvgUri**：该组件通过传入 uri 地址来渲染出 svg
 

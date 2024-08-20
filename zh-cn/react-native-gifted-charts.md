@@ -1000,8 +1000,10 @@ export default function () {
 
 ## 遗留问题
 
-- [ ] PieChart设置圆环设置为3D，中间圆环显示问题 [issue#7](https://github.com/react-native-oh-library/react-native-gifted-charts/issues/7)
-- [ ] BarChart设置barBackgroundPattern显示问题 [issue#6](https://github.com/react-native-oh-library/react-native-gifted-charts/issues/6)
+- [ ] PieChart设置圆环设置为3D，中间圆环显示问题，svg问题。 [issue#7](https://github.com/react-native-oh-library/react-native-gifted-charts/issues/7)
+- [X] BarChart设置barBackgroundPattern显示问题，svg问题。 [issue#6](https://github.com/react-native-oh-library/react-native-gifted-charts/issues/6)
+- [ ] LineChart设置customDataPoint不显示，svg问题。 [issue#8](https://github.com/react-native-oh-library/react-native-gifted-charts/issues/8)
+- [ ] PieChartPro饼图设置animated为true，动画会卡顿，RN框架问题。 [issue#9](https://github.com/react-native-oh-library/react-native-gifted-charts/issues/9)
 
 ## 其他
 

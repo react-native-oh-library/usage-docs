@@ -117,39 +117,7 @@ export default class ImageEditAbility extends UIAbility {
 
 }
 ...
-],
-"requestPermissions": [
-      {
-        "name": "ohos.permission.MEDIA_LOCATION",
-        "reason": "$string:reason",
-        "usedScene": {
-          "abilities": [
-            "ImageEditAbility"
-          ],
-          "when": "inuse"
-        }
-      },
-      {
-        "name": "ohos.permission.READ_MEDIA",
-        "reason": "$string:reason",
-        "usedScene": {
-          "abilities": [
-            "ImageEditAbility"
-          ],
-          "when": "inuse"
-        }
-      },
-      {
-        "name": "ohos.permission.WRITE_MEDIA",
-        "reason": "$string:reason",
-        "usedScene": {
-          "abilities": [
-            "ImageEditAbility"
-          ],
-          "when": "inuse"
-        }
-      }
-    ]
+]
 
 ```
 
@@ -182,19 +150,6 @@ struct ImageEdit {
   "pages/Index",
   "pages/ImageEdit"
  ]
-}
-```
-
-**5.打开 entry/src/main/resources/base/element/string.json，添加**
-
-```json
-{
-  "string": [
-    {
-     "name": "reason",
-      "value": "Access Write Media"
-   }
-  ]
 }
 ```
 

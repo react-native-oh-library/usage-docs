@@ -55,7 +55,7 @@ export const ImageMarkerText = () => {
     const [texturl, setTextMarkUrl] = useState('');
     const [imageurl,setImageMarkUrl] = useState('');
     const text_options: TextMarkOptions = {
-      backgroundImage: { src: require('./assets/code-images/1.png') },
+      backgroundImage: { src: 'https://developer.huawei.com/allianceCmsResource/resource/HUAWEI_Developer_VUE/images/yuekan/xintexing00.jpg' },
       watermarkTexts: [{
         text: 'hello world \n 你好',
         position: {
@@ -99,16 +99,16 @@ export const ImageMarkerText = () => {
     }
 
     const image_options: ImageMarkOptions = {
-      backgroundImage: { src: require('./assets/code-images/1.png') },
+      backgroundImage: { src: 'https://developer.huawei.com/allianceCmsResource/resource/HUAWEI_Developer_VUE/images/yuekan/xintexing00.jpg' },
       watermarkImages: [{
-        src: require('./assets/pravatar-131.jpg'),
+        src: 'https://developer.huawei.com/allianceCmsResource/resource/HUAWEI_Developer_VUE/images/yingyongicon.png',
         rotate:20,
         position: {
           position: Position.topLeft,
         },
       },
       {
-        src: require('./assets/pravatar-131.jpg'),
+        src: 'https://developer.huawei.com/allianceCmsResource/resource/HUAWEI_Developer_VUE/images/yingyongicon.png',
         rotate:50,
         position: {
           position: Position.bottomCenter,
@@ -278,6 +278,23 @@ ohpm install
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-image-marker Releases](https://github.com/react-native-oh-library/react-native-image-marker/releases)
 
+### 权限要求
+
+如果用到了网络图片，需要在 entry 目录下的 module.json5 中添加网络信息权限
+
+打开entry/src/main/module.json5，添加：
+
+```js
+...
+"requestPermissions": [
+    {
+    "name": "ohos.permission.INTERNET"
+    }
+]
+```
+
+
+
 
 ##  API
 
@@ -378,15 +395,15 @@ markText(options: TextMarkOptions): Promise<string>;
 | Name      | Description                                    | Type   | Required | Platform    | HarmonyOS Support |
 | --------- | ---------------------------------------------- | ------ | -------- | ----------- | ----------------- |
 | color | font color | string | yes      | iOS/Android | yes               |
-| fontName      | font name | string | no      | iOS/Android | no               |
+| fontName      | font name | string | no      | iOS/Android | yes            |
 | fontSize      | font size        | number | no      | iOS/Android | yes               |
 | shadowStyle | text shadow style | ShadowLayerStyle | no      | iOS/Android | yes               |
 | textBackgroundStyle      | text background style | TextBackgroundStyle  | no      | iOS/Android | yes               |
 | underline      | text underline style        | boolean | no      | iOS/Android | yes               |
-| skewX | css italic with degree, you can use italic instead | number | no      | iOS/Android | no               |
+| skewX | css italic with degree, you can use italic instead | number | no      | iOS/Android | yes         |
 | strikeThrough      | text stroke | boolean | no      | iOS/Android | yes               |
 | textAlign      | text align . 'left' / 'center' / 'right'       | string | no      | iOS/Android | yes               |
-| italic | text italic | boolean | no      | iOS/Android | no               |
+| italic | text italic | boolean | no      | iOS/Android | yes            |
 | bold      | text bold | boolean | no      | iOS/Android | yes               |
 | rotate      | rotate text       | number | no      | iOS/Android | yes               |
 
@@ -444,9 +461,9 @@ extends Padding
 
 ## 遗留问题
 
-- [ ]  Harmony OS is not support font name feature now: [issue#7](https://github.com/react-native-oh-library/react-native-image-marker/issues/7) 
-- [ ] Harmony OS is not support font skewX feature  now: [issue#8](https://github.com/react-native-oh-library/react-native-image-marker/issues/8)
-- [ ] Harmony OS is not support font italic feature now:[issue#9](https://github.com/react-native-oh-library/react-native-image-marker/issues/9)
+- [x]  Harmony OS is not support font name feature now: [issue#7](https://github.com/react-native-oh-library/react-native-image-marker/issues/7) 
+- [x] Harmony OS is not support font skewX feature  now: [issue#8](https://github.com/react-native-oh-library/react-native-image-marker/issues/8)
+- [x] Harmony OS is not support font italic feature now:[issue#9](https://github.com/react-native-oh-library/react-native-image-marker/issues/9)
 
 ## 其他
 

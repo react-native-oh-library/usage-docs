@@ -56,8 +56,6 @@ import RNBounceable from "@freakycoder/react-native-bounceable";
 
 详细使用场景
 
-> [!WARNING] 使用时 import 的库名不变。
-
 ```javascript
 import React from 'react';
 import type { PropsWithChildren } from 'react';

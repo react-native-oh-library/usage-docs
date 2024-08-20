@@ -39,7 +39,7 @@ yarn add @react-native-oh-tpl/react-native-permissions@file:#
 
 下面的代码展示了这个库的基本使用场景：
 
-> [!WARNING] 在使用import...from "react-native-permissions" 导入时因为原库没有抛出关于Harmony OS 有关字段,在使用PERMISSIONS.HARMONY.ACCESS_BLUETOOTH编辑器会报ts类型错误没有HARMONY字段（使用可以正常编译运行），所以想要使用PERMISSIONS.HARMONY.ACCESS_BLUETOOTH，可以使用 import...from "@react-native-oh-tpl/react-native-permissions"
+> [!WARNING] 在使用import...from "react-native-permissions" 导入时因为原库没有抛出关于HarmonyOS有关字段,在使用PERMISSIONS.HARMONY.ACCESS_BLUETOOTH编辑器会报ts类型错误没有HARMONY字段（使用可以正常编译运行），所以想要使用PERMISSIONS.HARMONY.ACCESS_BLUETOOTH，可以使用 import...from "@react-native-oh-tpl/react-native-permissions"
 
 ```js
 import { ScrollView, StyleSheet, View, Text, Button } from "react-native";
@@ -441,7 +441,7 @@ ohos.permission.LOCATION_IN_BACKGROUND 允许应用在后台运行时获取设�
 | requestMultiple         | 设置多个权限    | Function          | no      | Android     | yes                      |
 | checkLocationAccuracy   | 检查设备位置权限  | Function          | no      | iOS         | no(使用 check()查询权限) |
 | requestLocationAccuracy | 请求访问设备位置的权限  | Function          | no      | iOS         | no(使用 request()设置权限) |
-| openPhotoPicker         | 打开图片选择 | Function          | no      | iOS         | yes( iOS 需要在`PhotoLibrary`权限为`limited`才能调用，Harmony OS不需要任何权限直接调用) |
+| openPhotoPicker         | 打开图片选择 | Function          | no      | iOS         | yes( iOS 需要在`PhotoLibrary`权限为`limited`才能调用，HarmonyOS不需要任何权限直接调用) |
 
 ## 遗留问题
 

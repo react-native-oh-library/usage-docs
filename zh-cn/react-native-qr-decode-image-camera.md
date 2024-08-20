@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -18,7 +17,7 @@
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-qr-decode-image-camera](https://github.com/react-native-oh-library/react-native-qr-decode-image-camera/releases)，并下载适用版本的 tgz 包。
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-qr-decode-image-camera Releases](https://github.com/react-native-oh-library/react-native-qr-decode-image-camera/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
@@ -43,137 +42,113 @@ yarn add @react-native-oh-tpl/react-native-qr-decode-image-camera@file:#
 下面的代码展示了这个库的基本使用场景：
 
 > [!WARNING] 使用时 import 的库名不变。
-> 示例中：launchImageLibrary 方法需引入Harmony OS 的react-native-image-picker库，跳转 [react-native-image-picker](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-image-picker.md)查看使用方法。
+
+> 示例中：launchImageLibrary 方法需引入 Harmony OS 的 react-native-image-picker 库，跳转 [react-native-image-picker](/zh-cn/react-native-image-picker.md)查看使用方法。
+
+QRreader
 
 ```js
 import React, {useState} from 'react';
-import {View, Text, Button} from 'react-native';
-import {QRreader, QRscanner} from 'react-native-qr-decode-image-camera';
-import {TestSuite, TestCase, Tester} from '@rnoh/testerino';
-import { launchImageLibrary } from 'react-native-image-picker';
-export const QRreaderExp = () => {
-  const [reader, setReader] = useState<any>('');
-  const [scanned, setScanned] = useState<boolean>(false);
-  const [flashMode, setFlashMode] = useState<boolean | null>(null); //初始值必须为null;
-  const [textInfo, setTextInfo] = useState<string>('');
+import {Button, View, Text} from 'react-native';
+import {QRreader} from 'react-native-qr-decode-image-camera';
+import {launchImageLibrary} from 'react-native-image-picker';
 
+export const qrExample = () => {
+  const [reader, setReader] = useState<any>('');
   return (
-    <Tester>
-      <TestSuite name="qr-decode-image-camera">
-        <TestCase
-          itShould="QRReader"
-          tags={['C_API']}
-          initialState={undefined as any}
-          arrange={({setState}) => {
-            return (
-              <View>
-                <Button
-                  onPress={() => {
-                    launchImageLibrary({ mediaType: 'photo', selectionLimit: 1 }, (data) => {
-                      if (data.assets?.length) {
-                        const path = {
-                          uri:data.assets[0].originalPath
-                        }
-                        QRreader(path)
-                        .then(res => {
-                          setReader(res?.[0]?.originalValue);
-                          setState(res?.[0]?.originalValue);
-                        })
-                        .catch(error => {
-                          console.log(error);
-                        });
-                      }
-                    })
-                  }}
-                  title="点击选择二维码照片 "
-                />
-                <Text style={{fontSize: 20}}>{reader}</Text>
-              </View>
-            );
-          }}
-          assert={async ({expect, state}) => {
-            expect(state).to.be.eq(reader);
-          }}
-        />
-        <TestCase
-          itShould="QRScaner"
-          tags={['C_API']}
-          initialState={undefined as any}
-          arrange={({setState}) => {
-            return (
-              <View >
-                <Button
-                  onPress={() => {
-                    setTextInfo('');
-                    setScanned(true); // 开启摄像头
-                  }}
-                  title="点击扫码 "
-                />
-                {scanned && (
-                  <QRscanner
-                    onRead={e => {
-                      console.log(e?.nativeEvent?.result, 'click onRead');
-                      setTextInfo(e?.nativeEvent?.result);
-                      setState(e?.nativeEvent?.result);
-                      setScanned(false);
-                    }}
-                    flashMode={flashMode} //闪光灯
-                    renderTopView={() => (
-                      <View
-                        style={{
-                          height: 50,
-                          justifyContent: 'center',
-                          alignItems: 'center',
-                          backgroundColor: '#0000004D',
-                        }}>
-                        <Text style={{fontSize: 18, color: 'green'}}>
-                          将二维码放入框内，即可自动扫描
-                        </Text>
-                      </View>
-                    )}
-                    renderBottomView={() => (
-                      <View
-                        style={{
-                          height: 100,
-                          justifyContent: 'center',
-                          alignItems: 'center',
-                          backgroundColor: '#0000004D',
-                        }}>
-                        <Text
-                          style={{fontSize: 18, color: 'red'}}
-                          onPress={() => {
-                            setFlashMode(!flashMode);
-                            console.log('click 点击开启/关闭闪光灯');
-                          }}>
-                          点击开启/关闭闪光灯
-                        </Text>
-                      </View>
-                    )}
-                  />
-                )}
-                <Text style={{fontSize: 20, color: 'red'}}>{textInfo}</Text>
-              </View>
-            );
-          }}
-          assert={async ({expect, state}) => {
-            expect(state).to.be.eq(textInfo);
-          }}
-        />
-      </TestSuite>
-    </Tester>
+    <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+      <Button
+        onPress={() => {
+          launchImageLibrary({mediaType: 'photo', selectionLimit: 1}, data => {
+            if (data.assets?.length) {
+              const path = {
+                uri: data.assets[0].originalPath,
+              };
+              QRreader(path)
+                .then(res => {
+                  setReader(res?.[0]?.originalValue);
+                })
+                .catch(error => {
+                  console.log(error);
+                });
+            }
+          });
+        }}
+        title="点击选择二维码照片 "
+      />
+      <Text style={{fontSize: 20}}>{reader}</Text>
+    </View>
+  );
+};
+```
+QRscanner
+
+```json
+import React, {useState} from 'react';
+import { View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import { QRscanner} from 'react-native-qr-decode-image-camera';
+
+
+export const qrExample = () => {
+
+  const [flashMode, setflashMode] = useState(false);
+  const onRead = res => {
+    console.log(res);
+  };
+  return (
+    <View style={styles.container}>
+      <QRscanner
+        onRead={onRead}
+        renderBottomView={() => {
+          return (
+            <View
+              style={{
+                flex: 1,
+                flexDirection: 'row',
+                backgroundColor: '#0000004D',
+              }}>
+              <TouchableOpacity
+                style={{
+                  flex: 1,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+                onPress={() => {
+                  if (flashMode) {
+                    setflashMode(false);
+                  } else {
+                    setflashMode(true);
+                  }
+                }}>
+                <Text style={{color: '#fff'}}>flashMode</Text>
+              </TouchableOpacity>
+            </View>
+          );
+        }}
+        flashMode={flashMode}
+        finderY={50}
+      />
+    </View>
   );
 };
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#000',
+  },
+});
 ```
+
 ## 使用 Codegen
 
 本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/zh-cn/codegen.md)。
 
 ## Link
 
-目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+本库鸿蒙侧实现依赖@react-native-oh-tpl/react-native-vision-camera 的原生端代码，如已在鸿蒙工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
 
-首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
+如未引入请参照[@react-native-oh-tpl/react-native-vision-camera](/zh-cn/react-native-vision-camera.md)进行引入
 
 ### 引入原生端代码
 
@@ -212,9 +187,10 @@ ohpm install
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
+
 ```diff
   ...
-+ import { RNQrDecodeImageCameraPackage } from "@react-native-oh-tpl/react-native-qr-decode-image-camera/ts";
++ import {RNQrDecodeImageCameraPackage} from '@react-native-oh-tpl/react-native-qr-decode-image-camera/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
@@ -223,7 +199,9 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   ];
 }
 ```
+
 ### 在 ArkTs 侧引入 Fabric 组件
+
 找到 function buildCustomRNComponent()，一般位于 entry/src/main/ets/pages/index.ets 或 entry/src/main/ets/rn/LoadBundle.ets，添加：
 
 ```diff
@@ -236,13 +214,14 @@ export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
 + if (ctx.componentName === NativeScan.NAME) {
 +   NativeScan({
 +     ctx: ctx.rnComponentContext,
-+     tag: ctx.tag   
++     tag: ctx.tag
 +   })
 + }
 ...
 }
 ...
 ```
+
 ### 运行
 
 点击右上角的 `sync` 按钮
@@ -259,13 +238,14 @@ ohpm install
 ## 约束与限制
 
 ### 兼容性
+
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-qr-decode-image-camera](https://github.com/react-native-oh-library/react-native-qr-decode-image-camera/releases)
 
-
 ### 权限要求
-在 entry 目录下的module.json5中添加相机权限
+
+在 entry 目录下的 module.json5 中添加相机权限
 
 打开 entry/src/main/module.json5，添加：
 
@@ -288,53 +268,54 @@ ohpm install
 ## 静态方法
 
 > [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
->
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
->
-详情请查看[react-native-qr-decode-image-camera官方文档](https://github.com/deepanrajkumar/react-native-qr-decode-image-camera)
- | Name                          | Description                                          | Type    | Required | Platform    | HarmonyOS Support |
+
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+ | Name | Description | Type | Required | Platform | HarmonyOS Support |
  | ----------------------------- | ---------------------------------------------------- | ------- | -------- | ----------- | ----------------- |
- | QRreader | 调用此方法，调起图库，选择选择二维码图片进行图片解码，异步返回结果 | funtion | no       | IOS/Android | yes               |
+ | QRreader | Invoke this method to invoke the gallery, select the QR code image for image decoding, and asynchronously return the result. | funtion | no | iOS/Android | yes |
+
 ## 属性
-### QRscanner 
+
+### QRscanner
 
 > [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
->
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
->
 
-| Name                          | Description                                          | Type    | Required | Platform    | HarmonyOS Support |
-| ----------------------------- | ---------------------------------------------------- | ------- | -------- | ----------- | ----------------- |
-| isRepeatScan | whether to allow repeated scanning | boolean | no       | IOS/Android | no               |
-| zoom | Camera focal length range 0-1 | number | no       | IOS/Android | yes               |
-| flashMode |Turn on the flashlight |boolean | no       | IOS/Android | yes               |
-| onRead |scan callback |funtion | yes       | IOS/Android | yes|
-| maskColor |mask layer color |string | no       | IOS/Android | yes|
-| borderColor |border color |string | no       | IOS/Android | yes|
-| cornerColor |Color of corner of scan frame |string | no       | IOS/Android | yes|
-| borderWidth |border width of scan frame |number | no       | IOS/Android | yes|
-| cornerBorderWidth |border width of scan frame corner |number | no       | IOS/Android | yes|
-| cornerBorderLength |	width and height of the corner of the scan frame |number | no       | IOS/Android | yes|
-| rectHeight |	Scan frame height |number | no       | IOS/Android | yes|
-| rectWidth |	Scan Frame Width |number | no       | IOS/Android | yes|
-| finderX |scan frame X axis offset |number | no       | IOS/Android | yes|
-| finderY |scan frame Y axis offset |number | no       | IOS/Android | yes|
-| isCornerOffset |whether the corners are offset |boolean | no       | IOS/Android | yes|
-| cornerOffsetSize |offset |number | no       | IOS/Android | yes|
-| bottomHeight |Reserved height at the bottom |number | no       | IOS/Android | yes|
-| scanBarAnimateTime |scan line time |number | no       | IOS/Android | yes|
-| scanBarColor |scan line color |string | no       | IOS/Android | yes|
-| scanBarImage |scan line image |any | no       | IOS/Android | yes|
-| scanBarHeight |scan line height |number | no       | IOS/Android | yes|
-| scanBarMargin |scanline left and right margin |number | no       | IOS/Android | yes|
-| hintText |hintText |string | no       | IOS/Android | yes|
-| hintTextStyle |hint string style |object | no       | IOS/Android | yes|
-| hintTextPosition |hintTextPosition |number | no       | IOS/Android | yes|
-| renderTopView |render top View |funtion | no       | IOS/Android | yes|
-| renderBottomView |render bottom View|funtion | no       | IOS/Android | yes|
-| isShowScanBar |whether to show scan lines|boolean | no       | IOS/Android | yes|
-| topViewStyle |render top container style|object | no       | IOS/Android | yes|
-| bottomViewStyle |render bottom container style|object | no       | IOS/Android | yes|
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name               | Description                                      | Type    | Required | Platform    | HarmonyOS Support |
+| ------------------ | ------------------------------------------------ | ------- | -------- | ----------- | ----------------- |
+| isRepeatScan       | whether to allow repeated scanning               | boolean | no       | iOS/Android | yes               |
+| zoom               | Camera focal length range 0-1                    | number  | no       | iOS/Android | no                |
+| flashMode          | Turn on the flashlight                           | boolean | no       | iOS/Android | yes               |
+| onRead             | scan callback                                    | funtion | yes      | iOS/Android | yes               |
+| maskColor          | mask layer color                                 | string  | no       | iOS/Android | yes               |
+| borderColor        | border color                                     | string  | no       | iOS/Android | yes               |
+| cornerColor        | Color of corner of scan frame                    | string  | no       | iOS/Android | yes               |
+| borderWidth        | border width of scan frame                       | number  | no       | iOS/Android | yes               |
+| cornerBorderWidth  | border width of scan frame corner                | number  | no       | iOS/Android | yes               |
+| cornerBorderLength | width and height of the corner of the scan frame | number  | no       | iOS/Android | yes               |
+| rectHeight         | Scan frame height                                | number  | no       | iOS/Android | yes               |
+| rectWidth          | Scan Frame Width                                 | number  | no       | iOS/Android | yes               |
+| finderX            | scan frame X axis offset                         | number  | no       | iOS/Android | yes               |
+| finderY            | scan frame Y axis offset                         | number  | no       | iOS/Android | yes               |
+| isCornerOffset     | whether the corners are offset                   | boolean | no       | iOS/Android | yes               |
+| cornerOffsetSize   | offset                                           | number  | no       | iOS/Android | yes               |
+| bottomHeight       | Reserved height at the bottom                    | number  | no       | iOS/Android | yes               |
+| scanBarAnimateTime | scan line time                                   | number  | no       | iOS/Android | yes               |
+| scanBarColor       | scan line color                                  | string  | no       | iOS/Android | yes               |
+| scanBarImage       | scan line image                                  | any     | no       | iOS/Android | yes               |
+| scanBarHeight      | scan line height                                 | number  | no       | iOS/Android | yes               |
+| scanBarMargin      | scanline left and right margin                   | number  | no       | IOS/Android | yes               |
+| hintText           | hintText                                         | string  | no       | IOS/Android | yes               |
+| hintTextStyle      | hint string style                                | object  | no       | iOS/Android | yes               |
+| hintTextPosition   | hintTextPosition                                 | number  | no       | iOS/Android | yes               |
+| renderTopView      | render top View                                  | funtion | no       | iOS/Android | yes               |
+| renderBottomView   | render bottom View                               | funtion | no       | iOS/Android | yes               |
+| isShowScanBar      | whether to show scan lines                       | boolean | no       | iOS/Android | yes               |
+| topViewStyle       | render top container style                       | object  | no       | iOS/Android | yes               |
+| bottomViewStyle    | render bottom container style                    | object  | no       | iOS/Android | yes               |
+
 ## 遗留问题
 
 ## 其他
@@ -342,5 +323,3 @@ ohpm install
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/deepanrajkumar/react-native-qr-decode-image-camera/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

@@ -1,5 +1,3 @@
-<!-- {% raw %} -->
-
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -20,7 +18,6 @@
 
 进入到工程目录并输入以下命令：
 
-<!-- tabs:start -->
 
 #### **npm**
 
@@ -34,9 +31,7 @@ npm install react-native-material-ripple@0.9.1
 yarn add react-native-material-ripple@0.9.1
 ```
 
-<!-- tabs:end -->
-
-> [!WARNING] 使用时 import 的库名不变。
+下面的代码展示了这个库的基本使用场景：
 
 ```ts
 import React, { useState } from "react";
@@ -137,6 +132,7 @@ export const MateriaRippleExample = () => {
 本文档内容基于以下版本验证通过：
 
 1. RNOH：0.72.27; SDK：HarmonyOS NEXT Developer Beta1 5.0.0.25; IDE：DevEco Studio 5.0.3.400; ROM：3.0.0.25
+2. RNOH：0.72.28; SDK：HarmonyOS NEXT Developer Beta3 5.0.0.36; IDE：DevEco Studio 5.0.3.535; ROM：5.0.0.36
 
 ## 属性
 
@@ -157,7 +153,7 @@ export const MateriaRippleExample = () => {
 | `disabled`                    | Ripple should ignore touches(default:false)     | Boolean  | no       | iOS/Android | yes               |
 | `onPressIn`                   | Touch moved in or started callback              | Function | no       | iOS/Android | yes               |
 | `onPressOut`                  | Touch moved out or terminated callback          | Function | no       | iOS/Android | yes               |
-| `onPress`                     | ouch up inside bounds callback                  | Function | no       | iOS/Android | yes               |
+| `onPress`                     | Touch up inside bounds callback                  | Function | no       | iOS/Android | yes               |
 | `onLongPress`                 | Touch delayed after onPressIn callback          | Function | no       | iOS/Android | yes               |
 | `onRippleAnimation`           | Animation start callback                        | Function | no       | iOS/Android | yes               |
 
@@ -169,6 +165,5 @@ Other [TouchableWithoutFeedback](https://facebook.github.io/react-native/docs/to
 
 ## 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/n4kz/react-native-material-ripple/blob/master/license.txt) ，请自由地享受和参与开源。
+本项目基于 [The BSD License (BSD)](https://github.com/n4kz/react-native-material-ripple/blob/master/license.txt) ，请自由地享受和参与开源。
 
-<!-- {% endraw %} -->

@@ -29,14 +29,14 @@
 
 ```bash
 npm install @rneui/themed@4.0.0-rc.8
-npm install @rneui/base@4.0.0-rc.8
+npm install @rneui/base@4.0.0-rc.7
 ```
 
 #### **yarn**
 
 ```bash
 yarn add @rneui/themed@4.0.0-rc.8
-yarn add @rneui/base@4.0.0-rc.8
+yarn add @rneui/base@4.0.0-rc.7
 ```
 
 <!-- tabs:end -->

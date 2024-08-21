@@ -19,7 +19,7 @@
 
 > [!TIP] 需要配套的服务和三方依赖
 
-Parse JS SDK 兼容以下版本的 Parse Server。
+Parse JS SDK 兼容以下版本的 Parse Server，Parse Server服务端搭建可参考[https://github.com/parse-community/parse-server/blob/alpha/README.md](https://github.com/parse-community/parse-server/blob/alpha/README.md)。
 
 |   Parse JS SDK   |   Parse Server   |
 | :--------------: | :--------------: |

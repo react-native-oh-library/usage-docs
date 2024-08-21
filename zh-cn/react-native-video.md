@@ -424,8 +424,9 @@ export default RNCVideoDemo;
 
 ```json
 "dependencies": {
+   ...
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-  + "@react-native-oh-tpl/react-native-video": "file:../../node_modules/@react-native-oh-tpl/react-native-video/harmony/rn_video.har"
+    "@react-native-oh-tpl/react-native-video": "file:../../node_modules/@react-native-oh-tpl/react-native-video/harmony/rn_video.har"
   }
 ```
 
@@ -449,9 +450,16 @@ ohpm install
 ```diff
 project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
+set(CMAKE_SKIP_BUILD_RPATH TRUE)
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
+set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
 + set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
+set(LOG_VERBOSITY_LEVEL 1)
+set(CMAKE_ASM_FLAGS "-Wno-error=unused-command-line-argument -Qunused-arguments")
+set(CMAKE_CXX_FLAGS "-fstack-protector-strong -Wl,-z,relro,-z,now,-z,noexecstack -s -fPIE -pie")
+set(WITH_HITRACE_SYSTRACE 1) # for other CMakeLists.txt files to use
+add_compile_definitions(WITH_HITRACE_SYSTRACE)
 
 add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
@@ -460,11 +468,13 @@ add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
 + add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/react-native-video/src/main/cpp" ./video)
 # RNOH_BEGIN: manual_package_linking_1
 
+file(GLOB GENERATED_CPP_FILES "./generated/*.cpp")
+
 add_library(rnoh_app SHARED
+    ${GENERATED_CPP_FILES}
     "./PackageProvider.cpp"
     "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
 )
-
 target_link_libraries(rnoh_app PUBLIC rnoh)
 
 # RNOH_BEGIN: manual_package_linking_2
@@ -477,6 +487,7 @@ target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 
 ```diff
 #include "RNOH/PackageProvider.h"
+#include "generated/RNOHGeneratedPackage.h"
 #include "SamplePackage.h"
 + #include "RNCVideoPackage.h"
 
@@ -484,6 +495,7 @@ using namespace rnoh;
 
 std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
     return {
+      std::make_shared<RNOHGeneratedPackage>(ctx),
       std::make_shared<SamplePackage>(ctx),
 +     std::make_shared<RNCVideoPackage>(ctx)
     };
@@ -495,15 +507,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
-import {
-  RNApp,
-  ComponentBuilderContext,
-  RNAbility,
-  AnyJSBundleProvider,
-  MetroJSBundleProvider,
-  ResourceJSBundleProvider,
-} from 'rnoh'
-import { createRNPackages } from '../RNPackagesFactory'
+  ...
 + import { RNCVideo, RNC_VIDEO_TYPE } from "@react-native-oh-tpl/react-native-video"
 
 @Builder
@@ -520,7 +524,7 @@ function buildCustomRNComponent(ctx: ComponentBuilderContext) {
 ...
 ```
 
-> [!TIP] 本库使用了混合方案，需要添加组件名。（如使用混合方案）
+> [!TIP] 本库使用了混合方案，需要添加组件名。
 
 在`entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets` 找到常量 `arkTsComponentNames` 在其数组里添加组件名
 
@@ -536,7 +540,7 @@ const arkTsComponentNames: Array<string> = [
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-...
+  ...
 + import { RNCVideoPackage } from '@react-native-oh-tpl/react-native-video/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
@@ -570,8 +574,6 @@ ohpm install
 
 详情请查看[react-native-video 官方文档](https://github.com/react-native-video/react-native-video/blob/support/5.2.X/README.md)
 
-如下是 react-native-video 已经 HarmonyOS 化的属性：
-
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
@@ -579,14 +581,51 @@ ohpm install
 | Name | Descriptio                 | Type   | Required  | Platform | HarmonyOS Support |
 | ---- | -------------------------- | :----- | --------- | -------- |------------------ |
 | `source`| Sets the media source. You can pass an asset loaded via require or an object with a uri.| object | Yes      | All                                                      | partially<br/>(仅支持网络适配) |
-| `disableFocus`     | Determines whether video audio should override background music/audio in Android and HarmonyOS devices.<br/>**false (default)**                                                                                                                                                                                                             | bool   | No       | Android Exoplayer                                        | yes                            |
-| `muted`            | Controls whether the audio is muted.<br/>**false (default)** - Don't mute audio                                                                                                                                                                                                                                                             | bool   | No       | All                                                      | yes                            |
-| `paused`           | Controls whether the media is paused.<br/>**false (default)** - Don't pause the media                                                                                                                                                                                                                                                       | bool   | No       | All                                                      | yes                            |
-| `repeat`           | Determine whether to repeat the video when the end is reached.<br/>**false (default)** - Don't repeat the video                                                                                                                                                                                                                             | bool   | No       | All                                                      | yes                            |
+| `disableFocus`     | Determines whether video audio should override background music/audio in Android and HarmonyOS devices.<br/>**false (default)**                                                                                                                                                                                                             | boolean   | No       | Android Exoplayer                                        | yes                            |
+| `muted`            | Controls whether the audio is muted.<br/>**false (default)** - Don't mute audio                                                                                                                                                                                                                                                             | boolean   | No       | All                                                      | yes                            |
+| `paused`           | Controls whether the media is paused.<br/>**false (default)** - Don't pause the media                                                                                                                                                                                                                                                       | boolean   | No       | All                                                      | yes                            |
+| `repeat`           | Determine whether to repeat the video when the end is reached.<br/>**false (default)** - Don't repeat the video                                                                                                                                                                                                                             | boolean   | No       | All                                                      | yes                            |
 | `resizeMode`       | Determines how to resize the video when the frame doesn't match the raw video dimensions.<br/>**"none" (default)** - Don't apply resize                                                                                                                                                                                                     | string | No       | Android ExoPlayer, Android MediaPlayer, iOS, Windows UWP | yes                            |
 | `volume`           | Adjust the volume.<br/>**1.0 (default)** - Play at full volume                                                                                                                                                                                                                                                                              | number | No       | All                                                      | yes                            |
 | `poster`           | An image to display while the video is loading<br/>Value: string with a URL for the poster, e.g. "<https://baconmockup.com/300/200/>"                                                                                                                                                                                                       | string | No       | All                                                      | yes                            |
 | `posterResizeMode` | Determines how to resize the poster image when the frame doesn't match the raw video dimensions..<br/>**"contain" (default)**- Scale the image uniformly (maintain the image's aspect ratio) so that both dimensions (width and height) of the image will be equal to or less than the corresponding dimension of the view (minus padding). | string | No       | All                                                      | yes                            |
+| `allowsExternalPlayback` | Indicates whether the player allows switching to external playback mode such as AirPlay or HDMI.              | boolean   | No  | iOS | No |
+| `audioOnly` | Indicates whether the player should only play the audio track and instead of displaying the video track, show the poster instead.  | boolean   | No  | All | No |
+| `onPlaybackStalled` | The callback when the buffer starts caching, controls the display of the loading view  | boolean   | No  | Android | No |
+| `onPlaybackResume` | The callback when the buffer ends caching, controlling the hiding of the loading view  | boolean   | No  | Android | No |
+| `automaticallyWaitsToMinimizeStalling` | A Boolean value that indicates whether the player should automatically delay playback in order to minimize stalling. For clients linked against iOS 10.0 and later  | boolean   | No  | iOS | No |
+| `bufferConfig` | Adjust the buffer settings. This prop takes an object with one or more of the properties listed below.  | object   | No  | Android | No |
+| `controls` |Determines whether to show player controls.  | boolean   | No  | All | No |
+| `currentPlaybackTime` |When playing an HLS live stream with a EXT-X-PROGRAM-DATE-TIME tag configured, then this property will contain the epoch value in msec.| string | No  | All | No |
+| `filter` |Add video filter| string | No  | iOS | No |
+| `filterEnabled` |Enable video filter.| string | No  | iOS | No |
+| `fullscreen` |Controls whether the player enters fullscreen on play.| boolean | No  | iOS | No |
+| `fullscreenAutorotate` |If a preferred fullscreenOrientation is set, causes the video to rotate to that orientation but permits rotation of the screen to orientation held by user. Defaults to TRUE.| boolean | No  | iOS | No |
+| `fullscreenOrientation` |Full screen orientation is set.| string | No  | iOS | No |
+| `headers` |Pass headers to the HTTP client. Can be used for authorization. Headers must be a part of the source object.| object | No  | Android | No |
+| `hideShutterView` |Controls whether the ExoPlayer shutter view (black screen while loading) is enabled.| boolean | No  | Android | No |
+| `id` |Set the DOM id element so you can use document.getElementById on web platforms. Accepts string values.| string | No  | All | No |
+| `ignoreSilentSwitch` |Controls the iOS silent switch behavior| string | No  | iOS | No |
+| `maxBitRate` |Sets the desired limit, in bits per second, of network bandwidth consumption when multiple video streams are available for a playlist.| number | No  | All | No |
+| `minLoadRetryCount` |Sets the minimum number of times to retry loading data before failing and reporting an error to the application. Useful to recover from transient internet failures.| number | No  | Android | No |
+| `mixWithOthers` |Controls how Audio mix with other apps.| string | No  | iOS | No |
+| `pictureInPicture` |Determine whether the media should played as picture in picture.| boolean | No  | iOS | No |
+| `playInBackground` |Determine whether the media should continue playing while the app is in the background. This allows customers to continue listening to the audio.| boolean | No  | All | No |
+| `playWhenInactive` |Determine whether the media should continue playing when notifications or the Control Center are in front of the video.| boolean | No  | iOS | No |
+| `preferredForwardBufferDuration` |The duration the player should buffer media from the network ahead of the playhead to guard against playback disruption. Sets the preferredForwardBufferDuration instance property on AVPlayerItem.| number | No  | iOS | No |
+| `preventsDisplaySleepDuringVideoPlayback` |Controls whether or not the display should be allowed to sleep while playing the video. Default is not to allow display to sleep.| boolean | No  | All | No |
+| `progressUpdateInterval` |Delay in milliseconds between onProgress events in milliseconds.| number | No  | iOS | No |
+| `rate` |Speed at which the media should play.| number | No  | All | No |
+| `reportBandwidth` |Determine whether to generate onBandwidthUpdate events. This is needed due to the high frequency of these events on ExoPlayer.| boolean | No  | Android | No |
+| `selectedAudioTrack` |Configure which audio track, if any, is played.| object | No  | All | No |
+| `selectedTextTrack` |Configure which text track (caption or subtitle), if any, is shown.| object | No  | All | No |
+| `selectedVideoTrack` |Configure which video track should be played. By default, the player uses Adaptive Bitrate Streaming to automatically select the stream it thinks will perform best based on available bandwidth.| object | No  | Android | No |
+| `stereoPan` |Adjust the balance of the left and right audio channels. Any value between –1.0 and 1.0 is accepted.| number | No  | Android | No |
+| `textTracks` |Load one or more "sidecar" text tracks. This takes an array of objects representing each track. | object | No  | All | No |
+| `trackId` |Configure an identifier for the video stream to link the playback context to the events emitted. | string | No  | Android | No |
+| `useTextureView` |Controls whether to output to a TextureView or SurfaceView. | boolean | No  | Android | No |
+
+
 
 ## 事件回调
 
@@ -603,8 +642,25 @@ ohpm install
 | `onEnd`             | Callback function that is called when the player reaches the end of the media.                                                       | function | No       | All                                              | yes               |
 | `onError`           | Callback function that is called when the player experiences a playback error.                                                       | function | No       | All                                              | yes               |
 | `onBuffer`          | Callback function that is called when the player buffers.                                                                            | function | No       | Android, iOS                                     | yes               |
-| `onPlaybackStalled` | Callback function that is MediaPlayer MEDIA_INFO_BUFFERING_START                                                                     | function | No       | Android MediaPlayer                              | yes               |
-| `onPlaybackResume`  | Callback function that is MediaPlayer MEDIA_INFO_BUFFERING_END                                                                       | function | No       | Android MediaPlayer                              | yes               |
+| `onPlaybackStalled` | Callback function that is MediaPlayer MEDIA_INFO_BUFFERING_START     | function | No       | Android MediaPlayer                              | yes               |
+| `onPlaybackResume`  | Callback function that is MediaPlayer MEDIA_INFO_BUFFERING_END | function | No    | Android MediaPlayer  | yes  |
+| `onAudioBecomingNoisy`  | Callback function that is called when the audio is about to become 'noisy' due to a change in audio outputs. Typically this is called when audio output is being switched from an external source like headphones back to the internal speaker. It's a good idea to pause the media when this happens so the speaker doesn't start blasting sound. | function | No    | All  | No  |
+| `onBandwidthUpdate` | Callback function that is called when the available bandwidth changes.     | function | No       | Android   | No  |
+| `onExternalPlaybackChange` | Callback function that is called when external playback mode for current playing video has changed. Mostly useful when connecting/disconnecting to Apple TV – it's called on connection/disconnection.    | function | No       | iOS   | No  |
+| `onFullscreenPlayerWillPresent` | Callback function that is called when the player is about to enter fullscreen mode.    | function | No       | All   | No  |
+| `onFullscreenPlayerDidPresent` |Callback function that is called when the player has entered fullscreen mode.   | function | No       | All   | No  |
+| `onFullscreenPlayerWillDismiss` |Callback function that is called when the player is about to exit fullscreen mode.   | function | No       | All   | No  |
+| `onFullscreenPlayerDidDismiss` |Callback function that is called when the player has exited fullscreen mode.  | function | No       | All   | No  |
+| `onLoadStart` |Callback function that is called when the media starts loading.  | function | No       | All   | No  |
+| `onReadyForDisplay` |Callback function that is called when the first video frame is ready for display. This is when the poster is removed.  | function | No       | All   | No  |
+| `onPictureInPictureStatusChanged` |Callback function that is called when picture in picture becomes active or inactive.  | function | No       | IOS   | No  |
+| `onPlaybackRateChange` |Callback function that is called when the rate of playback changes - either paused or starts/resumes. | function | No       | All   | No  |
+| `onSeek` |Callback function that is called when a seek completes. | function | No       | All   | No  |
+| `onRestoreUserInterfaceForPictureInPictureStop` |Callback function that corresponds to Apple's restoreUserInterfaceForPictureInPictureStopWithCompletionHandler. Call restoreUserInterfaceForPictureInPictureStopCompleted inside of this function when done restoring the user | function | No       | iOS   | No  |
+| `onTimedMetadata` |Callback function that is called when timed metadata becomes available | function | No       | All   | No  |
+
+
+
 
 ## 静态方法
 
@@ -615,16 +671,18 @@ ohpm install
 | Name     | Description                                                                      | Type     | Required | Platform | HarmonyOS Support |
 | -------- | -------------------------------------------------------------------------------- | -------- | -------- | -------- | ----------------- |
 | `seek()` | Seek to the specified position represented by seconds. seconds is a float value. | function | No       | All      | yes               |
+| `dismissFullscreenPlayer()` | Take the player out of fullscreen mode. | function | No       | All      | No              |
+| `presentFullscreenPlayer()` | Put the player in fullscreen mode. | function | No       | All      | No              |
+| `save()` | Save video to your Photos with current filter prop. Returns promise.| function | No       | iOS      | No              |
+| `restoreUserInterfaceForPictureInPictureStop()` | This function corresponds to the completion handler in Apple's recovery user interface ForPictureInPictureStop. IMPORTANT: This function must be called after calling onRestoreUserInterfaceForPictureInPictureStop.| function | No       | iOS      | No              |
 
 ## 遗留问题
 
-- [ ] source 暂时只支持在线 URL 资源问题： [issue#34](https://github.com/react-native-oh-library/react-native-video/issues/34)。
-- [ ] react-native-video 部分属性和方法未实现 HarmonyOS 化： [issue#35](https://github.com/react-native-oh-library/react-native-video/issues/35)。
+- [x] source 暂时只支持在线 URL 资源问题： [issue#34](https://github.com/react-native-oh-library/react-native-video/issues/34)。
+- [ ] react-native-video 部分属性和方法未实现 HarmonyOS 化： [issue#60](https://github.com/react-native-oh-library/react-native-video/issues/60)。
 
 ## 其他
 
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/TheWidlarzGroup/react-native-video/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

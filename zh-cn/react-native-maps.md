@@ -449,11 +449,7 @@ ohpm install
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[react-natvie-maps Releases](https://github.com/react-native-oh-library/react-natvie-maps/releases)
-
-本文档内容基于以下版本验证通过：
-
-1. RNOH：0.72.27; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.400SP7; ROM：3.0.0.25;
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[react-natvie-maps Releases](https://github.com/react-native-oh-library/react-native-maps/releases)
 
 ### 权限要求
 
@@ -471,45 +467,58 @@ ohpm install
 
 2.打开 `entry/src/main/module.json5`，添加相关配置
 
-```
-"metadata": [ // 配置如下信息 测试地图功能
-    {
-        "name": "client_id",
-        "value": "110168601"  //配置为从华为开发者平台获取的Client ID，自建项目请与开发者平台上的client id一致
-    }
- ],
-"requestPermissions": [
-      {
-        "name": "ohos.permission.APPROXIMATELY_LOCATION",
-        "usedScene": {
-          "abilities": [
-            "EntryAbility"
-          ],
-          "when": "always"
-        }
-      },
-      {
-        "name": "ohos.permission.LOCATION",
-        "usedScene": {
-          "abilities": [
-            "EntryAbility"
-          ],
-          "when": "always"
-        }
-      },
-      {
-        "name": "ohos.permission.INTERNET",
-        "usedScene": {
-          "abilities": [
-            "EntryAbility"
-          ],
-          "when": "always"
-        }
-      }
+```diff
+...
+   "metadata": [ // 配置如下信息 测试地图功能
++       {
++       "name": "client_id",
++       "value": "110168601"  //配置为从华为开发者平台获取的Client ID，自建项目请与开发者平台上的client id一致
++       }
+   ],
+   "requestPermissions": [
++      {
++        "name": "ohos.permission.APPROXIMATELY_LOCATION",
++        "reason": "$string:Access_maps",
++        "usedScene": {
++          "abilities": [
++            "EntryAbility"
++          ],
++          "when": "always"
++        }
++      },
++      {
++        "name": "ohos.permission.LOCATION",
++        "reason": "$string:Access_maps",
++        "usedScene": {
++          "abilities": [
++            "EntryAbility"
++          ],
++          "when": "always"
++       }
++      },
++     {
++        "name": "ohos.permission.INTERNET"
++      }
     ]
 ```
 
-3.打开 `工程目录/build-profile.json5` 在 app 节点下修改
+3.在 entry 目录下添加申请地图权限的原因
+
+打开 `entry/src/main/resources/base/element/string.json`，添加：
+
+```diff
+...
+{
+  "string": [
++    {
++      "name": "Access_maps",
++      "value": "access maps"
++    }
+  ]
+}
+```
+
+4.打开 `工程目录/build-profile.json5` 在 app 节点下修改
 
 ```
  signingConfigs: [

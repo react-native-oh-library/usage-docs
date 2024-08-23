@@ -175,6 +175,8 @@ export default MySvgComponent;
 | disableAllTouchEventsForDisabledDays | Whether to disable all touch events for disabled days (can be override with 'disableTouchEvent' in 'markedDates')                                                   | boolean              | no       | All      | yes               |
 | disableAllTouchEventsForInactiveDays | Whether to disable all touch events for inactive days (can be override with 'disableTouchEvent' in 'markedDates')                                                   | boolean              | no       | All      | yes               |
 | dayComponent | Replace default day with custom day rendering component element                                                   | JSX.Element              | no       | All      | yes               |
+| customHeaderTitle             | Replace default title with custom element                             | JSX.Element              | no       | All      | yes               |
+| customHeader              | Allow rendering a totally custom header                             | any               | no       | All      | yes               |
 | onDayPress            | Handler which gets executed on day press                           | function | no       | All      | yes               |
 | onDayLongPress        | Handler which gets executed on day long press                      | function | no       | All      | yes               |
 | onMonthChange         | Handler which gets executed when month changes in calendar         | function | no       | All      | yes               |
@@ -183,6 +185,7 @@ export default MySvgComponent;
 | onPressArrowRight                 | Handler which gets executed when press right arrow. It receive a callback to go to the next month | function               | no       | All      | yes               |
 | renderArrow                 | Replace default arrows with custom ones (direction: 'left','right') | function               | no       | All      | yes               |
 | renderHeader              | Replace default title with custom one                             | function               | no       | All      | yes               |
+
 
 ### CalendarList 
 

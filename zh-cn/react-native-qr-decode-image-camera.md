@@ -243,27 +243,6 @@ ohpm install
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-qr-decode-image-camera](https://github.com/react-native-oh-library/react-native-qr-decode-image-camera/releases)
 
-### 权限要求
-
-在 entry 目录下的 module.json5 中添加相机权限
-
-打开 entry/src/main/module.json5，添加：
-
-```diff
-...
-"requestPermissions": [
-+  {
-+    "name": "ohos.permission.CAMERA",
-+    "reason": "$string:Qr_decode_image_cameraAbility_desc",
-+    "usedScene": {
-+      "abilities": [
-+        "NativeScan"
-+      ],
-+      "when":"inuse"
-+    }
-+  }
-]
-```
 
 ## 静态方法
 

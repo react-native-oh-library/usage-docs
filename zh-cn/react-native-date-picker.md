@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 模板版本：v0.2.2
 
 <p align="center">
@@ -48,7 +47,7 @@ yarn add @react-native-oh-tpl/react-native-date-picker@file:#
 
 ```js
 import React, { useState } from 'react'
-import { Button } from 'react-native'
+import { Button, View } from 'react-native'
 import DatePicker from 'react-native-date-picker'
 
 export default () => {
@@ -56,9 +55,10 @@ export default () => {
   const [open, setOpen] = useState(false)
 
   return (
-    <>
+    <View style={{flex:1, flexDirection:'column', justifyContent:'center'}}>
       <Button title="Open" onPress={() => setOpen(true)} />
       <DatePicker
+        mode='date'
         modal
         open={open}
         date={date}
@@ -70,7 +70,7 @@ export default () => {
           setOpen(false)
         }}
       />
-    </>
+    </View>
   )
 }
 
@@ -142,7 +142,7 @@ ohpm install
 @Builder
 export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
   ...
-+ if (ctx.componentName === NativeDatePickerView.Name) {
++ if (ctx.componentName === NativeDatePickerView.NAME) {
 +   NativeDatePickerView({
 +        ctx: ctx.rnComponentContext,
 +        tag: ctx.tag
@@ -151,6 +151,20 @@ export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
  ...
 }
 ...
+```
+> [!TIP] 本库使用了混合方案，需要添加组件名。
+
+在entry/src/main/ets/pages/index.ets 或 entry/src/main/ets/rn/LoadBundle.ets 找到常量 arkTsComponentNames 在其数组里添加组件名
+
+```diff
+  ...
+const arkTsComponentNames: Array<string> = [
+  SampleView.NAME,
+  GeneratedSampleView.NAME,
+  PropsDisplayer.NAME,
++ NativeDatePickerView.NAME, 
+  ];
+```
 ### 运行
 
 点击右上角的 `sync` 按钮
@@ -175,53 +189,46 @@ ohpm install
 
 ## 属性
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | props  | Description | Type | Required | Platform | HarmonyOS Support  |
 | ----  | ----------- | ---- | -------- | ---- | ------------ |
 | date | The currently selected date.   | Date  | no |     all  |       yes|
 | onDateChange | Date change handler ( Inline only )   |  (date: Date) => void  | no |     all  |       yes|
-| maximumDate | Maximum selectable date.Example: new Date("2021-12-31")   | Date  | no |     all  |       partially|
-| minimumDate | Minimum selectable date.Example: new Date("2021-01-01")   | Date  | no |     all  |       partially|
+| maximumDate | Maximum selectable date.Example: new Date("2021-12-31")   | Date  | no |     all  |       yes|
+| minimumDate | Minimum selectable date.Example: new Date("2021-01-01")   | Date  | no |     all  |       yes|
 | mode | The date picker mode. "datetime", "date", "time"   | “'date' \|'time' \| 'datetime'”  | yes |     all  |       yes|
 | onConfirm | Modal only: Date callback when user presses confirm button   | (date: Date) => void  | no |     all  |       yes|
 | onCancel | odal only: Callback for when user presses cancel button or closing the modal by pressing outside it.   | () => void  | no |     all  |       yes|
 | is24hourSource | Change how the 24h mode (am/pm) should be determined, by device settings or by locale. {'locale', 'device'} (android only, default: 'device')   | “'locale' \| 'device'”  | no |     all  |       no|
-| modal | Boolean indicating if modal should be used. Default: "false". When enabled, the other modal props needs to be used.   | boolean  | no |     all  |       no|
+| modal | Boolean indicating if modal should be used. Default: "false". When enabled, the other modal props needs to be used.   | boolean  | no |     all  |       yes|
 | open | Modal only: Boolean indicating if modal should be open.   | boolean  | no |     all  |       yes|
 | minuteInterval | The interval at which minutes can be selected.   | 1 \| 2 \| 3 \| 4 \| 5 \| 6 \|  10 \|  12 \| 15 \|  20 \| 30  | no |     all  |       no|
 | title | Modal only: Title text. Can be set to null to remove text.   | string  | no |     all  |       no|
 | confirmText | Modal only: Confirm button text   | string  | no |     all  |       no|
 | cancelText | Modal only: Cancel button text.   | string  | no |     all  |       no|
 | theme | Modal only: The theme of the modal. "light", "dark", "auto". Defaults to "auto".   | 'light' \| 'dark' \| 'auto'  | no |     all  |       no|
-| buttonColor | Color of the confirm and cancel buttons. (android modal only)   | string  | no |     all  |       no|
-| dividerColor | Color of the divider / separator. (android only)   | string  | no |     all  |       no|
-| onStateChange | Spinner state change handler. Triggered on changes between "idle" and "spinning" state (Android inline only)   | (state: 'spinning' \| 'idle') => void  | no |     all  |       no|
+| buttonColor | Color of the confirm and cancel buttons. (android modal only)   | string  | no |     Android  |       no|
+| dividerColor | Color of the divider / separator. (android only)   | string  | no |     Android  |       no|
+| onStateChange | Spinner state change handler. Triggered on changes between "idle" and "spinning" state (Android inline only)   | (state: 'spinning' \| 'idle') => void  | no |     Android  |       no|
 | locale | The locale for the date picker. Changes language, date order and am/pm preferences. Value needs to be a Locale ID.   | string  | no |     all  |       no|
 | timeZoneOffsetInMinutes | imezone offset in minutes (default: device's timezone)   | number  | no |     all  |       no|
 
 
 ## 遗留问题
  
-- [ ]  不支持属性confirmText[issue#11](https://github.com/react-native-oh-library/react-native-date-picker/issues/11)
-- [ ]  不支持属性cancelText[issue#12](https://github.com/react-native-oh-library/react-native-date-picker/issues/12)
-- [ ]  不支持属性theme[issue#13](https://github.com/react-native-oh-library/react-native-date-picker/issues/13)
-- [ ]  不支持属性buttonColor[issue#14](https://github.com/react-native-oh-library/react-native-date-picker/issues/14)
-- [ ]  不支持属性dividerColor[issue#15](https://github.com/react-native-oh-library/react-native-date-picker/issues/15)
-- [ ]  不支持属性onStateChange[issue#16](https://github.com/react-native-oh-library/react-native-date-picker/issues/16)
-- [ ]  不支持属性locale[issue#17](https://github.com/react-native-oh-library/react-native-date-picker/issues/17)
-- [ ]  不支持属性timeZoneOffsetInMinutes[issue#18](https://github.com/react-native-oh-library/react-native-date-picker/issues/18)
-- [ ]  当属性mode属性为datetime时，不支持maximumDate属性。[issue#19](https://github.com/react-native-oh-library/react-native-date-picker/issues/19)
-- [ ]  当属性mode属性为datetime时，不支持minimumDate属性。[issue#20](https://github.com/react-native-oh-library/react-native-date-picker/issues/20)
-- [ ]  当属性modal为true，mode属性为datetime时，没有内联得datetime组件，目前是date和time上下组合排列。[issue#22](https://github.com/react-native-oh-library/react-native-date-picker/issues/22)
-- [ ]  当属性modal属性为false时，不支持datetime属性。[issue#21](https://github.com/react-native-oh-library/react-native-date-picker/issues/21)
+- [ ]  不支持属性confirmText。[issue#11](https://github.com/react-native-oh-library/react-native-date-picker/issues/11)
+- [ ]  不支持属性cancelText。[issue#12](https://github.com/react-native-oh-library/react-native-date-picker/issues/12)
+- [ ]  不支持属性theme。[issue#13](https://github.com/react-native-oh-library/react-native-date-picker/issues/13)
+- [ ]  不支持属性locale。[issue#17](https://github.com/react-native-oh-library/react-native-date-picker/issues/17)
+- [ ]  不支持属性timeZoneOffsetInMinutes。[issue#18](https://github.com/react-native-oh-library/react-native-date-picker/issues/18)
+- [ ]  当属性modal为false，mode属性为datetime时，harmonyOS不支持内联datetime组件。[issue#22](https://github.com/react-native-oh-library/react-native-date-picker/issues/22)
 - [ ]  不支持is24hourSource属性。[issue#30](https://github.com/react-native-oh-library/react-native-date-picker/issues/30)
+- [ ]  不支持minuteInterval属性。[issue#34](https://github.com/react-native-oh-library/react-native-date-picker/issues/34)
 ## 其他
 
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/henninghall/react-native-date-picker/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

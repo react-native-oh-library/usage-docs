@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -346,8 +345,6 @@ ohpm install
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-library/react-native-document-picker Releases](https://github.com/react-native-oh-library/document-picker/releases)
 
-本文档内容基于以下版本验证通过：
-1. RNOH: 0.72.20-CAPI; SDK: HarmonyOS NEXT Developer Beta1; IDE: DevEco Studio 5.0.3.200; ROM: 3.0.0.18;
    
 ## 属性
 
@@ -391,10 +388,8 @@ ohpm install
 - [ ] releaseSecureAccess选择沙箱路径外文件无法实现， HarmonyOS 暂无此能力接口: [issue#2](https://github.com/react-native-oh-library/document-picker/issues/2)
 
 ## 其他
+- 因权限问题无法读写图库资源，文件管理中从图库选择文件暂不支持。
 
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/react-native-documents/document-picker/blob/master/LICENSE.md) ，请自由地享受和参与开源。
-
-
-<!-- {% endraw %} -->

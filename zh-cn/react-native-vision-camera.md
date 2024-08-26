@@ -361,7 +361,7 @@ ohpm install
 | exposure                           | Specifies the Exposure bias of the current camera. A lower value means  darker images, a higher value means brighter images | number   | no       | All               | yes                |
 | format                             | Selects a given format. By default, the best matching format is chosen | object   | no       | All               | yes                |
 | resizeMode                         | Specifies the Preview's resize mode                          | string   | no       | All               | yes                |
-| androidPreviewViewType             | Specifies the implementation mode for the Preview View on Android or  Harmony | string   | no       | Android/HarmonyOS | yes                |
+| androidPreviewViewType             | Specifies the implementation mode for the Preview View on Android | string   | no       | Android | no                |
 | fps                                | Specify the frames per second this camera should stream frames at. | number   | no       | All               | yes                |
 | videoHdr                           | Enables or disables HDR Video Streaming for Preview, Video and Frame  Processor via a 10-bit wide-color pixel format | boolean  | no       | All               | yes                |
 | photoHdr                           | Enables or disables HDR Photo Capture via a double capture routine that  combines low- and high exposure photos | boolean  | no       | Android/iOS       | no                 |

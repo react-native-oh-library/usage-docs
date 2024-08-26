@@ -35,101 +35,38 @@ yarn add parse5@7.1.2
 直接使用：
 
 ```js
-import React, { useEffect, useState } from 'react';
-import { View, Text, ScrollView, StyleSheet } from 'react-native';
-import * as parse5 from 'parse5';
+const parse5 = require("parse5");
 
-const App = () => {
-  const [parsedContent, setParsedContent] = useState([]);
+// parse
+const document = parse5.parse(
+  "<!DOCTYPE html><html><head></head><body>Hi there!</body></html>",
+);
+console.log(document.childNodes[1].tagName); //> 'html'
 
-  useEffect(() => {
-    const html = `
-      <div>
-        <h1>Hello, World!</h1>
-        <p>This is a simple HTML parsing example.</p>
-        <ul>
-          <li>Item 1</li>
-          <li>Item 2</li>
-          <li>Item 3</li>
-        </ul>
-      </div>
-    `;
+// parseFragment
+const documentFragment = parse5.parseFragment("<table></table>");
+console.log(documentFragment.childNodes[0].tagName); //> 'table'
+const trFragment = parse5.parseFragment(
+  documentFragment.childNodes[0],
+  "<tr><td>Shake it, baby</td></tr>",
+);
+console.log(trFragment.childNodes[0].childNodes[0].tagName); //> 'td'
 
-    const document = parse5.parse(html);
+// serialize
+const document = parse5.parse(
+  "<!DOCTYPE html><html><head></head><body>Hi there!</body></html>",
+);
+// Serializes a document.
+const html = parse5.serialize(document);
+// Serializes the <html> element content.
+const str = parse5.serialize(document.childNodes[1]);
+console.log(str); //> '<head></head><body>Hi there!</body>'
 
-    const extractContent = (nodes) => {
-      let content = [];
-      for (const node of nodes) {
-        if (node.nodeName === 'h1') {
-          content.push({ type: 'h1', text: node.childNodes[0].value });
-        } else if (node.nodeName === 'p') {
-          content.push({ type: 'p', text: node.childNodes[0].value });
-        } else if (node.nodeName === 'ul') {
-          const items = node.childNodes
-            .filter((child) => child.nodeName === 'li')
-            .map((li) => li.childNodes[0].value);
-          content.push({ type: 'ul', items });
-        } else if (node.childNodes && node.childNodes.length > 0) {
-          content = content.concat(extractContent(node.childNodes));
-        }
-      }
-      return content;
-    };
-
-    const content = extractContent(document.childNodes);
-    setParsedContent(content);
-  }, []);
-
-  return (
-    <ScrollView contentContainerStyle={styles.container}>
-      {parsedContent.map((element, index) => {
-        if (element.type === 'h1') {
-          return <Text key={index} style={styles.h1}>{element.text}</Text>;
-        } else if (element.type === 'p') {
-          return <Text key={index} style={styles.p}>{element.text}</Text>;
-        } else if (element.type === 'ul') {
-          return (
-            <View key={index} style={styles.ul}>
-              {element.items.map((item, i) => (
-                <Text key={i} style={styles.li}>{`• ${item}`}</Text>
-              ))}
-            </View>
-          );
-        }
-        return null;
-      })}
-    </ScrollView>
-  );
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flexGrow: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-    backgroundColor: '#f5fcff',
-  },
-  h1: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  p: {
-    fontSize: 16,
-    marginBottom: 10,
-  },
-  ul: {
-    marginTop: 10,
-    marginBottom: 20,
-  },
-  li: {
-    fontSize: 16,
-    marginLeft: 20,
-  },
-});
-
-export default App;
+// serializeOuter
+const document = parse5.parseFragment("<div>Hello, <b>world</b>!</div>");
+// Serializes the <div> element.
+const str = parse5.serializeOuter(document.childNodes[0]);
+console.log(str); //> '<div>Hello, <b>world</b>!</div>'
 ```
 
 ## 约束与限制

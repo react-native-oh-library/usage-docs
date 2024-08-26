@@ -1,4 +1,5 @@
 <!-- {% raw %} -->
+
 # Codegen 使用指导
 
 ## 简介
@@ -40,7 +41,25 @@ codegen-harmony 参数介绍：
 npm run codegen
 ```
 
-运行后，会在 `cpp-output-path` 参数指定的路径下生成 C++ 代码（若未指定则生成至默认路径），在 `rnoh-module-path`路径下生成 ArkTS/TS代码（必须生成在RN SDK下）。
+运行后，会在 `cpp-output-path` 参数指定的路径下生成 C++ 代码（若未指定则生成至默认路径），在 `rnoh-module-path`路径下生成 ArkTS/TS 代码（必须生成在 RN SDK 下）。
+
+**注意事项**
+
+脚本生成的代码需在项目工程中，否则会报如下错误：
+
+```
+[ERROR] Tried to remove files in path/generated and that path is outside current working directory
+```
+
+因此建议将原生工程置于 `RN` 工程内
+
+```
+.
+├── ReactNativeProject // RN 工程
+│   ├── android
+│   ├── ios
+│   ├── harmony // HarmonyOS 原生工程
+```
 
 ### 配置 CMakeLists 和引入 RNOHGeneratedPackage（C++）
 

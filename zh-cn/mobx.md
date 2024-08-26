@@ -21,13 +21,13 @@
 #### **npm**
 
 ```bash
-npm install mobx@6.10.0
+npm install mobx@^6.10.0
 ```
 
 #### **yarn**
 
 ```bash
-yarn add mobx@6.10.0
+yarn add mobx@^6.10.0
 ```
 
 <!-- tabs:end -->
@@ -57,63 +57,39 @@ npm install @babel/plugin-transform-class-properties --save-dev
 下面的代码展示了这个库的基本使用场景：
 
 ```js
-import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
-import { observer } from 'mobx-react-lite';
-import { makeAutoObservable } from 'mobx';
+import React from "react";
+import ReactDOM from "react-dom";
+import { makeAutoObservable } from "mobx";
+import { observer } from "mobx-react-lite";
 
-class CounterStore {
-  count = 0;
-
-  constructor() {
-    makeAutoObservable(this);
-  }
-
-  increment() {
-    this.count += 1;
-  }
-
-  decrement() {
-    this.count -= 1;
-  }
+// Model the application state.
+function createTimer() {
+  return makeAutoObservable({
+    secondsPassed: 0,
+    increase() {
+      this.secondsPassed += 1;
+    },
+    reset() {
+      this.secondsPassed = 0;
+    },
+  });
 }
 
-// 创建一个store的实例
-const counterStore = new CounterStore();
+const myTimer = createTimer();
 
-// 使用observer包裹组件，监听状态变化
-const Counter = observer(() => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Count: {counterStore.count}</Text>
-      <Button title="Increment" onPress={() => counterStore.increment()} />
-      <Button title="Decrement" onPress={() => counterStore.decrement()} />
-    </View>
-  );
-});
+// Build a "user interface" that uses the observable state.
+const TimerView = observer(({ timer }) => (
+  <button onClick={() => timer.reset()}>
+    Seconds passed: {timer.secondsPassed}
+  </button>
+));
 
-const App = () => {
-  return (
-    <View style={styles.container}>
-      <Counter />
-    </View>
-  );
-};
+ReactDOM.render(<TimerView timer={myTimer} />, document.body);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#f5fcff',
-  },
-  text: {
-    fontSize: 20,
-    marginBottom: 20,
-  },
-});
-
-export default App;
+// Update the 'Seconds passed: X' text every second.
+setInterval(() => {
+  myTimer.increase();
+}, 1000);
 ```
 
 ### 兼容性

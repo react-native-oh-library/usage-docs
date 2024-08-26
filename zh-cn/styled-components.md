@@ -35,54 +35,33 @@ yarn add styled-components@6.1.8
 下面的代码展示了这个库的基本使用场景：
 
 ```js
-import React, { useState } from 'react';
-import styled from 'styled-components/native';
+import React from "react";
 
-// 使用 styled-components 创建一个带样式的容器
-const Container = styled.View`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  background-color: #f5fcff;
+import styled from "styled-components";
+
+// Create a <Title> react component that renders an <h1> which is
+// centered, palevioletred and sized at 1.5em
+const Title = styled.h1`
+  font-size: 1.5em;
+  text-align: center;
+  color: palevioletred;
 `;
 
-// 使用 styled-components 创建一个带样式的文本组件
-const StyledText = styled.Text`
-  font-size: 24px;
-  color: ${(props) => (props.children === 'Highlighted!' ? 'tomato' : 'black')};
-  margin-bottom: 20px;
+// Create a <Wrapper> react component that renders a <section> with
+// some padding and a papayawhip background
+const Wrapper = styled.section`
+  padding: 4em;
+  background: papayawhip;
 `;
 
-// 使用 styled-components 创建一个带样式的按钮
-const StyledButton = styled.TouchableOpacity`
-  background-color: #3498db;
-  padding: 10px 20px;
-  border-radius: 5px;
-`;
-
-const ButtonText = styled.Text`
-  color: white;
-  font-size: 18px;
-`;
-
-const App = () => {
-  const [text, setText] = useState('Normal Text');
-
-  const toggleText = () => {
-    setText(text === 'Normal Text' ? 'Highlighted!' : 'Normal Text');
-  };
-
+function MyUI() {
   return (
-    <Container>
-      <StyledText>{text}</StyledText>
-      <StyledButton onPress={toggleText}>
-        <ButtonText>Toggle Text</ButtonText>
-      </StyledButton>
-    </Container>
+    // Use them like any other React component – except they're styled!
+    <Wrapper>
+      <Title>Hello World, this is my first styled component!</Title>
+    </Wrapper>
   );
-};
-
-export default App;
+}
 ```
 
 ## 约束与限制

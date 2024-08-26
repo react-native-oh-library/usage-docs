@@ -42,6 +42,7 @@ yarn add @react-native-oh-tpl/rn-emoji-keyboard@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
+> [!TIP] 本示例依赖@react-native-async-storage/async-storage库，参照[@react-native-async-storage/async-storage文档](/zh-cn/react-native-async-storage-async-storage.md)进行引入
 ```ts
 import React from "react";
 import { StyleSheet, Button, Text } from "react-native";
@@ -137,12 +138,6 @@ const styles = StyleSheet.create({
   },
 });
 ```
-
-## Link
-
-本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/async-storage 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
-
-如未引入请参照[@react-native-oh-tpl/async-storage 文档](/zh-cn/react-native-async-storage-async-storage.md)进行引入
 
 ## 约束与限制
 
@@ -273,7 +268,7 @@ Async storage? - sure. Backend as store - no problem. Choose how you want to han
 
 ## 遗留问题
 
-- [ ] rn-emoji-keyboard 的键盘弹出后回弹默认高度表情键盘无法点击: [issue#1](https://github.com/react-native-oh-library/rn-emoji-keyboard/issues/1)
+- [x] rn-emoji-keyboard 的键盘弹出后回弹默认高度表情键盘无法点击: [issue#1](https://github.com/react-native-oh-library/rn-emoji-keyboard/issues/1)
 - [ ] rn-emoji-keyboard 展开旋钮动画卡顿: [issue#2](https://github.com/react-native-oh-library/rn-emoji-keyboard/issues/2)
 
 ## 其他

@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -132,8 +131,9 @@ ohpm install
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-  ...
-+ import { ShakePackage } from "@react-native-oh-tpl/rnoh-shake-package/ts";
+...
+
++ import { ShakePackage } from "@react-native-oh-tpl/react-native-shake/ts";
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
@@ -168,9 +168,7 @@ ohpm install
 
 ### 权限要求
 
-Add the following permissions to their respective files:
-
-In your `module.json5`
+此库接口需要normal权限：ohos.permission.ACCESS_BLUETOOTH，权限需配置在entry/src/main目录下module.json5文件中
 
 ```
  "requestPermissions": [
@@ -182,9 +180,9 @@ In your `module.json5`
 
 ## API
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
@@ -198,4 +196,3 @@ In your `module.json5`
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/Doko-Demo-Doa/react-native-shake/blob/main/LICENSE) ，请自由地享受和参与开源。
-<!-- {% endraw %} -->

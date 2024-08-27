@@ -263,11 +263,11 @@ ohpm install
 | `source.cache?`                | setting loading url cache mode                                                            | enum             | no       | All      | no                |
 | `defaultSource?`               | An asset loaded with require(...).                                                        | number           | yes      | All      | yes               |
 | `resizeMode?`                  | loading image for scale mode                                                              | enum             | yes      | All      | yes               |
-| `onLoadStart?: () => void`     | Called when the image starts to load.                                                     | function         | yes      | All      | yes               |
-| `onProgress?: (event) => void` | Called when the image is loading.                                                         | function         | yes      | All      | yes               |
-| `onLoad?: (event) => void`     | Called on a successful image fetch. Called with the width and height of the loaded image. | function         | yes      | All      | yes               |
-| `onError?: () => void`         | Called on an image fetching error.                                                        | function         | yes      | All      | yes               |
-| `onLoadEnd?: () => void`       | Called when the image finishes loading, whether it was successful or an error.            | function         | yes      | All      | yes               |
+| `onLoadStart`                  | Called when the image starts to load.                                                     | function         | yes      | All      | yes               |
+| `onProgress`                   | Called when the image is loading.                                                         | function         | yes      | All      | yes               |
+| `onLoad`                       | Called on a successful image fetch. Called with the width and height of the loaded image. | function         | yes      | All      | yes               |
+| `onError`                      | Called on an image fetching error.                                                        | function         | yes      | All      | yes               |
+| `onLoadEnd`                    | Called when the image finishes loading, whether it was successful or an error.            | function         | yes      | All      | yes               |
 | `tintColor?`                   | If supplied, changes the color of all the non-transparent pixels to the given color.      | number \| string | yes      | All      | yes               |
 
 ## 静态方法
@@ -278,13 +278,14 @@ ohpm install
 
 | Name                                              | Description                                | Type     | Required | Platform | HarmonyOS Support |
 | ------------------------------------------------- | ------------------------------------------ | -------- | -------- | -------- | ----------------- |
-| `FastImage.preload: (source[]) => void`           | Preload images to display later. e.g.      | function | No       | All      | No                |
-| `FastImage.clearMemoryCache: () => Promise<void>` | Clear all images from memory cache.        | function | No       | All      | no                |
-| `FastImage.clearDiskCache: () => Promise<void>`   | Clear all images from disk cache. priority | function | No       | All      | no                |
+| `FastImage.preload`          | Preload images to display later. e.g.      | function | no       | All      | yes                |
+| `FastImage.clearMemoryCache` | Clear all images from memory cache.        | function | no       | All      | yes                |
+| `FastImage.clearDiskCache`   | Clear all images from disk cache. priority | function | no       | All      | yes                |
 
 ## 遗留问题
 
-- [ ] 部分涉及使用缓存能力的接口[issue#8](https://github.com/react-native-oh-library/react-native-fast-image/issues/8)
+- [ ] 不支持属性 source.cache.  [issue#57](https://github.com/react-native-oh-library/react-native-fast-image/issues/57)
+- [ ] 不支持属性 source.priority.  [issue#56](https://github.com/react-native-oh-library/react-native-fast-image/issues/56)
 
 ## 其他
 

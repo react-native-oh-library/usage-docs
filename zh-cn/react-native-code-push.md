@@ -21,11 +21,13 @@
 
 ### code-push-cli
 
-1.下载[code-push-cli](https://github.com/react-native-oh-library/code-push-cli)
+1. 克隆 [code-push-cli](https://github.com/react-native-oh-library/code-push-cli) 到本地
+2. 在 code-push-cli 目录下执行 `npm install`
+3. 在 code-push-cli 目录下执行 `npm run start`，用于生成 `bin` 目录
+4. npm install -g <code-push-cli文件夹目录>
+5. 重开一个终端，执行 `code-push -v`，如正常输出版本号即安装成功
 
-2.npm install -g <code-push-cli文件夹目录>
-
-3.常用命令：
+code-push-cli常用命令：
 
 ```
 code-push -v
@@ -37,7 +39,12 @@ code-push release <AppName> <bundle.harmony.js> "<版本号>" --description "<v1
 
 ### code-push-server
 
-下载并搭建[code-push-server](https://github.com/react-native-oh-library/code-push-server) 服务
+1. 克隆 [code-push-server](https://github.com/react-native-oh-library/code-push-server) 到本地
+2. 在 code-push-server 目录下执行 `npm install`
+4. 安装 mysql、redis
+5. 修改 `code-push-server/src/core/config.ts` 配置文件
+3. 在 code-push-server 目录下执行 `npm run dev`，用于生成 `bin` 目录
+6. 在 code-push-server 目录下执行 `npm run start` 启动服务
 
 ## 安装与使用
 
@@ -244,6 +251,24 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   ];
 }
 ```
+
+### 在 ArkTs 侧引入 comparingVersion 方法
+
+打开 `entry/src/main/ets/pages/index.ets`，调用 comparingVersion 方法比对code-push版本号，用于覆盖安装时清除沙箱历史资源
+
+```diff
++ import { comparingVersion } from "@react-native-oh-tpl/react-native-code-push";
+
+@Entry
+@Component
+struct Index {
+  
+  aboutToAppear() {
++     comparingVersion(context);
+  }
+}
+```
+
 
 ### 运行
 

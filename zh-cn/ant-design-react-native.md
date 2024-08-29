@@ -35,7 +35,10 @@ yarn add @ant-design/react-native@5.1.0
 ```
 >[!TIP] 本库还依赖了[@react-native-oh-tpl/slider](/zh-cn/react-native-community-slider.md)、[@react-native-oh-tpl/react-native-gesture-handler](/zh-cn/react-native-gesture-handler.md)、[@react-native-oh-tpl/react-native-modal-popover](/zh-cn/react-native-modal-popover.md)和[react-native-community/segmented-control](/zh-cn/react-native-community-segmented-control.md)
 
-> [!WARNING] @bang88/react-native-ultimate-listview这个依赖库还没鸿蒙化，会影响到里面的一个ListView组件，如果想暂时解决掉这个报错的话，可以在node_modules\@bang88\react-native-ultimate-listview\src目录下添加一个refreshableScrollView.js文件。
+> **Warning:**
+@bang88/react-native-ultimate-listview这个依赖库还没鸿蒙化，会影响到里面的一个ListView组件，如果想暂时解决掉这个报错的话，可以在node_modules\@bang88\react-native-ultimate-listview\src目录下添加一个refreshableScrollView.js文件。
+
+
 
 ## 链接字体图标
 
@@ -50,7 +53,7 @@ module.exports = {
 
 ```bash
 # 手动执行命令
-npx react-native-asset
+npm install react-native-asset && npx react-native-asset
 ```
 
 ### 在 ArkTs 侧引入和注册字体文件
@@ -77,12 +80,12 @@ npx react-native-asset
         familySrc: '/assets/fonts/FontAwesome.ttf'
       },
      {
-++       familyName: 'antfill',
-++       familySrc: '/assets/fonts/antfill.ttf'
+        familyName: 'antfill',
+        familySrc: '/assets/fonts/antfill.ttf'
      },
      {
-++       familyName: 'antoutline',
-++       familySrc: '/assets/fonts/antoutline.ttf'
+        familyName: 'antoutline',
+        familySrc: '/assets/fonts/antoutline.ttf'
      }
     ]
 
@@ -317,7 +320,7 @@ export default class BasicTagExample extends React.Component {
 |   onPress    |                                     点击事件的回调函数                                      |       同[TouchableHighlightProps['onPress']](https://github.com/ant-design/ant-design-mobile-rn/blob/5.2.0-rc.0/components/list/index.zh-CN.md#touchablehighlightprops)        |    No    |   All    |        Yes        |
 | multipleLine |                                            多行                                             |                                                                                    Boolean                                                                                     |    No    |   All    |        Yes        |
 |     wrap     |                          是否换行，默认情况下，文字超长会被隐藏，                           |                                                                                    Boolean                                                                                     |    No    |   All    |        Yes        |
-|    styles    |                                      语义化结构 style                                       | [ListItemStyle](https://github.com/ant-design/ant-design-mobile-rn/blob/5.2.0-rc.0/components/list/index.zh-CN.md#listitemstyle-%E8%AF%AD%E4%B9%89%E5%8C%96%E6%A0%B7%E5%BC%8F) |    No    |   All    |        Yes        |
+|    styles    |                                      语义化结构 style                                       | [ListItemStyle](https://github.com/ant-design/ant-design-mobile-rn/blob/5.2.0-rc.0/components/list/index.zh-CN.md#listitemstyle-%E8%AF%AD%E4%B9%89%E5%8C%96%E6%A0%B7%E5%BC%8F) |    No    |   All    |        No        |
 
 **List.Item.Brief**：列表辅助说明组件。
 
@@ -357,7 +360,7 @@ export default class BasicTagExample extends React.Component {
 |       type        |                            prompt 的样式                            | String (default, secure-text, login-password) |    No    |   All    |        Yes        |
 |   defaultValue    |                默认值(input 为 password 类型不支持)                 |                    String                     |    No    |   All    |        Yes        |
 |   placeholders    |                              ['', '']                               |                   String[]                    |    No    |   All    |        Yes        |
-|   onBackHandler   | 返回键的回调(非必须)，返回 true 则关闭 modal，false 阻止 modal 关闭 |                  (): boolean                  |    No    |   All    |        Yes        |
+|   onBackHandler   | 返回键的回调(非必须)，返回 true 则关闭 modal，false 阻止 modal 关闭 |                  (): boolean                  |    No    |   All    |        No        |
 
 **Modal.operation(actions?, onBackHandler?)**：对话框组件。
 
@@ -390,7 +393,12 @@ export default class BasicTagExample extends React.Component {
 |   mask    | 是否显示透明蒙层，防止触摸穿透 | Boolean  |    No    |   All    |        Yes        |
 | stackable |        是否允许叠加显示        | Boolean  |    No    |   All    |        Yes        |
 
-注： duration = 0 时，onClose 无效，toast 不会消失，隐藏 toast 需要手动调用 remove
+**Toast API**
+- Toast.success(props)
+- Toast.fail(props)
+- Toast.info(props)
+- Toast.loading(props)
+- Toast.offline(props)
 
 **ActivityIndicator**：活动指示器组件，表明某个任务正在进行中。
 
@@ -400,7 +408,7 @@ export default class BasicTagExample extends React.Component {
 |   size    | spinner 大小，可选 small/large | string  |    No    |   All    |        Yes        |
 |   toast   |        loading 样式类型        | boolean |    No    |   All    |        Yes        |
 |   text    |          loading 文本          | string  |    No    |   All    |        Yes        |
-| stackable |          spinner 颜色          | string  |    No    |   All    |        Yes        |
+| color |          spinner 颜色          | string  |    No    |   All    |        Yes        |
 
 **Badge**：徽标数组件，图标右上角的红点、数字或者文字。用于告知用户，该区域的状态变化或者待处理任务的数量。
 
@@ -512,9 +520,10 @@ export default class BasicTagExample extends React.Component {
 |       onErrorClick       |                                                                                                            点击报错 icon 触发的回调函数                                                                                                             |  (e: Object): void  |    No    |   All    |        Yes        |
 |          extra           |                                                                                                                      右边注释                                                                                                                       |   string or node    |    No    |   All    |        Yes        |
 |       onExtraClick       |                                                                                                            extra 点击事件触发的回调函数                                                                                                             |  (e: Object): void  |    No    |   All    |        Yes        |
-| onVirtualKeyboardConfirm |                                                                                                            虚拟键盘点击确认时的回调函数                                                                                                             | (val: string): void |    No    |   All    |        Yes        |
+| onVirtualKeyboardConfirm |                                                                                                            虚拟键盘点击确认时的回调函数                                                                                                             | (val: string): void |    No    |   All    |        No        |
 |       labelNumber        |                                                                                                         标签的文字个数，可用 2-7 之间的数字                                                                                                         |       number        |    No    |   All    |        Yes        |
 |           last           |                                                                                           如果是最后一项，则将移除 borderBottom（默认拥有 borderBottom）                                                                                            |        bool         |    No    |   All    |        Yes        |
+|           locale           |                                                                                           国际化, 当type为money，可以自定义确认按钮的文案。                                                                                            |        bool         |    No    |   All    |        No        |
 
 **Picker**：选择器组件，在一组预设数据中进行选择，e.g. 省市区选择。
 
@@ -537,7 +546,7 @@ export default class BasicTagExample extends React.Component {
 |     visible     |                 是否显示选择器                  |                                     Boolean                                      |    No    |   All    |        Yes        |
 |     loading     |                是否处于加载状态                 |                                     Boolean                                      |    No    |   All    |        Yes        |
 | loadingContent  |              加载状态下展示的内容               |                                    ReactNode                                     |    No    |   All    |        Yes        |
-| indicatorStyle  |              默认 Indicator 的样式              |                                      Object                                      |    No    |   All    |        Yes        |
+| indicatorStyle  |              默认 Indicator 的样式              |                                      Object                                      |    No    |   All    |        No        |
 
 **Picker 自定义样式**
 
@@ -566,6 +575,7 @@ export default class BasicTagExample extends React.Component {
 |    extra    | Picker children 的`extra`属性，无选中项时展示 |  String   |    No    |   All    |        Yes        |
 | triggerType |                 按钮事件名称                  |  String   |    No    |   All    |        Yes        |
 |  disabled   |                  是否不可用                   |  Boolean  |    No    |   All    |        Yes        |
+|  format   |                  格式化选中值的函数，用于回显在extra属性上                   |  (labels: string[]): any  |    No    |   All    |        Yes        |
 
 **PickerView**：PickerView 的功能类似于 Picker ，但它是直接渲染在区域中，而不是弹出窗口。
 
@@ -580,7 +590,7 @@ export default class BasicTagExample extends React.Component {
 |  renderLabel   |                        自定义渲染每列展示的内容                        | `(item: PickerColumnItem, index: number) => ReactNode` 或 `(item) => item.label` |    No    |   All    |        Yes        |
 |    loading     |                            是否处于加载状态                            |                                     Boolean                                      |    No    |   All    |        Yes        |
 | loadingContent |                          加载状态下展示的内容                          |                                    ReactNode                                     |    No    |   All    |        Yes        |
-| indicatorStyle |                         默认 Indicator 的样式                          |                                      Object                                      |    No    |   All    |        Yes        |
+| indicatorStyle |                         默认 Indicator 的样式                          |                                      Object                                      |    No    |   All    |        No        |
 
 **PickerView 自定义样式**
 
@@ -632,6 +642,9 @@ export default class BasicTagExample extends React.Component {
 |    disabled    |             禁用              |                    Boolean                    |    No    |   All    |        Yes        |
 |    onChange    |   change 事件触发的回调函数   | (e: { target: { checked: boolean } }) => void |    No    |   All    |        Yes        |
 |     value      | 携带的标识值，用于 Group 模式 |                  RadioValue                   |    No    |   All    |        Yes        |
+
+**Radio.RadioItem**
+  基于List.Item对Radio进行封装,List.Item的extra属性固定传入Radio,其他属性和List.Item一致。 其他 API 和 Radio 相同。
 
 **Radio.Group**：单选框子组件。
 
@@ -858,9 +871,8 @@ export default class BasicTagExample extends React.Component {
 | unselectedTintColor | 未选中的字体颜色 | String |    No    |   All    |        Yes        |
 
 **TabBar.Item**：TabBar 子组件。
-
 |     Name     |                      Description                      |      Type       |     Required     | Platform | HarmonyOS Support |
-| :----------: | :---------------------------------------------------: | :-------------: | :--------------: | :------: | :---------------: | --- |
+| :----------: | :---------------------------------------------------: | :-------------: | :--------------: | :------: | :---------------: |
 |    badge     |                        徽标数                         | Number \ String |        No        |   All    |        Yes        |
 |   onPress    | bar 点击触发，需要自己改变组件 state & selecte={true} |    Function     |        No        |   All    |        Yes        |
 |   selected   |                       是否选中                        |     Boolean     |        No        |   All    |        Yes        |
@@ -897,7 +909,7 @@ export default class BasicTagExample extends React.Component {
 |        duration        |                                     动画时长                                      |                                                           number                                                            |    No    |   All    |        Yes        |
 |         easing         |                                     动画效果                                      | (show: boolean) => (value: number) => number 或 show => show ? Easing.out(Easing.back(1.70158)) : Easing.inOut(Easing.quad) |    No    |   All    |        Yes        |
 |    useNativeDriver     |                            动画是否使用 Native Driver                             |                                                           boolean                                                           |    No    |   All    |        Yes        |
-|       onDismiss        |                             Popover 关闭后的回调函数                              |                                                          function                                                           |    No    |   All    |        Yes        |
+|       onDismiss        |                             Popover 关闭后的回调函数                              |                                                          function                                                           |    No    |   All    |        NO        |
 
 **Popover.Item**：气泡子组件。
 
@@ -911,15 +923,12 @@ export default class BasicTagExample extends React.Component {
 
 |   Name    |      Description       |   Type   | Required | Platform | HarmonyOS Support |
 | :-------: | :--------------------: | :------: | :------: | :------: | :---------------: |
-|   style   |    `swipeout` 样式     |  Object  |   Yes    |   All    |        No         |
 |   left    |       左侧按钮组       |  Array   |   Yes    |   All    |        Yes        |
 |   right   |       右侧按钮组       |  Array   |   Yes    |   All    |        Yes        |
-| autoClose | 点击按钮后自动隐藏按钮 | Boolean  |   Yes    |   All    |        No         |
-|  onOpen   |     打开时回调函数     | (): void |   Yes    |   All    |        No         |
-| disabled  |    禁用 `swipeout`     | boolean  |   Yes    |   All    |        No         |
-|  onClose  |     关闭时回调函数     | (): void |   Yes    |   All    |        No         |
+|  onSwipeableOpen   |     打开时回调函数     | (): void |   Yes    |   All    |        Yes         |
+|  onSwipeableClose  |     关闭时回调函数     | (): void |   Yes    |   All    |        Yes         |
 
-**Button**：滑动操作组件内的 Button。
+**SwipeAction.Button**：滑动操作组件内的 Button。
 
 |  Name   | Description  |   Type   | Required | Platform | HarmonyOS Support |
 | :-----: | :----------: | :------: | :------: | :------: | :---------------: |
@@ -931,8 +940,8 @@ export default class BasicTagExample extends React.Component {
 
 ## 其他
 
-- [ ] SwipeAction 组件暂时无法支持，与 Android/IOS 一致[issue#1193](https://github.com/ant-design/ant-design-mobile-rn/issues/1193)、[issue#1348](https://github.com/ant-design/ant-design-mobile-rn/issues/1348)。
 - [ ] Drawer 组件暂时无法支持，与 Android/IOS 一致[issue#1352](https://github.com/ant-design/ant-design-mobile-rn/issues/1352)、[issue#1338](https://github.com/ant-design/ant-design-mobile-rn/issues/1338)。
+
 
 ## 开源协议
 

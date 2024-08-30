@@ -172,7 +172,7 @@ ohpm install
 ```diff
 ...
  
-+ import { RNSensitiveInfoPackage } from 'react_native_sensitive_info/ts';
++ import { RNSensitiveInfoPackage } from '@react-native-oh-tpl/react-native-sensitive-info/ts';
 
 @Builder
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {

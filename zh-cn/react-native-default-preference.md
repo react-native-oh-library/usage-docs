@@ -131,8 +131,9 @@ ohpm install
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
-  ...
-+ import { RNDefaultPreferencePackage } from '@react-native-oh-tpl/react_native_default_preference/ts';
+...
+
++ import { RNDefaultPreferencePackage } from '@react-native-oh-tpl/react-native-default-preference/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [

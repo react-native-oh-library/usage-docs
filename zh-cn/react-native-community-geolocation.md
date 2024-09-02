@@ -200,6 +200,8 @@ ohpm install
 
 然后编译、运行即可。
 
+## 约束与限制
+
 ### 兼容性
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
@@ -208,17 +210,54 @@ ohpm install
 
 ### 权限要求
 
-打开 entry/src/main/module.json5,添加
+1.打开 `entry/src/main/module.json5`,添加相关配置
 
-```
+```diff
+...
 {
   "module": {
-    "requestPermissions": [
-      {"name": "ohos.permission.INTERNET"},
-      {"name": "ohos.permission.LOCATION"},
-      {"name": "ohos.permission.APPROXIMATELY_LOCATION"},
+      "requestPermissions": [
++      {
++        "name": "ohos.permission.APPROXIMATELY_LOCATION",
++        "reason": "$string:Access_location",
++        "usedScene": {
++          "abilities": [
++            "EntryAbility"
++          ],
++          "when": "always"
++        }
++      },
++      {
++        "name": "ohos.permission.LOCATION",
++        "reason": "$string:Access_location",
++        "usedScene": {
++          "abilities": [
++            "EntryAbility"
++          ],
++          "when": "always"
++       }
++      },
++     {
++        "name": "ohos.permission.INTERNET"
++      }
     ]
   }
+}
+```
+
+2.在 entry 目录下添加申请权限的原因
+
+打开 `entry/src/main/resources/base/element/string.json`，添加：
+
+```diff
+...
+{
+  "string": [
++    {
++      "name": "Access_location",
++      "value": "access location"
++    }
+  ]
 }
 ```
 

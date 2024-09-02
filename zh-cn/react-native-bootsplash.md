@@ -1,5 +1,3 @@
-<!-- {% raw %} -->
-
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -9,7 +7,7 @@
     <a href="https://github.com/zoontek/react-native-bootsplash">
         <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
-    <a href="https://github.com/zoontek/react-native-bootsplash/blob/expo-plugin/LICENSE">
+    <a href="https://github.com/zoontek/react-native-bootsplash/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
         <!-- <img src="https://img.shields.io/badge/license-Apache-blue.svg" alt="License" /> -->
     </a>
@@ -41,11 +39,105 @@ npm install @react-native-oh-tpl/react-native-bootsplash@file:#
 yarn add @react-native-oh-tpl/react-native-bootsplash@file:#
 ```
 
+#### 生成配置文件
+为了加快设置速度，我们提供了一个CLI来自动生成配置、创建Android Drawable XML文件、iOS Storyboard文件和HarmonyOS Resources文件
+
+```bash
+$ npx react-native generate-bootsplash --help
+# --- or ---
+$ yarn react-native generate-bootsplash --help
+```
+
+该命令可以使用多个参数:
+
+```js
+Usage: react-native generate-bootsplash [options] <logo>
+
+Generate a launch screen using a logo file path (PNG or SVG)
+
+Options:
+  --project-type <string>     Project type ("detect", "bare" or "expo") (default: "detect")
+  --platforms <list>          Platforms to generate for, separated by a comma (default: "android,ios,web,harmony")
+  --background <string>       Background color (in hexadecimal format) (default: "#fff")
+  --logo-width <number>       Logo width at @1x (in dp - we recommend approximately ~100) (default: 100)
+  --assets-output <string>    Assets output directory path (default: "assets/bootsplash")
+  --flavor <string>           Android flavor build variant (where your resource directory is) (default: "main")
+  --html <string>             HTML template file path (your web app entry point) (default: "public/index.html")
+  --license-key <string>      License key to enable brand and dark mode assets generation
+  --brand <string>            Brand file path (PNG or SVG)
+  --brand-width <number>      Brand width at @1x (in dp - we recommend approximately ~80) (default: 80)
+  --dark-background <string>  [dark mode] Background color (in hexadecimal format)
+  --dark-logo <string>        [dark mode] Logo file path (PNG or SVG)
+  --dark-brand <string>       [dark mode] Brand file path (PNG or SVG)
+  -h, --help                  display help for command
+```
+
+命令用法示例:
+
+```bash
+# Without license key
+npx react-native generate-bootsplash svgs/light-logo.svg
+```
+
+命令执行后将创建以下文件:
+```js
+# Without license key
+android/app/src/main/res/drawable-mdpi/bootsplash_logo.png
+android/app/src/main/res/drawable-hdpi/bootsplash_logo.png
+android/app/src/main/res/drawable-xhdpi/bootsplash_logo.png
+android/app/src/main/res/drawable-xxhdpi/bootsplash_logo.png
+android/app/src/main/res/drawable-xxxhdpi/bootsplash_logo.png
+android/app/src/main/AndroidManifest.xml
+android/app/src/main/res/values/colors.xml
+android/app/src/main/res/values/styles.xml
+
+ios/YourApp/BootSplash.storyboard
+ios/YourApp/Colors.xcassets/BootSplashBackground-<hash>.colorset/Contents.json
+ios/YourApp/Images.xcassets/BootSplashLogo-<hash>.imageset/Contents.json
+ios/YourApp/Images.xcassets/BootSplashLogo-<hash>.imageset/logo-<hash>.png
+ios/YourApp/Images.xcassets/BootSplashLogo-<hash>.imageset/logo-<hash>@2x.png
+ios/YourApp/Images.xcassets/BootSplashLogo-<hash>.imageset/logo-<hash>@3x.png
+ios/YourApp/Info.plist
+ios/YourApp.xcodeproj/project.pbxproj
+
+harmony/entry/src/main/resources/base/media/bootsplash_logo.png
+harmony/entry/src/main/resources/base/element/color.json
+harmony/entry/src/main/module.json5
+
+public/index.html
+
+assets/bootsplash/manifest.json
+assets/bootsplash/logo.png
+assets/bootsplash/logo@1,5x.png
+assets/bootsplash/logo@2x.png
+assets/bootsplash/logo@3x.png
+assets/bootsplash/logo@4x.png
+```
+
+编辑您的启动Ability文件, 它通常是配置在entry模块module.json5中abilities属性中配置的第一个abilitie:
+
+```diff
++ import { window } from '@kit.ArkUI';
++ import { RNBootSplashScreen } from '@react-native-oh-tpl/react-native-bootsplash/src/main/ets/RNBootSplashScreen';
+
+export default class EntryAbility extends RNAbility {
++  onWindowStageCreate(windowStage: window.WindowStage) {
++     RNBootSplashScreen.init(this.context, windowStage).then(() => {
++       super.onWindowStageCreate(windowStage);
++     })
++  }
+
+  ...
+}
+```
+
 <!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：
 
 > [!WARNING] 使用时 import 的库名不变。
+
+> [!TIP] 示例中logo参数使用了本地图片资源，可以到[react-native-boot-splash demo](https://github.com/react-native-oh-library/RNOHDCS/tree/main/react-native-boot-splash/source)获取该图片
 
 ```js
 import { useState , useEffect} from "react";
@@ -78,8 +170,8 @@ export const AnimatedBootSplash = ({ onAnimationEnd }: Props) => {
   const [translateY] = useState(() => new Animated.Value(0));
 
   const { container, logo /*, brand */ } = BootSplash.useHideAnimation({
-    manifest: require("../assets/bootsplash_manifest.json"),
-    logo: require("../assets/bootsplash_logo.png"),
+    manifest: require("../source/bootsplash_manifest.json"),
+    logo: require("../source/bootsplash_logo.png"),
     statusBarTranslucent: true,
     navigationBarTranslucent: false,
 
@@ -120,12 +212,7 @@ const App = () => {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    // set transparent status bar
     StatusBar.setBarStyle("dark-content");
-    if (Platform.OS !== "android") {
-      StatusBar.setBackgroundColor("transparent");
-      StatusBar.setTranslucent(true);
-    }
   }, []);
 
   return (
@@ -147,6 +234,17 @@ const App = () => {
 };
 
 export default App;
+```
+
+```json
+// bootsplash_manifest.json
+{
+  "background": "#F5FCFF",
+  "logo": {
+    "width": 300,
+    "height": 89
+  }
+}
 ```
 
 ## 使用 Codegen
@@ -209,7 +307,7 @@ ohpm install
 
 ```diff
   ...
-+ import {RNBootSplashPackage} from '@react-native-oh-tpl/react-native-bootsplash/ts';
++ import { RNBootSplashPackage } from '@react-native-oh-tpl/react-native-bootsplash/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
@@ -248,17 +346,45 @@ ohpm install
 
 | Name             | Description                                                  | Type     | Required | Platform     | HarmonyOS Support |
 | ---------------- | ------------------------------------------------------------ | -------- | -------- | ------------ | ----------------- |
-| getConstants     | Obtaining the Default Configuration                          | function | no       | Android、IOS | yes               |
-| hide             | Hide the splash screen                                       | function | no       | Android、IOS | yes               |
-| isVisible        | Return the current visibility status of the native splash screen | function | no       | Android、IOS | yes               |
-| useHideAnimation | A hook to easily creation a hide custom hide animation, by animating all splash screen elements using Animated | function | yes      | Android、IOS | yes               |
+| hide             | Hide the splash screen.                            | function | no       | Android、IOS | yes               |
+| isVisible        | Return the current visibility status of the native splash screen. | function | no       | Android、IOS | yes               |
+| useHideAnimation     | A hook to easily create a custom hide animation by animating all splash screen elements using Animated, react-native-reanimated or else (similar as the video on top of this documentation).                          | function | no       | Android、IOS | yes               |
+
+### hide
+
+```js
+type hide = (config?: { fade?: boolean }) => Promise<void>;
+```
+
+| Name  | Description                                                | Type             | Required | Platform    | HarmonyOS Support |
+| ----- | ---------------------------------------------------------- | ---------------- | -------- | ----------- | ----------------- |
+| fade | Hide the splash screen (immediately, or with a fade out). | boolean | No      | iOS/Android | partially               |
+
+### useHideAnimation
+
+```js
+useHideAnimation(config: {UseHideAnimationConfig}) => {container: ContainerProps;logo: LogoProps;brand: BrandProps;};
+```
+
+| Name  | Description                                                | Type             | Required | Platform    | HarmonyOS Support |
+| ----- | ---------------------------------------------------------- | ---------------- | -------- | ----------- | ----------------- |
+| ready | a boolean flag to delay the animate execution (default: true) | boolean | No      | iOS/Android | partially               |
+| manifest | the manifest file is generated in your assets directory | Manifest | Yes      | iOS/Android | partially               |
+| logo | logo image in animation | ImageRequireSource | No      | iOS/Android | partially               |
+| darkLogo | logo image in animation in dark mode | ImageRequireSource | No      | iOS/Android | partially               |
+| brand | brand image in animation | ImageRequireSource | No      | iOS/Android | partially               |
+| darkBrand | brand image in animation in dark mode | ImageRequireSource | No      | iOS/Android | partially               |
+| statusBarTranslucent | sets whether the status bar is transparent | boolean | No      | iOS/Android | partially               |
+| navigationBarTranslucent | sets whether the navigation bar is transparent | boolean | No      | iOS/Android | partially               |
+| animate | custom hide animation | function | Yes      | iOS/Android | partially               |
 
 ## 遗留问题
 
+- [ ] HarmonyOS的window窗口上不支持设置动画属性，hide接口fade参数设置true没有效果 问题: [issue#13](https://github.com/react-native-oh-library/react-native-bootsplash/issues/13)
+
 ## 其他
+- 执行generate-bootsplash命令行时，由于 `--brand, --brand-width 和 --dark-*` 选项需要购买license才能使用，涉及功能未开源，HarmonyOS平台不支持使用
 
 ## 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/zoontek/react-native-bootsplash/blob/expo-plugin/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->
+本项目基于 [The MIT License (MIT)](https://github.com/zoontek/react-native-bootsplash/blob/master/LICENSE) ，请自由地享受和参与开源。

@@ -182,12 +182,14 @@ export const App = () => (
 |             border             |                                                                                      borderRadius, borderBottomLeftRadius, borderBottomRightRadius, borderBottomStartRadius, borderBottomEndRadius, borderTopLeftRadius, borderTopRightRadius, borderTopStartRadius, borderTopEndRadius                                                                                      | function |    No    |   All    |        Yes        |
 |             shadow             |                                                                                                                                                             shadowOpacity, shadowOffset, shadowRadius, elevation                                                                                                                                                             | function |    No    |   All    |        Yes        |
 |             shadow             |                                                                                                                                                                                 shadowColor                                                                                                                                                                                  | function |    No    |   All    |        Yes        |
-|           textShadow           |                                                                                                                                                                      textShadowOffset, textShadowRadius                                                                                                                                                                      | function |    No    |   All    |        Yes        |
-|           textShadow           |                                                                                                                                                                               textShadowColor                                                                                                                                                                                | function |    No    |   All    |        Yes        |
+|           textShadow           |                                                                                                                                                                      textShadowOffset, textShadowRadius                                                                                                                                                                      | function |    No    |   All    |        NO         |
+|           textShadow           |                                                                                                                                                                               textShadowColor                                                                                                                                                                                | function |    No    |   All    |        NO         |
 
 ## 遗留问题
 
 ## 其他
+
+- [ ] 预函数textShadow在Android和iOS不生效， HarmonyOS与Android,iOS表现一致 [原库 issue](https://github.com/Shopify/restyle/issues/307)
 
 ## 开源协议
 

@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
 
 本库 HarmonyOS 侧实现依赖 @react-native-oh-tpl/masked-view 和 @react-native-oh-tpl/react-native-linear-gradient 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
 
-如未引入请参照[@react-native-oh-tpl/masked-view 文档的 Link 章节 ](file://zh-cn/react-native-masked-view-masked-view.md#link) 和 [@react-native-oh-tpl/react-native-linear-gradient 文档的 Link 章节 ](file://zh-cn/react-native-linear-gradient.md#link)进行引入。
+如未引入请参照[@react-native-oh-tpl/masked-view 文档的 Link 章节 ](/zh-cn/react-native-masked-view-masked-view.md#link) 和 [@react-native-oh-tpl/react-native-linear-gradient 文档的 Link 章节 ](/zh-cn/react-native-linear-gradient.md#link)进行引入。
 
 ## 遗留问题
 

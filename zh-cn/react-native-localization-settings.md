@@ -214,6 +214,8 @@ ohpm install
 
 > [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
+> [!TIP] 在设置改变语言之前，确保手机系统添加相应语言
+
 | Name                       | Description                           | Type     | Required | Platform    | HarmonyOS Support |
 | -------------------------- | ------------------------------------- | -------- | -------- | ----------- | ----------------- |
 | I18nLanguageDetectorModule | i18next language detector             | function | no       | iOS/Android | yes               |

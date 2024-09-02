@@ -218,7 +218,7 @@ add_library(rnoh_app SHARED
 
 # RNOH_BEGIN: manual_package_linking_2
 target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
-+ target_link_libraries(rnoh_app PUBLIC rnoh_image-crop-picker)
++ target_link_libraries(rnoh_app PUBLIC rnoh_image_crop_picker)
 # RNOH_END: manual_package_linking_2
 ```
 

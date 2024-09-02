@@ -61,7 +61,7 @@ module.exports = {
 ```diff
 module.exports = {
 - plugins: [],
-+ plugins: ["nativewind/babel"],
++ plugins: ["@react-native-oh-tpl/nativewind/babel"],
 };
 ```
 

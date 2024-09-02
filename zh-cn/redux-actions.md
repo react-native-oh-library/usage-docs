@@ -45,8 +45,8 @@ yarn add @types/redux-actions -D
 运行demo还需安装以下依赖：
 
 ```bash
-npm install redux
-npm install react-redux
+npm install redux@^5.0.1
+npm install react-redux@^9.1.0
 ```
 
 1.定义state的类型

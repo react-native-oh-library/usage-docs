@@ -33,6 +33,17 @@ npm install react-native-hyperlink@0.0.22
 yarn add react-native-hyperlink@0.0.22
 ```
 
+使用时,还需在项目下的module.json5处配置querySchemes
+
+```diff
+{
+  "module": {
+    ...
++   "querySchemes": ["maps","http","https","customDomain"],
+  }
+}
+```
+
 <!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：

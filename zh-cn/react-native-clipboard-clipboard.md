@@ -92,7 +92,7 @@ const fetchCopiedText = async () => {
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
 
-    "rnoh-clipboard": "file:../../node_modules/@react-native-oh-tpl/clipboard/harmony/clipboard.har"
+    "@react-native-oh-tpl/clipboard": "file:../../node_modules/@react-native-oh-tpl/clipboard/harmony/clipboard.har"
   }
 ```
 
@@ -117,14 +117,14 @@ ohpm install
 project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(OH_MODULE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
 
 add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
 # RNOH_BEGIN: add_package_subdirectories
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULE_DIR}/rnoh-clipboard/src/main/cpp" ./clipboard)
++ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/clipboard/src/main/cpp" ./clipboard)
 # RNOH_END: add_package_subdirectories
 
 add_library(rnoh_app SHARED
@@ -164,7 +164,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 ```diff
 import type {RNPackageContext, RNPackage} from 'rnoh/ts';
 import {SamplePackage} from 'rnoh-sample-package/ts';
-+ import {ClipboardPackage} from 'rnoh-clipboard/ts';
++ import {ClipboardPackage} from '@react-native-oh-tpl/clipboard/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [

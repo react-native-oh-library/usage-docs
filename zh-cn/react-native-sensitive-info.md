@@ -50,7 +50,28 @@ import React, { useCallback, useState } from 'react';
 import { Alert, Button, SafeAreaView, Text } from 'react-native';
 import SInfo from 'react-native-sensitive-info';
 
-const Home: React.FC = () => {
+const SensitiveInfoDemo = () => {
+  const handleAddUsingSetItemOnPress = useCallback(() => {
+    SInfo.setItem('key1', 'value1', {
+      sharedPreferencesName: 'exampleApp',
+      keychainService: 'exampleApp',
+    }).catch((err) => {
+      Alert.alert('Error', err);
+    });
+  }, []);
+
+  const handleReadingDataWithoutFingerprint = useCallback(async () => {
+    try {
+      const data = await SInfo.getItem('key1', {
+        sharedPreferencesName: 'exampleApp',
+        keychainService: 'exampleApp',
+      });
+      Alert.alert('Data stored:', data);
+    } catch (err) {
+      Alert.alert('Error', String(err));
+    }
+  }, []);
+
 
   const [logText, setLogText] = useState('');
   async function runTest() {
@@ -95,19 +116,11 @@ const Home: React.FC = () => {
         title="Read data without fingerprint"
         onPress={handleReadingDataWithoutFingerprint}
       />
-      <Button
-        title="Add item using TouchID"
-        onPress={handleSetItemUsingTouchIDOnPress}
-      />
-
-      <Button title="Get TouchID Data" onPress={getTouchIDItem} />
-      <Button title="Has TouchID Data" onPress={hasTouchIDItem} />
-
       <Text>{logText}</Text>
     </SafeAreaView>
   );
 };
-export default Home;
+export default SensitiveInfoDemo;
 
 ```
 

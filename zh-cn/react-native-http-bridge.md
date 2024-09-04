@@ -235,8 +235,26 @@ ohpm install
 
 ###  权限要求
 
-- 由于此库涉及应用退至后台后，在后台需要长时间运行用户可感知的任务功能，使用对应接口时则需要配置对应的权限，权限需配置在entry/src/main目录下module.json5文件中。具体权限配置见文档：[长时任务](https://gitee.com/openharmony/docs/blob/master/zh-cn/application-dev/task-management/continuous-task.md#/openharmony/docs/blob/master/zh-cn/application-dev/application-models/serviceability-overview.md)。
-- 此库部分功能与接口需要长时任务权限：ohos.permission.KEEP_BACKGROUND_RUNNING。
+
+#### 在 entry 目录下的module.json5中添加权限
+
+打开 `entry/src/main/module.json5`，添加：
+
+```diff
+...
+"requestPermissions": [
++  {
++    "name": "ohos.permission.KEEP_BACKGROUND_RUNNING",
++    "reason": "$string:app_name",
++    "usedScene": {
++      "abilities": [
++        "FormAbility"
++      ],
++      "when": "always"
++    }
++  },
+]
+```
 
 ##  API
 

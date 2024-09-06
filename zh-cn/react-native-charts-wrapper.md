@@ -290,7 +290,7 @@ ohpm install
 | textSize            | 设置图例文本的大小       | number                                       | No       | iOS/Android | Yes               |
 | fontFamily          | 图例部件的字体           | string                                       | No       | iOS/Android | Yes               |
 | wordWrapEnabled     | 设置图例文字是否换行     | bool                                         | No       | iOS/Android | Yes               |
-| maxSizePercent      | 图例部件最大大小百分比   | number                                       | No       | iOS/Android | Yes               |
+| maxSizePercent      | 图例部件最大大小百分比   | number                                       | No       | iOS/Android | NO                |
 | horizontalAlignment | 图例部件水平对齐         | one of `'LEFT', 'CENTER', 'RIGHT'`           | No       | iOS/Android | Yes               |
 | verticalAlignment   | 图例部件垂直对齐         | one of `'TOP', 'CENTER', 'BOTTOM'`           | No       | iOS/Android | Yes               |
 | orientation         | 设置图例的方向           | one of `'HORIZONTAL', 'VERTICAL'`            | No       | iOS/Android | Yes               |
@@ -301,7 +301,7 @@ ohpm install
 | xEntrySpace         | 设置横轴上图例条目的间距 | number                                       | No       | iOS/Android | Yes               |
 | yEntrySpace         | 设置竖轴上图例条目的间距 | number                                       | No       | iOS/Android | Yes               |
 | formToTextSpace     | 图例部件图标到文字的间距 | number                                       | No       | iOS/Android | Yes               |
-| custom              | 设置自定义图例的条目数组 | {` `colors: [number],` `labels: [string]` `} | No       | iOS/Android | Yes               |
+| custom              | 设置自定义图例的条目数组 | {` `colors: [number],` `labels: [string]` `} | No       | iOS/Android | NO                |
 
 #### xAxis and yAxis
 
@@ -356,7 +356,7 @@ ohpm install
 | ---------------------------- | -------------------- | ----------- | -------- | ----------- | ----------------- |
 | animation                    | 设置图表动画         | object      | No       | iOS/Android | Yes               |
 | chartBackgroundColor         | 设置图表背景颜色     | number      | No       | iOS/Android | Yes               |
-| logEnabled                   | 启用日志             | bool        | No       | iOS/Android | Yes               |
+| logEnabled                   | 启用日志             | bool        | No       | iOS/Android | NO                |
 | noDataText                   | 设置无数据文本       | string      | No       | iOS/Android | Yes               |
 | noDataTextColor              | 设置无数据文本颜色   | number      | No       | iOS/Android | Yes               |
 | touchEnabled                 | 设置触摸             | bool        | No       | iOS/Android | Yes               |
@@ -365,7 +365,7 @@ ohpm install
 | chartDescription             | 设置描述部件         | Description | No       | iOS/Android | Yes               |
 | legend                       | 设置图例             | Legend      | No       | iOS/Android | Yes               |
 | xAxis                        | 设置 X 轴            | Xaxis       | No       | iOS/Android | Yes               |
-| highlights                   | 设置高亮             | object      | No       | iOS/Android | Yes               |
+| highlights                   | 设置高亮             | object      | No       | iOS/Android | NO                |
 
 ### BarLineChartBase
 
@@ -377,9 +377,9 @@ ohpm install
 | borderColor            | 设置边框颜色                                                                                  | number                          | No       | iOS/Android | Yes               |
 | borderWidth            | 设置边框宽度                                                                                  | number                          | No       | iOS/Android | Yes               |
 | minOffset              | 设置最小偏移                                                                                  | number                          | No       | iOS/Android | Yes               |
-| visibleRange           | 限制通过捏合和缩放可以看到的最大和最小 x 范围                                                 | object                          | No       | iOS/Android | Yes               |
+| visibleRange           | 限制通过捏合和缩放可以看到的最大和最小 x 范围                                                 | object                          | No       | iOS/Android | NO                |
 | autoScaleMinMaxEnabled | 是否设置 Y 轴的自动缩放标记                                                                   | bool                            | No       | iOS/Android | Yes               |
-| keepPositionOnRotation | 设置图表在旋转（方向更改）后是否应保持其位置（缩放/滚动                                       | bool                            | No       | iOS/Android | Yes               |
+| keepPositionOnRotation | 设置图表在旋转（方向更改）后是否应保持其位置（缩放/滚动                                       | bool                            | No       | iOS/Android | NO                |
 | scaleEnabled           | 是否启用缩放                                                                                  | bool                            | No       | iOS/Android | Yes               |
 | scaleXEnabled          | 是否启用 X 轴缩放                                                                             | bool                            | No       | iOS/Android | Yes               |
 | scaleYEnabled          | 是否启用 Y 轴缩放                                                                             | bool                            | No       | iOS/Android | Yes               |
@@ -402,7 +402,7 @@ ohpm install
 | valueTextSize    | 设置值的文本大小                            | number   | No       | iOS/Android | Yes               |
 | valueTextColor   | 设置值的文本颜色                            | number   | No       | iOS/Android | Yes               |
 | visible          | 设置值是否可见                              | bool     | No       | iOS/Android | Yes               |
-| valueFormatter   | 设置数据格式器                              | string   | No       | iOS/Android | Yes               |
+| valueFormatter   | 设置数据格式器                              | string   | No       | iOS/Android | NO                |
 | axisDependency   | 设置绘制此数据集所依据的 Y 轴（左轴或右轴） | string   | No       | iOS/Android | Yes               |
 
 #### barLineScatterCandleBubble
@@ -449,7 +449,7 @@ ohpm install
 | -------------------------- | ---------------------------------------------------- | ------------------------------------------------------------ | -------- | ----------- | ----------------- |
 | barShadowColor             | 设置用于绘制条形阴影的颜色                           | number                                                       | No       | iOS/Android | Yes               |
 | highlightAlpha             | 设置用于绘制高光的 alpha 值（透明度                  | number                                                       | No       | iOS/Android | Yes               |
-| stackLabels                | 为不同值的条形栈设置标签                             | string[]                                                     | No       | iOS/Android | Yes               |
+| stackLabels                | 为不同值的条形栈设置标签                             | string[]                                                     | No       | iOS/Android | NO                |
 | common                     | 公共数据数据                                         | Data Config Type.Common                                      | No       | iOS/Android | Yes               |
 | barLineScatterCandleBubble | 柱状图、条形图、散点图、气泡图、烛台图的公共基础数据 | Data Config Type.CommonConfigType.barLineScatterCandleBubble | No       | iOS/Android | Yes               |
 
@@ -554,7 +554,7 @@ ohpm install
 | drawCircles                | 将此值设置为 true 以启用此的圆圈指示器的绘制数据集，默认为 true | bool                                                         | No       | iOS/Android | Yes               |
 | mode                       | 设置 lineDataSet 的绘制模式                                     | object                                                       | No       | iOS/Android | Yes               |
 | lineWidth                  | 折线宽度                                                        | number                                                       | No       | iOS/Android | Yes               |
-| drawCubicIntensity         | 设置曲线弧度                                                    | number                                                       | No       | iOS/Android | Yes               |
+| drawCubicIntensity         | 设置曲线弧度                                                    | number                                                       | No       | iOS/Android | NO                |
 | circleColor                | 设置应该用于此数据集的唯一颜色                                  | number                                                       | No       | iOS/Android | Yes               |
 | circleColors               | 设置应该用于此数据集的颜色集                                    | number[]                                                     | No       | iOS/Android | Yes               |
 | circleHoleColor            | 设置线条圆的内圆的颜色。                                        | number                                                       | No       | iOS/Android | Yes               |
@@ -659,7 +659,13 @@ ohpm install
 ## 遗留问题
 
 ## 其他
-
+- [ ] 图例的maxSizePercent最大百分比属性在Android和iOS不生效， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/995)
+- [ ] 图例的custom属性，设置后会覆盖原有的图例，但自定义图例也不显示在Android和iOS中，属性不生效， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/996)
+- [ ] logEnabled 会开启安卓特有的日志logcat和 highlights属性在Android和iOS不生效， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/998)
+- [ ] stackLabels 堆叠条形图设置无效果和 drawCubicIntensity 曲线角度属性在Android和iOS不生效， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/997)
+- [ ] 在Android和iOS visibleRange 最大大小百分比限制通过缩放和缩放可以看到的最大和最小x范围不起作用， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/999)
+- [ ] keepPositionOnRotation旋转后保持图表原始位置属性在Android和iOS不生效， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/999)
+- [ ] valueFormatter格式化数据属性在Android和iOS不生效， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/935)
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://mitlicense.org/) ，请自由地享受和参与开源。

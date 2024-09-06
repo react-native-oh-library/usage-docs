@@ -13,11 +13,11 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/mfrachet/rn-placeholder)
+> [!tip] [Github 地址](https://github.com/react-native-oh-library/rn-placeholder)
 
 ## 安装与使用
 
-> [!tip] 因原作者未发布最新的组件版本到 npm 仓，如果 package.json 中 peerDependencies 依赖 react 版本与项目 react 版本不一致会产生依赖冲突。npm 安装需要引入--legacy-peer-deps 标志绕过 peerDependencies 自动安装
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/rn-placeholder Releases](https://github.com/react-native-oh-library/rn-placeholder/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
@@ -26,13 +26,13 @@
 #### **npm**
 
 ```bash
-npm install rn-placeholder@3.0.3
+npm install @react-native-oh-tpl/rn-placeholder@file:#
 ```
 
 #### **yarn**
 
 ```bash
-yarn add rn-placeholder@3.0.3
+yarn add @react-native-oh-tpl/rn-placeholder@file:#
 ```
 
 <!-- tabs:end -->
@@ -45,7 +45,7 @@ import {
   PlaceholderMedia,
   PlaceholderLine,
   Fade,
-} from "rn-placeholder";
+} from "@react-native-oh-tpl/rn-placeholder";
 
 const App = () => (
   <Placeholder

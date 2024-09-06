@@ -38,146 +38,128 @@ yarn add recyclerlistview@4.2.0
 下面的代码展示了这个库的基本使用场景：
 
 ```js
-import React, { Component } from "react";
-import { View, Text, Dimensions } from "react-native";
-import {
-  RecyclerListView,
-  DataProvider,
-  LayoutProvider,
-} from "recyclerlistview";
+import React, {useState} from 'react';
+import {View, Dimensions, Alert, Text} from 'react-native';
+import {RecyclerListView, DataProvider} from 'recyclerlistview';
+import {LayoutProvider} from 'recyclerlistview';
 
 const ViewTypes = {
-  FULL: 0,
-  HALF_LEFT: 1,
-  HALF_RIGHT: 2,
+  FIRST: 0,
+  SECOND: 1,
+  THIRD: 2,
 };
 
-let containerCount = 0;
-
-class CellContainer extends React.Component {
-  constructor(args) {
-    super(args);
-    this._containerId = containerCount++;
+class LayoutUtil {
+  static getWindowWidth() {
+    // To deal with precision issues on android
+    return Math.round(Dimensions.get('window').width * 1000) / 1000 - 6; //Adjustment for margin given to RLV;
   }
-  render() {
-    return (
-      <View {...this.props}>
-        {this.props.children}
-        <Text>Cell Id: {this._containerId}</Text>
-      </View>
+  static getLayoutProvider(type) {
+    return new LayoutProvider(
+      index => {
+        if (index % 3 === 0) {
+          return ViewTypes.FIRST;
+        } else if (index % 2 === 0) {
+          return ViewTypes.SECOND;
+        } else {
+          return ViewTypes.THIRD;
+        }
+      },
+      (type, dim, index) => {
+        const columnWidth = LayoutUtil.getWindowWidth() / 3;
+        if (index % 3 === 0) {
+          dim.width = 3 * columnWidth;
+          dim.height = 150;
+        } else if (index % 2 === 0) {
+          dim.width = 2 * columnWidth;
+          dim.height = 100;
+        } else {
+          dim.width = columnWidth;
+          dim.height = 100;
+        }
+      },
     );
   }
 }
 
-export default class RecycleTestComponent extends React.Component {
-  constructor(args) {
-    super(args);
-
-    let { width } = Dimensions.get("window");
-
-    let dataProvider = new DataProvider((r1, r2) => {
-      return r1 !== r2;
-    });
-
-    this._layoutProvider = new LayoutProvider(
-      (index) => {
-        if (index % 3 === 0) {
-          return ViewTypes.FULL;
-        } else if (index % 3 === 1) {
-          return ViewTypes.HALF_LEFT;
-        } else {
-          return ViewTypes.HALF_RIGHT;
-        }
-      },
-      (type, dim) => {
-        switch (type) {
-          case ViewTypes.HALF_LEFT:
-            dim.width = width / 2;
-            dim.height = 160;
-            break;
-          case ViewTypes.HALF_RIGHT:
-            dim.width = width / 2;
-            dim.height = 160;
-            break;
-          case ViewTypes.FULL:
-            dim.width = width;
-            dim.height = 140;
-            break;
-          default:
-            dim.width = 0;
-            dim.height = 0;
-        }
-      },
-    );
-
-    this._rowRenderer = this._rowRenderer.bind(this);
-
-    this.state = {
-      dataProvider: dataProvider.cloneWithRows(this._generateArray(300)),
-    };
+const generateArray = n => {
+  let arr = new Array(n);
+  for (let i = 0; i < n; i++) {
+    arr[i] = i;
   }
+  return arr;
+};
 
-  _generateArray(n) {
-    let arr = new Array(n);
-    for (let i = 0; i < n; i++) {
-      arr[i] = i;
-    }
-    return arr;
-  }
+export const RecyclerListViewBaseDemo = () => {
+  let {width} = Dimensions.get('window');
 
-  _rowRenderer(type, data) {
+  let dataProviderInit = new DataProvider((r1, r2) => {
+    return r1 !== r2;
+  });
+
+  const [dataProvider, setDataProvider] = useState(
+    dataProviderInit.cloneWithRows(generateArray(300)),
+  );
+
+  const rowRenderer = (type, data) => {
     switch (type) {
-      case ViewTypes.HALF_LEFT:
+      case ViewTypes.FIRST:
         return (
-          <CellContainer style={styles.containerGridLeft}>
-            <Text>Data: {data}</Text>
-          </CellContainer>
+          <View style={styles.containerFirst}>
+            <Text style={styles.centerText}>{data}</Text>
+          </View>
         );
-      case ViewTypes.HALF_RIGHT:
+      case ViewTypes.SECOND:
         return (
-          <CellContainer style={styles.containerGridRight}>
-            <Text>Data: {data}</Text>
-          </CellContainer>
+          <View style={styles.containerSecond}>
+            <Text style={styles.centerText}>{data}</Text>
+          </View>
         );
-      case ViewTypes.FULL:
+      case ViewTypes.THIRD:
         return (
-          <CellContainer style={styles.container}>
-            <Text>Data: {data}</Text>
-          </CellContainer>
+          <View style={styles.containerThree}>
+            <Text style={styles.centerText}>{data}</Text>
+          </View>
         );
       default:
         return null;
     }
-  }
+  };
 
-  render() {
-    return (
-      <RecyclerListView
-        layoutProvider={this._layoutProvider}
-        dataProvider={this.state.dataProvider}
-        rowRenderer={this._rowRenderer}
-      />
-    );
-  }
-}
+  return (
+    <RecyclerListView
+      layoutProvider={LayoutUtil.getLayoutProvider(0)}
+      dataProvider={dataProvider}
+      rowRenderer={rowRenderer}
+    />
+  );
+};
+
+export default RecyclerListViewBaseDemo;
+
 const styles = {
-  container: {
-    justifyContent: "space-around",
-    alignItems: "center",
+  containerFirst: {
+    justifyContent: 'space-around',
+    alignItems: 'center',
     flex: 1,
-    backgroundColor: "#00a1f1",
+    backgroundColor: '#00a1f1',
   },
-  containerGridLeft: {
-    justifyContent: "space-around",
-    alignItems: "center",
+  containerSecond: {
+    justifyContent: 'space-around',
+    alignItems: 'center',
     flex: 1,
-    backgroundColor: "#ffbb00",
+    backgroundColor: '#ffbb00',
   },
-  containerGridRight: {
-    justifyContent: "space-around",
-    alignItems: "center",
+  containerThree: {
+    justifyContent: 'space-around',
+    alignItems: 'center',
     flex: 1,
-    backgroundColor: "#7cbb00",
+    backgroundColor: '#7cbb00',
+  },
+  centerText: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: '#000000',
   },
 };
 ```
@@ -189,6 +171,7 @@ const styles = {
 本文档内容基于以下版本验证通过：
 
 1. RNOH：0.72.26; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.300; ROM：3.0.0.25;
+2. RNOH：0.72.29; SDK：HarmonyOS NEXT Developer Beta6; IDE：DevEco Studio 5.0.3.706; ROM：3.0.0.61;
 
 ## 属性
 
@@ -196,41 +179,36 @@ const styles = {
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-详情见 [RecyclerListView 源库地址](https://github.com/Flipkart/recyclerlistview)
-
-| Name                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Type                                                                                       | Required | Platform | HarmonyOS Support |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | -------- | -------- | ----------------- |
-| layoutProvider                 | Constructor function that defines the layout (height / width) of each element                                                                                                                                                                                                                                                                                                                                                                                                  | BaseLayoutProvider                                                                         | Yes      | All      | Yes               |
-| dataProvider                   | Constructor function the defines the data for each element                                                                                                                                                                                                                                                                                                                                                                                                                     | DataProvider                                                                               | Yes      | All      | Yes               |
-| contextProvider                | Used to maintain scroll position in case view gets destroyed, which often happens with back navigation                                                                                                                                                                                                                                                                                                                                                                         | ContextProvider                                                                            | No       | All      | No                |
-| rowRenderer                    | Method that returns react component to be rendered. You get the type, data, index and extendedState of the view in the callback                                                                                                                                                                                                                                                                                                                                                | (type: string \| number, data: any, index: number) => JSX.Element \| JSX.Element[] \| null | Yes      | All      | Yes               |
-| initialOffset                  | Initial offset you want to start rendering from; This is very useful if you want to maintain scroll context across pages.                                                                                                                                                                                                                                                                                                                                                      | number                                                                                     | No       | All      | Yes               |
-| renderAheadOffset              | specify how many pixels in advance you want views to be rendered. Increasing this value can help reduce blanks (if any). However, keeping this as low as possible should be the intent. Higher values also increase re-render compute                                                                                                                                                                                                                                          | number                                                                                     | No       | All      | Yes               |
-| isHorizontal                   | If true, the list will operate horizontally rather than vertically                                                                                                                                                                                                                                                                                                                                                                                                             | boolean                                                                                    | No       | All      | Yes               |
-| onScroll                       | On scroll callback function that executes as a user scrolls                                                                                                                                                                                                                                                                                                                                                                                                                    | rawEvent: ScrollEvent, offsetX: number, offsetY: number) => void                           | No       | All      | Yes               |
-| onRecreate                     | callback function that gets executed when recreating the recycler view from context provider                                                                                                                                                                                                                                                                                                                                                                                   | (params: OnRecreateParams) => void                                                         | No       | All      | No                |
-| externalScrollView             | Use this to pass your on implementation of BaseScrollView                                                                                                                                                                                                                                                                                                                                                                                                                      | { new (props: ScrollViewDefaultProps): BaseScrollView }                                    | No       | All      | No                |
-| onEndReached                   | Callback function executed when the end of the view is hit (minus onEndThreshold if defined)                                                                                                                                                                                                                                                                                                                                                                                   | () => void                                                                                 | No       | All      | Yes               |
-| onEndReachedThreshold          | Specify how many pixels in advance for the onEndReached callback                                                                                                                                                                                                                                                                                                                                                                                                               | number                                                                                     | No       | All      | Yes               |
-| onEndReachedThresholdRelative  | Specify how far from the end (in units of visible length of the list) the bottom edge of the list must be from the end of the content to trigger the onEndReached callback                                                                                                                                                                                                                                                                                                     | number                                                                                     | No       | All      | Yes               |
-| onVisibleIndicesChanged        | Provides visible index; helpful in sending impression events                                                                                                                                                                                                                                                                                                                                                                                                                   | TOnItemStatusChanged                                                                       | No       | All      | Yes               |
-| onVisibleIndexesChanged        | (Deprecated in 2.0 beta) Provides visible index; helpful in sending impression events                                                                                                                                                                                                                                                                                                                                                                                          | TOnItemStatusChanged                                                                       | No       | All      | No                |
-| renderFooter                   | Provide this method if you want to render a footer. Helpful in showing a loader while doing incremental loads                                                                                                                                                                                                                                                                                                                                                                  | () => JSX.Element \| JSX.Element[] \| null                                                 | No       | All      | Yes               |
-| initialRenderIndex             | Specify the initial item index you want rendering to start from. Preferred over initialOffset if both specified                                                                                                                                                                                                                                                                                                                                                                | number                                                                                     | No       | All      | yes               |
-| scrollThrottle                 | iOS only; Scroll throttle duration                                                                                                                                                                                                                                                                                                                                                                                                                                             | number                                                                                     | No       | All      | No                |
-| canChangeSize                  | Specify if size can change                                                                                                                                                                                                                                                                                                                                                                                                                                                     | boolean                                                                                    | No       | All      | No                |
-| distanceFromWindow             | (Depricated) Use applyWindowCorrection() API with windowShift.                                                                                                                                                                                                                                                                                                                                                                                                                 | number                                                                                     | No       | All      | No                |
-| applyWindowCorrection          | (Enhancement/replacement to distanceFromWindow API) Allows updation of the visible windowBounds to based on correctional values passed. User can specify windowShift; in case entire RecyclerListWindow needs to shift down/up, startCorrection; in case when top window bound needs to be shifted for e.x. top window bound to be shifted down is a content overlapping the top edge of RecyclerListView, endCorrection: to alter bottom window bound for a similar use-case. | (offset: number, windowCorrection: WindowCorrection) => void                               | No       | All      | Yes               |
-| useWindowScroll                | Web only; Layout Elements in window instead of a scrollable div                                                                                                                                                                                                                                                                                                                                                                                                                | boolean                                                                                    | No       | All      | No                |
-| disableRecycling               | Turns off recycling                                                                                                                                                                                                                                                                                                                                                                                                                                                            | boolean                                                                                    | No       | All      | Yes               |
-| forceNonDeterministicRendering | Default is false; if enabled dimensions provided in layout provider will not be strictly enforced. Use this if item dimensions cannot be accurately determined                                                                                                                                                                                                                                                                                                                 | boolean                                                                                    | No       | All      | Yes               |
-| extendedState                  | In some cases the data passed at row level may not contain all the info that the item depends upon, you can keep all other info outside and pass it down via this prop. Changing this object will cause everything to re-render. Make sure you don't change it often to ensure performance. Re-renders are heavy.                                                                                                                                                              | object                                                                                     | No       | All      | No                |
-| itemAnimator                   | Enables animating RecyclerListView item cells (shift, add, remove, etc)                                                                                                                                                                                                                                                                                                                                                                                                        | ItemAnimator                                                                               | No       | All      | No                |
-| style                          | To pass down style to inner ScrollView                                                                                                                                                                                                                                                                                                                                                                                                                                         | object                                                                                     | No       | All      | Yes               |
-| scrollViewProps                | For all props that need to be proxied to inner/external scrollview. Put them in an object and they'll be spread and passed down.                                                                                                                                                                                                                                                                                                                                               | object                                                                                     | No       | All      | Yes               |
-| layoutSize                     | Will prevent the initial empty render required to compute the size of the listview and use these dimensions to render list items in the first render itself. This is useful for cases such as server side rendering. The prop canChangeSize has to be set to true if the size can be changed after rendering. Note that this is not the scroll view size and is used solely for layouting.                                                                                     | Dimension                                                                                  | No       | All      | Yes               |
-| onItemLayout                   | A callback function that is executed when an item of the recyclerListView (at an index) has been layout. This can also be used as a proxy to itemsRendered kind of callbacks.                                                                                                                                                                                                                                                                                                  | number                                                                                     | No       | All      | Yes               |
-| windowCorrectionConfig         | Used to specify is window correction config and whether it should be applied to some scroll events                                                                                                                                                                                                                                                                                                                                                                             | object                                                                                     | No       | All      | Yes               |
+| Name            | Description                                                                                                                                         | Type                                                                                                                       | Required | Platform | HarmonyOS Support |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------------- |
+| layoutProvider | Constructor function that <br>defines the layout (height /<br> width) of each element | BaseLayoutProvider | Yes      | iOS Android | Yes |
+| dataProvider | Constructor function the <br>defines the data for each element | DataProvider | Yes | iOS Android | Yes |
+| contextProvider | Used to maintain scroll position <br>in case view gets destroyed,  which <br>often happens with back navigation | ContextProvider | No | iOS Android | Yes |
+| rowRenderer | Method that returns react <br>component to be rendered.<br> You get the type, data, index <br>and extendedState of the view <br>in the callback | function | Yes | iOS Android | Yes               |
+| initialOffset | Initial offset you want to start<br> rendering from; This is very useful<br> if you want to maintain scroll context<br> across pages. | number | No | iOS Android | Yes              |
+| renderAheadOffset | specify how many pixels in <br>advance you want views to <br>be rendered. Increasing this<br> value can help reduce blanks <br>(if any).However, keeping this<br> as low as possible .should be <br>the intent Higher values also .<br>increase re-render compute | number | No | iOS Android | Yes |
+| isHorizontal | If true, the list will operate<br> horizontally .rather than vertically | boolean | No | iOS Android | Yes               |
+| onScroll | On scroll callback function that <br>executes. as a user scrolls | function | No | iOS Android | Yes             |
+| onRecreate | callback function that gets <br>executed. when recreating the <br>recycler view from context provider | function | No | iOS Android | Yes                |
+| externalScrollView | Use this to pass your on<br> implementation of BaseScrollView | { new (props: ScrollViewDefaultProps): BaseScrollView } | No | iOS Android | Yes               |
+| onEndReached | Callback function executed <br>when the end of the view is hit <br>(minus onEndThreshold if defined) | function | No | iOS Android | Yes               |
+| onEndReachedThreshold | Specify how many pixels in advance <br>for the onEndReached callback | number | No | iOS Android | Yes |
+| onEndReachedThresholdRelative | Specify how far from the end <br>(in units of visible length of the list)<br> the bottom edge of the list must be  <br>from theend of the content to trigger  <br>the onEndReached callback | number | No | iOS Android | Yes               |
+| onVisibleIndicesChanged | Provides visible index; <br> helpful in sending impression events | TOnItemStatusChanged | No | iOS Android | Yes              |
+| renderFooter | Provide this method if you want to <br>render a footer. Helpful in showing <br>a loader while doing incremental loads | function | No | iOS Android | Yes               |
+| initialRenderIndex | Specify the initial item index you<br> want rendering to start from. Preferred <br>over initialOffset if both specified | number | No | iOS Android | Yes          |
+| scrollThrottle | iOS only; Scroll throttle duration | number | No | iOS | Yes |
+| canChangeSize | Specify if size can change | boolean | No | iOS Android | Yes               |
+| applyWindowCorrection | (Enhancement/replacement to <br>distanceFromWindow API) Allows  <br>updation of the visible windowBounds <br> to based on correctional values passed. <br>User can specify windowShift; in case <br>entire RecyclerListWindow needs to <br>shift down/up, startCorrection; in case <br>when top window bound needs to be <br>shifted for e.x. top window bound to be <br> shifted down is a content overlapping <br>the top edge of RecyclerListView,<br> endCorrection: to alter bottom window<br>  bound for a similar use-case. | function | No | iOS Android | Yes |
+| disableRecycling | Turns off recycling | boolean| No | iOS Android | Yes               |
+| forceNonDeterministicRendering | Default is false; <br> if enabled dimensions<br> provided in layout  provider <br>will not be strictly enforced.<br> Use  this if item dimensions <br>cannot be accurately determined | boolean | No | iOS Android | Yes |
+| extendedState | In some cases the data passed at row <br>level may not contain all the info that <br>the item depends upon,you can keep <br>all other info outside and pass it down <br>via this prop. Changing this object <br> willcause everything to re-render. Make sureyou don't change it often to ensure<br> performance. Re-renders are heavy. | object | No | iOS Android | Yes |
+| itemAnimator | Enables animating RecyclerListView<br> item cells (shift, add, remove, etc) | ItemAnimator | No | iOS Android | Yes                |
+| style | To pass down style to inner ScrollView | object | No | iOS Android  | Yes  |
+| scrollViewProps | For all props that need to be proxied <br>to inner/external scrollview. Put them <br>in an object and they'll be spread and passed down. | object | No | iOS Android | Yes    |
+| layoutSize | Will prevent the initial empty render <br>required to compute the size of the<br> listview and use these dimensions to <br>render list items in the first render <br>itself. This is useful for cases such<br> as server side rendering. The prop canChangeSize has to be set to true<br> if the size can be changed after <br>rendering. Note that this is not the scroll view size and is used solely for layouting. | Dimension | No | iOS Android | Yes              |
+| onItemLayout | A callback function that is executed<br> when an item of the recyclerListView<br> (at an index) has been layout. This can also be used as a proxy to itemsRendered kind of callbacks. | number | No | iOS Android | Yes          |
+| windowCorrectionConfig | Used to specify is window<br> correction config and whether<br> it should be applied to some <br>scroll events | object | No | iOS Android | Yes               |
 
 ## 遗留问题
 

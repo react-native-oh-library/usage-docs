@@ -13,7 +13,7 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/gluestack/react-native-aria/tree/v0.2.4)
+> [!TIP] [Github 地址](https://github.com/gluestack/react-native-aria/tree/main)
 
 ## 安装与使用
 
@@ -24,7 +24,7 @@ React Native ARIA是可增量采用的。每个组件都作为单独的包发布
 #### **yarn**
 
 ```bash
-yarn add @react-native-aria/button@0.2.2
+yarn add react-native-aria@0.2.3
 ```
 
 <!-- tabs:end -->
@@ -32,17 +32,17 @@ yarn add @react-native-aria/button@0.2.2
 #### **npm**
 
 ```bash
-npm install @react-native-aria/button@0.2.2
+npm install react-native-aria@0.2.3
 ```
 
 <!-- tabs:end -->
 
-除了单独的包之外，我们还提供了一个总包，其中包含所有React Native ARIA hooks
+除了总包之外，我们还提供了一些单独包，如：@react-native-aria/button
 
 #### **yarn**
 
 ```bash
-yarn add react-native-aria@0.2.2
+yarn add @react-native-aria/button@0.2.7
 ```
 
 <!-- tabs:end -->
@@ -50,7 +50,7 @@ yarn add react-native-aria@0.2.2
 #### **npm**
 
 ```bash
-npm install react-native-aria@0.2.2
+npm install @react-native-aria/button@0.2.7
 ```
 
 <!-- tabs:end -->
@@ -60,119 +60,118 @@ npm install react-native-aria@0.2.2
 ```js
 import React from "react";
 import { useToggleButton } from "@react-native-aria/button";
-import { Pressable, Text, View } from "react-native";
 import { useToggleState } from "@react-stately/toggle";
+import { Pressable, Text, View } from "react-native";
 import { useRef } from "react";
 
-export function ToggleButton(props) {
-  const ref = useRef(null);
-  let state = useToggleState(props);
-  let { buttonProps, isPressed } = useToggleButton(props, state, ref); //useToggleButton 是一个用于创建可切换按钮的 Hook，接受三个参数
+export function ToggleButton(props: any) {
+    const ref = useRef(null);
+    let state = useToggleState(props);
+    let { buttonProps, isPressed } = useToggleButton(props, state);
 
-  return (
-    <View>
-      <Pressable
-        ref={ref}
-        {...buttonProps}
-        style={{
-          backgroundColor: state.isSelected ? "rgb(9, 90, 186)" : "#e1e1e1",
-          padding: 5,
-        }}
-      >
-        <Text
-          style={{
-            color: state.isSelected ? "#f1f1f1" : "#000",
-          }}
-        >
-          A simple toggle button
-        </Text>
-      </Pressable>
-
-      <View>
-        <View>
-          <Text>{state.isSelected ? "Selected" : "Not Selected"}</Text>
+    return (
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text>ToggleButton：</Text>
+            <Pressable ref={ref} {...buttonProps}
+                style={{
+                    backgroundColor: state.isSelected ? "rgb(9, 90, 186)" : "#e1e1e1", borderRadius: 15,
+                    padding: 5, width: 100, height: 30, justifyContent: 'center', alignItems: 'center'
+                }}
+            >
+                <Text style={{ color: state.isSelected ? "#f1f1f1" : "#000" }} >点击切换</Text>
+            </Pressable>
         </View>
-      </View>
-    </View>
-  );
+    );
 }
 
-export default function AriaDemo() {
-  return (
-    <View style={{ width: "100%", marginTop: "100" }}>
-      <ToggleButton>Toggle button</ToggleButton>
-    </View>
-  );
-}
+export default ToggleButton
+
 ```
 
 下面的代码展示了useCheckbox与useCheckboxGroup的基本使用场景：
 
 ```javascript
-import React ,{ useContext, useRef }from 'react';
-import {useCheckboxGroupState} from '@react-stately/checkbox';
-import {useCheckbox, useCheckboxGroup,useCheckboxGroupItem} from '@react-native-aria/checkbox';
-import {Platform, Pressable, Text, View} from 'react-native';
-import {VisuallyHidden} from '@react-aria/visually-hidden';
-import {useFocusRing} from '@react-native-aria/focus';
+import React, { useContext, useRef } from 'react';
+import { Pressable, View, Text } from 'react-native';
+import { useCheckbox, useCheckboxGroupItem, useCheckboxGroup } from '@react-native-aria/checkbox';
+import { useToggleState } from '@react-stately/toggle';
+import { useCheckboxGroupState } from "@react-stately/checkbox";
+import { useFocusRing } from '@react-native-aria/focus';
+
 let CheckboxGroupContext = React.createContext<any>(null);
 
+const CheckboxItems = [{ key: 'soccer', value: '足球' }, { key: 'baseball', value: '棒球' }, { key: 'basketball', value: '篮球' }]
+const findName = (value: string) => {
+    const item = CheckboxItems.find(i => { return i.key === value; })
+    return item && item.value
+}
+
 export function CheckboxGroup(props: any) {
-  let {children, label} = props;
-  let state = useCheckboxGroupState(props);
-  let {checkboxgroupProps, labelProps} = useCheckboxGroup(props, state);
+    let { children, label } = props;
+    let state = useCheckboxGroupState(props);
+    let { groupProps, labelProps } = useCheckboxGroup(props, state);
 
-  return (
-    <View {...checkboxgroupProps}>
-      {label && <Text {...labelProps}>{label}</Text>}
-      <CheckboxGroupContext.Provider value={state}>
-        {children}
-      </CheckboxGroupContext.Provider>
-    </View>
-  );
-}
-export function Checkbox(props: any) {
-
-  let state = useContext(CheckboxGroupContext);
-  const inputRef = React.useRef(null);
-  let {isFocusVisible, focusProps} = useFocusRing();
-  let { inputProps } = state
-  ?
-    useCheckboxGroupItem(
-      {
-        ...props,
-        isRequired: props.isRequired,
-        validationState: props.validationState,
-      },
-      state,
-      inputRef
-    )
-  :
-    useCheckbox(props, useToggleState(props), inputRef);
-  return (
-    <>
-      <Pressable {...inputProps} {...focusProps}>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <View style={isFocusVisible ? {borderWidth: 1} : {}}></View>
-          <Text>{props.children}</Text>
+    return (
+        <View {...groupProps} style={{ flexDirection: 'row', alignItems: 'center' }}>
+            {label && <Text {...labelProps}>{label}</Text>}
+            <CheckboxGroupContext.Provider value={state}>
+                {children}
+            </CheckboxGroupContext.Provider>
+            <View><Text>已经选择：</Text>{props.value.map(i=>{
+                return <Text>{findName(i)}</Text>
+            })}</View> 
         </View>
-        <Text>{inputProps.checked ? 'selected' : 'not selected'}</Text>
-      </Pressable>
-    </>
-  );
+    );
 }
 
-export default function CheckboxDemo() {
-  return (
-    <View style={{width: '100%', marginTop: '20', marginLeft: '30'}}>
-      <CheckboxGroup label="Favorite pet">
-        <Checkbox value="dogs">Dogs</Checkbox>
-        <Checkbox value="cats">Cats</Checkbox>
-        <Checkbox value="rabbits">rabbits</Checkbox>
-      </CheckboxGroup>
-    </View>
-  );
+
+export function Checkbox(props: any) {
+    let groupState = useContext(CheckboxGroupContext);
+    let inputRef = useRef<HTMLInputElement>(null);
+
+    let { isFocusVisible, focusProps } = useFocusRing();
+
+    let { inputProps } = groupState ? useCheckboxGroupItem(
+        {
+            ...props,
+            isRequired: props.isRequired,
+            validationState: props.validationState,
+        },
+        groupState,
+        inputRef
+    ) : useCheckbox(props, useToggleState(props), inputRef);
+
+    return (
+        <View style={isFocusVisible ? { borderWidth: 2 } : {}}>
+            <Pressable {...inputProps} {...focusProps} >
+                <View style={{ flexDirection: 'row', alignItems: 'center', marginRight: 5 }}>
+                    {props.children}
+                </View>
+            </Pressable>
+        </View>
+    );
 }
+
+export const CheckboxExample = () => {
+    const [state, setCheckbox] = React.useState([]);
+
+    return (
+        <CheckboxGroup
+            label="CheckboxGroup："
+            value={state}
+            onChange={(val: any) => {
+                setCheckbox(val);
+            }}
+        >
+            {CheckboxItems.map(i => {
+                return <Checkbox key={i.key} value={i.key}>
+                    <Text>{i.value}</Text>
+                </Checkbox>;
+            })}
+        </CheckboxGroup>
+    );
+};
+export default CheckboxExample
 
 ```
 
@@ -182,70 +181,71 @@ export default function CheckboxDemo() {
 import React from "react";
 import { useRadioGroupState } from "@react-stately/radio";
 import { useRadio, useRadioGroup } from "@react-native-aria/radio";
-import { Platform, Pressable, Text, View } from "react-native";
-import { VisuallyHidden } from "@react-aria/visually-hidden";
+import { Pressable, Text, View } from "react-native";
 import { useFocusRing } from "@react-native-aria/focus";
 
 let RadioContext = React.createContext<any>({});
 
-export function RadioGroup(props: any) {
-  let { children, label } = props;
-  let state = useRadioGroupState(props);
-  let { radioGroupProps, labelProps } = useRadioGroup(props, state);
+const radioItems = [{ key: 'dogs', value: '狗子' }, { key: 'cats', value: '猫儿' }]
+const findName = (value: string) => {
+    const item = radioItems.find(i => { return i.key === value; })
+    return item && item.value
+}
 
-  return (
-    <View {...radioGroupProps}>
-      <Text {...labelProps}>{label}</Text>
-      <RadioContext.Provider
-        value={{
-          isDisabled: props.isDisabled,
-          isReadOnly: props.isReadOnly,
-          state,
-        }}
-      >
-        {children}
-      </RadioContext.Provider>
-    </View>
-  );
+export function RadioGroup(props: any) {
+    let { children, label } = props;
+    let state = useRadioGroupState(props);
+    let { radioGroupProps, labelProps } = useRadioGroup(props, state);
+
+    return (
+        <View {...radioGroupProps} style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <Text {...labelProps}>{label}</Text>
+            <RadioContext.Provider
+                value={{
+                    isDisabled: props.isDisabled,
+                    isReadOnly: props.isReadOnly,
+                    state,
+                }}
+            >
+                {children}
+            </RadioContext.Provider>
+            <Text>已经选择：{findName(state.selectedValue as string)}</Text>
+        </View>
+    );
 }
 
 export function Radio(props: any) {
-  let { state, isReadOnly, isDisabled } = React.useContext(RadioContext);
-  const inputRef = React.useRef(null);
-  let { inputProps } = useRadio(
-    { isReadOnly, isDisabled, ...props },
-    state,
-    inputRef
-  );
-  let { isFocusVisible, focusProps } = useFocusRing();
+    let { state, isReadOnly, isDisabled } = React.useContext(RadioContext);
+    const inputRef = React.useRef(null);
+    let { inputProps } = useRadio(
+        { isReadOnly, isDisabled, ...props },
+        state,
+        inputRef
+    );
+    let { isFocusVisible, focusProps } = useFocusRing();
 
-  let isSelected = state.selectedValue === props.value;
-
-  return (
-    <>
-        <Pressable {...inputProps} {...focusProps}>
-          <View style={{ flexDirection: "row", alignItems: "center" }}>
-            <View style={isFocusVisible ? { borderWidth: 1 } : {}}>
-              <Icon size={30} color={"#000"} name={"radiobox-marked"} />
+    return (
+        <Pressable {...inputProps}{...focusProps} style={{ marginRight: 5 }}>
+            <View style={[{ flexDirection: 'row', alignItems: 'center' }, isFocusVisible ? { borderWidth: 1 } : {},]}>
+                <Text>{props.children}</Text>
             </View>
-            <Text>{props.children}</Text>
-          </View>
-          <Text>{isSelected ? "selected" : "not selected"}</Text>
         </Pressable>
-    </>
-  );
+    );
 }
 
-export default function RadioDemo() {
-  return (
-    <View style={{width:'100%',marginTop:'20',marginLeft:'30'}}>
-       <RadioGroup label="Favorite pet">
-      <Radio value="dogs">Dogs</Radio>
-      <Radio value="cats">Cats</Radio>
-    </RadioGroup>
-    </View>
-     );
-}
+export const RadioExample = () => {
+    return (
+        <View>
+            <RadioGroup label="RadioGroup：">
+                {radioItems.map(i => {
+                    return <Radio key={i.key} value={i.key}>{i.value}</Radio>
+                })}
+            </RadioGroup>
+        </View>
+    );
+};
+export default RadioExample
+
 ```
 
 下面的代码展示了useSwitch的基本使用场景：
@@ -253,169 +253,151 @@ export default function RadioDemo() {
 ```javascript
 import { useToggleState } from "@react-stately/toggle";
 import React, { useRef } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Animated,
-  Platform,
-  Pressable,
-} from "react-native";
+import { StyleSheet, Text, View, Animated, Pressable } from "react-native";
 import { useSwitch } from "@react-native-aria/switch";
 import { useFocusRing } from "@react-native-aria/focus";
 import { VisuallyHidden } from "@react-aria/visually-hidden";
 
 const calculateDimensions = (size: any) => {
-  switch (size) {
-    case "small":
-      return {
-        width: 40,
-        padding: 10,
-        circleWidth: 15,
-        circleHeight: 15,
-        translateX: 22,
-      };
-    case "large":
-      return {
-        width: 70,
-        padding: 20,
-        circleWidth: 30,
-        circleHeight: 30,
-        translateX: 38,
-      };
-    default:
-      return {
-        width: 46,
-        padding: 12,
-        circleWidth: 18,
-        circleHeight: 18,
-        translateX: 26,
-      };
-  }
+    switch (size) {
+        case "small":
+            return {
+                width: 40,
+                padding: 10,
+                circleWidth: 15,
+                circleHeight: 15,
+                translateX: 22,
+            };
+        case "large":
+            return {
+                width: 70,
+                padding: 20,
+                circleWidth: 30,
+                circleHeight: 30,
+                translateX: 38,
+            };
+        default:
+            return {
+                width: 46,
+                padding: 12,
+                circleWidth: 18,
+                circleHeight: 18,
+                translateX: 26,
+            };
+    }
 };
+
 const defaultProps = {
-  isOn: false,
-  onColor: "#4cd137",
-  offColor: "#ecf0f1",
-  size: "medium",
-  labelStyle: {},
-  thumbOnStyle: {},
-  thumbOffStyle: {},
-  trackOnStyle: {},
-  trackOffStyle: {},
-  icon: null,
-  disabled: false,
-  animationSpeed: 300,
-  useNativeDriver: true,
-  circleColor: "white",
+    isOn: false,
+    onColor: "#4cd137",
+    offColor: "#ecf0f1",
+    size: "medium",
+    labelStyle: {},
+    thumbOnStyle: {},
+    thumbOffStyle: {},
+    trackOnStyle: {},
+    trackOffStyle: {},
+    icon: null,
+    disabled: false,
+    animationSpeed: 300,
+    useNativeDriver: true,
+    circleColor: "white",
 };
+
 export function Switch(origProps: any) {
-  const props = {
-    ...defaultProps,
-    ...origProps,
-  };
+    const props = {
+        ...defaultProps,
+        ...origProps,
+    };
 
-  const offsetX = useRef(new Animated.Value(0));
-  const dimensions = useRef(calculateDimensions(props.size));
+    const offsetX = useRef(new Animated.Value(0));
+    const dimensions = useRef(calculateDimensions(props.size));
 
-  const createToggleSwitchStyle = () => [
-    {
-      justifyContent: "center",
-      width: dimensions.current.width,
-      borderRadius: 20,
-      padding: dimensions.current.padding,
-      backgroundColor: props.isOn ? props.onColor : props.offColor,
-    },
-    props.isOn ? props.trackOnStyle : props.trackOffStyle,
-  ];
+    const createToggleSwitchStyle = () => [
+        {
+            justifyContent: "center",
+            width: dimensions.current.width,
+            borderRadius: 20,
+            padding: dimensions.current.padding,
+            backgroundColor: props.isOn ? props.onColor : props.offColor,
+        },
+        props.isOn ? props.trackOnStyle : props.trackOffStyle,
+    ];
 
-  const createInsideCircleStyle = () => [
-    {
-      alignItems: "center",
-      justifyContent: "center",
-      margin: Platform.OS === "web" ? 0 : 4,
-      left: Platform.OS === "web" ? 4 : 0,
-      position: "absolute",
-      backgroundColor: props.circleColor,
-      transform: [{ translateX: offsetX.current }],
-      width: dimensions.current.circleWidth,
-      height: dimensions.current.circleHeight,
-      borderRadius: dimensions.current.circleWidth / 2,
-      shadowColor: "#000",
-      shadowOffset: {
-        width: 0,
-        height: 2,
-      },
-      shadowOpacity: 0.2,
-      shadowRadius: 2.5,
-      elevation: 1.5,
-    },
-    props.isOn ? props.thumbOnStyle : props.thumbOffStyle,
-  ];
+    const createInsideCircleStyle = () => [
+        {
+            alignItems: "center",
+            justifyContent: "center",
+            margin: 4,
+            left: 0,
+            position: "absolute",
+            backgroundColor: props.circleColor,
+            transform: [{ translateX: offsetX.current }],
+            width: dimensions.current.circleWidth,
+            height: dimensions.current.circleHeight,
+            borderRadius: dimensions.current.circleWidth / 2,
+            shadowColor: "#000",
+            shadowOffset: {
+                width: 0,
+                height: 2,
+            },
+            shadowOpacity: 0.2,
+            shadowRadius: 2.5,
+            elevation: 1.5,
+        },
+        props.isOn ? props.thumbOnStyle : props.thumbOffStyle,
+    ];
 
-  const { isOn, icon } = props;
+    const { isOn, icon, label, labelStyle = {} } = props;
 
-  const toValue = isOn
-    ? dimensions.current.width - dimensions.current.translateX
-    : 0;
+    const toValue = isOn
+        ? dimensions.current.width - dimensions.current.translateX
+        : 0;
 
-  Animated.timing(offsetX.current, {
-    toValue,
-    duration: props.animationSpeed,
-    useNativeDriver: props.useNativeDriver,
-  }).start();
+    Animated.timing(offsetX.current, {
+        toValue,
+        duration: props.animationSpeed,
+        useNativeDriver: props.useNativeDriver,
+    }).start();
 
-  return (
-    <View style={styles.container}>
-      <View style={[...createToggleSwitchStyle(), { marginBottom: 5 }]}>
-        <Animated.View style={createInsideCircleStyle()}>{icon}</Animated.View>
-      </View>
-      <Text>{isOn ? "on" : "off"}</Text>
-    </View>
-  );
+    return (
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            {label && <Text style={labelStyle}>{label}</Text>}
+            <View style={[...createToggleSwitchStyle(), { marginBottom: 5 }]}>
+                <Animated.View style={createInsideCircleStyle()}>{icon}</Animated.View>
+            </View>
+            <Text style={{ marginLeft: 5 }}>{isOn ? "开" : "关"}</Text>
+        </View>
+    );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    alignItems: "center",
-  },
-  labelStyle: {
-    marginHorizontal: 10,
-  },
-});
 
 export function ControlledSwitch() {
-  const state = useToggleState();
-  const { isFocusVisible, focusProps } = useFocusRing();
-  const inputRef = useRef(null);
-  let { inputProps } = useSwitch(
-    { "aria-label": "Example switch" },
-    state,
-    inputRef
-  );
-    return (
-      <Pressable {...inputProps} {...focusProps} ref={inputRef}>
-        <View style={isFocusVisible ? { borderWidth: 2 } : {}}>
-          <Switch
-            isOn={state.isSelected}
-            onColor="green"
-            offColor="red"
-            label={"this is a switch"}
-            labelStyle={{ color: "black", fontWeight: "900" }}
-            size="large"
-            onToggle={state.toggle}
-          />
-        </View>
-      </Pressable>
+    const state = useToggleState();
+    const { isFocusVisible, focusProps } = useFocusRing();
+    const inputRef = useRef(null);
+    let { inputProps } = useSwitch(
+        { "aria-label": "Example switch" },
+        state,
+        inputRef
     );
-  }
-export default function SwitchDemo () {
-  return (
-    <View style={{marginTop:'30'}}>
-     <ControlledSwitch></ControlledSwitch>
-    </View>
-     );
+
+    return (
+        <Pressable {...inputProps} {...focusProps} ref={inputRef}>
+            <View style={isFocusVisible ? { borderWidth: 2 } : {}}>
+                <Switch
+                    isOn={state.isSelected}
+                    onColor="green"
+                    offColor="red"
+                    label='Switch：'
+                    size="large"
+                    onToggle={state.toggle}
+                />
+            </View>
+        </Pressable>
+    );
+
 }
+export default ControlledSwitch
 
 ```
 
@@ -423,143 +405,137 @@ export default function SwitchDemo () {
 
 ```javascript
 import React from "react";
-import {
-  OverlayContainer,
-  useOverlayPosition,
-  OverlayProvider,
-} from "@react-native-aria/overlays";
-import {
-  View,
-  Text,
-  Pressable,
-  TouchableWithoutFeedback,
-  StyleSheet,
-} from "react-native";
+import { useOverlayPosition, OverlayProvider, OverlayContainer } from "@react-native-aria/overlays";
+import { useButton } from "@react-native-aria/button";
+import { View, Text, Pressable, ScrollView, Modal } from "react-native";
+import { useToggleState } from "@react-stately/toggle";
 
-// Button to close overlay on outside click
-function CloseButton(props) {
-  return (
-    <TouchableWithoutFeedback onPress={props.onClose}>
-      <View style={StyleSheet.absoluteFill}></View>
-    </TouchableWithoutFeedback>
-  );
+const positions = [
+    "top",
+    "left",
+    "right",
+    "bottom",
+    "top left",
+    "top right",
+    "left top",
+    "left bottom",
+    "bottom right, bottom left",
+    "right top",
+    "right bottom",
+];
+
+export function TriggerWrapper() {
+    const [placement, setPlacement] = React.useState<any>(-1);
+    React.useEffect(() => {
+        const id = setInterval(() => {
+            setPlacement((prev) => (prev + 1) % positions.length);
+        }, 2000);
+        return () => clearInterval(id);
+    }, []);
+
+    return <Trigger placement={positions[placement]}></Trigger>;
 }
 
-const OverlayView = ({ triggerRef, placement }) => {
-  let overlayRef = React.useRef();
+const OverlayView = ({ targetRef, placement = 'top' }) => {
+    let overlayRef = React.useRef();
 
-  const { overlayProps } = useOverlayPosition({
-    placement,
-    targetRef: triggerRef,
-    overlayRef,
-    offset: 10,
-  });
+    const { overlayProps } = useOverlayPosition({
+        placement: placement as any,
+        targetRef,
+        overlayRef,
+        offset: 10,
+    });
 
-  return (
-    <View
-      style={{
-        position: "absolute",
-        ...overlayProps.style,
-      }}
-      ref={overlayRef}
-    >
-      <View
-        style={{
-          backgroundColor: "lightgray",
-          padding: 20,
-        }}
-      >
-        <Text>Hello World</Text>
-      </View>
-    </View>
-  );
+    return (
+        <ScrollView
+            bounces={false}
+            style={{
+                position: "absolute",
+                height: 400,
+                backgroundColor: "lightgray",
+                ...overlayProps.style,
+            }}
+            ref={(node) => overlayRef.current = node}
+        >
+            <View
+                style={{
+                    padding: 20,
+                    height: 5000,
+                }}
+            >
+                <Text>Hello world</Text>
+            </View>
+        </ScrollView>
+    );
 };
 
-function Trigger({ placement }) {
-  let triggerRef = React.useRef();
-  const [visible, setVisible] = React.useState(false);
-  const toggleVisible = () => {
-    setVisible(!visible);
-  };
+export function Trigger({ placement }: any) {
+    let ref = React.useRef();
+    const toggleState = useToggleState();
 
-  return (
-    <View style={styles.wrapper}>
-      <Pressable
-        onPress={toggleVisible}
-        ref={triggerRef}
-        accessibilityRole="button"
-        accessibilityLabel="Click here to open an overlay"
-      >
-        <View style={styles.trigger}>
-          <Text>Trigger</Text>
+    let { buttonProps } = useButton({ onPress: toggleState.toggle }, ref);
+
+    return (
+        <View style={{ flexDirection: 'row', alignItems: "center" }} >
+            <Text>useOverlayPosition：</Text>
+            <Pressable
+                {...buttonProps}
+                ref={ref}
+                role="button"
+                aria-label="Click here to perform some actions"
+            >
+                <View
+                    style={{
+                        flexDirection: "row",
+                        borderWidth: 1,
+                        paddingHorizontal: 10,
+                        paddingVertical: 10,
+                    }}
+                >
+                    <Text>点我一下</Text>
+                </View>
+            </Pressable>
+            <Modal visible={toggleState.isSelected} onRequestClose={toggleState.toggle}>
+                <OverlayProvider>
+                    <OverlayContainer>
+                        <OverlayView targetRef={ref} placement={placement} />
+                    </OverlayContainer>
+                </OverlayProvider>
+            </Modal>
         </View>
-      </Pressable>
-      {visible && (
-        <OverlayContainer>
-          <CloseButton onClose={toggleVisible} />
-          <OverlayView triggerRef={triggerRef} placement={placement} />
-        </OverlayContainer>
-      )}
-    </View>
-  );
+    );
 }
+export default TriggerWrapper
 
-export default function OverlaysDemo() {
-  return (
-    <OverlayProvider>
-      <Trigger />
-      <View style={{ height: "100" }}></View>
-    </OverlayProvider>
-  );
-}
-
-const styles = StyleSheet.create({
-  wrapper: {
-    height: 500,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  trigger: {
-    flexDirection: "row",
-    borderWidth: 1,
-    paddingHorizontal: 10,
-    paddingVertical: 10,
-  },
-});
 ```
 
 更多hooks请参考[react-native-aria官方文档](https://geekyants.github.io/react-native-aria/docs/)
 
 ## 约束与限制
 
-## 兼容性
+### 兼容性
 
 本文档内容基于以下版本验证通过：
 
 1. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.59;
 2. RNOH：0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.29(SP1) ; IDE：DevEco Studio 5.0.3.400; ROM：3.0.0.25;
+3. RNOH：0.72.29; SDK：HarmonyOS NEXT Developer Beta6; IDE：DevEco Studio 5.0.3.706; ROM：3.0.0.61;
 
-## 属性
+## Hooks
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-以下属性已验证，详情见 [react-native-aria官方文档](https://geekyants.github.io/react-native-aria/docs/)
-
->
-
-### Hooks
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name               | Description                                                                                                                                                                                                   | Type     | Required | Platform | HarmonyOS Support |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|----------|----------|-------------------|
-| useToggleButton    | Provides the behavior and accessibility implementation for a toggle button component. ToggleButtons allow users to toggle a selection on or off, for example switching between two states or modes.           | Function | no       | All      | yes               |
-| useCheckbox        | Provides the behavior and accessibility implementation for a checkbox component. Checkboxes allow users to select multiple items from a list of individual items, or to mark one individual item as selected. | Function | no       | All      | yes               |
-| useCheckboxGroup   | Provides the behavior and accessibility implementation for a checkbox group component. Checkbox groups allow users to select multiple items from a list of options.                                           | Function | no       | All      | yes               |
-| useRadioGroup      | Provides the behavior and accessibility implementation for a radio group component. Radio groups allow users to select a single item from a list of mutually exclusive options.                               | Function | no       | All      | yes               |
-| useSwitch          | Provides the behavior and accessibility implementation for a switch component. A switch is similar to a checkbox, but represents on/off values as opposed to selection.                                       | Function | no       | All      | yes               |
-| OverlayContainer   | Provides React Portal like functionality for React Native apps which can be useful for displaying absolutely positioned components like Menu, Tooltip, Popover.                                               | Function | no       | All      | yes               |
-| useOverlayPosition | Handles positioning overlays like popovers and menus relative to a trigger element, and updating the position when the window resizes.                                                                        | Function | no       | All      | yes               |
+| useToggleButton    | Provides the behavior and accessibility implementation for a toggle button component. ToggleButtons allow users to toggle a selection on or off, for example switching between two states or modes.           | Function | no       | iOS,Android      | yes               |
+| useCheckbox        | Provides the behavior and accessibility implementation for a checkbox component. Checkboxes allow users to select multiple items from a list of individual items, or to mark one individual item as selected. | Function | no       | iOS,Android      | yes               |
+| useCheckboxGroup   | Provides the behavior and accessibility implementation for a checkbox group component. Checkbox groups allow users to select multiple items from a list of options.                                           | Function | no       | iOS,Android      | yes               |
+| useRadioGroup      | Provides the behavior and accessibility implementation for a radio group component. Radio groups allow users to select a single item from a list of mutually exclusive options.                               | Function | no       | iOS,Android      | yes               |
+| useSwitch          | Provides the behavior and accessibility implementation for a switch component. A switch is similar to a checkbox, but represents on/off values as opposed to selection.                                       | Function | no       | iOS,Android      | yes               |
+| OverlayContainer   | Provides React Portal like functionality for React Native apps which can be useful for displaying absolutely positioned components like Menu, Tooltip, Popover.                                               | Function | no       | iOS,Android      | yes               |
+| useOverlayPosition | Handles positioning overlays like popovers and menus relative to a trigger element, and updating the position when the window resizes.                                                                        | Function | no       | iOS,Android      | yes               |
 
 ## 遗留问题
 

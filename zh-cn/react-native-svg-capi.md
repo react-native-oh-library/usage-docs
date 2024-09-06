@@ -13,7 +13,7 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-harmony-svg)
+> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-harmony-svg)
 
 ## 安装与使用
 
@@ -44,11 +44,26 @@ yarn add @react-native-oh-tpl/react-native-svg@file:#
 > [!WARNING] 使用时 import 的库名不变。
 
 ```js
-import Svg, { Path } from "react-native-svg";
+import React from 'react';
+import { StyleSheet,SafeAreaView } from 'react-native';
+import { Svg,Path } from 'react-native-svg';
 
-<Svg width="100" height="100">
-  <Path d="M90 0 L0 180 L180 180 Z" fill="red" />
-</Svg>;
+export default function App() {
+  return (
+    <SafeAreaView style={styles.container}>
+      <Svg width="100" height="100">
+        <Path d="M90 0 L0 180 L180 180 Z" fill="red" />
+      </Svg>
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex:1,
+    backgroundColor: 'grey',
+  },
+});
 ```
 
 ## Link
@@ -189,6 +204,46 @@ ohpm install
 
 然后编译、运行即可。
 
+### 在 ArkTs 侧引入和注册字体文件(非必选配置项)
+
+> [!TIP] 本项非必配项，当使用 Text 组件的 fontFamily 属性指定字体时才需配置
+
+步骤一：
+    复制字体文件到  `entry/src/main/resources/rawfile/assets/fonts` 目录下(如使用了外部字体文件，需要将*.ttf文件复制过来)
+
+步骤二：
+    打开 `entry/src/main/ets/pages/Index.ets`，添加以下代码
+
+
+    const fonts: Record<string, Resource> = {
+        "Noto Sans Pau Cin Hau": $rawfile("assets/fonts/Noto Sans Pau Cin Hau.ttf") ,
+        "NotoSansVai-Regular": $rawfile("assets/fonts/NotoSansVai-Regular.ttf") ,
+        "HarmonyOS_Sans_Condensed_Regular_Italic": $rawfile("assets/fonts/HarmonyOS_Sans_Condensed_Regular_Italic.ttf")
+        "HarmonyOS_Sans_Digit_Medium": $rawfile("assets/fonts/HarmonyOS_Sans_Digit_Medium.ttf")
+    }
+
+    @Entry
+    @Component
+    struct Index {
+        //...
+        build() {
+            Column(){
+                //...
+
+                //注册字体文件
+                RNApp({
+                rnInstanceConfig: {
+                    //...
+                    fontResourceByFontFamily: fonts
+                },
+                //...
+            }
+            
+        }
+        //...
+    }
+
+
 ## 约束与限制
 
 ### 兼容性
@@ -203,9 +258,9 @@ ohpm install
 
 以下为目前已支持的组件属性：
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 **Svg**：绘制组件的父组件
 
@@ -284,6 +339,8 @@ ohpm install
 | opacity |              透明度              |     number     | No       | All      | Yes               |
 
 **Defs**：该元素是用于对其他 SVG 元素进行分组的容器
+
+> 注： 该组件无属性
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :--: | :---------: | :--: | -------- | -------- | ----------------- |
@@ -369,6 +426,8 @@ ohpm install
 
 **ClipPath**：该元素定义一条剪切路径，可作为其他元素的 clipPath 属性的值
 
+> 注： 该组件无属性
+
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :--: | :---------: | :--: | -------- | -------- | ----------------- |
 |  /   |      /      |  /   | /        | All      | Yes               |
@@ -379,7 +438,6 @@ ohpm install
 | :-----------------: | :----------------------------------------------------: | :-------------: | -------- | -------- | ----------------- |
 |         id          |                  为元素分配唯一的名称                  |     string      | Yes      | All      | Yes               |
 |       viewBox       |              视窗在用户空间中的位置和尺寸              |     string      | No       | All      | Yes               |
-| preserveAspectRatio |                  是否强制进行统一缩放                  |     string      | No       | All      | Yes               |
 |        refX         |                  标记参考点的 x 坐标                   | number\| string | No       | All      | Yes               |
 |        refY         |                  标记参考点的 y 坐标                   | number\| string | No       | All      | Yes               |
 |     markerUnits     | markerWidth 和 markerHeight 属性的坐标系以及标记的内容 |     string      | No       | All      | Yes               |
@@ -431,6 +489,7 @@ ohpm install
 |   rotate   |      旋转每个单独字形的方向      |      array      | No       | All      | Yes               |
 |  opacity   |              透明度              |     number      | No       | All      | Yes               |
 | inlineSize |          水平或垂直尺寸          |     number      | No       | All      | Yes               |
+| alignmentBaseline | 指定文本的对齐基线        |      string      | NO       | ALL      | Yes               |
 
 **TSpan**：绘制文本或 Text 内的子文本
 
@@ -471,6 +530,13 @@ ohpm install
 | override | 覆盖 svg 样式，如宽高 |  object  |    No    |   All    |        Yes        |
 
 **SvgFromXml**：该组件通过传入字符串来渲染出 svg
+
+|   Name   |      Description      |   Type   | Required | Platform | HarmonyOS Support |
+| :------: | :-------------------: | :------: | :------: | :------: | :---------------: |
+|   xml    |   svg 代码的字符串    |  string  |   Yes    |   All    |        Yes        |
+| override | 覆盖 svg 样式，如宽高 |  object  |    No    |   All    |        Yes        |
+
+**SvgXml**：该组件通过传入字符串来渲染出 svg
 
 |   Name   |      Description      |   Type   | Required | Platform | HarmonyOS Support |
 | :------: | :-------------------: | :------: | :------: | :------: | :---------------: |
@@ -565,7 +631,17 @@ FontProps 组件属性 HarmonyOS 侧支持情况
 
 ## 遗留问题
 
-- [x] RadialGradient 和 Image 未实现：在 Canary3 Sp2 及以上的 ROM 和 SDK，使用@react-native-oh-tpl/react-native-svg 13.14.0-0.4.0 及以上版本两组件已实现 -- [PR#149](https://github.com/react-native-oh-library/react-native-harmony-svg/pull/149) [PR#142](https://github.com/react-native-oh-library/react-native-harmony-svg/pull/142)。
+- [ ] isPointInFill 判断点位坐标是否在fill上 未实现
+- [ ] isPointInStroke 判断点位坐标是否在stroke上 未实现
+- [ ] getTotalLength 获取总path的长度 未实现
+- [ ] getPointAtLength 获取点位坐标在path上的信息 未实现
+- [ ] getBBox 获取组件的边界信息 未实现
+- [ ] getCTM 获取相对于父组件的matrix矩阵信息 未实现
+- [ ] getScreenCTM 获取组件的matrix矩阵信息 未实现
+- [ ] getRawResource 获取android中的资源文件 未实现
+- [ ] foreignObject 该组件允许svg使用外部组件 未实现
+- [ ] filter 该组件可以为 SVG 图形添加各种视觉效果 未实现
+- [ ] TextPath 功能未完全实现
 
 ## 其他
 

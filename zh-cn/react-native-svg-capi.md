@@ -490,6 +490,9 @@ ohpm install
 |  opacity   |              透明度              |     number      | No       | All      | Yes               |
 | inlineSize |          水平或垂直尺寸          |     number      | No       | All      | Yes               |
 | alignmentBaseline | 指定文本的对齐基线        |      string      | NO       | ALL      | Yes               |
+| baselineShift | 设置垂直位置调整              | number\| string  | No       | All      | Yes               |
+| lengthAdjust | 调整文本以适应特定的布局约束    |      string      | No       | All      | Yes               |
+| textLength | 指定文本应该被渲染的长度          |     number       | No       | All      | Yes               |
 
 **TSpan**：绘制文本或 Text 内的子文本
 
@@ -642,6 +645,7 @@ FontProps 组件属性 HarmonyOS 侧支持情况
 - [ ] foreignObject 该组件允许svg使用外部组件 未实现
 - [ ] filter 该组件可以为 SVG 图形添加各种视觉效果 未实现
 - [ ] TextPath 功能未完全实现
+- [ ] Text,TSpan组件的rotate,fontFamily,wordSpacing属性 未实现 
 
 ## 其他
 

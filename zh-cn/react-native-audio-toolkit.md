@@ -19,7 +19,7 @@
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/audio-toolkit](https://github.com/react-native-oh-library/react-native-audio-toolkit/releases/tag/2.0.3-0.0.1) [Releases](https://github.com/react-native-oh-library/lottie-react-native/releases)，并下载适用版本的 tgz 包。
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/audio-toolkit Releases](https://github.com/react-native-oh-library/react-native-audio-toolkit/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
@@ -45,13 +45,19 @@ yarn add @react-native-oh-tpl/audio-toolkit@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-```js
+> [!TIP] # demo使用了三方库[@react-native-oh-tpl/react-native-slider](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-slider.md)
+
+> [!TIP] # demo使用了权限三方库[@react-native-oh-tpl/react-native-permissions](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-permissions.md)
+
+```tsx
 import React, { Component } from 'react';
-import { Button, PermissionsAndroid, Platform, SafeAreaView, StyleSheet, Switch, Text, View } from 'react-native';
-import Slider from '@react-native-community/slider';
+import { Button, PermissionsAndroid, Platform, StyleSheet, Switch, Text, View, ScrollView } from 'react-native';
+import Slider from '@react-native-oh-tpl/react-native-slider';
 import { Player, Recorder, MediaStates } from '@react-native-community/audio-toolkit';
+import RTNPermissions, {RESULTS} from "@react-native-oh-tpl/react-native-permissions";
 
 const filename = 'test.mp4';
+
 
 type Props = {};
 
@@ -60,8 +66,10 @@ type State = {
   recordButton: string,
 
   stopButtonDisabled: boolean,
-  playButtonDisabled: boolean,
+  playButtonDisabled: boolean | undefined,
   recordButtonDisabled: boolean,
+
+  recordPauseButtonDisabled: boolean,
 
   loopButtonStatus: boolean,
   progress: number,
@@ -70,10 +78,10 @@ type State = {
 };
 
 export default class App extends Component<Props, State> {
-  player: Player | null;
-  recorder: Recorder | null;
-  lastSeek: number;
-  _progressInterval: IntervalID;
+  player: Player | null = null;
+  recorder: Recorder | null = null;
+  lastSeek: number = 0;
+  _progressInterval: NodeJS.Timeout | null = null;
 
   constructor(props: Props) {
     super(props);
@@ -85,6 +93,7 @@ export default class App extends Component<Props, State> {
       stopButtonDisabled: true,
       playButtonDisabled: true,
       recordButtonDisabled: true,
+      recordPauseButtonDisabled:true,
 
       loopButtonStatus: false,
       progress: 0,
@@ -97,7 +106,6 @@ export default class App extends Component<Props, State> {
     this.player = null;
     this.recorder = null;
     this.lastSeek = 0;
-
     this._reloadPlayer();
     this._reloadRecorder();
 
@@ -113,7 +121,9 @@ export default class App extends Component<Props, State> {
   }
 
   componentWillUnmount() {
-    clearInterval(this._progressInterval);
+    if (this._progressInterval) {
+      clearInterval(this._progressInterval);
+    }
   }
 
   _shouldUpdateProgressBar() {
@@ -121,19 +131,22 @@ export default class App extends Component<Props, State> {
     return Date.now() - this.lastSeek > 200;
   }
 
-  _updateState(err) {
+  _updateState() {
+
     this.setState({
       playPauseButton: this.player && this.player.isPlaying ? 'Pause' : 'Play',
       recordButton: this.recorder && this.recorder.isRecording ? 'Stop' : 'Record',
 
+      recordPauseButtonDisabled: !this.recorder || !this.recorder.isRecording,
+
       stopButtonDisabled: !this.player || !this.player.canStop,
-      playButtonDisabled: !this.player || !this.player.canPlay || this.recorder.isRecording,
-      recordButtonDisabled: !this.recorder || (this.player && !this.player.isStopped),
+      playButtonDisabled: !this.player || !this.player.canPlay || this.recorder?.isRecording,
+      recordButtonDisabled: (!this.recorder || (this.player && !this.player.isStopped)) ?? true,
     });
   }
 
   _playPause() {
-    this.player.playPause((err, paused) => {
+    this.player?.playPause((err, paused) => {
       if (err) {
         this.setState({
           error: err.message
@@ -144,38 +157,43 @@ export default class App extends Component<Props, State> {
   }
 
   _stop() {
-    this.player.stop(() => {
+    this.player?.stop(() => {
       this._updateState();
     });
   }
 
-  _seek(percentage) {
+  _seek(percentage: number) {
     if (!this.player) {
       return;
     }
 
     this.lastSeek = Date.now();
-
     let position = percentage * this.player.duration;
 
-    this.player.seek(position, () => {
-      this._updateState();
-    });
+    this.player.seek(position, () => { });
+  }
+
+  _getPlayPath() {
+    if (this.recorder) {
+      return this.recorder.fsPath;
+    }
+    return filename;
   }
 
   _reloadPlayer() {
     if (this.player) {
       this.player.destroy();
     }
-
-    this.player = new Player(filename, {
+    this.player = new Player(this._getPlayPath(), {
       autoDestroy: false
     }).prepare((err) => {
       if (err) {
         console.log('error at _reloadPlayer():');
         console.log(err);
       } else {
-        this.player.looping = this.state.loopButtonStatus;
+        if (this.player) {
+          this.player.looping = this.state.loopButtonStatus;
+        }
       }
 
       this._updateState();
@@ -207,6 +225,12 @@ export default class App extends Component<Props, State> {
   }
 
   _toggleRecord() {
+    if(this.recorder && this.recorder.state === MediaStates.PAUSED){
+      this.recorder?.record((err) => {
+        this._updateState();
+      })
+      return
+    }
     if (this.player) {
       this.player.destroy();
     }
@@ -214,6 +238,8 @@ export default class App extends Component<Props, State> {
     let recordAudioRequest;
     if (Platform.OS == 'android') {
       recordAudioRequest = this._requestRecordAudioPermission();
+    } else if (Platform.OS === 'harmony') {
+      recordAudioRequest = this._requestRecordAudioPermissionHs();
     } else {
       recordAudioRequest = new Promise(function (resolve, reject) { resolve(true); });
     }
@@ -225,8 +251,8 @@ export default class App extends Component<Props, State> {
         });
         return;
       }
-
-      this.recorder.toggleRecord((err, stopped) => {
+     
+      this.recorder?.toggleRecord((err, stopped) => {
         if (err) {
           this.setState({
             error: err.message
@@ -236,10 +262,25 @@ export default class App extends Component<Props, State> {
           this._reloadPlayer();
           this._reloadRecorder();
         }
-
         this._updateState();
       });
     });
+  }
+
+  
+  async _requestRecordAudioPermissionHs() {
+    try {
+      let check = await RTNPermissions.request('ohos.permission.MICROPHONE');
+      console.info("RTNPermissions===== request", check);
+      if (check === RESULTS.GRANTED) {
+        return true;
+      } else {
+        return false;
+      }
+    } catch (err) {
+      console.error(err);
+      return false;
+    }
   }
 
   async _requestRecordAudioPermission() {
@@ -265,7 +306,7 @@ export default class App extends Component<Props, State> {
     }
   }
 
-  _toggleLooping(value) {
+  _toggleLooping(value: boolean) {
     this.setState({
       loopButtonStatus: value
     });
@@ -276,7 +317,7 @@ export default class App extends Component<Props, State> {
 
   render() {
     return (
-      <SafeAreaView>
+      <ScrollView>
         <View>
           <Text style={styles.title}>
             Playback
@@ -303,10 +344,18 @@ export default class App extends Component<Props, State> {
         <View>
           <Button title={this.state.recordButton} disabled={this.state.recordButtonDisabled} onPress={() => this._toggleRecord()} />
         </View>
+        
+        <View style={styles.recordPause}>
+          <Button title={'Pause recording'} disabled={this.state.recordPauseButtonDisabled} onPress={() => {
+            this.recorder?.pause((err) => {
+              this._updateState();
+            })
+          }} />
+        </View>
         <View>
           <Text style={styles.errorMessage}>{this.state.error}</Text>
         </View>
-      </SafeAreaView>
+      </ScrollView>
     );
   }
 }
@@ -315,7 +364,7 @@ const styles = StyleSheet.create({
   slider: {
     height: 10,
     margin: 10,
-    marginBottom: 50,
+    marginBottom: 30,
   },
   settingsContainer: {
     alignItems: 'center',
@@ -336,9 +385,16 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     padding: 10,
     color: 'red'
+  },
+  recordPause:{
+    marginTop:15
   }
 });
 ```
+
+## 使用 Codegen
+
+本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/codegen.md)。
 
 ## Link
 
@@ -383,7 +439,8 @@ const styles = StyleSheet.create({
 
 ```diff
 ...
-+ import { AudioModulesPackage } from "@react-native-oh-tpl/audio-toolkit/ts";
+
++   import { AudioModulesPackage } from "@react-native-oh-tpl/audio-toolkit/ts";
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
@@ -404,7 +461,7 @@ ohpm install
 
 方法二：直接链接源码
 
-> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
+> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/link-source-code.md)
 
 ### 运行
 
@@ -460,25 +517,25 @@ requestPermissions: [
 ],
 ```
 
-## 属性
+## Player
 
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-new Player(String path, Object ?playbackOptions)
+### 属性
 
 | Name                        | Description                                                  | Type               | Default                     | Required | Platform | HarmonyOS Support |
 | --------------------------- | ------------------------------------------------------------ | ------------------ | --------------------------- | -------- | -------- | ----------------- |
 | autoDestroy                 | Boolean to indicate whether the player should self-destruct after playback is finished. If this is not set, you are responsible for destroying the object by calling player.destroy(). | boolean            | True                        | No       | All      | Yes               |
 | continuesToPlayInBackground | (Android only) Should playback continue if app is sent to background?<br />iOS will always pause in this case. | boolean            | False                       | No       | Android  | Yes               |
-| category                    | (iOS only) Define the audio session category<br /> Options: Playback, Ambient and SoloAmbient<br />More info about categories can be found here:<br /> https://developer.apple.com/documentation/avfoundation/avaudiosession/category | PlaybackCategories | PlaybackCategories.Playback | No       | All      | No                |
-| mixWithOthers               | Boolean to determine whether other audio sources on the device will mix<br />with sounds being played back by this module. If this is not set, playback<br />of audio will stop other sources | boolean            | False                       | No       | iOS      | No                |
+| category                    | (iOS only) Define the audio session category<br /> Options: Playback, Ambient and SoloAmbient<br />More info about categories can be found here:<br /> https://developer.apple.com/documentation/avfoundation/avaudiosession/category | PlaybackCategories | PlaybackCategories.Playback | No       | IOS      | No                |
+| mixWithOthers               | Boolean to determine whether other audio sources on the device will mix<br />with sounds being played back by this module. If this is not set, playback<br />of audio will stop other sources | boolean            | False                       | No       | Android<br />IOS   | No                |
 | looping                     | Get/set looping status of the current file. If true, file will loop when playback reaches end of file. | boolean            | False                       | No       | All      | Yes               |
 | volume                      | Get/set playback volume. The scale is from 0.0 (silence) to 1.0 (full volume). | Number             | 1.0                         | No       | All      | Yes               |
 | speed                       | Get/set the playback speed for audio. NOTE: On Android, this is only supported on Android 6.0+. | Number             | 1.0                         | No       | All      | Yes               |
 
-## 静态方法 (Imperative API)
+### 静态方法
 
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
@@ -494,25 +551,24 @@ new Player(String path, Object ?playbackOptions)
 | destroy   | Stops playback and destroys the player. The player should no longer be used.<br />Callback is called after the operation has finished. | function | No       | All      | Yes               |
 | seek      | Seek in currently playing media. `position` is the offset from the start.<br />If callback is given, it is called when the seek operation completes. If another seek operation is performed before the previous has finished, the previous operation gets an error in its callback with the `err` field set to `oldcallback`. The previous operation should likely do nothing in this case. | function | No       | All      | Yes               |
 
-## 属性
+## Recorder
 
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-new Recorder(String path, Object ?recorderOptions)
+### 属性
 
 | Name             | Description                                                  | Type   | Default                     | Required | Platform | HarmonyOS Support |
 | ---------------- | ------------------------------------------------------------ | ------ | --------------------------- | -------- | -------- | ----------------- |
 | bitrate          | Set bitrate for the recorder, in bits per second             | Number | 128000                      | No       | All      | Yes               |
 | channels         | Set number of channels                                       | Number | 2                           | No       | All      | Yes               |
-| sampleRate       | Set how many samples per second                              | Number | 44100                       | No       | All      | Yes               |
-| format           | Override format. Possible values:<br />Cross-platform:  'mp4', 'aac'<br />Android only:    'ogg', 'webm', 'amr' | String | based on filename extension | No       | All      | Yes               |
-| encoder          | Override encoder. Android only.<br />Possible values:<br />'aac', 'mp4', 'webm', 'ogg', 'amr' | String | based on filename extension | No       | All      | Yes               |
-| quality          | Quality of the recording, iOS only.<br />Possible values: 'min', 'low', 'medium', 'high', 'max' | String | medium                      | No       | Al       | Yes               |
-| meteringInterval | Optional argument to activate metering events.<br />This will cause a 'meter' event to fire every given milliseconds,<br />e.g. 250 will fire 4 time in a second. | Number | undefined                   | No       | Al       | Yes               |
+| sampleRate       | Set how many samples per second                              | Number | 48000                       | No       | All      | Yes               |
+| format           | Override format. Possible values:<br /> Cross-platform: 'mp4'<br />Android only: 'ogg', 'webm', 'amr'<br />HarmonyOS only: 'm4a' | String | based on filename extension | No       | All      | Yes               |
+| encoder          | Override encoder. Android only.<br />Possible values:<br />'aac', 'mp4', 'webm', 'ogg', 'amr'<br />HarmonyOS only: 'aac'| String | based on filename extension | No       | Android      | partially               |
+| quality          | Quality of the recording, iOS only.<br />Possible values: 'min', 'low', 'medium', 'high', 'max' | String | medium                      | No       | IOS       | No               |
 
-## 静态方法 (Imperative API)
+### 静态方法
 
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
@@ -525,7 +581,7 @@ new Recorder(String path, Object ?recorderOptions)
 | stop    | Stop recording and save the file. Callback is called after recording has stopped or with error object. The recorder is destroyed after calling stop and should no longer be used. | function | No       | All      | Yes               |
 | destroy | Destroy the recorder. Should only be used if a recorder was constructed, and for some reason is now unwanted.<br />Callback is called after the operation has finished. | function | No       | All      | Yes               |
 
-### 状态 state - Number (read only)
+## 状态 state - Number (read only)
 
 
 ```json
@@ -544,7 +600,13 @@ var MediaStates = {
 
 ## 遗留问题
 
+- [ ] Recorder的encoder属性问题：目前仅支持aac,待后续底层能力开放增加其他格式。[issue#15](https://github.com/react-native-oh-library/react-native-audio-toolkit/issues/15)
+
 ## 其他
+
+- Player的category、mixWithOthers属性 HarmonyOS不支持
+
+- Recorder的quality属性 HarmonyOS不支持
 
 ## 开源协议
 

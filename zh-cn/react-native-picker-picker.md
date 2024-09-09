@@ -127,24 +127,18 @@ ohpm install
   ...
 + import { RNCPicker, PICKER_TYPE } from "@react-native-oh-tpl/picker"
 
-  @Builder
-  function buildCustomComponent(ctx: ComponentBuilderContext) {
-    if (ctx.componentName === SAMPLE_VIEW_TYPE) {
-      SampleView({
-        ctx: ctx.rnComponentContext,
-        tag: ctx.tag,
-        buildCustomComponent: buildCustomComponent
-      })
-    }
-+   if (ctx.componentName === PICKER_TYPE) {
-+     RNCPicker({
-+       ctx: ctx.rnComponentContext,
-+       tag: ctx.tag
-+     })
-+   }
-    ...
-  }
+ @Builder
+ export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
   ...
++ if (ctx.componentName === PICKER_TYPE) {
++   RNCPicker({
++     ctx: ctx.rnComponentContext,
++     tag: ctx.tag
++   })
++ }
+...
+}
+...
 ```
 
 > [!TIP] 本库使用了混合方案，需要添加组件名。
@@ -178,9 +172,20 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 
 ### 运行
 
-在右上角选择 entry 模块，运行即可。
+点击右上角的 `sync` 按钮
 
-## 兼容性
+或者在终端执行：
+
+```bash
+cd entry
+ohpm install
+```
+
+然后编译、运行即可。
+
+## 约束与限制
+
+### 兼容性
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
@@ -194,42 +199,42 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 
 ### PickerProps
 
-| 名称                      | 说明                                                                                              | 类型                                                         | 是否必填 | 平台                  | HarmonyOS 支持 |
-| ------------------------- | ----------------------------------------------------------------------------------------------- | ------------------------------------------------------------ | -------- | --------------------- |--------------|
-| `onValueChange`           | Callback for when an item is selected.                                                          | function                                                     | No       | All                   | Yes          |
-| `selectedValue`           | Value matching value of one of the items. Can be a string or an integer.                        | any                                                          | No       | All                   | Yes          |
-| `style`                   | NA                                                                                              | pickerStyleType                                              | No       | All                   | Yes          |
-| `testID`                  | Used to locate this view in end-to-end tests.                                                   | string                                                       | No       | All                   | Yes          |
-| `enabled`                 | If set to false, the picker will be disabled, i.e. the user will not be able to make a selection. | bool                                                         | No       | Android, Web, Windows | No           |
-| `mode`                    | On Android, specifies how to display the selection items when the user taps on the picker       | enum('dialog', 'dropdown')                                   | No       | Android               | No           |
-| `dropdownIconColor`       | On Android, specifies color of dropdown triangle.                                               | ColorValue                                                   | No       | Android               | No           |
-| `dropdownIconRippleColor` | On Android, specifies ripple color of dropdown triangle.                                        | ColorValue                                                   | No       | Android               | No           |
-| `prompt`                  | Prompt string for this picker, used on Android in dialog mode as the title of the dialog.       | string                                                       | No       | Android               | No           |
-| `itemStyle`               | Style to apply to each of the item labels.   | [text styles](https://reactnative.dev/docs/text-style-props) | No     | iOS, Windows          | partially    |
-| `numberOfLines`           | On Android & iOS, used to truncate the text with an ellipsis after computing the text layout.   | number                                                       | No       | Android, iOS          | No           |
-| `onBlur`                  | NA                                                                                              | function                                                     | No       | Android               | No           |
-| `onFocus`                 | NA                                                                                              | function                                                     | No       | Android               | No           |
-| `selectionColor`          | Color to apply to the selection indicator.                                                      | ColorValue                                                   | No       | iOS                   | Yes          |
-| `themeVariant`            | NA                                                                                              | enum('light', 'dark')                                        | No       | iOS                   | No           |
+| Name                      | Description                                                                                       | Type                                                         | Required | Platform              | HarmonyOS Support |
+|---------------------------|---------------------------------------------------------------------------------------------------|--------------------------------------------------------------|----------|-----------------------|-------------------|
+| `onValueChange`           | Callback for when an item is selected.                                                            | function                                                     | No       | All                   | Yes               |
+| `selectedValue`           | Value matching value of one of the items. Can be a string or an integer.                          | any                                                          | No       | All                   | Yes               |
+| `style`                   | NA                                                                                                | pickerStyleType                                              | No       | All                   | Yes               |
+| `testID`                  | Used to locate this view in end-to-end tests.                                                     | string                                                       | No       | All                   | Yes               |
+| `enabled`                 | If set to false, the picker will be disabled, i.e. the user will not be able to make a selection. | boolean                                                      | No       | Android, Web, Windows | Yes               |
+| `mode`                    | On Android, specifies how to display the selection items when the user taps on the picker         | enum('dialog', 'dropdown')                                   | No       | Android               | No                |
+| `dropdownIconColor`       | On Android, specifies color of dropdown triangle.                                                 | ColorValue                                                   | No       | Android               | No                |
+| `dropdownIconRippleColor` | On Android, specifies ripple color of dropdown triangle.                                          | ColorValue                                                   | No       | Android               | No                |
+| `prompt`                  | Prompt string for this picker, used on Android in dialog mode as the title of the dialog.         | string                                                       | No       | Android               | No                |
+| `itemStyle`               | Style to apply to each of the item labels.                                                        | [text styles](https://reactnative.dev/docs/text-style-props) | No       | iOS, Windows          | partially         |
+| `numberOfLines`           | On Android & iOS, used to truncate the text with an ellipsis after computing the text layout.     | number                                                       | No       | Android, iOS          | No                |
+| `onBlur`                  | NA                                                                                                | function                                                     | No       | Android               | No                |
+| `onFocus`                 | NA                                                                                                | function                                                     | No       | Android               | No                |
+| `selectionColor`          | Color to apply to the selection indicator.                                                        | ColorValue                                                   | No       | iOS                   | Yes               |
+| `themeVariant`            | NA                                                                                                | enum('light', 'dark')                                        | No       | iOS                   | No                |
 
 ### PickerItemProps
 
-| 名称                 | 说明                                                                                                     | 类型          | 是否必填 | 平台    | HarmonyOS 支持 |
-| -------------------- | -------------------------------------------------------------------------------------------------------- | ------------- | -------- | ------- |--------------|
-| `label`              | Displayed value on the Picker Item.                                                                      | string        | Yes      | All     | Yes          |
-| `value`              | Actual value on the Picker Item.                                                                         | number,string | Yes      | All     | Yes          |
-| `color`              | Displayed color on the Picker Item.                                                                      | ColorValue    | Yes      | All     | No           |
-| `fontFamily`         | Displayed fontFamily on the Picker Item.                                                                 | string        | No       | All     | No           |
-| `style`              | Style to apply to individual item labels.                                                                | ViewStyleProp | No       | Android | No           |
-| `enabled`            | If set to false, the specific item will be disabled, i.e. the user will not be able to make a selection. | boolean       | No       | Android | No           |
-| `contentDescription` | Sets the content description to the Picker Item.                                                         | string        | No       | Android | No           |
+| Name                 | Description                                                                                              | Type          | Required | Platform | HarmonyOS Support |
+|----------------------|----------------------------------------------------------------------------------------------------------|---------------|----------|----------|-------------------|
+| `label`              | Displayed value on the Picker Item.                                                                      | string        | Yes      | All      | Yes               |
+| `value`              | Actual value on the Pickmodeler Item.                                                                    | number,string | Yes      | All      | Yes               |
+| `color`              | Displayed color on the Picker Item.                                                                      | ColorValue    | Yes      | All      | No                |
+| `fontFamily`         | Displayed fontFamily on the Picker Item.                                                                 | string        | No       | All      | No                |
+| `style`              | Style to apply to individual item labels.                                                                | ViewStyleProp | No       | Android  | No                |
+| `enabled`            | If set to false, the specific item will be disabled, i.e. the user will not be able to make a selection. | boolean       | No       | Android  | No                |
+| `contentDescription` | Sets the content description to the Picker Item.                                                         | string        | No       | Android  | No                |
 
 ## 静态方法
 
-| 名称    | 说明                            | 平台    |  HarmonyOS 支持 |
-| ------- | ------------------------------- | ------- | -------- |
-| `blur`  | Programmatically closes picker. | Android | No       |
-| `focus` | Programmatically opens picker.  | Android | No       |
+| Name    | Description                     | Type     | Required | Platform | HarmonyOS Support |
+|---------|---------------------------------|----------|----------|----------|-------------------|
+| `blur`  | Programmatically closes picker. | function | No       | Android  | No                |
+| `focus` | Programmatically opens picker.  | function | No       | Android  | No                |
 
 ## 遗留问题
 
@@ -242,6 +247,6 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 
 ## 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/callstack/react-native-slider/blob/main/LICENSE.md) ，请自由地享受和参与开源。
+本项目基于 [The MIT License (MIT)](https://github.com/react-native-picker/picker/blob/master/LICENSE) ，请自由地享受和参与开源。
 
 <!-- {% endraw %} -->

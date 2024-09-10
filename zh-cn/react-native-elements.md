@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -43,9 +42,7 @@ yarn add @rneui/base@4.0.0-rc.7
 
 下面的代码展示了这个库的基本使用场景：
 
-> [!WARNING] 使用时 import 的库名不变。
-
-```js
+```tsx
 import React from 'react';
 import { View, ScrollView, StyleSheet } from 'react-native';
 import { Avatar } from '@rneui/themed';
@@ -254,7 +251,7 @@ const Avatars: React.FunctionComponent<AvatarComponentProps> = () => {
 export default Avatars;
 ```
 
-### Link
+## Link
 
 本库 HarmonyOS 侧实现依赖 @react-native-oh-tpl/react-native-safe-area-context 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
 
@@ -320,6 +317,7 @@ export default Avatars;
 本文档内容基于以下版本验证通过：
 
 1. RNOH：0.72.26; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.300; ROM：3.0.0.22;
+1. RNOH：0.72.29; SDK：HarmonyOS NEXT Developer Beta6; IDE：DevEco Studio 5.0.3.700; ROM：3.0.0.60;
 
 ## 组件
 
@@ -347,7 +345,7 @@ export default Avatars;
 |      showRating      | Determines if to show the reviews above the ratingDefault is true |        boolean        |    No    |   All    |        Yes        |
 |         size         |              Size of rating imageDefault is 40               |        number         |    No    |   All    |        Yes        |
 |  starContainerStyle  |           Style for star containerDefault is none            |      View Style       |    No    |   All    |        Yes        |
-|      starImage       |              Pass in a custom base image source              |        string         |    No    |   All    |        Yes        |
+|      starImage       |              Pass in a custom base image source              |        string         |    No    |    No    |        No         |
 
 **Avatar**：一个头像、Icon、字母渲染组件
 
@@ -445,8 +443,8 @@ export default Avatars;
 |           Name            |                         Description                          |                       Type                        | Required | Platform | HarmonyOS Support |
 | :-----------------------: | :----------------------------------------------------------: | :-----------------------------------------------: | :------: | :------: | :---------------: |
 |         Component         |   Choose other button component such as TouchableOpacity.    |                  React Component                  |    No    |   All    |        Yes        |
-|       activeOpacity       |       Add active opacity to the button in buttonGroup.       |                      number                       |    No    |   All    |        Yes        |
-|          button           |                  Button for the component.                   |                      object                       |    No    |   All    |        Yes        |
+|       activeOpacity       |       Add active opacity to the button in buttonGroup.       |                      number                       |    No    |   No  |        No        |
+|          button           |                  Button for the component.                   |                      object                       |    No    |   No  |        No        |
 |   buttonContainerStyle    |            Specify styling for button containers.            |                    View Style                     |    No    |   All    |        Yes        |
 |        buttonStyle        |                 Specify styling for button.                  |                    View Style                     |    No    |   All    |        Yes        |
 |          buttons          | Array of buttons for component (required), if returning a component, must be an object with { element: componentName }. | `(string`,`ButtonComponent`,`ButtonObject)[]` | No |   All    |        Yes        |
@@ -457,8 +455,8 @@ export default Avatars;
 |       disabledStyle       |            Styling for each button when disabled.            |                    View Style                     |    No    |   All    |        Yes        |
 |     disabledTextStyle     |      Styling for the text of each button when disabled.      |                    Text Style                     |    No    |   All    |        Yes        |
 |     innerBorderStyle      | Update the styling of the interior border of the list of buttons. |        { color?: string; width?: number; }        |    No    |   All    |        Yes        |
-|      onHideUnderlay       |             Function called on hiding underlay.              |                     Function                      |    No    |   All    |        Yes        |
-|        onLongPress        |         Called when a long-tap gesture is detected.          |           GestureResponderEventHandler            |    No    |   All    |        Yes        |
+|      onHideUnderlay       |             Function called on hiding underlay.              |                     Function                      |    No    |   No  |        No        |
+|        onLongPress        |         Called when a long-tap gesture is detected.          |           GestureResponderEventHandler            |    No    |   No  |        No        |
 |          onPress          |             Method to update Button Group Index.             |             (...args: any[]) => void              |    No    |   All    |        Yes        |
 |         onPressIn         |       Called when a touch is engaged before `onPress`.       |           GestureResponderEventHandler            |    No    |   All    |        Yes        |
 |        onPressOut         |      Called when a touch is released before `onPress`.       |           GestureResponderEventHandler            |    No    |   All    |        Yes        |
@@ -469,9 +467,9 @@ export default Avatars;
 |       selectedIndex       |         Current selected index of array of buttons.          |                      number                       |    No    |   All    |        Yes        |
 |      selectedIndexes      |     Current selected indexes from the array of buttons.      |                     number[]                      |    No    |   All    |        Yes        |
 |     selectedTextStyle     |   Specify specific styling for text in the selected state.   |                    Text Style                     |    No    |   All    |        Yes        |
-|       setOpacityTo        |                 Function to set the opacity.                 |              (value: number) => void              |    No    |   All    |        Yes        |
+|       setOpacityTo        |                 Function to set the opacity.                 |              (value: number) => void              |    No    |   No  |        No        |
 |         textStyle         |              Specify specific styling for text.              |                    Text Style                     |    No    |   All    |        Yes        |
-|       underlayColor       |        Specify underlayColor for TouchableHighlight.         |                        ng                         |    No    |   All    |        Yes        |
+|       underlayColor       |        Specify underlayColor for TouchableHighlight.         |                        ng                         |    No    |   No  |        No        |
 |         vertical          |             Display the ButtonGroup vertically.              |                      boolean                      |    No    |   All    |        Yes        |
 
 **Card**：卡片组件
@@ -529,9 +527,9 @@ export default Avatars;
 |      Name      |                        Description                        |             Type             | Required | Platform | HarmonyOS Support |
 | :------------: | :-------------------------------------------------------: | :--------------------------: | :------: | :------: | :---------------: |
 |    children    |                 Add Enclosed components.                  |          ReactNode           |    No    |   All    |        Yes        |
-|  onLongPress   |        Called when a long-tap gesture is detected.        | GestureResponderEventHandler |    No    |   All    |        Yes        |
-|   onPressIn    |     Called when a touch is engaged before `onPress`.      | GestureResponderEventHandler |    No    |   All    |        Yes        |
-|   onPressOut   |     Called when a touch is released before `onPress`.     | GestureResponderEventHandler |    No    |   All    |        Yes        |
+|  onLongPress   |        Called when a long-tap gesture is detected.        | GestureResponderEventHandler |    No    |    No    |        No         |
+|   onPressIn    |     Called when a touch is engaged before `onPress`.      | GestureResponderEventHandler |    No    |    No    |        No         |
+|   onPressOut   |     Called when a touch is released before `onPress`.     | GestureResponderEventHandler |    No    |    No    |        No         |
 |  overlayStyle  | Add additional styling to the internal Overlay component. |          View Style          |    No    |   All    |        Yes        |
 | pressableProps |                   except click handlers                   |        PressableProps        |    No    |   All    |        Yes        |
 
@@ -596,17 +594,17 @@ export default Avatars;
 |                  backgroundColor                  |        Sets backgroundColor of the parent component.         |                string                |    No    |   All    |        Yes        |
 |                  backgroundImage                  |          Sets backgroundImage for parent component.          |         ImageSourcePropType          |    No    |   All    |        Yes        |
 |               backgroundImageStyle                |      Styling for backgroundImage in the main container.      |              ImageStyle              |    No    |   All    |        Yes        |
-|                     barStyle                      |            Sets the color of the status bar text.            |            StatusBarStyle            |    No    |   All    |        Yes        |
+|                     barStyle                      |            Sets the color of the status bar text.            |            StatusBarStyle            |    No    |    No    |        No         |
 |                  centerComponent                  |              Define your center component here.              |          HeaderSubComponent          |    No    |   All    |        Yes        |
 |               centerContainerStyle                |      Styling for container around the centerComponent.       |              View Style              |    No    |   All    |        Yes        |
 | Styling for container around the centerComponent. |            Add children component to the header.             | `(Element`，`Element[]) & ReactNode` |    No    |   All    |        Yes        |
 |                  containerStyle                   |              Styling around the main container.              |              View Style              |    No    |   All    |        Yes        |
 |                       edges                       |                 SafeAreaView edges control.                  |                Edge[]                |    No    |   All    |        Yes        |
-|                     elevated                      |                     Elevation for header                     |               boolean                |    No    |   All    |        Yes        |
+|                     elevated                      |                     Elevation for header                     |               boolean                |    No    |    No    |        No         |
 |                   hideStatusBar                   |               Accepts all props for StatusBar.               |               boolean                |    No    |   All    |        Yes        |
 |                   leftComponent                   |               Define your left component here.               |          HeaderSubComponent          |    No    |   All    |        Yes        |
 |                leftContainerStyle                 |       Styling for container around the leftComponent.        |              View Style              |    No    |   All    |        Yes        |
-|                linearGradientProps                | Displays a linear gradient. See [usage](https://reactnativeelements.com/docs/components/header#lineargradient-usage). |                Object                |    No    |   All    |        Yes        |
+|                linearGradientProps                | Displays a linear gradient. See [usage](https://reactnativeelements.com/docs/components/header#lineargradient-usage). |                Object                |    No    |    No    |        No         |
 |                     placement                     |                     Alignment for title.                     |      `center`，`left`，`right`       |    No    |   All    |        Yes        |
 |                  rightComponent                   |              Define your right component here.               |          HeaderSubComponent          |    No    |   All    |        Yes        |
 |                rightContainerStyle                |       Styling for container around the rightComponent.       |              View Style              |    No    |   All    |        Yes        |
@@ -671,7 +669,7 @@ export default Avatars;
 |       labelStyle        | styling for the label; You can only use this if label is a string |   Text Style    |    No    |   All    |        Yes        |
 |        leftIcon         |                 displays an icon on the left                 |    IconNode     |    No    |   All    |        Yes        |
 | leftIconContainerStyle  |          styling for left Icon Component container           |   View Style    |    No    |   All    |        Yes        |
-|   renderErrorMessage    | If the error message container should be rendered (take up vertical space). If false, when showing errorMessage, the layout will shift to add it at that time. |     boolean     |    No    |   All    |        Yes        |
+|   renderErrorMessage    | If the error message container should be rendered (take up vertical space). If false, when showing errorMessage, the layout will shift to add it at that time. |     boolean     |    No    |    No    |        No         |
 |        rightIcon        |                displays an icon on the right                 |    IconNode     |    No    |   All    |        Yes        |
 | rightIconContainerStyle |          styling for right Icon Component container          |   View Style    |    No    |   All    |        Yes        |
 |          shake          |                         Shake method                         |    Function     |    No    |   All    |        Yes        |
@@ -757,7 +755,7 @@ export default Avatars;
 |  leftContent  |                Left Content.                | ReactNode or resetCallback => ReactNode |    No    |   All    |        Yes        |
 |   leftStyle   |          Style of left container.           |               View Style                |    No    |   All    |        Yes        |
 |   leftWidth   |       Width of swipe left container.        |                 number                  |    No    |   All    |        Yes        |
-| minSlideWidth | minimum horizontal distance to open content |                 number                  |    No    |   All    |        Yes        |
+| minSlideWidth | minimum horizontal distance to open content |                 number                  |    No    |    No    |        No         |
 | onSwipeBegin  |    Handler for swipe in either direction    | `(direction: left`,`right) => unknown`  |    No    |   All    |        Yes        |
 |  onSwipeEnd   |           Handler for swipe end.            |              () => unknown              |    No    |   All    |        Yes        |
 | rightContent  |               Right Content.                | ReactNode or resetCallback => ReactNode |    No    |   All    |        Yes        |
@@ -768,7 +766,7 @@ export default Avatars;
 
 | Name  |   Description    |  Type   | Required | Platform | HarmonyOS Support |
 | :---: | :--------------: | :-----: | :------: | :------: | :---------------: |
-| right | Add right title. | boolean |    No    |   All    |        Yes        |
+| right | Add right title. | boolean |    No    |    No    |        No         |
 
 **Overlay**：弹窗组件，接收所有 [Text](https://reactnativeelements.com/docs/components/text#props) 的props
 
@@ -805,47 +803,47 @@ export default Avatars;
 
 |         Name          |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
 | :-------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-|       fractions       | The number of decimal places for the rating value; must be between 0 and 20 |        anyany         |    No    |   All    |        No         |
-|       imageSize       |          The size of each rating imageDefault is 50          |        number         |    No    |   All    |        No         |
-|       jumpValue       |    he number to jump per swipeDefault is 0 (not to jump)     |        number         |    No    |   All    |        No         |
-|       minValue        |      The minimum value the user can selectDefault is 0       |        number         |    No    |   All    |        No         |
-|    onFinishRating     | Callback method when the user finishes rating. Gives you the final rating value as a whole number |       Function        |    No    |   All    |        No         |
-|     onStartRating     |         Callback method when the user starts rating.         |       Function        |    No    |   All    |        No         |
-|     onSwipeRating     |          Callback method when the user is swiping.           | (number: any) => void |    No    |   All    |        No         |
-| ratingBackgroundColor | Pass in a custom background-fill-color for the rating icon; use this along with type='custom' prop aboveDefault is 'white' |        string         |    No    |   All    |        No         |
-|      ratingColor      | Pass in a custom fill-color for the rating icon; use this along with type='custom' prop aboveDefault is '#f1c40f' |        string         |    No    |   All    |        No         |
-|      ratingCount      |        Number of rating images to displayDefault is 5        |        number         |    No    |   All    |        No         |
-|      ratingImage      | Pass in a custom image source; use this along with type='custom' prop above |       ReactNode       |    No    |   All    |        No         |
-|    ratingTextColor    |                Color used for the text labels                |        string         |    No    |   All    |        No         |
-|       readonly        | Whether the rating can be modiefied by the userDefault is false |        boolean        |    No    |   All    |        No         |
-|      showRating       | Displays the Built-in Rating UI to show the rating value in real-timeDefault is false |        boolean        |    No    |   All    |        No         |
-|   showReadOnlyText    |        Whether the text is read onlyDefault is false         |        boolean        |    No    |   All    |        No         |
-|     startingValue     |     The initial rating to renderDefault is ratingCount/2     |        number         |    No    |   All    |        No         |
-|         style         | Exposes style prop to add additonal styling to the container view |      View Style       |    No    |   All    |        No         |
-|       tintColor       |                Color used for the background                 |        string         |    No    |   All    |        No         |
-|         type          |     Graphic used for represent a ratingDefault is 'star'     |        string         |    No    |   All    |        No         |
+|       fractions       | The number of decimal places for the rating value; must be between 0 and 20 |        anyany         |    No    |    No    |        No         |
+|       imageSize       |          The size of each rating imageDefault is 50          |        number         |    No    |    No    |        No         |
+|       jumpValue       |    he number to jump per swipeDefault is 0 (not to jump)     |        number         |    No    |    No    |        No         |
+|       minValue        |      The minimum value the user can selectDefault is 0       |        number         |    No    |    No    |        No         |
+|    onFinishRating     | Callback method when the user finishes rating. Gives you the final rating value as a whole number |       Function        |    No    |    No    |        No         |
+|     onStartRating     |         Callback method when the user starts rating.         |       Function        |    No    |    No    |        No         |
+|     onSwipeRating     |          Callback method when the user is swiping.           | (number: any) => void |    No    |    No    |        No         |
+| ratingBackgroundColor | Pass in a custom background-fill-color for the rating icon; use this along with type='custom' prop aboveDefault is 'white' |        string         |    No    |    No    |        No         |
+|      ratingColor      | Pass in a custom fill-color for the rating icon; use this along with type='custom' prop aboveDefault is '#f1c40f' |        string         |    No    |    No    |        No         |
+|      ratingCount      |        Number of rating images to displayDefault is 5        |        number         |    No    |    No    |        No         |
+|      ratingImage      | Pass in a custom image source; use this along with type='custom' prop above |       ReactNode       |    No    |    No    |        No         |
+|    ratingTextColor    |                Color used for the text labels                |        string         |    No    |    No    |        No         |
+|       readonly        | Whether the rating can be modiefied by the userDefault is false |        boolean        |    No    |    No    |        No         |
+|      showRating       | Displays the Built-in Rating UI to show the rating value in real-timeDefault is false |        boolean        |    No    |    No    |        No         |
+|   showReadOnlyText    |        Whether the text is read onlyDefault is false         |        boolean        |    No    |    No    |        No         |
+|     startingValue     |     The initial rating to renderDefault is ratingCount/2     |        number         |    No    |    No    |        No         |
+|         style         | Exposes style prop to add additonal styling to the container view |      View Style       |    No    |    No    |        No         |
+|       tintColor       |                Color used for the background                 |        string         |    No    |    No    |        No         |
+|         type          |     Graphic used for represent a ratingDefault is 'star'     |        string         |    No    |    No    |        No         |
 
 **SearchBar**：搜索框组件，接收所有 [Input](https://reactnativeelements.com/docs/components/input#props) 的 props
 
 |          Name           |              Description               |            Type             | Required | Platform | HarmonyOS Support |
 | :---------------------: | :------------------------------------: | :-------------------------: | :------: | :------: | :---------------: |
-|    cancelButtonProps    |    Properties of the Cancel button     |         Text Style          |    No    |   All    |        Yes        |
-|    cancelButtonTitle    |       Title of the Cancel button       |           string            |    No    |   All    |        Yes        |
-|       cancelIcon        |       Icon of the Cancel button        |          IconNode           |    No    |   All    |        Yes        |
+|    cancelButtonProps    |    Properties of the Cancel button     |         Text Style          |    No    |    No    |        No         |
+|    cancelButtonTitle    |       Title of the Cancel button       |           string            |    No    |    No    |        No         |
+|       cancelIcon        |       Icon of the Cancel button        |          IconNode           |    No    |    No    |        No         |
 |        clearIcon        |               Clear Icon               |          IconNode           |    No    |   All    |        Yes        |
 |     containerStyle      |          Style for container           |         View Style          |    No    |   All    |        Yes        |
 |   inputContainerStyle   |       Style for input container        |         View Style          |    No    |   All    |        Yes        |
 |       inputStyle        |              Input Style               |         Text Style          |    No    |   All    |        Yes        |
 | leftIconContainerStyle  |       Left Icon Container Style        |         View Style          |    No    |   All    |        Yes        |
-|       lightTheme        |              light Theme               |           boolean           |    No    |   All    |        Yes        |
+|       lightTheme        |              light Theme               |           boolean           |    No    |    No    |        No         |
 |      loadingProps       |         ActivityIndicatorProps         |   ActivityIndicatorProps    |    No    |   All    |        Yes        |
-|        onCancel         | Callback Function on cancel icon press |        `(() => any)`        |    No    |   All    |        Yes        |
+|        onCancel         | Callback Function on cancel icon press |        `(() => any)`        |    No    |    No    |        No         |
 |         onClear         | Callback Function on clear icon press  |          Function           |    No    |   All    |        Yes        |
-|        platform         |           Platform judgment            | `default`，`android`，`ios` |    No    |   All    |        Yes        |
+|        platform         |           Platform judgment            | `default`，`android`，`ios` |    No    |    No    |        No         |
 | rightIconContainerStyle |       Right Icon Container Style       |   rightIconContainerStyle   |    No    |   All    |        Yes        |
 |          round          |         Whether it is rounded          |           boolean           |    No    |   All    |        Yes        |
 |       searchIcon        |            Icon for search             |          IconNode           |    No    |   All    |        Yes        |
-|       showCancel        |              Show cancel               |           boolean           |    No    |   All    |        Yes        |
+|       showCancel        |              Show cancel               |           boolean           |    No    |    No    |        No         |
 |       showLoading       |              Show loading              |           boolean           |    No    |   All    |        Yes        |
 
 **Slider**：滑动条组件
@@ -881,7 +879,7 @@ export default Avatars;
 |          Name           |            Description             |           Type            | Required | Platform | HarmonyOS Support |
 | :---------------------: | :--------------------------------: | :-----------------------: | :------: | :------: | :---------------: |
 | LinearGradientComponent |  Custom Linear Gradient Component  |      React Component      |    No    |   All    |        Yes        |
-|        animation        |         Type of animation          | `none` | `pulse` | `wave` |    No    |   All    |        Yes        |
+|        animation        |         Type of animation          | `none`|`wave`|`pulse` | No | No |    No    |
 |         circle          |       show circular variant        |          boolean          |    No    |   All    |        Yes        |
 |         height          |      Height of Skeleton View       |    `string`，`number`     |    No    |   All    |        Yes        |
 |      skeletonStyle      | Custom style for skeleton gradient |        View Style         |    No    |   All    |        Yes        |
@@ -895,32 +893,32 @@ export default Avatars;
 | activityIndicatorStyle |            Style to render when in loading state.            |          View Style          |    No    |   All    |        Yes        |
 |         button         |              Creates button with a social icon.              |           boolean            |    No    |   All    |        Yes        |
 |        disabled        |                Disables the button, if true.                 |           boolean            |    No    |   All    |        Yes        |
-|       fontFamily       |                Specify different font family.                |            string            |    No    |   All    |        Yes        |
+|       fontFamily       |                Specify different font family.                |            string            |    No    |    No    |        No         |
 |       fontStyle        |                    Specify text styling.                     |          Text Style          |    No    |   All    |        Yes        |
-|       fontWeight       | Specify font weight of title if set as a button with a title. |            string            |    No    |   All    |        Yes        |
+|       fontWeight       | Specify font weight of title if set as a button with a title. |            string            |    No    |    No    |        No         |
 |       iconColor        |                Specify the color of the icon.                |            string            |    No    |   All    |        Yes        |
 |        iconSize        |                Specify the size of the icon.                 |            number            |    No    |   All    |        Yes        |
-|       iconStyle        |              Extra styling for icon component.               |          View Style          |    No    |   All    |        Yes        |
+|       iconStyle        |              Extra styling for icon component.               |          View Style          |    No    |    No    |        No         |
 |        iconType        | Type of icon set. [Supported sets here](https://reactnativeelements.com/docs/components/icon#available-icon-sets). |            string            |    No    |   All    |        Yes        |
-|         light          | Reverses icon color scheme, setting background to white and icon to primary color. |           boolean            |    No    |   All    |        Yes        |
+|         light          | Reverses icon color scheme, setting background to white and icon to primary color. |           boolean            |    No    |    No    |        No         |
 |        loading         |                   Shows loading indicator.                   |           boolean            |    No    |   All    |        Yes        |
 |      onLongPress       |         Called when a long-tap gesture is detected.          | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |        onPress         |        Called when a single tap gesture is detected.         | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |       onPressIn        |       Called when a touch is engaged before `onPress`.       | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |       onPressOut       |      Called when a touch is released before `onPress`.       | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |     pressableProps     |             PressableProps except click handlers             |        PressableProps        |    No    |   All    |        Yes        |
-|         raised         |      Raised adds a drop shadow, set to false to remove.      |           boolean            |    No    |   All    |        Yes        |
-|         small          |         Decides the size of the activity indicator.          |            string            |    No    |   All    |        Yes        |
+|         raised         |      Raised adds a drop shadow, set to false to remove.      |           boolean            |    No    |    No    |        No         |
+|         small          |         Decides the size of the activity indicator.          |            string            |    No    |    No    |        No         |
 |         style          |                 Adds styling to the button.                  |          View Style          |    No    |   All    |        Yes        |
 |         title          |                 Title if made into a button.                 |            string            |    No    |   All    |        Yes        |
 |          type          |                      Social media type.                      |       SocialMediaType        |    No    |   All    |        Yes        |
-|     underlayColor      |                     Add Underlay color.                      |            string            |    No    |   All    |        Yes        |
+|     underlayColor      |                     Add Underlay color.                      |            string            |    No    |    No    |        No         |
 
 **SpeedDial**：浮动快速操作按钮组件，接收所有 [Button](https://reactnativeelements.com/docs/components/button#props), [FAB](https://reactnativeelements.com/docs/components/fab#props)  的props
 
 |          Name          |                       Description                        |       Type       | Required | Platform | HarmonyOS Support |
 | :--------------------: | :------------------------------------------------------: | :--------------: | :------: | :------: | :---------------: |
-| backdropPressableProps |               Props for Backdrop Pressable               |  PressableProps  |    No    |   All    |        Yes        |
+| backdropPressableProps |               Props for Backdrop Pressable               |  PressableProps  |    No    |    No    |        No         |
 |        children        |              SpeedDial Action as children.               | SpeedDial.Action |    No    |   All    |        Yes        |
 |         isOpen         |                 Opens the action stack.                  |     boolean      |    No    |   All    |        Yes        |
 |     labelPressable     |          onPress on Label Press for all Actions          |     boolean      |    No    |   All    |        Yes        |
@@ -947,14 +945,14 @@ export default Avatars;
 |       Name       |               Description                |                     Type                      | Required | Platform | HarmonyOS Support |
 | :--------------: | :--------------------------------------: | :-------------------------------------------: | :------: | :------: | :---------------: |
 |   buttonStyle    |         Additional button style          | `ViewStyle or (active: boolean) => ViewStyle` |    No    |   All    |        Yes        |
-|  containerStyle  | Additional Styling for button container. | `ViewStyle or (active: boolean) => ViewStyle` |    No    |   All    |        Yes        |
-|      dense       |              Dense Tab Item              |                    boolean                    |    No    |   All    |        Yes        |
+|  containerStyle  | Additional Styling for button container. | `ViewStyle or (active: boolean) => ViewStyle` |    No    |    No    |        No         |
+|      dense       |              Dense Tab Item              |                    boolean                    |    No    |    No    |        No         |
 | disableIndicator |       Disable the indicator below.       |                    boolean                    |    No    |   All    |        Yes        |
 |   iconPosition   |              Icon Position               |       `left`，`right`，`top`，`bottom`        |    No    |   All    |        Yes        |
 |  indicatorStyle  |  Additional styling for tab indicator.   |                  View Style                   |    No    |   All    |        Yes        |
 |     onChange     |        On Index Change Callback.         |            (value: number) => void            |    No    |   All    |        Yes        |
-|    scrollable    |           Makes Tab Scrolling            |                    boolean                    |    No    |   All    |        Yes        |
-|    titleStyle    |      Additional button title style       | `ViewStyle or (active: boolean) => ViewStyle` |    No    |   All    |        Yes        |
+|    scrollable    |           Makes Tab Scrolling            |                    boolean                    |    No    |    No    |        No         |
+|    titleStyle    |      Additional button title style       | `ViewStyle or (active: boolean) => ViewStyle` |    No    |    No    |        No         |
 |      value       |       Child position index value.        |                    number                     |    No    |   All    |        Yes        |
 |     variant      |      Define the background Variant.      |             `primary`，`default`              |    No    |   All    |        Yes        |
 
@@ -962,13 +960,13 @@ export default Avatars;
 
 |        Name        |                   Description                    |                     Type                      | Required | Platform | HarmonyOS Support |
 | :----------------: | :----------------------------------------------: | :-------------------------------------------: | :------: | :------: | :---------------: |
-|       active       |      Allows to define if TabItem is active.      |                    boolean                    |    No    |   All    |        Yes        |
+|       active       |      Allows to define if TabItem is active.      |                    boolean                    |    No    |    No    |        No         |
 |    buttonStyle     |             Additional button style              | `ViewStyle or (active: boolean) => ViewStyle` |    No    |   All    |        Yes        |
 |   containerStyle   |     Additional Styling for button container.     | `ViewStyle or (active: boolean) => ViewStyle` |    No    |   All    |        Yes        |
-|       dense        |                  Dense Tab Item                  |                    boolean                    |    No    |   All    |        Yes        |
+|       dense        |                  Dense Tab Item                  |                    boolean                    |    No    |    No    |        No         |
 | iconContainerStyle | Additional Styling for Icon Component container. | `ViewStyle or (active: boolean) => ViewStyle` |    No    |   All    |        Yes        |
 |     titleStyle     |          Additional button title style           | `ViewStyle or (active: boolean) => ViewStyle` |    No    |   All    |        Yes        |
-|      variant       |          Define the background Variant.          |             `primary`，`default`              |    No    |   All    |        Yes        |
+|      variant       |          Define the background Variant.          |             `primary`，`default`              |    No    |    No    |        No         |
 
 **TabView**：滑动开关内容组件
 
@@ -1007,7 +1005,7 @@ export default Avatars;
 |         Name          |                         Description                          |              Type              | Required | Platform | HarmonyOS Support |
 | :-------------------: | :----------------------------------------------------------: | :----------------------------: | :------: | :------: | :---------------: |
 |    ImageComponent     |               Custom ImageComponent for Tile.                |        typeof Component        |    No    |   All    |        Yes        |
-|     activeOpacity     |          Number passed to control opacity on press.          |             number             |    No    |   All    |        Yes        |
+|     activeOpacity     |          Number passed to control opacity on press.          |             number             |    No    |    No    |        No         |
 |        caption        |         Text inside the tilt when tile is featured.          |           ReactNode            |    No    |   All    |        Yes        |
 |     captionStyle      | Styling for the caption (optional); You only use this if `caption` is a string. |           Text Style           |    No    |   All    |        Yes        |
 |    containerStyle     |            Styling for the outer tile container.             |           View Style           |    No    |   All    |        Yes        |
@@ -1019,7 +1017,7 @@ export default Avatars;
 |  imageContainerStyle  |                    Styling for the image.                    |           View Style           |    No    |   All    |        Yes        |
 |      imageProps       | Optional properties to pass to the image if provided e.g "resizeMode". |       ImageProps(Object)       |    No    |   All    |        Yes        |
 |       imageSrc        |                    Source for the image.                     | `string`,`ImageSourcePropType` |    No    |   All    |        Yes        |
-| overlayContainerStyle | Styling for the overlay container when using featured tile.  |           View Style           |    No    |   All    |        Yes        |
+| overlayContainerStyle | Styling for the overlay container when using featured tile.  |           View Style           |    No    |    No    |        No         |
 |         title         |                    Text inside the tile.                     |             string             |    No    |   All    |        Yes        |
 |  titleNumberOfLines   |                  Number of lines for Title.                  |             number             |    No    |   All    |        Yes        |
 |      titleStyle       |                    Styling for the title.                    |           Text Style           |    No    |   All    |        Yes        |
@@ -1032,7 +1030,7 @@ export default Avatars;
 |      ModalComponent      | Override React Native `Modal` component (usable for web-platform). |                     typeof Component                     |    No    |   All    |        Yes        |
 |      animationType       |                        Animation Type                        |                      `none`,`fade`                       |    No    |   All    |        Yes        |
 |     backgroundColor      |       Sets backgroundColor of the tooltip and pointer.       |                        ColorValue                        |    No    |   All    |        Yes        |
-| closeOnlyOnBackdropPress | Flag to determine whether to disable auto hiding of tooltip when touching/scrolling anywhere inside the active tooltip popover container. When `true`, Tooltip closes only when overlay backdrop is pressed (or) highlighted tooltip button is pressed. |                         boolean                          |    No    |   All    |        Yes        |
+| closeOnlyOnBackdropPress | Flag to determine whether to disable auto hiding of tooltip when touching/scrolling anywhere inside the active tooltip popover container. When `true`, Tooltip closes only when overlay backdrop is pressed (or) highlighted tooltip button is pressed. |                         boolean                          |    No    |    No    |        No         |
 |      containerStyle      |           Passes style object to tooltip container           |                        View Style                        |    No    |   All    |        Yes        |
 |          height          | Tooltip container height. Necessary in order to render the container in the correct place. Pass height according to the size of the content rendered inside the container. |                          number                          |    No    |   All    |        Yes        |
 |      highlightColor      |   Color to highlight the item the tooltip is surrounding.    |                        ColorValue                        |    No    |   All    |        Yes        |
@@ -1051,12 +1049,23 @@ export default Avatars;
 |       withPointer        |   Flag to determine whether or not to display the pointer.   |                         boolean                          |    No    |   All    |        Yes        |
 
 ## 遗留问题
-
-- [ ] Rating组件的readonly、onFinishRating等props无法生效，与Android/IOS一致:[issue#1](https://github.com/react-native-elements/react-native-elements/issues/3736)、[issue#2](https://github.com/react-native-elements/react-native-elements/issues/3718)。
-
 ## 其他
+- [ ] Rating组件的readonly、onFinishRating等属性无法生效，与Android/iOS一致：[issue#1](https://github.com/react-native-elements/react-native-elements/issues/3736)、[issue#2](https://github.com/react-native-elements/react-native-elements/issues/3718)。
+- [ ] AirbnbRatings组件的startImage属性无法生效，与Android/iOS一致：[issue#3](https://github.com/react-native-elements/react-native-elements/issues/3718)。
+- [ ] ButtonGroups组件的activeOpacity、button等属性无法生效，与Android/iOS一致：[issue#4](https://github.com/react-native-elements/react-native-elements/issues/3938)。
+- [ ] Dialog组件的onLongPress、onpressIn等属性无法生效，与Android/iOS一致：[issue#5](https://github.com/react-native-elements/react-native-elements/issues/3931)。
+- [ ] Header组件的barStyle、elevated等属性无法生效，与Android、iOS一致：[issue#6](https://github.com/react-native-elements/react-native-elements/issues/3935)。
+- [ ] Input组件的renderErrorMessage属性无法生效，与Android、iOS一致：[issue#7](https://github.com/react-native-elements/react-native-elements/issues/3933)。
+- [ ] ListItem.Swipeable组件的minSlideWidth属性无法生效，与Android、iOS一致：[issue#8](https://github.com/react-native-elements/react-native-elements/issues/3825)。
+- [ ] ListItem.Title组件的right属性无法生效，与Android、iOS一致：[issue#9](https://github.com/react-native-elements/react-native-elements/issues/3934)。
+- [ ] SearchBar组件的cancelButtonProps、showCancel等属性无法生效，与Android、iOS一致：[issue#10](https://github.com/react-native-elements/react-native-elements/issues/3939)。
+- [ ] SocialIcon组件的fontFamily、fontWeight等属性无法生效，与Android、iOS一致：[issue#11](https://github.com/react-native-elements/react-native-elements/issues/3940)。
+- [ ] SpeedDial组件的backdropPressableProps属性无法生效，与Android、iOS一致：[issue#12](https://github.com/react-native-elements/react-native-elements/issues/3937)。
+- [ ] Tab组件的containerStyle、dense等属性无法生效，与Android、iOS一致：[issue#13](https://github.com/react-native-elements/react-native-elements/issues/3941)。
+- [ ] Tab.Item组件的active、dense等属性无法生效，与Android、iOS一致：[issue#14](https://github.com/react-native-elements/react-native-elements/issues/3936)。
+- [ ] Tile组件的activeOpacity等属性无法生效，与Android、iOS一致：[issue#15](https://github.com/react-native-elements/react-native-elements/issues/3932)。
+- [ ] Tooltip组件的closeOnlyOnBackdropPress属性无法生效，与Android、iOS一致：[issue#16](https://github.com/react-native-elements/react-native-elements/issues/3811)。
 
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/react-native-elements/react-native-elements/blob/next/LICENSE)，请自由地享受和参与开源。
-<!-- {% endraw %} -->

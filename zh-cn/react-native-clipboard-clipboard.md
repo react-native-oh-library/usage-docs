@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>@react-native-clipboard/clipboard</code> </h1>
@@ -39,7 +39,7 @@ yarn add @react-native-oh-tpl/clipboard@file:#
 
 <!-- tabs:end -->
 
-快速使用：
+下面的代码展示了这个库的基本使用场景：
 
 > [!WARNING] 使用时 import 的库名不变。
 
@@ -57,16 +57,22 @@ const fetchCopiedText = async () => {
   setCopiedText(text);
 };
 
-<View style={styles.container}>
-  <TouchableOpacity onPress={copyToClipboard}>
-    <Text>Click here to copy to Clipboard</Text>
-  </TouchableOpacity>
-  <TouchableOpacity onPress={fetchCopiedText}>
-    <Text>View copied text</Text>
-  </TouchableOpacity>
+const App = () => {
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity onPress={copyToClipboard}>
+        <Text>Click here to copy to Clipboard</Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={fetchCopiedText}>
+        <Text>View copied text</Text>
+      </TouchableOpacity>
 
-  <Text style={styles.copiedText}>{copiedText}</Text>
-</View>;
+      <Text style={styles.copiedText}>{copiedText}</Text>
+    </View>
+  );
+};
+
+export default App;
 ```
 
 ## Link
@@ -74,6 +80,17 @@ const fetchCopiedText = async () => {
 目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
 
 首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
+
+### 在工程根目录的 `oh-package.json5` 添加 overrides 字段
+
+```json
+{
+  ...
+  "overrides": {
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+  }
+}
+```
 
 ### 引入原生端代码
 
@@ -116,34 +133,44 @@ ohpm install
 ```diff
 project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
+set(CMAKE_SKIP_BUILD_RPATH TRUE)
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
+set(LOG_VERBOSITY_LEVEL 1)
+set(CMAKE_ASM_FLAGS "-Wno-error=unused-command-line-argument -Qunused-arguments")
+set(CMAKE_CXX_FLAGS "-fstack-protector-strong -Wl,-z,relro,-z,now,-z,noexecstack -s -fPIE -pie")
+set(WITH_HITRACE_SYSTRACE 1) # for other CMakeLists.txt files to use
+add_compile_definitions(WITH_HITRACE_SYSTRACE)
 
 add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
-# RNOH_BEGIN: add_package_subdirectories
+# RNOH_BEGIN: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
 + add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/clipboard/src/main/cpp" ./clipboard)
-# RNOH_END: add_package_subdirectories
+# RNOH_END: manual_package_linking_1
+
+file(GLOB GENERATED_CPP_FILES "./generated/*.cpp")
 
 add_library(rnoh_app SHARED
+    ${GENERATED_CPP_FILES}
     "./PackageProvider.cpp"
     "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
 )
-
 target_link_libraries(rnoh_app PUBLIC rnoh)
 
-# RNOH_BEGIN: link_packages
+# RNOH_BEGIN: manual_package_linking_2
 target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 + target_link_libraries(rnoh_app PUBLIC rnoh_clipboard)
-# RNOH_END: link_packages
+# RNOH_END: manual_package_linking_2
 ```
 
 打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
 
 ```diff
 #include "RNOH/PackageProvider.h"
+#include "generated/RNOHGeneratedPackage.h"
 #include "SamplePackage.h"
 + #include "ClipboardPackage.h"
 
@@ -151,8 +178,9 @@ using namespace rnoh;
 
 std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
     return {
-      std::make_shared<SamplePackage>(ctx),
-+     std::make_shared<ClipboardPackage>(ctx)
+        std::make_shared<RNOHGeneratedPackage>(ctx),
+        std::make_shared<SamplePackage>(ctx),
++       std::make_shared<ClipboardPackage>(ctx),
     };
 }
 ```
@@ -175,36 +203,6 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 
 ```
 
-### 应用权限申请
-
-> [!tip] "ohos.permission.READ_PASTEBOARD"权限等级为<B>system_basic</B>，授权方式为<B>user_grant</B>，[使用 ACL 签名的配置指导](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/signing-0000001587684945-V3#section157591551175916)
-
-在 `YourProject/entry/src/main/module.json5`补上配置
-
-```diff
-{
-  "module": {
-    "name": "entry",
-    "type": "entry",
-
-  ···
-
-    "requestPermissions": [
-+     { 
-+		"name": "ohos.permission.READ_PASTEBOARD",
-+		"reason": "xxxx",
-+       "usedScene": {
-+         "abilities": [
-+           "EntryAbility"
-+         ],
-+         "when":"always"
-+       }
-+     }
-    ]
-  }
-}
-```
-
 ### 运行
 
 点击右上角的 `sync` 按钮
@@ -218,11 +216,51 @@ ohpm install
 
 然后编译、运行即可。
 
-## 兼容性
+## 约束与限制
+
+### 兼容性
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/clipboard Releases](https://github.com/react-native-oh-library/clipboard/releases)
+
+### 权限要求
+
+#### 在 entry 目录下的module.json5中添加权限
+
+打开 `entry/src/main/module.json5`，添加：
+
+```diff
+...
+"requestPermissions": [
++  {
++    "name": "ohos.permission.READ_PASTEBOARD",
++    "reason": "$string:Access_clipboard",
++    "usedScene": {
++      "abilities": [
++        "EntryAbility"
++      ],
++      "when":"always"
++    }
++  },
+]
+```
+
+#### 在 entry 目录下添加申请剪切板权限的原因
+
+打开 `entry/src/main/resources/base/element/string.json`，添加：
+
+```diff
+...
+{
+  "string": [
++    {
++      "name": "Access_clipboard",
++      "value": "access clipboard"
++    }
+  ]
+}
+```
 
 ## 属性
 
@@ -232,19 +270,19 @@ ohpm install
 
 | Name        | Description                                                                                                                                                                                                               | Type     | Required | Platform    | HarmonyOS Support |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------- | ----------------- |
-| getString   | Get content of string type, this method returns a Promise, so you can use following code to get clipboard content                                                                                                         | function | NO       | ios,android | yes               |
-| setString   | Set content of string type. You can use following code to set clipboard content                                                                                                                                           | function | NO       | ios,android | yes               |
-| hasString   | Returns whether the clipboard has content or is empty.                                                                                                                                                                    | function | NO       | ios,android | yes               |
-| getImage    | Get content of image in base64 string type, this method returns a Promise, so you can use following code to get clipboard content (ANDROID only)                                                                          | function | NO       | android     | no                |
-| getStrings  | (iOS only) Get contents of string array type, this method returns a Promise, so you can use following code to get clipboard content                                                                                       | function | NO       | ios         | no                |
-| setStrings  | (iOS only) Set content of string array type. You can use following code to set clipboard content                                                                                                                          | function | NO       | ios         | no                |
-| hasNumber   | (iOS 14+ only) Returns whether the clipboard has a Number(UIPasteboardDetectionPatternNumber) content. Can check if there is a Number content in clipboard without triggering PasteBoard notification for iOS 14+         | function | NO       | ios         | yes               |
-| hasImage    | Returns whether the clipboard has a Image                                                                                                                                                                                 | function | NO       | ios         | yes               |
-| hasUrl      | (iOS only) Returns whether the clipboard has a URL content. Can check if there is a URL content in clipboard without triggering PasteBoard notification for iOS 14+                                                       | function | NO       | ios         | no                |
-| hasWebUrl   | (iOS 14+ only) Returns whether the clipboard has a WebURL(UIPasteboardDetectionPatternProbableWebURL) content. Can check if there is a WebURL content in clipboard without triggering PasteBoard notification for iOS 14+ | function | NO       | ios         | yes               |
-| setImage    | Set content of Image type.（base64 string）                                                                                                                                                                               | function | NO       | ios         | yes               |
-| getImageJPG | get base64 string of JPG Image                                                                                                                                                                                            | function | NO       | ios         | yes               |
-| getImagePNG | get base64 string of PNG Image                                                                                                                                                                                            | function | NO       | ios         | yes               |
+| getString   | Get content of string type, this method returns a Promise, so you can use following code to get clipboard content                                                                                                         | function | NO       | iOS,Android | yes               |
+| setString   | Set content of string type. You can use following code to set clipboard content                                                                                                                                           | function | NO       | iOS,Android | yes               |
+| hasString   | Returns whether the clipboard has content or is empty.                                                                                                                                                                    | function | NO       | iOS,Android | yes               |
+| getImage    | Get content of image in base64 string type, this method returns a Promise, so you can use following code to get clipboard content (ANDROID only)                                                                          | function | NO       | Android     | no                |
+| getStrings  | (iOS only) Get contents of string array type, this method returns a Promise, so you can use following code to get clipboard content                                                                                       | function | NO       | iOS        | yes                |
+| setStrings  | (iOS only) Set content of string array type. You can use following code to set clipboard content                                                                                                                          | function | NO       | iOS        | yes                |
+| hasNumber   | (iOS 14+ only) Returns whether the clipboard has a Number(UIPasteboardDetectionPatternNumber) content. Can check if there is a Number content in clipboard without triggering PasteBoard notification for iOS 14+         | function | NO       | iOS        | yes               |
+| hasImage    | Returns whether the clipboard has a Image                                                                                                                                                                                 | function | NO       | iOS        | yes               |
+| hasUrl      | (iOS only) Returns whether the clipboard has a URL content. Can check if there is a URL content in clipboard without triggering PasteBoard notification for iOS 14+                                                       | function | NO       | iOS        | yes                |
+| hasWebUrl   | (iOS 14+ only) Returns whether the clipboard has a WebURL(UIPasteboardDetectionPatternProbableWebURL) content. Can check if there is a WebURL content in clipboard without triggering PasteBoard notification for iOS 14+ | function | NO       | iOS        | yes               |
+| setImage    | Set content of Image type.（base64 string）                                                                                                                                                                               | function | NO       | iOS        | yes               |
+| getImageJPG | get base64 string of JPG Image                                                                                                                                                                                            | function | NO       | iOS        | yes               |
+| getImagePNG | get base64 string of PNG Image                                                                                                                                                                                            | function | NO       | iOS        | yes               |
 
 ## 遗留问题
 
@@ -252,6 +290,6 @@ ohpm install
 
 ## 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/react-native-oh-library/clipboard/blob/harmony/LICENSE) ，请自由地享受和参与开源。
+本项目基于 [The MIT License (MIT)](https://github.com/react-native-clipboard/clipboard/blob/master/LICENSE) ，请自由地享受和参与开源。
 
 <!-- {% endraw %} -->

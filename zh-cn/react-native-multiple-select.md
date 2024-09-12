@@ -128,11 +128,27 @@ export {MultiSelectExample}
 ```
 ## 约束与限制
 
+### 注意事项
+
+本库 HarmonyOS 侧需要引入字体包，如下所示。如已引用，则无需再次引入，可跳过本章节步骤，直接使用。
+
+在HarmonyOS工程中的entry/src/main/ets/pages/index.ets中添加如下代码：
+
+```diff
+  ...
+RNApp({
+    rnInstanceConfig: {
++    fontResourceByFontFamily: {
++      'Pacifico-Regular': $rawfile("fonts/Pacifico-Regular.ttf"),
++    }
+    },
+})
+```
 ### 兼容性
 
 本文档内容基于以下版本验证通过：
 
-1. RNOH: 0.72.27; SDK: HarmonyOS-Next-DB1 5.0.0.25; IDE: DevEco Studio 5.0.3.400SP7; ROM: 3.0.0.25;
+1. RNOH: 0.72.29; SDK: HarmonyOS NEXT Developer Beta6; IDE: DevEco Studio 5.0.3.706; ROM: 3.0.0.61;
 
 ## 属性
 

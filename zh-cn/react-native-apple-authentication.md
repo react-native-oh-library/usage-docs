@@ -42,6 +42,13 @@ npm install @react-native-oh-tpl/react-native-apple-authentication@file:#
 yarn add @react-native-oh-tpl/react-native-apple-authentication@file:#
 ```
 
+#### **配置用于 Web 的“通过 Apple 登录”**
+首先需要进行客户端id配置：[Initial Development Environment Setup](https://github.com/invertase/react-native-apple-authentication/blob/main/docs/INITIAL_SETUP.md)
+
+然后需要进行服务设置：[Services setup](https://github.com/invertase/react-native-apple-authentication/blob/main/docs/ANDROID_EXTRA.md)
+
+Apple官方配置说明：[Configure Sign in with Apple for the web](https://developer.apple.com/help/account/configure-app-capabilities/configure-sign-in-with-apple-for-the-web)
+
 <!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：

@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -330,58 +329,6 @@ ohpm install
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-text-size Releases](https://github.com/react-native-oh-library/react-native-text-size/releases)
 
-## 属性
-
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-详情请见[react-native-text-size](https://github.com/react-native-oh-library/react-native-text-size)
-
-**TSMeasureParams**
-
-| Name               | Description                                        | Type     | Required | Platform    | HarmonyOS Support |
-| ------------------ | -------------------------------------------------- | -------- | -------- | ----------- | ----------------- |
-| text               | System Name                                        | string[] | Yes      | IOS/Android | yes               |
-| width              | Width                                              | number   | No       | IOS/Android | yes               |
-| fontFamily         | System Default font                                | string   | No       | IOS/Android | yes               |
-| fontWeight         | Font Weight                                        | string   | No       | IOS/Android | yes               |
-| fontSize           | Font Size                                          | number   | No       | IOS/Android | yes               |
-| fontStyle          | Font Style                                         | string   | No       | IOS/Android | yes               |
-| fontVariant        | Default is none                                    | array    | No       | IOS         | yes               |
-| allowFontScaling   | Allow Font Scaling                                 | boolean  | No       | IOS/Android | yes               |
-| letterSpacing      | Extra space between characters                     | number   | No       | IOS         | yes               |
-| includeFontPadding | Dfault is true                                     | boolean  | No       | Android     | yes               |
-| textBreakStrategy  | Dfault is highQuality                              | string   | No       | Android     | yes               |
-| usePreciseWidth    | Result will include an exact width.Dfault is false | boolean  | No       | IOS/Android | yes               |
-| lineInfoForLine    | Result will include a lineInfo.Dfault is none      | number   | No       | IOS/Android | yes               |
-
-**TSFontSpecs**
-
-| Name          | Description  | Type                   | Required | Platform    | HarmonyOS Support |
-| ------------- | ------------ | ---------------------- | -------- | ----------- | ----------------- |
-| fontFamily    | System Name  | string                 | No       | IOS/Android | yes               |
-| fontWeight    | Font Weight  | number                 | No       | IOS/Android | yes               |
-| fontSize      | Font Size    | TSFontStyle            | No       | IOS/Android | yes               |
-| fontStyle     | Font Style   | TSFontWeight           | No       | IOS/Android | yes               |
-| fontVariant   | Font Variant | TSFontVariant[]或 null | No       | IOS/Android | yes               |
-| letterSpacing | Font spacing | number                 | No       | IOS/Android | yes               |
-
-**TSHeightsParams**
-
-| Name               | Description                    | Type     | Required | Platform    | HarmonyOS Support |
-| ------------------ | ------------------------------ | -------- | -------- | ----------- | ----------------- |
-| text               | System Name                    | string[] | Yes      | IOS/Android | yes               |
-| width              | Width                          | number   | No       | IOS/Android | yes               |
-| fontFamily         | System Default font            | string   | No       | IOS/Android | yes               |
-| fontWeight         | Font Weight                    | string   | No       | IOS/Android | yes               |
-| fontSize           | Font Size                      | number   | No       | IOS/Android | yes               |
-| fontStyle          | Font Style                     | string   | No       | IOS/Android | yes               |
-| fontVariant        | Default is none                | array    | No       | IOS         | yes               |
-| allowFontScaling   | Allow Font Scaling             | boolean  | No       | IOS/Android | yes               |
-| letterSpacing      | Extra space between characters | number   | No       | IOS         | yes               |
-| includeFontPadding | Dfault is true                 | boolean  | No       | Android     | yes               |
-| textBreakStrategy  | Dfault is highQuality          | string   | No       | Android     | yes               |
 
 ## API
 
@@ -391,7 +338,7 @@ ohpm install
 
 | Name                   | Description                                                                     | Type                            | Required | Platform | HarmonyOS Support |
 | ---------------------- | ------------------------------------------------------------------------------- | ------------------------------- | -------- | -------- | ----------------- |
-| measure                | Measurement Text                                                                | TSMeasureResult                 | No       | All      | yes               |
+| measure                | Measurement Text                                                                | TSMeasureResult                 | No       | All      | partially               |
 | flatHeights            | Measurement Text                                                                | number[]                        | No       | All      | yes               |
 | specsForTextStyles     | Get system font information for the running OS                                  | {[key: string]: TSFontForStyle} | No       | All      | yes               |
 | fontFromSpecs          | Returns the characteristics of the font obtained from the given specifications. | TSFontInfo                      | No       | All      | yes               |
@@ -401,11 +348,10 @@ ohpm install
 ## 遗留问题
 
 - [ ] fontFamilyNames&fontNamesForFamilyName 问题:需要依赖手机文件 font 目录下的 json 文件，该文件目前没有预置在手机目录下，会导致该接口调用为空。后续底层框架侧修复该问题 [issue#1](https://github.com/react-native-oh-library/react-native-text-size/issues/1)
+- [ ] measure方法缺少lastLineWidth和lineInfo的返回处理 [issue#2](https://github.com/react-native-oh-library/react-native-text-size/issues/8)
 
 ## 其他
 
 ## 开源协议
 
 本项目基于 [The BSD 2-Clause License（BSD）](https://github.com/aMarCruz/react-native-text-size/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

@@ -37,345 +37,348 @@ npm install react-native-redash@^18.1.3
 ```js
 // findLastIndex 为例
 import { mix,
-  round,
-  bin,
-  cubicBezier,
-  clamp,
-  between,
-  avg,
-  toRad,
-  toDeg} from 'react-native-redash/src/Math';
-import {
-  canvas2Cartesian,
-  cartesian2Canvas,
-  cartesian2Polar,
-  polar2Cartesian
-} from 'react-native-redash/src/Coordinates';
-import * as redash from 'react-native-redash';
-
-// 导出组件
-export default function RadashDemo() {
-  const [text, setText] = useState('');
-
-  const onMix = () => {
-      const mixre = mix(0, 10, 20);
-      setText(mixre.toString())
-  }
-
-  const onRoundre = () => {
-      const roundre = round(5.123, 0);
-      setText(roundre.toString())
-  }
-
-  const onBinre = () => {
-      const binre = bin(true);
-      setText(binre.toString())
-  }
-
-  const onBetweenre = () => {
-      const betweenre = between(-1, 0, 100);
-      setText(betweenre.toString())
-  }
-
-  const onToRadre = () => {
-      const toRadre = toRad(180);
-      setText(toRadre.toString())
-  }
-
-  const onToDegre = () => {
-      const toDegre = toDeg(Math.PI);
-      setText(toDegre.toString())
-  }
-
-  const onClampre = () => {
-      const clampre = clamp(-1, 0, 100)
-      setText(clampre.toString())
-  }
-
-  const avgre = () => {
-      const values: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-      const avgs = avg(values)
-      setText(avgs.toString())
-  }
-
-  const cubicBezires = () => {
-      const cubicBezire = cubicBezier(1, 0, 0.1, 0.1, 1)
-      setText(cubicBezire.toString())
-  }
-
-  const handleCreatePath = () => {
-      const vector = {
-          x: 10,
-          y: 20
-      };
-      setText(JSON.stringify(redash.createPath(vector)))
-  }
-
-  const handleAddCurvePath = () => {
-      const vector = {
-          x: 200,
-          y: 100
-      };
-      const path = redash.createPath(vector);
-      redash.addCurve(path, { c1: { x: 50, y: 50 }, c2: { x: 150, y: 50 }, to: { x: 150, y: 150 } });
-      setText(JSON.stringify(path))
-  }
-
-  const handleClosePath = () => {
-      const vector = {
-          x: 200,
-          y: 100
-      };
-      const path = redash.createPath(vector);
-      redash.addCurve(path, { c1: { x: 50, y: 50 }, c2: { x: 150, y: 50 }, to: { x: 150, y: 150 } });
-      redash.close(path);
-      setText(JSON.stringify(path))
-  }
-
-  const handleSerializePath = () => {
-      const vector = {
-          x: 200,
-          y: 100
-      };
-      const path = redash.createPath(vector);
-      redash.addCurve(path, { c1: { x: 50, y: 50 }, c2: { x: 150, y: 50 }, to: { x: 150, y: 150 } });
-      redash.close(path);
-      const serializePath = redash.serialize(path);
-      setText(serializePath)
-  }
-
-  const handleParsePath = () => {
-      const vector = {
-          x: 200,
-          y: 100
-      };
-      const path = redash.createPath(vector);
-      redash.addCurve(path, { c1: { x: 50, y: 50 }, c2: { x: 150, y: 50 }, to: { x: 150, y: 150 } });
-      redash.close(path);
-      const serializePath = redash.serialize(path);
-      const parsePath = redash.parse(serializePath);
-      setText(JSON.stringify(parsePath))
-  }
-
-  const handleInterpolatePath = () => {
-      const inputRange = [0, 1];
-      const outputRange = [
-          {
-              move: { x: 0, y: 0 },
-              curves: [{ c1: { x: 1, y: 1 }, c2: { x: 2, y: 2 }, to: { x: 3, y: 3 } }],
-              close: false,
-          },
-          {
-              move: { x: 1, y: 1 },
-              curves: [{ c1: { x: 2, y: 2 }, c2: { x: 3, y: 3 }, to: { x: 4, y: 4 } }],
-              close: false,
-          },
-      ];
-      const value = 0.5;
-      const interpolatePath = redash.interpolatePath(value, inputRange, outputRange);
-      setText(JSON.stringify(interpolatePath))
-  }
-
-  /** 处理canvas坐标转换为笛卡尔坐标 */
-  const handleCanvas2Cartesian = () => {
-      const point = canvas2Cartesian({ x: 500, y: 200 }, { x: 500, y: 200 });
-      setText(JSON.stringify(point))
-  }
-  /** 处理笛卡尔坐标转换为canvas坐标 */
-  const handleCartesian2Canvas = () => {
-      const point = cartesian2Canvas({ x: -500, y: 200 }, { x: 500, y: 200 });
-      setText(JSON.stringify(point))
-  }
-  /** 用于处理笛卡尔坐标转换为极坐标 */
-  const handleCartesian2Polar = () => {
-      const x = 0;
-      const y = 100;
-      const center = { x: 100, y: 100 };
-      const { theta, radius } = cartesian2Polar(canvas2Cartesian({ x, y }, center));
-      setText('theta ==' + theta + "  radius==" + radius);
-  }
-
-  /** 处理极坐标转换为笛卡尔坐标 */
-  const handlePolar2Cartesian = () => {
-      const x = 0;
-      const y = 100;
-      const center = { x: 100, y: 100 };
-      const { theta, radius } = cartesian2Polar(canvas2Cartesian({ x, y }, center));
-      const { x: x1, y: y1 } = cartesian2Canvas(
-          polar2Cartesian({ theta, radius }),
-          center
-      );
-      setText('x1 ==' + x1 + "  Math.round(y1)==" + Math.round(y1));
-  }
-
-  /** 用于处理极坐标转换为canvas坐标 */
-  const handlePolar2Canvas = () => {
-      const x = 0;
-      const y = 100;
-      const center = { x: 100, y: 100 };
-      const { theta, radius } = cartesian2Polar(canvas2Cartesian({ x, y }, center));
-      const point = polar2Canvas({ theta, radius }, center)
-      setText(JSON.stringify(point))
-  }
-
-  // 用于处理canvas左边转换极坐标
-  const handleCanvas2Polar = () => {
-      const { theta, radius } = canvas2Polar({ x: -500, y: 200 }, { x: 500, y: 200 });
-      setText('theta ==' + theta + "  radius==" + radius);
-  }
-
-  return (
-    <View style={styles.container}>
-      <View style={styles.inputArea}>
-          <Text style={styles.baseText}>
-              {text}
-          </Text>
-      </View>
-      <ScrollView style={styles.scrollView}>
-        <View style={{ flexDirection: 'column' }}>
-          <View style={styles.baseArea}>
-              <Text style={{ flex: 1 }}>mix(0, 10, 20)</Text>
-              <Button title='运行' color='#841584' onPress={onMix}></Button>
-          </View>
-          <View style={styles.baseArea}>
-              <Text style={{ flex: 1 }}>round(5.123, 0)</Text>
-              <Button title='运行' color='#841584' onPress={onRoundre}></Button>
-          </View>
-          <View style={styles.baseArea}>
-              <Text style={{ flex: 1 }}>bin(true)</Text>
-              <Button title='运行' color='#841584' onPress={onBinre}></Button>
-          </View>
-          <View style={styles.baseArea}>
-              <Text style={{ flex: 1 }}>between(-1, 0, 100)</Text>
-              <Button title='运行' color='#841584' onPress={onBetweenre}></Button>
-          </View>
-          <View style={styles.baseArea}>
-              <Text style={{ flex: 1 }}>toRad(180)</Text>
-              <Button title='运行' color='#841584' onPress={onToRadre}></Button>
-          </View>
-          <View style={styles.baseArea}>
-              <Text style={{ flex: 1 }}>avg([1,2,3,4,5,6,7,8,9,10])</Text>
-              <Button title='运行' color='#841584' onPress={avgre}></Button>
-          </View>
-          <View style={styles.baseArea}>
-              <Text style={{ flex: 1 }}>cubicBezier(1, 0, 0.1, 0.1, 1)</Text>
-              <Button title='运行' color='#841584' onPress={cubicBezires}></Button>
-          </View>
-          <View style={styles.baseArea}>
-              <Text style={{ flex: 1 }}>toDeg(Math.PI)</Text>
-              <Button title='运行' color='#841584' onPress={onToDegre}></Button>
-          </View>
-          <View style={styles.baseArea}>
-              <Text style={{ flex: 1 }}>clamp(-1, 0, 100)</Text>
-              <Button title='运行' color='#841584' onPress={onClampre}></Button>
-          </View>
-          <View style={styles.baseArea}>
-              <Text style={{ flex: 1 }}>mix(0, 10, 20)</Text>
-              <Button title='运行' color='#841584' onPress={handleCreatePath}></Button>
-          </View>
-          <View style={styles.baseArea}>
-              <Text style={{ flex: 1 }}>addCurvePath</Text>
-              <Button title='运行' color='#841584' onPress={handleAddCurvePath}></Button>
-          </View>
-          <View style={styles.baseArea}>
-              <Text style={{ flex: 1 }}>closePath</Text>
-              <Button title='运行' color='#841584' onPress={handleClosePath}></Button>
-          </View>
-          <View style={styles.baseArea}>
-              <Text style={{ flex: 1 }}>serializePath</Text>
-              <Button title='运行' color='#841584' onPress={handleSerializePath}></Button>
-          </View>
-          <View style={styles.baseArea}>
-              <Text style={{ flex: 1 }}>parsePath</Text>
-              <Button title='运行' color='#841584' onPress={handleParsePath}></Button>
-          </View>
-          <View style={styles.baseArea}>
-              <Text style={{ flex: 1 }}>interpolatePath</Text>
-              <Button title='运行' color='#841584' onPress={handleInterpolatePath}></Button>
-          </View>
-          <View style={styles.baseArea}>
-              <Text style={{ flex: 1 }}>canvas2Cartesian</Text>
-              <Button title='运行' color='#841584' onPress={handleCanvas2Cartesian}></Button>
-          </View>
-          <View style={styles.baseArea}>
-              <Text style={{ flex: 1 }}>cartesian2Canvas</Text>
-              <Button title='运行' color='#841584' onPress={handleCartesian2Canvas}></Button>
-          </View>
-          <View style={styles.baseArea}>
-              <Text style={{ flex: 1 }}>cartesian2Polar</Text>
-              <Button title='运行' color='#841584' onPress={handleCartesian2Polar}></Button>
-          </View>
-          <View style={styles.baseArea}>
-              <Text style={{ flex: 1 }}>polar2Cartesian</Text>
-              <Button title='运行' color='#841584' onPress={handlePolar2Cartesian}></Button>
-          </View>
-          <View style={styles.baseArea}>
-              <Text style={{ flex: 1 }}>polar2Canvas</Text>
-              <Button title='运行' color='#841584' onPress={handlePolar2Canvas}></Button>
-          </View>
-          <View style={styles.baseArea}>
-              <Text style={{ flex: 1 }}>canvas2Polar</Text>
-              <Button title='运行' color='#841584' onPress={handleCanvas2Polar}></Button>
-          </View>
+    round,
+    bin,
+    cubicBezier,
+    clamp,
+    between,
+    avg,
+    toRad,
+    toDeg} from 'react-native-redash/src/Math';
+  import {
+    canvas2Cartesian,
+    canvas2Polar,
+    cartesian2Canvas,
+    cartesian2Polar,
+    polar2Canvas,
+    polar2Cartesian
+  } from 'react-native-redash/src/Coordinates';
+  import * as redash from 'react-native-redash';
+  import React, { useState } from 'react';
+  import { Button, ScrollView, StyleSheet, Text, View } from 'react-native';
+  // 导出组件
+  export default function RadashDemo() {
+    const [text, setText] = useState('');
+  
+    const onMix = () => {
+        const mixre = mix(0, 10, 20);
+        setText(mixre.toString())
+    }
+  
+    const onRoundre = () => {
+        const roundre = round(5.123, 0);
+        setText(roundre.toString())
+    }
+  
+    const onBinre = () => {
+        const binre = bin(true);
+        setText(binre.toString())
+    }
+  
+    const onBetweenre = () => {
+        const betweenre = between(-1, 0, 100);
+        setText(betweenre.toString())
+    }
+  
+    const onToRadre = () => {
+        const toRadre = toRad(180);
+        setText(toRadre.toString())
+    }
+  
+    const onToDegre = () => {
+        const toDegre = toDeg(Math.PI);
+        setText(toDegre.toString())
+    }
+  
+    const onClampre = () => {
+        const clampre = clamp(-1, 0, 100)
+        setText(clampre.toString())
+    }
+  
+    const avgre = () => {
+        const values: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        const avgs = avg(values)
+        setText(avgs.toString())
+    }
+  
+    const cubicBezires = () => {
+        const cubicBezire = cubicBezier(1, 0, 0.1, 0.1, 1)
+        setText(cubicBezire.toString())
+    }
+  
+    const handleCreatePath = () => {
+        const vector = {
+            x: 10,
+            y: 20
+        };
+        setText(JSON.stringify(redash.createPath(vector)))
+    }
+  
+    const handleAddCurvePath = () => {
+        const vector = {
+            x: 200,
+            y: 100
+        };
+        const path = redash.createPath(vector);
+        redash.addCurve(path, { c1: { x: 50, y: 50 }, c2: { x: 150, y: 50 }, to: { x: 150, y: 150 } });
+        setText(JSON.stringify(path))
+    }
+  
+    const handleClosePath = () => {
+        const vector = {
+            x: 200,
+            y: 100
+        };
+        const path = redash.createPath(vector);
+        redash.addCurve(path, { c1: { x: 50, y: 50 }, c2: { x: 150, y: 50 }, to: { x: 150, y: 150 } });
+        redash.close(path);
+        setText(JSON.stringify(path))
+    }
+  
+    const handleSerializePath = () => {
+        const vector = {
+            x: 200,
+            y: 100
+        };
+        const path = redash.createPath(vector);
+        redash.addCurve(path, { c1: { x: 50, y: 50 }, c2: { x: 150, y: 50 }, to: { x: 150, y: 150 } });
+        redash.close(path);
+        const serializePath = redash.serialize(path);
+        setText(serializePath)
+    }
+  
+    const handleParsePath = () => {
+        const vector = {
+            x: 200,
+            y: 100
+        };
+        const path = redash.createPath(vector);
+        redash.addCurve(path, { c1: { x: 50, y: 50 }, c2: { x: 150, y: 50 }, to: { x: 150, y: 150 } });
+        redash.close(path);
+        const serializePath = redash.serialize(path);
+        const parsePath = redash.parse(serializePath);
+        setText(JSON.stringify(parsePath))
+    }
+  
+    const handleInterpolatePath = () => {
+        const inputRange = [0, 1];
+        const outputRange = [
+            {
+                move: { x: 0, y: 0 },
+                curves: [{ c1: { x: 1, y: 1 }, c2: { x: 2, y: 2 }, to: { x: 3, y: 3 } }],
+                close: false,
+            },
+            {
+                move: { x: 1, y: 1 },
+                curves: [{ c1: { x: 2, y: 2 }, c2: { x: 3, y: 3 }, to: { x: 4, y: 4 } }],
+                close: false,
+            },
+        ];
+        const value = 0.5;
+        const interpolatePath = redash.interpolatePath(value, inputRange, outputRange);
+        setText(JSON.stringify(interpolatePath))
+    }
+  
+    /** 处理canvas坐标转换为笛卡尔坐标 */
+    const handleCanvas2Cartesian = () => {
+        const point = canvas2Cartesian({ x: 500, y: 200 }, { x: 500, y: 200 });
+        setText(JSON.stringify(point))
+    }
+    /** 处理笛卡尔坐标转换为canvas坐标 */
+    const handleCartesian2Canvas = () => {
+        const point = cartesian2Canvas({ x: -500, y: 200 }, { x: 500, y: 200 });
+        setText(JSON.stringify(point))
+    }
+    /** 用于处理笛卡尔坐标转换为极坐标 */
+    const handleCartesian2Polar = () => {
+        const x = 0;
+        const y = 100;
+        const center = { x: 100, y: 100 };
+        const { theta, radius } = cartesian2Polar(canvas2Cartesian({ x, y }, center));
+        setText('theta ==' + theta + "  radius==" + radius);
+    }
+  
+    /** 处理极坐标转换为笛卡尔坐标 */
+    const handlePolar2Cartesian = () => {
+        const x = 0;
+        const y = 100;
+        const center = { x: 100, y: 100 };
+        const { theta, radius } = cartesian2Polar(canvas2Cartesian({ x, y }, center));
+        const { x: x1, y: y1 } = cartesian2Canvas(
+            polar2Cartesian({ theta, radius }),
+            center
+        );
+        setText('x1 ==' + x1 + "  Math.round(y1)==" + Math.round(y1));
+    }
+  
+    /** 用于处理极坐标转换为canvas坐标 */
+    const handlePolar2Canvas = () => {
+        const x = 0;
+        const y = 100;
+        const center = { x: 100, y: 100 };
+        const { theta, radius } = cartesian2Polar(canvas2Cartesian({ x, y }, center));
+        const point = polar2Canvas({ theta, radius }, center)
+        setText(JSON.stringify(point))
+    }
+  
+    // 用于处理canvas左边转换极坐标
+    const handleCanvas2Polar = () => {
+        const { theta, radius } = canvas2Polar({ x: -500, y: 200 }, { x: 500, y: 200 });
+        setText('theta ==' + theta + "  radius==" + radius);
+    }
+  
+    return (
+      <View style={styles.container}>
+        <View style={styles.inputArea}>
+            <Text style={styles.baseText}>
+                {text}
+            </Text>
         </View>
-      </ScrollView>
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-      width: '100%',
-      flexDirection: 'column',
-      alignItems: 'center',
-      backgroundColor: '#F1F3F5',
-  },
-  baseText: {
-      fontWeight: 'bold',
-      textAlign: 'center',
-      fontSize: 16
-  },
-
-  titleArea: {
-      alignItems: 'center',
-      flexDirection: 'row',
-  },
-
-  title: {
-      width: '90%',
-      color: '#000000',
-      textAlign: 'left',
-      fontSize: 30,
-  },
-
-  scrollView: {
-      width: '90%',
-      marginHorizontal: 20,
-  },
-
-  inputArea: {
-      width: '90%',
-      height: 30,
-      borderWidth: 2,
-      borderColor: '#000000',
-      marginTop: 8,
-      justifyContent: 'center',
-      alignItems: 'center',
-  },
-
-  baseArea: {
-      width: '100%',
-      height: 60,
-      borderRadius: 4,
-      borderColor: '#000000',
-      marginTop: 8,
-      backgroundColor: '#FFFFFF',
-      flexDirection: 'row',
-      alignItems: 'center',
-      paddingLeft: 8,
-      paddingRight: 8
+        <ScrollView style={styles.scrollView}>
+          <View style={{ flexDirection: 'column' }}>
+            <View style={styles.baseArea}>
+                <Text style={{ flex: 1 }}>mix(0, 10, 20)</Text>
+                <Button title='运行' color='#841584' onPress={onMix}></Button>
+            </View>
+            <View style={styles.baseArea}>
+                <Text style={{ flex: 1 }}>round(5.123, 0)</Text>
+                <Button title='运行' color='#841584' onPress={onRoundre}></Button>
+            </View>
+            <View style={styles.baseArea}>
+                <Text style={{ flex: 1 }}>bin(true)</Text>
+                <Button title='运行' color='#841584' onPress={onBinre}></Button>
+            </View>
+            <View style={styles.baseArea}>
+                <Text style={{ flex: 1 }}>between(-1, 0, 100)</Text>
+                <Button title='运行' color='#841584' onPress={onBetweenre}></Button>
+            </View>
+            <View style={styles.baseArea}>
+                <Text style={{ flex: 1 }}>toRad(180)</Text>
+                <Button title='运行' color='#841584' onPress={onToRadre}></Button>
+            </View>
+            <View style={styles.baseArea}>
+                <Text style={{ flex: 1 }}>avg([1,2,3,4,5,6,7,8,9,10])</Text>
+                <Button title='运行' color='#841584' onPress={avgre}></Button>
+            </View>
+            <View style={styles.baseArea}>
+                <Text style={{ flex: 1 }}>cubicBezier(1, 0, 0.1, 0.1, 1)</Text>
+                <Button title='运行' color='#841584' onPress={cubicBezires}></Button>
+            </View>
+            <View style={styles.baseArea}>
+                <Text style={{ flex: 1 }}>toDeg(Math.PI)</Text>
+                <Button title='运行' color='#841584' onPress={onToDegre}></Button>
+            </View>
+            <View style={styles.baseArea}>
+                <Text style={{ flex: 1 }}>clamp(-1, 0, 100)</Text>
+                <Button title='运行' color='#841584' onPress={onClampre}></Button>
+            </View>
+            <View style={styles.baseArea}>
+                <Text style={{ flex: 1 }}>mix(0, 10, 20)</Text>
+                <Button title='运行' color='#841584' onPress={handleCreatePath}></Button>
+            </View>
+            <View style={styles.baseArea}>
+                <Text style={{ flex: 1 }}>addCurvePath</Text>
+                <Button title='运行' color='#841584' onPress={handleAddCurvePath}></Button>
+            </View>
+            <View style={styles.baseArea}>
+                <Text style={{ flex: 1 }}>closePath</Text>
+                <Button title='运行' color='#841584' onPress={handleClosePath}></Button>
+            </View>
+            <View style={styles.baseArea}>
+                <Text style={{ flex: 1 }}>serializePath</Text>
+                <Button title='运行' color='#841584' onPress={handleSerializePath}></Button>
+            </View>
+            <View style={styles.baseArea}>
+                <Text style={{ flex: 1 }}>parsePath</Text>
+                <Button title='运行' color='#841584' onPress={handleParsePath}></Button>
+            </View>
+            <View style={styles.baseArea}>
+                <Text style={{ flex: 1 }}>interpolatePath</Text>
+                <Button title='运行' color='#841584' onPress={handleInterpolatePath}></Button>
+            </View>
+            <View style={styles.baseArea}>
+                <Text style={{ flex: 1 }}>canvas2Cartesian</Text>
+                <Button title='运行' color='#841584' onPress={handleCanvas2Cartesian}></Button>
+            </View>
+            <View style={styles.baseArea}>
+                <Text style={{ flex: 1 }}>cartesian2Canvas</Text>
+                <Button title='运行' color='#841584' onPress={handleCartesian2Canvas}></Button>
+            </View>
+            <View style={styles.baseArea}>
+                <Text style={{ flex: 1 }}>cartesian2Polar</Text>
+                <Button title='运行' color='#841584' onPress={handleCartesian2Polar}></Button>
+            </View>
+            <View style={styles.baseArea}>
+                <Text style={{ flex: 1 }}>polar2Cartesian</Text>
+                <Button title='运行' color='#841584' onPress={handlePolar2Cartesian}></Button>
+            </View>
+            <View style={styles.baseArea}>
+                <Text style={{ flex: 1 }}>polar2Canvas</Text>
+                <Button title='运行' color='#841584' onPress={handlePolar2Canvas}></Button>
+            </View>
+            <View style={styles.baseArea}>
+                <Text style={{ flex: 1 }}>canvas2Polar</Text>
+                <Button title='运行' color='#841584' onPress={handleCanvas2Polar}></Button>
+            </View>
+          </View>
+        </ScrollView>
+      </View>
+    );
   }
-});
+  
+  const styles = StyleSheet.create({
+    container: {
+        width: '100%',
+        flexDirection: 'column',
+        alignItems: 'center',
+        backgroundColor: '#F1F3F5',
+    },
+    baseText: {
+        fontWeight: 'bold',
+        textAlign: 'center',
+        fontSize: 16
+    },
+  
+    titleArea: {
+        alignItems: 'center',
+        flexDirection: 'row',
+    },
+  
+    title: {
+        width: '90%',
+        color: '#000000',
+        textAlign: 'left',
+        fontSize: 30,
+    },
+  
+    scrollView: {
+        width: '90%',
+        marginHorizontal: 20,
+    },
+  
+    inputArea: {
+        width: '90%',
+        height: 30,
+        borderWidth: 2,
+        borderColor: '#000000',
+        marginTop: 8,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+  
+    baseArea: {
+        width: '100%',
+        height: 60,
+        borderRadius: 4,
+        borderColor: '#000000',
+        marginTop: 8,
+        backgroundColor: '#FFFFFF',
+        flexDirection: 'row',
+        alignItems: 'center',
+        paddingLeft: 8,
+        paddingRight: 8
+    }
+  });
 ```
 
 动画演示示例
@@ -546,11 +549,13 @@ export default function RadashDemo() {
 
 如未引入请参照[@react-native-oh-tpl/react-native-reanimated 文档的 Link 章节](/zh-cn/react-native-reanimated.md#link)进行引入
 
+## 约束与限制
+
 ### 兼容性
 
-在下述版本验证通过:
+本文档内容基于以下版本验证通过:
 
-1. RNOH：0.72.28; SDK：OpenHarmony(api12) 5.0.0.60; IDE：DevEco Studio 5.0.3.655; ROM：3.0.0.36;
+1. RNOH：0.72.28; SDK：HarmonyOS NEXT Developer Beta6 SDK 5.0.0.61; IDE：DevEco Studio 5.0.3.706; ROM：3.0.0.61;
 
 ## 静态方法
 > [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
@@ -562,8 +567,6 @@ export default function RadashDemo() {
 ### **Animations**
 |          Name           |                    Description                    |                           Type                           | Required |  Platform   | HarmonyOS Support |
 |:-----------------------:| :-----------------------------------------------: | :------------------------------------------------------: | :------: | :---------: | :---------------: |
-| defineAnimation()             | This utility function enables you to declare custom animations that can be invoked on both the JS and UI thread.                                              | function | No       | iOS/Android               | yes               |
-| animationParameter(animation) | Access animations passed as parameters safely on both the UI and JS thread with the proper static types. Animations can receive other animations as parameter | function | No       | iOS/Android               | yes               |
 | withPause()                   | Make an animation pausable. The state of the animation (paused or not) is controlled by a boolean shared value.                                               | function | No       | iOS/Android               | yes               |
 | withBouncing()                | Add a bouncing behavior to a physics-based animation. An animation is defined as being physics-based if it contains a velocity in its state.                  | function | No       | iOS/Android               | yes               |
 ### **Coordinates**

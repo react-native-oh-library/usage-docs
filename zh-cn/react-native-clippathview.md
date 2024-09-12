@@ -82,7 +82,18 @@ export default function index() {
 
 首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
-### 引入原生端代码
+### 1.在工程根目录的 `oh-package.json5` 添加 overrides 字段
+
+```json
+{
+  ...
+  "overrides": {
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+  }
+}
+```
+
+### 2.引入原生端代码
 
 目前有两种方法：
 
@@ -115,7 +126,7 @@ ohpm install
 
 > [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
-### 在 ArkTs 侧引入 ClipPath 组件
+### 3.在 ArkTs 侧引入 ClipPath 组件
 
 找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
@@ -143,7 +154,7 @@ function buildCustomComponent(ctx: ComponentBuilderContext) {
 ...
 ```
 
-### 在 ArkTs 侧引入 ClipPathPackage
+### 4.在 ArkTs 侧引入 ClipPathPackage
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
@@ -160,7 +171,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 运行
+### 5.运行
 
 点击右上角的 `sync` 按钮
 

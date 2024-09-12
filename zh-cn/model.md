@@ -88,7 +88,7 @@ export default App;
 
 首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
-### 在工程根目录的 `oh-package.json5` 添加 overrides 字段
+### 1.在工程根目录的 `oh-package.json5` 添加 overrides 字段
 
 ```json
 {
@@ -99,7 +99,7 @@ export default App;
 }
 ```
 
-### 引入原生端代码
+### 2.引入原生端代码
 
 目前有两种方法：
 
@@ -133,7 +133,7 @@ ohpm install
 
 > [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
-### 配置 CMakeLists 和引入 xxxPackge
+### 3.配置 CMakeLists 和引入 xxxPackge
 
 打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
 
@@ -194,7 +194,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 **提示：ArkTs 侧引入 Fabric 组件**（删除）
 
-### 在 ArkTs 侧引入 xxx 组件（若本库已 CAPI 化则需要删除本段）
+### 4.在 ArkTs 侧引入 xxx 组件（若本库已 CAPI 化则需要删除本段）
 
 找到 `function buildCustomRNComponent()`，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
@@ -231,7 +231,7 @@ const arkTsComponentNames: Array<string> = [
 
 **提示：TurboModule**（删除）
 
-### 在 ArkTs 侧引入 xxx Package
+### 5.在 ArkTs 侧引入 xxx Package
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
@@ -247,7 +247,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 运行
+### 6.运行
 
 点击右上角的 `sync` 按钮
 

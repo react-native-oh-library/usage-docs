@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
 目前HarmonyOS暂不支持 AutoLink，所以 Link 步骤需要手动配置。
 
 首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
-### 在工程根目录的 `oh-package.json5` 添加 overrides字段
+### 1.在工程根目录的 `oh-package.json5` 添加 overrides字段
 
 ```json
 {
@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
 }
 ```
 
-### 引入原生端代码
+### 2.引入原生端代码
 
 目前有两种方法：
 
@@ -131,7 +131,7 @@ ohpm install
 
 > [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/link-source-code.md)
 
-### 在 ArkTs 侧引入 RNRestartPackage
+### 3.在 ArkTs 侧引入 RNRestartPackage
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 

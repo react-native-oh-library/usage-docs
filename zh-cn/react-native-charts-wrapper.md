@@ -83,7 +83,7 @@ export default BarChartDemo;
 
 首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
-### 在工程根目录的 `oh-package.json5` 添加 overrides 字段
+### 1.在工程根目录的 `oh-package.json5` 添加 overrides 字段
 
 ```json
 {
@@ -94,7 +94,7 @@ export default BarChartDemo;
 }
 ```
 
-### 引入原生端代码
+### 2.引入原生端代码
 
 目前有两种方法：
 
@@ -227,7 +227,7 @@ const arkTsComponentNames: Array<string> = [
   ];
 ```
 
-### 在 ArkTs 侧引入 ChartsWrapperPackage
+### 3.在 ArkTs 侧引入 ChartsWrapperPackage
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
@@ -243,7 +243,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 运行
+### 4.运行
 
 点击右上角的 `sync` 按钮
 

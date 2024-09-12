@@ -150,7 +150,18 @@ const styles = StyleSheet.create({
 
 如未引入请参照[@react-native-oh-tpl/react-native-vision-camera](/zh-cn/react-native-vision-camera.md)进行引入
 
-### 引入原生端代码
+## 1.在工程根目录的 `oh-package.json5` 添加 overrides 字段
+
+```json
+{
+  ...
+  "overrides": {
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+  }
+}
+```
+
+### 2.引入原生端代码
 
 目前有两种方法：
 
@@ -183,7 +194,7 @@ ohpm install
 
 > [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
-### 在 ArkTs 侧引入 RNQrDecodeImageCameraPackage
+### 3.在 ArkTs 侧引入 RNQrDecodeImageCameraPackage
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
@@ -200,7 +211,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 在 ArkTs 侧引入 Fabric 组件
+### 4.在 ArkTs 侧引入 Fabric 组件
 
 找到 function buildCustomRNComponent()，一般位于 entry/src/main/ets/pages/index.ets 或 entry/src/main/ets/rn/LoadBundle.ets，添加：
 
@@ -222,7 +233,7 @@ export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
 ...
 ```
 
-### 运行
+### 5.运行
 
 点击右上角的 `sync` 按钮
 

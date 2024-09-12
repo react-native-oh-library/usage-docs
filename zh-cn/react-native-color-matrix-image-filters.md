@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
 }
 ```
 
-### 引入原生端代码
+### 2.引入原生端代码
 
 目前有两种方法：
 
@@ -143,7 +143,7 @@ cd entry
 ohpm install --no-link
 ```
 
-### 配置 CMakeLists 和引入 ColorMatrixImageFiltersPackage
+### 3.配置 CMakeLists 和引入 ColorMatrixImageFiltersPackage
 
 打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
 
@@ -203,7 +203,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 ```
 
 
-### 运行
+### 4.运行
 
 点击右上角的 `sync` 按钮
 

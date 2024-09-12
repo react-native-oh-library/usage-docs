@@ -52,9 +52,9 @@ yarn add @react-native-oh-tpl/react-native-image-crop-picker@file:#
 }
 ```
 
-### 配置 Entry
+### 1.配置 Entry
 
-**1.在 entry/src/main/ets/entryability 下创建 ImageEditAbility.ets**
+**(1)在 entry/src/main/ets/entryability 下创建 ImageEditAbility.ets**
 
 ```ts
 import UIAbility from '@ohos.app.ability.UIAbility'
@@ -103,7 +103,7 @@ export default class ImageEditAbility extends UIAbility {
 }
 ```
 
-**2.在 entry/src/main/module.json5 注册 ImageEditAbility 并添加 requestPermissions**
+**(2)在 entry/src/main/module.json5 注册 ImageEditAbility 并添加 requestPermissions**
 
 ```json
 "abilities":[{
@@ -121,7 +121,7 @@ export default class ImageEditAbility extends UIAbility {
 
 ```
 
-**3.在 entry/src/main/ets/pages 下创建 ImageEdit.ets**
+**(3)在 entry/src/main/ets/pages 下创建 ImageEdit.ets**
 
 ```ts
 import { ImageEditInfo } from '@react-native-oh-tpl/react-native-image-crop-picker';
@@ -142,7 +142,7 @@ struct ImageEdit {
 }
 ```
 
-**4.在 entry/src/main/resources/base/profile/main_pages.json 添加配置**
+**(4)在 entry/src/main/resources/base/profile/main_pages.json 添加配置**
 
 ```json
 {
@@ -153,7 +153,7 @@ struct ImageEdit {
 }
 ```
 
-### 引入原生端代码
+### 2.引入原生端代码
 
 目前有两种方法：
 
@@ -186,7 +186,7 @@ ohpm install
 
 > [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/link-source-code.md)
 
-### 配置 CMakeLists 和引入 ImageCropPickerPackage
+### 3.配置 CMakeLists 和引入 ImageCropPickerPackage
 
 打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
 
@@ -256,7 +256,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 运行
+### 4.运行
 
 点击右上角的 `sync` 按钮
 

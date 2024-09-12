@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
 
 首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
-### 在工程根目录的 `oh-package.json5` 添加 overrides 字段
+### 1.在工程根目录的 `oh-package.json5` 添加 overrides 字段
 
 ```json
 {
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
 }
 ```
 
-### 引入原生端代码
+### 2.引入原生端代码
 
 目前有两种方法：
 
@@ -171,7 +171,7 @@ ohpm install
 
 > [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
-### 在 ArkTs 侧引入 RNLocalizationSettingsPackage
+### 3.在 ArkTs 侧引入 RNLocalizationSettingsPackage
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
@@ -187,7 +187,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 运行
+### 4.运行
 
 点击右上角的 `sync` 按钮
 

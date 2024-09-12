@@ -93,7 +93,7 @@ Keys.secureFor('SECRET_KEY');
 }
 ```
 
-### 引入原生端代码
+### 2.引入原生端代码
 
 目前有两种方法：
 
@@ -126,7 +126,7 @@ ohpm install
 
 > [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
-### 配置 CMakeLists 和引入 RNOHKeysPackage
+### 3.配置 CMakeLists 和引入 RNOHKeysPackage
 
 打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
 
@@ -185,7 +185,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 在 ArkTs 侧引入 RNKeysPackage
+### 4.在 ArkTs 侧引入 RNKeysPackage
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
@@ -201,7 +201,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 在 DevEco 创建运行前script（生成加解密代码和编译配置文件）
+### 5.在 DevEco 创建运行前script（生成加解密代码和编译配置文件）
 
 > [!TIP] 如下步骤中添加配置完成时记得点击Apply按钮让配置生效
 
@@ -211,7 +211,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 3. 配置entry -> Before Lunch，点击加号选择 Run Another Configuration， 选择上一步配置的 Shell Script, 并将配置拖动到Hvigor-Build Make上方  
    ![entry config](../img/rnkeys/entry_config.PNG)
 
-### 运行
+### 6.运行
 
 点击右上角的 `sync` 按钮
 

@@ -226,6 +226,8 @@ ohpm install
 
 ### 权限要求
 
+> [!tip] "ohos.permission.READ_PASTEBOARD"权限等级为<B>system_basic</B>，授权方式为<B>user_grant</B>，[使用 ACL 签名的配置指导](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/signing-0000001587684945-V3#section157591551175916)
+
 #### 在 entry 目录下的module.json5中添加权限
 
 打开 `entry/src/main/module.json5`，添加：

@@ -54,7 +54,7 @@ export default function App() {
       Button
         title="savePhotos"
         onPress={() => {
-          CameraRoll.saveAsset("https://res.vmallres.com/uomcdn/CN/cms/202409/9d386e73605e4c759c1896e8ac7ce34b.jpg.webp").then((res) => {
+          CameraRoll.saveAsset("https://res.vmallres.com/uomcdn/CN/cms/202408/5442d69d916d4bcf9ee740d595a164fb.jpg").then((res) => {
             console.log('res-----',res);
           });
         }}
@@ -161,17 +161,20 @@ ohpm install
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
+> [!tip] HarmonyOS受限权限官方说明：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/restricted-permissions-V5#section397164718158 
+
 **CameraRoll**
+
 | Name | Description | Type | Required | Platform | HarmonyOS Support | Remarks |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ | ---- |
-| save | 保存图片/视频 | function | no | android,ios | partially | 由于原库版本升级，该方法已弃用，可用saveAsset接口代替。 |
-| saveAsset | 保存图片/视频 | function | no | android,ios | partially |  |
-| saveToCameraRoll | 保存图片/视频 | function | no | android,ios | partially | 内部调用saveAsset接口 |
-| getPhotos | 查找图片/视频 | function | no | android,ios | no | 由于Harmony OS安全策略调整，涉及到ohos.permission.READ_IMAGEVIDEO和ohos.permission.WRITE_IMAGEVIDEO权限的接口无法上架使用，因此该接口暂无法使用。 |
-| getAlbums | 查找相册 | function | no | android,ios | no | 由于Harmony OS安全策略调整，涉及到ohos.permission.READ_IMAGEVIDEO和ohos.permission.WRITE_IMAGEVIDEO权限的接口无法上架使用，因此该接口暂无法使用。 |
-| deletePhotos | 删除图片/视频 | function | no | android,ios | no | 由于Harmony OS安全策略调整，涉及到ohos.permission.READ_IMAGEVIDEO和ohos.permission.WRITE_IMAGEVIDEO权限的接口无法上架使用，因此该接口暂无法使用。 |
-| iosGetImageDataById | 获取图片数据 | function | no | ios | no | 由于Harmony OS安全策略调整，涉及到ohos.permission.READ_IMAGEVIDEO和ohos.permission.WRITE_IMAGEVIDEO权限的接口无法上架使用，因此该接口暂无法使用。 |
-| getPhotoThumbnail | 获取缩略图 | function | no | ios | no | 由于Harmony OS安全策略调整，涉及到ohos.permission.READ_IMAGEVIDEO和ohos.permission.WRITE_IMAGEVIDEO权限的接口无法上架使用，因此该接口暂无法使用。 |
+| save | 保存图片/视频 | function | no | iOS/Android | partially | 由于原库版本升级，该方法已弃用，可用saveAsset接口代替。 |
+| saveAsset | 保存图片/视频 | function | no | iOS/Android | partially |  |
+| saveToCameraRoll | 保存图片/视频 | function | no | iOS/Android | partially | 由于原库版本升级，该方法已弃用，调用会弹出警告，可用saveAsset接口代替。 |
+| getPhotos | 查找图片/视频 | function | no | iOS/Android | no | 由于Harmony OS安全策略调整，涉及到ohos.permission.READ_IMAGEVIDEO和ohos.permission.WRITE_IMAGEVIDEO权限的接口无法上架使用，因此该接口暂无法使用。 |
+| getAlbums | 查找相册 | function | no | iOS/Android | no | 由于Harmony OS安全策略调整，涉及到ohos.permission.READ_IMAGEVIDEO和ohos.permission.WRITE_IMAGEVIDEO权限的接口无法上架使用，因此该接口暂无法使用。 |
+| deletePhotos | 删除图片/视频 | function | no | iOS/Android | no | 由于Harmony OS安全策略调整，涉及到ohos.permission.READ_IMAGEVIDEO和ohos.permission.WRITE_IMAGEVIDEO权限的接口无法上架使用，因此该接口暂无法使用。 |
+| iosGetImageDataById | 获取图片数据 | function | no | iOS | no | 由于Harmony OS安全策略调整，涉及到ohos.permission.READ_IMAGEVIDEO和ohos.permission.WRITE_IMAGEVIDEO权限的接口无法上架使用，因此该接口暂无法使用。 |
+| getPhotoThumbnail | 获取缩略图 | function | no | iOS | no | 由于Harmony OS安全策略调整，涉及到ohos.permission.READ_IMAGEVIDEO和ohos.permission.WRITE_IMAGEVIDEO权限的接口无法上架使用，因此该接口暂无法使用。 |
 
 ## API
 
@@ -179,16 +182,16 @@ ohpm install
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name                                       | Description                                | Type     | Required | Platform | HarmonyOS Support | Remarks                                                      |
-| :----------------------------------------- | :----------------------------------------- | -------- | -------- | -------- | ----------------- | ------------------------------------------------------------ |
-| `iosReadGalleryPermission`                 | 权限验证                                   | function | no       | ios      | no                |                                                              |
-| `iosRequestReadWriteGalleryPermission`     | 读写权限申请                               | function | no       | ios      | no                |                                                              |
-| `iosRequestAddOnlyGalleryPermission`       | 添加权限申请                               | function | no       | ios      | no                |                                                              |
-| `iosRefreshGallerySelection`               | 图片列表刷新                               | function | no       | ios      | no                |                                                              |
-| `harmonyReadGalleryPermission`             | 对标`iosReadGalleryPermission`             | function | no       | harmony  | no                | 由于Harmony OS安全策略调整，涉及到ohos.permission.READ_IMAGEVIDEO和ohos.permission.WRITE_IMAGEVIDEO权限的接口无法上架使用，因此该接口暂无法使用。 |
-| `harmonyRequestReadWriteGalleryPermission` | 对标`iosRequestReadWriteGalleryPermission` | function | no       | harmony  | no                | 由于Harmony OS安全策略调整，涉及到ohos.permission.READ_IMAGEVIDEO和ohos.permission.WRITE_IMAGEVIDEO权限的接口无法上架使用，因此该接口暂无法使用。 |
-| `harmonyRequestAddOnlyGalleryPermission`   | 对标`iosRequestAddOnlyGalleryPermission`   | function | no       | harmony  | no                | 由于Harmony OS安全策略调整，涉及到ohos.permission.READ_IMAGEVIDEO和ohos.permission.WRITE_IMAGEVIDEO权限的接口无法上架使用，因此该接口暂无法使用。 |
-| `harmonyRefreshGallerySelection`           | 对标`iosRefreshGallerySelection`           | function | no       | harmony  | no                |                                                              |
+| Name                                       | Description  | Type     | Required | Platform | HarmonyOS Support | Remarks                                                      |
+| :----------------------------------------- | :----------- | -------- | -------- | -------- | ----------------- | ------------------------------------------------------------ |
+| `iosReadGalleryPermission`                 | 权限验证     | function | no       | iOS      | no                |                                                              |
+| `iosRequestReadWriteGalleryPermission`     | 读写权限申请 | function | no       | iOS      | no                |                                                              |
+| `iosRequestAddOnlyGalleryPermission`       | 添加权限申请 | function | no       | iOS      | no                |                                                              |
+| `iosRefreshGallerySelection`               | 图片列表刷新 | function | no       | iOS      | no                |                                                              |
+| `harmonyReadGalleryPermission`             | 权限验证     | function | no       | harmony  | no                | 由于Harmony OS安全策略调整，涉及到ohos.permission.READ_IMAGEVIDEO和ohos.permission.WRITE_IMAGEVIDEO权限的接口无法上架使用，因此该接口暂无法使用。 |
+| `harmonyRequestReadWriteGalleryPermission` | 读写权限申请 | function | no       | harmony  | no                | 由于Harmony OS安全策略调整，涉及到ohos.permission.READ_IMAGEVIDEO和ohos.permission.WRITE_IMAGEVIDEO权限的接口无法上架使用，因此该接口暂无法使用。 |
+| `harmonyRequestAddOnlyGalleryPermission`   | 添加权限申请 | function | no       | harmony  | no                | 由于Harmony OS安全策略调整，涉及到ohos.permission.READ_IMAGEVIDEO和ohos.permission.WRITE_IMAGEVIDEO权限的接口无法上架使用，因此该接口暂无法使用。 |
+| `harmonyRefreshGallerySelection`           | 图片列表刷新 | function | no       | harmony  | no                |                                                              |
 
 ## 遗留问题
 

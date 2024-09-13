@@ -53,10 +53,10 @@ const Labels = ['Username', 'Password', 'Firstname', 'Lastname', 'Address', 'Pho
 export const ReactNativeKeyboardAwareScrollView: React.FC = (): JSX.Element => {
 
     const [resetScrollToCoords, setResetScrollToCoords] = useState({ x: 20, y: 20 });
-    const [enableAutomaticScroll, setEnableAutomaticScroll] = useState(false);
+    const [enableAutomaticScroll, setEnableAutomaticScroll] = useState(true);
     const [extraHeight, setExtraHeight] = useState(50);
     const [extraScrollHeight, setExtraScrollHeight] = useState(60);
-    const [enableResetScrollToCoords, setEnableResetScrollToCoords] = useState(false);
+    const [enableResetScrollToCoords, setEnableResetScrollToCoords] = useState(true);
 
     return <KeyboardAwareScrollView
         style={styles.scroll}
@@ -66,7 +66,6 @@ export const ReactNativeKeyboardAwareScrollView: React.FC = (): JSX.Element => {
         extraScrollHeight={extraScrollHeight}
         enableResetScrollToCoords={enableResetScrollToCoords}
     >
-        <Button onPress={onSetAttribute} title="设置属性值" />
         {
             Labels.map(item => {
                 return <View key={item}>
@@ -115,13 +114,13 @@ const styles = StyleSheet.create({
 
 | Name                      | Description                                                                                    | Type                                                                                                                                                             | Required | Platform | HarmonyOS Support |
 | ------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------------- |
-| viewIsInsideTabBar        | Adds an extra offset that represents the `TabBarIOS` height.                                   | boolean                                                                                                                                                          | NO       | iOS      | NO                |
+| viewIsInsideTabBar        | Adds an extra offset that represents the `TabBarIOS` height.                                   | boolean                                                                                                                                                          | NO       | iOS      | YES                |
 | resetScrollToCoords       | Coordinates that will be used to reset the scroll when the keyboard hides.                     | Object: {x: number, y: number}                                                                                                                                   | NO       | All      | YES               |
 | enableAutomaticScroll     | When focus in `TextInput` will scroll the position, default is enabled.                        | boolean                                                                                                                                                          | NO       | All      | YES               |
 | extraHeight               | Adds an extra offset when focusing the `TextInput`s.                                           | number                                                                                                                                                           | NO       | All      | YES               |
 | extraScrollHeight         | Adds an extra offset to the keyboard. Useful if you want to stick elements above the keyboard. | number                                                                                                                                                           | NO       | All      | YES               |
 | enableResetScrollToCoords | Lets the user enable or disable automatic resetScrollToCoords.                                 | boolean                                                                                                                                                          | NO       | All      | YES               |
-| keyboardOpeningTime       | Sets the delay time before scrolling to new position, default is 250                           | number                                                                                                                                                           | NO       | iOS      | NO                |
+| keyboardOpeningTime       | Sets the delay time before scrolling to new position, default is 250                           | number                                                                                                                                                           | NO       | iOS      | YES                |
 | onKeyboardWillShow          | What to do when the keyboard is about to appear                                                | (event?) => void                                                                                                                                                 | NO       | iOS      | NO                |
 | onKeyboardDidShow           | What to do when the keyboard appears                                                           | (event?) => void                                                                                                                                                 | NO       | All      | YES               |
 | onKeyboardWillHide          | What to do when the keyboard is about to be hidden                                             | (event?) => void                                                                                                                                                 | NO       | iOS      | NO                |
@@ -130,12 +129,15 @@ const styles = StyleSheet.create({
 | onKeyboardDidChangeFrame    | When the keyboard status changes                                                               | (event?) => void                                                                                                                                                 | NO       | iOS      | NO                |
 | scrollToPosition          | Scroll to specific position with or without animation.                                         | (x: number, y: number, animated: bool = true) => void                                                                                                            | NO       | All      | YES               |
 | scrollToEnd               | Scroll to end with or without animation.                                                       | (animated?: bool = true) => void                                                                                                                                 | NO       | All      | YES               |
-| scrollIntoView            | Scrolls an element inside a KeyboardAwareScrollView into view.                                 | (element: React.Element<\*>, options: { getScrollPosition: ?(parentLayout, childLayout, contentOffset) => { x: number, y: number, animated: boolean } }) => void | NO       | All      | NO                |
+| scrollIntoView            | Scrolls an element inside a KeyboardAwareScrollView into view.                                 | (element: React.Element<\*>, options: { getScrollPosition: ?(parentLayout, childLayout, contentOffset) => { x: number, y: number, animated: boolean } }) => void | NO       | All      | YES                |
 
 ## 遗留问题
 
-- [ ] RN0.72.27版本新架构暂未支持UIManager.viewIsDescendantOf() API，该API功能为：判断组件节点嵌套关系，并在callback中返回boolean类型参数: [issue#3](https://github.com/react-native-oh-library/react-native-keyboard-aware-scroll-view/issues/3)
-- [ ] 部分接口未适配，详情见描述：[issue#2](https://github.com/react-native-oh-library/react-native-keyboard-aware-scroll-view/issues/2)
+- [ ] RN0.72.28版本新架构暂未支持UIManager.viewIsDescendantOf() API，该API功能为：判断组件节点嵌套关系，并在callback中返回boolean类型参数: [issue#12](https://github.com/react-native-oh-library/react-native-keyboard-aware-scroll-view/issues/12)
+- [ ] 方法onKeyboardDidChangeFrame未实现 HarmonyOS化 问题:[issue#16](https://github.com/react-native-oh-library/react-native-keyboard-aware-scroll-view/issues/16)
+- [ ] 方法onKeyboardWillChangeFrame未实现 HarmonyOS化 问题:[issue#15](https://github.com/react-native-oh-library/react-native-keyboard-aware-scroll-view/issues/15)
+- [ ] 方法onKeyboardWillHide未实现 HarmonyOS化 问题:[issue#14](https://github.com/react-native-oh-library/react-native-keyboard-aware-scroll-view/issues/14)
+- [ ] 方法onKeyboardWillShow未实现 HarmonyOS化 问题:[issue#13](https://github.com/react-native-oh-library/react-native-keyboard-aware-scroll-view/issues/13)
 
 ## 其他
 

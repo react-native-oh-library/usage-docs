@@ -13,29 +13,35 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-segmented-control/segmented-control)
+> [!TIP] [Github 地址](https://github.com/react-native-oh-library/segmented-control)
 
 ## 安装与使用
 
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/segmented-control Releases](https://github.com/react-native-oh-library/segmented-control/releases)，并下载适用版本的 tgz 包。
+
 进入到工程目录并输入以下命令：
+
+> [!TIP] # 处替换为 tgz 包的路径
 
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm install @react-native-segmented-control/segmented-control@2.5.0
+npm install @react-native-oh-tpl/segmented-control@file:#
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-segmented-control/segmented-control@2.5.0
+yarn add @react-native-oh-tpl/segmented-control@file:#
 ```
 
 <!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：
+
+> [!WARNING] 使用时 import 的库名不变。
 
 ```js
 import React, { useState, useEffect } from "react";
@@ -56,7 +62,7 @@ export const MSegmentedControl: React.FC = (): JSX.Element => {
     />;
 }
 ```
-
+ 
 ## 约束与限制
 
 ### 兼容性
@@ -66,6 +72,7 @@ export const MSegmentedControl: React.FC = (): JSX.Element => {
 1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
 2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
 3. RNOH：0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.29(SP1) ; IDE：DevEco Studio 5.0.3.400; ROM：3.0.0.25;
+4. RNOH：0.72.29; SDK：HarmonyOS NEXT Developer Beta6 5.0.0.61; IDE：DevEco Studio 5.0.3.706; ROM：3.0.0.61;
 
 ## 属性
 
@@ -78,7 +85,7 @@ export const MSegmentedControl: React.FC = (): JSX.Element => {
 | Name                      | Description                                                                                    | Type                                                                                                                                                             | Required | Platform | HarmonyOS Support |
 | ------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------------- |
 | enabled         | If false the user won't be able to interact with the control. Default value is true.                                                                                                                                                             | boolean         | No       | All          | Yes               |
-| momentary       | If true, then selecting a segment won't persist visually. The onValueChange callback will still work as expected.                                                                                                                                | boolean         | No       | iOS          | No                | 
+| momentary       | If true, then selecting a segment won't persist visually. The onValueChange callback will still work as expected.                                                                                                                                | boolean         | No       | iOS          | Yes               | 
 | onChange        | Callback that is called when the user taps a segment; passes the event as an argument                                                                                                                                                            | function        | No       | All          | Yes               |
 | onValueChange   | Callback that is called when the user taps a segment; passes the segment's value as an argument                                                                                                                                                  | function        | No       | All          | Yes               |
 | selectedIndex   | The index in props.values of the segment to be (pre)selected.                                                                                                                                                                                    | number          | No       | All          | Yes               |
@@ -91,8 +98,8 @@ export const MSegmentedControl: React.FC = (): JSX.Element => {
 | tabStyle        | Styles the clickable surface which is responsible to change tabs                                                                                                                                                                                 | object          | No       | Android, Web | Yes               |
 
 ## 遗留问题
-- [ ] @react-native-segmented-control/segmented-control 的fontFamily属性未实现 HarmonyOS 化: [issue#858](https://github.com/react-native-segmented-control/segmented-control/issues/858)
-- [ ] @react-native-segmented-control/segmented-control 的momentary属性未实现 HarmonyOS 化: [issue#868](https://github.com/react-native-segmented-control/segmented-control/issues/868)
+- [X] @react-native-segmented-control/segmented-control 的fontFamily属性未实现 HarmonyOS 化: [issue#858](https://github.com/react-native-segmented-control/segmented-control/issues/858)
+- [X] @react-native-segmented-control/segmented-control 的momentary属性未实现 HarmonyOS 化: [issue#868](https://github.com/react-native-segmented-control/segmented-control/issues/868)
 
 ## 其他
 

@@ -45,7 +45,7 @@ yarn add @react-native-oh-tpl/react-native-send-intent@file:#
 
 ```tsx
 import React, { useState, useEffect } from 'react';
-import {Button} from 'react-native';
+import {Button, Text} from 'react-native';
 import NativeSendIntent from 'react-native-send-intent'
 
 function SendIntent() {
@@ -257,7 +257,8 @@ ohpm install
 | shareImageToInstagram                  | Share Image to Instagram                               | Function | no       | Android  | no                |
 | openSettings                           | Open Settings                                          | Function | no       | Android  | yes               |
 | getVoiceMailNumber                     | Get voiceMail number                                   | Function | no       | Android  | no                |
-| openFileChooser                        | Open File Chooser                                      | Function | no       | Android  | no                |
+| openFileChooser                        | Open File Chooser                                      | Function | no       | Android  | yes               |
+| openFilePicker                         | Opens Android own file selector callback path from     | Function | no       | Android  | yes               |
 | getPhoneNumber                         | Get phone number                                       | Function | no       | Android  | no                |
 | requestIgnoreBatteryOptimizations      | Request 'ignore battery optimizations'                 | Function | no       | Android  | yes               |
 | showIgnoreBatteryOptimizationsSettings | Show battery optimizations settings                    | Function | no       | Android  | yes               |
@@ -271,8 +272,8 @@ ohpm install
 - installRemoteApp(); 不支持通过一个链接下载一个包，进行安装，只能通过应用市场
 - shareTextToLine(); 共享的应用android源码为海外应用,无法打开
 - shareImageToInstagram(); Instagram为海外应用,无法打开
-- getVoiceMailNumber(); ICCID和号码信息为敏感数据，不开放
-- getPhoneNumber(); ICCID和号码信息为敏感数据，不开放
+- getVoiceMailNumber(); ICCID和号码信息为敏感数据，不开放(https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/js-apis-sim-V5)
+- getPhoneNumber(); ICCID和号码信息为敏感数据，不开放(https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V5/js-apis-sim-V5)
 
 ## 开源协议
 

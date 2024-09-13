@@ -585,8 +585,6 @@ Common props 组件属性 HarmonyOS 侧支持情况
 |  strokeLinejoin  |         指明路径的转角处使用的形状          |   string    |   miter   |    No    |   All    |
 | strokeMiterlimit | 对斜接长度和 stroke-width 的比率设置极限 值 |   number    |     4     |    No    |   All    |
 |   vectorEffect   |       指明绘制对象时要使用的矢量效果        |   string    |   none    |    No    |   All    |
-|     clipRule     |            将元素进行剪切的规则             |   string    |  evenodd  |    No    |   All    |
-|     clipPath     |               将元素进行剪切                |   string    |     -     |    No    |   All    |
 |    translate     |                  设置位移                   | numberArray |    0,0    |    No    |   All    |
 |    translateX    |                设置 x 轴位移                |   number    |     0     |    No    |   All    |
 |    translateY    |                设置 y 轴位移                |   number    |     0     |    No    |   All    |

@@ -25,7 +25,7 @@ npm install lodash@4.17.21
 #### **yarn**
 
 ```bash
-yarn add lodash@^4.17.21
+yarn add lodash@4.17.21
 ```
 
 <!-- tabs:end -->
@@ -33,31 +33,45 @@ yarn add lodash@^4.17.21
 直接使用：
 
 ```js
-// findLastIndex 为例
-import lodashStable from "lodash";
+import React, { useState } from 'react';
+import { View, Text, Button, FlatList } from 'react-native';
+import _ from 'lodash';
 
-var users = [
-  { user: "barney", active: true },
-  { user: "fred", active: false },
-  { user: "pebbles", active: false },
-];
+const LodashDemo = () => {
+  const [data, setData] = useState([1, 2, 2, 3, 4, 4, 5]);
+  const [uniqueData, setUniqueData] = useState([]);
 
-lodashStable.findLastIndex(users, function (o) {
-  return o.user == "pebbles";
-});
-// => 2
+  const handleRemoveDuplicates = () => {
+    const result = _.uniq(data);
+    setUniqueData(result);
+  };
 
-// The `_.matches` iteratee shorthand.
-lodashStable.findLastIndex(users, { user: "barney", active: true });
-// => 0
+  return (
+    <View style={{ padding: 20 }}>
+      <Text style={{ fontSize: 18, marginBottom: 10 }}>Original Data:</Text>
+      <FlatList
+        data={data}
+        renderItem={({ item }) => <Text>{item}</Text>}
+        keyExtractor={(item, index) => index.toString()}
+      />
 
-// The `_.matchesProperty` iteratee shorthand.
-lodashStable.findLastIndex(users, ["active", false]);
-// => 2
+      <Button title="Remove Duplicates" onPress={handleRemoveDuplicates} />
 
-// The `_.property` iteratee shorthand.
-lodashStable.findLastIndex(users, "active");
-// => 0
+      {uniqueData.length > 0 && (
+        <>
+          <Text style={{ fontSize: 18, marginTop: 20, marginBottom: 10 }}>Unique Data:</Text>
+          <FlatList
+            data={uniqueData}
+            renderItem={({ item }) => <Text>{item}</Text>}
+            keyExtractor={(item, index) => index.toString()}
+          />
+        </>
+      )}
+    </View>
+  );
+};
+
+export default LodashDemo;
 ```
 
 ### 兼容性

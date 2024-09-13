@@ -21,13 +21,13 @@
 #### **npm**
 
 ```bash
-npm install mobx-react@^7.6.0
+npm install mobx-react@7.6.0
 ```
 
 #### **yarn**
 
 ```bash
-yarn add mobx-react@^7.6.0
+yarn add mobx-react@7.6.0
 ```
 
 <!-- tabs:end -->
@@ -57,27 +57,73 @@ npm install @babel/plugin-transform-class-properties --save-dev
 下面的代码展示了这个库的基本使用场景：
 
 ```js
-import { observer } from "mobx-react";
+import React from 'react';
+import { View, Text, Button, StyleSheet } from 'react-native';
+import { observer, inject, Provider } from 'mobx-react';
+import { observable, action, makeObservable } from 'mobx';
 
-// ---- ES6 syntax ----
-const TodoView = observer(
-  class TodoView extends React.Component {
-    render() {
-      return <div>{this.props.todo.title}</div>;
-    }
-  },
-);
+class CounterStore {
+  count = 0;
 
-// ---- ESNext syntax with decorator syntax enabled ----
+  constructor() {
+    makeObservable(this, {
+      count: observable,
+      increment: action,
+      decrement: action,
+    });
+  }
+
+  increment = () => {
+    this.count += 1;
+  };
+
+  decrement = () => {
+    this.count -= 1;
+  };
+}
+
+const counterStore = new CounterStore();
+
+// Counter 组件，使用 @inject 和 @observer 进行连接
+@inject('counterStore')
 @observer
-class TodoView extends React.Component {
+class Counter extends React.Component {
   render() {
-    return <div>{this.props.todo.title}</div>;
+    const { counterStore } = this.props;
+    return (
+      <View style={styles.container}>
+        <Text style={styles.text}>Count: {counterStore.count}</Text>
+        <Button title="Increment" onPress={counterStore.increment} />
+        <Button title="Decrement" onPress={counterStore.decrement} />
+      </View>
+    );
   }
 }
 
-// ---- or just use function components: ----
-const TodoView = observer(({ todo }) => <div>{todo.title}</div>);
+const App = () => {
+  return (
+    <Provider counterStore={counterStore}>
+      <View style={styles.container}>
+        <Counter />
+      </View>
+    </Provider>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f5fcff',
+  },
+  text: {
+    fontSize: 20,
+    marginBottom: 20,
+  },
+});
+
+export default App;
 ```
 
 ### 兼容性

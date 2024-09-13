@@ -34,22 +34,54 @@ yarn add prop-types
 
 ```js
 import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
 
-class MyComponent extends React.Component {
-  render() {
-    // ... do things with the props
-  }
-}
+const Greeting = ({ name, age }) => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text}>Hello, {name}!</Text>
+      <Text style={styles.text}>You are {age} years old.</Text>
+    </View>
+  );
+};
 
-MyComponent.propTypes = {
-  optionalArray: PropTypes.array,
-  optionalBigInt: PropTypes.bigint,
-  optionalBool: PropTypes.bool,
-  optionalFunc: PropTypes.func,
-}
+// 使用prop-types进行props类型验证
+Greeting.propTypes = {
+  name: PropTypes.string.isRequired, // name 必须是字符串且是必填项
+  age: PropTypes.number,             // age 是可选的且必须是数字
+};
 
-optionalEnum: PropTypes.oneOf(['News', 'Photos']),
+// 默认props值
+Greeting.defaultProps = {
+  age: 0,
+};
+
+const App = () => {
+  return (
+    <View style={styles.appContainer}>
+      <Greeting name="John" age={30} />
+      <Greeting name="Doe" />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  appContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#f5fcff',
+  },
+  container: {
+    marginBottom: 20,
+  },
+  text: {
+    fontSize: 18,
+  },
+});
+
+export default App;
 ```
 
 ### 兼容性

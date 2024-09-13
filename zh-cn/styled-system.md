@@ -21,13 +21,13 @@
 #### **npm**
 
 ```bash
-npm install styled-system@^5.1.5
+npm install styled-system@5.1.5
 ```
 
 #### **yarn**
 
 ```bash
-yarn add styled-system@^5.1.5
+yarn add styled-system@5.1.5
 ```
 
 <!-- tabs:end -->
@@ -35,36 +35,39 @@ yarn add styled-system@^5.1.5
 下面的代码展示了这个库的基本使用场景：
 
 ```js
-import styled from 'styled-components'
-import { space, layout, typography, color } from 'styled-system'
+import React from 'react';
+import styled from 'styled-components/native';
+import { space, layout, color } from 'styled-system';
 
-// Add styled-system functions to your component
-const Box = styled.div`
+// 创建一个基础的 Box 组件
+const Box = styled.View`
   ${space}
   ${layout}
-  ${typography}
   ${color}
-`
-// width: 50%
-<Box width={1/2} />
+`;
 
-// font-size: 20px (theme.fontSizes[4])
-<Box fontSize={4} />
+// 使用 Box 组件并应用不同的样式属性
+const App = () => {
+  return (
+    <Box
+      width="100%"
+      height={200}
+      padding={3}
+      margin={4}
+      backgroundColor="lightblue"
+    >
+      <Box
+        width={100}
+        height={100}
+        padding={2}
+        margin={2}
+        backgroundColor="blue"
+      />
+    </Box>
+  );
+};
 
-// margin: 16px (theme.space[2])
-<Box m={2} />
-
-// padding: 32px (theme.space[3])
-<Box p={3} />
-
-// color
-<Box color='tomato' />
-
-// color: #333 (theme.colors.gray[0])
-<Box color='gray.0' />
-
-// background color
-<Box bg='tomato' />
+export default App;
 ```
 
 ## 约束与限制

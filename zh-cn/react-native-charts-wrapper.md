@@ -127,7 +127,7 @@ ohpm install
 
 > [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
-### 在 ArkTs 侧引入 BarCharts、LineCharts、HorizontalBarCharts 、BubbleCharts、PieCharts、RadarCharts、ScatterCharts、CandleStickCharts、CombinedCharts 组件
+### 3.在 ArkTs 侧引入 BarCharts、LineCharts、HorizontalBarCharts 、BubbleCharts、PieCharts、RadarCharts、ScatterCharts、CandleStickCharts、CombinedCharts 组件
 
 找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
@@ -227,7 +227,7 @@ const arkTsComponentNames: Array<string> = [
   ];
 ```
 
-### 3.在 ArkTs 侧引入 ChartsWrapperPackage
+### 4.在 ArkTs 侧引入 ChartsWrapperPackage
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
@@ -243,7 +243,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 4.运行
+### 5.运行
 
 点击右上角的 `sync` 按钮
 
@@ -255,6 +255,7 @@ ohpm install
 ```
 
 然后编译、运行即可。
+## 约束与限制
 
 ### 兼容性
 
@@ -355,7 +356,7 @@ ohpm install
 | Name                         | Description          | Type        | Required | Platform    | HarmonyOS Support |
 | ---------------------------- | -------------------- | ----------- | -------- | ----------- | ----------------- |
 | animation                    | 设置图表动画         | object      | No       | iOS/Android | Yes               |
-| chartBackgroundColor         | 设置图表背景颜色     | number      | No       | iOS/Android | Yes               |
+| chartBackgroundColor         | 设置图表背景颜色     | number      | No       | iOS/Android | NO               |
 | logEnabled                   | 启用日志             | bool        | No       | iOS/Android | NO                |
 | noDataText                   | 设置无数据文本       | string      | No       | iOS/Android | Yes               |
 | noDataTextColor              | 设置无数据文本颜色   | number      | No       | iOS/Android | Yes               |
@@ -369,26 +370,27 @@ ohpm install
 
 ### BarLineChartBase
 
-| Name                   | Description                                                                                   | Type                            | Required | Platform    | HarmonyOS Support |
-| ---------------------- | --------------------------------------------------------------------------------------------- | ------------------------------- | -------- | ----------- | ----------------- |
-| drawGridBackground     | 是否设置网格背景颜色                                                                          | bool                            | No       | iOS/Android | Yes               |
-| gridBackgroundColor    | 设置网格背景颜色                                                                              | number                          | No       | iOS/Android | Yes               |
-| drawBorders            | 是否设置边框                                                                                  | bool                            | No       | iOS/Android | Yes               |
-| borderColor            | 设置边框颜色                                                                                  | number                          | No       | iOS/Android | Yes               |
-| borderWidth            | 设置边框宽度                                                                                  | number                          | No       | iOS/Android | Yes               |
-| minOffset              | 设置最小偏移                                                                                  | number                          | No       | iOS/Android | Yes               |
-| visibleRange           | 限制通过捏合和缩放可以看到的最大和最小 x 范围                                                 | object                          | No       | iOS/Android | NO                |
-| autoScaleMinMaxEnabled | 是否设置 Y 轴的自动缩放标记                                                                   | bool                            | No       | iOS/Android | Yes               |
-| keepPositionOnRotation | 设置图表在旋转（方向更改）后是否应保持其位置（缩放/滚动                                       | bool                            | No       | iOS/Android | NO                |
-| scaleEnabled           | 是否启用缩放                                                                                  | bool                            | No       | iOS/Android | Yes               |
-| scaleXEnabled          | 是否启用 X 轴缩放                                                                             | bool                            | No       | iOS/Android | Yes               |
-| scaleYEnabled          | 是否启用 Y 轴缩放                                                                             | bool                            | No       | iOS/Android | Yes               |
-| dragEnabled            | 是否设置拖动                                                                                  | bool                            | No       | iOS/Android | Yes               |
+| Name                   | Description                                                 | Type                            | Required | Platform    | HarmonyOS Support |
+|------------------------|-------------------------------------------------------------| ------------------------------- | -------- | ----------- | ----------------- |
+| drawGridBackground     | 是否设置网格背景颜色                                                  | bool                            | No       | iOS/Android | Yes               |
+| gridBackgroundColor    | 设置网格背景颜色                                                    | number                          | No       | iOS/Android | Yes               |
+| drawBorders            | 是否设置边框                                                      | bool                            | No       | iOS/Android | Yes               |
+| borderColor            | 设置边框颜色                                                      | number                          | No       | iOS/Android | Yes               |
+| borderWidth            | 设置边框宽度                                                      | number                          | No       | iOS/Android | Yes               |
+| minOffset              | 设置最小偏移                                                      | number                          | No       | iOS/Android | Yes               |
+| maxVisibleValueCount   | 设置最大条目数                                                     | number                          | No       | iOS/Android | Yes               |
+| visibleRange           | 限制通过捏合和缩放可以看到的最大和最小 x 范围                                    | object                          | No       | iOS/Android | NO                |
+| autoScaleMinMaxEnabled | 是否设置 Y 轴的自动缩放标记                                             | bool                            | No       | iOS/Android | Yes               |
+| keepPositionOnRotation | 设置图表在旋转（方向更改）后是否应保持其位置（缩放/滚动                                | bool                            | No       | iOS/Android | NO                |
+| scaleEnabled           | 是否启用缩放                                                      | bool                            | No       | iOS/Android | Yes               |
+| scaleXEnabled          | 是否启用 X 轴缩放                                                  | bool                            | No       | iOS/Android | Yes               |
+| scaleYEnabled          | 是否启用 Y 轴缩放                                                  | bool                            | No       | iOS/Android | Yes               |
+| dragEnabled            | 是否设置拖动                                                      | bool                            | No       | iOS/Android | Yes               |
 | pinchZoom              | 如果设置为 true，则 x 和 y 轴都可以用 2 个手指同时缩放，如果为 false，x 轴和 y 轴可以单独缩放 | bool                            | No       | iOS/Android | Yes               |
-| doubleTapToZoomEnabled | 将此属性设置为 true 可通过双击图表启用放大功能                                                | bool                            | No       | iOS/Android | Yes               |
-| yAksis                 | 设置 Y 轴                                                                                     | { left: YAksis, right: YAksis } | No       | iOS/Android | Yes               |
-| zoom                   | 按给定的比例因子放大或缩小                                                                    | object                          | No       | iOS/Android | Yes               |
-| viewPortOffsets        | 设置当前 ViewPort 的自定义偏移（在视图两侧的偏移）                                            | object                          | No       | iOS/Android | Yes               |
+| doubleTapToZoomEnabled | 将此属性设置为 true 可通过双击图表启用放大功能                                  | bool                            | No       | iOS/Android | Yes               |
+| yAxis                  | 设置 Y 轴                                                      | { left: YAxis, right: YAxis } | No       | iOS/Android | Yes               |
+| zoom                   | 按给定的比例因子放大或缩小                                               | object                          | No       | iOS/Android | Yes               |
+| viewPortOffsets        | 设置当前 ViewPort 的自定义偏移（在视图两侧的偏移）                              | object                          | No       | iOS/Android | Yes               |
 
 ### Data Config Type
 
@@ -441,6 +443,9 @@ ohpm install
 | ----------------- | --------------------------------------------------------------------- | ------- | -------- | ----------- | ----------------- |
 | drawValueAboveBar | 如果设置为 true，则所有值都绘制在其条形上方，而不是绘制在其顶部下方。 | bool    | No       | iOS/Android | Yes               |
 | drawBarShadow     | 如果设置为 true，则在每个条形后面绘制一个灰色区域，表示最大值         | bool    | No       | iOS/Android | Yes               |
+| barWidth     | 设置每个条形在x轴上应具有的宽度         | number    | No       | iOS/Android | Yes               |
+| topRadius     | 设置顶部圆角半径         | number    | No       | iOS/Android | Yes               |
+| group     | 所有BarDataSet对象组合在一起         | object    | No       | iOS/Android | Yes               |
 | data              | 柱状图数据                                                            | BarData | Yes      | iOS/Android | Yes               |
 
 #### BarData Config
@@ -582,6 +587,10 @@ ohpm install
 | common                     | 公共数据数据                                         | Data Config Type.Common                                      | No       | iOS/Android | Yes               |
 | barLineScatterCandleBubble | 柱状图、条形图、散点图、气泡图、烛台图的公共基础数据 | Data Config Type.CommonConfigType.barLineScatterCandleBubble | No       | iOS/Android | Yes               |
 | lineScatterCandleRadar     | 柱状图、烛台图、散点图、雷达图的公共基础数据         | Data Config Type.CommonConfigType.lineScatterCandleRadar     | No       | iOS/Android | Yes               |
+| scatterShapeSize     | 设置绘制的scattershape将具有的大小         | number     | No       | iOS/Android | Yes               |
+| scatterShape     |  设置绘制此DataSet时应使用的散点形状         | string     | No       | iOS/Android | Yes               |
+| scatterShapeHoleColor     | 设置形状中孔的颜色         | number     | No       | iOS/Android | Yes               |
+| scatterShapeHoleRadius     | 设置形状中孔的半径（适用于正方形、圆形和三角形）         | number     | No       | iOS/Android | Yes               |
 
 #### ScatterData Values
 
@@ -666,6 +675,7 @@ ohpm install
 - [ ] 在Android和iOS visibleRange 最大大小百分比限制通过缩放和缩放可以看到的最大和最小x范围不起作用， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/999)
 - [ ] keepPositionOnRotation旋转后保持图表原始位置属性在Android和iOS不生效， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/999)
 - [ ] valueFormatter格式化数据属性在Android和iOS不生效， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/935)
+- [ ] chartBackgroundColor图表背景颜色在原库中不生效，在原库中网格背景颜色与图表背景颜色设置的内容一样，则已不支持图表背景 HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/1001)
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://mitlicense.org/) ，请自由地享受和参与开源。

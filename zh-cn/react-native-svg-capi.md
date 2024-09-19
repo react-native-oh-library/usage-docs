@@ -28,12 +28,14 @@
 #### **npm**
 
 ```bash
+npm install react-native-svg@15.0.0
 npm install @react-native-oh-tpl/react-native-svg@file:#
 ```
 
 #### **yarn**
 
 ```bash
+yarn add react-native-svg@15.0.0
 yarn add @react-native-oh-tpl/react-native-svg@file:#
 ```
 

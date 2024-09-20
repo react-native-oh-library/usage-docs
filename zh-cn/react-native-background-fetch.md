@@ -340,7 +340,7 @@ ohpm install
 | scheduleTask | Add an extra fetch event listener in addition to the one initially provided to [[configure]].                                               | Function | no     | no       | all      | partially         |
 | start        | Start subscribing to fetch events.                                                                                                          | Function | no     | no       | all      | yes               |
 | stop         | Stop subscribing to fetch events.                                                                                                           | Function | no     | no       | all      | yes               |
-| finish       | You must execute [[finish]] within your fetch-callback to signal completion of your task.                                                   | Function | no     | no       | all      | partially         |
+| finish       | You must execute [[finish]] within your fetch-callback to signal completion of your task.                                                   | Function | no     | no       | all      | yes               |
 | status       | Query the BackgroundFetch API status                                                                                                        | Function | no     | no       | all      | yes               |
 
 ### BackgroundFetch.configure()
@@ -359,7 +359,7 @@ BackgroundFetch.configure(config: BackgroundFetchConfig, onEvent: (taskId:string
 | `BackgroundFetchConfig.requiredNetworkType`   | [Android only] Set detailed description of the kind of network your job requires.                                                                                                                            | `NetworkType` | no       | Android  | partially         |
 | `BackgroundFetchConfig.requiresBatteryNotLow` | [Android only] Specify that to run this job, the device's battery level must not be low.                                                                                                                     | `boolean`     | no       | Android  | yes               |
 | `BackgroundFetchConfig.requiresStorageNotLow` | [Android only] Specify that to run this job, the device's available storage must not be low.                                                                                                                 | `boolean`     | no       | Android  | yes               |
-| `BackgroundFetchConfig.requiresCharging`      | [Android only] Specify that to run this job, the device must be charging (or be a non-battery-powered device connected to permanent power, such as Android TV devices). This defaults to false.              | `boolean`     | no       | Android  | yes               |
+| `BackgroundFetchConfig.requiresCharging`      | [Android only] Specify that to run this job, the device must be charging (or be a non-battery-powered device connected to permanent power, such as Android TV devices).                                      | `boolean`     | no       | Android  | yes               |
 | `BackgroundFetchConfig.requiresDeviceIdle`    | [Android only] When set true, ensure that this job will not run if the device is in active use.                                                                                                              | `boolean`     | no       | Android  | yes               |
 
 ### BackgroundFetch.scheduleTask()
@@ -368,22 +368,21 @@ BackgroundFetch.configure(config: BackgroundFetchConfig, onEvent: (taskId:string
 BackgroundFetch.scheduleTask(config: TaskConfig): Promise<boolean>;
 ```
 
-| Name                                     | Description                                                  | Type          | Required | Platform | HarmonyOS Support |
-| ---------------------------------------- | ------------------------------------------------------------ | ------------- | -------- | -------- | ----------------- |
-| `TaskConfig.taskId`                      | The name of the task.                                        | `string`      | yes      | all      | yes               |
-| `TaskConfig.delay`                       | The minimum interval in milliseconds to execute this task.   | `number`      | yes      | all      | yes               |
-| `TaskConfig.periodic`                    | Whether this task will continue executing or just a "one-shot". | `boolean`     | no       | all      | yes               |
-| `TaskConfig.requiresNetworkConnectivity` | When set true, ensure that this job will run if the device has network connection | `boolean`     | no       | all      | no                |
-| `TaskConfig.stopOnTerminate`             | [Android only] Set false to continue background-fetch events after user terminates the app. Default to true. | `boolean`     | no       | Android  | no                |
-| `TaskConfig.startOnBoot`                 | [Android only] Set true to initiate background-fetch events when the device is rebooted. Defaults to false. | `boolean`     | no       | Android  | no                |
-| `TaskConfig.enableHeadless`              | [Android only] Set true to enable Headless mechanism for handling fetch events after app termination. | `boolean`     | no       | Android  | no                |
+| Name                                     | Description                                                                                                                                                                                                  | Type          | Required | Platform | HarmonyOS Support |
+| ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- | -------- | -------- | ----------------- |
+| `TaskConfig.taskId`                      | The name of the task.                                                                                                                                                                                        | `string`      | yes      | all      | yes               |
+| `TaskConfig.delay`                       | The minimum interval in milliseconds to execute this task.                                                                                                                                                   | `number`      | yes      | all      | yes               |
+| `TaskConfig.periodic`                    | Whether this task will continue executing or just a "one-shot".                                                                                                                                              | `boolean`     | no       | all      | yes               |
+| `TaskConfig.requiresNetworkConnectivity` | When set true, ensure that this job will run if the device has network connection                                                                                                                            | `boolean`     | no       | all      | no                |
+| `TaskConfig.stopOnTerminate`             | [Android only] Set false to continue background-fetch events after user terminates the app. Default to true.                                                                                                 | `boolean`     | no       | Android  | no                |
+| `TaskConfig.startOnBoot`                 | [Android only] Set true to initiate background-fetch events when the device is rebooted. Defaults to false.                                                                                                  | `boolean`     | no       | Android  | no                |
+| `TaskConfig.enableHeadless`              | [Android only] Set true to enable Headless mechanism for handling fetch events after app termination.                                                                                                        | `boolean`     | no       | Android  | no                |
 | `TaskConfig.forceAlarmManager`           | [Android only] By default, the plugin will use Android's JobScheduler when possible. The JobScheduler API prioritizes for battery-life, throttling task-execution based upon device usage and battery level. | `boolean`     | no       | Android  | no                |
-| `TaskConfig.requiredNetworkType`         | [Android only] Set detailed description of the kind of network your job requires. | `NetworkType` | no       | Android  | partially         |
-| `TaskConfig.requiresBatteryNotLow`       | [Android only] Specify that to run this job, the device's battery level must not be low. | `boolean`     | no       | Android  | yes               |
-| `TaskConfig.requiresStorageNotLow`       | [Android only] Specify that to run this job, the device's available storage must not be low. | `boolean`     | no       | Android  | yes               |
-| `TaskConfig.requiresCharging`            | [Android only] Specify that to run this job, the device must be charging (or be a non-battery-powered device connected to permanent power, such as Android TV devices). This defaults to false. | `boolean`     | no       | Android  | yes               |
-| `TaskConfig.requiresDeviceIdle`          | [Android only] When set true, ensure that this job will not run if the device is in active use. | `boolean`     | no       | Android  | yes               |
-
+| `TaskConfig.requiredNetworkType`         | [Android only] Set detailed description of the kind of network your job requires.                                                                                                                            | `NetworkType` | no       | Android  | partially         |
+| `TaskConfig.requiresBatteryNotLow`       | [Android only] Specify that to run this job, the device's battery level must not be low.                                                                                                                     | `boolean`     | no       | Android  | yes               |
+| `TaskConfig.requiresStorageNotLow`       | [Android only] Specify that to run this job, the device's available storage must not be low.                                                                                                                 | `boolean`     | no       | Android  | yes               |
+| `TaskConfig.requiresCharging`            | [Android only] Specify that to run this job, the device must be charging (or be a non-battery-powered device connected to permanent power, such as Android TV devices).                                      | `boolean`     | no       | Android  | yes               |
+| `TaskConfig.requiresDeviceIdle`          | [Android only] When set true, ensure that this job will not run if the device is in active use.                                                                                                              | `boolean`     | no       | Android  | yes               |
 
 ### BackgroundFetch.stop()
 
@@ -425,11 +424,15 @@ BackgroundFetch.status(callback?: (status: BackgroundFetchStatus) => void): Prom
 
 ## 遗留问题
 
-- [ ] configure 接口不支持 onTimeout 超时处理，并且 config 中的部分参数不支持 harmonyOS。[issue#2](https://github.com/react-native-oh-library/react-native-background-fetch/issues/2)
-- [ ] finish 接口不支持给系统发送完成任务提示。[issue#3](https://github.com/react-native-oh-library/react-native-background-fetch/issues/3)
-- [ ] scheduleTask 接口不支持 requiresNetworkConnectivity 属性。[issue#4](https://github.com/react-native-oh-library/react-native-background-fetch/issues/4)
+- [ ] configure 接口部分参数不支持harmonyOS。[issue#2](https://github.com/react-native-oh-library/react-native-background-fetch/issues/2)
+- [ ] scheduleTask 接口部分参数不支持harmonyOS。[issue#4](https://github.com/react-native-oh-library/react-native-background-fetch/issues/4)
 
 ## 其他
+
+- iOS可能需要数天的时间才能启动机器学习算法并开始触发常规事件。同时，您应该定期将应用程序带到前台，以使用用户的行为训练iOS机器学习算法。之后iOS才会定期执行任务。
+- Android中，不需要机器算法介入，configure函数可以每15分钟调用一次，scheduleTask可以最低每隔1分钟调用一次。
+- HarmonyOS中，系统会根据内存、功耗、设备温度、用户使用习惯等统一调度，如当系统内存资源不足或温度达到一定挡位时，系统将延迟调度该任务。假如你设置20分钟后执行，第一次任务不一定是20分钟就会执行，有可能十几分钟就执行了，往后的任务得起码2小时以后才会执行，更多详情请查看下面的链接内容。https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/work-scheduler-V5
+
 
 ## 开源协议
 

@@ -12,6 +12,7 @@
     </a>
 </p>
 
+
 > [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-text-size)
 
 ## 安装与使用
@@ -336,6 +337,8 @@ ohpm install
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
+> [!tip] 参数信息查看 [Github 地址](https://github.com/react-native-oh-library/react-native-text-size)
+
 | Name                   | Description                                                                     | Type                            | Required | Platform | HarmonyOS Support |
 | ---------------------- | ------------------------------------------------------------------------------- | ------------------------------- | -------- | -------- | ----------------- |
 | measure                | Measurement Text                                                                | TSMeasureResult                 | No       | All      | partially               |
@@ -345,10 +348,11 @@ ohpm install
 | fontFamilyNames        | Returns a Promise for an array of font family names available on the system     | string[]                        | No       | All      | yes               |
 | fontNamesForFamilyName | Return the data of the corresponding font according to the name                 | string[]                        | No       | All      | yes               |
 
+
 ## 遗留问题
 
 - [ ] fontFamilyNames&fontNamesForFamilyName 问题:需要依赖手机文件 font 目录下的 json 文件，该文件目前没有预置在手机目录下，会导致该接口调用为空。后续底层框架侧修复该问题 [issue#1](https://github.com/react-native-oh-library/react-native-text-size/issues/1)
-- [ ] measure方法缺少lastLineWidth和lineInfo的返回处理 [issue#2](https://github.com/react-native-oh-library/react-native-text-size/issues/8)
+- [ ] measure方法缺少lineInfo的返回处理 [issue#2](https://github.com/react-native-oh-library/react-native-text-size/issues/8)
 
 ## 其他
 

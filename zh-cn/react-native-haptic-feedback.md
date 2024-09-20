@@ -185,6 +185,12 @@ ohpm install
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-haptic-feedback Releases](https://github.com/react-native-oh-library/react-native-haptic-feedback/releases)
 
+### 权限要求
+在 entry/src/main/module.json5补上配置
+```js
+"requestPermissions": [ { "name": "ohos.permission.VIBRATE" }, ]
+```
+
 ## 静态方法
 
 > [!TIP] "Platform"列表示该属性在原三方库上支持的平台。

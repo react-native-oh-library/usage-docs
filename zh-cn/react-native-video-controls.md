@@ -21,12 +21,12 @@
 
 react-native-video-controls依赖于以下三方库
 
-| Dependcies         | Version |
+| Dependencies       | Version |
 | :----------------- | :------ |
 | react-native-video | >=2.0.0 |
 | lodash             | ^4.16.4 |
 
-本库依赖[@react-native-oh-tpl/react-native-video文档](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-video.md#link)以及简化开发的JS工具[lodash](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/lodash.md)
+本库依赖[@react-native-oh-tpl/react-native-video](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-video.md#link)以及简化开发的JS工具[lodash](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/lodash.md)
 
 进入到工程目录并输入以下命令：
 
@@ -58,9 +58,10 @@ const App = () => {
   return(
       <View>
        <VideoPlayer
+      		title = 'oceans'
       		style = {styles.container}
          	videoStyle = {styles.video}
-            source={{ uri: 'https://vjs.zencdn.net/v/oceans.mp4' }}
+            source = {{ uri: 'https://vjs.zencdn.net/v/oceans.mp4' }}
             toggleResizeModeOnFullscreen = {true}
             controlAnimationTiming = {3000}
             doubleTapTime = {10}
@@ -111,38 +112,42 @@ export default App;
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
+> [!tip] "Name"列属性navigator在使用时，请参考本文档其他
+
 | Name                         | Description                                                  |     Type     | Required |  Platform   | HarmonyOS Support |
 | ---------------------------- | ------------------------------------------------------------ | :----------: | :------: | :---------: | :---------------: |
-| toggleResizeModeOnFullscreen | 如果为真，点击全屏按钮将使 `<Video />` 组件在覆盖/包含模式之间切换；如果您想自定义全屏行为，请设置为假。 |     Bool     |    no    | iOS/Android |        yes        |
-| controlAnimationTiming       | 对控件进行动画处理的时间量（以毫秒为单位）。                 |     Int      |    no    | iOS/Android |        yes        |
-| doubleTapTime                | 在此时间内点击两次（以毫秒为单位）被视为两次点击。在此时间到期之前，不会执行单击操作。 |     Int      |    no    | iOS/Android |        yes        |
-| controlTimeout               | 在一段时间后隐藏控件（以毫秒为单位）                         |     Int      |    no    | iOS/Android |        yes        |
-| scrubbing                    | 如果大于0，则在移动进度条时启用实时拖动。提供的值是拖动的最小时间步长，单位为毫秒。 |     Int      |    no    | iOS/Android |        yes        |
-| showOnStart                  | 首次渲染时显示或隐藏控件。                                   |     Bool     |    no    | iOS/Android |        yes        |
-| videoStyle                   | 附加到 `<Video>` 组件的 React Native StyleSheet 对象。       |  StyleSheet  |    no    | iOS/Android |        yes        |
-| navigator                    | 当使用默认的 React Native 导航器并且没有覆盖 `onBack` 函数时，您需要将导航器传递给 VideoPlayer，以使其正常工作。 |  Navigator   |    no    | iOS/Android |        yes        |
-| seekColor                    | 进度条的填充/处理颜色。                                      | String(#HEX) |    no    | iOS/Android |        yes        |
-| style                        | 附加到视频父 `<View>` 的 React Native StyleSheet 对象。      |  StyleSheet  |    no    | iOS/Android |        yes        |
-| tapAnywhereToPause           | 如果为真，则在视频上单击任意地方（控制区域以外）会在播放和暂停之间切换。 |     Bool     |    no    | iOS/Android |        yes        |
-| disableFullscreen            | 是否隐藏全屏按钮图标                                         |     Bool     |    no    | iOS/Android |        yes        |
-| disablePlayPause             | 是否隐藏播放暂停图标                                         |     Bool     |    no    | iOS/Android |        yes        |
-| disableSeekbar               | 是否隐藏进度条图标                                           |     Bool     |    no    | iOS/Android |        yes        |
-| disableVolume                | 是否隐藏音量控制图标                                         |     Bool     |    no    | iOS/Android |        yes        |
-| disableTimer                 | 是否隐藏视频时间                                             |     Bool     |    no    | iOS/Android |        yes        |
-| disableBack                  | 是否隐藏返回按钮图标                                         |     Bool     |    no    | iOS/Android |        yes        |
-| onEnterFullscreen            | 当点击全屏按钮后，视频进入全屏时触发。                       |    event     |    no    | iOS/Android |        yes        |
-| onExitFullscreen             | 当点击全屏按钮后，视频退出全屏时触发。                       |    event     |    no    | iOS/Android |        yes        |
-| onHideControls               | 当控制组件消失时触发。                                       |    event     |    no    | iOS/Android |        yes        |
-| onShowControls               | 当控制组件出现时触发。                                       |    event     |    no    | iOS/Android |        yes        |
-| onError                      | 当加载视频时遇到错误时触发。                                 |    event     |    no    | iOS/Android |        yes        |
-| onPause                      | 当点击播放/暂停按钮后，视频暂停时触发。                      |    event     |    no    | iOS/Android |        yes        |
-| onPlay                       | 当点击播放/暂停按钮后，视频开始播放时触发。                  |    event     |    no    | iOS/Android |        yes        |
-| onBack                       | 当点击返回按钮时触发，如果使用自定义导航，可以重写该功能。   |    event     |    no    | iOS/Android |        yes        |
-| onEnd                        | 当视频播放完毕时触发。                                       |    event     |    no    | iOS/Android |        yes        |
+| toggleResizeModeOnFullscreen | If true, clicking the fullscreen button will toggle the `<Video />` component between cover/contain, set to false if you want to customize fullscreen behaviour |     Bool     |    no    | iOS/Android |        yes        |
+| controlAnimationTiming       | The amountof time (in milliseconds) to animate the controls in and out. |     Int      |    no    | iOS/Android |        yes        |
+| doubleTapTime                | Tapping twice within this amount of time in milliseconds is considered a double tap. Single taps will not be actioned until this time has expired. |     Int      |    no    | iOS/Android |        yes        |
+| controlTimeout               | Hide controls after X amount of time in milliseconds         |     Int      |    no    | iOS/Android |        yes        |
+| scrubbing                    | If > 0, enable live scrubbing when moving the seek bar. The provided value is the minimum time step of the scrubbing in milliseconds. |     Int      |    no    | iOS/Android |        yes        |
+| showOnStart                  | Show or hide the controls on first render                    |     Bool     |    no    | iOS/Android |        yes        |
+| videoStyle                   | React Native StyleSheet object that is appended to the `<Video>` component |  StyleSheet  |    no    | iOS/Android |        yes        |
+| navigator                    | When using the default React Native navigator and do not override the `onBack` function, you'll need to pass the navigator to the VideoPlayer for it to function |  Navigator   |    no    | iOS/Android |        yes        |
+| seekColor                    | Fill/handle colour of the seekbar                            | String(#HEX) |    no    | iOS/Android |        yes        |
+| style                        | React Native StyleSheet object that is appended to the video's parent `<View>` |  StyleSheet  |    no    | iOS/Android |        yes        |
+| tapAnywhereToPause           | If true, single tapping anywhere on the video (other than a control) toggles between playing and paused. |     Bool     |    no    | iOS/Android |        yes        |
+| disableFullscreen            | Hide the fullscreen button                                   |     Bool     |    no    | iOS/Android |        yes        |
+| disablePlayPause             | Hide the play/pause toggle                                   |     Bool     |    no    | iOS/Android |        yes        |
+| disableSeekbar               | Hide the seekbar                                             |     Bool     |    no    | iOS/Android |        yes        |
+| disableVolume                | Hide the Volume control                                      |     Bool     |    no    | iOS/Android |        yes        |
+| disableTimer                 | Hide the timer                                               |     Bool     |    no    | iOS/Android |        yes        |
+| disableBack                  | Hide the back button                                         |     Bool     |    no    | iOS/Android |        yes        |
+| onEnterFullscreen            | Fired when the video enters fullscreen after the fullscreen button is pressed |    Event     |    no    | iOS/Android |        yes        |
+| onExitFullscreen             | Fired when the video exits fullscreen after the fullscreen button is pressed |    Event     |    no    | iOS/Android |        yes        |
+| onHideControls               | Fired when the controls disappear                            |    Event     |    no    | iOS/Android |        yes        |
+| onShowControls               | Fired when the controls appear                               |    Event     |    no    | iOS/Android |        yes        |
+| onError                      | Fired when an error is encountered when loading the video    |    Event     |    no    | iOS/Android |        yes        |
+| onPause                      | Fired when the video is paused after the play/pause button is pressed |    Event     |    no    | iOS/Android |        yes        |
+| onPlay                       | Fired when the video begins playing after the play/pause button is pressed |    Event     |    no    | iOS/Android |        yes        |
+| onBack                       | Function fired when back button is pressed, override if using custom navigation |    Event     |    no    | iOS/Android |        yes        |
+| onEnd                        | Fired when the video is complete                             |    Event     |    no    | iOS/Android |        yes        |
 
 ## 遗留问题
 
 ## 其他
+
++ 源库未提供navigator属性功能实现也未提及该属性的依赖，但可由navigation相关库提供该属性的功能，在使用时请参照[react-navigation-stack文档](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-navigation-stack.md)和[react-navigation-native文档](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-navigation-native.md)引入navigation相关库。
 
 ## 开源协议
 

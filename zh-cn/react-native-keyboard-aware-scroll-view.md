@@ -134,10 +134,7 @@ const styles = StyleSheet.create({
 ## 遗留问题
 
 - [ ] RN0.72.28版本新架构暂未支持UIManager.viewIsDescendantOf() API，该API功能为：判断组件节点嵌套关系，并在callback中返回boolean类型参数: [issue#12](https://github.com/react-native-oh-library/react-native-keyboard-aware-scroll-view/issues/12)
-- [ ] 方法onKeyboardDidChangeFrame未实现 HarmonyOS化 问题:[issue#16](https://github.com/react-native-oh-library/react-native-keyboard-aware-scroll-view/issues/16)
-- [ ] 方法onKeyboardWillChangeFrame未实现 HarmonyOS化 问题:[issue#15](https://github.com/react-native-oh-library/react-native-keyboard-aware-scroll-view/issues/15)
-- [ ] 方法onKeyboardWillHide未实现 HarmonyOS化 问题:[issue#14](https://github.com/react-native-oh-library/react-native-keyboard-aware-scroll-view/issues/14)
-- [ ] 方法onKeyboardWillShow未实现 HarmonyOS化 问题:[issue#13](https://github.com/react-native-oh-library/react-native-keyboard-aware-scroll-view/issues/13)
+- [ ] 键盘抬起部分生命周期未HarmonyOS化，功能不受影响 问题:[issue#17](https://github.com/react-native-oh-library/react-native-keyboard-aware-scroll-view/issues/17)
 
 ## 其他
 

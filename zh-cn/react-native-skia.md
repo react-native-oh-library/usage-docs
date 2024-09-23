@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-skia</code> </h1>
@@ -115,7 +115,7 @@ ohpm install
 
 > [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
-### 3.配置 CMakeLists 和引入 xxxPackge
+### 3.配置 CMakeLists 和引入 SkiaPackage
 
 打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
 
@@ -372,19 +372,20 @@ ohpm install
 | colors    | `string[]`       | Optional colors to be associated to each corner                                                                                                             | yes      | android/ios | yes               |
 | blendMode | `BlendMode`      | If `colors` is provided, colors are blended with the paint using the blend mode. Default is `dstOver` if colors are provided, `srcOver` if not              | yes      | android/ios | yes               |
 
-### Gradients公共属性
+### Gradients 公共属性
+
 #### 属性
 
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name      | Description                                                  | Type         | Required | Platform    | HarmonyOS Support |
-| --------- | ------------------------------------------------------------ | ------------ | -------- | ----------- | ----------------- |
-| colors    | Colors to be distributed between start and end.              | string[]     | yes      | android/ios | yes               |
-| positions | The relative positions of colors. If supplied, it must be of the same length as colors. | number[]     | no       | android/ios | yes               |
-| mode      | Can be `clamp`, `repeat`, `mirror`, or `decal`.              | TileMode     | no       | android/ios | yes               |
-| flags     | By default, gradients will interpolate their colors in unpremultiplied space and then premultiply each of the results. By setting this to 1, the gradients will premultiply their colors first and then interpolate between them. | number       | no       | android/ios | yes               |
+| Name      | Description                                                                                                                                                                                                                                                                                            | Type         | Required | Platform    | HarmonyOS Support |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------ | -------- | ----------- | ----------------- |
+| colors    | Colors to be distributed between start and end.                                                                                                                                                                                                                                                        | string[]     | yes      | android/ios | yes               |
+| positions | The relative positions of colors. If supplied, it must be of the same length as colors.                                                                                                                                                                                                                | number[]     | no       | android/ios | yes               |
+| mode      | Can be `clamp`, `repeat`, `mirror`, or `decal`.                                                                                                                                                                                                                                                        | TileMode     | no       | android/ios | yes               |
+| flags     | By default, gradients will interpolate their colors in unpremultiplied space and then premultiply each of the results. By setting this to 1, the gradients will premultiply their colors first and then interpolate between them.                                                                      | number       | no       | android/ios | yes               |
 | transform | The transform property is identical to its [homonymous property in React Native](https://reactnative.dev/docs/transforms) except for one significant difference: in React Native, the origin of transformation is the center of the object, whereas it is the top-left position of the object in Skia. | Transforms2d | no       | android/ios | yes               |
 
 ### LinearGradient
@@ -450,14 +451,14 @@ ohpm install
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name       | Description                                                  | Type   | Required | Platform    | HarmonyOS Support |
-| ---------- | ------------------------------------------------------------ | ------ | -------- | ----------- | ----------------- |
-| freqX      | base frequency in the X direction; range [0.0, 1.0]          | number | yes      | android/ios | yes               |
-| freqY      | base frequency in the Y direction; range [0.0, 1.0]          | number | yes      | android/ios | yes               |
-| octaves    |                                                              | number | yes      | android/ios | yes               |
-| seed       |                                                              | number | yes      | android/ios | yes               |
+| Name       | Description                                                                                                                    | Type   | Required | Platform    | HarmonyOS Support |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------ | ------ | -------- | ----------- | ----------------- |
+| freqX      | base frequency in the X direction; range [0.0, 1.0]                                                                            | number | yes      | android/ios | yes               |
+| freqY      | base frequency in the Y direction; range [0.0, 1.0]                                                                            | number | yes      | android/ios | yes               |
+| octaves    |                                                                                                                                | number | yes      | android/ios | yes               |
+| seed       |                                                                                                                                | number | yes      | android/ios | yes               |
 | tileWidth  | if this and `tileHeight` are non-zero, the frequencies will be modified so that the noise will be tileable for the given size. | number | no       | android/ios | yes               |
-| tileHeight | if this and `tileWidth` are non-zero, the frequencies will be modified so that the noise will be tileable for the given size. | number | no       | android/ios | yes               |
+| tileHeight | if this and `tileWidth` are non-zero, the frequencies will be modified so that the noise will be tileable for the given size.  | number | no       | android/ios | yes               |
 
 ### Turbulence
 
@@ -467,14 +468,14 @@ ohpm install
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name       | Description                                                  | Type   | Required | Platform    | HarmonyOS Support |
-| ---------- | ------------------------------------------------------------ | ------ | -------- | ----------- | ----------------- |
-| freqX      | base frequency in the X direction; range [0.0, 1.0]          | number | yes      | android/ios | yes               |
-| freqY      | base frequency in the Y direction; range [0.0, 1.0]          | number | yes      | android/ios | yes               |
-| octaves    |                                                              | number | yes      | android/ios | yes               |
-| seed       |                                                              | number | yes      | android/ios | yes               |
+| Name       | Description                                                                                                                    | Type   | Required | Platform    | HarmonyOS Support |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------ | ------ | -------- | ----------- | ----------------- |
+| freqX      | base frequency in the X direction; range [0.0, 1.0]                                                                            | number | yes      | android/ios | yes               |
+| freqY      | base frequency in the Y direction; range [0.0, 1.0]                                                                            | number | yes      | android/ios | yes               |
+| octaves    |                                                                                                                                | number | yes      | android/ios | yes               |
+| seed       |                                                                                                                                | number | yes      | android/ios | yes               |
 | tileWidth  | if this and `tileHeight` are non-zero, the frequencies will be modified so that the noise will be tileable for the given size. | number | no       | android/ios | yes               |
-| tileHeight | if this and `tileWidth` are non-zero, the frequencies will be modified so that the noise will be tileable for the given size. | number | no       | android/ios | yes               |
+| tileHeight | if this and `tileWidth` are non-zero, the frequencies will be modified so that the noise will be tileable for the given size.  | number | no       | android/ios | yes               |
 
 ### Blend
 
@@ -484,10 +485,10 @@ ohpm install
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name     | Description                                                  | Type      | Required | Platform    | HarmonyOS Support |
-| -------- | ------------------------------------------------------------ | --------- | -------- | ----------- | ----------------- |
+| Name     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                          | Type      | Required | Platform    | HarmonyOS Support |
+| -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------- | ----------- | ----------------- |
 | mode     | Sets the blend mode that is, the mode used to combine source color with destination color. The following values are available: `clear`, `src`, `dst`, `srcOver`, `dstOver`, `srcIn`, `dstIn`, `srcOut`, `dstOut`, `srcATop`, `dstATop`, `xor`, `plus`, `modulate`, `screen`, `overlay`, `darken`, `lighten`, `colorDodge`, `colorBurn`, `hardLight`, `softLight`, `difference`, `exclusion`, `multiply`, `hue`, `saturation`, `color`, `luminosity`. | BlendMode | yes      | android/ios | yes               |
-| children | Shaders to blend                                             | ReactNode | yes      | android/ios | yes               |
+| children | Shaders to blend                                                                                                                                                                                                                                                                                                                                                                                                                                     | ReactNode | yes      | android/ios | yes               |
 
 ### ColorShader
 
@@ -509,12 +510,12 @@ ohpm install
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name      | Description                                                  | Type       | Required | Platform    | HarmonyOS Support |
-| --------- | ------------------------------------------------------------ | ---------- | -------- | ----------- | ----------------- |
-| length    | length of the subsegments.                                   | number     | yes      | android/ios | yes               |
-| deviation | limit of the movement of the endpoints.                      | number     | yes      | android/ios | yes               |
+| Name      | Description                                                   | Type       | Required | Platform    | HarmonyOS Support |
+| --------- | ------------------------------------------------------------- | ---------- | -------- | ----------- | ----------------- |
+| length    | length of the subsegments.                                    | number     | yes      | android/ios | yes               |
+| deviation | limit of the movement of the endpoints.                       | number     | yes      | android/ios | yes               |
 | seed      | modifies the randomness. See SkDiscretePathEffect.h for more. | number     | yes      | android/ios | yes               |
-| children  | Optional path effect to apply.                               | PathEffect | no       | android/ios | yes               |
+| children  | Optional path effect to apply.                                | PathEffect | no       | android/ios | yes               |
 
 ### DashPathEffect
 
@@ -524,11 +525,11 @@ ohpm install
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name      | Description                                                  | Type       | Required | Platform    | HarmonyOS Support |
-| --------- | ------------------------------------------------------------ | ---------- | -------- | ----------- | ----------------- |
+| Name      | Description                                                                                                                             | Type       | Required | Platform    | HarmonyOS Support |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------- | ---------- | -------- | ----------- | ----------------- |
 | intervals | even number of entries with even indices specifying the length of the "on" intervals, and the odd index specifying the length of "off". | number[]   | yes      | android/ios | yes               |
-| phase     | offset into the intervals array. Defaults to 0.              | number     | yes      | android/ios | yes               |
-| children  | Optional path effect to apply.                               | PathEffect | no       | android/ios | yes               |
+| phase     | offset into the intervals array. Defaults to 0.                                                                                         | number     | yes      | android/ios | yes               |
+| children  | Optional path effect to apply.                                                                                                          | PathEffect | no       | android/ios | yes               |
 
 ### CornerPathEffect
 
@@ -551,13 +552,13 @@ ohpm install
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name     | Description                                                  | Type              | Required | Platform    | HarmonyOS Support |
-| -------- | ------------------------------------------------------------ | ----------------- | -------- | ----------- | ----------------- |
-| path     | The path to replicate (dash)                                 | PathDef           | yes      | android/ios | yes               |
-| advance  | The space between instances of path                          | number            | yes      | android/ios | yes               |
-| phase    | distance (mod advance) along the path for its initial position | number            | yes      | android/ios | yes               |
+| Name     | Description                                                                     | Type              | Required | Platform    | HarmonyOS Support |
+| -------- | ------------------------------------------------------------------------------- | ----------------- | -------- | ----------- | ----------------- |
+| path     | The path to replicate (dash)                                                    | PathDef           | yes      | android/ios | yes               |
+| advance  | The space between instances of path                                             | number            | yes      | android/ios | yes               |
+| phase    | distance (mod advance) along the path for its initial position                  | number            | yes      | android/ios | yes               |
 | style    | how to transform path at each point (based on the current position and tangent) | Path1DEffectStyle | yes      | android/ios | yes               |
-| children | Optional path effect to apply.                               | PathEffect        | no       | android/ios | yes               |
+| children | Optional path effect to apply.                                                  | PathEffect        | no       | android/ios | yes               |
 
 ### Path2DPathEffect
 
@@ -602,6 +603,112 @@ ohpm install
 | mask     | ReactNode                                            | ReactNode[]        | yes      | android/ios | yes               |
 | children | ReactNode                                            | ReactNode[]        | yes      | android/ios | yes               |
 
+### Image
+
+#### 属性
+
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name   | Description                                                                                                                                                                | Type    | Required | Platform    | HarmonyOS Support |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------- | ----------- | ----------------- |
+| image  | An instance of the image.                                                                                                                                                  | SkImage | yes      | android/ios | yes               |
+| x      | The left position of the destination image.                                                                                                                                | number  | yes      | android/ios | yes               |
+| y      | The top position of the destination image.                                                                                                                                 | number  | yes      | android/ios | yes               |
+| width  | The width of the destination image.                                                                                                                                        | number  | yes      | android/ios | yes               |
+| height | The height of the destination image.                                                                                                                                       | number  | yes      | android/ios | yes               |
+| fit    | The method used to fit the image into the rectangle. Values can be `contain`, `fill`, `cover`, `fitHeight`, `fitWidth`, `scaleDown`, or `none` (the default is `contain`). | Fit     | no       | android/ios | yes               |
+
+### SVG Image
+
+#### 属性
+
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name   | Description                                 | Type   | Required | Platform    | HarmonyOS Support |
+| ------ | ------------------------------------------- | ------ | -------- | ----------- | ----------------- |
+| svg    | SVG Image.                                  | SVG    | yes      | android/ios | yes               |
+| x      | The left position of the destination image. | number | no       | android/ios | yes               |
+| y      | The top position of the destination image.  | number | no       | android/ios | yes               |
+| width  | The width of the destination image.         | number | no       | android/ios | yes               |
+| height | The height of the destination image.        | number | no       | android/ios | yes               |
+
+### Paragraph
+
+#### 属性
+
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name      | Description                                   | Type        | Required | Platform    | HarmonyOS Support |
+| --------- | --------------------------------------------- | ----------- | -------- | ----------- | ----------------- |
+| paragraph | text paragraph                                | skParagraph | yes      | android/ios | yes               |
+| x         | Left position of the text (default is 0)      | number      | yes      | android/ios | yes               |
+| y         | Bottom position the text (default is 0, the ) | number      | yes      | android/ios | yes               |
+| width     | The width of the paragraph.                   | number      | yes      | android/ios | yes               |
+
+### Text
+
+#### 属性
+
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name | Description                                   | Type   | Required | Platform    | HarmonyOS Support |
+| ---- | --------------------------------------------- | ------ | -------- | ----------- | ----------------- |
+| text | Text to draw                                  | string | yes      | android/ios | yes               |
+| x    | Left position of the text (default is 0)      | number | yes      | android/ios | yes               |
+| y    | Bottom position the text (default is 0, the ) | number | yes      | android/ios | yes               |
+| font | Font to use                                   | SkFont | yes      | android/ios | yes               |
+
+### Glyphs
+
+#### 属性
+
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name   | Description                                                | Type    | Required | Platform    | HarmonyOS Support |
+| ------ | ---------------------------------------------------------- | ------- | -------- | ----------- | ----------------- |
+| glyphs | Glyphs to draw                                             | Glyph[] | yes      | android/ios | yes               |
+| x      | x coordinate of the origin of the entire run. Default is 0 | number  | no       | android/ios | yes               |
+| y      | y coordinate of the origin of the entire run. Default is 0 | number  | yno      | android/ios | yes               |
+| font   | Font to use                                                | SkFont  | yes      | android/ios | yes               |
+
+### Text Path
+
+#### 属性
+
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name | Description                                                                                                                                                                             | Type           | Required | Platform    | HarmonyOS Support |
+| ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | -------- | ----------- | ----------------- |
+| path | Path to draw. Can be a string using the [SVG Path notation](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths#line_commands) or an object created with `Skia.Path.Make()` | Path \| string | yes      | android/ios | yes               |
+| text | Text to draw                                                                                                                                                                            | string         | yes      | android/ios | yes               |
+| font | Font to use                                                                                                                                                                             |                |          |             |                   |
+
+### Text Path
+
+#### 属性
+
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+| Name | Description                                                | Type     | Required | Platform    | HarmonyOS Support |
+| ---- | ---------------------------------------------------------- | -------- | -------- | ----------- | ----------------- |
+| blob | Text blob                                                  | TextBlob | yes      | android/ios | yes               |
+| x    | x coordinate of the origin of the entire run. Default is 0 | number   | no       | android/ios | yes               |
+| y    | y coordinate of the origin of the entire run. Default is 0 | number   | no       | android/ios | yes               |
+
 ## RNSkiaModule API
 
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
@@ -614,9 +721,9 @@ ohpm install
 
 ## 遗留问题
 
-- [ ] Text 组件无法使用 问题: [issue#Text暂不支持](https://github.com/react-native-oh-library/react-native-skia/issues/5)
-- [ ] Video 组件无法使用 问题: [issue#Video暂不支持](https://github.com/react-native-oh-library/react-native-skia/issues/6)
-- [ ] Image 组件无法使用 问题: [issue#Image暂不支持](https://github.com/react-native-oh-library/react-native-skia/issues/7)
+- [x] Text 组件无法使用 问题: [issue#Text 暂不支持](https://github.com/react-native-oh-library/react-native-skia/issues/5)
+- [ ] Video 组件无法使用 问题: [issue#Video 暂不支持](https://github.com/react-native-oh-library/react-native-skia/issues/6)
+- [x] Image 组件无法使用 问题: [issue#Image 暂不支持](https://github.com/react-native-oh-library/react-native-skia/issues/7)
 
 ## 其他
 

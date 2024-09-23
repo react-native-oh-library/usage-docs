@@ -284,10 +284,10 @@ ohpm install
 #### Legend
 
 | Name                | Description              | Type                                         | Required | Platform    | HarmonyOS Support |
-| ------------------- | ------------------------ | -------------------------------------------- | -------- | ----------- | ----------------- |
+| ------------------- | ------------------------ | -------------------------------------------- | -------- | ----------- |-------------------|
 | enabled             | 是否设置图表图例部件     | bool                                         | No       | iOS/Android | Yes               |
 | text                | 设置要显示为图例的文本   | string                                       | No       | iOS/Android | Yes               |
-| textColor           | 设置图例文本的颜色       | number                                       | No       | iOS/Android | Yes               |
+| textColor           | 设置图例文本的颜色       | number                                       | No       | iOS/Android | NO                |
 | textSize            | 设置图例文本的大小       | number                                       | No       | iOS/Android | Yes               |
 | fontFamily          | 图例部件的字体           | string                                       | No       | iOS/Android | Yes               |
 | wordWrapEnabled     | 设置图例文字是否换行     | bool                                         | No       | iOS/Android | Yes               |
@@ -668,14 +668,15 @@ ohpm install
 ## 遗留问题
 
 ## 其他
-- [ ] 图例的maxSizePercent最大百分比属性在Android和iOS不生效， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/995)
-- [ ] 图例的custom属性，设置后会覆盖原有的图例，但自定义图例也不显示在Android和iOS中，属性不生效， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/996)
-- [ ] logEnabled 会开启安卓特有的日志logcat和 highlights属性在Android和iOS不生效， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/998)
-- [ ] stackLabels 堆叠条形图设置无效果和 drawCubicIntensity 曲线角度属性在Android和iOS不生效， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/997)
-- [ ] 在Android和iOS visibleRange 最大大小百分比限制通过缩放和缩放可以看到的最大和最小x范围不起作用， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/999)
-- [ ] keepPositionOnRotation旋转后保持图表原始位置属性在Android和iOS不生效， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/999)
-- [ ] valueFormatter格式化数据属性在Android和iOS不生效， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/935)
-- [ ] chartBackgroundColor图表背景颜色在原库中不生效，在原库中网格背景颜色与图表背景颜色设置的内容一样，则已不支持图表背景 HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/1001)
+- 图例的maxSizePercent最大百分比属性在Android和iOS不生效， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/995)
+- 图例的custom属性，设置后会覆盖原有的图例，但自定义图例也不显示在Android和iOS中，属性不生效， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/996)
+- logEnabled 会开启安卓特有的日志logcat和 highlights属性在Android和iOS不生效， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/998)
+- stackLabels 堆叠条形图设置无效果和 drawCubicIntensity 曲线角度属性在Android和iOS不生效， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/997)
+- 在Android和iOS visibleRange 最大大小百分比限制通过缩放和缩放可以看到的最大和最小x范围不起作用， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/999)
+- keepPositionOnRotation旋转后保持图表原始位置属性在Android和iOS不生效， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/999)
+- valueFormatter格式化数据属性在Android和iOS不生效， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/935)
+- chartBackgroundColor图表背景颜色在原库中不生效，在原库中网格背景颜色与图表背景颜色设置的内容一样，则已不支持图表背景 HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/1001)
+- Legend中的text与data中label效果相同，原库中已不支持该属性。HarmonyOS与Android，ios表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/1003)
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://mitlicense.org/) ，请自由地享受和参与开源。

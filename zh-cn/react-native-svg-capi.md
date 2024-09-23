@@ -490,7 +490,7 @@ ohpm install
 |     dy     | 从前一个文本元素垂直移动文本位置 | number\| string | No       | All      | Yes               |
 |   rotate   |      旋转每个单独字形的方向      |      array      | No       | All      | Yes               |
 |  opacity   |              透明度              |     number      | No       | All      | Yes               |
-| inlineSize |          水平或垂直尺寸          |     number      | No       | All      | Yes               |
+| inlineSize |          水平或垂直尺寸          |     number      | No       | All      | No               |
 | alignmentBaseline | 指定文本的对齐基线        |      string      | NO       | ALL      | Yes               |
 | baselineShift | 设置垂直位置调整              | number\| string  | No       | All      | Yes               |
 | lengthAdjust | 调整文本以适应特定的布局约束    |      string      | No       | All      | Yes               |
@@ -591,8 +591,8 @@ Common props 组件属性 HarmonyOS 侧支持情况
 |    translateX    |                设置 x 轴位移                |   number    |     0     |    No    |   All    |
 |    translateY    |                设置 y 轴位移                |   number    |     0     |    No    |   All    |
 |      origin      |           更改一个元素变形的原点            | numberArray |    0,0    |    No    |   All    |
-|     originX      |        更改一个元素变形的原点 x 坐标        |   number    |     0     |    No    |   All    |
-|     originY      |        更改一个元素变形的原点 y 坐标        |   number    |     0     |    No    |   All    |
+|     originX      |        更改一个元素变形的原点 x 坐标（单独使用无效，需配合其他属性如 rotation 使用）        |   number    |     0     |    No    |   All    |
+|     originY      |        更改一个元素变形的原点 y 坐标（单独使用无效，需配合其他属性如 rotation 使用）       |   number    |     0     |    No    |   All    |
 |      scale       |                定义缩放大小                 | numberArray |   1，1    |    No    |   All    |
 |      scaleX      |              定义 x 轴缩放大小              |   number    |     1     |    No    |   All    |
 |      scaleY      |              定义 y 轴缩放大小              |   number    |     1     |    No    |   All    |

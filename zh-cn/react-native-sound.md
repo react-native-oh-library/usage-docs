@@ -308,7 +308,7 @@ ohpm install
 
 | Name                     | Description                               | Type   | Required | Platform    | HarmonyOS Support |
 | ------------------------ | ------------------------------------------ | ------ | -------- | ----------- | ----------------- |
-| setActive                | Set the device activation status           | function | No       | iOS、Android | yes               |
+| setActive                | Set the device activation status           | function | No       | iOS       | no               |
 | setCategory              | Set the device activation status            | function | No       | iOS、Android | no               |
 | enable                   | Enable or disable audio playback           | function  | No       | iOS       | no               |
 | enableInSilenceMode      | Whether to enable playback in silence mode | function  | No       | iOS       | no               |
@@ -354,7 +354,7 @@ ohpm install
 
 
 ## 遗留问题
-- [ ] 方法getNumberOfChannels,setSystemVolume,getSystemVolume,setPan，getPan，setPitch，getPitch，setSpeakerphoneOn，setMode，enableInSilenceMode，enable，setCategory 在Harmony没有对应的api 问题: [issue#1](https://github.com/react-native-oh-library/react-native-sound/issues/21)
+- [ ] 方法getNumberOfChannels,setSystemVolume,getSystemVolume,setPan，getPan，setPitch，getPitch，setSpeakerphoneOn，setMode，enableInSilenceMode，enable，setCategory， setActive 在Harmony没有对应的api 问题: [issue#1](https://github.com/react-native-oh-library/react-native-sound/issues/21)
 ## 其他
 
 ## 开源协议

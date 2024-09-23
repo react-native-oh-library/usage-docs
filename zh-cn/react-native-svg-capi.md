@@ -512,13 +512,13 @@ ohpm install
 
 |    Name     |            Description             |      Type       | Required | Platform | HarmonyOS Support |
 | :---------: | :--------------------------------: | :-------------: | -------- | -------- | ----------------- |
-|    href     | 用于呈现文本的路径或基本形状的 URL |     string      | No       | All      | Yes               |
-|  xlinkHref  | 用于呈现文本的路径或基本形状的 URL |     string      | No       | All      | Yes               |
-|   method    |      沿路径渲染各个字形的方法      |     string      | No       | All      | Yes               |
-|   spacing   |         绘制字符之间的间距         |     string      | No       | All      | Yes               |
-|    side     |      文本应呈现在路径的哪一侧      |     string      | No       | All      | Yes               |
-|   midLine   |                中线                |     string      | No       | All      | Yes               |
-| startOffset |  文本开始被沿着路径绘制时的偏移量  | number\| string | No       | All      | Yes               |
+|    href     | 用于呈现文本的路径或基本形状的 URL |     string      | No       | All      | No               |
+|  xlinkHref  | 用于呈现文本的路径或基本形状的 URL |     string      | No       | All      | No               |
+|   method    |      沿路径渲染各个字形的方法      |     string      | No       | All      | No               |
+|   spacing   |         绘制字符之间的间距         |     string      | No       | All      | No               |
+|    side     |      文本应呈现在路径的哪一侧      |     string      | No       | All      | No               |
+|   midLine   |                中线                |     string      | No       | All      | No               |
+| startOffset |  文本开始被沿着路径绘制时的偏移量  | number\| string | No       | All      | No               |
 
 **SvgAst**：该组件通过传入 ast 来渲染出 svg
 

@@ -68,7 +68,7 @@ const persistConfig = {
   // 持久化的 reducer
   // whitelist: [ 'products', 'uiControl', 'shoppingCart']
   // debug: false,
-  // throttle: 50,
+  throttle: 50,
   // keyPrefix: '',
   // serialize: false
 };

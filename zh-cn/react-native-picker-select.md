@@ -216,8 +216,8 @@ const styles = StyleSheet.create({
 | textInputProps | Additional props to pass to the TextInput (some props are used in core functionality so use this carefully). This is iOS only unless `useNativeAndroidPickerStyle={false}`. | object | {} | no | All | yes |
 | touchableWrapperProps | Additional props to pass to the touchable wrapping the TextInput (some props are used in core functionality so use this carefully). | object | {} | no | All | yes |
 | onOpen() | Callback triggered right before the opening of the picker.<br>_Not supported when `useNativeAndroidPickerStyle={true}`_. | function | null | no | All | yes |
-| useNativeAndroidPickerStyle | The component defaults to using the native Android Picker in its un-selected state. Setting this flag to `false` will mimic the default iOS presentation where a tappable TextInput is displayed.<br>_More details in [styling](https://github.com/lawnstarter/react-native-picker-select?tab=readme-ov-file#styling)_. | boolean | true | no | Android | yes |
-| fixAndroidTouchableBug | Experimental flag to fix issue [#354](https://github.com/lawnstarter/react-native-picker-select/issues/354). | boolean | false | no | Android | yes |
+| useNativeAndroidPickerStyle | The component defaults to using the native Android Picker in its un-selected state. Setting this flag to `false` will mimic the default iOS presentation where a tappable TextInput is displayed.<br>_More details in [styling](https://github.com/lawnstarter/react-native-picker-select?tab=readme-ov-file#styling)_. | boolean | true | no | Android | no |
+| fixAndroidTouchableBug | Experimental flag to fix issue [#354](https://github.com/lawnstarter/react-native-picker-select/issues/354). | boolean | false | no | Android | no |
 | InputAccessoryView | Replace the InputAcessoryView section (bar with tabbing arrown and Done button) of the opened picker with your own custom component. Can also return `null` here to hide completely. While this bar is typical on `select` elements on the web, the [interface guidelines](https://developer.apple.com/ios/human-interface-guidelines/controls/pickers/) does not include it. View the [snack](https://snack.expo.io/@lfkwtz/react-native-picker-select) to see examples on how this can be customized. | Component | null | no | iOS | yes |
 | doneText | "Done" default text on the modal. Can be overwritten here. | string | "Done" | no | iOS | yes |
 | onUpArrow() \/ onDownArrow() | Presence enables the corresponding arrow.<br>- Closes the picker.<br>- Calls the callback provided. | function | null | no | iOS | yes |
@@ -227,6 +227,9 @@ const styles = StyleSheet.create({
 | touchableDoneProps | Additional props to pass to the Done touchable (some props are used in core functionality so use this carefully). | function | null | no | iOS | yes |
 
 ## 遗留问题
+
+- [ ] 属性useNativeAndroidPickerStyle在HarmonyOS中暂不支持 [issue#3](https://github.com/react-native-oh-library/react-native-picker-select/issues/3)
+- [ ] 属性fixAndroidTouchableBug在HarmonyOS中暂不支持 [issue#4](https://github.com/react-native-oh-library/react-native-picker-select/issues/4)
 
 ## 其他
 

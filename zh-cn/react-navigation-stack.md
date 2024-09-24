@@ -175,6 +175,8 @@ export default function App() {
 | gestureCancel   | This event is fired when the swipe gesture is cancelled for the current screen. e.g. a screen wasn't dismissed by the gesture. | function | no       | all      | yes               |
 ## 遗留问题
 
+- [ ] TextInput组件可以穿透下个页面点击。[issues#37](https://github.com/react-native-oh-library/react-navigation/issues/37)
+
 ## 其他
 
 ## 开源协议

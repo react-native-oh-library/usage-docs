@@ -573,10 +573,10 @@ export default function RadashDemo() {
 |          Name           |                    Description                    |                           Type                           | Required |  Platform   | HarmonyOS Support |
 |:-----------------------:| :-----------------------------------------------: | :------------------------------------------------------: | :------: | :---------: | :---------------: |
 | canvas2Cartesian() | Convert plane coordinate system to Cadir coordinate system         | function | No       | iOS/Android               | yes               |
-| cartesian2Canvas() | Convert Kadir coordinate system to plane coordinate system         | function | No       | iOS/Android               | yes               |
-| cartesian2Polar()  | Conversion from Kadir coordinate system to polar coordinate system | function | No       | iOS/Android               | yes               |
+| cartesian2Canvas() | Convert Cadir coordinate system to plane coordinate system         | function | No       | iOS/Android               | yes               |
+| cartesian2Polar()  | Conversion from Cadir coordinate system to polar coordinate system | function | No       | iOS/Android               | yes               |
 | polar2Cartesian()  | Convert polar coordinate system to Cadir coordinate system         | function | No       | iOS/Android               | yes               |
-| polar2Canvas()     | Convert polar coordinate system to Cadir coordinate system         | function | No       | iOS/Android               | yes               |
+| polar2Canvas()     | Convert polar coordinate system to plane coordinate system         | function | No       | iOS/Android               | yes               |
 | canvas2Polar()     | Convert plane coordinate system to polar coordinate system         | function | No       | iOS/Android               | yes               |
 ### **Strings**
 |          Name           |                    Description                    |                           Type                           | Required |  Platform   | HarmonyOS Support |

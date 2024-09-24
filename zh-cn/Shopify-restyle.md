@@ -153,8 +153,8 @@ export const App = () => (
 
 |     Name      |                  Description                   |   Type   | Required | Platform | HarmonyOS Support |
 |:-------------:|:----------------------------------------------:|:--------:|:--------:|:--------:|:-----------------:|
-|  createText   |            Predefined Box component            | function |    No    |   All    |        Yes        |
-|   createBox   |           Predefined Text Component            | function |    No    |   All    |        Yes        |
+|  createText   |           Predefined Text component            | function |    No    |   All    |        Yes        |
+|   createBox   |            Predefined Box component            | function |    No    |   All    |        Yes        |
 | ThemeProvider | Set the theme to the outermost React component | function |    No    |   All    |        Yes        |
 
 ## 预定义 Restyle 函数
@@ -189,7 +189,7 @@ export const App = () => (
 
 ## 其他
 
-- [ ] 预函数textShadow在Android和iOS不生效， HarmonyOS与Android,iOS表现一致 [原库 issue](https://github.com/Shopify/restyle/issues/307)
+ - 预函数textShadow在Android和iOS不生效， HarmonyOS与Android,iOS表现一致 [原库 issue](https://github.com/Shopify/restyle/issues/307)
 
 ## 开源协议
 

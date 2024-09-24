@@ -2,7 +2,7 @@
 > 模板版本：v0.2.2
 
 <p align="center">
-  <h1 align="center"> <code>react-native-cookies-cookies</code> </h1>
+  <h1 align="center"> <code>@react-native-cookies/cookies</code> </h1>
 </p>
 <p align="center">
     <a href="https://github.com/react-native-cookies/cookies/tree/master">

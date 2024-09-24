@@ -25,13 +25,13 @@
 #### **npm**
 
 ```bash
-npm install react-native-loading-spinner-overlays@3.0.1
+npm install react-native-loading-spinner-overlay@3.0.1
 ```
 
 #### **yarn**
 
 ```bash
-yarn add react-native-loading-spinner-overlays@3.0.1
+yarn add react-native-loading-spinner-overlay@3.0.1
 ```
 
 <!-- tabs:end -->

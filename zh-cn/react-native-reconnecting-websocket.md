@@ -130,9 +130,9 @@ export default ReconnectingWebsocketDemo;
 
 | Name                          | Description                                                  | Type   | Required | Platform | HarmonyOS Support |
 | ----------------------------- | ------------------------------------------------------------ | ------ | -------- | -------- | ----------------- |
+| `ReconnectingWebSocket()`     | Creating a WebSocket Entity Object for Automatic Reconnection. | Class  | Yes      | All      | Yes               |
 | `send(message: string): void` | Sends a message through the WebSocket connection.            | Method | No       | All      | Yes               |
 | `close(): void`               | Closes the WebSocket connection.                             | Method | No       | All      | Yes               |
-| `open(): void`                | Opens the WebSocket connection if it's not already open.     | Method | No       | All      | Yes               |
 | `ping(): void`                | Sends a ping frame to the server.                            | Method | No       | All      | Yes               |
 | `reconnect(): void`           | Closes the current WebSocket connection and attempts to reconnect using the initial parameters. | Method | No       | All      | Yes               |
 

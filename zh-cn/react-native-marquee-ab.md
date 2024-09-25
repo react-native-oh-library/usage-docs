@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> 模板版本：v0.2.0
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-marquee-ab</code> </h1>
@@ -14,13 +13,13 @@
 </p>
 
 
-> [!TIP] 
->
-> [Github 地址](https://github.com/ZhangTaoK/react-native-marquee-ab)
+> [!TIP] [Github 地址](https://github.com/ZhangTaoK/react-native-marquee-ab)
 
 ## 安装与使用
 
 进入到工程目录并输入以下命令：
+
+<!-- tabs:start -->
 
 #### **npm**
 
@@ -38,7 +37,9 @@ yarn add react-native-marquee-ab@1.2.6
 
 下面的代码展示了这个库的基本使用场景：
 
-```tsx
+> [!WARNING] 使用时 import 的库名不变。
+
+```jsx
 import React, { Component } from 'react';
 import {
     View,
@@ -76,55 +77,67 @@ export default class TestPage extends Component {
 }
 ```
 
-## Props
+## 约束与限制
+
+### 兼容性
+
+本文档内容基于以下版本验证通过：
+
+1. RNOH: 0.72.29; SDK：HarmonyOS NEXT Developer Beta6; IDE：DevEco Studio 5.0.3.706; ROM：NEXT.0.0.65;
+
+## 属性
+
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 **MarqueeHorizontal props**
 
-| Name             | Description | Type    | Required | Platform                                         | notes                                  |
-| ---------------- | ----------- | ------- | -------- | :----------------------------------------------- | -------------------------------------- |
-| duration         | number      | 10000ms | yes      | 执行完成整个动画所需要的时间(ms)不常用           |                                        |
-| speed            | number      | 0       | no       | 平均的滚动速度，跑马灯使用这个属性（建议传入60） |                                        |
-| textList         | array       | []      | yes      | 滚动的文字数组，具体数据格式请参照textList.item  |                                        |
-| width            | number      | 375     | yes      | 宽度，不能使用flex                               |                                        |
-| height           | number      | 50      | yes      | 高度，不能使用flex                               |                                        |
-| direction        | string      | left    | yes      | 动画方向(向左向右滚动)`left` or `right`          |                                        |
-| reverse          | boolean     | false   | yes      | 是否将整个文本数据倒叙显示                       | 设置为true时，只有第一次进入时才会生效 |
-| separator        | number      | 20      | yes      | 两个item之间的间隙                               |                                        |
-| bgContainerStyle | object      |         | no       | 背景样式                                         |                                        |
-| textStyle        | object      |         | no       | 文本样式                                         |                                        |
-| onTextClick      | function    |         | yes      | 点击事件回调：(item) => void                     |                                        |
+| Name             | Description                                      | Type           | Required | Platform    | HarmonyOS Support |
+| ---------------- | ------------------------------------------------ | -------------- | -------- | ----------- | ----------------- |
+| duration         | 执行完成整个动画所需要的时间(ms)不常用           | number         | yes      | iOS/Android | yes               |
+| speed            | 平均的滚动速度，跑马灯使用这个属性（建议传入60） | number         | no       | iOS/Android | yes               |
+| textList         | 滚动的文字数组，具体数据格式请参照textList.item  | array          | yes      | iOS/Android | yes               |
+| width            | 宽度，不能使用flex                               | number         | yes      | iOS/Android | yes               |
+| height           | 高度，不能使用flex                               | number         | yes      | iOS/Android | yes               |
+| direction        | 动画方向(向左向右滚动)`left` or `right`          | string         | yes      | iOS/Android | yes               |
+| reverse          | 是否将整个文本数据倒叙显示                       | boolean        | yes      | iOS/Android | yes               |
+| separator        | 两个item之间的间隙                               | number         | yes      | iOS/Android | yes               |
+| bgContainerStyle | 背景样式                                         | object         | no       | iOS/Android | yes               |
+| textStyle        | 文本样式                                         | object         | no       | iOS/Android | yes               |
+| onTextClick      | 点击事件回调                                     | (item) => void | yes      | iOS/Android | yes               |
 
-#### **MarqueeVertical props**
+**MarqueeVertical props**
 
-| Name             | Description | Type  | Required | Platform                                                     |
-| ---------------- | ----------- | ----- | -------- | :----------------------------------------------------------- |
-| duration         | number      | 600   | yes      | 执行整个动画的完成时间(ms)                                   |
-| textList         | array       | []    | yes      | 滚动的文字数组，具体数据格式请参照textList.item              |
-| width            | number      | 375   | no       | 宽度，不能使用flex                                           |
-| height           | number      | 50    | no       | 高度，不能使用flex                                           |
-| delay            | number      | 12000 | yes      | 文本停顿时间(ms)                                             |
-| direction        | string      | up    | yes      | 动画方向(向上向下滚动)`up` or `down`                         |
-| numberOfLines    | number      | 1     | yes      | 同一个数据的文本行数                                         |
-| headViews        | array       | []    | no       | 在文本最前面加上一个自定义view，效果如图例所示，用法请参照事例用法，length长度与textList必须一致 |
-| viewStyle        | object      |       | yes      | 每一行文本的样式                                             |
-| bgContainerStyle | object      |       | no       | 背景样式                                                     |
-| textStyle        | object      |       | no       | 文本样式                                                     |
-| onTextClick      | function    |       | yes      | 点击事件回调：(item) => void                                 |
+| Name             | Description                                                  | Type           | Required | Platform    | HarmonyOS Support |
+| ---------------- | ------------------------------------------------------------ | -------------- | -------- | ----------- | ----------------- |
+| duration         | 执行完成整个动画所需要的时间(ms)                             | number         | yes      | iOS/Android | yes               |
+| textList         | 滚动的文字数组，具体数据格式请参照textList.item              | array          | yes      | iOS/Android | yes               |
+| width            | 宽度，不能使用flex                                           | number         | no       | iOS/Android | yes               |
+| height           | 高度，不能使用flex                                           | number         | no       | iOS/Android | yes               |
+| delay            | 文本停顿时间(ms)                                             | number         | yes      | iOS/Android | yes               |
+| direction        | 动画方向(向上向下滚动)`up` or `down`                         | string         | yes      | iOS/Android | yes               |
+| numberOfLines    | 同一个数据的文本行数                                         | number         | yes      | iOS/Android | yes               |
+| headViews        | 在文本最前面加上一个自定义view，效果如图例所示，用法请参照事例用法，length长度与textList必须一致 | array          | no       | iOS/Android | yes               |
+| viewStyle        | 每一行文本的样式                                             | object         | yes      | iOS/Android | yes               |
+| bgContainerStyle | 背景样式                                                     | object         | no       | iOS/Android | yes               |
+| textStyle        | 文本样式                                                     | object         | no       | iOS/Android | yes               |
+| onTextClick      | 点击事件回调                                                 | (item) => void | yes      | iOS/Android | yes               |
 
-#### textList.item props
+**textList.item props**
 
-| prop     | type     | default | required | description                      |
-| -------- | -------- | ------- | -------- | -------------------------------- |
-| label    | string   |         | yes      | 用作点击事件的回调               |
-| value    | string   |         | yes      | 文本显示                         |
-| [object] | [object] |         | no       | 可随意添加数据供自己特殊需求使用 |
+| Name     | Description                      | Type     | Required | Platform    | HarmonyOS Support |
+| -------- | -------------------------------- | -------- | -------- | ----------- | ----------------- |
+| label    | 用作点击事件的回调               | string   | yes      | iOS/Android | yes               |
+| value    | 文本显示                         | string   | yes      | iOS/Android | yes               |
+| [object] | 可随意添加数据供自己特殊需求使用 | [object] | no       | iOS/Android | yes               |
 
 ## 遗留问题
 
-- [ ] MarqueeHorizontal的reverse属性在HarmonyOS上只有第一次修改会触发生效，而原库在iOS上该属性已经失效。issue:https://github.com/ZhangTaoK/react-native-marquee-ab/issues/58
+- [ ] MarqueeHorizontal的reverse属性在HarmonyOS上只有第一次修改会触发生效，而原库在iOS上该属性已经失效。未实现HarmonyOS化 问题[issue#58](https://github.com/ZhangTaoK/react-native-marquee-ab/issues/58)
+
+## 其他
 
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://choosealicense.com/licenses/mit/) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

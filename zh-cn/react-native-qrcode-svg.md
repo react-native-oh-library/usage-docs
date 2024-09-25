@@ -26,13 +26,13 @@
 #### **npm**
 
 ```bash
-npm install react-native-qrcode-svg
+npm install react-native-qrcode-svg@6.2.0
 ```
 
 #### **yarn**
 
 ```bash
-yarn add react-native-qrcode-svg
+yarn add react-native-qrcode-svg@6.2.0
 ```
 
 <!-- tabs:end -->

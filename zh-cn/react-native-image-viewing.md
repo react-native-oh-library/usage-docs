@@ -1,5 +1,3 @@
-<!-- {% raw %} -->
-
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -222,14 +220,12 @@ const styles = StyleSheet.create({
 
 ## 遗留问题
 
-- [ ] 组件上下滑动关闭暂未实现，由于 scrollView的naticeEvent.velocity属性HarmonyOS暂不支持 [issue#6](https://github.com/react-native-oh-library/react-native-image-viewing/issues/6)
-- [ ] 组件双击放大方法暂未实现，由于doubleTapToZoomEnabled属性HarmonyOS暂不支持 [issue#7](https://github.com/react-native-oh-library/react-native-image-viewing/issues/7)
-- [ ] 组件animationType淡入淡出效果暂未实现，由于modal组件未适配 [issue#8](https://github.com/react-native-oh-library/react-native-image-viewing/issues/8)
+- [x] 组件上下滑动关闭暂未实现，由于 scrollView的naticeEvent.velocity属性HarmonyOS暂不支持 [issue#6](https://github.com/react-native-oh-library/react-native-image-viewing/issues/6)
+- [x] 组件双击放大方法暂未实现，由于doubleTapToZoomEnabled属性HarmonyOS暂不支持 [issue#7](https://github.com/react-native-oh-library/react-native-image-viewing/issues/7)
+- [x] 组件animationType淡入淡出效果暂未实现，由于modal组件未适配 [issue#8](https://github.com/react-native-oh-library/react-native-image-viewing/issues/8)
 
 ## 其他
 
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/jobtoday/react-native-image-viewing/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

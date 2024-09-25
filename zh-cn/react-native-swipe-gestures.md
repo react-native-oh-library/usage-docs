@@ -154,14 +154,13 @@ Can be passed within optional `config` property.
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| name         | Params       | Description                              | Type   | Required | Platform    | HarmonyOS Support |
-| ------------ | ------------ | ---------------------------------------- | ------ | -------- | ----------- | ----------------- |
-| onSwipe      | gestureName  | Name of the gesture (look example above) | String | No       | IOS/Android | yes               |
-| onSwipe      | gestureState | gestureState received from PanResponder  | Object | No       | IOS/Android | yes               |
-| onSwipeUp    | gestureState | gestureState received from PanResponder  | Object | No       | IOS/Android | yes               |
-| onSwipeDown  | gestureState | gestureState received from PanResponder  | Object | No       | IOS/Android | yes               |
-| onSwipeLeft  | gestureState | gestureState received from PanResponder  | Object | No       | IOS/Android | yes               |
-| onSwipeRight | gestureState | gestureState received from PanResponder  | Object | No       | IOS/Android | yes               |
+| name         | Params       | Description                              | Type   | Required | Platform    | HarmonyOS Suppor |
+| ------------ | ------------ | ---------------------------------------- | ------ | -------- | ----------- | ---------------- |
+| onSwipe      | gestureState | gestureState received from PanResponder  | Object | No       | IOS/Android | yes              |
+| onSwipeUp    | gestureState | Received up gesture from PanResponder    | Object | No       | IOS/Android | yes              |
+| onSwipeDown  | gestureState | Received down gesture from PanResponder  | Object | No       | IOS/Android | yes              |
+| onSwipeLeft  | gestureState | Received left gesture from PanResponder  | Object | No       | IOS/Android | yes              |
+| onSwipeRight | gestureState | Received right gesture from PanResponder | Object | No       | IOS/Android | yes              |
 
 ## 遗留问题
 

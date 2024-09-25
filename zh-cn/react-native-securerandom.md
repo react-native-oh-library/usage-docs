@@ -142,7 +142,7 @@ ohpm install
 
 ```diff
   ...
-+ import { SecureRandomPackage } from '@react-native-oh-tpl/react-native-secure_random/ts';
++ import { SecureRandomPackage } from '@react-native-oh-tpl/react-native-securerandom/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [

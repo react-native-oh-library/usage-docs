@@ -197,7 +197,7 @@ const styles = {
 | onVisibleIndicesChanged | Provides visible index; <br> helpful in sending impression events | TOnItemStatusChanged | No | iOS Android | Yes              |
 | renderFooter | Provide this method if you want to <br>render a footer. Helpful in showing <br>a loader while doing incremental loads | function | No | iOS Android | Yes               |
 | initialRenderIndex | Specify the initial item index you<br> want rendering to start from. Preferred <br>over initialOffset if both specified | number | No | iOS Android | Yes          |
-| scrollThrottle | iOS only; Scroll throttle duration | number | No | iOS | Yes |
+| scrollThrottle | iOS only; Scroll throttle duration | number | No | iOS | No |
 | canChangeSize | Specify if size can change | boolean | No | iOS Android | Yes               |
 | applyWindowCorrection | (Enhancement/replacement to <br>distanceFromWindow API) Allows  <br>updation of the visible windowBounds <br> to based on correctional values passed. <br>User can specify windowShift; in case <br>entire RecyclerListWindow needs to <br>shift down/up, startCorrection; in case <br>when top window bound needs to be <br>shifted for e.x. top window bound to be <br> shifted down is a content overlapping <br>the top edge of RecyclerListView,<br> endCorrection: to alter bottom window<br>  bound for a similar use-case. | function | No | iOS Android | Yes |
 | disableRecycling | Turns off recycling | boolean| No | iOS Android | Yes               |
@@ -211,6 +211,8 @@ const styles = {
 | windowCorrectionConfig | Used to specify is window<br> correction config and whether<br> it should be applied to some <br>scroll events | object | No | iOS Android | Yes               |
 
 ## 遗留问题
+
+- [ ] 接口scrollThrottle不支持: [issue#785](https://github.com/Flipkart/recyclerlistview/issues/785)
 
 ## 其他
 

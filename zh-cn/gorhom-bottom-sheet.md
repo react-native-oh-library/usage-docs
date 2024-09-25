@@ -38,7 +38,7 @@ yarn add @react-native-oh-tpl/bottom-sheet@file:#
 
 >[!WARNING] 使用时 import 的库名不变。
 
-```tsx
+```jsx
 // bottom-sheet组件
 import React, { useCallback, useRef, useMemo } from "react";
 import { StyleSheet, View, Text, Button } from "react-native";
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
 
 export default App;
 ```
-```tsx
+```jsx
 // bottom-sheet-modal组件
 import React, { useCallback, useMemo, useRef } from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
@@ -163,7 +163,7 @@ export default App;
 
 本库鸿蒙侧实现依赖@react-native-oh-tpl/react-native-reanimated和@react-native-oh-tpl/react-native-gesture-handler的原生端代码，如已在鸿蒙工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
 
-如未引入请参照[@react-native-oh-tpl/react-native-reanimated 文档](zh-cn/react-native-reanimated.md)、[@react-native-oh-tpl/react-native-gesture-handler 文档](zh-cn/react-native-gesture-handler.md)进行引入
+如未引入请参照[@react-native-oh-tpl/react-native-reanimated 文档](/zh-cn/react-native-reanimated.md)、[@react-native-oh-tpl/react-native-gesture-handler 文档](/zh-cn/react-native-gesture-handler.md)进行引入
 
 ## 约束与限制
 

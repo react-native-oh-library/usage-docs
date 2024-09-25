@@ -2,7 +2,7 @@
 > 模板版本：v0.2.2
 
 <p align="center">
-  <h1 align="center"> <code>react-native-flash-messag</code> </h1>
+  <h1 align="center"> <code>react-native-flash-message</code> </h1>
 </p>
 <p align="center">
    <a href="https://github.com/lucasferreira/react-native-flash-message">
@@ -37,7 +37,7 @@ yarn add react-native-flash-message@0.4.2
 
 下面的代码展示了这个库的基本使用场景：
 
-```tsx
+```js
 // FlashMessage组件是为全局使用而构建的，因此您必须在主应用程序屏幕中实例化此组件一次，并始终将其作为最后插入的组件
 import React from 'react';
 import {SafeAreaView, View,} from 'react-native';
@@ -55,7 +55,7 @@ export default App;
 
 ```
 
-```tsx
+```js
 import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 import {showMessage, hideMessage} from 'react-native-flash-message';
 
@@ -137,6 +137,7 @@ const styles = StyleSheet.create({
 | style                  | Apply a custom style object in flash message container | NO       | iOS/Android               | YES               |
 | textStyle              | Apply a custom style object in flash message descript/text text label   | NO       | iOS/Android               | YES               |
 | titleStyle             | Apply a custom style object in flash message title text label           | NO       | iOS/Android               | YES               |
+| titleProps              | Set a custom props object in flash message title text label          | NO       | iOS/Android               | YES               |
 | textProps              | Set a custom props object in flash message all text components          | NO       | iOS/Android               | YES               |
 | iconProps              | Set a custom props object to use inside the renderFlashMessageIcon method as third argument           | NO       | iOS/Android               | YES               |
 | renderBeforeContent    | Render custom JSX before title in flash message.          | NO        | iOS/Android               | YES               |

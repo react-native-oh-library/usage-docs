@@ -23,13 +23,13 @@
 ####  npm
 
 ```bash
-npm install @react-native-community/hooks@0.2.2
+npm install @react-native-community/hooks@3.0.0
 ```
 
 #### yarn
 
 ```bash
-yarn add @react-native-community/hooks@0.2.2
+yarn add @react-native-community/hooks@3.0.0
 ```
 
 <!-- tabs:end -->
@@ -38,7 +38,7 @@ yarn add @react-native-community/hooks@0.2.2
 
 >[!WARNING] 使用时 import 的库名不变。
 
-```tsx
+```jsx
 
 import React, { useState } from 'react';
 import {

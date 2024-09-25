@@ -595,7 +595,7 @@ const styles = StyleSheet.create({
 |      **minOpacity**      |                              min Opacity                                |  number  |    No    | iOS/Android |        Yes        |
 |      **scaleStatus**     |                              scale   status                                |  string  |    No    | iOS/Android |        Yes        |
 |      **scaleDuration**   |                              scale duration                                |  number  |    No    | iOS/Android |        Yes        |
-|      **slideDuration**   |                              min Opacity                                |  number  |    No    | iOS/Android |        Yes        |
+|      **slideDuration**   |                              slide Duration                               |  number  |    No    | iOS/Android |        Yes        |
 
 ### AutoDragSortableView
 
@@ -624,7 +624,7 @@ const styles = StyleSheet.create({
 |      **minOpacity**      |                              min Opacity                                |  number  |    No    | iOS/Android |        Yes        |
 |      **scaleStatus**     |                              scale   status                                |  string  |    No    | iOS/Android |        Yes        |
 |      **scaleDuration**   |                              scale duration                                |  number  |    No    | iOS/Android |        Yes        |
-|      **slideDuration**   |                              min Opacity                                |  number  |    No    | iOS/Android |        Yes        |
+|      **slideDuration**   |                              slide Duration                               |  number  |    No    | iOS/Android |        Yes        |
 |     **autoThrottle**      |     auto  throttle      |                          number                          |    No    | iOS/Android |        Yes        |
 | **autoThrottleDuration**  |   auto throttle duration|                          number                          |    No    | iOS/Android |        Yes        |
 |   **renderHeaderView**    |    render header View   |                         element                          |    No    | iOS/Android |        Yes        |

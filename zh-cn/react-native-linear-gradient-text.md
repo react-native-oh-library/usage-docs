@@ -1,11 +1,13 @@
-<!-- {% raw %} -->
-模板版本：v0.2.0
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-linear-gradient-text </code> </h1>
 </p>
 <p align="center">
     <a href="https://github.com/HMDarkFir3/react-native-linear-gradient-text">
+        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
+    </a>
+    <a href="https://github.com/HMDarkFir3/react-native-linear-gradient-text/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
@@ -34,7 +36,7 @@ yarn add react-native-linear-gradient-text@1.2.8
 
 下面的代码展示了这个库的基本使用场景：
 
-```tsx
+```js
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import { LinearGradientText } from "react-native-linear-gradient-text";
@@ -62,8 +64,15 @@ const styles = StyleSheet.create({
   },
 });
 ```
+## Link
 
-## 兼容性
+本库 HarmonyOS 侧实现依赖 @react-native-oh-tpl/masked-view 和 @react-native-oh-tpl/react-native-linear-gradient 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+
+如未引入请参照[@react-native-oh-tpl/masked-view 文档的 Link 章节 ](/zh-cn/react-native-masked-view-masked-view.md#link) 和 [@react-native-oh-tpl/react-native-linear-gradient 文档的 Link 章节 ](/zh-cn/react-native-linear-gradient.md#link)进行引入。
+
+## 约束与限制
+
+### 兼容性
 
 本文档内容基于以下版本验证通过：
 
@@ -88,15 +97,7 @@ const styles = StyleSheet.create({
 | textStyle | A property to change all styles that a text has.                                                              | [TextStyle](https://reactnative.dev/docs/text-style-props)       | All      | N        | Yes               |
 | textProps | A property to apply native props to text.                                                                     | [TextProps](https://reactnative.dev/docs/text-style-props#props) | All      | N        | Yes               |
 
-## Link
-
-本库 HarmonyOS 侧实现依赖 @react-native-oh-tpl/masked-view 和 @react-native-oh-tpl/react-native-linear-gradient 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
-
-如未引入请参照[@react-native-oh-tpl/masked-view 文档的 Link 章节 ](/zh-cn/react-native-masked-view-masked-view.md#link) 和 [@react-native-oh-tpl/react-native-linear-gradient 文档的 Link 章节 ](/zh-cn/react-native-linear-gradient.md#link)进行引入。
-
 ## 遗留问题
-
-- [x] 渐变颜色不生效: 由于 mask 遮罩在文字的场景下，依赖 ROM 3.0.0.21 以后版本能力，之前版本仍不支持如 3.0.0.18。
 
 ## 其他
 

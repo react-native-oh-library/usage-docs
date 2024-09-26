@@ -42,7 +42,7 @@ yarn add @react-native-oh-tpl/react-native-idfa-aaid@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-```tsx
+```
 import React, { useEffect } from 'react';
 import type { PropsWithChildren } from 'react';
 import {
@@ -114,7 +114,6 @@ function App(): React.JSX.Element {
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
-
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -169,7 +168,6 @@ const styles = StyleSheet.create({
 });
 
 export default App;
-
 ```
 
 ## 使用 Codegen
@@ -321,8 +319,8 @@ ohpm install
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| getAdvertisingInfo  |检查权限，申请权限，获取OAID         | Function  | yes | iOS/Android      | yes |
-| getAdvertisingInfoAndCheckAuthorization  | 功能同上，该方法用于移植的一致性         | Function  | no | iOS/Android      | yes |
+| getAdvertisingInfo  |Check the permission, apply for the permission, and obtain the OAID.         | Function  | yes | iOS/Android      | yes |
+| getAdvertisingInfoAndCheckAuthorization  | The function is the same as above, and is used to keep the porting uniform.         | Function  | no | iOS/Android      | yes |
 
 ## 遗留问题
 

@@ -1,4 +1,5 @@
 <!-- {% raw %} -->
+
 > 模板版本：v0.1.3
 
 <p align="center">
@@ -35,9 +36,9 @@ yarn add styled-system@5.1.5
 下面的代码展示了这个库的基本使用场景：
 
 ```js
-import React from 'react';
-import styled from 'styled-components/native';
-import { space, layout, color } from 'styled-system';
+import React from "react";
+import styled from "styled-components/native";
+import { space, layout, color } from "styled-system";
 
 // 创建一个基础的 Box 组件
 const Box = styled.View`
@@ -113,108 +114,66 @@ export default App;
 
 **API typography**
 
-| Name          | Description | Type | Required | HarmonyOS Support | Notes                                   |
-| ------------- | ----------- | ---- | -------- | ----------------- | --------------------------------------- |
-| fontFamily    | 字体系列    | prop | no       | yes               | 与 Android、iOS效果一致，设置后均无效果 |
-| fontSize      | 字号大小    | prop | no       | yes               |
-| fontWeight    | 字体权重    | prop | no       | yes               |
-| lineHeight    | 行高        | prop | no       | yes               |
-| letterSpacing | 字符间距    | prop | no       | yes               |
-| textAlign     | 文本对齐    | prop | no       | yes               |
-| fontStyle     | 字体样式    | prop | no       | yes               |
+| Name          | Description | Type | Required | HarmonyOS Support | Notes |
+| ------------- | ----------- | ---- | -------- | ----------------- | ----- |
+| fontSize      | 字号大小    | prop | no       | yes               |       |
+| fontWeight    | 字体权重    | prop | no       | yes               |       |
+| lineHeight    | 行高        | prop | no       | yes               |       |
+| letterSpacing | 字符间距    | prop | no       | yes               |       |
+| textAlign     | 文本对齐    | prop | no       | yes               |       |
+| fontStyle     | 字体样式    | prop | no       | yes               |       |
 
 **API layout**
 
-| Name          | Description | Type | Required | HarmonyOS Support | Notes                                    |
-| ------------- | ----------- | ---- | -------- | ----------------- | ---------------------------------------- |
-| width         | 宽度        | prop | no       | yes               |
-| height        | 高度        | prop | no       | yes               |
-| display       | 显示类型    | prop | no       | yes               | 与 Android、iOS 效果一致，设置后均无效果 |
-| minWidth      | 最小宽度    | prop | no       | yes               |
-| minHeight     | 最小高度    | prop | no       | yes               |
-| maxHeight     | 最大高度    | prop | no       | yes               |
-| size          | 大小        | prop | no       | yes               |
-| verticalAlign | 垂直对齐    | prop | no       | yes               | 与 Android、iOS 效果一致，设置后均无效果 |
-| overflow      | 溢出        | prop | no       | yes               |
-| overflowX     | X 轴溢出    | prop | no       | yes               | 与 Android、iOS 效果一致，设置后均无效果 |
-| overflowY     | Y 轴溢出    | prop | no       | yes               | 与 Android、iOS 效果一致，设置后均无效果 |
+| Name      | Description | Type | Required | HarmonyOS Support | Notes |
+| --------- | ----------- | ---- | -------- | ----------------- | ----- |
+| width     | 宽度        | prop | no       | yes               |       |
+| height    | 高度        | prop | no       | yes               |       |
+| minHeight | 最小高度    | prop | no       | yes               |       |
+| maxHeight | 最大高度    | prop | no       | yes               |       |
+| size      | 大小        | prop | no       | yes               |       |
 
 **API flexbox**
 
-| Name           | Description           | Type | Required | HarmonyOS Support | Notes                                    |
-| -------------- | --------------------- | ---- | -------- | ----------------- | ---------------------------------------- |
-| alignItems     | 列内轴对齐项          | prop | no       | yes               |                                          |
-| alignContent   | 列内轴对齐内容        | prop | no       | yes               | 与 Android、iOS 效果一致，设置后均无效果 |
-| justifyItems   | 行内轴对齐项          | prop | no       | yes               | 与 Android、iOS 效果一致，设置后均无效果 |
-| justifyContent | 行内轴对齐内容        | prop | no       | yes               |
-| flexWrap       | 换行                  | prop | no       | yes               |
-| flexDirection  | 弹性方向              | prop | no       | yes               |
-| flex           | 弹性布局              | prop | no       | yes               |
-| flexGrow       | 分配剩余空间比例      | prop | no       | yes               |
-| flexShrink     | 弹性收缩              | prop | no       | yes               |
-| flexBasis      | 弹性初始长度          | prop | no       | yes               |
-| justifySelf    | 行内对齐              | prop | no       | yes               |
-| alignSelf      | 对齐，覆盖 alignItems | prop | no       | yes               |
-| order          | 弹性布局顺序          | prop | no       | yes               | 与 Android、iOS 效果一致，设置后均无效果 |
+| Name           | Description      | Type | Required | HarmonyOS Support | Notes |
+| -------------- | ---------------- | ---- | -------- | ----------------- | ----- |
+| alignItems     | 列内轴对齐项     | prop | no       | yes               |       |
+| justifyContent | 行内轴对齐内容   | prop | no       | yes               |       |
+| flexWrap       | 换行             | prop | no       | yes               |       |
+| flexDirection  | 弹性方向         | prop | no       | yes               |       |
+| flex           | 弹性布局         | prop | no       | yes               |       |
+| flexGrow       | 分配剩余空间比例 | prop | no       | yes               |       |
+| flexShrink     | 弹性收缩         | prop | no       | yes               |       |
+| flexBasis      | 弹性初始长度     | prop | no       | yes               |       |
 
 **API border**
 
-| Name                    | Description  | Type | Required | HarmonyOS Support | Notes                                    |
-| ----------------------- | ------------ | ---- | -------- | ----------------- | ---------------------------------------- |
-| border                  | 边框         | prop | no       | yes               |
-| borderWidth             | 边框宽度     | prop | no       | yes               |
-| borderStyle             | 边框样式     | prop | no       | yes               |
-| borderColor             | 边框颜色     | prop | no       | yes               |
-| borderRadius            | 边框圆角     | prop | no       | yes               |
-| borderTop               | 上边框       | prop | no       | yes               | 与 Android、iOS 效果一致，设置后均无效果 |
-| borderTopWidth          | 上边框宽度   | prop | no       | yes               |
-| borderTopStyle          | 上边框样式   | prop | no       | yes               | 与 Android、iOS 效果一致，设置后均无效果 |
-| borderTopColor          | 上边框颜色   | prop | no       | yes               |
-| borderTopLeftRadius     | 上左边框圆角 | prop | no       | yes               |
-| borderTopRightRadius    | 上右边框圆角 | prop | no       | yes               |
-| borderRight             | 右边框       | prop | no       | yes               | 与 Android、iOS 效果一致，设置后均无效果 |
-| borderRightWidth        | 右边框宽度   | prop | no       | yes               |
-| borderRightStyle        | 右边框样式   | prop | no       | yes               | 与 Android、iOS 效果一致，设置后均无效果 |
-| borderRightColor        | 右边框颜色   | prop | no       | yes               |
-| borderBottom            | 下边框       | prop | no       | yes               | 与 Android、iOS 效果一致，设置后均无效果 |
-| borderBottomWidth       | 下边框宽度   | prop | no       | yes               |
-| borderBottomStyle       | 下边框样式   | prop | no       | yes               | 与 Android、iOS 效果一致，设置后均无效果 |
-| borderBottomColor       | 下边框颜色   | prop | no       | yes               |
-| borderBottomLeftRadius  | 左下边框圆角 | prop | no       | yes               |
-| borderBottomRightRadius | 右下边框圆角 | prop | no       | yes               |
-| borderLeft              | 左边框       | prop | no       | yes               | 与 Android、iOS 效果一致，设置后均无效果 |
-| borderLeftWidth         | 左边框宽度   | prop | no       | yes               |
-| borderLeftStyle         | 左边框样式   | prop | no       | yes               | 与 Android、iOS 效果一致，设置后均无效果 |
-| borderLeftColor         | 左边框颜色   | prop | no       | yes               |
-| borderX                 | X 轴边框     | prop | no       | yes               | 与 Android、iOS 效果一致，设置后均无效果 |
-| borderY                 | Y 轴边框     | prop | no       | yes               | 与 Android、iOS 效果一致，设置后均无效果 |
+| Name                    | Description  | Type | Required | HarmonyOS Support | Notes |
+| ----------------------- | ------------ | ---- | -------- | ----------------- | ----- |
+| border                  | 边框         | prop | no       | yes               |       |
+| borderWidth             | 边框宽度     | prop | no       | yes               |       |
+| borderStyle             | 边框样式     | prop | no       | yes               |       |
+| borderColor             | 边框颜色     | prop | no       | yes               |       |
+| borderRadius            | 边框圆角     | prop | no       | yes               |       |
+| borderTopWidth          | 上边框宽度   | prop | no       | yes               |       |
+| borderTopColor          | 上边框颜色   | prop | no       | yes               |       |
+| borderTopLeftRadius     | 上左边框圆角 | prop | no       | yes               |       |
+| borderTopRightRadius    | 上右边框圆角 | prop | no       | yes               |       |
+| borderRightWidth        | 右边框宽度   | prop | no       | yes               |       |
+| borderRightColor        | 右边框颜色   | prop | no       | yes               |       |
+| borderBottomWidth       | 下边框宽度   | prop | no       | yes               |       |
+| borderBottomColor       | 下边框颜色   | prop | no       | yes               |       |
+| borderBottomLeftRadius  | 左下边框圆角 | prop | no       | yes               |       |
+| borderBottomRightRadius | 右下边框圆角 | prop | no       | yes               |       |
+| borderLeftWidth         | 左边框宽度   | prop | no       | yes               |       |
+| borderLeftColor         | 左边框颜色   | prop | no       | yes               |       |
 
 **API position**
 
-| Name     | Description  | Type | Required | HarmonyOS Support |
-| -------- | ------------ | ---- | -------- | ----------------- |
-| position | 定位         | prop | no       | yes               |
-| zIndex   | 元素堆叠顺序 | prop | no       | yes               |
-| top      | 上偏移量     | prop | no       | yes               |
-| right    | 右偏移量     | prop | no       | yes               |
-| bottom   | 下偏移量     | prop | no       | yes               |
-| left     | 左偏移量     | prop | no       | yes               |
-
-**API shadow**
-
-| Name       | Description | Type | Required | HarmonyOS Support |
-| ---------- | ----------- | ---- | -------- | ----------------- |
-| textShadow | 文本阴影    | prop | no       | yes               |
-| boxShadow  | 盒子阴影    | prop | no       | yes               |
-
-**API background**
-
-| Name               | Description | Type | Required | HarmonyOS Support | Notes                                    |
-| ------------------ | ----------- | ---- | -------- | ----------------- | ---------------------------------------- |
-| backgroundImage    | 背景图片    | prop | no       | yes               | 与 Android、iOS 效果一致，设置后均无效果 |
-| backgroundSize     | 背景尺寸    | prop | no       | yes               | 与 Android、iOS 效果一致，设置后均无效果 |
-| backgroundPosition | 背景定位    | prop | no       | yes               | 与 Android、iOS 效果一致，设置后均无效果 |
-| backgroundRepeat   | 背景图平铺  | prop | no       | yes               | 与 Android、iOS 效果一致，设置后均无效果 |
+| Name | Description | Type | Required | HarmonyOS Support |
+| ---- | ----------- | ---- | -------- | ----------------- |
+| top  | 上偏移量    | prop | no       | yes               |
+| left | 左偏移量    | prop | no       | yes               |
 
 ## 遗留问题
 

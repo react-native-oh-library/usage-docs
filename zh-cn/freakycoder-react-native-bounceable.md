@@ -117,16 +117,16 @@ const styles = StyleSheet.create({
 
 > [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Property          | Description                                  |      Type       | Required | Platform    | HarmonyOS Support |
-| ----------------- | -------------------------------------------- | :-------------: | :------: | ----------- | ----------------- |
-| bounceEffectIn    | 按下时缩小到原始大小的xx（如：0.1）          |     number      |    no    | iOS/Android | yes               |
-| bounceEffectOut   | 松开时稍微放大到原始大小的xx（如：1.5）      |     number      |    no    | iOS/Android | yes               |
-| bounceVelocityIn  | 按下时的速度                                 |     number      |    no    | iOS/Android | yes               |
-| bounceVelocityOut | 松开时的速度                                 |     number      |    no    | iOS/Android | yes               |
-| bouncinessIn      | 按下时的弹性系数（设置值0-50有明显效果显示） |     number      |    no    | iOS/Android | yes               |
-| bouncinessOut     | 松开时的弹性系数（设置值0-50有明显效果显示） |     number      |    no    | iOS/Android | yes               |
-| onPress           | 为 onPress 功能设置您自己的逻辑              |      void       |    no    | iOS/Android | yes               |
-| style             | 像设置任何其他 View 容器一样设置样式         | CustomStyleProp |    no    | iOS/Android | yes               |
+| Property          | Description                                                  |   Type   | Required | Platform    | HarmonyOS Support |
+| ----------------- | ------------------------------------------------------------ | :------: | :------: | ----------- | ----------------- |
+| bounceEffectIn    | change the bounce effect's value（reduce）                   |  number  |    no    | iOS/Android | yes               |
+| bounceEffectOut   | change the bounce effect's value（amplification）            |  number  |    no    | iOS/Android | yes               |
+| bounceVelocityIn  | The speed of the press                                       |  number  |    no    | iOS/Android | yes               |
+| bounceVelocityOut | The speed at which it is released                            |  number  |    no    | iOS/Android | yes               |
+| bouncinessIn      | Elastic coefficient when pressed (set value 0-50 has obvious effect display) |  number  |    no    | iOS/Android | yes               |
+| bouncinessOut     | Elastic coefficient when released (set value 0-50 has obvious effect display) |  number  |    no    | iOS/Android | yes               |
+| onPress           | set your own logic for the onPress functionality             | function |    no    | iOS/Android | yes               |
+| style             | set the style like any other View container                  |  style   |    no    | iOS/Android | yes               |
 
 ## 遗留问题
 

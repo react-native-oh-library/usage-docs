@@ -201,7 +201,7 @@ ohpm install
 | minimumDate | Minimum selectable date.Example: new Date("2021-01-01")   | Date  | no |     all  |       yes|
 | mode | The date picker mode. "datetime", "date", "time"   | “'date' \|'time' \| 'datetime'”  | yes |     all  |       yes|
 | onConfirm | Modal only: Date callback when user presses confirm button   | (date: Date) => void  | no |     all  |       yes|
-| onCancel | odal only: Callback for when user presses cancel button or closing the modal by pressing outside it.   | () => void  | no |     all  |       yes|
+| onCancel | Modal only: Callback for when user presses cancel button or closing the modal by pressing outside it.   | () => void  | no |     all  |       yes|
 | is24hourSource | Change how the 24h mode (am/pm) should be determined, by device settings or by locale. {'locale', 'device'} (android only, default: 'device')   | “'locale' \| 'device'”  | no |     all  |       no|
 | modal | Boolean indicating if modal should be used. Default: "false". When enabled, the other modal props needs to be used.   | boolean  | no |     all  |       yes|
 | open | Modal only: Boolean indicating if modal should be open.   | boolean  | no |     all  |       yes|

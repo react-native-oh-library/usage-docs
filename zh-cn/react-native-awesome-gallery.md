@@ -78,6 +78,8 @@ export default function App() {
 
 1. RNOH: 0.72.28; SDK: HarmonyOS-NEXT-DB5 5.0.0.60; IDE: DevEco Studio  5.0.3.655; ROM: 3.0.0.36;
 
+2. RNOH: 0.72.29; SDK: HarmonyOS-NEXT-DB6 5.0.0.61; IDE: DevEco Studio  5.0.3.706; ROM: 5.0.0.60;
+
 ## 属性
 
 > [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
@@ -139,7 +141,7 @@ export default function App() {
 
 ## 遗留问题
 - [ ] onTranslationYChange事件设置后，拖动图片会发生异常，iOS 和 Android平台均有该问题: [issue#84](https://github.com/pavelbabenko/react-native-awesome-gallery/issues/84)
-- [ ] react-native-gesture-handler库Gesture.Tap()事件无法获取正确的当前坐标和手指数，导致doubleTapScale、doubleTapInterval、doubleTapEnabled、onDoubleTap不生效: [issue#21](https://github.com/react-native-oh-library/react-native-harmony-gesture-handler/issues/21)
+- [x] react-native-gesture-handler库Gesture.Tap()事件无法获取正确的当前坐标和手指数，导致doubleTapScale、doubleTapInterval、doubleTapEnabled、onDoubleTap不生效: [issue#21](https://github.com/react-native-oh-library/react-native-harmony-gesture-handler/issues/21)
 
 ## 其他
 

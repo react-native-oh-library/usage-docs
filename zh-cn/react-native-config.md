@@ -53,7 +53,7 @@ yarn add @react-native-oh-tpl/react-native-config@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-```tsx
+```
 import React, {Component} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 

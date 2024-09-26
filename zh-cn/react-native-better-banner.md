@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> 模板版本：v0.2.0
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-better-banner</code> </h1>
@@ -115,11 +114,7 @@ export default App;
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[Releases](https://github.com/react-native-oh-library/better-banner/releases)
-
-本文档内容基于以下版本验证通过：
-
-1. RNOH: 0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.18;
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-better-banner Releases](https://github.com/react-native-oh-library/better-banner/releases)
 
 ## 属性
 
@@ -159,5 +154,3 @@ export default App;
 ## 开源协议
 
 本项目基于 [The ISC License (ISC)](https://www.isc.org/licenses/) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

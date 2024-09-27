@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> 模板版本：v0.2.1
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-worklets-core</code> </h1>
@@ -10,14 +9,10 @@
     </a>
     <a href="https://github.com/margelo/react-native-worklets-core/blob/main/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
-        <!-- <img src="https://img.shields.io/badge/license-Apache-blue.svg" alt="License" /> -->
     </a>
 </p>
 
-
-
-
-> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-worklets-core)
+> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-worklets-core)
 
 ## 安装与使用
 
@@ -170,10 +165,8 @@ add_compile_definitions(WITH_HITRACE_SYSTRACE)
 
 add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
-# RNOH_BEGIN: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
 + add_subdirectory("${OH_MODULE_DIR}/@react-native-oh-tpl/react-native-worklets-core/src/main/cpp" ./worklets)
-# RNOH_END: manual_package_linking_1
 
 file(GLOB GENERATED_CPP_FILES "./generated/*.cpp")
 
@@ -184,10 +177,8 @@ add_library(rnoh_app SHARED
 )
 target_link_libraries(rnoh_app PUBLIC rnoh)
 
-# RNOH_BEGIN: manual_package_linking_2
 target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 + target_link_libraries(rnoh_app PUBLIC rnoh_worklets)
-# RNOH_END: manual_package_linking_2
 ```
 
 打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
@@ -248,23 +239,30 @@ ohpm install
 
 ### API
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| NAME                   | Description                                                  | Type                                                         | Required | Platform | HarmonyOS Support |
-| ---------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | -------- | -------- | ----------------- |
-| createContext          | Create a worker thread context object                        | function                                                     | no       | All      | yes               |
-| createSharedValue      | Creates a new worklet context with the given name            | function                                                     | no       | All      | yes               |
-| createRunOnJS          | Creates a function that can be executed asynchronously on the default React-JS context | function                                                     | no       | All      | yes               |
-| runOnJS                | Runs the given Function asynchronously on the default React-JS context | function                                                     | no       | All      | yes               |
-| getCurrentThreadId     | Returns a unique identifier for the Thread this method is called on | function                                                     | no       | All      | yes               |
-| defaultContext         | Get the current Worklet context, or `undefined` if called in main React JS context. | [IWorkletContext](https://github.com/react-native-oh-library/react-native-worklets-core/blob/sig/src/types.ts#L29) | no       | All      | yes               |
-| context.createRunAsync | Creates a function that can be executed asynchronously on the Worklet context. | function                                                     | no       | All      | yes               |
-| context.runAsync       | Runs the given Function asynchronously on this Worklet context. | function                                                     | no       | All      | yes               |
-| useWorklet             | Same as `context.createRunAsync`                             | function                                                     | no       | All      | yes               |
-| useRunOnJS             | Same as `createRunOnJS`                                      | function                                                     | no       | All      | yes               |
-| useSharedValue         | Same as `createSharedValue`                                  | function                                                     | no       | All      | yes               |
+| NAME                   | Description                                                  | Type      | Required | Platform | HarmonyOS Support |
+| ---------------------- | ------------------------------------------------------------ | --------- | -------- | -------- | ----------------- |
+| createContext          | Creates a new worklet context with the given name.           | function  | no       | All      | yes               |
+| createSharedValue      | Creates a value that can be shared between runtimes.         | function  | no       | All      | yes               |
+| createRunOnJS          | Creates a function that can be executed asynchronously on the default React-JS context. | function  | no       | All      | yes               |
+| runOnJS                | Runs the given Function asynchronously on the default React-JS context. | function  | no       | All      | yes               |
+| getCurrentThreadId     | Returns a unique identifier for the Thread this method is called on. | function  | no       | All      | yes               |
+| defaultContext         | Get the default Worklet context.                             | interface | no       | All      | yes               |
+| currentContext         | Get the current Worklet context, or `undefined` if called in main React JS context. | interface | no       | All      | yes               |
+| __jsi_is_array         | Returns true if jsi/cpp believes that the passed value is an array. | function  | no       | All      | yes               |
+| __jsi_is_object        | Returns true if jsi/cpp believes that the passed value is an object. | function  | no       | All      | yes               |
+| context.addDecorator   | Adds an object to the worklet context. The object will be available in all worklets. | function  | no       | All      | yes               |
+| context.createRunAsync | Creates a function that can be executed asynchronously on the Worklet context. | function  | no       | All      | yes               |
+| context.runAsync       | Runs the given Function asynchronously on this Worklet context. | function  | no       | All      | yes               |
+| useWorklet             | Create a Worklet function that automatically memoizes itself using it's auto-captured closure. | function  | no       | All      | yes               |
+| useRunOnJS             | Create a Worklet function that runs the given function on the JS context. | function  | no       | All      | yes               |
+| useSharedValue         | Create a Shared Value that persists between re-renders.      | function  | no       | All      | yes               |
+| isWorklet              | Checks whether the given function is a Worklet or not.       | function  | no       | All      | yes               |
+| worklet                | Ensures the given function is a Worklet, and throws an error if not. | function  | no       | All      | yes               |
+| getWorkletDependencies | Get the dependencies of the given worklet.                   | function  | no       | All      | yes               |
 
 ## 遗留问题
 
@@ -272,5 +270,4 @@ ohpm install
 
 ## 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-worklets-core/blob/sig/LICENSE) ，请自由地享受和参与开源。
-<!-- {% endraw %} -->
+本项目基于 [The MIT License (MIT)](https://github.com/margelo/react-native-worklets-core/blob/main/LICENSE) ，请自由地享受和参与开源。

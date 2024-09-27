@@ -248,8 +248,8 @@ ohpm install
 
 ## 遗留问题
 
-- [ ] HarmonyOS端暂不支持关闭预览窗口的回调函数调用: [issue#1](https://github.com/react-native-oh-library/react-native-file-viewer/issues/1)
-- [ ] HarmonyOS端无法直接跳转到应用市场的推荐应用页，目前只能跳转到应用市场首页: [issue#1](https://github.com/react-native-oh-library/react-native-file-viewer/issues/2)
+- [x] HarmonyOS端暂不支持关闭预览窗口的回调函数调用: [issue#1](https://github.com/react-native-oh-library/react-native-file-viewer/issues/4)
+- [x] HarmonyOS端无法直接跳转到应用市场的推荐应用页，目前只能跳转到应用市场首页: [issue#2](https://github.com/react-native-oh-library/react-native-file-viewer/issues/5)
 
 ## 其他
 

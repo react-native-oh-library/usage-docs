@@ -216,6 +216,42 @@ const styles = StyleSheet.create({
 });
 ```
 
+### 在 ArkTs 侧引入和注册字体文件(非必选配置项)
+
+> [!TIP] 本项非必配项，当使用 customStyles 自定义属性中的 labelFontFamily 属性指定字体时才需配置
+
+步骤一：
+复制字体文件到 `entry/src/main/resources/rawfile/assets/assets/fonts` 目录下(如使用了外部字体文件，需要将\*.ttf 文件复制过来)
+
+步骤二：
+打开 `entry/src/main/ets/pages/Index.ets`，添加以下代码
+
+    const fonts: Record<string, Resource> = {
+      "Pacifico-Regular": $rawfile("assets/assets/fonts/Pacifico-Regular.ttf")
+    }
+
+    @Entry
+    @Component
+    struct Index {
+      //...
+      build() {
+        Column(){
+          //...
+
+          //注册字体文件
+          RNApp({
+            rnInstanceConfig: {
+              //...
+              fontResourceByFontFamily: fonts
+            },
+            //...
+          })
+
+        }
+        //...
+      }
+    }
+
 ## 约束与限制
 
 ### 兼容性

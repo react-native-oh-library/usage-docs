@@ -42,9 +42,8 @@ yarn add react-native-image-header-scroll-view@0.10.3
 下面的代码展示了这个库的基本使用场景：
 
 ```tsx
-import React, { useRef } from 'react';
-import { StyleSheet, Text, View, Image, Dimensions, StatusBar } from 'react-native';
-import * as Animatable from 'react-native-animatable';
+import React, { useEffect, useState } from 'react';
+import { StyleSheet, Text, View, Image,Animated,StatusBar, Dimensions ,Easing} from 'react-native';
 import ImageHeaderScrollView ,{TriggeringView}  from 'react-native-image-header-scroll-view';
 const MIN_HEIGHT = 80;
 const MAX_HEIGHT = 250;
@@ -143,7 +142,26 @@ const styles = StyleSheet.create({
 });
 
 function HeaderImageExample () {
-  const HeaderRef = useRef(null)
+    const [visible, setVisible] = useState(false);
+    const fadeAnim = new Animated.Value(0);
+    useEffect(() => {
+        if (visible) {
+          Animated.timing(fadeAnim, {
+            toValue: 1,
+            duration: 100,
+            easing: Easing.bounce,
+            useNativeDriver: true,
+          }).start();
+        } else {
+          // 如果当前是不可见的，则执行淡出动画
+          Animated.timing(fadeAnim, {
+            toValue: 0,
+            duration: 100,
+            easing: Easing.bounce,
+            useNativeDriver: true,
+          }).start();
+        }
+      }, [visible, fadeAnim]);  
  
     return (
       <View style={{ flex: 1 }}>
@@ -158,14 +176,12 @@ function HeaderImageExample () {
           overlayColor={'blue'} 
           renderHeader={() => <Image source={'请输入本地图片路径'} style={styles.image} />} 
           renderFixedForeground={() => (
-            <Animatable.View
-              style={styles.navTitleView}
-              ref={HeaderRef}
-            >
-              <Text style={styles.navTitle}>
-                {tvShowContent.title}, ({tvShowContent.year})
-              </Text>
-            </Animatable.View> as any
+            <Animated.View
+                    style={[styles.navTitleView,{ opacity: fadeAnim}]}  >
+                    <Text style={styles.navTitle}>
+                        {tvShowContent.title}, ({tvShowContent.year})
+                    </Text>
+            </Animated.View>
           )} 
           renderForeground={() => (
             <View style={styles.titleContainer}>
@@ -176,8 +192,8 @@ function HeaderImageExample () {
           disableHeaderGrow={false}>
          <>
           <TriggeringView
-            onHide={() =>  HeaderRef?.current?.fadeInUp(100)}
-            onDisplay={() => HeaderRef?.current?.fadeOut(100)}
+            onHide={() => setVisible(true)}
+            onDisplay={() => setVisible(false)}
           >
             <Text style={styles.title}>
               <Text style={styles.name}>{tvShowContent.title}</Text>, ({tvShowContent.year})

@@ -452,7 +452,7 @@ ohpm install
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/voice Releases](https://github.com/react-native-oh-library/voice/releases)
 
 ### 权限要求
-由于此库涉及语音识别会使用到系统录音功能，使用时需要配置对应的权限，权限需配置在根目录下module.json5、string.json文件
+由于此库涉及语音识别会使用到系统录音功能，使用时需要配置对应的权限，权限需配置在entry/src目录下module.json5和entry/src/main/resources/base/element目录下string.json文件
 
 打开 `module.json5`，添加：
 

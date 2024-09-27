@@ -40,7 +40,7 @@ yarn add react-native-autocomplete-dropdown@4.0.0-rc.5
 
 1. Wrap your root component in AutocompleteDropdownContextProvider from react-native-autocomplete-dropdown
 
-```tsx
+```jsx
 import { AutocompleteDropdownContextProvider } from 'react-native-autocomplete-dropdown';
 import { AppRegistry } from 'react-native'
 
@@ -57,7 +57,7 @@ AppRegistry.setWrapperComponentProvider(appParams => {
 
 2. Example with local Dataset
 
-```tsx
+```jsx
 import React, { memo, useState } from 'react'
 import { Text, View } from 'react-native'
 import type { TAutocompleteDropdownItem } from 'react-native-autocomplete-dropdown'
@@ -120,18 +120,16 @@ export const LocalDataSetExample = memo(() => {
 | useFilter                     | whether use local filter by dataSet (useful set to false for remote filtering to prevent rerender twice)      | boolean             | no       | iOS/Android | yes               |
 | showClear                     | show clear button                                                                                             | boolean             | no       | iOS/Android | yes               |
 | showChevron                   | show chevron (open/close) button                                                                              | boolean             | no       | iOS/Android | yes               |
-| closeOnBlur                   | whether to close dropdown on blur                                                                             | boolean             | no       | iOS/Android | yes               |
 | closeOnSubmit                 | sets the max stroke line width                                                                                | boolean             | no       | iOS/Android | yes               |
 | clearOnFocus                  | whether to clear typed text on focus                                                                          | boolean             | no       | iOS/Android | yes               |
 | caseSensitive                 | whether to perform case-sensitive search                                                                      | boolean             | no       | iOS/Android | yes               |
 | ignoreAccents                 | ignore diacritics                                                                                             | boolean             | no       | iOS/Android | yes               |
 | trimSearchText                | trim the searched text                                                                                        | boolean             | no       | iOS/Android | yes               |
-| editable                      | is textInput editable                                                                                        | boolean             | no       | iOS/Android | yes               |
+| editable                      | is textInput editable                                                                                         | boolean             | no       | iOS/Android | yes               |
 | debounce                      | wait ms before call onChangeText                                                                              | number              | no       | iOS/Android | yes               |
 | suggestionsListMaxHeight      | max height of dropdown                                                                                        | number              | no       | iOS/Android | yes               |
 | direction                     | "up" or "down"                                                                                                | up \| down          | no       | iOS/Android | yes               |
 | matchFrom                     | whether match suggestions from start of titles or anywhere in the title. Possible values are "any" or "start" | any \| start        | no       | iOS/Android | yes               |
-| bottomOffset                  | for calculate dropdown direction (e.g. tabbar)                                                                | number              | no       | iOS/Android | yes               |
 | onChangeText                  | event textInput onChangeText                                                                                  | function            | no       | iOS/Android | yes               |
 | onSelectItem                  | event onSelectItem                                                                                            | function            | no       | iOS/Android | yes               |
 | onOpenSuggestionsList         | event onOpenSuggestionsList                                                                                   | function            | no       | iOS/Android | yes               |
@@ -143,9 +141,11 @@ export const LocalDataSetExample = memo(() => {
 | renderItem                    | JSX for render item (item, searchText) => JSX                                                                 | function            | no       | iOS/Android | yes               |
 | controller                    | return reference to module controller with methods close, open, toggle, clear, setInputText, setItem          | function            | no       | iOS/Android | yes               |
 | containerStyle                | containerStyle                                                                                                | ViewStyle           | no       | iOS/Android | yes               |
+| inputContainerStyle           | custom input container style                                                                                  | ViewStyle           | no       | iOS/Android | yes               |
 | rightButtonsContainerStyle    | rightButtonsContainerStyle                                                                                    | ViewStyle           | no       | iOS/Android | yes               |
 | suggestionsListContainerStyle | suggestionsListContainerStyle                                                                                 | ViewStyle           | no       | iOS/Android | yes               |
 | suggestionsListTextStyle      | suggestionsListTextStyle                                                                                      | TextStyle           | no       | iOS/Android | yes               |
+| rightIconComponent            | custom chevron icon                                                                                           | React.Component     | no       | iOS/Android | yes               |
 | ChevronIconComponent          | Chevron Custom Icon                                                                                           | React.Component     | no       | iOS/Android | yes               |
 | ClearIconComponent            | Clear Custom Icon                                                                                             | React.Component     | no       | iOS/Android | yes               |
 | EmptyResultComponent          | replace the default `` Component on empty result                                                              | React.Component     | no       | iOS/Android | yes               |
@@ -160,6 +160,8 @@ export const LocalDataSetExample = memo(() => {
 - [ ] TextInput在页面底部时，键盘弹起会导致View标签measure方法计算pageY错误,导致dropdown位置不正确,RN框架问题。
 
 ## 其他
+
+- closeOnBlur、bottomOffset属性在4.0.0-rc5版本不支持，源码组件入口props中不接收这两个属性 [源码：index.tsx](https://github.com/onmotion/react-native-autocomplete-dropdown/blob/main/src/index.tsx#L59)
 
 ## 开源协议
 

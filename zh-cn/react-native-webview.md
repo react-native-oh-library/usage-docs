@@ -247,23 +247,22 @@ ohpm install
 | `setDisplayZoomControls?` | Sets whether the WebView should display on-screen zoom controls when using the built-in zoom mechanisms (see `setBuiltInZoomControls`). The default value is `false`. | boolean | NO | Android | NO |
 | `directionalLockEnabled?` | A Boolean value that determines whether scrolling is disabled in a particular direction. The default value is `true`. | boolean | NO | iOS | NO |
 | `allowFileAccessFromFileURLs?` | Boolean that sets whether JavaScript running in the context of a file scheme URL should be allowed to access content from other file scheme URLs. The default value is `false`. | boolean | NO | iOS, Android, macOS | NO |
-| `allowUniversalAccessFromFileURLs?` | boolean | NO | iOS, Android, macOS | NO ||
+| `allowUniversalAccessFromFileURLs?` | boolean | NO | iOS, Android, macOS | NO |No|
 | `allowingReadAccessToURL` | A String value that indicates which URLs the WebView's file can then reference in scripts, AJAX requests, and CSS imports. This is only used in for WebViews that are loaded with a `source.uri` set to a `'file://'` URL. If not provided, the default is to only allow read access to the URL provided in `source.uri` itself. | string | NO | iOS and macOS | NO |
 | `keyboardDisplayRequiresUserAction?` | If `false`, web content can programmatically display the keyboard. The default value is `true`. | boolean | NO | iOS and macOS | NO |
 | `hideKeyboardAccessoryView?` | If `true`, this will hide the keyboard accessory view (< > and Done). | boolean | NO | iOS | NO |
 | `allowsBackForwardNavigationGestures?` | boolean | NO | iOS and macOS | NO ||
 | `allowFileAccess?` | If `true`, this will allow access to the file system via `file://` URI's. The default value is `false`. | boolean | NO | Android | NO |
 | `saveFormDataDisabled?` | Sets whether the WebView should disable saving form data. The default value is `false`. This function does not have any effect from Android API level 26 onwards as there is an Autofill feature which stores form data. | boolean | NO | Android | NO |
-| `saveFormDataDisabled?` | Sets whether the WebView should disable saving form data. The default value is `false`. This function does not have any effect from Android API level 26 onwards as there is an Autofill feature which stores form data. | boolean | NO | Android | NO |
 | `pagingEnabled?` | If the value of this property is `true`, the scroll view stops on multiples of the scroll view’s bounds when the user scrolls. The default value is `false`. | boolean | NO | iOS | NO |
 | `allowsLinkPreview?` | A Boolean value that determines whether pressing on a link displays a preview of the destination for the link. In iOS this property is available on devices that support 3D Touch. In iOS 10 and later, the default value is `true`; before that, the default value is `false` | boolean | NO | iOS and macOS | NO |
 | `sharedCookiesEnabled?` | Set `true` if shared cookies from `[NSHTTPCookieStorage sharedHTTPCookieStorage]` should be used for every load request in the WebView. The default value is `false`. For more on cookies, read the [Guide](https://github.com/react-native-webview/react-native-webview/blob/master/docs/Guide.md#Managing-Cookies) | boolean | NO | iOS and macOS | NO |
-| `limitsNavigationsToAppBoundDomains?` | boolean | NO | iOS | NO ||
+| `limitsNavigationsToAppBoundDomains?` | boolean | NO | iOS | NO |No|
 | `textInteractionEnabled?` | If false indicates to WebKit that a WKWebView will not interact with text, thus not showing a text selection loop. Only applicable for iOS 14.5 or greater. | boolean | NO | iOS | NO |
 | `suppressMenuItems?` | Allows to suppress menu item from the default context menu. | array of strings | NO | iOS | NO |
-| `mediaCapturePermissionGrantType?` | string | NO | iOS | NO ||
+| `mediaCapturePermissionGrantType?` | string | NO | iOS | NO |No|
 | `autoManageStatusBarEnabled?` | If set to `true`, the status bar will be automatically hidden/shown by WebView, specifically when full screen video is being watched. If `false`, WebView will not manage the status bar at all. The default value is `true`. | boolean | NO | iOS | NO |
-| `onCustomMenuSelection?` | function | NO | iOS, Android | NO ||
+| `onCustomMenuSelection?` | function | NO | iOS, Android | NO |No|
 | `basicAuthCredential`? | object that specifies the credentials of a user to be used for basic authentication. | object | NO | iOS, Android | NO |
 | `useWebView2?` | Use WinUI WebView2 control instead of WebView control as the native webview. The WebView2 control is a WinUI control that renders web content using the Microsoft Edge (Chromium) rendering engine. Option can be toggled at runtime and supports Fast Refresh. | boolean | NO | Windows | NO |
 

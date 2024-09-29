@@ -116,6 +116,9 @@ const styles = StyleSheet.create({
 
 ## 遗留问题
 
+- [ ] 本库在HarmonyOS存在Clipboard无法使用的问题，其已从新版rn框架中移除，依赖Clipboard的相关功能，监控面板network标签页Copy cURL to clipboard、Copy request query to clipboard、Copy response to clipboard均无法正常复制以及粘贴，问题: [issue#2](https://github.com/kafudev/react-native-vconsole/issues/2)
+- [ ] 本库在HarmonyOS存在DevMenu菜单无法启用的问题，新版本rn框架中已经将其从NativeModules移除，DevMenu菜单里的ReLoad、Fps等调试相关功能均无法正常使用， 问题: [issue#3](https://github.com/kafudev/react-native-vconsole/issues/3)
+
 ## 其他
 
 ## 开源协议

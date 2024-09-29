@@ -273,4 +273,4 @@ auto-fill 仅暴露一个 autoSave 接口，用于保存当前表单信息
 
 ## 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/react-native-oh-library/auto-fill/blob/sig/LICENSE) ，请自由地享受和参与开源。
+本项目基于 [Apache License 2.0](https://github.com/react-native-oh-library/auto-fill/blob/sig/LICENSE) ，请自由地享受和参与开源。

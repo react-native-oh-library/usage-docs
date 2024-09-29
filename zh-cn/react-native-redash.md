@@ -35,7 +35,6 @@ npm install react-native-redash@^18.1.3
 下面的代码展示了这个库的基本使用场景：
 
 ```js
-// findLastIndex 为例
 import { mix,
     round,
     bin,
@@ -56,7 +55,6 @@ import { mix,
   import * as redash from 'react-native-redash';
   import React, { useState } from 'react';
   import { Button, ScrollView, StyleSheet, Text, View } from 'react-native';
-  // 导出组件
   export default function RadashDemo() {
     const [text, setText] = useState('');
   
@@ -179,12 +177,10 @@ import { mix,
         setText(JSON.stringify(interpolatePath))
     }
   
-    /** 处理canvas坐标转换为笛卡尔坐标 */
     const handleCanvas2Cartesian = () => {
         const point = canvas2Cartesian({ x: 500, y: 200 }, { x: 500, y: 200 });
         setText(JSON.stringify(point))
     }
-    /** 处理笛卡尔坐标转换为canvas坐标 */
     const handleCartesian2Canvas = () => {
         const point = cartesian2Canvas({ x: -500, y: 200 }, { x: 500, y: 200 });
         setText(JSON.stringify(point))
@@ -198,7 +194,6 @@ import { mix,
         setText('theta ==' + theta + "  radius==" + radius);
     }
   
-    /** 处理极坐标转换为笛卡尔坐标 */
     const handlePolar2Cartesian = () => {
         const x = 0;
         const y = 100;
@@ -211,7 +206,6 @@ import { mix,
         setText('x1 ==' + x1 + "  Math.round(y1)==" + Math.round(y1));
     }
   
-    /** 用于处理极坐标转换为canvas坐标 */
     const handlePolar2Canvas = () => {
         const x = 0;
         const y = 100;
@@ -221,7 +215,6 @@ import { mix,
         setText(JSON.stringify(point))
     }
   
-    // 用于处理canvas左边转换极坐标
     const handleCanvas2Polar = () => {
         const { theta, radius } = canvas2Polar({ x: -500, y: 200 }, { x: 500, y: 200 });
         setText('theta ==' + theta + "  radius==" + radius);
@@ -238,87 +231,87 @@ import { mix,
           <View style={{ flexDirection: 'column' }}>
             <View style={styles.baseArea}>
                 <Text style={{ flex: 1 }}>mix(0, 10, 20)</Text>
-                <Button title='运行' color='#841584' onPress={onMix}></Button>
+                <Button title='start' color='#841584' onPress={onMix}></Button>
             </View>
             <View style={styles.baseArea}>
                 <Text style={{ flex: 1 }}>round(5.123, 0)</Text>
-                <Button title='运行' color='#841584' onPress={onRoundre}></Button>
+                <Button title='start' color='#841584' onPress={onRoundre}></Button>
             </View>
             <View style={styles.baseArea}>
                 <Text style={{ flex: 1 }}>bin(true)</Text>
-                <Button title='运行' color='#841584' onPress={onBinre}></Button>
+                <Button title='start' color='#841584' onPress={onBinre}></Button>
             </View>
             <View style={styles.baseArea}>
                 <Text style={{ flex: 1 }}>between(-1, 0, 100)</Text>
-                <Button title='运行' color='#841584' onPress={onBetweenre}></Button>
+                <Button title='start' color='#841584' onPress={onBetweenre}></Button>
             </View>
             <View style={styles.baseArea}>
                 <Text style={{ flex: 1 }}>toRad(180)</Text>
-                <Button title='运行' color='#841584' onPress={onToRadre}></Button>
+                <Button title='start' color='#841584' onPress={onToRadre}></Button>
             </View>
             <View style={styles.baseArea}>
                 <Text style={{ flex: 1 }}>avg([1,2,3,4,5,6,7,8,9,10])</Text>
-                <Button title='运行' color='#841584' onPress={avgre}></Button>
+                <Button title='start' color='#841584' onPress={avgre}></Button>
             </View>
             <View style={styles.baseArea}>
                 <Text style={{ flex: 1 }}>cubicBezier(1, 0, 0.1, 0.1, 1)</Text>
-                <Button title='运行' color='#841584' onPress={cubicBezires}></Button>
+                <Button title='start' color='#841584' onPress={cubicBezires}></Button>
             </View>
             <View style={styles.baseArea}>
                 <Text style={{ flex: 1 }}>toDeg(Math.PI)</Text>
-                <Button title='运行' color='#841584' onPress={onToDegre}></Button>
+                <Button title='start' color='#841584' onPress={onToDegre}></Button>
             </View>
             <View style={styles.baseArea}>
                 <Text style={{ flex: 1 }}>clamp(-1, 0, 100)</Text>
-                <Button title='运行' color='#841584' onPress={onClampre}></Button>
+                <Button title='start' color='#841584' onPress={onClampre}></Button>
             </View>
             <View style={styles.baseArea}>
                 <Text style={{ flex: 1 }}>mix(0, 10, 20)</Text>
-                <Button title='运行' color='#841584' onPress={handleCreatePath}></Button>
+                <Button title='start' color='#841584' onPress={handleCreatePath}></Button>
             </View>
             <View style={styles.baseArea}>
                 <Text style={{ flex: 1 }}>addCurvePath</Text>
-                <Button title='运行' color='#841584' onPress={handleAddCurvePath}></Button>
+                <Button title='start' color='#841584' onPress={handleAddCurvePath}></Button>
             </View>
             <View style={styles.baseArea}>
                 <Text style={{ flex: 1 }}>closePath</Text>
-                <Button title='运行' color='#841584' onPress={handleClosePath}></Button>
+                <Button title='start' color='#841584' onPress={handleClosePath}></Button>
             </View>
             <View style={styles.baseArea}>
                 <Text style={{ flex: 1 }}>serializePath</Text>
-                <Button title='运行' color='#841584' onPress={handleSerializePath}></Button>
+                <Button title='start' color='#841584' onPress={handleSerializePath}></Button>
             </View>
             <View style={styles.baseArea}>
                 <Text style={{ flex: 1 }}>parsePath</Text>
-                <Button title='运行' color='#841584' onPress={handleParsePath}></Button>
+                <Button title='start' color='#841584' onPress={handleParsePath}></Button>
             </View>
             <View style={styles.baseArea}>
                 <Text style={{ flex: 1 }}>interpolatePath</Text>
-                <Button title='运行' color='#841584' onPress={handleInterpolatePath}></Button>
+                <Button title='start' color='#841584' onPress={handleInterpolatePath}></Button>
             </View>
             <View style={styles.baseArea}>
                 <Text style={{ flex: 1 }}>canvas2Cartesian</Text>
-                <Button title='运行' color='#841584' onPress={handleCanvas2Cartesian}></Button>
+                <Button title='start' color='#841584' onPress={handleCanvas2Cartesian}></Button>
             </View>
             <View style={styles.baseArea}>
                 <Text style={{ flex: 1 }}>cartesian2Canvas</Text>
-                <Button title='运行' color='#841584' onPress={handleCartesian2Canvas}></Button>
+                <Button title='start' color='#841584' onPress={handleCartesian2Canvas}></Button>
             </View>
             <View style={styles.baseArea}>
                 <Text style={{ flex: 1 }}>cartesian2Polar</Text>
-                <Button title='运行' color='#841584' onPress={handleCartesian2Polar}></Button>
+                <Button title='start' color='#841584' onPress={handleCartesian2Polar}></Button>
             </View>
             <View style={styles.baseArea}>
                 <Text style={{ flex: 1 }}>polar2Cartesian</Text>
-                <Button title='运行' color='#841584' onPress={handlePolar2Cartesian}></Button>
+                <Button title='start' color='#841584' onPress={handlePolar2Cartesian}></Button>
             </View>
             <View style={styles.baseArea}>
                 <Text style={{ flex: 1 }}>polar2Canvas</Text>
-                <Button title='运行' color='#841584' onPress={handlePolar2Canvas}></Button>
+                <Button title='start' color='#841584' onPress={handlePolar2Canvas}></Button>
             </View>
             <View style={styles.baseArea}>
                 <Text style={{ flex: 1 }}>canvas2Polar</Text>
-                <Button title='运行' color='#841584' onPress={handleCanvas2Polar}></Button>
+                <Button title='start' color='#841584' onPress={handleCanvas2Polar}></Button>
             </View>
           </View>
         </ScrollView>
@@ -427,10 +420,10 @@ export default function RadashDemo() {
         </View>
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <View style={{ marginRight: 10 }}>
-                <Button color='#841584' onPress={() => handlePress()} title="snapPoint 开始" />
+                <Button color='#841584' onPress={() => handlePress()} title="snapPoint start" />
             </View>
             <View>
-                <Button color='#841584' onPress={() => cancelAnimation(offset)} title="恢复" />
+                <Button color='#841584' onPress={() => cancelAnimation(offset)} title="back" />
             </View>
         </View>
       </View>
@@ -471,7 +464,7 @@ export default function RadashDemo() {
         </View>
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <View style={{ marginRight: 10 }}>
-                <Button color='#841584' onPress={() => handleColorPress()} title="mixColor 开始" />
+                <Button color='#841584' onPress={() => handleColorPress()} title="mixColor start" />
             </View>
         </View>
       </View>

@@ -1,5 +1,3 @@
-<!-- {% raw %} -->
-
 模板版本：v0.2.2
 
 <p align="center">
@@ -60,9 +58,7 @@ import {
 import FS from "react-native-fs";
 import { Colors } from "react-native/Libraries/NewAppScreen";
 function App(): React.JSX.Element {
-  // 参数
   const [mkdirParam, setMkdirParam] = useState("");
-  // 创建文件夹接口调用
   const mkdirExample = () => {
     FS.mkdir(FS.DocumentDirectoryPath + "/" + mkdirParam).then(
       (result) => {
@@ -74,7 +70,7 @@ function App(): React.JSX.Element {
       }
     );
   };
-  // 组件
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -110,7 +106,7 @@ function App(): React.JSX.Element {
     </>
   );
 }
-// 组件样式
+
 const styles = StyleSheet.create({
   scrollView: {
     backgroundColor: Colors.black,
@@ -173,7 +169,7 @@ export default App;
 1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
 2. 直接链接源码。
 
-方法一：通过 har 包引入
+方法一：通过 har 包引入（推荐）
 
 > [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
 
@@ -182,7 +178,6 @@ export default App;
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
     "@react-native-oh-tpl/react-native-fs": "file:../../node_modules/@react-native-oh-tpl/react-native-fs/harmony/fs.har"
   }
 ```
@@ -306,13 +301,11 @@ ohpm install
 
 ## 遗留问题
 
-- HarmonyOS 的 hash 哈希 API 中关于算法参数 algorithm 目前仅支持"md5"、"sha1"、 "sha256"，其他相关算法参数目前不支持，问题: [issue#1](https://github.com/react-native-oh-library/react-native-fs/issues/1)
-- 原库部分接口在 HarmonyOS 中没有对应文件路径常量及接口处理相关逻辑，问题: [issue#2](https://github.com/react-native-oh-library/react-native-fs/issues/2)
+- [ ] HarmonyOS 的 hash 哈希 API 中关于算法参数 algorithm 目前仅支持"md5"、"sha1"、 "sha256"，其他相关算法参数目前不支持，问题: [issue#1](https://github.com/react-native-oh-library/react-native-fs/issues/1)
+- [ ] 原库部分接口在 HarmonyOS 中没有对应文件路径常量及接口处理相关逻辑，问题: [issue#2](https://github.com/react-native-oh-library/react-native-fs/issues/2)
 
 ## 其他
 
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/itinance/react-native-fs/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

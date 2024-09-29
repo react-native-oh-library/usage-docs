@@ -86,7 +86,7 @@ export function TransitiongroupExample() {
             <FadeInOutTransition
               inDuration={1000}
               outDuration={500}
-              easing={Easing.ease} // 使用 ease 缓动函数
+              easing={Easing.ease} 
               inDelay={200}
               outDelay={0}
               pointerEvents="box-only"
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
 
 ## 约束与限制
 
-## 兼容性
+### 兼容性
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
@@ -156,8 +156,6 @@ const styles = StyleSheet.create({
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
->
-> 详情见 [react-native-transitiongroup 源库地址](https://github.com/madsleejensen/react-native-transitiongroup/blob/master/README.md)
 
 | Name          | Description                            | type     | Required | Platform | HarmonyOS Support |
 | ------------- | -------------------------------------- | -------- | -------- | -------- | ----------------- |

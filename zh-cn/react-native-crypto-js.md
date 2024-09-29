@@ -48,53 +48,44 @@ import {
   Button,
   Alert
 } from 'react-native';
-
 import CryptoJS from "react-native-crypto-js";
 //import CryptoJS from "rn-crypto-js";
 
-//使用AES加密字符串
 function encrypt_str(text: string) {
   let ciphertext = CryptoJS.AES.encrypt(text, 'secret key 123').toString();
-  Alert.alert('加密后：', ciphertext, [{ text: 'OK' }]);
+  Alert.alert('encrypt：', ciphertext, [{ text: 'OK' }]);
   return ciphertext;
 }
 
-//使用AES解密字符串
 function decrypt_str(text: string) {
   let bytes = CryptoJS.AES.decrypt(text, 'secret key 123');
   let originalText = bytes.toString(CryptoJS.enc.Utf8);
-  Alert.alert('解密后：', originalText, [{ text: 'OK' }]);
+  Alert.alert('decrypt：', originalText, [{ text: 'OK' }]);
 }
 
-//使用AES加密对象
 function encrypt_obj(text: string) {
   let ciphertext = CryptoJS.AES.encrypt(JSON.stringify(text), 'secret key 123').toString();
-  Alert.alert('加密后：', ciphertext, [{ text: 'OK' }]);
+  Alert.alert('encrypt：', ciphertext, [{ text: 'OK' }]);
   return ciphertext;
 }
 
-//使用AES解密对象
 function decrypt_obj(text: string) {
   let bytes = CryptoJS.AES.decrypt(text, 'secret key 123');
   let originalText = JSON.parse(bytes.toString(CryptoJS.enc.Utf8));
-  Alert.alert('解密后：', originalText, [{ text: 'OK' }]);
+  Alert.alert('decrypt：', originalText, [{ text: 'OK' }]);
   return originalText;
 }
 
-//使用MD5加密字符串
 function MD5_encrypt_str(text: string) {
   let ciphertext = CryptoJS.MD5(text).toString();
-  Alert.alert('加密后：', ciphertext, [{ text: 'OK' }]);
+  Alert.alert('encrypt：', ciphertext, [{ text: 'OK' }]);
   return ciphertext;
-
 }
 
-//使用HmacMD5加密字符串
 function HMD5_encrypt_str(text: string) {
   let ciphertext = CryptoJS.HmacMD5(text, 'secret key 123').toString();
-  Alert.alert('加密后：', ciphertext, [{ text: 'OK' }]);
+  Alert.alert('encrypt：', ciphertext, [{ text: 'OK' }]);
   return ciphertext;
-
 }
 
 export const ReactNativeCryptoJsExample = () => {
@@ -106,36 +97,34 @@ export const ReactNativeCryptoJsExample = () => {
   const [decryptObj, setDecryptObj] = useState('');
   return (
     <ScrollView style={{ backgroundColor: 'yellow' }} bounces>
-      <Text> 测试使用AES算法加解密字符串</Text>
+      <Text> Encrypt and decrypt character strings using the AES algorithm. </Text>
       <View style={{ padding: 10 }}>
-        <TextInput style={{ height: 40 }} placeholder="请输入内容!" onChangeText={(cryptText: React.SetStateAction<string>) => setCryptText(cryptText)} defaultValue={cryptText} />
+        <TextInput style={{ height: 40 }} placeholder="Please enter the content." onChangeText={(cryptText: React.SetStateAction<string>) => setCryptText(cryptText)} defaultValue={cryptText} />
       </View>
-      <Button onPress={() => { setDecryptText(encrypt_str(cryptText)) }} title="加密字符串" />
-
+      <Button onPress={() => { setDecryptText(encrypt_str(cryptText)) }} title="encrypt strings" />
       <View style={{ padding: 10 }}>
-        <TextInput style={{ height: 40 }} placeholder="请输入内容!" onChangeText={(decryptText: React.SetStateAction<string>) => setDecryptText(decryptText)} defaultValue={decryptText} />
+        <TextInput style={{ height: 40 }} placeholder="Please enter the content." onChangeText={(decryptText: React.SetStateAction<string>) => setDecryptText(decryptText)} defaultValue={decryptText} />
       </View>
-      <Button onPress={() => { decrypt_str(decryptText) }} title="解密字符串" />
-      <Text> 测试使用AES算法加解密对象</Text>
+      <Button onPress={() => { decrypt_str(decryptText) }} title="decrypt strings" />
+      <Text>  Encrypt and decrypt object using the AES algorithm. </Text>
       <View style={{ padding: 10 }}>
-        <TextInput style={{ height: 40 }} placeholder="请输入内容!" onChangeText={(cryptObj: React.SetStateAction<string>) => setCryptObj(cryptObj)} defaultValue={cryptObj} />
+        <TextInput style={{ height: 40 }} placeholder="Please enter the content." onChangeText={(cryptObj: React.SetStateAction<string>) => setCryptObj(cryptObj)} defaultValue={cryptObj} />
       </View>
-      <Button onPress={() => { setDecryptObj(encrypt_obj(cryptObj)) }} title="加密对象" />
-
+      <Button onPress={() => { setDecryptObj(encrypt_obj(cryptObj)) }} title="encrypt object" />
       <View style={{ padding: 10 }}>
-        <TextInput style={{ height: 40 }} placeholder="请输入内容!" onChangeText={(decryptObj: React.SetStateAction<string>) => setDecryptObj(decryptObj)} defaultValue={decryptObj} />
+        <TextInput style={{ height: 40 }} placeholder="Please enter the content." onChangeText={(decryptObj: React.SetStateAction<string>) => setDecryptObj(decryptObj)} defaultValue={decryptObj} />
       </View>
-      <Button onPress={() => { decrypt_obj(decryptObj) }} title="解密对象" />
-      <Text> 测试使用MD5算法加密字符串</Text>
+      <Button onPress={() => { decrypt_obj(decryptObj) }} title="decrypt object" />
+      <Text> Encrypt and decrypt character strings using the MD5 algorithm. </Text>
       <View style={{ padding: 10 }}>
-        <TextInput style={{ height: 40 }} placeholder="请输入内容!" onChangeText={(cryptText1: React.SetStateAction<string>) => setCryptText1(cryptText1)} defaultValue={cryptText1} />
+        <TextInput style={{ height: 40 }} placeholder="Please enter the content." onChangeText={(cryptText1: React.SetStateAction<string>) => setCryptText1(cryptText1)} defaultValue={cryptText1} />
       </View>
-      <Button onPress={() => { MD5_encrypt_str(cryptText1) }} title="加密" />
-      <Text> 测试使用HmacMD5算法加密字符串</Text>
+      <Button onPress={() => { MD5_encrypt_str(cryptText1) }} title="encrypt" />
+      <Text>  Encrypt and decrypt character strings using the HmacMD5 algorithm. </Text>
       <View style={{ padding: 10 }}>
-        <TextInput style={{ height: 40 }} placeholder="请输入内容!" onChangeText={(cryptText2: React.SetStateAction<string>) => setCryptText2(cryptText2)} defaultValue={cryptText2} />
+        <TextInput style={{ height: 40 }} placeholder="Please enter the content." onChangeText={(cryptText2: React.SetStateAction<string>) => setCryptText2(cryptText2)} defaultValue={cryptText2} />
       </View>
-      <Button onPress={() => { HMD5_encrypt_str(cryptText2) }} title="加密" />
+      <Button onPress={() => { HMD5_encrypt_str(cryptText2) }} title="encrypt" />
     </ScrollView>
   );
 };
@@ -143,11 +132,11 @@ export const ReactNativeCryptoJsExample = () => {
 
 ## 约束与限制
 
-## 兼容性
+### 兼容性
 
-在以下版本验证通过
+本文档内容基于以下版本验证通过：
 
-1. RNOH：0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.25; IDE：DevEco Studio 5.0.3.400; ROM：3.0.0.25;
+1. RNOH: 0.72.29; SDK：HarmonyOS-Next-DB1 5.0.0.61; IDE：DevEco Studio 5.0.3.706; ROM：5.0.0.61;
 
 ## API
 
@@ -155,12 +144,12 @@ export const ReactNativeCryptoJsExample = () => {
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| 名称                 | 描述            | 参数类型 | 是否必填 | Platform | HarmonyOS Support |
+| Name             | Description | Type | Required | Platform | HarmonyOS Support |
 | -------------------- | --------------- | -------- | -------- | -------- | ----------------- |
-| CryptoJS.AES.encrypt | AES算法加密     | string   | yes      | Android、iOS      | yes               |
-| CryptoJS.AES.decrypt | AES算法解密     | string   | yes      | Android、iOS      | yes               |
-| CryptoJS.MD5         | MD5算法加密     | string   | yes      | Android、iOS      | yes               |
-| CryptoJS.HmacMD5     | HmacMD5算法加密 | string   | yes      | no       | no                |
+| CryptoJS.AES.encrypt | AES encryption | string   | yes      | Android、iOS      | yes               |
+| CryptoJS.AES.decrypt | AES decryption | string   | yes      | Android、iOS      | yes               |
+| CryptoJS.MD5         | MD5 encryption | string   | yes      | Android、iOS      | yes               |
+| CryptoJS.HmacMD5     | HmacMD5 encryption | string   | yes      | no       | no                |
 
 ## 遗留问题
 

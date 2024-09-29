@@ -56,22 +56,13 @@ import {
 
 export function Base64Page(): JSX.Element {
    const isDarkMode = useColorScheme() === 'dark';
-
-   // 输入文字
    const [word, setWord] = useState('react native');
-   // 编码输入文字
    const encodeWord = base64.encode(word);
-   // 解码输入文字
    const decodeWord = base64.decode(encodeWord);
-   // 解码结果 是否 和原文字相同
-   const wordEqualDecodeWord = `word equal decode word: ${word === decodeWord}`
-   // 将word 转为 unit8 array
+   const wordEqualDecodeWord = `word equal decode word: ${word === decodeWord}`；
    const byteArrayWord = Uint8Array.from(word.split(''), w => w.charCodeAt(0));
-   // 对 unit 8 array 进行编码
    const encodeWordFromByteArray = base64.encodeFromByteArray(byteArrayWord);
-   // 对 上一步结果进行解码
    const decodeFromByteArray = base64.decode(encodeWordFromByteArray);
-
    const backgroundStyle = {
       backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
    };
@@ -114,9 +105,9 @@ const styles = StyleSheet.create({
 
 ### 兼容性
 
-在以下版本验证通过：
+本文档内容基于以下版本验证通过：
 
-1. RNOH：0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.29(SP1); IDE：DevEco Studio 5.0.3.400; ROM：3.0.0.25;
+1. RNOH: 0.72.29; SDK：HarmonyOS-Next-DB1 5.0.0.61; IDE：DevEco Studio 5.0.3.706; ROM：5.0.0.61;
 
 ## 静态方法:
 

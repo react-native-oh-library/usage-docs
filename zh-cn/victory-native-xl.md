@@ -134,6 +134,8 @@ export default function LineChartExample() {
 | curveType   | A CurveType value that indicates the type of curve should be drawn (e.g. linear or natural) | string | no  | all | yes
 | connectMissingData  | The connectMissingData: boolean value that indicates whether missing data should be interpolated for the resulting Path. If set to true, the output will be a single, connected line chart path (even if there are missing data values). If set to false, if there is missing data values – the path will consist of multiple disconnected "parts"| boolean | no  | all | yes
 | children | A children pass-thru that will be rendered inside of the Skia Path element, useful if you'd like to make e.g. a gradient path | object | no  | all | yes
+| strokeWidth| Set the width of the line | number| no  | all | yes
+| color| Set the color of the line | string| no  | all | yes
 
 
 ### Area Chart
@@ -146,6 +148,7 @@ export default function LineChartExample() {
 | curveType | A CurveType value that indicates the type of curve should be drawn (e.g. linear or natural) | string   | no  | all | yes
 | connectMissingData | The connectMissingData: boolean value that indicates whether missing data should be interpolated for the resulting Path. If set to true, the output will be a single, connected area chart path (even if there are missing data values). If set to false, if there is missing data values – the path will consist of multiple disconnected "parts"  | boolean | no  | all | yes
 | children  | A children pass-thru that will be rendered inside of the Skia Path element, useful if you'd like to make e.g. a gradient path | object   | no  | all | yes
+| color| Set the color of the area | string| no  | all | yes
 
 
 ### Bar Chart
@@ -159,8 +162,8 @@ export default function LineChartExample() {
 | roundedCorners | The roundedCorners prop allows you to customize the roundedness of each corner of the Bar component. It's an object type that defines the radii for the top-left, top-right, bottom-right, and bottom-left corners | object  | no  | all | yes
 | barWidth | The barWidth prop takes a number and sets the width of the bar to that number. If not provided, the default is determined by the chartBounds and number of data points. Takes precendence over the barCount prop. Use this for the most fine grained control of bar width | number    | no  | all | yes
 | barCount | The barCount prop takes a number and sets the width of the bar as if there X data points. If not provided, the default is determined by the chartBounds and number of data points. Useful for getting a fixed bar width regardless of the number of data points. Use this for a more general control of bar width | number  | no  | all | yes
-| labels | The labels prop allows you to enable and customize the data label of the Bar component. The data label text is the Y-axis value associated with the Bar component | object | no  | all | yes
 | children | A children pass-thru that will be rendered inside of the Skia Path element, useful if you'd like to make e.g. a gradient path  | object | no  | all | yes
+| color| Set the color of the bar| string| no  | all | yes
 
 
 ### BarGroup Chart
@@ -175,6 +178,7 @@ export default function LineChartExample() {
 | onBarSizeChange | That alerts the consumer when the size of the bars/groups changes, useful for if you're building a custom tooltip and need to know the size of the groups/bars | function  | no  | all | yes
 | roundedCorners | The roundedCorners prop allows you to customize the roundedness of each corner of a BarGroup.Bar component. It's an object type that defines the radii for the top-left, top-right, bottom-right, and bottom-left corners | object   | no  | all | yes
 | children | An array of BarGroup.Bar elements (see below) that represent the bars to add to the bar group | object  | no  | all | yes
+| color| Set the color of the bar | string| no  | all | yes
 
 
 ### Scatter Chart
@@ -186,6 +190,8 @@ export default function LineChartExample() {
 | shape   | One of the following ScatterShape values that determines the shape of each point to be drawn  | ScatterShape   | no  | all | yes
 | animate | The animate prop takes a PathAnimationConfig object and will animate the path when the points change | object   | no  | all | yes
 | children | An array of BarGroup.Bar elements (see below) that represent the bars to add to the bar group | object  | no  | all | yes
+| style| set style stroke or fill  | string| no  | all | yes
+| strokeWidth| Set the width of the line | number| no  | all | yes
 
 ### Polar Chart
 

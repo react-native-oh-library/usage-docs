@@ -77,7 +77,7 @@ import { SplashScreen } from '@react-native-oh-tpl/react-native-splash-screen/sr
 
 export default class EntryAbility extends RNAbility {
   onWindowStageCreate(windowStage: window.WindowStage): void {
-    let startWindowIcon = $r('app.media.splashIcon'); // 启动页图片
+    let startWindowIcon = $r('app.media.splashIcon'); // 启动页图片（用户改成自己 App 的启动图片，一般在 entry/src/main/resources/base/media 文件夹中）
     let startWindowBackground = "#FFFFFF"; // 启动页背景色
     let startPageUrl = 'pages/SplashScreenPage'; // 启动页
     SplashScreen.show(this.context, windowStage, startWindowIcon, startWindowBackground, startPageUrl).then(() => {

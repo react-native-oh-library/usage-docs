@@ -111,7 +111,7 @@ react-native-harmony：0.72.20; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevE
 | `containerStyle` | The style for the container | View Style Prop | ｛｝ | No       | All      | yes               |
 | `disabledContainerStyle` | The style for the container when the button is disabled | View Style Prop | ｛｝ | No       | All      | yes               |
 | `childGroupStyle` | The style for the child views               | View Style Prop | ｛｝ | No       | All      | yes               |
-| `androidBackground` | The background for andriod devices.                      | Background Prop Type |  | No       | Android | no             |
+| `androidBackground` | The background for android devices.                      | Background Prop Type |  | No       | Android | no             |
 | `onPress`   | Handler to be called when the user taps the button.   | Function |         | No       | All      | yes              |
 
 

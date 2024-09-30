@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -10,12 +9,11 @@
     </a>
     <a href="https://github.com/mockingbot/react-native-zip-archive/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
-        <!-- <img src="https://img.shields.io/badge/license-Apache-blue.svg" alt="License" /> -->
     </a>
 </p>
 
 
-> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-zip-archive)
+> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-zip-archive)
 
 ## 安装与使用
 
@@ -25,10 +23,12 @@
 
 > [!TIP] # 处替换为 tgz 包的路径
 
+<!-- tabs:start -->
+
 #### **npm**
 
 ```bash
-npm i @react-native-oh-tpl/react-native-zip-archive@file:#
+npm install @react-native-oh-tpl/react-native-zip-archive@file:#
 ```
 
 #### **yarn**
@@ -37,11 +37,13 @@ npm i @react-native-oh-tpl/react-native-zip-archive@file:#
 yarn add @react-native-oh-tpl/react-native-zip-archive@file:#
 ```
 
+<!-- tabs:end -->
+
 下面的代码展示了这个库的基本使用场景：
 
 > [!WARNING] 使用时 import 的库名不变。
 
-```tsx
+```js
 import React, { useState, useEffect } from 'react';
 import { View, Button, StyleSheet, TextInput, Alert, Text, ActivityIndicator } from 'react-native';
 import { pathParameters, zip, unzip, zipWithPassword, unzipWithPassword, subscribe, creteFile, isPasswordProtected, unzipAssets, getUncompressedSize } from 'react-native-zip-archive';
@@ -414,8 +416,9 @@ const styles = StyleSheet.create({
 
 ```json
 {
+  ...
   "overrides": {
-   "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
   }
 }
 ```
@@ -457,7 +460,6 @@ ohpm install
 
 打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
 
-
 ```diff
 project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
@@ -479,11 +481,24 @@ add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
 + add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/react-native-zip-archive/src/main/cpp" ./zipArchive-package)
 # RNOH_END: manual_package_linking_1
 
+file(GLOB GENERATED_CPP_FILES "./generated/*.cpp")
+
+add_library(rnoh_app SHARED
+    ${GENERATED_CPP_FILES}
+    "./PackageProvider.cpp"
+    "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
+)
+target_link_libraries(rnoh_app PUBLIC rnoh)
+
+# RNOH_BEGIN: manual_package_linking_2
+target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
++ target_link_libraries(rnoh_app PUBLIC nativi_minizip)
+# RNOH_END: manual_package_linking_2
 ```
 
 ### 4.在 ArkTs 侧引入 ZipArchivePackage
 
-打开 `entry/src/main/cpp/RNPackagesFactory.ts`，添加：
+打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
 + import {ZipArchivePackage} from '@react-native-oh-tpl/react-native-zip-archive/ts';
@@ -517,27 +532,22 @@ ohpm install
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-library/react-native-zip-archive Releases](https://github.com/react-native-oh-library/react-native-zip-archive/releases)
 
-本文档内容基于以下版本验证通过：
-
-​	1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio  5.0.3.29; ROM：3.0.0.21;
-
 ## API
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name                | Description                                                  | Type    | Required | Platform | HarmonyOS Support |
 | ------------------- | ------------------------------------------------------------ | ------- | -------- | -------- | ----------------- |
-| zip                 | File or folder compression                                   | string  | no      | All      | yes               |
-| unzip               | Decompression of files or folders                            | string  | no      | All      | yes               |
-| zipWithPassword     | Compress files or folders with a password                    | string  | no      | All      | yes               |
-| unzipWithPassword   | Extract files or folders with a password                     | string  | no      | All      | yes               |
-| isPasswordProtected | Check if the password exists during password decompression   | boolean | no      | All      | yes               |
-| unzipAssets         | Pass in the specified directory during decompression         | string  | no      | All      | yes               |
-| getUncompressedSize | Check the size of the compressed file during decompression   | number  | no      | All      | yes               |
-| subscribe           | Display progress bar during compression and password decompression | void    | no      | All      | yes               |
-
+| zip                 | File or folder compression                                   | string  | no       | All      | yes               |
+| unzip               | Decompression of files or folders                            | string  | no       | All      | yes               |
+| zipWithPassword     | Compress files or folders with a password                    | string  | no       | All      | yes               |
+| unzipWithPassword   | Extract files or folders with a password                     | string  | no       | All      | yes               |
+| isPasswordProtected | Check if the password exists during password decompression   | boolean | no       | All      | yes               |
+| unzipAssets         | Pass in the specified directory during decompression         | string  | no       | All      | yes               |
+| getUncompressedSize | Check the size of the compressed file during decompression   | number  | no       | All      | yes               |
+| subscribe           | Display progress bar during compression and password decompression | void    | no       | All      | yes               |
 
 ## 遗留问题
 
@@ -546,5 +556,3 @@ ohpm install
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/mockingbot/react-native-zip-archive/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

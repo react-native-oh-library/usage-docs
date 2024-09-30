@@ -90,10 +90,11 @@ export default ActivityIndicatorDemo;
 
 本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-safe-area-context和@react-native-oh-tpl/react-native-vector-icons的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
 
-如未引入react-native-safe-area-context请参照[@react-native-oh-tpl/react-native-safe-area-context 文档的 Link 章节](zh-cn/react-native-safe-area-context.md#link)进行引入
+如未引入react-native-safe-area-context请参照[@react-native-oh-tpl/react-native-safe-area-context 文档](/zh-cn/react-native-safe-area-context.md)进行引入
 
-如未引入react-native-vector-icons请参照[@react-native-oh-tpl/react-native-vector-icons 文档的 Link 章节](zh-cn/react-native-vector-icons.md#link)进行引入
+如未引入react-native-vector-icons请参照[@react-native-oh-tpl/react-native-vector-icons 文档](/zh-cn/react-native-vector-icons.md)进行引入
 
+## 约束与限制
 ### 兼容性
 
 在下述版本验证通过:

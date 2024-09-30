@@ -232,7 +232,7 @@ ohpm install
 |-------------|------------------------------------------------------------|--------|----------|-------------|-------------------|
 | `none`      | No network connection is active                            | String | no       | iOS Android | yes               |
 | `unknown`   | The network state could not or has yet to be be determined | String | no       | iOS Android | yes               |
-| `cellular`  | Active network over cellular                               | String | no       | iOS Android | no                |
+| `cellular`  | Active network over cellular                               | String | no       | iOS Android | yes               |
 | `wifi`      | Active network over Wifi                                   | String | no       | iOS Android | yes               |
 | `bluetooth` | Active network over Bluetooth                              | String | no       | Android     | no                |
 | `ethernet`  | Active network over wired ethernet                         | String | no       | iOS Android | yes               |

@@ -192,6 +192,7 @@ export default function LineChartExample() {
 | children | An array of BarGroup.Bar elements (see below) that represent the bars to add to the bar group | object  | no  | all | yes
 | style| set style stroke or fill  | string| no  | all | yes
 | strokeWidth| Set the width of the line | number| no  | all | yes
+| color| Set the color of the bar| string| no  | all | yes
 
 ### Polar Chart
 
@@ -210,10 +211,12 @@ export default function LineChartExample() {
 **Bar related props for making Capped Bar chart**
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| innerRadius | TA number or string (as a percentage) which turns the Pie chart into a Donut chart. The innerRadius prop is the radius of the inner circle of the donut chart. If not provided, the chart will remain a Pie chart   | number  | no  | all | yes
+| innerRadius | A number or string (as a percentage) which turns the Pie chart into a Donut chart. The innerRadius prop is the radius of the inner circle of the donut chart. If not provided, the chart will remain a Pie chart   | number  | no  | all | yes
 | circleSweepDegrees | A number which defines how many degrees of the chart should be drawn. The default is 360 which will draw a full circle. If you want to draw a partial circle, you can set this prop to a value between 0 and 360  | number   | no  | all | yes
 | startAngle | A number which defines the starting angle of the chart. Changing this prop will rotate the chart     | number   | no  | all | yes
-| children | The children prop is a render function which maps through the data and whose sole argument is each individual slice of the pie, allowing you to customize each slice as needed. E.g. this slice will have all the data needed to render a Pie.Slice />   | function  | no  | all | yes
+| children | The children prop is a render function which maps through the data and whose sole argument is each individual slice of the pie, allowing you to customize each slice as needed. E.g. this slice will have all the data needed to render a Pie.Slice    | function  | no  | all | yes
+| angularStrokeWidth | A number which turns width of the Pie chart slice    | number  | no  | all | yes
+| angularStrokeColor |  A string which turns color of the Pie chart slice    | string  | no  | all | yes
 
 ## 遗留问题
 

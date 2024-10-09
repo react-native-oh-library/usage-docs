@@ -9,7 +9,6 @@
     </a>
     <a href="https://github.com/RonRadtke/react-native-blob-util/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
-        <!-- <img src="https://img.shields.io/badge/license-Apache-blue.svg" alt="License" /> -->
     </a>
 </p>
 
@@ -56,7 +55,7 @@ import {
 import ReactNativeBlobUtil from "react-native-blob-util";
 
 export default function BlobUtilDemo() {
-  const [result, setResult] = (useState < string) | (null > null);
+  const [result, setResult] = useState < string | null > (null);
   const [mkdirParam, setMkdirParam] = useState("");
 
   const createFile = async () => {
@@ -562,90 +561,105 @@ ohpm install
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+#### Fetch API
+
+##### ReactNativeBlobUtil.fetch
+
+| Name    | Description|Type | Required | Platform    | HarmonyOS Support |
+| ------- | --------|--- | -------- | ----------- | ----------------- |
+| progress | 进度   | Function    | No       | iOS/Android | yes                |
+| uploadProgress | 上传进度  | Function        | No       | iOS/Android | yes                |
+| cancel | 取消   | Function       | No       | iOS/Android | yes                |
+
+
 
 #### Android API
 
 ##### ReactNativeBlobUtil.android
 
-|        Name         | Description  | Required | Platform | HarmonyOS Support |
-| :-----------------: | :----------: | :------: | :------: | :---------------: |
-|  actionViewIntent   | 动作视图意图 |    No    | Android  |        No         |
-|  getContentIntent   | 获取内容意图 |    No    | Android  |        No         |
-| addCompleteDownload | 添加完整下载 |    No    | Android  |        No         |
+|        Name         | Description| Type   | Required | Platform | HarmonyOS Support |
+| :-----------------: | :------|----: | :------: | :------: | :---------------: |
+|  actionViewIntent   | 动作视图意图| Function  |    No    | Android  |        No         |
+|  getContentIntent   | 获取内容意图| Function  |    No    | Android  |        No         |
+| addCompleteDownload | 添加完整下载| Function  |    No    | Android  |        No         |
 
 #### File System Access API
 
 ##### ReactNativeBlobUtil.fs
 
-|    Name     |            Description             | Required |  Platform   | HarmonyOS Support |
-| :---------: | :--------------------------------: | :------: | :---------: | :---------------: |
-|    dirs     |                目录                |    NO    | iOS/Android |        Yes        |
-| createFile  |              创建文件              |    NO    | iOS/Android |        Yes        |
-|  writeFile  |               写文件               |    NO    | iOS/Android |        Yes        |
-| writeStream |                写流                |    NO    | iOS/Android |        Yes        |
-| appendFile  |              追加文件              |    NO    | iOS/Android |        Yes        |
-|  readFile   |              读取文件              |    NO    | iOS/Android |        Yes        |
-|    hash     |                哈希                |    NO    | iOS/Android |        Yes        |
-| readStream  |                读流                |    NO    | iOS/Android |        Yes        |
-|    mkdir    |              创建目录              |    NO    | iOS/Android |        Yes        |
-|     ls      |        查看当下的文件和目录        |    NO    | iOS/Android |        Yes        |
-|     mv      |            移动文件位置            |    NO    | iOS/Android |        Yes        |
-|     cp      |              复制文件              |    NO    | iOS/Android |        Yes        |
-|   exists    |          检查文件是否存在          |    NO    | iOS/Android |        Yes        |
-|    isDir    |             是否是目录             |    NO    | iOS/Android |        Yes        |
-|   unlink    |              删除文件              |    NO    | iOS/Android |        Yes        |
-|    lstat    |      获取目录下文件的统计数据      |    NO    | iOS/Android |        Yes        |
-|    stat     |   类似地获取数据或目录的统计信息   |    NO    | iOS/Android |        Yes        |
-|  scanFile   |              扫描文件              |    NO    |   Android   |        No         |
-|    asset    |                资产                |    NO    | iOS/Android |        Yes        |
-|     df      | 获取设备的可用磁盘空间和总磁盘空间 |    NO    | iOS/Android |        Yes        |
+|    Name     |            Description  | Type             | Required |  Platform   | HarmonyOS Support |
+| :---------: | :---------------------| -----------: | :------: | :---------: | :---------------: |
+|    dirs     |                目录 | Function               |    NO    | iOS/Android |        yes        |
+| createFile  |              创建文件 | Function             |    NO    | iOS/Android |        yes        |
+|  writeFile  |               写文件   | Function            |    NO    | iOS/Android |        yes        |
+| writeStream |                写流    | Function            |    NO    | iOS/Android |        yes        |
+| appendFile  |              追加文件   | Function           |    NO    | iOS/Android |        yes        |
+|  readFile   |              读取文件  | Function            |    NO    | iOS/Android |        yes        |
+|    hash     |                哈希   | Function             |    NO    | iOS/Android |        yes        |
+| readStream  |                读流    | Function            |    NO    | iOS/Android |        yes        |
+|    mkdir    |              创建目录   | Function           |    NO    | iOS/Android |        yes        |
+|     ls      |        查看当下的文件和目录| Function        |    NO    | iOS/Android |        yes        |
+|     mv      |            移动文件位置  | Function          |    NO    | iOS/Android |        yes        |
+|     cp      |              复制文件   | Function           |    NO    | iOS/Android |        yes        |
+|   exists    |          检查文件是否存在 | Function         |    NO    | iOS/Android |        yes        |
+|    isDir    |             是否是目录  | Function           |    NO    | iOS/Android |        yes        |
+|   unlink    |              删除文件   | Function           |    NO    | iOS/Android |        yes        |
+|    lstat    |      获取目录下文件的统计数据 | Function     |    NO    | iOS/Android |        yes        |
+|    stat     |   类似地获取数据或目录的统计信息| Function   |    NO    | iOS/Android |        yes        |
+|  scanFile   |              扫描文件    | Function          |    NO    |   Android   |        no         |
+|    asset    |                资产      | Function          |    NO    | iOS/Android |        yes        |
+|     df      | 获取设备的可用磁盘空间和总磁盘空间| Function |    NO    | iOS/Android |        yes        |
 
 #### iOS API
 
 #### ReactNativeBlobUtil.ios
 
-| Name            | Description                            | Required | Platform | HarmonyOS Support |
-| --------------- | -------------------------------------- | -------- | -------- | ----------------- |
-| previewDocument | 文档查看器--需要系统权限               | No       | iOS      | No                |
-| openDocument    | 显示与文件交互的选项菜单--需要系统权限 | No       | iOS      | No                |
+| Name            | Description      | Type                      | Required | Platform | HarmonyOS Support |
+| --------------- | ----------------------| ---------------- | -------- | -------- | ----------------- |
+| previewDocument | 文档查看器--需要系统权限  | Function             | No       | iOS      | yes                |
+| openDocument    | 显示与文件交互的选项菜单--需要系统权限| Function | No       | iOS      | yes                |
 
 #### Network Utils
 
 ##### ReactNativeBlobUtil.net
 
-| Name          | Description | Required | Platform    | HarmonyOS Support |
-| ------------- | ----------- | -------- | ----------- | ----------------- |
-| getCookies    | 获取 cookie | No       | iOS/Android | No                |
-| removeCookies | 删除 cookie | No       | iOS/Android | No                |
+| Name          | Description| Type | Required | Platform    | HarmonyOS Support |
+| ------------- | ----------- | ---| ----- | ----------- | ----------------- |
+| getCookies    | 获取 cookie| Function | No       | iOS/Android | no                |
+| removeCookies | 删除 cookie| Function | No       | iOS/Android | no               |
 
 #### Session API
 
 ##### ReactNativeBlobUtil.session
 
-| Name    | Description | Required | Platform    | HarmonyOS Support |
-| ------- | ----------- | -------- | ----------- | ----------------- |
-| session | 会话        | No       | iOS/Android | No                |
+| Name    | Description| Type | Required | Platform    | HarmonyOS Support |
+| ------- | ----------- | --| ------ | ----------- | ----------------- |
+| add | 向此会话添加文件路径   | Function     | No       | iOS/Android | yes                |
+| remove | 从此会话中删除会话条目而不删除文件  | Function      | No       | iOS/Android | yes                |
+| list | 返回包含此会话中的文件路径的数组   | Function     | No       | iOS/Android | yes                |
+| dispose | 删除会话中的所有文件  | Function      | No       | iOS/Android | yes                |
 
 #### MediaStore(Android Media Storage)
 
 ##### ReactNativeBlobUtil.MediaCollection
 
-| Name             | Description    | Required | Platform | HarmonyOS Support |
-| ---------------- | -------------- | -------- | -------- | ----------------- |
-| CopyToMediaStore | 复制到媒体存储 | No       | Android  | No                |
-| createMediaFile  | 创建媒体文件   | No       | Android  | No                |
-| writeMediaFile   | 写媒体文件     | No       | Android  | No                |
-| copyToInternal   | 复制到内部     | No       | Android  | No                |
+| Name             | Description | Type   | Required | Platform | HarmonyOS Support |
+| ---------------- | --------| ------ | -------- | -------- | ----------------- |
+| CopyToMediaStore | 复制到媒体存储| Function | No       | Android  | no                |
+| createMediaFile  | 创建媒体文件| Function   | No       | Android  | no                |
+| writeMediaFile   | 写媒体文件 | Function    | No       | Android  | no                |
+| copyToInternal   | 复制到内部 | Function    | No       | Android  | no                |
 
 #### Utils API
 
-| Name   | Description | Required | Platform    | HarmonyOS Support |
-| ------ | ----------- | -------- | ----------- | ----------------- |
-| wrap   |             | No       | iOS/Android | No                |
-| base64 |             | No       | iOS/Android | No                |
+| Name   | Description| Type | Required | Platform    | HarmonyOS Support |
+| ------ | ----------- | ---| ----- | ----------- | ----------------- |
+| wrap   |  使文件路径可以被识别| Function           | No       | iOS/Android | yes                |
+| base64 |   使用base64编码解码| Function          | No       | iOS/Android | yes                |
+| session |  用于管理缓存文件 | Function          | No       | iOS/Android | yes                |
 
 ## 遗留问题
-
+ - [ ] blob-util在使用getCookies、removeCookies	在Android、iOS、Harmony OS 上使用都会报错: [issue#381](https://github.com/RonRadtke/react-native-blob-util/issues/381)
 ## 其他
 
 ## 开源协议

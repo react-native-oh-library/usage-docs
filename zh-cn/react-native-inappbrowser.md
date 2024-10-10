@@ -277,7 +277,7 @@ export const tryDeepLinking = async () => {
 }
 ```
 
-### 配置Entry
+### 1.配置Entry
 
 **1.在 entry/src/main/ets/entryability 下创建 BrowserManagerAbility.ets**
 
@@ -330,9 +330,9 @@ export default class BrowserManagerAbility extends UIAbility {
 **2.在 entry/src/main/module.json5注册BrowserManagerAbility**
 
 ```
-"ablilities":[{
+"abilities":[{
     "name": "BrowserManagerAbility",
-    "srcEntrance": "./ets/entryability/BrowserManagerAbility.ets",
+    "srcEntry": "./ets/entryability/BrowserManagerAbility.ets",
     "description": "$string:EntryAbility_desc",
     "icon": "$media:icon",
     "startWindowIcon": "$media:startIcon",

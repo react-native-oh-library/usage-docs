@@ -364,7 +364,6 @@ export default Avatars;
 |      onPressOut       |      Called when a touch is released before `onPress`.       |            GestureResponderEventHandler             |    No    |   All    |        Yes        |
 | overlayContainerStyle |          Style for the view outside image or icon.           |                     Text Style                      |    No    |   All    |        Yes        |
 |    pressableProps     |             PressableProps except click handlers             |                   PressableProps                    |    No    |   All    |        Yes        |
-|  renderCustomContent  | Custom element inside the avatar (by default, it's the title). | ReactElement<{}, string,JSXElementConstructor<any>> |    No    |   All    |        Yes        |
 |        rounded        |                  Makes the avatar circular.                  |                       boolean                       |    No    |   All    |        Yes        |
 |         size          |                     Size of the avatar.                      |     `number`,`small`,`medium`,`large`,`xlarge`      |    No    |   All    |        Yes        |
 |        source         |           Image source to be displayed on avatar.            |                 ImageSourcePropType                 |    No    |   All    |        Yes        |
@@ -419,7 +418,6 @@ export default Avatars;
 |        color        |                       Color of Button                        | `string`,`primary`,`secondary`,`success` | No | All | Yes |
 |   containerStyle    |               Styling for Component container.               |                          View Style                          |    No    |   All    |        Yes        |
 |      disabled       |                  Disables user interaction.                  |                           boolean                            |    No    |   All    |        Yes        |
-|       boolean       |              Style of the button when disabled.              |                          View Style                          |    No    |   All    |        Yes        |
 | disabledTitleStyle  |              Style of the title when disabled.               |                      disabledTitleStyle                      |    No    |   All    |        Yes        |
 |        icon         | Displays a centered icon (when no title) or to the left (with text). (can be used along with iconRight as well). Can be an object or a custom component. |                           IconNode                           |    No    |   All    |        Yes        |
 | iconContainerStyle  |            Styling for Icon Component container.             |                          View Style                          |    No    |   All    |        Yes        |
@@ -599,9 +597,7 @@ export default Avatars;
 |               centerContainerStyle                |      Styling for container around the centerComponent.       |              View Style              |    No    |   All    |        Yes        |
 | Styling for container around the centerComponent. |            Add children component to the header.             | `(Element`，`Element[]) & ReactNode` |    No    |   All    |        Yes        |
 |                  containerStyle                   |              Styling around the main container.              |              View Style              |    No    |   All    |        Yes        |
-|                       edges                       |                 SafeAreaView edges control.                  |                Edge[]                |    No    |   All    |        Yes        |
 |                     elevated                      |                     Elevation for header                     |               boolean                |    No    |    No    |        No         |
-|                   hideStatusBar                   |               Accepts all props for StatusBar.               |               boolean                |    No    |   All    |        Yes        |
 |                   leftComponent                   |               Define your left component here.               |          HeaderSubComponent          |    No    |   All    |        Yes        |
 |                leftContainerStyle                 |       Styling for container around the leftComponent.        |              View Style              |    No    |   All    |        Yes        |
 |                linearGradientProps                | Displays a linear gradient. See [usage](https://reactnativeelements.com/docs/components/header#lineargradient-usage). |                Object                |    No    |    No    |        No         |
@@ -654,7 +650,6 @@ export default Avatars;
 
 |          Name           |                         Description                          |      Type       | Required | Platform | HarmonyOS Support |
 | :---------------------: | :----------------------------------------------------------: | :-------------: | :------: | :------: | :---------------: |
-|     ErrorComponent      | component that will be rendered in place of the error message | React Component |    No    |   All    |        Yes        |
 |     InputComponent      | component that will be rendered in place of the React Native TextInput | React Component |    No    |   All    |        Yes        |
 |     containerStyle      |                      Style for containe                      |   View Style    |    No    |   All    |        Yes        |
 |        disabled         |                 disables the input component                 |     boolean     |    No    |   All    |        Yes        |
@@ -755,7 +750,6 @@ export default Avatars;
 |  leftContent  |                Left Content.                | ReactNode or resetCallback => ReactNode |    No    |   All    |        Yes        |
 |   leftStyle   |          Style of left container.           |               View Style                |    No    |   All    |        Yes        |
 |   leftWidth   |       Width of swipe left container.        |                 number                  |    No    |   All    |        Yes        |
-| minSlideWidth | minimum horizontal distance to open content |                 number                  |    No    |    No    |        No         |
 | onSwipeBegin  |    Handler for swipe in either direction    | `(direction: left`,`right) => unknown`  |    No    |   All    |        Yes        |
 |  onSwipeEnd   |           Handler for swipe end.            |              () => unknown              |    No    |   All    |        Yes        |
 | rightContent  |               Right Content.                | ReactNode or resetCallback => ReactNode |    No    |   All    |        Yes        |

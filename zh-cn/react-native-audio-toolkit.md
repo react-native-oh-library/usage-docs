@@ -394,7 +394,7 @@ const styles = StyleSheet.create({
 
 ## 使用 Codegen
 
-本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/codegen.md)。
+本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/zh-cn/codegen.md)。
 
 ## Link
 
@@ -461,7 +461,7 @@ ohpm install
 
 方法二：直接链接源码
 
-> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/link-source-code.md)
+> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
 ### 4.运行
 

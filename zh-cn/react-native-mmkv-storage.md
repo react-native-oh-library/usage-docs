@@ -254,7 +254,7 @@ project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
 set(CMAKE_SKIP_BUILD_RPATH TRUE)
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
++ set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
 + set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules/@rnoh/react-native-openharmony/src/main/cpp")
 set(LOG_VERBOSITY_LEVEL 1)
@@ -284,6 +284,10 @@ target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 + target_link_libraries(rnoh_app PUBLIC rnoh_mmkv_storage)
 # RNOH_END: manual_package_linking_2
 
+```
+
+```
+> [!Tip] 注意：上面NODE_MODULES定义，为源库的安装路径，用户可以根据安装源库的路径定义NODE_MODULES
 ```
 
 打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
@@ -342,6 +346,22 @@ ohpm install
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-mmkv-storage Releases](https://github.com/react-native-oh-library/react-native-mmkv-storage/releases)
 
+### 权限要求
+
+由于此库部分功能与接口需要Store Persistent Data权限：ohos.permission.STORE_PERSISTENT_DATA，权限需要配置在entry/src/main目录下module.json5文件中
+
+####  在 entry 目录下的module.json5中添加权限
+
+打开 `entry/src/main/module.json5`，添加：
+```diff
+...
+"requestPermissions": [
++  {
++    "name": "ohos.permission.STORE_PERSISTENT_DATA",
++  },
++  
+]
+```
 
 ## API
 
@@ -374,13 +394,15 @@ ohpm install
 | getArrayAsync                | Sets an array to storage for the given key.                  | Function | no       | All      | yes               |
 | setMultipleItemsAsync        | Sets multiple Objects for a given array of keys. Currently will work only if data for all keys is an Object. | Function | no       | All      | yes               |
 | getMultipleItemsAsync        | Retrieve multiple Objects for a given array of keys. Currently will work only if data for all keys is an Object. | Function | no       | All      | yes               |
+| initialize                   | Initialize the MMKV Instance with the selected properties. Returns an MMKV Instance that you can use. | Function | no       | All      | yes               |
 | withInstanceID               | Specifies that the MMKV Instance should be created with the given ID. This way multiple intances can be created. | Function | no       | All      | yes               |
+| withEncryption               | Encrypt the MMKV instance on initialization.                 | Function | no       | All      | yes               |
+| encryptWithCustomKey         | You can also specify your own password to encrypt the storage. | Function | no       | All      | yes               |
 | setAccessibleMode (iOS only) | Choose the accessibility mode for secure key storage (IOS ONLY); | Function | no       | iOS      | no                |
 | withServiceName (iOS only)   | Sets the [kSecAttrService](https://developer.apple.com/documentation/security/ksecattrservice) option for secure key storage (IOS ONLY); | Function | no       | iOS      | no                |
 | removeItem                   | Remove an item for a given key.                              | Function | no       | All      | yes               |
 | clearStore                   | Clear the storage.                                           | Function | no       | All      | yes               |
 | clearMemoryCache             | Clear the storage from memory.                               | Function | no       | All      | yes               |
-| getAllMMKVInstanceIDs        | Returns a list of all the MMKV Instance IDs created.         | Function | no       | All      | yes               |
 | getCurrentMMKVInstances      | get the currently initialized instance IDs.                  | Function | no       | All      | yes               |
 | hasKey                       | Check if any data exists for a given key.                    | Function | no       | All      | yes               |
 | getKey                       | get the encryption key for the current MMKV instance         | Function | no       | All      | yes               |

@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-animate-number</code> </h1>
@@ -15,11 +15,11 @@
 
 
 
-> [!TIP] [Github 地址](https://github.com/wkh237/react-native-animate-number)
+> [!TIP] [Github address](https://github.com/wkh237/react-native-animate-number)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -37,7 +37,7 @@ yarn add react-native-animate-number@0.1.2
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
 ```tsx
 import React, { useState } from "react";
@@ -143,15 +143,15 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-在以下版本验证通过
+This document is verified based on the following versions:
 
 1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.18;
 
-## 属性
+## Properties
 
 | Name         | Description                                                                                                                                                 | Type     | Required | Platform    | HarmonyOS Support |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------- | ----------------- |
@@ -164,12 +164,12 @@ export default App;
 | `onProgress` | Either updated height or width will trigger onSizeUpdated.                                                                                                  | function | No       | Android IOS | YES               |
 | `onFinish`   | Boolean value that determines whether a horizontal scroll indicator is shown in the WebView.                                                                | function | No       | Android IOS | YES               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://www.mit-license.org/) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://www.mit-license.org/).
 
 <!-- {% endraw %} -->

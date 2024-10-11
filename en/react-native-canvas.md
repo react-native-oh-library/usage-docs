@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-canvas</code> </h1>
@@ -15,11 +15,11 @@
 
 
 
-> [!TIP] [Github 地址](https://github.com/iddan/react-native-canvas)
+> [!TIP] [Github address](https://github.com/iddan/react-native-canvas)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -35,16 +35,16 @@ npm install react-native-canvas@0.1.39
 yarn add react-native-canvas@0.1.39
 ```
 
-[!TIP] 如果依赖未完全安装，请执行：
+[!TIP] If the dependency is not fully installed, please perform:
 ```bash
 npm install --save-dev @type/react-native-canvas@0.1.39
 ```
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```tsx
 import React, { useRef, useEffect } from "react";
@@ -65,33 +65,33 @@ const CanvasDemo = () => {
       canvas.height = 500;
       const context = canvas.getContext("2d") as CanvasRenderingContext2D;
 
-      // 绘制背景
+      // draw Background
       context.fillStyle = "gray";
       context.fillRect(0, 0, 1000, 1000);
 
-      //绘制矩形
+      //draw rectangle
       context.fillStyle = "blue";
       context.fillRect(10, 10, 100, 100);
 
-      //绘制椭圆
+      //draw an ellipse
       const ellipse = new Path2D(canvas);
       ellipse.ellipse(200, 60, 50, 30, 0, 0, 2 * Math.PI);
       context.fillStyle = "green";
       context.fill(ellipse);
 
-      //绘制线条
+      //draw lines
       context.beginPath();
       context.moveTo(10, 150);
       context.lineTo(150, 150);
       context.strokeStyle = "red";
       context.stroke();
 
-      // 绘制文字
+      // draw Text
       context.font = "bold 24px Arial";
       context.fillStyle = "orange";
       context.fillText("Hello World", 20, 200);
 
-      //绘制图片
+      //draw a picture
       const image = new CanvasImage(canvas);
       image.src =
         "https://upload.wikimedia.org/wikipedia/commons/6/63/Biho_Takashi._Bat_Before_the_Moon%2C_ca._1910.jpg";
@@ -136,19 +136,19 @@ export default CanvasDemo;
 
 ## Link
 
-本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-webview 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+The HarmonyOS implementation of this library relies on the native code of @react-native-oh-tpl/react-native-webview，If the library has already been introduced in the HarmonyOS project, there is no need to introduce it again. You can skip the steps in this chapter and use it directly.
 
-如未引入请参照[@react-native-oh-tpl/react-native-webview ](react-native-webview.md)文档的 Link 章节进行引入
+If not introduced, please refer to the Link section of the document[@react-native-oh-tpl/react-native-webview ](react-native-webview.md)for introduction.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-在以下版本验证通过
+This document is verified based on the following versions:
 
 1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：205.0.0.18;
 
-## 属性
+## Properties
 
 | Name           | Description                                                                                                                                                                                   | Type     | Required | Platform    | HarmonyOS Support |
 | -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------- | ----------------- |
@@ -158,12 +158,11 @@ export default CanvasDemo;
 | `Image()`      | WebView Image constructor. Unlike in the browsers accepts canvas as first argument. [MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/Image)                            | function | No       | Android IOS | YES               |
 | `Path2D()`     | Path2D API constructor. Unlike in the browsers, this requires the canvas as first argument. See also https://developer.mozilla.org/en-US/docs/Web/API/Path2D/Path2D..                         | function | No       | Android IOS | YES               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/iddan/react-native-canvas/blob/master/license.txt) ，请自由地享受和参与开源。
-
+This project is licensed under [The MIT License (MIT)](https://github.com/iddan/react-native-canvas/blob/master/license.txt).
 <!-- {% endraw %} -->

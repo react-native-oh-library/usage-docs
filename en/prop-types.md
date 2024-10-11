@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>prop-types</code> </h1>
@@ -10,9 +10,9 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/facebook/prop-types/tree/v15.8.1)
+> [!tip] [Github address](https://github.com/facebook/prop-types/tree/v15.8.1)
 
-## 安装与使用
+## Installation and Usage
 
 <!-- tabs:start -->
 
@@ -30,7 +30,7 @@ yarn add prop-types
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
 ```js
 import React from 'react';
@@ -46,13 +46,12 @@ const Greeting = ({ name, age }) => {
   );
 };
 
-// 使用prop-types进行props类型验证
+
 Greeting.propTypes = {
-  name: PropTypes.string.isRequired, // name 必须是字符串且是必填项
-  age: PropTypes.number,             // age 是可选的且必须是数字
+  name: PropTypes.string.isRequired, 
+  age: PropTypes.number,             
 };
 
-// 默认props值
 Greeting.defaultProps = {
   age: 0,
 };
@@ -84,16 +83,16 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-### 兼容性
+### Compatibility
 
-在下述版本验证通过:
+This document is verified based on the following versions:
 
 1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
 2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
 
-#### 属性
+#### Properties
 
-| 名称        | 说明                                                 | 类型      | 是否必填 |  HarmonyOS 支持 |
+| Name        | Description                                                 | Type      | Required |  HarmonyOS Support |
 | ----------- | ---------------------------------------------------- | --------- | -------- | -------- |
 | any         | 约束属性为任意类型                                   | Attribute | NO       | yes      |
 | array       | 约束属性为数组类型                                   | Attribute | NO       | yes      |
@@ -114,12 +113,12 @@ export default App;
 | shape       | 约束属性为指定构成方式的对象                         | function  | NO       | yes      |
 | exact       | 约束属性包含指定属性                                 | function  | NO       | yes      |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/facebook/prop-types/blob/v15.8.1/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/facebook/prop-types/blob/v15.8.1/LICENSE).
 
 <!-- {% endraw %} -->

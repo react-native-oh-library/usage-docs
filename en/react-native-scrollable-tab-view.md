@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-scrollable-tab-view</code> </h1>
@@ -15,15 +15,14 @@
 
 
 
-> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-scrollable-tab-view)
+> [!tip] [Github address](https://github.com/react-native-oh-library/react-native-scrollable-tab-view)
 
-## 安装与使用
+## Installation and Usage
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-scrollable-tab-view Releases](https://github.com/react-native-oh-library/react-native-scrollable-tab-view/releases)，并下载适用版本的 tgz 包。
+Please visit the Release release address of the third-party library to view the corresponding version information：[@react-native-oh-tpl/react-native-scrollable-tab-view Releases](https://github.com/react-native-oh-library/react-native-scrollable-tab-view/releases)，And download the applicable version of the TGZ package.
+Go to the project directory and execute the following instruction:
 
-进入到工程目录并输入以下命令：
-
-> [!TIP] # 处替换为 tgz 包的路径
+> [!TIP] # Replace with the path of the tgz package
 
 <!-- tabs:start -->
 
@@ -41,9 +40,9 @@ yarn add @react-native-oh-tpl/react-native-scrollable-tab-view@file:#
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The library name imported during use remains unchanged.
 
 ```js
 import React from "react";
@@ -68,23 +67,24 @@ export default () => {
 
 ## Link
 
-本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-pager-view 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
 
-如未引入请参照[@react-native-oh-tpl/react-native-pager-view 文档的 Link 章节](react-native-pager-view.md#link)进行引入
+The HarmonyOS implementation of this library relies on the native code of @react-native-oh-tpl/react-native-pager-view，If the library has already been introduced in the HarmonyOS project, there is no need to introduce it again. You can skip the steps in this chapter and use it directly.
 
-## 约束与限制
+If not introduced, please refer to the Link section of the document[@react-native-oh-tpl/react-native-pager-view](react-native-pager-view.md#link)for introduction.
 
-### 兼容性
+## Constraints
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+### Compatibility
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-scrollable-tab-view Releases](https://github.com/react-native-oh-library/react-native-scrollable-tab-view/releases)
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-## 属性
+Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-scrollable-tab-view Releases](https://github.com/react-native-oh-library/react-native-scrollable-tab-view/releases)
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+## Properties
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                       | Description                                                  | Type                 | Required | Platform     | HarmonyOS Support |
 | -------------------------- | ------------------------------------------------------------ | -------------------- | -------- | ------------ | ----------------- |
@@ -106,14 +106,14 @@ export default () => {
 | scrollWithoutAnimation     | 设置点击Tab时，视图切换是否有动画，默认为false（即：有动画效果）。 | Bool                 | no       | android,ios  | yes               |
 | prerenderingSiblingsNumber | 预渲染附近的同级，Infinity===渲染所有同级，默认为0===渲染当前页面。 | Integer              | no       | android,ios  | yes               |
 
-## 遗留问题
+## Known Issues
 
-- [x] `原库已知问题RN组件ScrollView里面的scrollTo()报undefined(已修复)`[#I95OVM](https://gitee.com/react-native-oh-library/usage-docs/issues/I95OVM)
+- [x] `Known issue in the original library: the scrollTo() in the RN component's ScrollView reports undefined (fixed)`[#I95OVM](https://gitee.com/react-native-oh-library/usage-docs/issues/I95OVM)
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://www.mit-license.org/) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://www.mit-license.org/).
 
 <!-- {% endraw %} -->

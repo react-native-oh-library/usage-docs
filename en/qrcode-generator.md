@@ -1,6 +1,6 @@
 <!-- {% raw %} -->
 
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>qrcode-generator</code> </h1>
@@ -15,13 +15,13 @@
 </p>
 
 
-> [!TIP] [Github 地址](https://github.com/kazuhikoarase/qrcode-generator)
+> [!TIP] [Github address](https://github.com/kazuhikoarase/qrcode-generator)
 
-## 安装与使用
+## Installation and Usage
 
 <!-- tabs:start -->
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 #### **npm**
 
@@ -35,7 +35,7 @@ npm install qrcode-generator@1.4.4
 yarn add qrcode-generator@1.4.4
 ```
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
 ```js
 import React, { useState, useEffect } from "react";
@@ -63,19 +63,19 @@ export const CustomQrCode = ({ text, style }) => {
 };
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-在下述版本验证通过:
+This document is verified based on the following versions:
 
 1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：205.0.0.18;
 
 ## API
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                 | Description                                                | Type     | Required | Platform    | HarmonyOS Support |
 | -------------------- | ---------------------------------------------------------- | -------- | -------- | ----------- | ----------------- |
@@ -90,11 +90,11 @@ export const CustomQrCode = ({ text, style }) => {
 | margin               | default: cellSize \* 4                                     | function | No       | iOS/Android | Yes               |
 | alt                  | (optional)                                                 | function | No       | iOS/Android | Yes               |
 
-## 静态方法
+## Static Methods
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                                      | Description                                                  | Type     | Required | Platform    | HarmonyOS Support |
 | ----------------------------------------- | ------------------------------------------------------------ | -------- | -------- | ----------- | ----------------- |
@@ -110,12 +110,12 @@ export const CustomQrCode = ({ text, style }) => {
 | QRCode.createTableTag(cellSize, margin)   | Generate QR codes for table tags,Helper functions for HTML. [Note] call make() before these functions. | function | Yes      | iOS/Android | Yes               |
 | QRCode.createASCII(cellSize, margin)      | Generate ASCII code,Helper functions for HTML. [Note] call make() before these functions. | function | Yes      | iOS/Android | Yes               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/kazuhikoarase/qrcode-generator/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/kazuhikoarase/qrcode-generator/blob/master/LICENSE).
 
 <!-- {% endraw %} -->

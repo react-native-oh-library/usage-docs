@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
 <h1 align="center"> <code>react-native-pull</code> </h1>
@@ -15,15 +15,15 @@
 
 
 
-> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-pull)
+> [!tip] [Github address](https://github.com/react-native-oh-library/react-native-pull)
 
-## 安装与使用
+## Installation and Usage
 
-请到三方库的地址查看配套的版本信息：[@react-native-oh-tpl/react-native-pull/releases](https://github.com/react-native-oh-library/react-native-pull/releases)，并下载适用版本的 tgz 包。
+Please visit the address of the third-party library to view the supporting version information:[@react-native-oh-tpl/react-native-pull/releases](https://github.com/react-native-oh-library/react-native-pull/releases)，And download the applicable version of the TGZ package.
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
-> [!TIP] # 处替换为 tgz 包的路径
+> [!TIP] # Replace with the path of the tgz package
 
 <!-- tabs:start -->
 
@@ -41,13 +41,13 @@ yarn add @react-native-oh-tpl/react-native-pull@file:#
 
 <!-- tabs:end -->
 
-下面的demo代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The library name imported during use remains unchanged.
 
 **PullViewDemo**
 
-> 代码示例
+> code example
 
 ```js
 import React, { Component, useState } from 'react';
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
 
 **PullListDemo**
 
-> 代码示例
+> code example
 
 ```jsx
 import React, { Component, useState } from 'react';
@@ -363,21 +363,21 @@ const PullListDemo = () => {
 
     const [refreshing, setRefreshing] = useState(false)
     const onRefresh = () => {
-      // 加载数据的逻辑
+      // Logic for loading data
       setRefreshing(true)
-      // 数据加载完成后
+      // After data loading is completed
       setTimeout(() => {
         setRefreshing(false)
-      }, 2000); // 假设数据加载需要2秒
+      }, 2000); // Assuming that data loading takes 2 seconds
     };
     const refreshControl = (
       <RefreshControl
         refreshing={refreshing}
         onRefresh={onRefresh}
-        tintColor="#ff0000" // 可选，设置刷新指示器的颜色
-        title="Loading..." // 可选，设置刷新时显示的文本
-        colors={['#ff0000', '#00ff00', '#0000ff']} // 可选，设置刷新指示器的颜色数组
-        progressBackgroundColor="#ffffff" // 可选，设置进度背景色
+        tintColor="#ff0000" // Optional, set the color of the refresh indicator
+        title="Loading..." // Optional, set the text displayed when refreshing
+        colors={['#ff0000', '#00ff00', '#0000ff']} // Optional, set the color array for the refresh indicator
+        progressBackgroundColor="#ffffff" // Optional, set progress background color
       />
     );
 
@@ -393,7 +393,7 @@ const PullListDemo = () => {
             topIndicatorHeight={60}
             pageSize={5}
             scrollViewProps={{
-                scrollEventThrottle: 16, // 减少滚动事件的延迟，提高滚动的响应性
+                scrollEventThrottle: 16, // Reduce the delay of scrolling events and improve the responsiveness of scrolling
               }}
             initialListSize={5}
             onEndReached={loadMore}
@@ -433,21 +433,21 @@ export default PullListDemo;
 
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-pull/releases](https://github.com/react-native-oh-library/react-native-pull/releases)
+Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-pull/releases](https://github.com/react-native-oh-library/react-native-pull/releases)
 
-## 属性
+## Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-**`PullView` & `PullList` 下拉效果属性**
+**`PullView` & `PullList` Pull down effect attribute**
 
 | Name                 | Description                                                                                                                                                                | Type     | Required | Platform    | HarmonyOS Support |
 | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------- | ----------------- |
@@ -462,12 +462,12 @@ export default PullListDemo;
 | `onRefresh`          | 开始刷新时调用的方法                                                                                                                                                       | function | no       | android,ios | yes               |
 | `refreshing`         | 指示是否正在刷新                                                                                                                                                           | function | no       | android,ios | yes               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/greatbsky/react-native-pull/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/greatbsky/react-native-pull/blob/master/LICENSE).
 
 <!-- {% endraw %} -->

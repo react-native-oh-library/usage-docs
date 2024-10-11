@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-swiper</code> </h1>
@@ -14,9 +14,9 @@
 </p>
 
 
-> [!tip] [Github 地址](https://github.com/leecade/react-native-swiper)
+> [!tip] [Github address](https://github.com/leecade/react-native-swiper)
 
-## 安装与使用
+## Installation and Usage
 
 <!-- tabs:start -->
 
@@ -34,7 +34,7 @@ yarn add react-native-swiper@1.6.0
 
 <!-- tabs:end -->
 
-快速使用：
+The following code shows the basic use scenario of the repository:
 
 ```js
 import React, { Component } from "react";
@@ -90,19 +90,19 @@ export default class SwiperComponent extends Component {
 AppRegistry.registerComponent("myproject", () => SwiperComponent);
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-在以下版本验证通过
+This document is verified based on the following versions:
 
 1. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
 
-## 属性
+## Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 #### basics
 
@@ -210,7 +210,7 @@ var swiper = React.createClass({
 })
 ```
 
-### 方法
+### Static Methods
 
 #### scrollBy(index, animated)
 
@@ -219,17 +219,17 @@ var swiper = React.createClass({
 | index    | offset index | `number` | `undefined` | All      | YES               |
 | animated | offset index |  `bool`  |   `true`    | All      | YES               |
 
-### 遗留问题
+### Known Issues
 
 - [ ] 组件属性继承RNOH scrollview,当前RNOH中的scrollsToTop暂时不支持
 - [ ] 组件属性继承RNOH scrollview,当前RNOH中的removeClippedSubviews暂时不支持
 - [ ] 组件属性继承RNOH scrollview,当前RNOH中的automaticallyAdjustContentInsets暂时不支持
 - [ ] 组件轮播图RNOH版本为0.72.13暂时有不居中问题，在RNOH版本为0.72.19上解决
 
-### 其他
+### Others
 
-### 开源协议
+### License
 
-本项目基于 [The MIT License (MIT)](https://github.com/leecade/react-native-swiper/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/leecade/react-native-swiper/blob/master/LICENSE).
 
 <!-- {% endraw %} -->

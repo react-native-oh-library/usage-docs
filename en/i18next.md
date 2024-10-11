@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>i18next</code> </h1>
@@ -9,12 +9,12 @@
     </a>
 </p>
 
->[!tip] [Github 地址](https://github.com/i18next/i18next)
+>[!tip] [Github address](https://github.com/i18next/i18next)
 
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -32,9 +32,9 @@ yarn add i18next@23.7.16
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!tip] 在下面的 demo 中，本库需要与 react-i18next 一起使用，react-i18next 的使用方式请见[react-i18next 文档](/zh-cn/react-i18next.md)
+> [!tip] In the following demo, this library needs to be used together with react-i18next，Please refer to the [react-i18next documentation] for instructions on how to use react-i18next(/zh-cn/react-i18next.md)
 
 ```js
 import React from 'react';  
@@ -42,9 +42,9 @@ import { View, Text, Button, StyleSheet } from 'react-native';
 import i18n from 'i18next';  
 import { initReactI18next, useTranslation } from 'react-i18next';  
 
-// 初始化 i18next  
+// initialization i18next  
 i18n  
-  .use(initReactI18next) // 将 i18next 绑定到 react-i18next  
+  .use(initReactI18next) // Bind i18next to react-i18next  
   .init({  
     resources: {  
       en: {  
@@ -60,10 +60,10 @@ i18n
         },  
       },  
     },  
-    lng: "en", // 默认语言  
+    lng: "en", // default language  
     fallbackLng: "en",  
     interpolation: {  
-      escapeValue: false, // React 已经安全处理了  
+      escapeValue: false, // React It has been safely processed  
     },  
   });  
 
@@ -106,22 +106,22 @@ const styles = StyleSheet.create({
 export default I18NextDemo;
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
- 在下述版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
 2. RNOH: 0.72.28; SDK: HarmonyOS-Next-DB5 5.0.0.60; IDE: DevEco Studio 5.0.3.655; ROM: 5.0.0.60;
 
 ## API
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-详情见 [i18next源库地址](https://github.com/i18next/i18next)
+details [i18next address](https://github.com/i18next/i18next)
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | ---- | ---- | ---- | -------- | -------- | -------- |
@@ -155,10 +155,10 @@ export default I18NextDemo;
 | getResourceBundle | Returns a resource bundle. | function | no | / | yes |
 | removeResourceBundle | Removes an existing bundle. | function | no | / | yes |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/i18next/i18next/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/i18next/i18next/blob/master/LICENSE).

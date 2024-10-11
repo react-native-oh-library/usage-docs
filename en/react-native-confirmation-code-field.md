@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-confirmation-code-field</code> </h1>
@@ -13,9 +13,9 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/retyui/react-native-confirmation-code-field)
+> [!tip] [Github address](https://github.com/retyui/react-native-confirmation-code-field)
 
-## 安装与使用
+## Installation and Usage
 
 #### **npm**
 
@@ -31,9 +31,9 @@ yarn add react-native-confirmation-code-field@7.3.2
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React, { useState } from "react";
@@ -104,30 +104,30 @@ const App = () => {
 export default App;
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：205.0.0.18;
 
-## 组件
+## component
 
-> [!tip] "Platform"列表示该组件在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该组件；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name        | Description                                                                                                                                                                                          | Type      | Platform | HarmonyOS Support |
 | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------- | ----------------- |
 | `CodeField` | This a base component that render RootComponent (default: View) with cells that would be returned by renderCell() and a <TextInput/> that will be invisible and over all cells within root component | component | All      | yes               |
 | `Cursor`    | It's a help component for simulation a cursor blinking animation in <Cell/> components                                                                                                               | component | All      | yes               |
 
-## CodeField属性
+## CodeField Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name              | Description                                                                                                                | Type                     | Required | Platform | HarmonyOS Support |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------ | -------- | -------- | ----------------- |
@@ -141,19 +141,19 @@ export default App;
 
 ## Hooks
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                  | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | Type           | Required | Platform | HarmonyOS Support |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | -------- | -------- | ----------------- |
 | `useClearByFocusCell` | Simple hook that add functionality that trim value by pressed cell,After invoke this hook wil return array with two values `[props,getCellOnLayout]`;<br/> -`props`- an object that you should spreed to ` <CodeField/>` <br/> - `getCellOnLayout(index: number): Function` - helper method that returns `onLayout` handler <br/> - If you need to style only one borderX (example `borderBottom`) you need to know about React Native issue with [border styles for `<Text/>` on iOS](https://github.com/facebook/react-native/issues/23537).<br/> - To fix it need `<View/>` wrapper for Cell, but don't forger to move `onLayout={getCellOnLayoutHandler(index)` to `<View/>` | Function       | yes      | All      | yes               |
 | `useBlurOnFulfill`    | This hook include a logic to blurring`<TextInput/>`when value fulfilled You should pass two params: <br/> - `value?: string` - a string value that;<br/> - `cellCount: number`;<br/>Returned value will be a TextInput ref that you should pass to`<CodeField/>`component.And when a value length would equal cellCount will be called `.blur()` method.It work perfectly with `useClearByFocusCell` hook                                                                                                                                                                                                                                                                        | Ref<TextInput> | yes      | All      | yes               |
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/Kureev/react-native-blur/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/Kureev/react-native-blur/blob/master/LICENSE).
 
 <!-- {% endraw %} -->

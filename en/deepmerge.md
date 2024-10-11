@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>deepmerge</code> </h1>
@@ -10,11 +10,11 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/TehShrike/deepmerge)
+> [!tip] [Github address](https://github.com/TehShrike/deepmerge)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -32,7 +32,7 @@ yarn add deepmerge@4.3.1
 
 <!-- tabs:end -->
 
-快速使用：
+The following code shows the basic use scenario of the repository:
 
 ```js
 import React from 'react';
@@ -40,7 +40,7 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import deepmerge from 'deepmerge';
 
 const App = () => {
-  // 定义两个需要合并的对象
+  // Define two objects that need to be merged
   const object1 = {
     name: 'John',
     age: 30,
@@ -58,7 +58,7 @@ const App = () => {
     hobbies: ['Reading', 'Hiking'],
   };
 
-  // 使用 deepmerge 合并两个对象
+  // Merge two objects using deepmerge
   const mergedObject = deepmerge(object1, object2);
 
   return (
@@ -99,32 +99,32 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-在下述版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
 2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
 
 ## API
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-详情见 [deepmerge源库地址](https://github.com/TehShrike/deepmerge)
+For details, see [deepmerge Source Code](https://github.com/TehShrike/deepmerge)
 
 | Name                                     | Description                                                                                          | Type     | Required | HarmonyOS Support |
 | ---------------------------------------- | ---------------------------------------------------------------------------------------------------- | -------- | -------- | ----------------- |
 | deepmerge(x, y, [options])               | Merge two objects x and y deeply, returning a new merged object with the elements from both x and y. | function | no       | yes               |
 | deepmerge.all(arrayOfObjects, [options]) | Merges any number of objects into a single result object.                                            | function | no       | yes               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/TehShrike/deepmerge/blob/master/license.txt) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/TehShrike/deepmerge/blob/master/license.txt).
 
 <!-- {% endraw %} -->

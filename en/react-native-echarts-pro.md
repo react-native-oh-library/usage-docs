@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-模板版本：v0.2.0
+Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-echarts-pro</code> </h1>
@@ -10,13 +10,13 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/supervons/react-native-echarts-pro)
+> [!TIP] [Github address](https://github.com/supervons/react-native-echarts-pro)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
-> [!TIP] # 处替换为 tgz 包的路径
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
@@ -34,9 +34,9 @@ yarn add react-native-echarts-pro@^1.9.1
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```tsx
 import React from "react";
@@ -83,23 +83,23 @@ export default function RNEPDemo() {
 
 ## Link
 
-本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-webview 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+The HarmonyOS implementation of this library relies on the native code of @react-native-oh-tpl/react-native-webview，If the library has already been introduced in the HarmonyOS project, there is no need to introduce it again. You can skip the steps in this chapter and use it directly.
 
-如未引入请参照[@react-native-oh-tpl/react-native-webview 文档的 Link 章节](/zh-cn/react-native-webview.md)进行引入
+If not introduced, please refer to the Link section of the document[@react-native-oh-tpl/react-native-webview ](react-native-webview.md)for introduction.
 
-## 兼容性
+## Constraints
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.200; ROM：205.0.0.18;
 
-## 属性
+## Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-详情见[react-native-echarts-pro](https://github.com/supervons/react-native-echarts-pro/tree/master)
+For details, see [react-native-echarts-pro](https://github.com/supervons/react-native-echarts-pro/tree/master)
 
 ### Properties for all react-native-echarts-pro components:
 
@@ -118,14 +118,14 @@ export default function RNEPDemo() {
 | fontFamilies              | Custom font families.                                                                                        | Array    | Android/ios | N        | No                |
 | enableParseStringFunction | If enabled, function are parse as strings                                                                    | Boolean  | All         | N        | Yes               |
 
-## 遗留问题
+## Known Issues
 
 - [ ] fontFamilies自定义字体属性未生效，该属性需要将字体文件转为base64字符串，拼接在html中的style标签中使用，经验证，这种用法在react-native-webview的最小化demo也不生效，一旦有base64字体加载，就会白屏并无法触发loadEnd，而原生 HarmonyOS webview上显示正常 [issues#20](https://github.com/react-native-oh-library/react-native-webview/issues/20)
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [MIT License](https://github.com/oblador/react-native-progress/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [MIT License](https://github.com/oblador/react-native-progress/blob/master/LICENSE).
 
 <!-- {% endraw %} -->

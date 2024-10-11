@@ -649,7 +649,7 @@ const styles = StyleSheet.create({
 |        _image         |           图片参数    |        Object       |    No    |   All    |        Yes        |
 |        wrapperRef         |             获取节点    |        Boolean        |    No    |   All    |        Yes        |
 
-**Icon**: 显示用户头像或图像
+**Icon**: 展示图标
 |         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
 |        as         |            接收矢量图标    |        Any        |    No    |   All    |        Yes        |
@@ -658,7 +658,7 @@ const styles = StyleSheet.create({
 |        children         |             子元素    |   JSX.Element             |    No    |   All    |        Yes        |
 |        name         |             名称    |   String            |    No    |   All    |        Yes        |
 |        viewBox         |             icon盒子参数    |   String            |    No    |   All    |        Yes        |
-|        path         |             icon地址    |   JSX.Element[] | JSX.Element            |    No    |   All    |        Yes        |
+|        path         |             icon地址    |   JSX.Element[]            |    No    |   All    |        Yes        |
 |        d         |             SVG图标的路径    |   String            |    No    |   All    |        Yes        |
 
 **Image**: 图片

@@ -22,13 +22,13 @@
 #### **npm**
 
 ```bash
-npm install react-natvie-graph@1.1.0
+npm install react-native-graph@1.1.0
 ```
 
 #### **yarn**
 
 ```bash
-yarn add react-natvie-graph@1.1.0
+yarn add react-native-graph@1.1.0
 ```
 
 下面的代码展示了这个库的基本使用场景：
@@ -119,6 +119,8 @@ const styles = StyleSheet.create({
 
 1. RNOH：0.72.28; SDK：HarmonyOS NEXT Developer Beta5 5.0.0.60; IDE：DevEco Studio 5.0.3.655; ROM：3.0.0.60
 
+2. RNOH：0.72.31; SDK：HarmonyOS NEXT Beta1 SDK 5.0.0.68; IDE：DevEco Studio 5.0.3.810; ROM：5.0.0.60
+
 ## 属性
 
 > [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
@@ -152,7 +154,7 @@ const styles = StyleSheet.create({
 ## 遗留问题
 
 ## 其他
-
+- react-native-graph 的animated属性 原库代码现在有问题 无论是false还是true，数据变化都是静态变化，没有动画效果，原库中有使用者提issue和PR，添加合入相应PR代码后才能动画正常[issue#111](https://github.com/margelo/react-native-graph/pull/111)
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/margelo/react-native-graph/blob/main/LICENSE) ，请自由地享受和参与开源。

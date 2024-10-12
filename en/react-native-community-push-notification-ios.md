@@ -351,10 +351,10 @@ _NotificationRequest:_
 | `subtitle` | A secondary description of the reason for the notification        | string  | no       | All      | no               |
 | `body`     | The message displayed in the notificatio                          | string  | yes      | All      | yes               |
 | `badge`    | The number to display as the app's icon badge                     | number  | no       | All      | yes               |
-| `fireDate` | The date and time when the system should deliver the notification | object  | no       | All      | yes               |
+| `fireDate` | The date and time when the system should deliver the notification | object  | no       | All      | no               |
 | `repeats`  | Sets notification to repeat                                       | boolean | no       | All      | no               |
 | `repeatsComponent`  | An object indicating which parts of fireDate should be repeated                                       | object | no       | All      | no               |
-| `sound`  | The sound played when the notification is fired                                       | string | no       | All      | yes               |
+| `sound`  | The sound played when the notification is fired                                       | string | no       | All      | no               |
 | `category`  | The category of this notification, required for actionable notifications                                       | string | no       | All      | no               |
 | `isSilent` | If true, the notification will appear without sound               | boolean | no       | All      | yes               |
 | `isCritical` |  If true, the notification sound be played even when the device is locked, muted, or has Do Not Disturb enabled               | boolean | no       | All      | no               |

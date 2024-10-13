@@ -18,7 +18,7 @@
 
 
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-oh-tpl-native-base Releases](https://github.com/react-native-oh-library/NativeBase/releases)，并下载适用版本的 tgz 包。
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/native-base Releases](https://github.com/react-native-oh-library/NativeBase/releases)，并下载适用版本的 tgz 包。
 
 
 进入到工程目录并输入以下命令：
@@ -28,13 +28,13 @@
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-oh-tpl-native-base@file:#
+npm install @react-native-oh-tpl/native-base@file:#
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-oh-tpl-native-base@file:#
+yarn add @react-native-oh-tpl/native-base@file:#
 ```
 
 <!-- tabs:end -->
@@ -506,7 +506,7 @@ const styles = StyleSheet.create({
 |        endColor         |           结束颜色    |        String         |    No    |   All    |        Yes        |
 |        lines         |            文本中的行数   |        Number         |    No    |   All    |        Yes        |
 |        _line         |            文本中的行数样式参数   |        String         |    No    |   All    |        Yes        |
-|        _stack         |            尺寸   |        String         |    No    |   All    |        Yes        |
+|        _stack         |            要传递给按钮内部使用的 HStack 的参数    |        String         |    No    |   All    |        Yes        |
 
 **Spinner**: 加载等待中
 |         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
@@ -572,7 +572,7 @@ const styles = StyleSheet.create({
 |        initialFocusRef         |           打开时焦点元素节点    |       Object        |    No    |   All    |        Yes        |
 |        finalFocusRef         |           关闭时焦点元素节点    |       Boolean        |    No    |   All    |        Yes        |
 |        avoidKeyboard         |           键盘打开，则 AlertDialog 将向上移动相当于键盘高度     |       Boolean        |    No    |   All    |        Yes        |
-|        closeOnOverlayClick         |           点击找找关闭    |       Boolean        |    No    |   All    |        Yes        |
+|        closeOnOverlayClick         |           点击关闭    |       Boolean        |    No    |   All    |        Yes        |
 |        isKeyboardDismissable         |           Esc关闭    |       Boolean        |    No    |   No    |        No        |
 |        overlayVisible         |           背景元素是否可见    |       Boolean        |    No    |   All    |        Yes        |
 |        backdropVisible         |           背景元素是否可见    |       Boolean        |    No    |   All    |        Yes        |
@@ -649,7 +649,7 @@ const styles = StyleSheet.create({
 |        _image         |           图片参数    |        Object       |    No    |   All    |        Yes        |
 |        wrapperRef         |             获取节点    |        Boolean        |    No    |   All    |        Yes        |
 
-**Icon**: 显示用户头像或图像
+**Icon**: 展示图标
 |         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
 |        as         |            接收矢量图标    |        Any        |    No    |   All    |        Yes        |
@@ -658,7 +658,7 @@ const styles = StyleSheet.create({
 |        children         |             子元素    |   JSX.Element             |    No    |   All    |        Yes        |
 |        name         |             名称    |   String            |    No    |   All    |        Yes        |
 |        viewBox         |             icon盒子参数    |   String            |    No    |   All    |        Yes        |
-|        path         |             icon地址    |   JSX.Element[] | JSX.Element            |    No    |   All    |        Yes        |
+|        path         |             icon地址    |   JSX.Element[]            |    No    |   All    |        Yes        |
 |        d         |             SVG图标的路径    |   String            |    No    |   All    |        Yes        |
 
 **Image**: 图片
@@ -668,7 +668,6 @@ const styles = StyleSheet.create({
 |        alt         |            未展示文字    |         String       |    No    |   All    |        Yes        |
 |        _alt         |            未展示文字样式参数    |         Object       |    No    |   All    |        Yes        |
 |        size         |           尺寸    |        String        |    No    |   All    |        Yes        |
-|        color         |           颜色    |        String       |    No    |   All    |        Yes        |
 |        src         |             图片地址    |   String             |    No    |   All    |        Yes        |
 |        fallbackSource         |             指定当主图像源无法加载时显示的备用图像源    |   String            |    No    |   All    |        Yes        |
 |        ignoreFallback         |             是否忽略备用图像源    |   Boolean            |    No    |   All    |        Yes        |
@@ -699,7 +698,6 @@ const styles = StyleSheet.create({
 |        animate         |            动画最终状态的属性    |         Object       |    No    |   All    |        Yes        |
 |        exit         |           组件在隐藏时的状态    |        Boolean        |    No    |   All    |        Yes        |
 |        visible         |           是否打开    |        Boolean       |    No    |   All    |        Yes        |
-|        animationExited         |             过渡动画已经完全退出   |   Boolean             |    No    |   All    |        Yes        |
 |        children         |             子集   |   any             |    No    |   All    |        Yes        |
 |        as         |             包裹在过渡效果中的元素的类型   |   any             |    No    |   All    |        Yes        |
 
@@ -715,7 +713,7 @@ const styles = StyleSheet.create({
 |         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
 |        in         |            显示隐藏    |        Boolean       |    No    |   All    |        Yes        |
-|        duration         |            动画事件    |         Number       |    No    |   All    |        Yes        |
+|        duration         |            动画时长    |         Number       |    No    |   All    |        Yes        |
 |        placement         |           位置    |        String        |    No    |   All    |        Yes        |
 
 **FAB**: 浮动按钮

@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-elements</code> </h1>
@@ -16,11 +16,11 @@
 
 
 
-> [!TIP] [Github 地址](https://github.com/react-native-elements/react-native-elements)
+> [!TIP] [Github address](https://github.com/react-native-elements/react-native-elements)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction：
 
 <!-- tabs:start -->
 
@@ -40,7 +40,7 @@ yarn add @rneui/base@4.0.0-rc.7
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository：
 
 ```tsx
 import React from 'react';
@@ -253,83 +253,66 @@ export default Avatars;
 
 ## Link
 
-本库 HarmonyOS 侧实现依赖 @react-native-oh-tpl/react-native-safe-area-context 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+The HarmonyOS implementation of this library relies on the native code of @react-native-oh-tpl/react-native-safe-area-context. If the library has already been introduced in the HarmonyOS project, there is no need to introduce it again. You can skip the steps in this chapter and use it directly.
 
-如未引入请参照[@react-native-oh-tpl/react-native-safe-area-context 文档的 Link 章节](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-safe-area-context.md#link)进行引入。
+If not introduced, please refer to [Link section of @react-native-oh-tpl/react-native-safe-area-context  documentation](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-safe-area-context.md#link) for introduction.
 
-### 在 ArkTs 侧引入和注册字体文件
+### Introduce and register font files on the ArkTs side
 
-步骤一：
-    复制字体文件到  `entry/src/main/ets/assets/fonts` 目录下(如使用了外部字体文件，需要将*.ttf文件复制过来)
+Step 1:
+          Copy the font file to the 'entry/src/main/ets/assets/fonts' directory (if an external font file is used, the *. ttf file needs to be copied over)
 
-步骤二：
-    打开 `entry/src/main/ets/pages/Index.ets`，添加以下代码
+Step 2:
+         Open 'entry/src/main/ets/pages/Index. ets' and add the following code
 
 ```ts
-    import font from '@ohos.font';
-    //...
-    //特别注意：FontAwesome 系列中字体的 familyName 需要通过代码逻辑自行理解
-    const fonts: font.FontOptions[] = [
-      {
-        familyName: 'StintUltraCondensed-Regular',
-        familySrc: '/assets/fonts/StintUltraCondensed-Regular.ttf'
-      },
-      {
-        familyName: 'FontAwesome',
-        familySrc: '/assets/fonts/FontAwesome.ttf'
-      },
-      {
-        familyName: 'FontAwesome5_Brands',
-        familySrc: '/assets/fonts/FontAwesome5_Brands.ttf'
-      },
-      {
-        familyName: 'FontAwesome5_Regular',
-        familySrc: '/assets/fonts/FontAwesome5_Regular.ttf'
-      },
-      {
-        familyName: 'FontAwesome5_Solid',
-        familySrc: '/assets/fonts/FontAwesome5_Solid.ttf'
-      }
-    ]
-
-    @Entry
-    @Component
-    struct Index {
-        //...
-        aboutToAppear() {
-            //...
-
-            //注册字体文件
-            for (const customFont of fonts) {
-                font.registerFont(customFont)
-            }
+   //Special note: The familyName of fonts in the FontAwesome series needs to be understood through code logic
+  build() {
+    Column() {
+      if (this.rnohCoreContext && this.shouldShow) {
+        if (this.rnohCoreContext?.isDebugModeEnabled) {
+          RNOHErrorDialog({ ctx: this.rnohCoreContext })
         }
-        //...
+        RNApp({
+          rnInstanceConfig: {
+            fontResourceByFontFamily:{
+              "FontAwesome": $rawfile("fonts/FontAwesome.ttf"),
+              "FontAwesome5_Brands": $rawfile("fonts/FontAwesome5_Brands.ttf"),
+              "FontAwesome5_Regular": $rawfile("fonts/FontAwesome5_Regular.ttf"),
+              "FontAwesome5_Solid": $rawfile("fonts/FontAwesome5_Solid.ttf"),
+              "Pacifico-Regular": $rawfile("fonts/Pacifico-Regular.ttf"),
+              "StintUltraCondensed-Regular": $rawfile("fonts/StintUltraCondensed-Regular.ttf") }
+          },
+        })
+      }
     }
+    .height('100%')
+    .width('100%')
+  }
 ```
 
-> [!TIP] Demo中字体属于IconFont文件；自定义字体也需要用统一的方法在此注册。
 
-## 约束与限制
 
-### 兼容性
+## Constraints
 
-本文档内容基于以下版本验证通过：
+### Compatibility
+
+This document is verified based on the following versions：
 
 1. RNOH：0.72.26; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.300; ROM：3.0.0.22;
 1. RNOH：0.72.29; SDK：HarmonyOS NEXT Developer Beta6; IDE：DevEco Studio 5.0.3.700; ROM：3.0.0.60;
 
-## 组件
+## Component
 
-详细请查看 [react-native-elements的文档介绍](https://reactnativeelements.com)
+For details, see [react-native-elements Source Code](https://reactnativeelements.com)
 
-以下为目前已支持的组件属性：
+The following are currently supported component properties:
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-**AirbnbRating**：爱彼迎风格的评级组件
+**AirbnbRating**：Airbnb style rating component
 
 |         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
@@ -347,7 +330,7 @@ export default Avatars;
 |  starContainerStyle  |           Style for star containerDefault is none            |      View Style       |    No    |   All    |        Yes        |
 |      starImage       |              Pass in a custom base image source              |        string         |    No    |    No    |        No         |
 
-**Avatar**：一个头像、Icon、字母渲染组件
+**Avatar**：A component for rendering avatars, icons, and letters
 
 |         Name          |                         Description                          |                        Type                         | Required | Platform | HarmonyOS Support |
 | :-------------------: | :----------------------------------------------------------: | :-------------------------------------------------: | :------: | :------: | :---------------: |
@@ -364,14 +347,13 @@ export default Avatars;
 |      onPressOut       |      Called when a touch is released before `onPress`.       |            GestureResponderEventHandler             |    No    |   All    |        Yes        |
 | overlayContainerStyle |          Style for the view outside image or icon.           |                     Text Style                      |    No    |   All    |        Yes        |
 |    pressableProps     |             PressableProps except click handlers             |                   PressableProps                    |    No    |   All    |        Yes        |
-|  renderCustomContent  | Custom element inside the avatar (by default, it's the title). | ReactElement<{}, string,JSXElementConstructor<any>> |    No    |   All    |        Yes        |
 |        rounded        |                  Makes the avatar circular.                  |                       boolean                       |    No    |   All    |        Yes        |
 |         size          |                     Size of the avatar.                      |     `number`,`small`,`medium`,`large`,`xlarge`      |    No    |   All    |        Yes        |
 |        source         |           Image source to be displayed on avatar.            |                 ImageSourcePropType                 |    No    |   All    |        Yes        |
 |  ImageSourcePropType  |              Renders title in the placeholder.               |                       string                        |    No    |   All    |        Yes        |
 |      titleStyle       |                     Style for the title.                     |                     Text Style                      |    No    |   All    |        Yes        |
 
-**Avatar.Accessory**：Avatar组件的子组件，接收所有 [Icon](https://reactnativeelements.com/docs/components/icon#props), [Image](https://reactnativeelements.com/docs/components/image#props), [Text](https://reactnative.dev/docs/text#props) 的 props
+**Avatar.Accessory**：The subcomponent of Avatar component, which receives all props of  [Icon](https://reactnativeelements.com/docs/components/icon#props), [Image](https://reactnativeelements.com/docs/components/image#props), [Text](https://reactnative.dev/docs/text#props) 
 
 |      Name      |                    Description                    |             Type             | Required | Platform | HarmonyOS Support |
 | :------------: | :-----------------------------------------------: | :--------------------------: | :------: | :------: | :---------------: |
@@ -381,7 +363,7 @@ export default Avatars;
 |   onPressOut   | Called when a touch is released before `onPress`. | GestureResponderEventHandler |    No    |   All    |        Yes        |
 | pressableProps |       PressableProps except click handlers        |        PressableProps        |    No    |   All    |        Yes        |
 
-**Badge**：徽章组件，通常用于向用户传达数值或指示物品的状态
+**Badge**：Badge component, typically used to convey numerical values or indicate the status of items to users
 
 |      Name      |                        Description                        |                  Type                  | Required | Platform | HarmonyOS Support |
 | :------------: | :-------------------------------------------------------: | :------------------------------------: | :------: | :------: | :---------------: |
@@ -398,7 +380,7 @@ export default Avatars;
 |   textStyle    |             Extra styling for icon component.             |               Text Style               |    No    |   All    |        Yes        |
 |     value      |  Text value to be displayed by badge, defaults to empty.  |               ReactNode                |    No    |   All    |        Yes        |
 
-**BottomSheet**：从屏幕底部显示内容的组件，依赖react-native-safe-area-context三方库
+**BottomSheet**： A component that displays content from the bottom of the screen, relying on a third-party library called react-native-safe-area-context 
 
 |      Name       |                         Description                          |      Type       | Required | Platform | HarmonyOS Support |
 | :-------------: | :----------------------------------------------------------: | :-------------: | :------: | :------: | :---------------: |
@@ -409,7 +391,7 @@ export default Avatars;
 | onBackdropPress |                 Handler for backdrop press.                  |    Function     |    No    |   All    |        Yes        |
 | scrollViewProps |              Used to add props to Scroll view.               | ScrollViewProps |    No    |   All    |        Yes        |
 
-**Button**：按钮组件，接收所有 [TouchableOpacityProps](https://reactnative.dev/docs/touchableopacity#props) 的 props
+**Button**：Button component that receives all [TouchableOpacityProps](https://reactnative.dev/docs/touchableopacity#props)  props
 
 |        Name         |                         Description                          |                             Type                             | Required | Platform | HarmonyOS Support |
 | :-----------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :------: | :------: | :---------------: |
@@ -419,7 +401,6 @@ export default Avatars;
 |        color        |                       Color of Button                        | `string`,`primary`,`secondary`,`success` | No | All | Yes |
 |   containerStyle    |               Styling for Component container.               |                          View Style                          |    No    |   All    |        Yes        |
 |      disabled       |                  Disables user interaction.                  |                           boolean                            |    No    |   All    |        Yes        |
-|       boolean       |              Style of the button when disabled.              |                          View Style                          |    No    |   All    |        Yes        |
 | disabledTitleStyle  |              Style of the title when disabled.               |                      disabledTitleStyle                      |    No    |   All    |        Yes        |
 |        icon         | Displays a centered icon (when no title) or to the left (with text). (can be used along with iconRight as well). Can be an object or a custom component. |                           IconNode                           |    No    |   All    |        Yes        |
 | iconContainerStyle  |            Styling for Icon Component container.             |                          View Style                          |    No    |   All    |        Yes        |
@@ -438,7 +419,7 @@ export default Avatars;
 |        type         |                       Type of button.                        | `solid`,`clear`,`outline` |    No    |   All    |        Yes        |
 |      uppercase      |                    Uppercase button title                    |                           boolean                            |    No    |   All    |        Yes        |
 
-**ButtonGroup**：按钮组组件
+**ButtonGroup**：Button component
 
 |           Name            |                         Description                          |                       Type                        | Required | Platform | HarmonyOS Support |
 | :-----------------------: | :----------------------------------------------------------: | :-----------------------------------------------: | :------: | :------: | :---------------: |
@@ -472,20 +453,20 @@ export default Avatars;
 |       underlayColor       |        Specify underlayColor for TouchableHighlight.         |                        ng                         |    No    |   No  |        No        |
 |         vertical          |             Display the ButtonGroup vertically.              |                      boolean                      |    No    |   All    |        Yes        |
 
-**Card**：卡片组件
+**Card**：Card component
 
 |      Name      |      Description       |    Type    | Required | Platform | HarmonyOS Support |
 | :------------: | :--------------------: | :--------: | :------: | :------: | :---------------: |
 | containerStyle | Outer container style. | View Style |    No    |   All    |        Yes        |
 |  wrapperStyle  | Inner container style. | View Style |    No    |   All    |        Yes        |
 
-**Card.Divider**：卡片分割线组件，接收所有 [Divider](https://reactnativeelements.com/docs/components/divider#props) 组件的 Props
+**Card.Divider**：Card dividing line component, receiving Props from all [Divider](https://reactnativeelements.com/docs/components/divider#props) components 
 
-**Card.FeaturedSubtitle**：卡片功能字幕组件，接收所有 [Text](https://reactnativeelements.com/docs/components/text#props) 组件的 Props
+**Card.FeaturedSubtitle**：Card function subtitle component, receiving Props from all  [Text](https://reactnativeelements.com/docs/components/text#props)  components 
 
-**Card.FeaturedTitle**：卡片功能标题组件，接收所有 [Text](https://reactnativeelements.com/docs/components/text#props) 组件的 Props
+**Card.FeaturedTitle**：Card function title component, receiving Props from all  [Text](https://reactnativeelements.com/docs/components/text#props)  components
 
-**Card.Image**：卡片图片组件，接收所有 [Image](https://reactnativeelements.com/docs/components/image#props) 组件的 Props
+**Card.Image**：Card image component, receiving Props for all [Image](https://reactnativeelements.com/docs/components/image#props) components 
 
 |      Name      |                    Description                    |             Type             | Required | Platform | HarmonyOS Support |
 | :------------: | :-----------------------------------------------: | :--------------------------: | :------: | :------: | :---------------: |
@@ -495,9 +476,9 @@ export default Avatars;
 |   onPressOut   | Called when a touch is released before `onPress`. | GestureResponderEventHandler |    No    |   All    |        Yes        |
 | pressableProps |       PressableProps except click handlers        |        PressableProps        |    No    |   All    |        Yes        |
 
-**Card.Title**：卡片标题组件，接收所有 [Text](https://reactnativeelements.com/docs/components/text#props) 组件的 Props
+**Card.Title**：Card title component, receiving Props for all  [Text](https://reactnativeelements.com/docs/components/text#props) components
 
-**CheckBox**：选择框组件，接收所有 [CheckBoxIcon](https://reactnativeelements.com/docs/components/checkboxicon#props), [View](https://reactnative.dev/docs/view#props) 的 props.
+**CheckBox**：CheckBox component to receive all [CheckBoxIcon](https://reactnativeelements.com/docs/components/checkboxicon#props), [View](https://reactnative.dev/docs/view#props) props 
 
 |        Name        |                   Description                   |                             Type                             | Required | Platform | HarmonyOS Support |
 | :----------------: | :---------------------------------------------: | :----------------------------------------------------------: | :------: | :------: | :---------------: |
@@ -516,13 +497,13 @@ export default Avatars;
 |     titleProps     | Additional props for the title Text component.  |                          TextProps                           |    No    |   All    |        Yes        |
 |    wrapperStyle    |       Style for the wrapper of checkbox.        |                          View Style                          |    No    |   All    |        Yes        |
 
-**Chip**：显示触摸区组件，接收所有 [Button](https://reactnativeelements.com/docs/components/button#props) 的props
+**Chip**：Display touch area component, receive all  [Button](https://reactnativeelements.com/docs/components/button#props)  props 
 
 | Name |      Description       |        Type        | Required | Platform | HarmonyOS Support |
 | :--: | :--------------------: | :----------------: | :------: | :------: | :---------------: |
 | type | Outer container style. | `solid`，`outline` |    No    |   All    |        Yes        |
 
-**Dialog**：对话框组件，接收所有 [Overlay](https://reactnativeelements.com/docs/components/overlay#props) 的props
+**Dialog**：Dialogue box component , receive all  [Overlay](https://reactnativeelements.com/docs/components/overlay#props)  props  
 
 |      Name      |                        Description                        |             Type             | Required | Platform | HarmonyOS Support |
 | :------------: | :-------------------------------------------------------: | :--------------------------: | :------: | :------: | :---------------: |
@@ -533,28 +514,28 @@ export default Avatars;
 |  overlayStyle  | Add additional styling to the internal Overlay component. |          View Style          |    No    |   All    |        Yes        |
 | pressableProps |                   except click handlers                   |        PressableProps        |    No    |   All    |        Yes        |
 
-**Dialog.Actions**：定义对话框操作组件
+**Dialog.Actions**：Define dialog box operation components
 
 |   Name   |                     Description                     |   Type    | Required | Platform | HarmonyOS Support |
 | :------: | :-------------------------------------------------: | :-------: | :------: | :------: | :---------------: |
 | children | Add Enclosed components as an action to the dialog. | ReactNode |    No    |   All    |        Yes        |
 
-**Dialog.Button**：定义对话框按钮组件，接收所有 [Button](https://reactnativeelements.com/docs/components/button#props) 的props
+**Dialog.Button**：Define dialog box button components , receive all  [Button](https://reactnativeelements.com/docs/components/button#props)  props 
 
-**Dialog.Actions**：对话框加载组件
+**Dialog.Actions**：Dialog box loading component
 
 |   Name   |                     Description                     |   Type    | Required | Platform | HarmonyOS Support |
 | :------: | :-------------------------------------------------: | :-------: | :------: | :------: | :---------------: |
 | children | Add Enclosed components as an action to the dialog. | ReactNode |    No    |   All    |        Yes        |
 
-**Dialog.Loading**：定义对话框操作组件
+**Dialog.Loading**：Define dialog box operation components
 
 |     Name     |                     Description                      |          Type          | Required | Platform | HarmonyOS Support |
 | :----------: | :--------------------------------------------------: | :--------------------: | :------: | :------: | :---------------: |
 | loadingProps | Add additional props for ActivityIndicator component | ActivityIndicatorProps |    No    |   All    |        Yes        |
 | loadingStyle |    Add additional styling for loading component.     |       View Style       |    No    |   All    |        Yes        |
 
-**Dialog.Title**：定义对话框标题组件
+**Dialog.Title**：Define dialog box title component
 
 |    Name    |                 Description                 |    Type    | Required | Platform | HarmonyOS Support |
 | :--------: | :-----------------------------------------: | :--------: | :------: | :------: | :---------------: |
@@ -562,7 +543,7 @@ export default Avatars;
 | titleProps |  Add additional props for Text component.   | TextProps  |    No    |   All    |        Yes        |
 | titleStyle | Add additional styling for title component. | Text Style |    No    |   All    |        Yes        |
 
-**Divider**：分割线组件，接收所有 [View](https://reactnative.dev/docs/view#props) 的props.
+**Divider**：Split line component, receive all   [View](https://reactnative.dev/docs/view#props)   props 
 
 |      Name      |                      Description                      |            Type             | Required | Platform | HarmonyOS Support |
 | :------------: | :---------------------------------------------------: | :-------------------------: | :------: | :------: | :---------------: |
@@ -575,7 +556,7 @@ export default Avatars;
 | subHeaderStyle |    Adds style to the subHeader text of the divider    |         Text Style          |    No    |   All    |        Yes        |
 |     width      |                        number                         | Apply width to the divider. |    No    |   All    |        Yes        |
 
-**FAB**：浮动操作按钮组件，接收所有 [Button](https://reactnativeelements.com/docs/components/button#props) 的props.
+**FAB**：Floating operation button component , receive all  [Button](https://reactnativeelements.com/docs/components/button#props)  props 
 
 |   Name    |                         Description                          |       Type        | Required | Platform | HarmonyOS Support |
 | :-------: | :----------------------------------------------------------: | :---------------: | :------: | :------: | :---------------: |
@@ -586,7 +567,7 @@ export default Avatars;
 | upperCase |         Transform Extended Label text to uppercase.          |      boolean      |    No    |   All    |        Yes        |
 |  visible  |              Decide the visibility of the FAB.               |      boolean      |    No    |   All    |        Yes        |
 
-**Header**：浮动操作按钮组件，接收所有 [View](https://reactnative.dev/docs/view#props) 的props
+**Header**： Floating operation button component ，receive all [View](https://reactnative.dev/docs/view#props)  props 
 
 |                       Name                        |                         Description                          |                 Type                 | Required | Platform | HarmonyOS Support |
 | :-----------------------------------------------: | :----------------------------------------------------------: | :----------------------------------: | :------: | :------: | :---------------: |
@@ -599,9 +580,7 @@ export default Avatars;
 |               centerContainerStyle                |      Styling for container around the centerComponent.       |              View Style              |    No    |   All    |        Yes        |
 | Styling for container around the centerComponent. |            Add children component to the header.             | `(Element`，`Element[]) & ReactNode` |    No    |   All    |        Yes        |
 |                  containerStyle                   |              Styling around the main container.              |              View Style              |    No    |   All    |        Yes        |
-|                       edges                       |                 SafeAreaView edges control.                  |                Edge[]                |    No    |   All    |        Yes        |
 |                     elevated                      |                     Elevation for header                     |               boolean                |    No    |    No    |        No         |
-|                   hideStatusBar                   |               Accepts all props for StatusBar.               |               boolean                |    No    |   All    |        Yes        |
 |                   leftComponent                   |               Define your left component here.               |          HeaderSubComponent          |    No    |   All    |        Yes        |
 |                leftContainerStyle                 |       Styling for container around the leftComponent.        |              View Style              |    No    |   All    |        Yes        |
 |                linearGradientProps                | Displays a linear gradient. See [usage](https://reactnativeelements.com/docs/components/header#lineargradient-usage). |                Object                |    No    |    No    |        No         |
@@ -610,7 +589,7 @@ export default Avatars;
 |                rightContainerStyle                |       Styling for container around the rightComponent.       |              View Style              |    No    |   All    |        Yes        |
 |                  statusBarProps                   |               Accepts all props for StatusBar.               |            StatusBarProps            |    No    |   All    |        Yes        |
 
-**Icon**：字体图标组件，接收所有 [Text](https://reactnative.dev/docs/text#props) 的props.
+**Icon**：Font icon component ，receive all  [Text](https://reactnative.dev/docs/text#props)  props  
 
 |      Name      |                         Description                          |             Type             | Required | Platform | HarmonyOS Support |
 | :------------: | :----------------------------------------------------------: | :--------------------------: | :------: | :------: | :---------------: |
@@ -632,7 +611,7 @@ export default Avatars;
 |     testID     |                       Test ID of icon.                       |            string            |    No    |   All    |        Yes        |
 |      type      | Type of icon set. [Supported sets here](https://reactnativeelements.com/docs/components/icon#available-icon-sets). |            string            |    No    |   All    |        Yes        |
 
-**Image**：图片组件，接收所有 [React Native Image](https://reactnative.dev/docs/image#props) 的props.
+**Image**：Image component ，receive all  [React Native Image](https://reactnative.dev/docs/image#props)  props  
 
 |          Name          |                      Description                      |                           Type                            | Required | Platform | HarmonyOS Support |
 | :--------------------: | :---------------------------------------------------: | :-------------------------------------------------------: | :------: | :------: | :---------------: |
@@ -650,11 +629,10 @@ export default Avatars;
 |       transition       |        Perform fade transition on image load.         |                          boolean                          |    No    |   All    |        Yes        |
 |   transitionDuration   |        Perform fade transition on image load.         |                          number                           |    No    |   All    |        Yes        |
 
-**Input**：表单组件，接收所有 [React Native TextInput](https://reactnative.dev/docs/textinput#props), [View](https://reactnative.dev/docs/view#props) 的props.
+**Input**：Form component，receive all   [React Native TextInput](https://reactnative.dev/docs/textinput#props), [View](https://reactnative.dev/docs/view#props) props 
 
 |          Name           |                         Description                          |      Type       | Required | Platform | HarmonyOS Support |
 | :---------------------: | :----------------------------------------------------------: | :-------------: | :------: | :------: | :---------------: |
-|     ErrorComponent      | component that will be rendered in place of the error message | React Component |    No    |   All    |        Yes        |
 |     InputComponent      | component that will be rendered in place of the React Native TextInput | React Component |    No    |   All    |        Yes        |
 |     containerStyle      |                      Style for containe                      |   View Style    |    No    |   All    |        Yes        |
 |        disabled         |                 disables the input component                 |     boolean     |    No    |   All    |        Yes        |
@@ -674,7 +652,7 @@ export default Avatars;
 | rightIconContainerStyle |          styling for right Icon Component container          |   View Style    |    No    |   All    |        Yes        |
 |          shake          |                         Shake method                         |    Function     |    No    |   All    |        Yes        |
 
-**LinearProgress**：加载条组件，接收所有 [View](https://reactnative.dev/docs/view#props) 的props.
+**LinearProgress**：Load bar component ，receive all  [View](https://reactnative.dev/docs/view#props)  props 
 
 |    Name    |                         Description                          |                 Type                 | Required | Platform | HarmonyOS Support |
 | :--------: | :----------------------------------------------------------: | :----------------------------------: | :------: | :------: | :---------------: |
@@ -685,7 +663,7 @@ export default Avatars;
 |   value    | The value of the progress indicator for the determinate variant. Value between 0 and 1. |                number                |    No    |   All    |        Yes        |
 |  variant   |                       Type of button.                        |    `determinate`，`indeterminate`    |    No    |   All    |        Yes        |
 
-**ListItem**：列表渲染组件，接收所有 [View](https://reactnative.dev/docs/view#props) 的props.
+**ListItem**：List rendering component，receive all   [View](https://reactnative.dev/docs/view#props)   props 
 
 |                          Name                           |                         Description                          |      Type       | Required | Platform | HarmonyOS Support |
 | :-----------------------------------------------------: | :----------------------------------------------------------: | :-------------: | :------: | :------: | :---------------: |
@@ -699,7 +677,7 @@ export default Avatars;
 |                           pad                           | Adds spacing between the leftComponent, the title component & right component. |     number      |    No    |   All    |        Yes        |
 |                       topDivider                        |           Add divider at the top of the list item.           |     boolean     |    No    |   All    |        Yes        |
 
-**ListItem.Accordion**：列表渲染折叠组件，接收所有 [ListItem](https://reactnativeelements.com/docs/components/listitem#props) 的props.
+**ListItem.Accordion**：List rendering folding component ，receive all  [ListItem](https://reactnativeelements.com/docs/components/listitem#props)  props  
 
 |    Name    |                         Description                          |              Type              | Required | Platform | HarmonyOS Support |
 | :--------: | :----------------------------------------------------------: | :----------------------------: | :------: | :------: | :---------------: |
@@ -712,7 +690,7 @@ export default Avatars;
 |   noIcon   |                  Don't show accordion icon.                  |            boolean             |    No    |   All    |        Yes        |
 | noRotation |           Don't rotate when Accordion is expanded.           |            boolean             |    No    |   All    |        Yes        |
 
-**ListItem.ButtonGroup**：列表渲染按钮组组件，接收所有 [ButtonGroup](https://reactnativeelements.com/docs/components/buttongroup#props) 的props.
+**ListItem.ButtonGroup**：List rendering button group component，receive all [ButtonGroup](https://reactnativeelements.com/docs/components/buttongroup#props)  props 
 
 |      Name      |                    Description                    |             Type             | Required | Platform | HarmonyOS Support |
 | :------------: | :-----------------------------------------------: | :--------------------------: | :------: | :------: | :---------------: |
@@ -721,9 +699,9 @@ export default Avatars;
 |   onPressOut   | Called when a touch is released before `onPress`. | GestureResponderEventHandler |    No    |   All    |        Yes        |
 | pressableProps |       PressableProps except click handlers        |        PressableProps        |    No    |   All    |        Yes        |
 
-**ListItem.CheckBox**：列表渲染选择框组件，接收所有 [CheckBox](https://reactnativeelements.com/docs/components/checkbox#props) 的props.
+**ListItem.CheckBox**：List rendering CheckBox component,  receive all  [CheckBox](https://reactnativeelements.com/docs/components/checkbox#props)  props
 
-**ListItem.Chevron**：列表渲染字体图标组件，接收所有 [Icon](https://reactnativeelements.com/docs/components/icon#props) 的props.
+**ListItem.Chevron**：List rendering font icon component，receive all  [Icon](https://reactnativeelements.com/docs/components/icon#props)  props
 
 |      Name      |                    Description                    |             Type             | Required | Platform | HarmonyOS Support |
 | :------------: | :-----------------------------------------------: | :--------------------------: | :------: | :------: | :---------------: |
@@ -733,21 +711,21 @@ export default Avatars;
 |   onPressOut   | Called when a touch is released before `onPress`. | GestureResponderEventHandler |    No    |   All    |        Yes        |
 | pressableProps |       PressableProps except click handlers        |        PressableProps        |    No    |   All    |        Yes        |
 
-**ListItem.Content**：列表渲染内容组件，接收所有 [Text](https://reactnativeelements.com/docs/components/text#props) 的props.
+**ListItem.Content**：List rendering content component，receive all  [Text](https://reactnativeelements.com/docs/components/text#props)  props 
 
 | Name  |          Description          |  Type   | Required | Platform | HarmonyOS Support |
 | :---: | :---------------------------: | :-----: | :------: | :------: | :---------------: |
 | right | Start content from the right. | boolean |    No    |   All    |        Yes        |
 
-**ListItem.Input**：列表渲染表单组件，接收所有 [Input](https://reactnativeelements.com/docs/components/input#props) 的props.
+**ListItem.Input**：List rendering form component，receive all  [Input](https://reactnativeelements.com/docs/components/input#props) props 
 
-**ListItem.Subtitle**：列表渲染字幕组件，接收所有 [Text](https://reactnative.dev/docs/text#props) 的props.
+**ListItem.Subtitle**：List rendering subtitle component，receive all [Text](https://reactnative.dev/docs/text#props) props  
 
 | Name  |          Description          |  Type   | Required | Platform | HarmonyOS Support |
 | :---: | :---------------------------: | :-----: | :------: | :------: | :---------------: |
 | right | Start content from the right. | boolean |    No    |   All    |        Yes        |
 
-**ListItem.Swipeable**：列表渲染滑动框组件，接收所有 [ListItem](https://reactnativeelements.com/docs/components/listitem#props) 的props.
+**ListItem.Swipeable**：List rendering slider component,  receive all  [ListItem](https://reactnativeelements.com/docs/components/listitem#props) props 
 
 |     Name      |                 Description                 |                  Type                   | Required | Platform | HarmonyOS Support |
 | :-----------: | :-----------------------------------------: | :-------------------------------------: | :------: | :------: | :---------------: |
@@ -755,20 +733,19 @@ export default Avatars;
 |  leftContent  |                Left Content.                | ReactNode or resetCallback => ReactNode |    No    |   All    |        Yes        |
 |   leftStyle   |          Style of left container.           |               View Style                |    No    |   All    |        Yes        |
 |   leftWidth   |       Width of swipe left container.        |                 number                  |    No    |   All    |        Yes        |
-| minSlideWidth | minimum horizontal distance to open content |                 number                  |    No    |    No    |        No         |
 | onSwipeBegin  |    Handler for swipe in either direction    | `(direction: left`,`right) => unknown`  |    No    |   All    |        Yes        |
 |  onSwipeEnd   |           Handler for swipe end.            |              () => unknown              |    No    |   All    |        Yes        |
 | rightContent  |               Right Content.                | ReactNode or resetCallback => ReactNode |    No    |   All    |        Yes        |
 |  rightStyle   |          Style of right container.          |               View Style                |    No    |   All    |        Yes        |
 |  rightWidth   |       Width of swipe right container.       |                 number                  |    No    |   All    |        Yes        |
 
-**ListItem.Title**：列表渲染标题组件，接收所有 [View](https://reactnative.dev/docs/view#props) 的props
+**ListItem.Title**：List rendering title component，receive all   [View](https://reactnative.dev/docs/view#props)  props
 
 | Name  |   Description    |  Type   | Required | Platform | HarmonyOS Support |
 | :---: | :--------------: | :-----: | :------: | :------: | :---------------: |
 | right | Add right title. | boolean |    No    |    No    |        No         |
 
-**Overlay**：弹窗组件，接收所有 [Text](https://reactnativeelements.com/docs/components/text#props) 的props
+**Overlay**：Popup component，receive all [Text](https://reactnativeelements.com/docs/components/text#props) props  
 
 |      Name       |                         Description                          |             Type             | Required | Platform | HarmonyOS Support |
 | :-------------: | :----------------------------------------------------------: | :--------------------------: | :------: | :------: | :---------------: |
@@ -783,7 +760,7 @@ export default Avatars;
 |  overlayStyle   |                 Style of the actual overlay.                 |          View Style          |    No    |   All    |        Yes        |
 | pressableProps  |             PressableProps except click handlers             |        PressableProps        |    No    |   All    |        Yes        |
 
-**PricingCard**：价格卡组件
+**PricingCard**：Price Card component
 
 |      Name      |                Description                 |                Type                | Required | Platform | HarmonyOS Support |
 | :------------: | :----------------------------------------: | :--------------------------------: | :------: | :------: | :---------------: |
@@ -799,7 +776,7 @@ export default Avatars;
 |   titleStyle   |         Specify title text style.          |             Text Style             |    No    |   All    |        Yes        |
 |  wrapperStyle  |      Inner wrapper component styling.      |             View Style             |    No    |   All    |        Yes        |
 
-**Ratings**：评分组件
+**Ratings**：Rating  component
 
 |         Name          |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
 | :-------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
@@ -823,7 +800,7 @@ export default Avatars;
 |       tintColor       |                Color used for the background                 |        string         |    No    |    No    |        No         |
 |         type          |     Graphic used for represent a ratingDefault is 'star'     |        string         |    No    |    No    |        No         |
 
-**SearchBar**：搜索框组件，接收所有 [Input](https://reactnativeelements.com/docs/components/input#props) 的 props
+**SearchBar**：SearchBox component ，receive all  [Input](https://reactnativeelements.com/docs/components/input#props) props 
 
 |          Name           |              Description               |            Type             | Required | Platform | HarmonyOS Support |
 | :---------------------: | :------------------------------------: | :-------------------------: | :------: | :------: | :---------------: |
@@ -846,7 +823,7 @@ export default Avatars;
 |       showCancel        |              Show cancel               |           boolean           |    No    |    No    |        No         |
 |       showLoading       |              Show loading              |           boolean           |    No    |   All    |        Yes        |
 
-**Slider**：滑动条组件
+**Slider**：Slider component
 
 |         Name          |                         Description                          |                       Type                       | Required | Platform | HarmonyOS Support |
 | :-------------------: | :----------------------------------------------------------: | :----------------------------------------------: | :------: | :------: | :---------------: |
@@ -874,7 +851,7 @@ export default Avatars;
 |      trackStyle       |               The style applied to the track.                |                    View Style                    |    No    |   All    |        Yes        |
 |         value         |                 Initial value of the slider.                 |                      number                      |    No    |   All    |        Yes        |
 
-**Skeleton**：骨架屏组件，接收所有 [View](https://reactnative.dev/docs/view#props) 的props
+**Skeleton**：Skeleton screen component，receive all  [View](https://reactnative.dev/docs/view#props) props 
 
 |          Name           |            Description             |           Type            | Required | Platform | HarmonyOS Support |
 | :---------------------: | :--------------------------------: | :-----------------------: | :------: | :------: | :---------------: |
@@ -885,7 +862,7 @@ export default Avatars;
 |      skeletonStyle      | Custom style for skeleton gradient |        View Style         |    No    |   All    |        Yes        |
 |          width          |       Width of Skeleton View       |     `string`,`number`     |    No    |   All    |        Yes        |
 
-**SocialIcon**：社交字体图标组件
+**SocialIcon**：Social font icon component
 
 |          Name          |                         Description                          |             Type             | Required | Platform | HarmonyOS Support |
 | :--------------------: | :----------------------------------------------------------: | :--------------------------: | :------: | :------: | :---------------: |
@@ -914,7 +891,7 @@ export default Avatars;
 |          type          |                      Social media type.                      |       SocialMediaType        |    No    |   All    |        Yes        |
 |     underlayColor      |                     Add Underlay color.                      |            string            |    No    |    No    |        No         |
 
-**SpeedDial**：浮动快速操作按钮组件，接收所有 [Button](https://reactnativeelements.com/docs/components/button#props), [FAB](https://reactnativeelements.com/docs/components/fab#props)  的props
+**SpeedDial**：Floating Quick Operation Button Component，receive all  [Button](https://reactnativeelements.com/docs/components/button#props), [FAB](https://reactnativeelements.com/docs/components/fab#props) props  
 
 |          Name          |                       Description                        |       Type       | Required | Platform | HarmonyOS Support |
 | :--------------------: | :------------------------------------------------------: | :--------------: | :------: | :------: | :---------------: |
@@ -928,19 +905,19 @@ export default Avatars;
 |      overlayColor      |           Add overlay color to the speed dial.           |      string      |    No    |   All    |        Yes        |
 |   transitionDuration   |    The duration for the transition, in milliseconds.     |      number      |    No    |   All    |        Yes        |
 
-**SpeedDial.Action**：浮动快速操作子按钮组件，接收所有 [FAB](https://reactnativeelements.com/docs/components/fab#props) 的props
+**SpeedDial.Action**：Floating quick operation sub button component，receive all [FAB](https://reactnativeelements.com/docs/components/fab#props) props  
 
 |      Name      |      Description       |  Type   | Required | Platform | HarmonyOS Support |
 | :------------: | :--------------------: | :-----: | :------: | :------: | :---------------: |
 | labelPressable | onPress on Label Press | boolean |    No    |   All    |        Yes        |
 
-**Switch**：滑动开关组件，接收所有 [React Native Switch](https://reactnative.dev/docs/switch.html#props), [View](https://reactnative.dev/docs/view#props) 的props
+**Switch**：Switch component，receive all [React Native Switch](https://reactnative.dev/docs/switch.html#props), [View](https://reactnative.dev/docs/view#props) props   
 
 | Name  |            Description             |  Type  | Required | Platform | HarmonyOS Support |
 | :---: | :--------------------------------: | :----: | :------: | :------: | :---------------: |
 | color | The color of the Switch component. | string |    No    |   All    |        Yes        |
 
-**Tab**：导航栏组件，接收所有 [View](https://reactnative.dev/docs/view#props) 的props
+**Tab**：Navigation bar component，receive all  [View](https://reactnative.dev/docs/view#props)  props 
 
 |       Name       |               Description                |                     Type                      | Required | Platform | HarmonyOS Support |
 | :--------------: | :--------------------------------------: | :-------------------------------------------: | :------: | :------: | :---------------: |
@@ -956,7 +933,7 @@ export default Avatars;
 |      value       |       Child position index value.        |                    number                     |    No    |   All    |        Yes        |
 |     variant      |      Define the background Variant.      |             `primary`，`default`              |    No    |   All    |        Yes        |
 
-**Tab.Item**：导航栏子组件，接收所有 [Button](https://reactnativeelements.com/docs/components/button#props) 的props
+**Tab.Item**：Navigation bar subcomponent，receive all [Button](https://reactnativeelements.com/docs/components/button#props) props 
 
 |        Name        |                   Description                    |                     Type                      | Required | Platform | HarmonyOS Support |
 | :----------------: | :----------------------------------------------: | :-------------------------------------------: | :------: | :------: | :---------------: |
@@ -968,7 +945,7 @@ export default Avatars;
 |     titleStyle     |          Additional button title style           | `ViewStyle or (active: boolean) => ViewStyle` |    No    |   All    |        Yes        |
 |      variant       |          Define the background Variant.          |             `primary`，`default`              |    No    |    No    |        No         |
 
-**TabView**：滑动开关内容组件
+**TabView**： TabView content component
 
 |         Name          |                         Description                          |          Type          | Required | Platform | HarmonyOS Support |
 | :-------------------: | :----------------------------------------------------------: | :--------------------: | :------: | :------: | :---------------: |
@@ -984,9 +961,9 @@ export default Avatars;
 | tabItemContainerStyle |        Styling for TabView.Item Component container.         |       View Style       |    No    |   All    |        Yes        |
 |         value         |                 Child position index value.                  |         number         |    No    |   All    |        Yes        |
 
-**TabView.Item**：滑动开关内容子组件，接受所有 [View](https://reactnative.dev/docs/view#props) 的 props
+**TabView.Item**： TabView content sub component，receive all  [View](https://reactnative.dev/docs/view#props)  props 
 
-**Text**：文本内容组件组件
+**Text**：Text Content component 
 
 |  Name   |           Description            |    Type    | Required | Platform | HarmonyOS Support |
 | :-----: | :------------------------------: | :--------: | :------: | :------: | :---------------: |
@@ -1000,7 +977,7 @@ export default Avatars;
 | h4Style |     Styling when h4 is set.      | Text Style |    No    |   All    |        Yes        |
 |  style  | Add additional styling for Text. | Text Style |    No    |   All    |        Yes        |
 
-**Tile**：卡片图块组件
+**Tile**：Card Block component
 
 |         Name          |                         Description                          |              Type              | Required | Platform | HarmonyOS Support |
 | :-------------------: | :----------------------------------------------------------: | :----------------------------: | :------: | :------: | :---------------: |
@@ -1023,7 +1000,7 @@ export default Avatars;
 |      titleStyle       |                    Styling for the title.                    |           Text Style           |    No    |   All    |        Yes        |
 |         width         |                     Width for the tile.                      |             number             |    No    |   All    |        Yes        |
 
-**Tooltip**：文本提示组件
+**Tooltip**：Text prompt component
 
 |           Name           |                         Description                          |                           Type                           | Required | Platform | HarmonyOS Support |
 | :----------------------: | :----------------------------------------------------------: | :------------------------------------------------------: | :------: | :------: | :---------------: |
@@ -1048,24 +1025,25 @@ export default Avatars;
 |       withOverlay        | Flag to determine whether or not display overlay shadow when tooltip is open. |                         boolean                          |    No    |   All    |        Yes        |
 |       withPointer        |   Flag to determine whether or not to display the pointer.   |                         boolean                          |    No    |   All    |        Yes        |
 
-## 遗留问题
-## 其他
-- [ ] Rating组件的readonly、onFinishRating等属性无法生效，与Android/iOS一致：[issue#1](https://github.com/react-native-elements/react-native-elements/issues/3736)、[issue#2](https://github.com/react-native-elements/react-native-elements/issues/3718)。
-- [ ] AirbnbRatings组件的startImage属性无法生效，与Android/iOS一致：[issue#3](https://github.com/react-native-elements/react-native-elements/issues/3718)。
-- [ ] ButtonGroups组件的activeOpacity、button等属性无法生效，与Android/iOS一致：[issue#4](https://github.com/react-native-elements/react-native-elements/issues/3938)。
-- [ ] Dialog组件的onLongPress、onpressIn等属性无法生效，与Android/iOS一致：[issue#5](https://github.com/react-native-elements/react-native-elements/issues/3931)。
-- [ ] Header组件的barStyle、elevated等属性无法生效，与Android、iOS一致：[issue#6](https://github.com/react-native-elements/react-native-elements/issues/3935)。
-- [ ] Input组件的renderErrorMessage属性无法生效，与Android、iOS一致：[issue#7](https://github.com/react-native-elements/react-native-elements/issues/3933)。
-- [ ] ListItem.Swipeable组件的minSlideWidth属性无法生效，与Android、iOS一致：[issue#8](https://github.com/react-native-elements/react-native-elements/issues/3825)。
-- [ ] ListItem.Title组件的right属性无法生效，与Android、iOS一致：[issue#9](https://github.com/react-native-elements/react-native-elements/issues/3934)。
-- [ ] SearchBar组件的cancelButtonProps、showCancel等属性无法生效，与Android、iOS一致：[issue#10](https://github.com/react-native-elements/react-native-elements/issues/3939)。
-- [ ] SocialIcon组件的fontFamily、fontWeight等属性无法生效，与Android、iOS一致：[issue#11](https://github.com/react-native-elements/react-native-elements/issues/3940)。
-- [ ] SpeedDial组件的backdropPressableProps属性无法生效，与Android、iOS一致：[issue#12](https://github.com/react-native-elements/react-native-elements/issues/3937)。
-- [ ] Tab组件的containerStyle、dense等属性无法生效，与Android、iOS一致：[issue#13](https://github.com/react-native-elements/react-native-elements/issues/3941)。
-- [ ] Tab.Item组件的active、dense等属性无法生效，与Android、iOS一致：[issue#14](https://github.com/react-native-elements/react-native-elements/issues/3936)。
-- [ ] Tile组件的activeOpacity等属性无法生效，与Android、iOS一致：[issue#15](https://github.com/react-native-elements/react-native-elements/issues/3932)。
-- [ ] Tooltip组件的closeOnlyOnBackdropPress属性无法生效，与Android、iOS一致：[issue#16](https://github.com/react-native-elements/react-native-elements/issues/3811)。
+## Known Issues
+## Others
 
-## 开源协议
+- [ ] The readonly and onFinishRating properties of the Rating component cannot take effect, consistent with Android/iOS：[issue#1](https://github.com/react-native-elements/react-native-elements/issues/3736)、[issue#2](https://github.com/react-native-elements/react-native-elements/issues/3718)。
+- [ ] The startImage property of the Airbnb Ratings component cannot take effect, consistent with Android/iOS：[issue#3](https://github.com/react-native-elements/react-native-elements/issues/3718)。
+- [ ] The activeOpacity, button, and other properties of the buttonGroups component cannot take effect, consistent with Android/iOS：[issue#4](https://github.com/react-native-elements/react-native-elements/issues/3938)。
+- [ ] The onLongPress, onpressIn and other properties of the Dialog component cannot take effect, consistent with Android/iOS：[issue#5](https://github.com/react-native-elements/react-native-elements/issues/3931)。
+- [ ] The barStyle, elevated, and other properties of the Header component cannot take effect, consistent with Android and iOS：[issue#6](https://github.com/react-native-elements/react-native-elements/issues/3935)。
+- [ ] The renderError Message property of the Input component cannot take effect, consistent with Android and iOS：[issue#7](https://github.com/react-native-elements/react-native-elements/issues/3933)。
+- [ ] The minSlideWidth property of ListItem.Swipeable component cannot take effect, consistent with Android and iOS：[issue#8](https://github.com/react-native-elements/react-native-elements/issues/3825)。
+- [ ] The right property of ListItem.Title component cannot take effect, consistent with Android and iOS：[issue#9](https://github.com/react-native-elements/react-native-elements/issues/3934)。
+- [ ] The properties such as cancelButtons Props and showCancel of the SearchBar component cannot take effect, consistent with Android and iOS：[issue#10](https://github.com/react-native-elements/react-native-elements/issues/3939)。
+- [ ] The fontFamily, fontWeight, and other properties of the SocialIcon component cannot take effect, consistent with Android and iOS：[issue#11](https://github.com/react-native-elements/react-native-elements/issues/3940)。
+- [ ] The backdropPresableProps property of the SpeedDial component cannot take effect, consistent with Android and iOS：[issue#12](https://github.com/react-native-elements/react-native-elements/issues/3937)。
+- [ ] The containerStyle, density, and other properties of the Tab component cannot take effect, consistent with Android and iOS：[issue#13](https://github.com/react-native-elements/react-native-elements/issues/3941)。
+- [ ] The active, dense, and other properties of the Tab.Item component cannot take effect, consistent with Android and iOS：[issue#14](https://github.com/react-native-elements/react-native-elements/issues/3936)。
+- [ ] The activeOpacity and other properties of Tile components cannot take effect, consistent with Android and iOS：[issue#15](https://github.com/react-native-elements/react-native-elements/issues/3932)。
+- [ ] The closeOnlyOnBackdropPress property of the Tooltip component cannot take effect, consistent with Android and iOS：[issue#16](https://github.com/react-native-elements/react-native-elements/issues/3811)。
 
-本项目基于 [The MIT License (MIT)](https://github.com/react-native-elements/react-native-elements/blob/next/LICENSE)，请自由地享受和参与开源。
+## License
+
+This project is licensed under [The MIT License (MIT)](https://github.com/react-native-elements/react-native-elements/blob/next/LICENSE)

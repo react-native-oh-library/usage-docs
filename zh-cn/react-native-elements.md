@@ -260,52 +260,35 @@ export default Avatars;
 ### 在 ArkTs 侧引入和注册字体文件
 
 步骤一：
-    复制字体文件到  `entry/src/main/ets/assets/fonts` 目录下(如使用了外部字体文件，需要将*.ttf文件复制过来)
+    复制字体文件到  `entry\src\main\resources\rawfile\fonts` 目录下(如使用了外部字体文件，需要将*.ttf文件复制过来)
 
 步骤二：
     打开 `entry/src/main/ets/pages/Index.ets`，添加以下代码
 
 ```ts
-    import font from '@ohos.font';
-    //...
-    //特别注意：FontAwesome 系列中字体的 familyName 需要通过代码逻辑自行理解
-    const fonts: font.FontOptions[] = [
-      {
-        familyName: 'StintUltraCondensed-Regular',
-        familySrc: '/assets/fonts/StintUltraCondensed-Regular.ttf'
-      },
-      {
-        familyName: 'FontAwesome',
-        familySrc: '/assets/fonts/FontAwesome.ttf'
-      },
-      {
-        familyName: 'FontAwesome5_Brands',
-        familySrc: '/assets/fonts/FontAwesome5_Brands.ttf'
-      },
-      {
-        familyName: 'FontAwesome5_Regular',
-        familySrc: '/assets/fonts/FontAwesome5_Regular.ttf'
-      },
-      {
-        familyName: 'FontAwesome5_Solid',
-        familySrc: '/assets/fonts/FontAwesome5_Solid.ttf'
-      }
-    ]
-
-    @Entry
-    @Component
-    struct Index {
-        //...
-        aboutToAppear() {
-            //...
-
-            //注册字体文件
-            for (const customFont of fonts) {
-                font.registerFont(customFont)
-            }
+  //特别注意：FontAwesome 系列中字体的 familyName 需要通过代码逻辑自行理解
+  build() {
+    Column() {
+      if (this.rnohCoreContext && this.shouldShow) {
+        if (this.rnohCoreContext?.isDebugModeEnabled) {
+          RNOHErrorDialog({ ctx: this.rnohCoreContext })
         }
-        //...
+        RNApp({
+          rnInstanceConfig: {
+            fontResourceByFontFamily:{
+              "FontAwesome": $rawfile("fonts/FontAwesome.ttf"),
+              "FontAwesome5_Brands": $rawfile("fonts/FontAwesome5_Brands.ttf"),
+              "FontAwesome5_Regular": $rawfile("fonts/FontAwesome5_Regular.ttf"),
+              "FontAwesome5_Solid": $rawfile("fonts/FontAwesome5_Solid.ttf"),
+              "Pacifico-Regular": $rawfile("fonts/Pacifico-Regular.ttf"),
+              "StintUltraCondensed-Regular": $rawfile("fonts/StintUltraCondensed-Regular.ttf") }
+          },
+        })
+      }
     }
+    .height('100%')
+    .width('100%')
+  }
 ```
 
 > [!TIP] Demo中字体属于IconFont文件；自定义字体也需要用统一的方法在此注册。

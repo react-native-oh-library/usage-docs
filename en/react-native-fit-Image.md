@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-模板版本：v0.2.2
+Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-fit-image</code> </h1>
@@ -16,11 +16,11 @@
 
 
 
-> [!TIP] [Github 地址](https://github.com/huiseoul/react-native-fit-image)
+> [!TIP] [GitHub address](https://github.com/huiseoul/react-native-fit-image)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction：
 
 <!-- tabs:start -->
 
@@ -38,7 +38,7 @@ yarn add react-native-fit-image@1.5.5
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository：
 
 ```tsx
 import React,{useState,useEffect} from 'react'
@@ -121,7 +121,7 @@ const FitImageDemo=()=>{
                              />
                      </View>
                      <View>
-                         <Text>测试属性originalWidth，originalHeight（在不加宽度高度的情况下）</Text>
+                         <Text>测试PropertiesoriginalWidth，originalHeight（在不加宽度高度的情况下）</Text>
                          <FitImage
                              source={require('./assets/expo.png')}
                              originalWidth={400}
@@ -281,25 +281,25 @@ const FitImageDemo=()=>{
 export default FitImageDemo;
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-在以下版本验证通过
+This document is verified based on the following versions
 
 1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.21;
 
-## 属性
+## Properties
 
-[!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name               | Description                                                                                                                                                                                                                                                                                                                                                                                                     | Type          | Required | Platform                      | HarmonyOS Support | Remark                                                       |
 | ------------------ |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| ------------- | -------- | ----------------------------- | ----------------- | ------------------------------------------------------------ |
-| `style`            | 图片宽(width)高(height)，边框等样式                                                                                                                                                                                                                                                                                                                                                                                       | object        | yes      | Android IOS                   | YES               | 在不加orginalWidth与orginalHeight属性时，style里面必须设置宽width，高height才能把图片加载出来 |
+| `style`            | 图片宽(width)高(height)，边框等样式                                                                                                                                                                                                                                                                                                                                                                                       | object        | yes      | Android IOS                   | YES               | 在不加orginalWidth与orginalHeightProperties时，style里面必须设置宽width，高height才能把图片加载出来 |
 | `source`           | 图片文件源：                                                                                               本地图片 source={require('./assets/expo.png')}；<br />网络图片 source={{uri:"xxx"}}                                                                                                                                                                                                                                 | string        | yes      | Android IOS                   | YES               |                                                              |
-| `width`            | 图片style中属性                                                                                                                                                                                                                                                                                                                                                                                                      | number        | yes      | Android IOS                   | YES               |                                                              |
-| `height`           | 图片style中属性                                                                                                                                                                                                                                                                                                                                                                                                      | number        | yes      | Android IOS                   | YES               |                                                              |
-| `borderRadius`     | 图片样式（圆角）                                                                                                                                                                                                                                                                                                                                                                                                        | number        | No       | Android IOS HarmonyOS都不支持 | NO                | 此属性在HarmonyOS，Android ，IOS均不生效;[issues](https://github.com/huiseoul/react-native-fit-image/issues/111) |
+| `width`            | 图片style中Properties                                                                                                                                                                                                                                                                                                                                                                                                      | number        | yes      | Android IOS                   | YES               |                                                              |
+| `height`           | 图片style中Properties                                                                                                                                                                                                                                                                                                                                                                                                      | number        | yes      | Android IOS                   | YES               |                                                              |
+| `borderRadius`     | 图片样式（圆角）                                                                                                                                                                                                                                                                                                                                                                                                        | number        | No       | Android IOS HarmonyOS都不支持 | NO                | 此Properties在HarmonyOS，Android ，IOS均不生效;[issues](https://github.com/huiseoul/react-native-fit-image/issues/111) |
 | `indicator`        | 加载器值为true/false (默认true)                                                                                                                                                                                                                                                                                                                                                                                        | boolean       | No       | Android IOS                   | YES               |                                                              |
 | `indicatorColor`   | 加载器颜色                                                                                                                                                                                                                                                                                                                                                                                                           | string        | No       | Android IOS                   | YES               |                                                              |
 | `indicatorSize`    | 加载器大小  值：`large`  `small` number(例: indicatorSize={20} )                                                                                                                                                                                                                                                                                                                                                        | string/number | No       | Android IOS                   | YES               |                                                              |
@@ -314,15 +314,15 @@ export default FitImageDemo;
 | orginalWidth       | 图片原始宽度                                                                                                                                                                                                                                                                                                                                                                                                          | number        | NO       | Android IOS                   | YES               |                                                              |
 | orginalHeight      | 图片原始高度                                                                                                                                                                                                                                                                                                                                                                                                          | number        | NO       | Android IOS                   | YES               |                                                              |
 
-## 遗留问题
+## Known Issues
 
 - [ ] 在react-native-fit-image三方库中`onError`.`onLoadStart`.`onLayout`回调方法，在原库文档（react-native-fit-image）作者已说明并没有适配（Some props are not working），有待开发：[issues](https://github.com/huiseoul/react-native-fit-image/issues/76)
-- [ ] `borderRadius`图片圆角属性，在 HarmonyOS ，ios，安卓均不支持，官方文档互动有提到borderRadius不生效：[issues](https://github.com/huiseoul/react-native-fit-image/issues/111)
+- [ ] `borderRadius`图片圆角Properties，在 HarmonyOS ，ios，安卓均不支持，官方文档互动有提到borderRadius不生效：[issues](https://github.com/huiseoul/react-native-fit-image/issues/111)
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [THE BEER-WARE LICENSE](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Fhuiseoul%2Freact-native-fit-image%2Fblob%2Fmaster%2FLICENSE) ，请自由地享受和参与开源。
+This project is licensed under [THE BEER-WARE LICENSE](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Fhuiseoul%2Freact-native-fit-image%2Fblob%2Fmaster%2FLICENSE).
 
 <!-- {% endraw %} -->

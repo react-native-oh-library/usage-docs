@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-模板版本：v0.2.0
+> Template version: v0.2.0
 
 <p align="center">
   <a href="https://ahooks.js.org">
@@ -12,7 +12,7 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/alibaba/hooks)
+> [!tip] [GitHub address](https://github.com/alibaba/hooks)
 
 ## 📚 文档
 
@@ -28,7 +28,7 @@
 - 包含丰富的基础 Hooks
 - 使用 TypeScript 构建，提供完整的类型定义文件
 
-## 📦 安装
+## 📦 Installation
 
 ```bash
 $ npm install --save ahooks
@@ -46,7 +46,7 @@ $ npm install @ahooksjs/use-url-state --legacy-peer-deps
 $ npm install react-json-view@1.21.3
 ```
 
-## 使用
+## Usage
 
 ```tsx
 /**
@@ -107,19 +107,20 @@ export function WhyDidYouUpdate() {
 
 
 
-## 兼容性
+## Compatibility
 
-在以下版本验证通过：
+This document is verified based on the following versions：
 
 1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：205.0.0.18;
 
-## 属性
+## Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-以下属性已验证，详情见 [ahooks官方文档](https://ahooks.js.org/zh-CN/)
+
+以下Properties已验证，详情见 [ahooks官方文档](https://ahooks.js.org/zh-CN/)
 
 |            Name            |                                                                                                                        Description                                                                                                                        |   Type   | Platform | HarmonyOS Support |
 | :------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------: | :------: | :---------------: |
@@ -175,34 +176,34 @@ export function WhyDidYouUpdate() {
 |      useEventEmitter       |                                                                                                在组件中调用 `useEventEmitter` 可以获得一个 `EventEmitter`                                                                                                 | Function |   All    |        yes        |
 |         useLatest          |                                                                                                          返回当前最新值的 Hook，可以避免闭包问题                                                                                                          | Function |   All    |        yes        |
 |       useMemoizedFn        |                                                 持久化 function 的 Hook，一般情况下，可以使用 useMemoizedFn 完全代替 useCallback，特殊情况见 [FAQ](https://ahooks.js.org/zh-CN/hooks/use-memoized-fn#faq)                                                 | Function |   All    |        yes        |
-|        useReactive         |                                                                                  提供一种数据响应式的操作体验，定义数据状态不需要写`useState`，直接修改属性即可刷新视图                                                                                   | Function |   All    |        yes        |
+|        useReactive         |                                                                                  提供一种数据响应式的操作体验，定义数据状态不需要写`useState`，直接修改Properties即可刷新视图                                                                                   | Function |   All    |        yes        |
 |      useTrackedEffect      |                                                                                                        追踪是哪个依赖变化触发了 `useEffect` 的执行                                                                                                        | Function |   All    |        yes        |
-|     useWhyDidYouUpdate     |                                                                                                     帮助开发者排查是哪个属性改变导致了组件的 rerender                                                                                                     | Function |   All    |        yes        |
+|     useWhyDidYouUpdate     |                                                                                                     帮助开发者排查是哪个Properties改变导致了组件的 rerender                                                                                                     | Function |   All    |        yes        |
 
 ## 手机端不支持方法澄清
 
 | title    | hook-name             | 解释                                                                                                    | 问题描述                                                                                                                                                          | HarmonyOS Support |
 | -------- | --------------------- | ------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------: |
-| Dom      | useDrop & useDrag     | 处理元素拖拽的 Hook                                                                                     | Property 'document' doesn't exist 属性“document”不存在                                                                                                            |        NO         |
+| Dom      | useDrop & useDrag     | 处理元素拖拽的 Hook                                                                                     | Property 'document' doesn't exist Properties“document”不存在                                                                                                            |        NO         |
 | Dom      | useEventListener      | 优雅的使用 addEventListener                                                                             | 基础用法：无报错 监听 keydown 事件：无物理键盘                                                                                                                    |        NO         |
 | Dom      | useEventListener      | 优雅的使用 addEventListener                                                                             | 报错，无物理键盘                                                                                                                                                  |        NO         |
-| Dom      | useClickAway          | 监听目标元素外的点击事件                                                                                | Property 'document' doesn't exist 属性“document”不存在                                                                                                            |        NO         |
+| Dom      | useClickAway          | 监听目标元素外的点击事件                                                                                | Property 'document' doesn't exist Properties“document”不存在                                                                                                            |        NO         |
 | Dom      | useDocumentVisibility | 监听页面是否可见                                                                                        | 无报错，无法监听到state状态变化，获取不到手机窗口                                                                                                                 |        NO         |
 | Dom      | useEventTarget        | 常见表单控件(通过 e.target.value 获取表单值) 的 onChange 跟 value 逻辑封装，支持自定义值转换和重置功能  | Cannot read property ‘value’of undefined                                                                                                                          |        NO         |
-| Dom      | useExternal           | 动态注入 JS 或 CSS 资源，useExternal 可以保证资源全局唯一                                               | Property 'document' doesn't exist 属性“document”不存在                                                                                                            |        NO         |
-| Dom      | useTitle              | 用于设置页面标题                                                                                        | Property 'document' doesn't exist 属性“document”不存在                                                                                                            |        NO         |
-| Dom      | useFavicon            | 设置页面的 favicon                                                                                      | Property 'document' doesn't exist 属性“document”不存在                                                                                                            |        NO         |
-| Dom      | useFullscreen         | 管理 DOM 全屏的 Hook                                                                                    | Property 'document' doesn't exist 属性“document”不存在                                                                                                            |        NO         |
-| Dom      | useHover              | 监听 DOM 元素是否有鼠标悬停                                                                             | 无报错，点击按钮无反应，监听不到属性变化                                                                                                                          |        NO         |
-| Dom      | useInViewport         | 观察元素是否在可见区域，以及元素可见比例                                                                | Property 'document' doesn't exist 属性“document”不存在                                                                                                            |        NO         |
-| Dom      | useKeyPress           | 监听键盘按键，支持组合键，支持按键别名                                                                  | 无报错，没有物理键盘，无法操作属性                                                                                                                                |        NO         |
-| Dom      | useLongPress          | 监听目标元素的长按事件                                                                                  | Property 'document' doesn't exist 属性“document”不存在                                                                                                            |        NO         |
-| Dom      | useMouse              | 监听鼠标位置                                                                                            | 无报错，点击按钮无反应，监听不到属性变化                                                                                                                          |        NO         |
+| Dom      | useExternal           | 动态注入 JS 或 CSS 资源，useExternal 可以保证资源全局唯一                                               | Property 'document' doesn't exist Properties“document”不存在                                                                                                            |        NO         |
+| Dom      | useTitle              | 用于设置页面标题                                                                                        | Property 'document' doesn't exist Properties“document”不存在                                                                                                            |        NO         |
+| Dom      | useFavicon            | 设置页面的 favicon                                                                                      | Property 'document' doesn't exist Properties“document”不存在                                                                                                            |        NO         |
+| Dom      | useFullscreen         | 管理 DOM 全屏的 Hook                                                                                    | Property 'document' doesn't exist Properties“document”不存在                                                                                                            |        NO         |
+| Dom      | useHover              | 监听 DOM 元素是否有鼠标悬停                                                                             | 无报错，点击按钮无反应，监听不到Properties变化                                                                                                                          |        NO         |
+| Dom      | useInViewport         | 观察元素是否在可见区域，以及元素可见比例                                                                | Property 'document' doesn't exist Properties“document”不存在                                                                                                            |        NO         |
+| Dom      | useKeyPress           | 监听键盘按键，支持组合键，支持按键别名                                                                  | 无报错，没有物理键盘，无法操作Properties                                                                                                                                |        NO         |
+| Dom      | useLongPress          | 监听目标元素的长按事件                                                                                  | Property 'document' doesn't exist Properties“document”不存在                                                                                                            |        NO         |
+| Dom      | useMouse              | 监听鼠标位置                                                                                            | 无报错，点击按钮无反应，监听不到Properties变化                                                                                                                          |        NO         |
 | Dom      | useResponsive         | 获取响应式信息                                                                                          | Cannot convert undefined value to object                                                                                                                          |        NO         |
-| Dom      | useScroll             | 监听元素的滚动位置                                                                                      | Property 'document' doesn't exist 属性“document”不存在                                                                                                            |        NO         |
+| Dom      | useScroll             | 监听元素的滚动位置                                                                                      | Property 'document' doesn't exist Properties“document”不存在                                                                                                            |        NO         |
 | Dom      | useSize               | 监听 DOM 节点尺寸变化的 Hook                                                                            | 无报错，无法获取到document                                                                                                                                        |        NO         |
 | Dom      | useFocusWithin        | 监听当前焦点是否在某个区域之内                                                                          | 无报错，无法监听到state变化                                                                                                                                       |        NO         |
-| Advanced | useReactive           | 提供一种数据响应式的操作体验，定义数据状态不需要写useState，直接修改属性即可刷新视图                    | input输入框中无法输入文字，只能输入数字 Cannot read property 'map' of undefined                                                                                   |        NO         |
+| Advanced | useReactive           | 提供一种数据响应式的操作体验，定义数据状态不需要写useState，直接修改Properties即可刷新视图                    | input输入框中无法输入文字，只能输入数字 Cannot read property 'map' of undefined                                                                                   |        NO         |
 | State    | useUrlState           | 通过 url query 来管理 state 的 Hook                                                                     | 无报错，不生效                                                                                                                                                    |        NO         |
 | State    | useLocalStorageState  | 将状态存储在 localStorage 中的 Hook                                                                     | 无报错，不生效                                                                                                                                                    |        NO         |
 | Scene    | useAntdTable          | useAntdTable 会自动管理 Table 分页数据，你只需要把返回的 tableProps 传递给 Table 组件                   | ui组件无法使用，document”不存在                                                                                                                                   |        NO         |
@@ -212,13 +213,13 @@ export function WhyDidYouUpdate() {
 | Scene    | useDynamicList        | 一个帮助你管理动态列表状态，并能生成唯一 key 的 Hook                                                    | 报错，Render ErrorView config getter callback for component path mustbe a function (recelved undefined). Make sure to startcomponent names with a capital letter. |        NO         |
 | Scene    | useVirtualList        | 提供虚拟化列表能力的 Hook，用于解决展示海量数据渲染时首屏渲染缓慢和滚动卡顿问题                         | 无报错，不生效                                                                                                                                                    |        NO         |
 | Scene    | useNetwork            | 管理网络连接状态的 Hook                                                                                 | 报错,window.addEventListener is not a function                                                                                                                    |        NO         |
-| Scene    | useSelections         | 常见联动 Checkbox 逻辑封装，支持多选，单选，全选逻辑，还提供了是否选择，是否全选，是否半选的状态        | Property 'document' doesn't exist 属性“document”不存在                                                                                                            |        NO         |
-| Scene    | useTextSelection      | 实时获取用户当前鼠标选取的文本内容及位置                                                                | 无报错，没有鼠标，无法操作属性                                                                                                                                    |        NO         |
+| Scene    | useSelections         | 常见联动 Checkbox 逻辑封装，支持多选，单选，全选逻辑，还提供了是否选择，是否全选，是否半选的状态        | Property 'document' doesn't exist Properties“document”不存在                                                                                                            |        NO         |
+| Scene    | useTextSelection      | 实时获取用户当前鼠标选取的文本内容及位置                                                                | 无报错，没有鼠标，无法操作Properties                                                                                                                                    |        NO         |
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [MIT License](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Foblador%2Freact-native-progress%2Fblob%2Fmaster%2FLICENSE) ，请自由地享受和参与开源。
+This project is licensed under [MIT License](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Foblador%2Freact-native-progress%2Fblob%2Fmaster%2FLICENSE).
 
 <!-- {% endraw %} -->

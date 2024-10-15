@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-模板版本：v0.2.1
+Template version: v0.2.1
 
 <p align="center">
   <h1 align="center"> <code>react-use</code> </h1>
@@ -13,10 +13,10 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/streamich/react-use)
+> [!TIP] [GitHub address](https://github.com/streamich/react-use)
 
-## 安装与使用
-进入到工程目录并输入以下命令：
+## Installation and Usage
+Go to the project directory and execute the following instruction：
 <!-- tabs:start -->
 #### **npm**
 ```bash
@@ -26,26 +26,26 @@ npm install react-use@17.5.0
 ```bash
 yarn add react-use@17.5.0
 ```
-> [!TIP] 如果依赖安装报错，请执行：
+> [!TIP] If an error occurs during the dependent installation, execute the command：
 ```bash
 npm install react-use@17.5.0 --legacy-peer-deps
 ```
-> [!TIP] 如果要体验全部demo效果，还需要安装以下依赖：
+> [!TIP] If you want to experience the full demo effect, you need to install the following dependencies：
 ```bash
 npm install @types/lodash --legacy-peer-deps
 npm install rxjs --legacy-peer-deps
 npm install rebound --legacy-peer-deps
 ```
 <!-- tabs:end -->
-## 兼容性
-在以下版本验证通过
+## Compatibility
+This document is verified based on the following versions
 1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.29; ROM：3.0.0.18;
 ## API
->[!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
->[!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-详情请查看[react-use 官方文档](https://github.com/streamich/react-use/blob/master/README.md)
+Please check for details [react-use Official documentation](https://github.com/streamich/react-use/blob/master/README.md)
 
 ### Sensors
 | Name                                                     | Description                                                  | Type     | Required | Platform    | HarmonyOS Support |
@@ -173,9 +173,10 @@ npm install rebound --legacy-peer-deps
 | :------------------------------------------------------- | ------------------------------------------------------------ | -------- | -------- | ----------- | ----------------- |
 | useEnsuredForwardedRef                                   | use a React.forwardedRef safely                              | Function | NO       | Android/ios | YES               |
 
-## 遗留问题
-## 其他
-## 开源协议
-本项目基于 [The MIT License (MIT)](https://github.com/streamich/react-use/blob/master/LICENSE) ，请自由地享受和参与开源。
+## Known Issues
+## Others
+## License
+
+This project is licensed under [The MIT License (MIT)](https://github.com/streamich/react-use/blob/master/LICENSE).
 
 <!-- {% endraw %} -->

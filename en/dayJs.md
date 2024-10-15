@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.2.0
+> Template version: v0.2.0
 
 <p align="center">
   <h1 align="center"> <code>DayJs</code> </h1>
@@ -10,11 +10,11 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/iamkun/dayjs?tab=readme-ov-file)
+> [!tip] [GitHub address](https://github.com/iamkun/dayjs?tab=readme-ov-file)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction：
 
 <!-- tabs:start -->
 
@@ -40,25 +40,25 @@ import dayjs from 'dayjs'
 dayjs().format()
 ```
 
-## 约束与限制
+## Constraints
 
-## 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions：
 
 1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.21;
 
 ## API
 
-详情请查看[DayJs官方文档](https://day.js.org/docs/zh-CN/installation/installation)
+For details, please refer to [DayJs Official Documentation](https://day.js.org/docs/zh-CN/installation/installation)
 
-以下dayjs为day.js导出的对象，即：
+The following dayjs are day.js exported objects, ie：
 
 ```bash
 import dayjs from 'dayjs';
 ```
 
-下面的代码展示了这个库的基本使用示例：
+The following code shows the basic use scenario of the repository：
 
 ```tsx
 import React, { useState, useEffect, useRef } from "react";
@@ -71,29 +71,29 @@ const DayJsDemo = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.componentTitle}>ValueAssignmentDemo: 取值/赋值</Text>
+      <Text style={styles.componentTitle}>ValueAssignmentDemo: Value/assignment</Text>
       <Text style={styles.textCommon}>
-        获取或设置毫秒：{dayjs().millisecond()}
+        Get or set milliseconds：{dayjs().millisecond()}
       </Text>
-      <Text style={styles.textCommon}>获取或设置秒：{dayjs().second()}</Text>
-      <Text style={styles.textCommon}>获取或设置分钟：{dayjs().minute()}</Text>
-      <Text style={styles.textCommon}>获取或设置小时：{dayjs().hour()}</Text>
+      <Text style={styles.textCommon}>Get or set seconds：{dayjs().second()}</Text>
+      <Text style={styles.textCommon}>Get or set minutes：{dayjs().minute()}</Text>
+      <Text style={styles.textCommon}>Get or set the hour：{dayjs().hour()}</Text>
       <Text style={styles.textCommon}>
-        获取或设置月份里的日期：{dayjs().date()}
+        Get or set the day of the month：{dayjs().date()}
       </Text>
-      <Text style={styles.textCommon}>获取或设置星期几：{dayjs().day()}</Text>
-      <Text style={styles.textCommon}>获取或设置月份：{dayjs().month()}</Text>
-      <Text style={styles.textCommon}>获取或设置年份。：{dayjs().year()}</Text>
+      <Text style={styles.textCommon}>Get or set the day of the week：{dayjs().day()}</Text>
+      <Text style={styles.textCommon}>Get or set the month：{dayjs().month()}</Text>
+      <Text style={styles.textCommon}>Get or set the year：{dayjs().year()}</Text>
       <Text style={styles.textCommon}>
-        从Dayjs对象中获取相应信息的 getter：年{dayjs().get("year")} 月
+        The getter that gets the appropriate information from the Dayjs object: year{dayjs().get("year")} month
         {dayjs().get("month")}
       </Text>
       <Text style={styles.textCommon}>
-        格式化{dayjs().format("YYYY-MM-DD")}
+        format{dayjs().format("YYYY-MM-DD")}
       </Text>
-      <Text style={styles.textCommon}>时长{dayjs.duration(100)}</Text>
+      <Text style={styles.textCommon}>Duration{dayjs.duration(100)}</Text>
       <Text style={styles.textCommon}>
-        时间比较{dayjs().isSame("2011-01-01", "year") ? "相等" : "不相等"}
+        Time Comparison {dayjs().isSame("2011-01-01", "year") ? "Equal" : "Unequal"}
       </Text>
     </View>
   );
@@ -166,9 +166,10 @@ const styles = StyleSheet.create({
 export default DayJsDemo;
 ```
 
-如下是已验证接口展示:
+## APIs:
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+
 
 #### **Get + Set**
 
@@ -248,7 +249,7 @@ export default DayJsDemo;
 
 #### **Plugins**
 
-加载插件：
+Loading plugins:
 
 ```bash
 import duration from 'dayjs/plugin/duration'
@@ -292,7 +293,7 @@ dayjs.extend(duration)
 | weekYear          | WeekYear adds .weekYear() API to get locale aware week of the year.                                                                                                                                                             | no       | yes               |
 | weekday           | Weekday adds .weekday() API to get or set locale aware day of the week.                                                                                                                                                         | no       | yes               |
 
-#### **格式化时间**
+#### **Formatting time**
 
 | **Format** | **Description**                                           | **Output**            |
 | ---------- | --------------------------------------------------------- | --------------------- |
@@ -337,10 +338,10 @@ dayjs.extend(duration)
 | z          | Abbreviated named offset ( dependent Timezone plugin )    | EST                   |
 | zzz        | Unabbreviated named offset ( dependent Timezone plugin )  | Eastern Standard Time |
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/iamkun/dayjs/blob/dev/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/iamkun/dayjs/blob/dev/LICENSE).
 
 <!-- {% endraw %} -->

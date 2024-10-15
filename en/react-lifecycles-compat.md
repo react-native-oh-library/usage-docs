@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-lifecycles-compat</code> </h1>
@@ -16,13 +16,11 @@
 
 
 
-> [!TIP] [Github 地址](https://github.com/reactjs/react-lifecycles-compat)
+> [!TIP] [GitHub address](https://github.com/reactjs/react-lifecycles-compat)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
-
-> [!TIP] # 处替换为 tgz 包的路径
+Go to the project directory and execute the following instruction：
 
 <!-- tabs:start -->
 
@@ -40,7 +38,7 @@ yarn add react-lifecycles-compat@3.0.4
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository：
 
 ```js
 import React from "react";
@@ -62,7 +60,7 @@ class ShowComponent extends React.Component {
             borderRadius: 30,
           }}
         >
-          新组件
+          New component
         </Text>
       </View>
     );
@@ -70,15 +68,15 @@ class ShowComponent extends React.Component {
 }
 class ExampleComponent extends React.Component {
   state = {
-    Text1: "未执行",
+    Text1: "Not Executed ",
     count1: 0,
-    Text2: "未执行",
+    Text2: "Not Executed ",
     visible: false,
   };
   static getDerivedStateFromProps = (nextProps, prevState) => {
     // Normally this method would only work for React 16.3 and newer,
     // But the polyfill will make it work for older versions also!
-    return { Text1: "已执行", count1: prevState.count1 + 1 };
+    return { Text1: "Executed ", count1: prevState.count1 + 1 };
   };
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
@@ -88,9 +86,9 @@ class ExampleComponent extends React.Component {
   }
   componentDidUpdate(prevProps, prevState, snapshot) {
     if (snapshot) {
-      if (this.state.Text2 !== "已执行") {
+      if (this.state.Text2 !== "Executed ") {
         this.setState({
-          Text2: "已执行",
+          Text2: "Executed ",
         });
       }
     }
@@ -107,12 +105,12 @@ class ExampleComponent extends React.Component {
           {visible ? <ShowComponent></ShowComponent> : <Text>{visible}</Text>}
         </View>
         <Text style={{ backgroundColor: "#F5F5F5", margin: 5 }}>
-          getDerivedStateFromProps生命周期会在React初始化挂载和后续更新时调用render之前调用，返回一个对象来更新state，或者返回null就不更新任何内容
+          GetderivedateFromprops Life cycle will call before react initialization and mounting and subsequent updates. Back a object to update the state, or return NULL to update any content without updating any content
         </Text>
         <Text style={{ backgroundColor: "#F5F5F5", margin: 5 }}>
-          getSnapshotBeforeUpdate生命周期会在React更新DOM之前时直接调用，使你的组件能够在DOM发生更改之前捕获一些信息
+          GetsnapshotBeForeupDate will be called directly before react update DOM, so that your component can capture some information before the DOM changes changes.
         </Text>
-        <Button title="点击创建组件！" onPress={this.handleClick} />
+        <Button title="Click to create components!" onPress={this.handleClick} />
         <Text
           style={{
             width: "100%",
@@ -124,7 +122,7 @@ class ExampleComponent extends React.Component {
             fontSize: 16,
           }}
         >
-          生命周期getDerivedStateFromProps{this.state.Text1}+{this.state.count1}
+          life cycle getDerivedStateFromProps{this.state.Text1}+{this.state.count1}
         </Text>
         <Text
           style={{
@@ -137,7 +135,7 @@ class ExampleComponent extends React.Component {
             fontSize: 16,
           }}
         >
-          生命周期getSnapshotBeforeUpdate{this.state.Text2}
+          life cycle getSnapshotBeforeUpdate{this.state.Text2}
         </Text>
       </View>
     );
@@ -150,11 +148,11 @@ polyfill(ExampleComponent);
 export default ExampleComponent;
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-在以下版本验证通过
+This document is verified based on the following versions
 
 1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：205.0.0.18;
 
@@ -163,18 +161,18 @@ export default ExampleComponent;
 | getDerivedStateFromProps | Initialize the mount.                  | NO       | Android  | YES               |
 | getSnapshotBeforeUpdate  | Call directly before updating the DOM. | NO       | Android  | YES               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-以下事项与原库保持一致需注意遵循：
+The following matters should be consistent with the original library：
 
-为了使polyfill工作，您的组件不能定义以下生命周期：componentWillMount，componentWillReceiveProps，componentWillUpdate.
+In order to make Polyfill work, your component cannot define the following life cycle: componentWillMount，componentWillReceiveProps，componentWillUpdate.
 
-如果您的组件包含getSnapshotBeforeUpdate，那么也必须定义componentDidUpdate，如果不满足上述任何条件，将抛出错误.
+If your component contains GetsnapshotBeForeupDate, then it must also define componentDidUpdate. If it does not meet any of the above conditions, you will throw an error.
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/reactjs/react-lifecycles-compat/blob/master/LICENSE.md) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/reactjs/react-lifecycles-compat/blob/master/LICENSE.md).
 
 <!-- {% endraw %} -->

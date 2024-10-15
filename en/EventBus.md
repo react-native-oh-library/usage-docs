@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-模板版本：v0.2.0
+Template version: v0.2.0
 
 <p align="center">
   <h1 align="center"> <code>EventBus</code> </h1>
@@ -10,11 +10,11 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/krasimir/EventBus)
+> [!TIP] [GitHub address](https://github.com/krasimir/EventBus)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction：
 
 <!-- tabs:start -->
 
@@ -32,7 +32,7 @@ yarn add eventbusjs@0.2.0
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository：
 
 ```tsx
 import { useState, createContext } from "react";
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
 });
 
 function eventTest() {
-  console.warn(`${TAG}-----,成功派发test_event类型的eventTest事件`);
+  console.warn(`${TAG}-----,The eventTest event of type test_event is successfully dispatched`);
 }
 
 var TestParamsClass1 = function (this: any) {
@@ -100,7 +100,7 @@ var TestParamsClass1 = function (this: any) {
     param2: number | string,
   ) {
     console.warn(
-      `${TAG},className=${this.className},event=${JSON.stringify(event)},params=${param1}--${param2}`,
+      `${TAG}, className=${this.className},event=${JSON.stringify(event)},params=${param1}--${param2}`,
     );
   };
 };
@@ -122,12 +122,12 @@ function EventBusDemo() {
   function handleAdd() {
     const has = EventBus.hasEventListener("test_event", eventTest, 0);
     if (has) {
-      setMsg("eventBus中已经存在test_evnt类型的eventTest事件");
-      console.log(`${TAG},eventBus中已经存在test_evnt类型的eventTest事件`);
+      setMsg("There are already test_evnt types of eventTest events in eventBus");
+      console.log(`${TAG}, There are already test_evnt types of eventTest events in eventBus`);
     } else {
       EventBus.addEventListener("test_event", eventTest, 0);
-      setMsg("成功添加test_event类型的eventTest事件");
-      console.log(`${TAG},成功添加test_event类型的eventTest事件`);
+      setMsg("The eventTest event of type test_event is successfully added");
+      console.log(`${TAG}, The eventTest event of type test_event is successfully added`);
     }
   }
 
@@ -135,11 +135,11 @@ function EventBusDemo() {
     let has = EventBus.hasEventListener("test_event", eventTest, 0);
     setMsg(
       has
-        ? "已存在test_event类型的eventTest事件"
-        : "不存在test_event类型的eventTest事件",
+        ? "An eventTest of type test_event exists"
+        : "There is no eventTest event of type test_event",
     );
     console.log(
-      `${TAG},${has ? "已存在test_event类型的eventTest事件" : "不存在test_event类型的eventTest事件"}`,
+      `${TAG}, ${has ? "An eventTest of type test_event exists" : "There is no eventTest event of type test_event"}`,
     );
   }
 
@@ -147,11 +147,11 @@ function EventBusDemo() {
     let has = EventBus.hasEventListener("test_event", eventTest, 0);
     if (has) {
       EventBus.removeEventListener("test_event", eventTest, 0);
-      setMsg("已删除test_event类型的eventTest事件");
-      console.log(`${TAG},已删除test_event类型的eventTest事件`);
+      setMsg("The EventTest event of test_event type has been deleted");
+      console.log(`${TAG}, The EventTest event of test_event type has been deleted`);
     } else {
-      setMsg("未找到test_event类型的eventTest事件");
-      console.log(`${TAG},未找到test_event类型的eventTest事件`);
+      setMsg("No eventTest event of Test_event type");
+      console.log(`${TAG}, No eventTest event of Test_event type`);
     }
   }
 
@@ -159,33 +159,33 @@ function EventBusDemo() {
     let has = EventBus.hasEventListener("test_event", eventTest, 0);
     if (has) {
       EventBus.dispatch("test_event");
-      setMsg("成功执行test_event类型的eventTest事件");
-      console.log(`${TAG},成功执行test_event类型的eventTest事件`);
+      setMsg("The eventTest event of type test_event is successfully executed");
+      console.log(`${TAG}, The eventTest event of type test_event is successfully executed`);
     } else {
-      setMsg("test_event类型的eventTest事件已被删除或未找到事件");
-      console.log(`${TAG},test_event类型的eventTest事件已被删除或未找到事件`);
+      setMsg("test_event type of eventTest event has been deleted or no event found");
+      console.log(`${TAG}, test_event type of eventTest event has been deleted or no event found`);
     }
   }
 
   function handleGet() {
     setMsg(`${JSON.stringify(EventBus.getEvents())}`);
-    console.log(`${TAG},${JSON.stringify(EventBus.getEvents())}`);
+    console.log(`${TAG}, ${JSON.stringify(EventBus.getEvents())}`);
   }
 
   function handleAddForParams() {
     let has = EventBus3.hasEventListener("custom_event", p1.doSomeThing, p1);
     if (has) {
-      setMsgParams("eventBus中已存在custom_event类型的p1.doSomeThing事件");
+      setMsgParams("P1.dosomething events in EventBus exist in P1.dosomething");
       console.log(
-        `${TAG},eventBus中已存在custom_event类型的p1.doSomeThing事件`,
+        `${TAG}, P1.dosomething events in EventBus exist in P1.dosomething`,
       );
     } else {
       if (firstVal.length <= 1 || secondVal.length <= 1) {
-        console.error("参数长度不符合预期");
+        console.error("Parameter length does not meet expectations");
       } else {
         EventBus3.addEventListener("custom_event", p1.doSomeThing, p1);
-        setMsgParams("成功添加custom_event类型的p1.doSomeThing事件");
-        console.log(`${TAG},'成功添加custom_event类型的p1.doSomeThing事件'`);
+        setMsgParams("Successfully add the P1.dosomething event of Custom_Event type");
+        console.log(`${TAG}, 'Successfully add the P1.dosomething event of Custom_Event type'`);
         setOnOff(true);
       }
     }
@@ -195,22 +195,22 @@ function EventBusDemo() {
       let has = EventBus3.hasEventListener("custom_event", p1.doSomeThing, p1);
       if (has) {
         p2.ready(firstVal, secondVal);
-        setMsgParams(`派发事件成功，param1=${firstVal},param2=${secondVal}`);
+        setMsgParams(`Dispatching the event succeeded，param1=${firstVal},param2=${secondVal}`);
         console.log(
-          `${TAG},派发事件成功，param1=${firstVal},param2=${secondVal}`,
+          `${TAG}, Dispatching the event succeeded，param1=${firstVal},param2=${secondVal}`,
         );
         setOnOff(false);
       } else {
         setMsgParams(
-          "custom_event类型的p1.doSomeThing事件已被删除或未找到事件",
+          "The P1.Dosomething event of Custom_event type has been deleted or found not found",
         );
         console.log(
-          `${TAG},custom_event类型的p1.doSomeThing事件已被删除或未找到事件`,
+          `${TAG}, The P1.Dosomething event of Custom_event type has been deleted or found not found`,
         );
       }
     } else {
-      setMsgParams("请先移除旧的p1.doSomeThing事件");
-      console.log(`${TAG},请先移除旧的p1.doSomeThing事件`);
+      setMsgParams("Please remove the old P1.Dosomething event first");
+      console.log(`${TAG}, Please remove the old P1.Dosomething event first`);
     }
   }
   function handleRemoveForParams() {
@@ -218,39 +218,39 @@ function EventBusDemo() {
     let has = EventBus3.hasEventListener("custom_event", p1.doSomeThing, p1);
     if (has) {
       EventBus3.removeEventListener("custom_event", p1.doSomeThing, p1);
-      setMsgParams("成功删除custom_event类型的p1.doSomeThing事件");
-      console.log(`${TAG},成功删除custom_event类型的p1.doSomeThing事件`);
+      setMsgParams("Successfully delete the P1.dosomething event of Custom_Event type");
+      console.log(`${TAG}, Successfully delete the P1.dosomething event of Custom_Event type`);
     } else {
-      setMsgParams("未找到custom_event类型的p1.doSomeThing事件");
-      console.log(`${TAG},未找到custom_event类型的p1.doSomeThing事件`);
+      setMsgParams("The P1.dosomething event that did not find the Custom_Event type");
+      console.log(`${TAG}, The P1.dosomething event that did not find the Custom_Event type`);
     }
   }
   return (
     <MyContext.Provider value={{ myGlobalVar: "" }}>
       <ScrollView style={styles.main}>
         <View style={styles.mainItem}>
-          <Text style={styles.title}>基础使用 & Keeping the scope</Text>
+          <Text style={styles.title}>Basic use & Keeping the scope</Text>
           <View style={styles.container}>
-            <Button title="添加 eventTest 事件" onPress={handleAdd}></Button>
+            <Button title="Add eventTest event" onPress={handleAdd}></Button>
           </View>
           <View style={styles.container}>
             <Button
-              title="派发 eventTest 事件"
+              title="Distribute Eventtest event"
               onPress={handleDispatch}
             ></Button>
           </View>
           <View style={styles.container}>
-            <Button title="移除 eventTest 事件" onPress={handleRemove}></Button>
+            <Button title="Remove the EventTest event" onPress={handleRemove}></Button>
           </View>
           <View style={styles.container}>
             <Button
-              title="判断是否存在 eventTest 事件"
+              title="Determine whether there is an eventTest event"
               onPress={handleHas}
             ></Button>
           </View>
           <View style={styles.container}>
             <Button
-              title="获取所有事件（常用于调试相关）"
+              title="Get all events (commonly used for debugging related)"
               onPress={handleGet}
             ></Button>
           </View>
@@ -266,29 +266,29 @@ function EventBusDemo() {
               <TextInput
                 onChangeText={(text) => setFirstVal(text)}
                 style={styles.inputText}
-                placeholder="请输入长度大于1的参数"
+                placeholder="Please enter a parameter with a length greater than 1"
                 maxLength={12}
               />
               <TextInput
                 onChangeText={(text) => setSecondVal(text)}
                 style={styles.inputText}
-                placeholder="请输入长度大于1的参数"
+                placeholder="Please enter a parameter with a length greater than 1"
                 maxLength={12}
               />
             </View>
-            <Button title="添加 doSomeThing 事件" onPress={handleAddForParams}>
+            <Button title="Add Dosomething event" onPress={handleAddForParams}>
               'add'
             </Button>
           </View>
           <View style={styles.container}>
             <Button
-              title="派发 doSomeThing 事件"
+              title="Distribute Dosomething event"
               onPress={handleDispatchForParams}
             ></Button>
           </View>
           <View style={styles.container}>
             <Button
-              title="移除 doSomeThing 事件"
+              title="Remove Dosomething incident"
               onPress={handleRemoveForParams}
             ></Button>
           </View>
@@ -303,15 +303,15 @@ function EventBusDemo() {
 export default EventBusDemo;
 ```
 
-## 兼容性
+## Compatibility
 
-在以下版本验证通过
+This document is verified based on the following versions
 
 1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：205.0.0.18;
 
-## 方法
+## API
 
-详情见 [EventBus](https://github.com/krasimir/EventBus/blob/master/README.md)
+See for details [EventBus](https://github.com/krasimir/EventBus/blob/master/README.md)
 
 | Name                | Description | Required | HarmonyOS Support |
 | ------------------- | ----------- | -------- | ----------------- |
@@ -321,8 +321,12 @@ export default EventBusDemo;
 | dispatch            | -           | -        | YES               |
 | getEvents           | -           | -        | YES               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
+
+## License
+
+This project is licensed under [The MIT License (MIT)](https://www.mit-license.org/).
 
 <!-- {% endraw %} -->

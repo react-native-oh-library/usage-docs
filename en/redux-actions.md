@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> Template version: v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>redux-actions</code> </h1>
@@ -14,9 +14,9 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/redux-utilities/redux-actions)
+> [!tip] [GitHub address](https://github.com/redux-utilities/redux-actions)
 
-## 安装与使用
+## Installation and Usage
 
 <!-- tabs:start -->
 
@@ -25,7 +25,7 @@
 ```bash
 npm install redux-actions@2.6.5
 
-// typescript 项目需下载对应包的类型声明
+// The TypeScript project needs to download the type declaration for the corresponding package
 npm i @types/redux-actions -D
 ```
 
@@ -34,22 +34,22 @@ npm i @types/redux-actions -D
 ```bash
 yarn add redux-actions@2.6.5
 
-// typescript 项目需下载对应包的类型声明
+// The TypeScript project needs to download the type declaration for the corresponding package
 yarn add @types/redux-actions -D
 ```
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository：
 
-运行demo还需安装以下依赖：
+To run the demo, you need to install the following dependencies：
 
 ```bash
 npm install redux@^5.0.1
 npm install react-redux@^9.1.0
 ```
 
-1.定义state的类型
+1.Define the type of state
 
 // LoginType.ts
 
@@ -60,7 +60,7 @@ export interface IAppUser {
 }
 ```
 
-2.定义action
+2.Define actions
 
 // loginAction.ts
 
@@ -81,7 +81,7 @@ export default createActions({
 });
 ```
 
-3.定义reducer
+3.Define reducer
 
 // loginReducer.ts
 
@@ -95,13 +95,13 @@ import {
 import { IAppUser } from "./loginType";
 
 const defaultState = {
-  // defautl value 不能为null
+  // Default Value cannot be null
   appUser: {},
 };
 
 export default createReducers(
   {
-    // payload 参数名固定，类型推导
+    // The payload parameter name is fixed, and the type is derived
     [LOGIN_ACTION.LOGIN]: (state, { payload }: Action<IAppUser>) => {
       console.log("createReducers LOGIN_ACTION.LOGIN", JSON.stringify(payload));
       return {
@@ -109,7 +109,7 @@ export default createReducers(
         appUser: payload,
       };
     },
-    // 异常处理
+    // Exception handling
     [LOGIN_ACTION.LOGOUT]: {
       next(state) {
         console.log("createReducers LOGIN_ACTION.LOGOUT", JSON.stringify({}));
@@ -141,7 +141,7 @@ export default createReducers(
 );
 ```
 
-4.定义store
+4.Define the store
 
 // loginStore.ts
 
@@ -160,7 +160,7 @@ export type AppDispatch = typeof store.dispatch;
 export default store;
 ```
 
-5.通过connector将state和action挂载到组件
+5.Mount state and action to components through Connector
 
 // loginDemo.tsx
 
@@ -193,7 +193,7 @@ const Login = (props: PropsFromRedux) => {
       </View>
       <View style={styles.viewTextStyle}>
         <Button
-          title="修改appUser"
+          title="Modify the Appuser"
           onPress={() => {
             props.onLogin({ id: "1", userName: "123" });
           }}
@@ -201,13 +201,13 @@ const Login = (props: PropsFromRedux) => {
       </View>
       <View style={styles.viewTextStyle}>
         <Button
-          title="修改appUser name"
+          title="Modify the Appuser Name"
           onPress={() => {
             props.onChangeName({ id: "1", userName: "456" });
           }}
         />
       </View>
-      <Button title="清空appUser" onPress={props.onLogout} />
+      <Button title="Clear Appuser" onPress={props.onLogout} />
     </View>
   );
 };
@@ -229,7 +229,7 @@ const styles = StyleSheet.create({
 export default connector(Login);
 ```
 
-6.使用
+6.use
 
 // index.tsx
 
@@ -239,7 +239,7 @@ import { StyleSheet, View } from "react-native";
 import store from "./loginStore";
 import Login from "./loginDemo";
 
-// 导出组件
+// Export component
 export default function ReduxDemo() {
   return (
     <Provider store={store}>
@@ -270,20 +270,21 @@ const styles = StyleSheet.create({
 });
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
 2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.59;
 
-## 静态方法
+## Static Methods
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+
 
 | Name                                                               | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Type     | Required | Platform    | HarmonyOS Support |
 | ------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------- | ----------------- |
@@ -293,17 +294,18 @@ const styles = StyleSheet.create({
 | handleActions(reducerMap, defaultState[, options])                 | Creates multiple reducers using handleAction() and combines them into a single reducer that handles multiple actions. Accepts a map where the keys are passed as the first parameter to handleAction() (the action type), and the values are passed as the second parameter (either a reducer or reducer map). The map must not be empty.                                                                                                                                                                                                                                         | Function | no       | android/ios | yes               |
 | combineActions(...types)                                           | Combine any number of action types or action creators. types is a list of positional arguments which can be action type strings, symbols, or action creators.                                                                                                                                                                                                                                                                                                                                                                                                                     | Function | no       | android/ios | yes               |
 
-## 遗留问题
+## Known Issues
 
-当前推荐使用2.6.5版本，若更新到3.0.0版本原库会有如下已知问题：
+It is currently recommended to use version 2.6.5. If it is updated to version 3.0.0, the original library will have the following known problems：
 
-- [ ] 编译错误：this package itself specifies a `main` module field that could not be resolved[issue#1967](https://github.com/pmndrs/zustand/discussions/1967)
-- [ ] 运行错误：import.meta' is currently unsupported Buffer size 12286 starts with[issue#394](https://github.com/redux-utilities/redux-actions/issues/394)
+- [ ] Compile error：this package itself specifies a `main` module field that could not be resolved[issue#1967](https://github.com/pmndrs/zustand/discussions/1967)
+- [ ] Run an error：import.meta' is currently unsupported Buffer size 12286 starts with[issue#394](https://github.com/redux-utilities/redux-actions/issues/394)
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/redux-utilities/redux-actions/blob/master/LICENSE) ，请自由地享受和参与开源。
+
+This project is licensed under [The MIT License (MIT)](https://github.com/redux-utilities/redux-actions/blob/master/LICENSE).
 
 <!-- {% endraw %} -->

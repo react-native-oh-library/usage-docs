@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-模板版本：v0.2.2
+Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-drawer-layout-polyfill</code> </h1>
@@ -14,11 +14,11 @@
 </p>
 
 
-> [!TIP] [Github 地址](https://github.com/rnc-archive/react-native-drawer-layout-polyfill)
+> [!TIP] [GitHub address](https://github.com/rnc-archive/react-native-drawer-layout-polyfill)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction：
 
 <!-- tabs:start -->
 
@@ -36,7 +36,7 @@ yarn add react-native-drawer-layout-polyfill@2.0.0
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository：
 
 ```tsx
 import React, { useState, useRef } from "react";
@@ -48,7 +48,7 @@ const App = () => {
   const [drawerPosition, setDrawerPosition] = useState("left");
   const [keyboardDismissMode, setKeyboardDismissMode] = useState("none");
   const [drawerLockMode, setDrawerLockMode] = useState("unlocked ");
-  const [isOpen, setIsOpen] = useState("关闭 ");
+  const [isOpen, setIsOpen] = useState("closure ");
   const [drawerSlideOutput, setDrawerSlideOutput] = useState("");
   const [drawerStateChangedOutput, setDrawerStateChangedOutput] = useState("");
   const [drawerWidth, setDrawerWidth] = useState(300);
@@ -63,7 +63,7 @@ const App = () => {
   };
 
   const changeDrawerPosition = () => {
-    console.log("drawerPosition-修改弹框位置", drawerPosition);
+    console.log("drawerPosition-Modify the bomb frame position", drawerPosition);
     if (drawerPosition === "left") {
       setDrawerPosition("right");
     } else {
@@ -72,7 +72,7 @@ const App = () => {
   };
 
   const changeDrawerHideKeyboard = () => {
-    console.log("keyboardDismissMode-是否隐藏软键盘", keyboardDismissMode);
+    console.log("keyboardDismissMode-Whether to hide the soft keyboard", keyboardDismissMode);
     if (keyboardDismissMode === "none") {
       setKeyboardDismissMode("on-drag");
     } else {
@@ -81,50 +81,50 @@ const App = () => {
   };
 
   const changeDrawerWidth = () => {
-    console.log("drawerWidth-修改弹框宽度", drawerWidth);
+    console.log("drawerWidth-Modify the width of the bullet box", drawerWidth);
     if (value && Number(value) >= 100) {
       setDrawerWidth(Number(value));
     }
   };
 
   const changeDrawerLockMode = (type) => {
-    console.log("drawerLockMode-修改弹框锁定模式", type);
+    console.log("drawerLockMode-Modify the lock mode of the pop-up box", type);
     setDrawerLockMode(type);
   };
 
   const handleDrawerOpen = (e) => {
-    console.log("onDrawerOpen-打开弹框的回调");
-    setIsOpen("打开");
+    console.log("onDrawerOpen-Open the callback in the pop-up box");
+    setIsOpen("Open");
   };
 
   const handleDrawerClose = (e) => {
-    console.log("onDrawerClose-关闭弹框的回调");
-    setIsOpen("关闭");
+    console.log("onDrawerClose-Turn off the bomb frame");
+    setIsOpen("closure");
   };
 
   const handleDrawerSlide = (e) => {
-    console.log("onDrawerSlide-导航视图发生交互时的回调函数");
+    console.log("onDrawerSlide-The callback function when navigation view occurs when interacting");
     setDrawerSlideOutput(JSON.stringify(e.nativeEvent));
   };
 
   const handleDrawerStateChanged = (e) => {
-    console.log("onDrawerStateChanged-导航视图的状态发生变化时的回调函数");
+    console.log("onDrawerStateChanged-The recovery function when the state of the navigation view changes");
     setDrawerStateChangedOutput(JSON.stringify(e));
   };
 
   const navigationView = (
     <View style={styles.navigationContainer}>
       <Text style={styles.textCommon}>I'm in the Drawer!</Text>
-      <Text style={styles.textCommon}>弹框状态:{isOpen}</Text>
+      <Text style={styles.textCommon}>Bomb state:{isOpen}</Text>
       <Text style={styles.textCommon}>
-        弹框打开关闭过程中触发:{drawerSlideOutput}
+        Triggered during the bomb frame opening and closing process:{drawerSlideOutput}
       </Text>
       <Text style={styles.textCommon}>
-        弹框状态切换触发:{drawerStateChangedOutput}
+        Bullet frame state switch trigger:{drawerStateChangedOutput}
       </Text>
       <Button
         style={styles.buttonMargin}
-        title="关闭弹框"
+        title="Turn off the bomb frame"
         onPress={() => close()}
       />
     </View>
@@ -147,39 +147,39 @@ const App = () => {
     >
       <View style={styles.container}>
         <Text style={styles.textCommon}>
-          设置导航视图的锁定模式:{drawerLockMode}
+          Set the lock mode of the navigation view:{drawerLockMode}
         </Text>
         <Text style={styles.textCommon}>
-          是否隐藏软键盘:{keyboardDismissMode}
+          Whether to hide the soft service:{keyboardDismissMode}
         </Text>
         <Text style={styles.textCommon}>弹框状态:{isOpen}</Text>
         <Text style={styles.textCommon}>
-          弹框打开关闭过程中触发:{drawerSlideOutput}
+          Triggered during the bomb frame opening and closing process:{drawerSlideOutput}
         </Text>
         <Text style={styles.textCommon}>
-          弹框状态切换触发:{drawerStateChangedOutput}
+          Bullet frame state switch trigger:{drawerStateChangedOutput}
         </Text>
-        <Button title="打开弹框" onPress={() => open()} />
+        <Button title="Open the bomb frame" onPress={() => open()} />
         <View style={styles.buttonMargin}></View>
-        <Button title="改变弹框位置" onPress={() => changeDrawerPosition()} />
+        <Button title="Change the bomb frame position" onPress={() => changeDrawerPosition()} />
         <View style={styles.buttonMargin}></View>
         <Button
-          title="弹框动画过程中是否隐藏键盘"
+          title="Whether the keyboard is hidden during the bomb frame animation process"
           onPress={() => changeDrawerHideKeyboard()}
         />
         <View style={styles.buttonMargin}></View>
         <Button
-          title="设置导航视图的锁定模式- unlocked "
+          title="Set the lock mode of the navigation view- unlocked "
           onPress={() => changeDrawerLockMode("unlocked")}
         />
         <View style={styles.buttonMargin}></View>
         <Button
-          title="设置导航视图的锁定模式- locked-closed"
+          title="Set the lock mode of the navigation view- locked-closed"
           onPress={() => changeDrawerLockMode("locked-closed")}
         />
         <View style={styles.buttonMargin}></View>
         <Button
-          title="设置导航视图的锁定模式- locked-open"
+          title="Set the lock mode of the navigation view- locked-open"
           onPress={() => changeDrawerLockMode("locked-open")}
         />
         <View style={styles.buttonMargin}></View>
@@ -194,7 +194,7 @@ const App = () => {
           value={value}
         />
         <View style={styles.buttonMargin}></View>
-        <Button title="修改弹框宽度" onPress={() => changeDrawerWidth()} />
+        <Button title="Modify the width of the bullet box" onPress={() => changeDrawerWidth()} />
       </View>
     </DrawerLayout>
   );
@@ -225,19 +225,20 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-在以下版本验证通过
+This document is verified based on the following versions
 
 1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：205.0.0.18;
 
-## 属性
+## Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+
 
 详情见[react-native-drawer-layout-polyfill](https://reactnative.dev/docs/drawerlayoutandroid)
 
@@ -255,21 +256,21 @@ export default App;
 | onDrawerSlide            | Function called whenever there is an interaction with the navigation view.                                                                                                                                                                                                                                                                                                                                                         | function | NO       | Android IOS | YES               |                                                        |
 | onDrawerStateChanged     | Function called when the drawer state has changed. The drawer can be in 3 states: idle, meaning there is no interaction with the navigation view happening at the time                                                                                                                                                                                                                                                             | function | NO       | Android IOS | YES               |                                                        |
 
-## 方法
+## API
 
 | Name        | Description        | Required | Platform    | HarmonyOS Support |
 | ----------- | ------------------ | -------- | ----------- | ----------------- |
 | openDrawer  | Closes the drawer. | NO       | Android IOS | YES               |
 | closeDrawer | Opens the drawer.  | NO       | Android IOS | YES               |
 
-## 遗留问题
+## Known Issues
 
-- [ ] 属性statusBarBackgroundColor 鸿蒙暂不支持。[issue#10](https://github.com/rnc-archive/react-native-drawer-layout-polyfill/issues/10)
+- [ ] The property statusbarbackgroundcolor is temporarily not supported by HarmonyOS. [issue#10](https://github.com/rnc-archive/react-native-drawer-layout-polyfill/issues/10)
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://www.mit-license.org/) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://www.mit-license.org/).
 
 <!-- {% endraw %} -->

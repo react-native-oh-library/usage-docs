@@ -40,6 +40,8 @@ npm install rebound --legacy-peer-deps
 ## 兼容性
 在以下版本验证通过
 1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.29; ROM：3.0.0.18;
+2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
+
 ## API
 >[!tip] "Platform"列表示该属性在原三方库上支持的平台。
 

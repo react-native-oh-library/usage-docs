@@ -114,6 +114,7 @@ This document is verified based on the following versions:
 
 1. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
 2. RNOH: 0.72.28; SDK: HarmonyOS-Next-DB5 5.0.0.60; IDE: DevEco Studio 5.0.3.655; ROM: 5.0.0.60;
+3. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 ## API
 

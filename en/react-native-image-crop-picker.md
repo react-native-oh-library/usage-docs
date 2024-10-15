@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -1004,7 +1003,7 @@ ohpm install
 | Name                                      | Type                             | Description                                               | Required | Platform | HarmonyOS Support |
 | ----------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | -------- | -------- | -------- |
 | cropping                                  | bool (default false)                                         | Enable or disable cropping                                   | no       | All      | yes      |
-| `width`                                   | number                                                       | Width of result image when used with `cropping` option       | no       | All      | yes      |
+| width                                   | number                                                       | Width of result image when used with `cropping` option       | no       | All      | yes      |
 | height                                    | number                                                       | Height of result image when used with `cropping` option      | no       | All      | yes      |
 | multiple                                  | bool (default false)                                         | Enable or disable multiple image selection                   | no       | All      | yes      |
 | writeTempFile (iOS only)               | bool (default true)                                          | When set to false, does not write temporary files for the selected images. This is useful to improve performance when you are retrieving file contents with the `includeBase64` option and don't need to read files from disk. | no       | iOS   | yes      |
@@ -1019,7 +1018,7 @@ ohpm install
 | cropperToolbarTitle                       | string (default `Edit Photo`)                                | When cropping image, determines the title of Toolbar.        | no       | All      | yes      |
 | cropperCircleOverlay                      | bool (default false)                                         | Enable or disable circular cropping mask.                    | no       | All      | yes      |
 | disableCropperColorSetters (Android only) | bool (default false)                                         | When cropping image, disables the color setters for cropping library. | no       | Android | no       |
-| minFiles (iOS only)                    | number (default 1)                                           | Min number of files to select when using `multiple` option   | no       | iOS   | yes      |
+| minFiles (iOS only)                    | number (default 1)                                           | Min number of files to select when using `multiple` option   | no       | iOS   | no      |
 | maxFiles (iOS only)                    | number (default 5)                                           | Max number of files to select when using `multiple` option   | no       | iOS   | yes      |
 | waitAnimationEnd (iOS only)            | bool (default true)                                          | Promise will resolve/reject once ViewController `completion` block is called | no       | iOS   | no       |
 | smartAlbums (iOS only)                 | array ([supported values](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Fivpusic%2Freact-native-image-crop-picker%2Fblob%2Fmaster%2FREADME.md%23smart-album-types-ios)) (default ['UserLibrary', 'PhotoStream', 'Panoramas', 'Videos', 'Bursts']) | List of smart albums to choose from                          | no       | iOS   | no       |
@@ -1030,7 +1029,7 @@ ohpm install
 | compressImageQuality                      | number (default 1 (Android)/0.8 (iOS))                       | Compress image with quality (from 0 to 1, where 1 is best quality). On iOS, values larger than 0.8 don't produce a noticeable quality increase in most images, while a value of 0.8 will reduce the file size by about half or less compared to a value of 1. | no       | All      | yes      |
 | loadingLabelText (iOS only)            | string (default "Processing assets...")                      | Text displayed while photo is loading in picker              | no       | iOS   | yes      |
 | mediaType                                 | string (default any)                                         | Accepted mediaType for image selection, can be one of: 'photo', 'video', or 'any' | no       | All      | yes      |
-| showsSelectedCount (iOS only)          | bool (default true)                                          | Whether to show the number of selected assets                | no       | iOS   | yes      |
+| showsSelectedCount (iOS only)          | bool (default true)                                          | Whether to show the number of selected assets                | no       | iOS   | no      |
 | sortOrder (iOS only)                   | string (default 'none', supported values: 'asc', 'desc', 'none') | Applies a sort order on the creation date on how media is displayed within the albums/detail photo views when opening the image picker | no       | iOS   | no       |
 | forceJpg (iOS only)                    | bool (default false)                                         | Whether to convert photos to JPG. This will also convert any Live Photo into its JPG representation | no       | iOS   | yes      |
 | showCropGuidelines (Android only) | bool (default true)                                          | Whether to show the 3x3 grid on top of the image during cropping | no       | Android | yes      |
@@ -1056,11 +1055,11 @@ ohpm install
 - [ ] iOS视频压缩的预设 [#12](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/12)
 - [ ] iOS智能相册排序  [#13](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/13)
 - [ ] Android Demo 设置是否显示底部控件 [#14](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/14)
+- [ ] 使用multiple选项时无法设置最小文件数 [#39](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/39)
+- [ ] 使用multiple选项时无法设置是否显示选中的资产数量 [#40](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/40)
 
 ## 其他
 
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/ivpusic/react-native-image-crop-picker/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

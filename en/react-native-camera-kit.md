@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-camera-kit</code> </h1>
@@ -14,15 +14,15 @@
 
 
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-camera-kit)
+> [!TIP] [Github address](https://github.com/react-native-oh-library/react-native-camera-kit)
 
-## 安装与使用
+## Installation and Usage
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-library/react-native-camera-kit Releases](https://github.com/react-native-oh-library/react-native-camera-kit/releases)，并下载适用版本的 tgz 包。
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-library/react-native-camera-kit Releases](https://github.com/react-native-oh-library/react-native-camera-kit/releases)
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
->[!TIP] # 处替换为 tgz 包的路径
+>[!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
@@ -40,9 +40,9 @@ yarn add @react-native-oh-tpl/react-native-camera-kit@file:#
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 ### camera example
 ``` js
 import React, {useRef, useState} from 'react';
@@ -82,7 +82,7 @@ export const CameraDemo: React.FC = (): JSX.Element => {
         />
       </View>
       <View>
-        <Button title="拍照" onPress={onPhoto} />
+        <Button title="onPhoto" onPress={onPhoto} />
         <Text style={styles.text}>zoom:{zoom}</Text>
         <Text style={styles.text}>error:{errorStr}</Text>
         <Text style={styles.text}>photo:{photo}</Text>
@@ -164,11 +164,11 @@ const styles = StyleSheet.create({
 
 ## Link
 
-目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
 
-首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
+Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 1.在工程根目录的 `oh-package.json` 添加 overrides字段
+### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
 
 ```json
 {
@@ -179,18 +179,16 @@ const styles = StyleSheet.create({
 }
 ```
 
-### 2.引入原生端代码
+### 2. Introducing Native Code
 
-目前有两种方法：
+Currently, two methods are available:
 
-1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
-2. 直接链接源码。
 
-方法一：通过 har 包引入 (推荐)
+Method 1 (recommended): Use the HAR file.
 
-> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
+> [!TIP] The HAR file is stored in the `harmony` directory in the installation path of the third-party library.
 
-打开 `entry/oh-package.json5`，添加以下依赖
+Open `entry/oh-package.json5` file and add the following dependencies:
 
 ```json
 "dependencies": {
@@ -199,22 +197,22 @@ const styles = StyleSheet.create({
   }
 ```
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-方法二：直接链接源码
+Method 2: Directly link to the source code.
 
-> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
+> [!TIP] For details, see [Directly Linking Source Code](/zh-cn/link-source-code.md).
 
-### 3.在 ArkTs 侧引入 RTNCameraKitView 组件
+### 3. Configuring CMakeLists and Introducing xxx Package
 
-找到 `function buildCustomRNComponent()`，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
+Open `entry/src/main/cpp/CMakeLists.txt` and add the following code:
 
 ```diff
   ...
@@ -232,18 +230,22 @@ export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
 ...
 }
 ...
+> [!TIP] If the repository uses a mixed solution, the component name needs to be added.  
+
+Find the constant `arkTsComponentNames` in `entry/src/main/ets/pages/index.ets` or `entry/src/main/ets/rn/LoadBundle.ets` and add the component name to the array.
+
+```diff
+const arkTsComponentNames: Array<string> = [
+  SampleView.NAME,
+  GeneratedSampleView.NAME,
+  PropsDisplayer.NAME,
++ RTNCameraKitView.NAME
+  ];
 ```
-在`entry/src/main/ets/pages/index.ets`中，如果当前文件中存在`arkTsComponentNames`数组(后续版本新增内容)，则需要在其中追加：`RTNCameraKitView.NAME`;
 
-```ts
-  ...
- const arkTsComponentNames: Array<string> = [..., RTNCameraKitView.NAME]; 
-  ...
-```
+### 4. Introducing RTNCameraKitPackage to ArkTS
 
-### 4.在 ArkTs 侧引入 RTNCameraKitPackage
-
-打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
 
 ```diff
   ...
@@ -257,35 +259,102 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 5.运行
+### 5. Running
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-然后编译、运行即可。
+Then build and run the code.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-library/react-native-camera-kit Releases](https://github.com/react-native-oh-library/react-native-camera-kit/releases)
+Check the release version information in the release address of the third-party library：[@react-native-oh-library/react-native-camera-kit Releases](https://github.com/react-native-oh-library/react-native-camera-kit/releases)
 
+### Permission Requirements
 
-## 属性
+The following permissions include the `system_basic` permission, but the default application permission is `normal`. Only the `normal` permission can be used. Therefore, the error * 9568289 * * * may be reported during the installation of the HAP package. For details, see [Document](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/bm-tool-V5#ZH-CN_TOPIC_0000001884757326__%E5%AE%89%E8%A3%85hap%E6%97%B6%E6%8F%90%E7%A4%BAcode9568289-error-install-failed-due-to-grant-request-permissions-failed) Change the application level to `system_basic`.
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+#### Add permissions to the module.json5 file in the entry directory.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+Open `entry/src/main/module.json5` and add the following information:
 
-**Camera**：相机组件
+```diff
+...
+"requestPermissions": [
++  {
++    "name": "ohos.permission.CAMERA",
++    "reason": "$string:camera_reason",
++    "usedScene": {
++      "abilities": [
++        "EntryAbility"
++      ],
++      "when":"inuse"
++    }
++  },
++  {
++    "name": "ohos.permission.MICROPHONE",
++    "reason": "$string:microphone_reason",
++    "usedScene": {
++      "abilities": [
++        "EntryAbility"
++      ],
++      "when":"inuse"
++    }
++  },
++  {
++    "name": "ohos.permission.APPROXIMATELY_LOCATION",
++    "reason": "$string:location_reason",
++    "usedScene": {
++      "abilities": [
++        "EntryAbility"
++      ],
++      "when":"inuse"
++    }
++  }
+]
+```
+
+#### Add the reason for applying for the preceding permission to the entry directory.
+
+Open `entry/src/main/resources/base/element/string.json` and add the following information:
+
+```diff
+...
+{
+  "string": [
++    {
++      "name": "camera_reason",
++      "value": "camera_reason"
++    },
++    {
++      "name": "location_reason",
++      "value": "location_reason"
++    },
++    {
++      "name": "microphone_reason",
++      "value": "microphone_reason"
++    },
+  ]
+}
+```
+
+## Properties
+
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+
+**Camera**：CameraComponent
 
 | Name            | Description          | Type     | Required | Platform    | HarmonyOS Support |
 |-----------------|----------------------|----------|----------|-------------|-------------------|
@@ -310,7 +379,7 @@ ohpm install
 | onCaptureButtonPressIn  | Callback when iPhone capture button is pressed in. Ex: onCaptureButtonPressIn={() => console.log("volume button pressed in")}    | Function | no       | iOS | yes          |
 | onCaptureButtonPressOut  | Callback when iPhone capture button is released. Ex: onCaptureButtonPressOut={() => console.log("volume button released")}     | Function | no       | iOS | no             |
 
-**ScanCode**：扫码组件
+**ScanCode**：ScanCodeComponent
 
 | Name            | Description          | Type     | Required | Platform    | HarmonyOS Support |
 |-----------------|----------------------|----------|----------|-------------|-------------------|
@@ -333,7 +402,7 @@ ohpm install
 | frameColor  | Color of barcode scanner frame visualization. Default: `yellow`     | string | no       | All | yes               |
 | onReadCode  | Callback when scanner successfully reads barcode. Returned event contains `codeStringValue`. Default: `null`. Ex: `onReadCode={(event) => console.log(event.nativeEvent.codeStringValue)}     | Function | no       | All | yes               |
 
-## 静态方法
+## Methods
 
 | Name  | Description         | Type       | Required | Platform | HarmonyOS Support |
 | ----- | ------------------- | ---------- | -------- | -------- | ----------------- |
@@ -342,17 +411,17 @@ ohpm install
 | checkDeviceCameraAuthorizationStatus  | `AVAuthorizationStatusAuthorized` returns `true` otherwise, returns `false` | Promise<boolean> | All      | Yes               |Yes|
 
 
-## 遗留问题
+## Known Issues
 
-- [ ] 不支持查询传感器旋转角度 [issue#1](https://github.com/react-native-oh-library/react-native-camera-kit/issues/1) 
-- [ ] 不支持使用前置相机进行扫码 [issue#2](https://github.com/react-native-oh-library/react-native-camera-kit/issues/2) 
-- [ ] 不能同时设置flashMode和torchMode属性 [issue#3](https://github.com/react-native-oh-library/react-native-camera-kit/issues/3)
-- [ ] 暂不支持onCaptureButtonPressOut属性 [issue#4](https://github.com/react-native-oh-library/react-native-camera-kit/issues/4)
-- [ ] 暂不支持resetFocusWhenMotionDetected属性 [issue#5](https://github.com/react-native-oh-library/react-native-camera-kit/issues/5)
-- [ ] 暂不支持resizeMode属性 [issue#6](https://github.com/react-native-oh-library/react-native-camera-kit/issues/6)
+- [ ] The sensor rotation angle cannot be queried. [issue#1](https://github.com/react-native-oh-library/react-native-camera-kit/issues/1) 
+- [ ] The front camera cannot be used for code scanning. [issue#2](https://github.com/react-native-oh-library/react-native-camera-kit/issues/2) 
+- [ ] The flashMode and torchMode attributes cannot be set at the same time. [issue#3](https://github.com/react-native-oh-library/react-native-camera-kit/issues/3)
+- [ ] The onCaptureButtonPressOut attribute is not supported. [issue#4](https://github.com/react-native-oh-library/react-native-camera-kit/issues/4)
+- [ ] The resetFocusWhenMotionDetected attribute is not supported. [issue#5](https://github.com/react-native-oh-library/react-native-camera-kit/issues/5)
+- [ ] The resizeMode attribute is not supported currently. [issue#6](https://github.com/react-native-oh-library/react-native-camera-kit/issues/6)
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/teslamotors/react-native-camera-kit/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/teslamotors/react-native-camera-kit/blob/master/LICENSE).

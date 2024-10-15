@@ -135,10 +135,6 @@ This document is verified based on the following versions:
 | Name                | Description                              | Type            | Required | Platform | HarmonyOS Support |
 | ------------------- | ---------------------------------------- | --------------- | -------- | -------- | ----------------- |
 | thunk               | Thunk中间件实例                          | ThunkMiddleware | yes      | All      | yes               |
-| ThunkAction         | ThunkAction类型继承自Redux Action        | Action          | no       | All      | yes               |
-| ThunkActionDispatch | 接受一个thunk action创建器并返回一个函数 | Any             | no       | All      | yes               |
-| ThunkDispatch       | Thunk重载的dispatch接口                  | Interface       | no       | All      | yes               |
-| ThunkMiddleware     | TThunk中间件类型                         | Middleware      | no       | All      | yes               |
 
 ## Static Methods
 

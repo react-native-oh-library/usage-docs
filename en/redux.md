@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>redux</code> </h1>
@@ -10,9 +10,9 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/reduxjs/redux)
+> [!tip] [GitHub address](https://github.com/reduxjs/redux)
 
-## 安装与使用
+## Installation and Usage
 
 #### **yarn**
 
@@ -28,7 +28,7 @@ npm install redux@^5.0.1
 
 <!-- tabs:end -->
 
-下面展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
 1.编写子reducer，负责state具体变化的过程
 
@@ -55,8 +55,6 @@ const counterReducer = (state = defaultState, action: { type: any }) => {
 };
 
 const rootReducer = combineReducers({
-  // 这个对象就是应用State
-  // 应用State赋值
   counterState: counterReducer,
 });
 ```
@@ -72,10 +70,9 @@ const addNumberAction = { type: "ADD_NUMBER" };
 3.在<code>&lt;App&gt;</code>的外层放置一个<code>&lt;Provider&gt;</code>，并将 store 作为 prop 传递
 
 ```ts
-// 导出组件
 export default function TestPage() {
   return (
-    <Provider store={store}> // 将store作为props传递给组件，这样组件就能访问到store和dispatch方法了。
+    <Provider store={store}> 
       <View style={styles.container}>
         <Counter></Counter>
       </View>
@@ -94,17 +91,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { decrement, increment } from "./counterSlice";
 
 export function Counter() {
-  // `state` arg 已经正确被键入 `RootState`
   const number = useAppSelector((state: State) => state.counter.number);
   const dispatch = useAppDispatch();
 
-  // 省略渲染逻辑
 }
 ```
 
-### 兼容性
+### Compatibility
 
-在下述版本验证通过:
+This document is verified based on the following versions:
 
 1. RNOH：0.72.11;
    SDK：OpenHarmony(api11) 4.1.0.53;
@@ -115,9 +110,9 @@ export function Counter() {
    IDE：DevEco Studio 4.1.3.500;
    ROM：2.0.0.59;
 
-## 静态方法
+## Static Methods
 
-详情查看[Redux官方文档](https://www.redux.org.cn/api/compose.html)
+For details, see [Redux Official Documents](https://www.redux.org.cn/api/compose.html)
 
 #### **createStore**
 
@@ -152,12 +147,12 @@ export function Counter() {
 | --------- | ---------------------------------------------- | -------- | -------- | ----------------- |
 | compose() | Combine multiple functions from right to left. | function | NO       | yes               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/reduxjs/redux/blob/master/LICENSE.md) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/reduxjs/redux/blob/master/LICENSE.md).
 
 <!-- {% endraw %} -->

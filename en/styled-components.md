@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>styled-components</code> </h1>
@@ -10,11 +10,11 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/styled-components/styled-components)
+> [!tip] [GitHub address](https://github.com/styled-components/styled-components)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -32,13 +32,12 @@ yarn add styled-components@6.1.8
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
 ```js
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
 
-// 使用 styled-components 创建一个带样式的容器
 const Container = styled.View`
   flex: 1;
   justify-content: center;
@@ -46,14 +45,12 @@ const Container = styled.View`
   background-color: #f5fcff;
 `;
 
-// 使用 styled-components 创建一个带样式的文本组件
 const StyledText = styled.Text`
   font-size: 24px;
   color: ${(props) => (props.children === 'Highlighted!' ? 'tomato' : 'black')};
   margin-bottom: 20px;
 `;
 
-// 使用 styled-components 创建一个带样式的按钮
 const StyledButton = styled.TouchableOpacity`
   background-color: #3498db;
   padding: 10px 20px;
@@ -85,19 +82,19 @@ const App = () => {
 export default App;
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52(SP22C00E52R1P17log);
 
-## 属性
+## Properties
 
-详情见 [styled-components 源库地址](https://github.com/styled-components/styled-components)
+For details, see [styled-components GitHub](https://github.com/styled-components/styled-components)
 
-| 名称              | 说明                                                                                                                                                                                  | 类型          | 是否必填 | 原库平台 |  HarmonyOS 支持 |
+| Name              | Description                                                                                                                                                                                  | Type          | Required | Platform |  HarmonyOS Support |
 | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- | -------- | -------- | -------- |
 | ThemeProvider     | A helper component for theming.                                                                                                                                                       | component     | No       | /        | Yes      |
 | css               | The css prop is a convenient way to iterate on your components without settling on fixed component boundaries yet                                                                     | prop          | No       | /        | Yes      |
@@ -110,12 +107,12 @@ export default App;
 | createGlobalstyle | A helper function to generate a special StyledComponent that handles global styles                                                                                                    | function      | No       | Web      | No       |
 | keyframes         | A helper method to create keyframes for animations.                                                                                                                                   | function      | No       | Web      | No       |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/styled-components/styled-components/blob/main/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/styled-components/styled-components/blob/main/LICENSE)
 
 <!-- {% endraw %} -->

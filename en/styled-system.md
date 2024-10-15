@@ -1,6 +1,6 @@
 <!-- {% raw %} -->
 
-> 模板版本：v0.1.3
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>styled-system</code> </h1>
@@ -11,11 +11,11 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/styled-system/styled-system)
+> [!tip] [GitHub address](https://github.com/styled-system/styled-system)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -33,21 +33,19 @@ yarn add styled-system@5.1.5
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
 ```js
 import React from "react";
 import styled from "styled-components/native";
 import { space, layout, color } from "styled-system";
 
-// 创建一个基础的 Box 组件
 const Box = styled.View`
   ${space}
   ${layout}
   ${color}
 `;
 
-// 使用 Box 组件并应用不同的样式属性
 const App = () => {
   return (
     <Box
@@ -71,21 +69,21 @@ const App = () => {
 export default App;
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+## Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52(SP22C00E52R1P17log);
 
-## 属性
+## Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-详情见 [styled-system 源库地址](https://github.com/styled-system/styled-system)
+For details, see [styled-system GitHub](https://github.com/styled-system/styled-system)
 
 **API space**
 
@@ -109,29 +107,29 @@ export default App;
 
 | Name  | Description | Type | Required | HarmonyOS Support |
 | ----- | ----------- | ---- | -------- | ----------------- |
-| color | 颜色        | prop | no       | yes               |
-| bg    | 背景色      | prop | no       | yes               |
+| color | color        | prop | no       | yes               |
+| bg    | background color      | prop | no       | yes               |
 
 **API typography**
 
 | Name          | Description | Type | Required | HarmonyOS Support | Notes |
 | ------------- | ----------- | ---- | -------- | ----------------- | ----- |
-| fontSize      | 字号大小    | prop | no       | yes               |       |
-| fontWeight    | 字体权重    | prop | no       | yes               |       |
-| lineHeight    | 行高        | prop | no       | yes               |       |
-| letterSpacing | 字符间距    | prop | no       | yes               |       |
-| textAlign     | 文本对齐    | prop | no       | yes               |       |
-| fontStyle     | 字体样式    | prop | no       | yes               |       |
+| fontSize      | fontSize    | prop | no       | yes               |       |
+| fontWeight    | fontWeight    | prop | no       | yes               |       |
+| lineHeight    | lineHeight        | prop | no       | yes               |       |
+| letterSpacing | letterSpacing    | prop | no       | yes               |       |
+| textAlign     | textAlign    | prop | no       | yes               |       |
+| fontStyle     | fontStyle    | prop | no       | yes               |       |
 
 **API layout**
 
 | Name      | Description | Type | Required | HarmonyOS Support | Notes |
 | --------- | ----------- | ---- | -------- | ----------------- | ----- |
-| width     | 宽度        | prop | no       | yes               |       |
-| height    | 高度        | prop | no       | yes               |       |
-| minHeight | 最小高度    | prop | no       | yes               |       |
-| maxHeight | 最大高度    | prop | no       | yes               |       |
-| size      | 大小        | prop | no       | yes               |       |
+| width     | width        | prop | no       | yes               |       |
+| height    | height        | prop | no       | yes               |       |
+| minHeight | minHeight    | prop | no       | yes               |       |
+| maxHeight | maxHeight    | prop | no       | yes               |       |
+| size      | size        | prop | no       | yes               |       |
 
 **API flexbox**
 
@@ -172,15 +170,15 @@ export default App;
 
 | Name | Description | Type | Required | HarmonyOS Support |
 | ---- | ----------- | ---- | -------- | ----------------- |
-| top  | 上偏移量    | prop | no       | yes               |
-| left | 左偏移量    | prop | no       | yes               |
+| top  | top offset    | prop | no       | yes               |
+| left | left offset  | prop | no       | yes               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/styled-system/styled-system/blob/master/LICENSE.md) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/styled-system/styled-system/blob/master/LICENSE.md)
 
 <!-- {% endraw %} -->

@@ -44,6 +44,8 @@ yarn add @react-native-oh-tpl/lottie-react-native@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
+> [!TIP] 以下 demo 中使用的是本地文件。
+
 ```js
 import React from "react";
 import { View } from "react-native";
@@ -52,7 +54,11 @@ import LottieView from "lottie-react-native";
 const App = () => {
   return (
     <View style={{ flex: 1 }}>
-      <LottieView source={require("./assets/xxx.json")} autoPlay loop />
+      <LottieView 
+        style={{ width: 300, height: 300 }} 
+        source={require("./assets/xxx.json")}   
+        autoPlay 
+        loop />
     </View>
   );
 };

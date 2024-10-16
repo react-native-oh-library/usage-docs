@@ -63,7 +63,7 @@ function LinearGradientDemo() {
                 colors={["#4c669f", "#3b5998", "#192f6a"]}
                 style={styles.linearGradient}
             >
-            <Text style={styles.buttonText}>Sign in with Facebook</Text>
+                <Text style={styles.buttonText}>Sign in with Facebook</Text>
             </LinearGradient>;
         </View>
     );
@@ -71,20 +71,25 @@ function LinearGradientDemo() {
 export default LinearGradientDemo;
 // Later on in your styles..
 var styles = StyleSheet.create({
-  linearGradient: {
-    flex: 1,
-    paddingLeft: 15,
-    paddingRight: 15,
-    borderRadius: 5,
-  },
-  buttonText: {
-    fontSize: 18,
-    fontFamily: "Gill Sans",
-    textAlign: "center",
-    margin: 10,
-    color: "#ffffff",
-    backgroundColor: "transparent",
-  },
+    container: {
+        backgroundColor: '#fff',
+        flex: 1,
+        paddingTop: 24, 
+    },
+    linearGradient: {
+        flex: 1,
+        paddingLeft: 15,
+        paddingRight: 15,
+        borderRadius: 5,
+    },
+    buttonText: {
+        fontSize: 18,
+        fontFamily: "Gill Sans",
+        textAlign: "center",
+        margin: 10,
+        color: "#ffffff",
+        backgroundColor: "transparent",
+    },
 });
 ```
 

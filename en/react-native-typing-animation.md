@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> 模板版本：v0.2.1
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-typing-animation</code> </h1>
@@ -211,6 +210,8 @@ export default TypingAnimationDemos;
 
 1.RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.18;
 
+2.RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
+
 ## 属性
 
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
@@ -238,5 +239,3 @@ export default TypingAnimationDemos;
 
 本项目基于  [The MIT License (MIT)](https://github.com/watadarkstar/react-native-typing-animation/blob/master/LICENSE) ，请自由地享受和参与开源。
 
-
-<!-- {% endraw %} -->

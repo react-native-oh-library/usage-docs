@@ -1,5 +1,3 @@
-<!-- {% raw %} -->
-
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -211,7 +209,8 @@ export const FlipCardExample = () => {
 
 本文档内容基于以下版本验证通过：
 
-1. RNOH：0.72.26; SDK：HarmonyOS NEXT Developer Beta1 5.0.0.25; IDE：DevEco Studio 5.0.3.300SP2; ROM:3.0.0.24;
+1. RNOH: 0.72.26; SDK：HarmonyOS NEXT Developer Beta1 5.0.0.25; IDE：DevEco Studio 5.0.3.300SP2; ROM:3.0.0.24;
+2. RNOH: 0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 ## 属性
 
@@ -244,5 +243,3 @@ export const FlipCardExample = () => {
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/moschan/react-native-flip-card/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

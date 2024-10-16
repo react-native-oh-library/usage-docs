@@ -45,24 +45,24 @@ The following code shows the basic use scenario of the repository:
 > [!WARNING] The library name imported during use remains unchanged.
 
 ```js
-import React from "react";
-import { Text, View } from "react-native";
+import React from 'react';
+import {
+  Text,
+} from 'react-native';
 
-import ScrollableTabView from "react-native-scrollable-tab-view";
+import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
 
 export default () => {
-  return (
-    <View>
-      <ScrollableTabView>
-        <Text tabLabel="Tab #1">My</Text>
-        <Text tabLabel="Tab #2 word word">favorite</Text>
-        <Text tabLabel="Tab #3 word word word">project</Text>
-        <Text tabLabel="Tab #4 word word word word">favorite</Text>
-        <Text tabLabel="Tab #5">project</Text>
-      </ScrollableTabView>
-    </View>
-  );
-};
+  return <ScrollableTabView
+    style={{ marginTop: 20 }}
+    initialPage={1}
+    renderTabBar={() => <DefaultTabBar />}
+  >
+    <Text tabLabel='Tab #1'>My</Text>
+    <Text tabLabel='Tab #2'>favorite</Text>
+    <Text tabLabel='Tab #3'>project</Text>
+  </ScrollableTabView>;
+}
 ```
 
 ## Link

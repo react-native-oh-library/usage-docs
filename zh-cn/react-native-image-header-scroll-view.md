@@ -231,6 +231,7 @@ export default HeaderImageExample;
 
 1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.18;
 2. RNOH：0.72.29; SDK：HarmonyOS NEXT Developer Beta6; IDE：DevEco Studio 5.0.3.706; ROM：Next0.0.66;
+3. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 ## API
 
@@ -251,7 +252,7 @@ export default HeaderImageExample;
 | `overlayColor`           | Color of the overlay on the header | string | No       | All      | Yes               |
 | `useNativeDriver`           | Use native driver for the animation for performance improvement. A few props are unsupported at the moment if useNativeDriver=true (onScroll, ScrollComponent, renderTouchableFixedForeground) | boolean | No       | All      | Yes               |
 | `headerContainerStyle`           | Optional styles to be passed to the container of the header component | Object | No       | All      | Yes               |
-| `disableHeaderGrow`           | Disable to grow effect on the header | boolean | No       | All      | Yes               |
+| `disableHeaderGrow`           | Disable to grow effect on the header | boolean | No       | All      | No              |
 
 
 #### **Foreground**
@@ -284,17 +285,15 @@ export default HeaderImageExample;
 | `onHide`               | Called when the component is not displayed any more after scroll up             | function | No       | All      | Yes               |
 | `onBeginDisplayed`                | Called when the component begin to be displayed again after scroll down | function | No       | All      | Yes               |
 | `onDisplay`                | Called when the component finished to be displayed again.            | function | No       | All      | Yes               |
-| `onTouchTop`           | 	Called when the Top of the component touch the Top of the ScrollView. (onDisplay + onBeginHidden) | function | No       | All      | Yes               |
-| `onTouchBottom`           | Called when the Bottom of the component touch the Top of the ScrollView. (onHide + onBeginDisplayed)  | function | No       | All      | Yes               |
+| `onTouchTop`           | 	Called when the component finished to be displayed again.   (onDisplay + onBeginHidden) | function | No       | All      | Yes               |
+| `onTouchBottom`           | Called when the component is not displayed any more after scroll up   (onHide + onBeginDisplayed)  | function | No       | All      | Yes               |
 
 ## 遗留问题
+- disableHeaderGrow 属性在iOS上可以控制下拉放大背景图 在harmony上无此效果 [issue#1](https://github.com/bamlab/react-native-image-header-scroll-view/issues/76 )
 ## 其他
+- [ ] foregroundExtrapolate属性无法生效，与Android、iOS一致：[issue#2](https://github.com/bamlab/react-native-image-header-scroll-view/issues/132 )。
+- [ ] ScrollViewComponent属性无法滚动，与Android、iOS一致：[issue#3](https://github.com/bamlab/react-native-image-header-scroll-view/issues/133 )。
 
-- 如何去除图片阴影蒙层？  
-  可通过设置 maxOverlayOpacity、minOverlayOpacity 属性为 0，去除图片阴影蒙层。
-- 如何禁止滑动回弹效果？
-  - 方法 1：设置 disableHeaderGrow 属性为 true
-  - 方法 2：设置 bounces 属性为 false
 
 ## 开源协议
 

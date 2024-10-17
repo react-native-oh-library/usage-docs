@@ -16,12 +16,12 @@
 
 
 
-> [!TIP] [Github 地址](https://github.com/bamlab/react-native-image-header-scroll-view)
-> 因 v1.0.0 中存在无法触发 TriggeringView 组件回调的问题，以下基于 v0.10.3 版本验证
+> [!TIP] [Github address](https://github.com/bamlab/react-native-image-header-scroll-view)
+> Due to an issue in v1.0.0 where the TriggeringView component callback cannot be triggered, the following verification is based on v0.10.3 version
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction：
 
 <!-- tabs:start -->
 
@@ -39,7 +39,7 @@ yarn add react-native-image-header-scroll-view@0.10.3
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository：
 
 ```tsx
 import React, { useEffect, useState } from 'react';
@@ -153,7 +153,6 @@ function HeaderImageExample () {
             useNativeDriver: true,
           }).start();
         } else {
-          // 如果当前是不可见的，则执行淡出动画
           Animated.timing(fadeAnim, {
             toValue: 0,
             duration: 100,
@@ -174,7 +173,7 @@ function HeaderImageExample () {
           fadeOutForeground={true} 
           foregroundParallaxRatio={1}
           overlayColor={'blue'} 
-          renderHeader={() => <Image source={'请输入本地图片路径'} style={styles.image} />} 
+          renderHeader={() => <Image source={'Please enter the local image path'} style={styles.image} />} 
           renderFixedForeground={() => (
             <Animated.View
                     style={[styles.navTitleView,{ opacity: fadeAnim}]}  >
@@ -223,20 +222,22 @@ function HeaderImageExample () {
 export default HeaderImageExample;
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions：
 
 1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.18;
 2. RNOH：0.72.29; SDK：HarmonyOS NEXT Developer Beta6; IDE：DevEco Studio 5.0.3.706; ROM：Next0.0.66;
+3. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 ## API
 
-> [!Tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!Tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!Tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+> [!Tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 #### **Header**
 
@@ -251,7 +252,7 @@ export default HeaderImageExample;
 | `overlayColor`           | Color of the overlay on the header | string | No       | All      | Yes               |
 | `useNativeDriver`           | Use native driver for the animation for performance improvement. A few props are unsupported at the moment if useNativeDriver=true (onScroll, ScrollComponent, renderTouchableFixedForeground) | boolean | No       | All      | Yes               |
 | `headerContainerStyle`           | Optional styles to be passed to the container of the header component | Object | No       | All      | Yes               |
-| `disableHeaderGrow`           | Disable to grow effect on the header | boolean | No       | All      | Yes               |
+| `disableHeaderGrow`           | Disable to grow effect on the header | boolean | No       | All      | No              |
 
 
 #### **Foreground**
@@ -287,15 +288,15 @@ export default HeaderImageExample;
 | `onTouchTop`           | 	Called when the Top of the component touch the Top of the ScrollView. (onDisplay + onBeginHidden) | function | No       | All      | Yes               |
 | `onTouchBottom`           | Called when the Bottom of the component touch the Top of the ScrollView. (onHide + onBeginDisplayed)  | function | No       | All      | Yes               |
 
-## 遗留问题
-## 其他
+## Known Issues
 
-- 如何去除图片阴影蒙层？  
-  可通过设置 maxOverlayOpacity、minOverlayOpacity 属性为 0，去除图片阴影蒙层。
-- 如何禁止滑动回弹效果？
-  - 方法 1：设置 disableHeaderGrow 属性为 true
-  - 方法 2：设置 bounces 属性为 false
+- disableHeaderGrow property on iOS allows for the control of dropdown zooming in on the background image, but it does not have this effect on Harmony [issue#1](https://github.com/bamlab/react-native-image-header-scroll-view/issues/76 )
+## Others
+- [ ] The foregroundExtrapolar property cannot take effect, consistent with Android and iOS：[issue#2](https://github.com/bamlab/react-native-image-header-scroll-view/issues/132 )。
+- [ ] The ScrollViewComponent property cannot be scrolled, consistent with Android and iOS：[issue#3](https://github.com/bamlab/react-native-image-header-scroll-view/issues/133 )。
 
-## 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/bamlab/react-native-image-header-scroll-view/blob/master/LICENCE) ，请自由地享受和参与开源。
+
+## License
+
+This project is licensed under [The MIT License (MIT)](https://github.com/bamlab/react-native-image-header-scroll-view/blob/master/LICENCE) 

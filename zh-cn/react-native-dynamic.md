@@ -182,6 +182,7 @@ const dynamicStyles = new DynamicStyleSheet({
 本文档内容基于以下版本验证通过：
 
 1. RNOH：0.72.26; SDK：HarmonyOS NEXT Developer Beta1；IDE：DevEco Studio 5.0.3.300; ROM：3.0.0.24;
+2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 ## 属性
 

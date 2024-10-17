@@ -18,18 +18,24 @@
 
 ## 安装与使用
 
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-drag-sort Releases](https://github.com/react-native-oh-library/react-native-drag-sort/releases)，并下载适用版本的 tgz 包。
+
 进入到工程目录并输入以下命令：
+
+> [!TIP] # 处替换为 tgz 包的路径
+
+<!-- tabs:start -->
 
 #### **yarn**
 
 ```bash
-yarn add react-native-drag-sort@2.4.4
+yarn add @react-native-oh-tpl/react-native-drag-sort@file:#
 ```
 
 #### **npm**
 
 ```bash
-npm i react-native-drag-sort@2.4.4
+npm install @react-native-oh-tpl/react-native-drag-sort@file:#
 ```
 
 ### Tip
@@ -556,11 +562,9 @@ const styles = StyleSheet.create({
 
 ### 兼容性
 
-在下述版本验证通过：
+要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-1. RNOH：0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.29(SP1); IDE：DevEco Studio 5.0.3.400; ROM：3.0.0.25;
-2. RNOH：0.72.29; SDK：HarmonyOS NEXT Developer Beta6 5.0.0.61; IDE：DevEco Studio 5.0.3.706; ROM：3.0.0.61;
-3. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-drag-sort Releases](https://github.com/react-native-oh-library/react-native-drag-sort/releases)
 
 ## 属性
 

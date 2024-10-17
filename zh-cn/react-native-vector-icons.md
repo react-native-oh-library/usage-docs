@@ -352,6 +352,10 @@ RNApp({
 
 请使用 Api 11 及以上版本，低版本会导致 font 注册不成功，图标显示不出来。
 
+本文档内容基于以下版本验证通过：
+
+1. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
+
 ## 遗留问题
 
 - [ ] getImageSource 和 getImageSourceSync 原生方法可以将字体文件绘制成 Bitmap 位图供 `Image` 组件使用，Harmony OS 侧暂时不支持

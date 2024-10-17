@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -374,6 +373,8 @@ ohpm install
 
 #### blurType
 
+> [!TIP] 如果要使用自适应模糊效果需要配置深色模式[配置文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/arkts-light-dark-color-adaptation-V5#section1421172621111)如果不配置深色模式则自适应模糊效果将没有深色模式，只有浅色模式。
+
 | Name                     | Description                                                                                            | Platform              | HarmonyOS Support |
 | ------------------------ | ------------------------------------------------------------------------------------------------------ |-----------------------| ----------------- |
 | `xlight`                 | extra light blur type                                                                                  | iOS,Android                   | yes                |
@@ -404,10 +405,11 @@ ohpm install
 
 > [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该组件；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name           | Description                                                                                | Type      | Platform | HarmonyOS Support |
-| -------------- | ------------------------------------------------------------------------------------------ | --------- |----------| ----------------- |
-| `BlurView`     | Preload images to display later. e.g.                                                      | component | iOS,Android      | yes               |
-| `VibrancyView` | The vibrancy effect lets the content underneath a blurred view show through more vibrantly | component | iOS      | no                |
+
+| Name           | Description                                                                                | Type  | Required    | Platform | HarmonyOS Support |
+| -------------- | ------------------------------------------------------------------------------------------ | ---|------ |----------| ----------------- |
+| `BlurView`     | Preload images to display later. e.g.                                                      | component|no | iOS,Android      | yes               |
+| `VibrancyView` | The vibrancy effect lets the content underneath a blurred view show through more vibrantly | component|no | iOS      | no                |
 
 ## 遗留问题
 
@@ -420,5 +422,3 @@ ohpm install
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/Kureev/react-native-blur/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

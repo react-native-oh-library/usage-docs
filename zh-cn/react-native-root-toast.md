@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> 模板版本：v0.2.1
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-root-toast</code> </h1>
@@ -37,8 +36,6 @@ yarn add react-native-root-toast@3.5.1
 <!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：
-
-#### Calling api
 
 ```js
 import React, { useState } from "react";
@@ -84,36 +81,6 @@ export function ReactNativeRootToastExample() {
 }
 ```
 
-#### Using a Component
-
-```json
-import { RootSiblingParent } from 'react-native-root-siblings';
-import React,{ useState } from 'react';
-import { Button } from 'react-native';
-import Toast from 'react-native-root-toast';
-
-export function ReactNativeRootToastExample() {
-	const [visible,setvisible] = useState(true);
-    function c(){ setvisible(false) }
-    function d(){ setvisible(true) }
-    return (
-        <RootSiblingParent>
-            <Toast
-            visible={visible}
-            position={90}
-            shadow={false}
-            animation={false}
-            hideOnPress={true}
-                >This is a message</Toast>
-            <View >
-                <Button title = "开一个组件弹窗" onPress = {d} />
-                <Button title = "关掉这个组件弹窗" onPress = {c} />
-            </View>
-        </RootSiblingParent>
-    );
-}
-```
-
 ## 约束与限制
 
 ### 兼容性
@@ -121,6 +88,7 @@ export function ReactNativeRootToastExample() {
 本文档内容基于以下版本验证通过：
 
 1. RNOH: 0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.18;
+2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 ## 属性
 
@@ -153,5 +121,3 @@ export function ReactNativeRootToastExample() {
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/magicismight/react-native-root-toast/blob/master/LICENSE.txt) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

@@ -136,7 +136,7 @@ export default App;
 | indicatorWidth                    | 指示器宽度                                                   | Number   | 10                    | All      | Yes               |
 | indicatorHeight                   | 指示器高度                                                   | Number   | 6                     | All      | Yes               |
 | indicatorColor                    | 指示器颜色                                                   | String   | rgba(255,255,255,0.6) | All      | Yes               |
-| indicatorStyle                    | 指示器样式，您也可以直接使用此属性一次性设置指示器宽、高、颜色和圆角等，它会覆盖以上`indicatorWidth`,`indicatorHeight`，`indicatorColor`属性 | Object   | {}                    | All      | Yes               |
+| indicatorStyle                    | 指示器样式，您也可以直接使用此属性一次性设置指示器宽、高、颜色和圆角等，它会覆盖以上`indicatorWidth`,`indicatorHeight`，`indicatorColor`属性 | Object   | {}                    | No      | No               |
 | indicatorGap                      | 指示器之间的间隔                                             | Number   | 6                     | All      | Yes               |
 | activeIndicatorColor              | 活动指示器颜色                                               | String   | #fff                  | All      | Yes               |
 | indicatorGroupPosition            | 指示器组的位置，可设置`left`,`center`,`right`。如果您设置了`bannerTitles`,则此属性只能是`right` | String   | right                 | All      | Yes               |
@@ -147,7 +147,7 @@ export default App;
 | onScrollEnd()                     | 滚动完每张轮播图的回调函数，等同于`ScrollView`的`onMomentumScrollEnd` | Function | ()=>{}                | All      | Yes               |
 
 ## 遗留问题
-
+- [ ] indicatorStyle属性问题：源码逻辑有问题导致属性失效。[issue#11](https://github.com/react-native-oh-library/better-banner/issues/11)
 
 ## 其他
 

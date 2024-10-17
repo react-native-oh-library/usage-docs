@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -77,7 +76,8 @@ export default App;
 
 本文档内容基于以下版本验证通过：
 
-RNOH：0.72.27; SDK：HarmonyOS-NEXT-DB1 5.0.0.25; IDE：DevEco Studio 5.0.3.400SP7; ROM：3.0.0.25;
+1. RNOH：0.72.27; SDK：HarmonyOS-NEXT-DB1 5.0.0.25; IDE：DevEco Studio 5.0.3.400SP7; ROM：3.0.0.25;
+2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 ## 静态方法
 > [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
@@ -109,4 +109,3 @@ RNOH：0.72.27; SDK：HarmonyOS-NEXT-DB1 5.0.0.25; IDE：DevEco Studio 5.0.3.400
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/heyman333/react-native-responsive-fontSize/blob/master/LICENSE) ，请自由地享受和参与开源。
-<!-- {% endraw %} -->

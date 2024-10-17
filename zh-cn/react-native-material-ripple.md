@@ -133,6 +133,7 @@ export const MateriaRippleExample = () => {
 
 1. RNOH：0.72.27; SDK：HarmonyOS NEXT Developer Beta1 5.0.0.25; IDE：DevEco Studio 5.0.3.400; ROM：3.0.0.25
 2. RNOH：0.72.28; SDK：HarmonyOS NEXT Developer Beta3 5.0.0.36; IDE：DevEco Studio 5.0.3.535; ROM：5.0.0.36
+3. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 ## 属性
 

@@ -116,7 +116,7 @@ export const Blurs = () => {
   );
 };
 
-export default const BlurDemo = () => {
+export  const BlurDemo = () => {
   const [showBlurs, setShowBlurs] = React.useState(false);
   return (
     <View style={styles.container}>

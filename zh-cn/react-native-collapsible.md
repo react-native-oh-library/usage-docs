@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> 模板版本：v0.2.0
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-collapsible</code> </h1>
@@ -91,6 +90,7 @@ const CONTENT = [
 本文档内容基于以下版本验证通过：
 
 1. RNOH: 0.72.20; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.18;
+2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 ## 属性
 
@@ -142,5 +142,3 @@ const CONTENT = [
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/oblador/react-native-collapsible/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

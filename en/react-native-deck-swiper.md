@@ -1,6 +1,4 @@
-<!-- {% raw %} -->
-
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-deck-swiper</code> </h1>
@@ -14,9 +12,9 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/alexbrillant/react-native-deck-swiper)
+> [!TIP] [GitHub address](https://github.com/alexbrillant/react-native-deck-swiper)
 
-## 安装与使用
+## Installation and Usage
 
 <!-- tabs:start -->
 
@@ -34,9 +32,9 @@ yarn add react-native-deck-swiper@2.0.17
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React, { Component, useState } from 'react'
@@ -56,15 +54,13 @@ export default class DeckSwiperExample extends Component {
     this.state = {
       cards: [...range(1, 10)],
       swipedAllCards: false,
-      swipeDirection: '操作卡片滑动，此处显示滑动方向',
+      swipeDirection: 'Slide the operation card. The sliding direction is displayed here.',
       cardIndex: 0,
-      //是否显示下一张卡片
       showSecondCardState:true,
-      //卡片移动时候的索引
-      indexWhenmove:'请移动卡片',
-      positionWhenmove:'请移动卡片',
-      dragStartState:'拖动开始触发',
-      dragEndState:'拖动结束触发'
+      indexWhenmove:'Please move the card',
+      positionWhenmove:'Please move the card',
+      dragStartState:'Drag Start Trigger',
+      dragEndState:'Triggered by the end of dragging'
     }
   }
 
@@ -86,7 +82,6 @@ export default class DeckSwiperExample extends Component {
     })
   };
 
-  //轻触时，卡片滑动的方向
   swipeLeft = () => {
     this.swiper.swipeLeft()
   };
@@ -99,7 +94,6 @@ export default class DeckSwiperExample extends Component {
   swipeBottom = () => {
     this.swiper.swipeBottom()
   };
-  //卡片拖动时，调用的函数
   Swiping = (index, position) => {
     this.setState({
       ...this.props,
@@ -107,36 +101,32 @@ export default class DeckSwiperExample extends Component {
       positionWhenmove:position
     })
   };
-  //拖动开始时候要调用的函数
   dragStart = () => {
     this.setState({
       ...this.props,
-      dragStartState:'拖动已经开始了！！！！'
+      dragStartState:'The drag has started！！！！'
     })
   } 
-  //拖动结束时候要调用的函数
   dragEnd = () => {
     this.setState({
       ...this.props,
-      dragEndState:'拖动已经结束了！！！！'
+      dragEndState:'The drag is over！！！！'
     })
   } 
 
-  //显示堆叠卡片
   useShowSecondCard = () =>{
     this.setState({
       ...this.props,
       showSecondCardState:true
     })
   }
-  //不显示堆叠卡片
   disuseShowSecondCard = () =>{
     this.setState({
       ...this.props,
       showSecondCardState:false
     })
   }
-  //显示堆叠卡片
+  //Display Stacking Cards
   useShowSecondCard = () =>{
       this.setState({
         ...this.props,
@@ -146,54 +136,39 @@ export default class DeckSwiperExample extends Component {
 
   render() {
     return (
-              <Text>该整体效果涉及属性和接口</Text>
-              <Text>onSwiped,滑动方向：{this.state.swipeDirection}</Text>
-              <Text>onTapCard,轻触时，卡片调用的函数:这里设置的是swipeLeft向左滑动</Text>
-              <Text>onSwipedAllCards,刷卡时候调用的函数,刷卡完毕置位true.刷卡完毕的情况下使用'回退按键',该状态不会重置:{JSON.stringify(this.state.swipedAllCards)}</Text>
-              <Text>onSwiping,卡片移动时触发的回调: Swiping card at index {this.state.indexWhenmove}, position: {this.state.positionWhenmove}</Text>
-              <Text>dragStart,卡片开始拖动时候触发的回调:{this.state.dragStartState}</Text>
-              <Text>dragEnd,卡片拖动结束时候触发的回调:{this.state.dragEndState}</Text>
+              <Text>The overall effect involves attributes and interfaces.</Text>
+              <Text>onSwiped,Sliding direction：{this.state.swipeDirection}</Text>
+              <Text>onTapCard,When lightly touched，Function called by the card: SwipeLeft is set to slide left.</Text>
+              <Text>onSwipedAllCards,Function invoked when the card is swiped. After the card is swiped, the value is set to true. After the card is swiped, the status will not be reset when the'Back button' is used:{JSON.stringify(this.state.swipedAllCards)}</Text>
+              <Text>onSwiping,Callback triggered when a card is moved: Swiping card at index {this.state.indexWhenmove}, position: {this.state.positionWhenmove}</Text>
+              <Text>dragStart,Callback triggered when the card starts to drag:{this.state.dragStartState}</Text>
+              <Text>dragEnd,Callback triggered when the card drag ends:{this.state.dragEndState}</Text>
               <View style={styles.container}>
                 <Swiper
                   ref={swiper => {
                     this.swiper = swiper
                   }}
-                  //滑动方向
                   onSwiped={() => this.setState({ swipeDirection: this.state.swipeDirection = 'general' })}
                   onSwipedLeft={() => this.setState({ swipeDirection: this.state.swipeDirection = 'left' })}
                   onSwipedRight={() => this.setState({ swipeDirection: this.state.swipeDirection = 'right' })}
                   onSwipedTop={() => this.setState({ swipeDirection: this.state.swipeDirection = 'top' })}
                   onSwipedBottom={() => this.setState({ swipeDirection: this.state.swipeDirection = 'bottom' })}
-                  //轻触卡时要调用的函数，这里是向左滑动
                   onTapCard={this.swipeLeft}
-                  //需要渲染的卡片组，必填
                   cards={this.state.cards}
-                  //首张卡片，这里为设置为0
                   cardIndex={this.state.cardIndex}
-                  //卡片的垂直边距，默认为60
                   cardVerticalMargin={200}
-                  //卡片的水平边距，默认为20
                   cardHorizontalMargin={80}
-                  //卡片渲染的参数，必填
                   renderCard={this.renderCard}
-                  //卡片移动时触发的回调
                   onSwiping={this.Swiping}
-                  //当卡片滑完后触发的回调
                   onSwipedAll={this.onSwipedAllCards}
-                  //拖动开始触发的函数
                   dragStart={this.dragStart}
-                  //拖动结束触发的函数
                   dragEnd={this.dragEnd}
-                  //显示堆叠卡片,只有当showSecondCard为true的时候,才会生效
                   stackSize={3}
-                  //卡之间的垂直间隔f,具体表现为卡片的堆叠样式,例如此处为-100，成多米诺形式
                   stackSeparation={20}
-                  //是否显示第二张卡
                   showSecondCard={this.state.showSecondCardState}
-                  //滑动覆盖标签，滑动时候卡片上的覆盖样式
                   overlayLabels={{
                     bottom: {
-                      title: '向下',
+                      title: 'Downward',
                       style: {
                         label: {
                           backgroundColor: 'black',
@@ -209,7 +184,7 @@ export default class DeckSwiperExample extends Component {
                       }
                     },
                     left: {
-                      title: '向左',
+                      title: 'To the left',
                       style: {
                         label: {
                           backgroundColor: 'black',
@@ -227,7 +202,7 @@ export default class DeckSwiperExample extends Component {
                       }
                     },
                     right: {
-                      title: '向右',
+                      title: 'To the right',
                       style: {
                         label: {
                           backgroundColor: 'black',
@@ -245,7 +220,7 @@ export default class DeckSwiperExample extends Component {
                       }
                     },
                     top: {
-                      title: '向上',
+                      title: 'Upward',
                       style: {
                         label: {
                           backgroundColor: 'black',
@@ -261,12 +236,9 @@ export default class DeckSwiperExample extends Component {
                       }
                     }
                   }}
-                  //动画卡覆盖标签不透明度，默认为false
                   animateOverlayLabelsOpacity
                   animateCardOpacity
-                  //回退卡片动画
                   swipeBackCard
-                  //背景图
                   containerStyle={
                     {
                         height: 700,
@@ -277,8 +249,8 @@ export default class DeckSwiperExample extends Component {
                     }}
                 >
                   <Button onPress={() => this.swiper.swipeBack()} title='Swipe Back' />
-                  <Button onPress={() => this.useShowSecondCard()} title='显示堆叠卡片(默认为堆叠；重置后，需要滑动一张卡片生效)' />
-                  <Button onPress={() => this.disuseShowSecondCard()} title='不显示堆叠卡片(点击后，需要滑动一张卡片生效)' />
+                  <Button onPress={() => this.useShowSecondCard()} title='Display stacking cards (stacked by default. After reset, slide one card to take effect.)' />
+                  <Button onPress={() => this.disuseShowSecondCard()} title='The stacked card is not displayed. (After you click this button, you need to slide one card to take effect.)' />
                 </Swiper>
               </View>
     )
@@ -318,19 +290,20 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
-1. RNOH: 0.72.27; SDK: HarmonyOS-Next-DB1 5.0.0.25; IDE: DevEco Studio 5.0.3.400SP7; ROM: 3.0.0.25;
+1. RNOH：0.72.27; SDK: HarmonyOS-Next-DB1 5.0.0.25; IDE: DevEco Studio 5.0.3.400SP7; ROM: 3.0.0.25;
+2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
-## 属性
+## Properties
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 ### Card props
 
@@ -433,11 +406,11 @@ export default App;
 | stackAnimationTension        | spring animation tension (speed)                            | number | no       | iOS/Android | yes               |
 | swipeBackCard                | renders swipe back card, in order to animate it             | bool   | no       | iOS/Android | yes               |
 
-## 事件回调
+## Event callback
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name              | Description                                                  | Type | Required | Platform    | HarmonyOS Support |
 | ----------------- | ------------------------------------------------------------ | ---- | -------- | ----------- | ----------------- |
@@ -454,11 +427,11 @@ export default App;
 | onTapCard         | function to be called when tapping a card. it receives the tapped card index | func | no       | iOS/Android | yes               |
 | onTapCardDeadZone | maximum amount of movement before a tap is no longer recognized as a tap | func | no       | iOS/Android | yes               |
 
-## 静态方法
+## Static Methods
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP]  If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name            | Description                           | Type     | Required | Platform    | HarmonyOS Support |
 | --------------- | ------------------------------------- | -------- | -------- | ----------- | ----------------- |
@@ -469,12 +442,10 @@ export default App;
 | swipeBottom     | swipe bottom to the next card         | callback | no       | iOS/Android | yes               |
 | jumpToCardIndex | set the current card index            | callback | no       | iOS/Android | yes               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The ISC License (ISC)](https://github.com/alexbrillant/react-native-deck-swiper/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->
+This project is licensed under [The ISC License (ISC)](https://github.com/alexbrillant/react-native-deck-swiper/blob/master/LICENSE) .

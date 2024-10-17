@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> 模板版本：v0.2.0
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-ratings</code> </h1>
@@ -14,9 +13,9 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/Monte9/react-native-ratings)
+> [!TIP] [GitHub address](https://github.com/Monte9/react-native-ratings)
 
-## 安装与使用
+## Installation and Usage
 
 <!-- tabs:start -->
 
@@ -34,7 +33,7 @@ yarn add react-native-ratings@8.1.0
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
 ```tsx
 import React, { useState } from 'react';
@@ -119,20 +118,21 @@ export function RatingsDemo () {
 
 ```
 
-## 约束与限制
+## Constraints
 
-#### 兼容性
+### Compatibility
 
-在下述版本验证通过：
+This document is verified based on the following versions:
 
-RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.18;
+1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.18;
+2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
-## 属性
+## Properties
 
-### 此组件有以下属性:
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+### This component has the following properties:
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.。
 
 |           Name            |                    Description                    |                           Type                           | Required |  Platform   | HarmonyOS Support |
 | :-----------------------: | :-----------------------------------------------: | :------------------------------------------------------: | :------: | :---------: | :---------------: |
@@ -156,9 +156,9 @@ RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.
 |     **onFinishRating**     |       Callback method when the user finishes rating. Gives you the final rating value as a whole number (required)         |                         function                           |    No    | iOS/Android |        Yes        |
 
 ## **API（AirbnbRating）**
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 |           Name            |                    Description                    |                           Type                           | Required |  Platform   | HarmonyOS Support |
 | :-----------------------: | :-----------------------------------------------: | :------------------------------------------------------: | :------: | :---------: | :---------------: |
@@ -178,11 +178,10 @@ RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.
 |     **starImage**  |   Pass in a custom base image source (optional)  |                         string                           |    No    | iOS/Android |        Yes        |
 |     **starStyle**  |   Custom styles applied to the star (optional)  |                         object                           |    No    | iOS/Android |        Yes        |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [MIT License](https://github.com/Monte9/react-native-ratings/blob/master/LICENSE) ，请自由地享受和参与开源。
-<!-- {% endraw %} -->
+This project is licensed under [MIT License](https://github.com/Monte9/react-native-ratings/blob/master/LICENSE) .

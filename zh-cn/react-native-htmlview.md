@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> 模板版本：v0.2.1
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-htmlview</code> </h1>
@@ -93,6 +92,7 @@ export default HtmlViewExample;
 本文档内容基于以下版本验证通过：
 
 1. RNOH: 0.72.20-CAPI; SDK: HarmonyOS NEXT Developer Preview2; IDE: DevEco Studio 4.1.3.700; ROM: 3.0.0.19;
+2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 ## 属性
 
@@ -117,5 +117,3 @@ export default HtmlViewExample;
 ## 开源协议
 
 本项目基于 [The ISC License (ISC)](https://github.com/jsdf/react-native-htmlview/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

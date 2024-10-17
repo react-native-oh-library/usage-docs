@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> 模板版本：v0.2.0
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-animatable</code> </h1>
@@ -20,7 +19,6 @@
 
 
 进入到工程目录并输入以下命令：
-
 
 <!-- tabs:start -->
 
@@ -68,7 +66,7 @@ export default function ExampleView() {
                     style={{ textAlign: 'center', marginTop: 50, color: 'white', fontSize: textFontSize || 10 }}
                     onTransitionBegin={() => { console.log('test onTransitionBegin') }}
                     onTransitionEnd={() => { console.log('test onTransitionEnd') }}
-                >O(∩_∩)O哈哈~</Animatable.Text>
+                >test</Animatable.Text>
             </TouchableOpacity>
         </Animatable.View>
     )
@@ -85,6 +83,7 @@ export default function ExampleView() {
 本文档内容基于以下版本验证通过：
 
 1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Beta1 B.0.18； IDE：DevEco Studio 5.0.3.200; ROM：2.0.0.18;
+2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 
 ## 属性
@@ -118,7 +117,3 @@ isInteraction | 此动画是否在交互管理器上创建“交互控制柄”�
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/oblador/react-native-animatable/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-
-
-<!-- {% endraw %} -->

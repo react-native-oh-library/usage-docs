@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> 模板版本：v0.2.0
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-scrollable-tabview</code> </h1>
@@ -13,12 +12,12 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/itenl/react-native-scrollable-tabview)
+> [!TIP] [GitHub address](https://github.com/itenl/react-native-scrollable-tabview)
 
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -36,9 +35,9 @@ yarn add @itenl/react-native-scrollable-tabview@1.1.7
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
->[!WARNING] 使用时 import 的库名不变。
+>[!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React, { useState, useEffect, useRef } from 'react';
@@ -114,96 +113,93 @@ export default function ScrollTabsDemo() {
 
 
 
-## 约束与限制
+## Constraints
 
-### 兼容性
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 电脑ROM。
+### Compatibility
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：204.1.0.59;
 2. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Beta1 B.0.18、HarmonyOS NEXT Developer Preview0 B.0.60、HarmonyOS NEXT Developer Preview2 B.0.73; IDE：DevEco Studio 5.0.3.200; ROM：2.0.0.18;
+3. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 
-## 属性
+## Properties 
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name | Description | Type | Required |   HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- |  ------------------ |
-stacks | 页面栈 < [阅读 Stack Property](#StackProperty) >| Array | / | yes
-mappingProps | 将映射数据关联到   Stack / Sticky | Object | / | yes
-badges | 针对每个Tab的徽章 < [阅读 Badge Property](#BadgeProperty) >| Array | / | yes
-tabsStyle | 整个Tabs样式 | Object | / | yes
-tabWrapStyle | 单Tab换行样式（函数参数提供item、index，需要返回样式对象，eg。return   index == 1 && {zIndex:10}| Object   / Function | / | yes
-tabInnerStyle | 单Tab内部样式 | Object | / | yes
-tabActiveOpacity | 单击   Tab 按钮后的透明度 | Number | / | yes
-tabStyle | 单标签样式 | Object | / | yes
-textStyle | 选项卡中的文本样式 | Object | / | yes
-textActiveStyle | 选择活动文本样式 | Object | / | yes
-tabUnderlineStyle | 选择活动下划线样式 | Object | / | yes
-firstIndex | 设置 firstIndex 的栈为活动状态 (请在设定 firstIndex 值的时候确保 stacks 的个数大于 firstIndex ) | Number   / Null | / | yes
-syncToSticky | 是否同步（render在Screen中触发componentDidUpdate会更新Sticky） | Boolean | / | yes
-onEndReachedThreshold | 底部回调阈值 | Number | / | yes
-onBeforeRefresh | 下拉刷新前置函数，executenext执行onRefreshScreen中的函数，executetoggled切换系统加载，可以通过true/false来指定（回调包含next,toggled两个形参） | Function | / | yes
-onBeforeEndReached | 向上滑动加载更多前置函数，execute   next将执行onEndReachedScreen中的函数（回调包含next形参） | Function | / | yes
-onTabviewChanged | Tab切换完成回调（回调包含index, tabLabel,isFirst参数） | Function | / | yes
-screenScrollThrottle | Screen 横向滑动时节流参数,单位 (毫秒) | Number | / | yes
-header | 顶部组件（如果函数需要返回Element） | Function   / JSX Element / Class Component | / | yes
-stickyHeader | 	顶部带吸顶效果组件 (若是函数需要返回 Element) | Function   / JSX Element / Class Component | / | yes
-oneTabHidden | 当只有一个Tab时隐藏自身 | Boolean | / | yes
-enableCachePage | 是否持久化页面切换后不销毁 | Boolean | / | yes
-carouselProps | 传递给 Carousel 的剩余属性 < [阅读 Carousel](https://github.com/meliorence/react-native-snap-carousel/blob/master/doc/PROPS_METHODS_AND_GETTERS.md) >| Object | / | yes
-sectionListProps | 传递给 SectionList 的剩余属性 < [阅读 SectionList](https://reactnative.dev/docs/sectionlist) >| Object | / | yes
-toHeaderOnTab | 点击触发激活的Tab会滚动到Header（高优先级） | Boolean | / | yes
-toTabsOnTab | 点击触发激活的Tab会滚动到Tabs | Boolean | / | yes
-tabsShown | 配置选项卡的显示和隐藏 | Boolean | / | yes
-fixedTabs | true时enableCachePage，滑动切换Screen设置最小高度，保证Header和Tabs不会弹起 | Boolean | / | yes
-fixedHeader | 与Tabs一起渲染，固定顶部Header，不跟随滚动 | Boolean | / | yes
-useScroll | Tabs是否支持水平滚动（有多个类别Tab时需要启用，建议tabStyle传入固定宽度） | Boolean | / | yes
-useScrollStyle | 设置contentContainerStyle为滚动Tabs，通常会在左右两侧添加边距paddingLeft paddingHorizontal | Object | / | yes
-fillScreen | 填满整个屏幕 | Boolean | / | yes
-title | 动画标题 | Function   / JSX Element / Class Component | / | yes
-titleArgs | 标题配置 < [阅读 interpolate](https://reactnative.dev/docs/animations#interpolation) >| Object | / | yes
-onScroll | 滚动事件监听 | Function | / | yes
-onScroll2Horizontal | 水平滚动事件监听 | Function | / | yes
-tabsEnableAnimated | 为Tabs启用滑动效果，需要为 tabStyle   指定 width | Boolean | / | yes
-tabsEnableAnimatedUnderlineWidth | 要为选项卡下划线设置固定宽度并添加跳跃动画，需要启用tabsEnableAnimated=true。   （建议传入三分之一tabStyle.width或者固定的30px） | Number | / | yes
-errorToThrow | console.error会抛出错误throw new   Error() | Boolean | / | yes
+stacks | Page stack < [Read Stack Property](#StackProperty) >| Array | / | yes
+mappingProps | Associate mapped data to Stack / Sticky | Object | / | yes
+badges | Badge for each tab< [Read Badge Property](#BadgeProperty) >| Array | / | yes
+tabsStyle |The entire Tabs style | Object | / | yes
+tabWrapStyle | Single Tab wrap style (The function parameters provide item, index, and need to return the style object, eg. **`return index == 1 && {zIndex: 10}`**)| Object   / Function | / | yes
+tabInnerStyle | Single Tab inner style | Object | / | yes
+tabActiveOpacity | Transparency after Tab button click | Number | / | yes
+tabStyle | Single Tab style | Object | / | yes
+textStyle | Text style in Tab | Object | / | yes
+textActiveStyle | Select the active text style | Object | / | yes
+tabUnderlineStyle | Select the active underline style | Object | / | yes
+firstIndex | Set the stack of **`firstIndex`** to active (make sure that the number of **`stacks`** is greater than to **`firstIndex`** when setting the **`firstIndex`** value) | Number   / Null | / | yes
+syncToSticky | Whether it is synchronized (**`render`** triggered in the Screen **`componentDidUpdate`** will update Sticky) | Boolean | / | yes
+onEndReachedThreshold | Bottom callback threshold | Number | / | yes
+onBeforeRefresh | Pull down to refresh the pre-functions, execute **`next`** to execute **`onRefresh`** function in Screen, execute **`toggled`** to switch system loading, you can pass true / false to specify (callback contains **`next`**, **`toggled`** two formal parameters) | Function | / | yes
+onBeforeEndReached |  Slide up to load more pre-functions, execute next will execute the **`onEndReached`** function in the Screen (callback contains **`next`** formal parameters) | Function | / | yes
+onTabviewChanged |Tab switch completion callback (callback contains **`index`**, **`tabLabel`**, **`isFirst`** parameters) | Function | / | yes
+screenScrollThrottle | **`Screen`** Throttle parameters during lateral sliding, Unit (ms)| Number | / | yes
+header | Top component (if the function needs to return Element)| Function   / JSX Element / Class Component | / | yes
+stickyHeader | Top component (if the function needs to return Element) for sticky| Function   / JSX Element / Class Component | / | yes
+oneTabHidden | Hide itself when there is only one Tab | Boolean | / | yes
+enableCachePage |  Whether the persistent page will not be destroyed after switching | Boolean | / | yes
+carouselProps | The remaining attributes passed to Carousel< [Read Carousel](https://github.com/meliorence/react-native-snap-carousel/blob/master/doc/PROPS_METHODS_AND_GETTERS.md) >| Object | / | yes
+sectionListProps | Remaining attributes passed to SectionList< [Read SectionList](https://reactnative.dev/docs/sectionlist) >| Object | / | yes
+toHeaderOnTab | Click to trigger the activated Tab will scroll to Header (high priority) | Boolean | / | yes
+toTabsOnTab | Click to trigger the activated Tab will scroll to Tabs| Boolean | / | yes
+tabsShown |  Configure Tabs display and hide | Boolean | / | yes
+fixedTabs | When **`enableCachePage`** is true, slide to switch Screen to set the minimum height to ensure that the Header and Tabs will not bounce | Boolean | / | yes
+fixedHeader | Render together with Tabs, fix the top Header, do not follow the scroll | Boolean | / | yes
+useScroll | Does Tabs support horizontal scrolling (it needs to be enabled when there are multiple category Tabs, it is recommended that **`tabStyle`** pass in a fixed width)| Boolean | / | yes
+useScrollStyle |Set **`contentContainerStyle`** for scrolling **`Tabs`**, usually add margins to the left and right sides **`paddingLeft`** **`paddingHorizontal`** | Object | / | yes
+fillScreen | Fill the entire Screen | Boolean | / | yes
+title | Animation title | Function   / JSX Element / Class Component | / | yes
+titleArgs | Title parameter configuration < [Read interpolate](https://reactnative.dev/docs/animations#interpolation) >| Object | / | yes
+onScroll | Scroll event monitoring | Function | / | yes
+onScroll2Horizontal | Scroll event monitoring for orizontal | Function | / | yes
+tabsEnableAnimated | Enable sliding effect for Tabs, Need to specify **`width`** for **`tabStyle`** | Boolean for TabStyle | / | yes
+tabsEnableAnimatedUnderlineWidth | To set a fixed width for the Tabs Underline and add a jumping animation, you need to enable **`tabsEnableAnimated=true`**. (It is recommended to pass in one third of **`tabStyle.width`** or a fixed 30px) | Number | / | yes
+errorToThrow |**`console.error`** will throw an error **`throw new Error()`** | Boolean | / | yes
 
-## stack 属性
+## stack Properties 
 Name | Description | Type | Required | HarmonyOS   Support
 -- | -- | -- | -- | --
-screen | Screen   类组件 | Class   Component | / | yes |  
-sticky | 吸顶类组件,   实例内将返回该类组件的上下文 | Class   Component | / | yes |  
-tabLabel | Tab   昵称 | String | / | yes |  
-tabLabelRender | 自定义   Tab渲染函数，优先级高于 tabLabel | Function | / | yes |  
-badge | 针对当前 Tab   的徽章，与 badges 属性互斥，优先级高于最外层属性 badges < 阅读 Badge   Property > | Array | / | yes |  
-toProps | toProps 仅传递给 Screen，不作数据关联 | Object | / | yes |  
+screen | Screen components | Class   Component | / | yes 
+sticky | Ceiling component. The context of the component is returned in the instance. | Class   Component | / | yes 
+tabLabel | Tab Nickname                                                 | String | / | yes 
+tabLabelRender | Customized tab rendering function, which has a higher priority than tabLabel. | Function | / | yes 
+badge | Badge for the current tab, which is mutually exclusive with the badges attribute and has a higher priority than the outermost attribute badges | Array | / | yes 
+toProps | toProps is transferred only to the screen and is not associated with data | Object | / | yes 
 
-## 方法
+## Methods
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 
 Name | Description | Type | Required | HarmonyOS   Support
 -- | -- | -- | -- | --
-getCurrentRef(index:   number.optional) | 获取当前活动的视图的实例，可传 index 获取指定实例 | Function | / | yes |  
-toTabView(index:   number.required / label: string.required) | 跳到指定 Screen | Function | / | yes |  
-scrollTo(index:   number.required) | 上下滑动至指定位置 (传入   0 默认定位至 tabs / 传入负数则置顶) | Function | / | yes |  
-clearStacks(callback:   function.optional) | 清空栈以及相关状态   (Tabs / Badge / Stacks)) | Function | / | yes | 
+getCurrentRef(index:   number.optional) | Obtains the instance of the current active view. You can transfer the index to obtain the specified instance | Function | / | yes 
+toTabView(index:   number.required / label: string.required) | Go to the specified screen.                                  | Function | / | yes 
+scrollTo(index:   number.required) | Slide up and down to the specified position (By default, if 0 is input, the tab is located./If a negative number is input, the tab is pinned to the top) | Function | / | yes 
+clearStacks(callback:   function.optional) | Clear the stack and related status (Tabs / Badge / Stacks) | Function | / | yes 
 
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/itenl/react-native-scrollable-tabview/blob/main/LICENSE) ，请自由地享受和参与开源。
-
-
-
-<!-- {% endraw %} -->
+This project is licensed under  [The MIT License (MIT)](https://github.com/itenl/react-native-scrollable-tabview/blob/main/LICENSE) .

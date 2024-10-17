@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> 模板版本：v0.2.0
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-scrollable-tabview</code> </h1>
@@ -123,6 +122,7 @@ export default function ScrollTabsDemo() {
 
 1. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：204.1.0.59;
 2. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Beta1 B.0.18、HarmonyOS NEXT Developer Preview0 B.0.60、HarmonyOS NEXT Developer Preview2 B.0.73; IDE：DevEco Studio 5.0.3.200; ROM：2.0.0.18;
+3. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 
 ## 属性
@@ -203,7 +203,3 @@ clearStacks(callback:   function.optional) | 清空栈以及相关状态   (Tabs
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/itenl/react-native-scrollable-tabview/blob/main/LICENSE) ，请自由地享受和参与开源。
-
-
-
-<!-- {% endraw %} -->

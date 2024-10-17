@@ -126,6 +126,11 @@ export default function App() {
 
 ### 2.引入原生端代码
 
+> [!TIP] 引入原生代码之前请确认IDE版本，5.0.3.810及其之后的版本需要在harmony工程中的hvigor-config.json5文件中新增如下配置以解决路径过长导致的编译报错问题
+> "properties":{
+          "ohos.nativeResolver":false
+}
+
 目前有两种方法：
 
 1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；

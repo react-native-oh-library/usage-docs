@@ -291,7 +291,6 @@ export default Avatars;
   }
 ```
 
-> [!TIP] Demo中字体属于IconFont文件；自定义字体也需要用统一的方法在此注册。
 
 ## 约束与限制
 
@@ -300,8 +299,8 @@ export default Avatars;
 本文档内容基于以下版本验证通过：
 
 1. RNOH：0.72.26; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.300; ROM：3.0.0.22;
-1. RNOH：0.72.29; SDK：HarmonyOS NEXT Developer Beta6; IDE：DevEco Studio 5.0.3.700; ROM：3.0.0.60;
-
+2. RNOH：0.72.29; SDK：HarmonyOS NEXT Developer Beta6; IDE：DevEco Studio 5.0.3.700; ROM：3.0.0.60;
+3. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 ## 组件
 
 详细请查看 [react-native-elements的文档介绍](https://reactnativeelements.com)
@@ -346,11 +345,9 @@ export default Avatars;
 |       onPressIn       |       Called when a touch is engaged before `onPress`.       |            GestureResponderEventHandler             |    No    |   All    |        Yes        |
 |      onPressOut       |      Called when a touch is released before `onPress`.       |            GestureResponderEventHandler             |    No    |   All    |        Yes        |
 | overlayContainerStyle |          Style for the view outside image or icon.           |                     Text Style                      |    No    |   All    |        Yes        |
-|    pressableProps     |             PressableProps except click handlers             |                   PressableProps                    |    No    |   All    |        Yes        |
 |        rounded        |                  Makes the avatar circular.                  |                       boolean                       |    No    |   All    |        Yes        |
 |         size          |                     Size of the avatar.                      |     `number`,`small`,`medium`,`large`,`xlarge`      |    No    |   All    |        Yes        |
 |        source         |           Image source to be displayed on avatar.            |                 ImageSourcePropType                 |    No    |   All    |        Yes        |
-|  ImageSourcePropType  |              Renders title in the placeholder.               |                       string                        |    No    |   All    |        Yes        |
 |      titleStyle       |                     Style for the title.                     |                     Text Style                      |    No    |   All    |        Yes        |
 
 **Avatar.Accessory**：Avatar组件的子组件，接收所有 [Icon](https://reactnativeelements.com/docs/components/icon#props), [Image](https://reactnativeelements.com/docs/components/image#props), [Text](https://reactnative.dev/docs/text#props) 的 props
@@ -361,7 +358,6 @@ export default Avatars;
 |    onPress     |   Called when a single tap gesture is detected.   | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |   onPressIn    | Called when a touch is engaged before `onPress`.  | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |   onPressOut   | Called when a touch is released before `onPress`. | GestureResponderEventHandler |    No    |   All    |        Yes        |
-| pressableProps |       PressableProps except click handlers        |        PressableProps        |    No    |   All    |        Yes        |
 
 **Badge**：徽章组件，通常用于向用户传达数值或指示物品的状态
 
@@ -374,7 +370,6 @@ export default Avatars;
 |    onPress     |       Called when a single tap gesture is detected.       |                Function                |    No    |   All    |        Yes        |
 |   onPressIn    |     Called when a touch is engaged before `onPress`.      |      GestureResponderEventHandler      |    No    |   All    |        Yes        |
 |   onPressOut   |     Called when a touch is released before `onPress`.     |      GestureResponderEventHandler      |    No    |   All    |        Yes        |
-| pressableProps |           PressableProps except click handlers            |             PressableProps             |    No    |   All    |        Yes        |
 |     status     |            Determines color of the indicator.             | `primary`,`success`,`warning` ,`error` |    No    |   All    |        Yes        |
 |   textProps    |              Extra props for text component.              |               TextProps                |    No    |   All    |        Yes        |
 |   textStyle    |             Extra styling for icon component.             |               Text Style               |    No    |   All    |        Yes        |
@@ -442,7 +437,6 @@ export default Avatars;
 |         onPressIn         |       Called when a touch is engaged before `onPress`.       |           GestureResponderEventHandler            |    No    |   All    |        Yes        |
 |        onPressOut         |      Called when a touch is released before `onPress`.       |           GestureResponderEventHandler            |    No    |   All    |        Yes        |
 |      onShowUnderlay       |             Function called on showing underlay.             |                     Function                      |    No    |   All    |        Yes        |
-|      pressableProps       |             PressableProps except click handlers             |                  PressableProps                   |    No    |   All    |        Yes        |
 |      selectMultiple       |         Allows the user to select multiple buttons.          |                      boolean                      |    No    |   All    |        Yes        |
 |    selectedButtonStyle    |             Specify styling for selected button.             |                    View Style                     |    No    |   All    |        Yes        |
 |       selectedIndex       |         Current selected index of array of buttons.          |                      number                       |    No    |   All    |        Yes        |
@@ -474,11 +468,10 @@ export default Avatars;
 |    onPress     |   Called when a single tap gesture is detected.   | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |   onPressIn    | Called when a touch is engaged before `onPress`.  | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |   onPressOut   | Called when a touch is released before `onPress`. | GestureResponderEventHandler |    No    |   All    |        Yes        |
-| pressableProps |       PressableProps except click handlers        |        PressableProps        |    No    |   All    |        Yes        |
 
 **Card.Title**：卡片标题组件，接收所有 [Text](https://reactnativeelements.com/docs/components/text#props) 组件的 Props
 
-**CheckBox**：选择框组件，接收所有 [CheckBoxIcon](https://reactnativeelements.com/docs/components/checkboxicon#props), [View](https://reactnative.dev/docs/view#props) 的 props.
+**CheckBox**：选择框组件，接收所有[View](https://reactnative.dev/docs/view#props) 的 props.
 
 |        Name        |                   Description                   |                             Type                             | Required | Platform | HarmonyOS Support |
 | :----------------: | :---------------------------------------------: | :----------------------------------------------------------: | :------: | :------: | :---------------: |
@@ -512,7 +505,6 @@ export default Avatars;
 |   onPressIn    |     Called when a touch is engaged before `onPress`.      | GestureResponderEventHandler |    No    |    No    |        No         |
 |   onPressOut   |     Called when a touch is released before `onPress`.     | GestureResponderEventHandler |    No    |    No    |        No         |
 |  overlayStyle  | Add additional styling to the internal Overlay component. |          View Style          |    No    |   All    |        Yes        |
-| pressableProps |                   except click handlers                   |        PressableProps        |    No    |   All    |        Yes        |
 
 **Dialog.Actions**：定义对话框操作组件
 
@@ -603,7 +595,6 @@ export default Avatars;
 |    onPress     |        Called when a single tap gesture is detected.         | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |   onPressIn    |       Called when a touch is engaged before `onPress`.       | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |   onPressOut   |      Called when a touch is released before `onPress`.       | GestureResponderEventHandler |    No    |   All    |        Yes        |
-| pressableProps |             PressableProps except click handlers             |        PressableProps        |    No    |   All    |        Yes        |
 |     raised     |                  Adds box shadow to button.                  |           boolean            |    No    |   All    |        Yes        |
 |    reverse     |                    Reverses color scheme.                    |           boolean            |    No    |   All    |        Yes        |
 |  reverseColor  |                 Specify reverse icon color.                  |            string            |    No    |   All    |        Yes        |
@@ -625,7 +616,6 @@ export default Avatars;
 |       onPressIn        |   Called when a touch is engaged before `onPress`.    |               GestureResponderEventHandler                |    No    |   All    |        Yes        |
 |       onPressOut       |   Called when a touch is released before `onPress`.   |               GestureResponderEventHandler                |    No    |   All    |        Yes        |
 |    placeholderStyle    |   Additional styling for the placeholder container.   |                        View Style                         |    No    |   All    |        Yes        |
-|     pressableProps     |         PressableProps except click handlers          |                      PressableProps                       |    No    |   All    |        Yes        |
 |       transition       |        Perform fade transition on image load.         |                          boolean                          |    No    |   All    |        Yes        |
 |   transitionDuration   |        Perform fade transition on image load.         |                          number                           |    No    |   All    |        Yes        |
 
@@ -697,7 +687,6 @@ export default Avatars;
 |  onLongPress   |    Called when a long-tap gesture is detected.    | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |   onPressIn    | Called when a touch is engaged before `onPress`.  | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |   onPressOut   | Called when a touch is released before `onPress`. | GestureResponderEventHandler |    No    |   All    |        Yes        |
-| pressableProps |       PressableProps except click handlers        |        PressableProps        |    No    |   All    |        Yes        |
 
 **ListItem.CheckBox**：列表渲染选择框组件，接收所有 [CheckBox](https://reactnativeelements.com/docs/components/checkbox#props) 的props.
 
@@ -709,7 +698,6 @@ export default Avatars;
 |    onPress     |   Called when a single tap gesture is detected.   | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |   onPressIn    | Called when a touch is engaged before `onPress`.  | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |   onPressOut   | Called when a touch is released before `onPress`. | GestureResponderEventHandler |    No    |   All    |        Yes        |
-| pressableProps |       PressableProps except click handlers        |        PressableProps        |    No    |   All    |        Yes        |
 
 **ListItem.Content**：列表渲染内容组件，接收所有 [Text](https://reactnativeelements.com/docs/components/text#props) 的props.
 
@@ -758,7 +746,6 @@ export default Avatars;
 |    onPressIn    |       Called when a touch is engaged before `onPress`.       | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |   onPressOut    |      Called when a touch is released before `onPress`.       | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |  overlayStyle   |                 Style of the actual overlay.                 |          View Style          |    No    |   All    |        Yes        |
-| pressableProps  |             PressableProps except click handlers             |        PressableProps        |    No    |   All    |        Yes        |
 
 **PricingCard**：价格卡组件
 
@@ -883,7 +870,6 @@ export default Avatars;
 |        onPress         |        Called when a single tap gesture is detected.         | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |       onPressIn        |       Called when a touch is engaged before `onPress`.       | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |       onPressOut       |      Called when a touch is released before `onPress`.       | GestureResponderEventHandler |    No    |   All    |        Yes        |
-|     pressableProps     |             PressableProps except click handlers             |        PressableProps        |    No    |   All    |        Yes        |
 |         raised         |      Raised adds a drop shadow, set to false to remove.      |           boolean            |    No    |    No    |        No         |
 |         small          |         Decides the size of the activity indicator.          |            string            |    No    |    No    |        No         |
 |         style          |                 Adds styling to the button.                  |          View Style          |    No    |   All    |        Yes        |
@@ -911,7 +897,7 @@ export default Avatars;
 | :------------: | :--------------------: | :-----: | :------: | :------: | :---------------: |
 | labelPressable | onPress on Label Press | boolean |    No    |   All    |        Yes        |
 
-**Switch**：滑动开关组件，接收所有 [React Native Switch](https://reactnative.dev/docs/switch.html#props), [View](https://reactnative.dev/docs/view#props) 的props
+**Switch**：滑动开关组件，接收所有 [View](https://reactnative.dev/docs/view#props) 的props
 
 | Name  |            Description             |  Type  | Required | Platform | HarmonyOS Support |
 | :---: | :--------------------------------: | :----: | :------: | :------: | :---------------: |
@@ -1027,21 +1013,21 @@ export default Avatars;
 
 ## 遗留问题
 ## 其他
-- [ ] Rating组件的readonly、onFinishRating等属性无法生效，与Android/iOS一致：[issue#1](https://github.com/react-native-elements/react-native-elements/issues/3736)、[issue#2](https://github.com/react-native-elements/react-native-elements/issues/3718)。
-- [ ] AirbnbRatings组件的startImage属性无法生效，与Android/iOS一致：[issue#3](https://github.com/react-native-elements/react-native-elements/issues/3718)。
-- [ ] ButtonGroups组件的activeOpacity、button等属性无法生效，与Android/iOS一致：[issue#4](https://github.com/react-native-elements/react-native-elements/issues/3938)。
-- [ ] Dialog组件的onLongPress、onpressIn等属性无法生效，与Android/iOS一致：[issue#5](https://github.com/react-native-elements/react-native-elements/issues/3931)。
-- [ ] Header组件的barStyle、elevated等属性无法生效，与Android、iOS一致：[issue#6](https://github.com/react-native-elements/react-native-elements/issues/3935)。
-- [ ] Input组件的renderErrorMessage属性无法生效，与Android、iOS一致：[issue#7](https://github.com/react-native-elements/react-native-elements/issues/3933)。
-- [ ] ListItem.Swipeable组件的minSlideWidth属性无法生效，与Android、iOS一致：[issue#8](https://github.com/react-native-elements/react-native-elements/issues/3825)。
-- [ ] ListItem.Title组件的right属性无法生效，与Android、iOS一致：[issue#9](https://github.com/react-native-elements/react-native-elements/issues/3934)。
-- [ ] SearchBar组件的cancelButtonProps、showCancel等属性无法生效，与Android、iOS一致：[issue#10](https://github.com/react-native-elements/react-native-elements/issues/3939)。
-- [ ] SocialIcon组件的fontFamily、fontWeight等属性无法生效，与Android、iOS一致：[issue#11](https://github.com/react-native-elements/react-native-elements/issues/3940)。
-- [ ] SpeedDial组件的backdropPressableProps属性无法生效，与Android、iOS一致：[issue#12](https://github.com/react-native-elements/react-native-elements/issues/3937)。
-- [ ] Tab组件的containerStyle、dense等属性无法生效，与Android、iOS一致：[issue#13](https://github.com/react-native-elements/react-native-elements/issues/3941)。
-- [ ] Tab.Item组件的active、dense等属性无法生效，与Android、iOS一致：[issue#14](https://github.com/react-native-elements/react-native-elements/issues/3936)。
-- [ ] Tile组件的activeOpacity等属性无法生效，与Android、iOS一致：[issue#15](https://github.com/react-native-elements/react-native-elements/issues/3932)。
-- [ ] Tooltip组件的closeOnlyOnBackdropPress属性无法生效，与Android、iOS一致：[issue#16](https://github.com/react-native-elements/react-native-elements/issues/3811)。
+-  Rating组件的readonly、onFinishRating等属性无法生效，与Android/iOS一致：[issue#1](https://github.com/react-native-elements/react-native-elements/issues/3736)、[issue#2](https://github.com/react-native-elements/react-native-elements/issues/3718)。
+-  AirbnbRatings组件的startImage属性无法生效，与Android/iOS一致：[issue#3](https://github.com/react-native-elements/react-native-elements/issues/3718)。
+-  ButtonGroups组件的activeOpacity、button等属性无法生效，与Android/iOS一致：[issue#4](https://github.com/react-native-elements/react-native-elements/issues/3938)。
+-  Dialog组件的onLongPress、onpressIn等属性无法生效，与Android/iOS一致：[issue#5](https://github.com/react-native-elements/react-native-elements/issues/3931)。
+-  Header组件的barStyle、elevated等属性无法生效，与Android、iOS一致：[issue#6](https://github.com/react-native-elements/react-native-elements/issues/3935)。
+-  Input组件的renderErrorMessage属性无法生效，与Android、iOS一致：[issue#7](https://github.com/react-native-elements/react-native-elements/issues/3933)。
+-  ListItem.Swipeable组件的minSlideWidth属性无法生效，与Android、iOS一致：[issue#8](https://github.com/react-native-elements/react-native-elements/issues/3825)。
+-  ListItem.Title组件的right属性无法生效，与Android、iOS一致：[issue#9](https://github.com/react-native-elements/react-native-elements/issues/3934)。
+-  SearchBar组件的cancelButtonProps、showCancel等属性无法生效，与Android、iOS一致：[issue#10](https://github.com/react-native-elements/react-native-elements/issues/3939)。
+-  SocialIcon组件的fontFamily、fontWeight等属性无法生效，与Android、iOS一致：[issue#11](https://github.com/react-native-elements/react-native-elements/issues/3940)。
+-  SpeedDial组件的backdropPressableProps属性无法生效，与Android、iOS一致：[issue#12](https://github.com/react-native-elements/react-native-elements/issues/3937)。
+-  Tab组件的containerStyle、dense等属性无法生效，与Android、iOS一致：[issue#13](https://github.com/react-native-elements/react-native-elements/issues/3941)。
+-  Tab.Item组件的active、dense等属性无法生效，与Android、iOS一致：[issue#14](https://github.com/react-native-elements/react-native-elements/issues/3936)。
+-  Tile组件的activeOpacity等属性无法生效，与Android、iOS一致：[issue#15](https://github.com/react-native-elements/react-native-elements/issues/3932)。
+-  Tooltip组件的closeOnlyOnBackdropPress属性无法生效，与Android、iOS一致：[issue#16](https://github.com/react-native-elements/react-native-elements/issues/3811)。
 
 ## 开源协议
 

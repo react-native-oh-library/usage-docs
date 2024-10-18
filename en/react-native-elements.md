@@ -300,7 +300,8 @@ Step 2:
 This document is verified based on the following versions：
 
 1. RNOH：0.72.26; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.300; ROM：3.0.0.22;
-1. RNOH：0.72.29; SDK：HarmonyOS NEXT Developer Beta6; IDE：DevEco Studio 5.0.3.700; ROM：3.0.0.60;
+2. RNOH：0.72.29; SDK：HarmonyOS NEXT Developer Beta6; IDE：DevEco Studio 5.0.3.700; ROM：3.0.0.60;
+3. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 ## Component
 
@@ -346,11 +347,9 @@ The following are currently supported component properties:
 |       onPressIn       |       Called when a touch is engaged before `onPress`.       |            GestureResponderEventHandler             |    No    |   All    |        Yes        |
 |      onPressOut       |      Called when a touch is released before `onPress`.       |            GestureResponderEventHandler             |    No    |   All    |        Yes        |
 | overlayContainerStyle |          Style for the view outside image or icon.           |                     Text Style                      |    No    |   All    |        Yes        |
-|    pressableProps     |             PressableProps except click handlers             |                   PressableProps                    |    No    |   All    |        Yes        |
 |        rounded        |                  Makes the avatar circular.                  |                       boolean                       |    No    |   All    |        Yes        |
 |         size          |                     Size of the avatar.                      |     `number`,`small`,`medium`,`large`,`xlarge`      |    No    |   All    |        Yes        |
 |        source         |           Image source to be displayed on avatar.            |                 ImageSourcePropType                 |    No    |   All    |        Yes        |
-|  ImageSourcePropType  |              Renders title in the placeholder.               |                       string                        |    No    |   All    |        Yes        |
 |      titleStyle       |                     Style for the title.                     |                     Text Style                      |    No    |   All    |        Yes        |
 
 **Avatar.Accessory**：The subcomponent of Avatar component, which receives all props of  [Icon](https://reactnativeelements.com/docs/components/icon#props), [Image](https://reactnativeelements.com/docs/components/image#props), [Text](https://reactnative.dev/docs/text#props) 
@@ -361,7 +360,6 @@ The following are currently supported component properties:
 |    onPress     |   Called when a single tap gesture is detected.   | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |   onPressIn    | Called when a touch is engaged before `onPress`.  | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |   onPressOut   | Called when a touch is released before `onPress`. | GestureResponderEventHandler |    No    |   All    |        Yes        |
-| pressableProps |       PressableProps except click handlers        |        PressableProps        |    No    |   All    |        Yes        |
 
 **Badge**：Badge component, typically used to convey numerical values or indicate the status of items to users
 
@@ -374,7 +372,6 @@ The following are currently supported component properties:
 |    onPress     |       Called when a single tap gesture is detected.       |                Function                |    No    |   All    |        Yes        |
 |   onPressIn    |     Called when a touch is engaged before `onPress`.      |      GestureResponderEventHandler      |    No    |   All    |        Yes        |
 |   onPressOut   |     Called when a touch is released before `onPress`.     |      GestureResponderEventHandler      |    No    |   All    |        Yes        |
-| pressableProps |           PressableProps except click handlers            |             PressableProps             |    No    |   All    |        Yes        |
 |     status     |            Determines color of the indicator.             | `primary`,`success`,`warning` ,`error` |    No    |   All    |        Yes        |
 |   textProps    |              Extra props for text component.              |               TextProps                |    No    |   All    |        Yes        |
 |   textStyle    |             Extra styling for icon component.             |               Text Style               |    No    |   All    |        Yes        |
@@ -442,7 +439,6 @@ The following are currently supported component properties:
 |         onPressIn         |       Called when a touch is engaged before `onPress`.       |           GestureResponderEventHandler            |    No    |   All    |        Yes        |
 |        onPressOut         |      Called when a touch is released before `onPress`.       |           GestureResponderEventHandler            |    No    |   All    |        Yes        |
 |      onShowUnderlay       |             Function called on showing underlay.             |                     Function                      |    No    |   All    |        Yes        |
-|      pressableProps       |             PressableProps except click handlers             |                  PressableProps                   |    No    |   All    |        Yes        |
 |      selectMultiple       |         Allows the user to select multiple buttons.          |                      boolean                      |    No    |   All    |        Yes        |
 |    selectedButtonStyle    |             Specify styling for selected button.             |                    View Style                     |    No    |   All    |        Yes        |
 |       selectedIndex       |         Current selected index of array of buttons.          |                      number                       |    No    |   All    |        Yes        |
@@ -474,11 +470,10 @@ The following are currently supported component properties:
 |    onPress     |   Called when a single tap gesture is detected.   | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |   onPressIn    | Called when a touch is engaged before `onPress`.  | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |   onPressOut   | Called when a touch is released before `onPress`. | GestureResponderEventHandler |    No    |   All    |        Yes        |
-| pressableProps |       PressableProps except click handlers        |        PressableProps        |    No    |   All    |        Yes        |
 
 **Card.Title**：Card title component, receiving Props for all  [Text](https://reactnativeelements.com/docs/components/text#props) components
 
-**CheckBox**：CheckBox component to receive all [CheckBoxIcon](https://reactnativeelements.com/docs/components/checkboxicon#props), [View](https://reactnative.dev/docs/view#props) props 
+**CheckBox**：CheckBox component to receive all [View](https://reactnative.dev/docs/view#props) props 
 
 |        Name        |                   Description                   |                             Type                             | Required | Platform | HarmonyOS Support |
 | :----------------: | :---------------------------------------------: | :----------------------------------------------------------: | :------: | :------: | :---------------: |
@@ -512,7 +507,6 @@ The following are currently supported component properties:
 |   onPressIn    |     Called when a touch is engaged before `onPress`.      | GestureResponderEventHandler |    No    |    No    |        No         |
 |   onPressOut   |     Called when a touch is released before `onPress`.     | GestureResponderEventHandler |    No    |    No    |        No         |
 |  overlayStyle  | Add additional styling to the internal Overlay component. |          View Style          |    No    |   All    |        Yes        |
-| pressableProps |                   except click handlers                   |        PressableProps        |    No    |   All    |        Yes        |
 
 **Dialog.Actions**：Define dialog box operation components
 
@@ -603,7 +597,6 @@ The following are currently supported component properties:
 |    onPress     |        Called when a single tap gesture is detected.         | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |   onPressIn    |       Called when a touch is engaged before `onPress`.       | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |   onPressOut   |      Called when a touch is released before `onPress`.       | GestureResponderEventHandler |    No    |   All    |        Yes        |
-| pressableProps |             PressableProps except click handlers             |        PressableProps        |    No    |   All    |        Yes        |
 |     raised     |                  Adds box shadow to button.                  |           boolean            |    No    |   All    |        Yes        |
 |    reverse     |                    Reverses color scheme.                    |           boolean            |    No    |   All    |        Yes        |
 |  reverseColor  |                 Specify reverse icon color.                  |            string            |    No    |   All    |        Yes        |
@@ -625,7 +618,6 @@ The following are currently supported component properties:
 |       onPressIn        |   Called when a touch is engaged before `onPress`.    |               GestureResponderEventHandler                |    No    |   All    |        Yes        |
 |       onPressOut       |   Called when a touch is released before `onPress`.   |               GestureResponderEventHandler                |    No    |   All    |        Yes        |
 |    placeholderStyle    |   Additional styling for the placeholder container.   |                        View Style                         |    No    |   All    |        Yes        |
-|     pressableProps     |         PressableProps except click handlers          |                      PressableProps                       |    No    |   All    |        Yes        |
 |       transition       |        Perform fade transition on image load.         |                          boolean                          |    No    |   All    |        Yes        |
 |   transitionDuration   |        Perform fade transition on image load.         |                          number                           |    No    |   All    |        Yes        |
 
@@ -697,7 +689,6 @@ The following are currently supported component properties:
 |  onLongPress   |    Called when a long-tap gesture is detected.    | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |   onPressIn    | Called when a touch is engaged before `onPress`.  | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |   onPressOut   | Called when a touch is released before `onPress`. | GestureResponderEventHandler |    No    |   All    |        Yes        |
-| pressableProps |       PressableProps except click handlers        |        PressableProps        |    No    |   All    |        Yes        |
 
 **ListItem.CheckBox**：List rendering CheckBox component,  receive all  [CheckBox](https://reactnativeelements.com/docs/components/checkbox#props)  props
 
@@ -709,7 +700,6 @@ The following are currently supported component properties:
 |    onPress     |   Called when a single tap gesture is detected.   | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |   onPressIn    | Called when a touch is engaged before `onPress`.  | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |   onPressOut   | Called when a touch is released before `onPress`. | GestureResponderEventHandler |    No    |   All    |        Yes        |
-| pressableProps |       PressableProps except click handlers        |        PressableProps        |    No    |   All    |        Yes        |
 
 **ListItem.Content**：List rendering content component，receive all  [Text](https://reactnativeelements.com/docs/components/text#props)  props 
 
@@ -758,7 +748,6 @@ The following are currently supported component properties:
 |    onPressIn    |       Called when a touch is engaged before `onPress`.       | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |   onPressOut    |      Called when a touch is released before `onPress`.       | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |  overlayStyle   |                 Style of the actual overlay.                 |          View Style          |    No    |   All    |        Yes        |
-| pressableProps  |             PressableProps except click handlers             |        PressableProps        |    No    |   All    |        Yes        |
 
 **PricingCard**：Price Card component
 
@@ -883,7 +872,6 @@ The following are currently supported component properties:
 |        onPress         |        Called when a single tap gesture is detected.         | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |       onPressIn        |       Called when a touch is engaged before `onPress`.       | GestureResponderEventHandler |    No    |   All    |        Yes        |
 |       onPressOut       |      Called when a touch is released before `onPress`.       | GestureResponderEventHandler |    No    |   All    |        Yes        |
-|     pressableProps     |             PressableProps except click handlers             |        PressableProps        |    No    |   All    |        Yes        |
 |         raised         |      Raised adds a drop shadow, set to false to remove.      |           boolean            |    No    |    No    |        No         |
 |         small          |         Decides the size of the activity indicator.          |            string            |    No    |    No    |        No         |
 |         style          |                 Adds styling to the button.                  |          View Style          |    No    |   All    |        Yes        |
@@ -911,7 +899,7 @@ The following are currently supported component properties:
 | :------------: | :--------------------: | :-----: | :------: | :------: | :---------------: |
 | labelPressable | onPress on Label Press | boolean |    No    |   All    |        Yes        |
 
-**Switch**：Switch component，receive all [React Native Switch](https://reactnative.dev/docs/switch.html#props), [View](https://reactnative.dev/docs/view#props) props   
+**Switch**：Switch component，receive all [View](https://reactnative.dev/docs/view#props) props   
 
 | Name  |            Description             |  Type  | Required | Platform | HarmonyOS Support |
 | :---: | :--------------------------------: | :----: | :------: | :------: | :---------------: |
@@ -1028,21 +1016,21 @@ The following are currently supported component properties:
 ## Known Issues
 ## Others
 
-- [ ] The readonly and onFinishRating properties of the Rating component cannot take effect, consistent with Android/iOS：[issue#1](https://github.com/react-native-elements/react-native-elements/issues/3736)、[issue#2](https://github.com/react-native-elements/react-native-elements/issues/3718)。
-- [ ] The startImage property of the Airbnb Ratings component cannot take effect, consistent with Android/iOS：[issue#3](https://github.com/react-native-elements/react-native-elements/issues/3718)。
-- [ ] The activeOpacity, button, and other properties of the buttonGroups component cannot take effect, consistent with Android/iOS：[issue#4](https://github.com/react-native-elements/react-native-elements/issues/3938)。
-- [ ] The onLongPress, onpressIn and other properties of the Dialog component cannot take effect, consistent with Android/iOS：[issue#5](https://github.com/react-native-elements/react-native-elements/issues/3931)。
-- [ ] The barStyle, elevated, and other properties of the Header component cannot take effect, consistent with Android and iOS：[issue#6](https://github.com/react-native-elements/react-native-elements/issues/3935)。
-- [ ] The renderError Message property of the Input component cannot take effect, consistent with Android and iOS：[issue#7](https://github.com/react-native-elements/react-native-elements/issues/3933)。
-- [ ] The minSlideWidth property of ListItem.Swipeable component cannot take effect, consistent with Android and iOS：[issue#8](https://github.com/react-native-elements/react-native-elements/issues/3825)。
-- [ ] The right property of ListItem.Title component cannot take effect, consistent with Android and iOS：[issue#9](https://github.com/react-native-elements/react-native-elements/issues/3934)。
-- [ ] The properties such as cancelButtons Props and showCancel of the SearchBar component cannot take effect, consistent with Android and iOS：[issue#10](https://github.com/react-native-elements/react-native-elements/issues/3939)。
-- [ ] The fontFamily, fontWeight, and other properties of the SocialIcon component cannot take effect, consistent with Android and iOS：[issue#11](https://github.com/react-native-elements/react-native-elements/issues/3940)。
-- [ ] The backdropPresableProps property of the SpeedDial component cannot take effect, consistent with Android and iOS：[issue#12](https://github.com/react-native-elements/react-native-elements/issues/3937)。
-- [ ] The containerStyle, density, and other properties of the Tab component cannot take effect, consistent with Android and iOS：[issue#13](https://github.com/react-native-elements/react-native-elements/issues/3941)。
-- [ ] The active, dense, and other properties of the Tab.Item component cannot take effect, consistent with Android and iOS：[issue#14](https://github.com/react-native-elements/react-native-elements/issues/3936)。
-- [ ] The activeOpacity and other properties of Tile components cannot take effect, consistent with Android and iOS：[issue#15](https://github.com/react-native-elements/react-native-elements/issues/3932)。
-- [ ] The closeOnlyOnBackdropPress property of the Tooltip component cannot take effect, consistent with Android and iOS：[issue#16](https://github.com/react-native-elements/react-native-elements/issues/3811)。
+-  The readonly and onFinishRating properties of the Rating component cannot take effect, consistent with Android/iOS：[issue#1](https://github.com/react-native-elements/react-native-elements/issues/3736)、[issue#2](https://github.com/react-native-elements/react-native-elements/issues/3718)。
+-  The startImage property of the Airbnb Ratings component cannot take effect, consistent with Android/iOS：[issue#3](https://github.com/react-native-elements/react-native-elements/issues/3718)。
+-  The activeOpacity, button, and other properties of the buttonGroups component cannot take effect, consistent with Android/iOS：[issue#4](https://github.com/react-native-elements/react-native-elements/issues/3938)。
+-  The onLongPress, onpressIn and other properties of the Dialog component cannot take effect, consistent with Android/iOS：[issue#5](https://github.com/react-native-elements/react-native-elements/issues/3931)。
+-  The barStyle, elevated, and other properties of the Header component cannot take effect, consistent with Android and iOS：[issue#6](https://github.com/react-native-elements/react-native-elements/issues/3935)。
+-  The renderError Message property of the Input component cannot take effect, consistent with Android and iOS：[issue#7](https://github.com/react-native-elements/react-native-elements/issues/3933)。
+-  The minSlideWidth property of ListItem.Swipeable component cannot take effect, consistent with Android and iOS：[issue#8](https://github.com/react-native-elements/react-native-elements/issues/3825)。
+-  The right property of ListItem.Title component cannot take effect, consistent with Android and iOS：[issue#9](https://github.com/react-native-elements/react-native-elements/issues/3934)。
+-  The properties such as cancelButtons Props and showCancel of the SearchBar component cannot take effect, consistent with Android and iOS：[issue#10](https://github.com/react-native-elements/react-native-elements/issues/3939)。
+-  The fontFamily, fontWeight, and other properties of the SocialIcon component cannot take effect, consistent with Android and iOS：[issue#11](https://github.com/react-native-elements/react-native-elements/issues/3940)。
+-  The backdropPresableProps property of the SpeedDial component cannot take effect, consistent with Android and iOS：[issue#12](https://github.com/react-native-elements/react-native-elements/issues/3937)。
+-  The containerStyle, density, and other properties of the Tab component cannot take effect, consistent with Android and iOS：[issue#13](https://github.com/react-native-elements/react-native-elements/issues/3941)。
+-  The active, dense, and other properties of the Tab.Item component cannot take effect, consistent with Android and iOS：[issue#14](https://github.com/react-native-elements/react-native-elements/issues/3936)。
+-  The activeOpacity and other properties of Tile components cannot take effect, consistent with Android and iOS：[issue#15](https://github.com/react-native-elements/react-native-elements/issues/3932)。
+-  The closeOnlyOnBackdropPress property of the Tooltip component cannot take effect, consistent with Android and iOS：[issue#16](https://github.com/react-native-elements/react-native-elements/issues/3811)。
 
 ## License
 

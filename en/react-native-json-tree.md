@@ -12,7 +12,6 @@
     </a>
 </p>
 
-
 > [!TIP] [Github 地址](https://github.com/Dean177/react-native-json-tree)
 
 ## 安装与使用
@@ -36,20 +35,19 @@ yarn add react-native-json-tree@^1.3.0
 > [!WARNING] 使用时 import 的库名不变。
 
 ```js
-import React from 'react';
-import { View, ScrollView, Text } from 'react-native';
-import JSONTree from 'react-native-json-tree';
+import React from "react";
+import { View, ScrollView, Text } from "react-native";
+import JSONTree from "react-native-json-tree";
 
 export default () => {
-
   const data = {
-    name: 'John Doe',
+    name: "John Doe",
     age: 30,
     address: {
-      city: 'New York',
-      country: 'USA',
+      city: "New York",
+      country: "USA",
     },
-    hobbies: ['reading', 'gaming', 'hiking']
+    hobbies: ["reading", "gaming", "hiking"],
   };
 
   const data1 = {
@@ -62,7 +60,7 @@ export default () => {
     age: 35,
     info: {
       height: 180,
-      weight: 120
+      weight: 120,
     },
     address: {
       street: "123 Elm St",
@@ -71,30 +69,30 @@ export default () => {
   };
 
   const theme = {
-    scheme: 'monokai',
-    author: 'wimer hazenberg (http://www.monokai.nl)',
-    base00: '#272822',
-    base01: '#383830',
-    base02: '#49483e',
-    base03: '#75715e',
-    base04: '#a59f85',
-    base05: '#f8f8f2',
-    base06: '#f5f4f1',
-    base07: '#f9f8f5',
-    base08: '#f92672',
-    base09: '#fd971f',
-    base0A: '#f4bf75',
-    base0B: '#a6e22e',
-    base0C: '#a1efe4',
-    base0D: '#66d9ef',
-    base0E: '#ae81ff',
-    base0F: '#cc6633'
+    scheme: "monokai",
+    author: "wimer hazenberg (http://www.monokai.nl)",
+    base00: "#272822",
+    base01: "#383830",
+    base02: "#49483e",
+    base03: "#75715e",
+    base04: "#a59f85",
+    base05: "#f8f8f2",
+    base06: "#f5f4f1",
+    base07: "#f9f8f5",
+    base08: "#f92672",
+    base09: "#fd971f",
+    base0A: "#f4bf75",
+    base0B: "#a6e22e",
+    base0C: "#a1efe4",
+    base0D: "#66d9ef",
+    base0E: "#ae81ff",
+    base0F: "#cc6633",
   };
 
   const shouldExpandNode = (key: any) => {
     const shouldExpandNodeKey = key.some((item: any) => {
-      return item === 'address';
-    })
+      return item === "address";
+    });
     return shouldExpandNodeKey;
   };
 
@@ -106,41 +104,44 @@ export default () => {
   const data4 = {
     name: "Wx",
     task: {
-      weekday: 'ro to work',
-      weekend: 'play'
+      weekday: "ro to work",
+      weekend: "play",
     },
-    beliked: 'xiao mei',
+    beliked: "xiao mei",
     age: 18,
   };
 
   const data5 = {
     user: {
-      name: 'Alice',
+      name: "Alice",
       age: 25,
       address: {
-        street: '123 Main St',
-        city: 'Somewhere',
-        country: 'Wonderland'
-      }
-    }
+        street: "123 Main St",
+        city: "Somewhere",
+        country: "Wonderland",
+      },
+    },
   };
 
   const data6 = {
-    users: Array.from({ length: 100 }, (_, i) => ({ id: i, name: `User ${i}` })),
+    users: Array.from({ length: 100 }, (_, i) => ({
+      id: i,
+      name: `User ${i}`,
+    })),
   };
 
   const data7 = {
     date: new Date(),
     number: 123456.789,
-    name: 'moon'
+    name: "moon",
   };
 
   // 格式化日期
   const formatDate = (date: any) => {
-    if (!(date instanceof Date)) return '';
+    if (!(date instanceof Date)) return "";
     const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
     return `${year}-${month}-${day}`;
   };
 
@@ -149,7 +150,7 @@ export default () => {
     if (value instanceof Date) {
       return formatDate(value);
     }
-    if (typeof value === 'number') {
+    if (typeof value === "number") {
       return value.toFixed(2);
     }
     return value;
@@ -159,16 +160,18 @@ export default () => {
     name: "John Doe",
     age: 30,
     job: "Developer",
-    salary: 100000
+    salary: 100000,
   };
 
   const isCustomNode = (value: any) => {
     // 如果节点值是数字，则使用自定义渲染
-    return typeof value === 'number';
+    return typeof value === "number";
   };
 
   return (
-    <ScrollView style={{ height: '100%', marginBottom: 20, backgroundColor: 'pink' }}>
+    <ScrollView
+      style={{ height: "100%", marginBottom: 20, backgroundColor: "pink" }}
+    >
       <View style={{ marginBottom: 20 }}>
         <Text>要展示的 JSON 数据对象</Text>
         <JSONTree data={data} />
@@ -193,23 +196,47 @@ export default () => {
       </View>
       <View style={{ marginBottom: 20 }}>
         <Text>自定义节点的显示文本</Text>
-        <JSONTree data={data3} getItemString={(type, data, itemType, itemString) => { return <Text>{itemType}&&{itemString}           </Text> }} />
+        <JSONTree
+          data={data3}
+          getItemString={(type, data, itemType, itemString) => {
+            return (
+              <Text>
+                {itemType}&&{itemString}{" "}
+              </Text>
+            );
+          }}
+        />
       </View>
       <View style={{ marginBottom: 20 }}>
         <Text>自定义节点标签的渲染函数</Text>
-        <JSONTree data={data3} labelRenderer={(raw: any) => <Text style={{ fontWeight: 'bold' }}>{raw}</Text>} />
+        <JSONTree
+          data={data3}
+          labelRenderer={(raw: any) => (
+            <Text style={{ fontWeight: "bold" }}>{raw}</Text>
+          )}
+        />
       </View>
       <View style={{ marginBottom: 20 }}>
         <Text>自定义节点值的渲染函数</Text>
-        <JSONTree data={data3} valueRenderer={(raw: any) => <Text style={{ fontStyle: 'italic' }}>{raw}</Text>} />
+        <JSONTree
+          data={data3}
+          valueRenderer={(raw: any) => (
+            <Text style={{ fontStyle: "italic" }}>{raw}</Text>
+          )}
+        />
       </View>
       <View style={{ marginBottom: 20 }}>
         <Text>对 JSON 对象的键进行排序</Text>
-        <JSONTree data={data4} sortObjectKeys={(a: any, b: any) => { return a.localeCompare(b); }} />
+        <JSONTree
+          data={data4}
+          sortObjectKeys={(a: any, b: any) => {
+            return a.localeCompare(b);
+          }}
+        />
       </View>
       <View style={{ marginBottom: 20 }}>
         <Text>用于在 JSON 树中标识和定制特定路径的数据节点</Text>
-        <JSONTree data={data5} keyPath={['information']} />
+        <JSONTree data={data5} keyPath={["information"]} />
       </View>
       <View style={{ marginBottom: 20 }}>
         <Text>用于控制在 JSON 树中显示的集合的元素最大数量</Text>
@@ -226,7 +253,6 @@ export default () => {
     </ScrollView>
   );
 };
-
 ```
 
 ## 约束与限制
@@ -238,6 +264,7 @@ export default () => {
 本文档内容基于以下版本验证通过：
 
 1. RNOH：0.72.29; SDK：HarmonyOS NEXT Developer Beta6; IDE：DevEco Studio 5.0.3.706; ROM：NEXT.0.0.36;
+2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 ## 属性
 
@@ -247,25 +274,27 @@ export default () => {
 
 > [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name               | Description                                                  | Type         | Required | Platform | HarmonyOS Support |
-| ------------------ | ------------------------------------------------------------ | ------------ | -------- | -------- | ----------------- |
-| `data`             | `JSON data object to be displayed`.                          | `Object`     | Yes      | All      | Yes               |
-| `theme`            | `Theme style of the tree view.`                              | `Object`     | No       | All      | Yes               |
-| `shouldExpandNode` | `Function that controls whether a node is expanded`.         | `() => bool` | No       | All      | Yes               |
-| `hideRoot`         | `Whether to hide the root node of the tree`.                 | `bool`       | No       | All      | Yes               |
-| `invertTheme`      | `Indicates whether to reverse the theme color.`              | `bool`       | No       | All      | Yes               |
-| `getItemString`    | `Customize the display of arrays, objects, and iterable nodes.` | `()=>void`   | No       | All      | Yes               |
-| `labelRenderer`    | `Rendering function for custom node labels`.                 | `()=>void`   | No       | All      | Yes               |
-| `valueRenderer`    | `Rendering function for custom node values`.                 | `()=>void`   | No       | All      | Yes               |
-| `sortObjectKeys`   | `Sort the keys of JSON objects`.                             | `()=>void`   | No       | All      | Yes               |
-| `keyPath`          | `A data node used to identify and customize a specific path in a JSON tree`. | `['']`       | No       | All      | Yes               |
+| Name               | Description                                                                               | Type         | Required | Platform | HarmonyOS Support |
+| ------------------ | ----------------------------------------------------------------------------------------- | ------------ | -------- | -------- | ----------------- |
+| `data`             | `JSON data object to be displayed`.                                                       | `Object`     | Yes      | All      | Yes               |
+| `theme`            | `Theme style of the tree view.`                                                           | `Object`     | No       | All      | Yes               |
+| `shouldExpandNode` | `Function that controls whether a node is expanded`.                                      | `() => bool` | No       | All      | Yes               |
+| `hideRoot`         | `Whether to hide the root node of the tree`.                                              | `bool`       | No       | All      | Yes               |
+| `invertTheme`      | `Indicates whether to reverse the theme color.`                                           | `bool`       | No       | All      | Yes               |
+| `getItemString`    | `Customize the display of arrays, objects, and iterable nodes.`                           | `()=>void`   | No       | All      | Yes               |
+| `labelRenderer`    | `Rendering function for custom node labels`.                                              | `()=>void`   | No       | All      | Yes               |
+| `valueRenderer`    | `Rendering function for custom node values`.                                              | `()=>void`   | No       | All      | Yes               |
+| `sortObjectKeys`   | `Sort the keys of JSON objects`.                                                          | `()=>void`   | No       | All      | Yes               |
+| `keyPath`          | `A data node used to identify and customize a specific path in a JSON tree`.              | `['']`       | No       | All      | Yes               |
 | `collectionLimit`  | `Use to control the maximum number of elements of a collection displayed in a JSON tree`. | `number`     | No       | All      | Yes               |
-| `postprocessValue` | `For customizing values before they are rendered`.           | `()=>void`   | No       | All      | Yes               |
-| `isCustomNode`     | `Specify which nodes should use custom rendered properties.` | `()=>bool`   | No       | All      | Yes               |
+| `postprocessValue` | `For customizing values before they are rendered`.                                        | `()=>void`   | No       | All      | Yes               |
+| `isCustomNode`     | `Specify which nodes should use custom rendered properties.`                              | `()=>bool`   | No       | All      | Yes               |
 
 ## 遗留问题
 
 ## 其他
+
+- JSONTree 组件的 collectionLimit 属性不生效，与 iOS 一致 [issue#163](https://github.com/Dean177/react-native-json-tree/issues/163)
 
 ## 开源协议
 

@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -79,6 +78,7 @@ const styles = StyleSheet.create({
 在以下版本验证通过
 
 1. RNOH：0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.25; IDE：DevEco Studio 5.0.3.400; ROM：3.0.0.25;
+2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 ## 属性
 
@@ -110,5 +110,3 @@ const styles = StyleSheet.create({
 ## 开源协议
 
 本项目基于 [MIT License](https://github.com/crazycodeboy/react-native-check-box/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

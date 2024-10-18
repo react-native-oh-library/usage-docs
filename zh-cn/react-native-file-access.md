@@ -443,6 +443,8 @@ ohpm install
 
 ## 遗留问题
 
+- [ ] getAppGroupDir方法（获取应用程序目录权限,仅iOS、Mac iOS）依赖问题，目前Harmony侧未提供支持 [issue#4](https://github.com/react-native-oh-library/react-native-file-access/issues/4)
+
 ## 其他
 
 ## 开源协议

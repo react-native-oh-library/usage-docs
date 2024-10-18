@@ -443,6 +443,8 @@ ohpm install
 
 ## 遗留问题
 
+- [ ] getAppGroupDir method (Get application directory permissions, iOS, Mac iOS only) This is a dependency problem. Currently, the Harmony side does not provide support. [issue#4](https://github.com/react-native-oh-library/react-native-file-access/issues/4)
+
 ## 其他
 
 ## 开源协议

@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.2.1
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-switch-selector</code> </h1>
@@ -42,7 +42,7 @@ yarn add react-native-switch-selector@2.3.0
 
 > [!WARNING] 使用时 import 的库名不变。
 
-```js
+```jsx
 import SwitchSelector from "react-native-switch-selector";
 import React from 'react';
 import { ScrollView } from 'react-native';
@@ -73,12 +73,13 @@ export default SwitchSelectorDemo;
 本文档内容基于以下版本验证通过：
 
 1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.18;
+1. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 ## 属性
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name                         | Description                                                  | Type                     | Required | Platform    | HarmonyOS Support |
 | ---------------------------- | ------------------------------------------------------------ | ------------------------ | -------- | ----------- | ----------------- |

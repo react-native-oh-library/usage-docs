@@ -1,10 +1,10 @@
-> 模板版本：v0.2.2
+> Template version：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-image-header-scroll-view</code> </h1>
 </p>
 <p align="center">
-    <a href="https://github.com/meliorence/react-native-render-html">
+    <a href="https://github.com/bamlab/react-native-image-header-scroll-view">
         <img src="https://img.shields.io/badge/platforms-ios%20|%20android%20|%20web%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
     <a href="https://github.com/bamlab/react-native-image-header-scroll-view/blob/master/LICENCE">
@@ -17,7 +17,7 @@
 
 
 > [!TIP] [Github address](https://github.com/bamlab/react-native-image-header-scroll-view)
-> Due to an issue in v1.0.0 where the TriggeringView component callback cannot be triggered, the following verification is based on v0.10.3 version
+> 因 v1.0.0 中存在无法触发 TriggeringView 组件回调的问题，以下基于 v0.10.3 版本验证
 
 ## Installation and Usage
 
@@ -173,7 +173,7 @@ function HeaderImageExample () {
           fadeOutForeground={true} 
           foregroundParallaxRatio={1}
           overlayColor={'blue'} 
-          renderHeader={() => <Image source={'Please enter the local image path'} style={styles.image} />} 
+          renderHeader={() => <Image source={'请输入本地图片路径'} style={styles.image} />} 
           renderFixedForeground={() => (
             <Animated.View
                     style={[styles.navTitleView,{ opacity: fadeAnim}]}  >
@@ -289,11 +289,11 @@ This document is verified based on the following versions：
 | `onTouchBottom`           | Called when the Bottom of the component touch the Top of the ScrollView. (onHide + onBeginDisplayed)  | function | No       | All      | Yes               |
 
 ## Known Issues
+- [ ] disableHeaderGrow 属性在iOS上可以控制下拉放大背景图 在harmony上无此效果 [issue#1](https://github.com/bamlab/react-native-image-header-scroll-view/issues/76 )
 
-- disableHeaderGrow property on iOS allows for the control of dropdown zooming in on the background image, but it does not have this effect on Harmony [issue#1](https://github.com/bamlab/react-native-image-header-scroll-view/issues/76 )
 ## Others
-- [ ] The foregroundExtrapolar property cannot take effect, consistent with Android and iOS：[issue#2](https://github.com/bamlab/react-native-image-header-scroll-view/issues/132 )。
-- [ ] The ScrollViewComponent property cannot be scrolled, consistent with Android and iOS：[issue#3](https://github.com/bamlab/react-native-image-header-scroll-view/issues/133 )。
+-  foregroundExtrapolate属性无法生效，与Android、iOS一致：[issue#2](https://github.com/bamlab/react-native-image-header-scroll-view/issues/132 )。
+-  ScrollViewComponent属性无法滚动，与Android、iOS一致：[issue#3](https://github.com/bamlab/react-native-image-header-scroll-view/issues/133 )。
 
 
 

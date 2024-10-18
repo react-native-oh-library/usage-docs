@@ -4,7 +4,7 @@
   <h1 align="center"> <code>react-native-image-header-scroll-view</code> </h1>
 </p>
 <p align="center">
-    <a href="https://github.com/meliorence/react-native-render-html">
+    <a href="https://github.com/bamlab/react-native-image-header-scroll-view">
         <img src="https://img.shields.io/badge/platforms-ios%20|%20android%20|%20web%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
     <a href="https://github.com/bamlab/react-native-image-header-scroll-view/blob/master/LICENCE">
@@ -289,10 +289,10 @@ export default HeaderImageExample;
 | `onTouchBottom`           | Called when the component is not displayed any more after scroll up   (onHide + onBeginDisplayed)  | function | No       | All      | Yes               |
 
 ## 遗留问题
-- disableHeaderGrow 属性在iOS上可以控制下拉放大背景图 在harmony上无此效果 [issue#1](https://github.com/bamlab/react-native-image-header-scroll-view/issues/76 )
+- [ ] disableHeaderGrow 属性在iOS上可以控制下拉放大背景图 在harmony上无此效果 [issue#1](https://github.com/bamlab/react-native-image-header-scroll-view/issues/76 )
 ## 其他
-- [ ] foregroundExtrapolate属性无法生效，与Android、iOS一致：[issue#2](https://github.com/bamlab/react-native-image-header-scroll-view/issues/132 )。
-- [ ] ScrollViewComponent属性无法滚动，与Android、iOS一致：[issue#3](https://github.com/bamlab/react-native-image-header-scroll-view/issues/133 )。
+-  foregroundExtrapolate属性无法生效，与Android、iOS一致：[issue#2](https://github.com/bamlab/react-native-image-header-scroll-view/issues/132 )。
+-  ScrollViewComponent属性无法滚动，与Android、iOS一致：[issue#3](https://github.com/bamlab/react-native-image-header-scroll-view/issues/133 )。
 
 
 ## 开源协议

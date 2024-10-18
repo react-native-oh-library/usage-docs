@@ -326,7 +326,7 @@ export default DomDemo;
 本文档内容基于以下版本验证通过：
 
 1. RNOH: 0.72.28; SDK:HarmonyOS-Next-DB6 5.0.0.61 SDK; IDE: DevEco Studio 5.0.3.706; ROM: 3.0.0.61;
-
+2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 ## 属性
 
 > [!Tip] "Platform"列表示该属性在原三方库上支持的平台。

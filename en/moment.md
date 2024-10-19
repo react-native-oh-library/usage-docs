@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.2.0
+> Template version: v0.2.0
 
 <p align="center">
   <h1 align="center"> <code>Moment</code> </h1>
@@ -10,11 +10,11 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/moment/moment)
+> [!tip] [Github address](https://github.com/moment/moment)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -32,29 +32,28 @@ yarn add moment@2.30.1
 
 <!-- tabs:end -->
 
-快速使用：
+quick use：
 
 ```bash
 import moment from 'moment';
 moment().format();
 ```
 
-设定moment区域：
+Set the moment area:
 
 ```bash
-// import 方式
+// Import method
 import 'moment/locale/zh-cn';
 moment.locale('zh-cn');
 ```
 
-## 约束与限制
+## Constraints
 
-## 兼容性
+## Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：205.0.0.18;
-2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 ## API
 
@@ -66,7 +65,7 @@ moment.locale('zh-cn');
 import moment from 'moment';
 ```
 
-下面的代码展示了这个库的基本使用示例：
+The following code shows the basic use scenario of the repository:
 
 ```js
 // 获取今天0时0分0秒
@@ -257,8 +256,8 @@ moment().format("hh:mm:ss a");
 | ss           | 有前导零的描述             | 01到59                     |
 | X            | Unix时间戳                 | 1411572969                 |
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
 <!-- {% endraw %} -->

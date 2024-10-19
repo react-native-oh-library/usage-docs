@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-模板版本：v0.2.1
+Template version: v0.2.1
 
 <p align="center">
   <h1 align="center"> <code>immer</code> </h1>
@@ -16,9 +16,9 @@
 
 > [!TIP] [Github 地址](https://github.com/immerjs/immer)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 
 <!-- tabs:start -->
@@ -37,7 +37,7 @@ yarn add immer@10.0.4
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
 ```js
 import React, {useState, useEffect, Component} from 'react';
@@ -771,18 +771,17 @@ export default MyComponent;
 
 ```
 
-## 兼容性
+## Compatibility
 
-在以下版本验证通过
+This document is verified based on the following versions:
 
 1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：205.0.0.18;
-2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 ## API
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 > | Name                      | Description                                                                                                                                               | Required | Type | Platform    | HarmonyOS Support |
 > | ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- | ----------------- | ----------------- |
@@ -810,12 +809,12 @@ export default MyComponent;
 > | setAutoFreeze           | Enable/disable recursive automatic freezing. Default enabled                                                                                                                         | NO       | Function | Android IOS | YES               |
 > | setUseStrictShallowCopy | Can be used to enable strict shallow copying, if enabled, the importer will replicate as many non enumerable attributes as possible                                                                                         | NO       | Function | Android IOS | YES               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/immerjs/immer/blob/main/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/immerjs/immer/blob/main/LICENSE), Please enjoy and participate freely in open source.
 
 <!-- {% endraw %} -->

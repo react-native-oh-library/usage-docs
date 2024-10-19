@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> Template version: v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>mobx</code> </h1>
@@ -12,9 +12,9 @@
 
 > [!tip] [Github 地址](https://github.com/mobxjs/mobx/tree/mobx%406.10.0)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -32,7 +32,7 @@ yarn add mobx@6.10.0
 
 <!-- tabs:end -->
 
-快速使用：
+Quick use:
 
 ```js
 module.exports = {
@@ -44,7 +44,7 @@ module.exports = {
 };
 ```
 
-安装babel相关依赖:
+Install Babel related dependencies:
 
 ```bash
 npm install @babel/core
@@ -54,7 +54,7 @@ npm install @babel/plugin-proposal-decorators --save-dev
 npm install @babel/plugin-transform-class-properties --save-dev
 ```
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
 ```js
 import React from 'react';
@@ -78,10 +78,10 @@ class CounterStore {
   }
 }
 
-// 创建一个store的实例
+// Create an instance of a store
 const counterStore = new CounterStore();
 
-// 使用observer包裹组件，监听状态变化
+// Use observer to package components and listen for status changes
 const Counter = observer(() => {
   return (
     <View style={styles.container}>
@@ -116,23 +116,22 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-### 兼容性
+### Compatibility
 
-在下述版本验证通过:
+Verified in the following version:
 
 1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
 2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
-3. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
-## 属性
+## attribute
 
-详情查看[mobx官方文档](https://mobx.js.org/api.html)
+View details[MOBX official documentation](https://mobx.js.org/api.html)
 
-如下是已验证接口展示:
+The following is a display of validated interfaces:
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 #### **Creating observables**
 
@@ -189,10 +188,10 @@ export default App;
 | ---- | ---------------------------------------------------------------- | -------- | -------- | ----------------- |
 | toJS | Recursively converts an observable object to a JavaScript object | function | no       | yes               |
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/mobxjs/mobx/blob/mobx%406.10.0/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under  [The MIT License (MIT)](https://github.com/mobxjs/mobx/blob/mobx%406.10.0/LICENSE), Please enjoy and participate freely in open source.
 
 <!-- {% endraw %} -->

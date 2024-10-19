@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> Template version: v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>crypto-js</code> </h1>
@@ -10,11 +10,11 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/brix/crypto-js/tree/4.2.0)
+> [!tip] [Github address](https://github.com/brix/crypto-js/tree/4.2.0)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -34,7 +34,7 @@ yarn add @types/crypto-js@^4.2.1
 
 <!-- tabs:end -->
 
-快速使用：
+Quick use:
 
 ```typescript
 import React, { useState } from 'react';
@@ -110,17 +110,16 @@ function CryptoJSDemo() {
 export default CryptoJSDemo;
 ```
 
-## 约束与限制
+## Constraints
 
-#### 兼容性
+#### Compatibility
 
 在下述版本验证通过：
 
 1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
 2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
-3. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
-## API列表
+## API List
 
 **以下 `C` 均为crypto-js导出的对象，即：**
 
@@ -616,12 +615,12 @@ import C from "crypto-js";
 | C.enc.Base64url.stringify | 将字节数组转换为Base64url格式字符串。 | function | no       | yes               |
 | C.enc.Base64url.parse     | 将Base64url格式字符串转换为字节数组。 | function | no       | yes               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [MIT License](https://github.com/brix/crypto-js/blob/4.2.0/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [MIT License](https://github.com/brix/crypto-js/blob/4.2.0/LICENSE), Please enjoy and participate freely in open source.
 
 <!-- {% endraw %} -->

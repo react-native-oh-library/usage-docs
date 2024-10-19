@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.2.0
+> Template version: v0.2.0
 
 <p align="center">
   <h1 align="center"> <code>JsBarCode</code> </h1>
@@ -10,11 +10,11 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/lindell/JsBarcode)
+> [!tip] [Github address](https://github.com/lindell/JsBarcode)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -32,15 +32,15 @@ yarn add jsbarcode@3.11.6
 
 <!-- tabs:end -->
 
-快速使用：
+quick-access：
 
 ```bash
 import JsBarCode from 'jsbarcode';
 ```
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
-下面的代码展示了这个库的基本使用示例：
+The following code shows the basic use scenario of the repository:
 
 ### **With svg:**
 
@@ -190,7 +190,7 @@ var canvas = createCanvas();
 JsBarcode(canvas, "Hello");
 ```
 
-如下是Options使用示例展示:
+Here is an example of using Options:
 
 ```js
 // format
@@ -279,18 +279,17 @@ JsBarcode("#barcode", "29012343", {
   flat: true,
 });
 ```
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.18;
-2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 ## **All Options**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name         | Description       | Type               | Required | HarmonyOS Support | Remark                                                                |
 | ------------ | ----------------- | ------------------ | -------- | ----------------- | --------------------------------------------------------------------- |
@@ -315,14 +314,14 @@ JsBarcode("#barcode", "29012343", {
 | flat         | false             | Boolean            | no       | yes               | 仅支持format：EAN8/EAN13                                              |
 | valid        | function(valid){} | Function           | no       | yes               |                                                                       |
 
-## 遗留问题
+## Known Issues
 
 jsbarcode库依赖react-native-svg库进行条形码展示, 因svg 当前仅实现部分属性，其余还未实现 HarmonyOS 化，目前在HarmonyOS上条形码的文本位置效果不对，fontSize显示比较小。
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [MIT License](https://github.com/lindell/JsBarcode/blob/master/MIT-LICENSE.txt) ，请自由地享受和参与开源。
+This project is licensed under [MIT License](https://github.com/lindell/JsBarcode/blob/master/MIT-LICENSE.txt), Please enjoy and participate freely in open source.
 
 <!-- {% endraw %} -->

@@ -1,5 +1,5 @@
 <!-- {% raw %} -->
-> 模板版本：v0.1.3
+> Template version: v0.1.3
 
 <p align="center">
   <h1 align="center"> <code>lodash</code> </h1>
@@ -12,7 +12,7 @@
 
 > [!tip] [Github 地址](https://github.com/lodash/lodash/tree/4.17.21)
 
-## 安装与使用
+## Installation and Usage
 
 <!-- tabs:start -->
 
@@ -30,7 +30,7 @@ yarn add lodash@4.17.21
 
 <!-- tabs:end -->
 
-直接使用：
+direct use：
 
 ```js
 import React, { useState } from 'react';
@@ -74,19 +74,18 @@ const LodashDemo = () => {
 export default LodashDemo;
 ```
 
-### 兼容性
+### Compatibility
 
-在下述版本验证通过:
+Verified in the following version:
 
 1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
 2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
-3. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
-## 静态方法
+## static method
 
-详情查看[lodash 官方文档](https://lodash.com/docs/4.17.15)
+View details[lodash Official document](https://lodash.com/docs/4.17.15)
 
-如下是已验证接口展示:
+The following is a display of validated interfaces:
 
 #### **Collection**
 
@@ -186,12 +185,12 @@ export default LodashDemo;
 | ----- | ----------------------------------------------------------------------------------------------- | -------- | -------- | ----------------- |
 | chain | Creates a lodash wrapper instance that wraps value with explicit method chain sequences enabled | function | NO       | yes               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/lodash/lodash/blob/4.17.21/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/lodash/lodash/blob/4.17.21/LICENSE) ，Please enjoy and participate freely in open source.
 
 <!-- {% endraw %} -->

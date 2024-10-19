@@ -226,7 +226,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ```diff
   ...
-+ import { PickerViewPackage } from "@react-native-oh-tpl/react-native-picker"
++ import { PickerViewPackage } from "@react-native-oh-tpl/react-native-picker/ts"
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [

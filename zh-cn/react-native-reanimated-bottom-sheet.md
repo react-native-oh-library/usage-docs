@@ -149,7 +149,7 @@ export default function () {
 | enabledInnerScrolling | Defines whether it's possible to scroll inner content of bottom sheet. | boolean | no | all | yes
 | callbackNode | reanimated node which holds position of bottom sheet, where 0 it the highest snap point and 1 is the lowest.  | boolean | no | all | yes
 | contentPosition | reanimated node which holds position of bottom sheet's content (in dp) | reanimated node | no | all | yes
-| headerPosition | reanimated node which holds position of bottom sheet's header (in dp) | reanimated node | no | all | yes
+| headerPosition | reanimated node which holds position of bottom sheet's header (in dp) | reanimated node | no | all | no
 | overdragResistanceFactor | `Defines how violently sheet has to stopped while overdragging. 0 means no overdrag |  number | no | all | yes
 | springConfig | Overrides config for spring animation | object | no | all | yes
 | innerGestureHandlerRefs | Refs for gesture handlers used for building bottom sheet. The array consists fo three refs. The first for PanGH used for inner content scrolling. The second for PanGH used for header. The third for TapGH used for stopping scrolling the content. |  array | no | all | no
@@ -168,6 +168,7 @@ export default function () {
 - [ ] simultaneousHandlers 暂不支持。 [issues#3](https://github.com/react-native-oh-library/react-native-reanimated-bottom-sheet/issues/3)
 - [ ] innerGestureHandlerRefs 暂不支持。 [issues#4](https://github.com/react-native-oh-library/react-native-reanimated-bottom-sheet/issues/4)
 - [ ] callbackThreshold 暂不支持。[issues#6](https://github.com/react-native-oh-library/react-native-reanimated-bottom-sheet/issues/6)
+- [ ] headerPosition 暂不支持。[issues#7](https://github.com/react-native-oh-library/react-native-reanimated-bottom-sheet/issues/7)
 
 ## 其他
 - 本库基于[@gorhom/bottom-sheet](https://github.com/react-native-oh-library/react-native-bottom-sheet)实现，若想实现完全可配置选项的高性能交互式bottomSheet，建议优先使用[@gorhom/bottom-sheet](https://github.com/react-native-oh-library/react-native-bottom-sheet)。

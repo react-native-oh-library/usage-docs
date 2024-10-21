@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> 模板版本：v0.2.0
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-root-siblings</code> </h1>
@@ -14,9 +13,9 @@
     </a>
 </p>
 
-> [! TIP] [Github 地址](https://github.com/magicismight/react-native-root-siblings)
+> [! TIP] [Github address](https://github.com/magicismight/react-native-root-siblings)
 
-## 安装与使用
+## Installation and Usage
 
 <!-- tabs:start -->
 
@@ -34,9 +33,9 @@ yarn add react-native-root-siblings@5.0.1
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [! WARNING] 使用时 import 的库名不变。
+> [! WARNING] The name of the imported repository remains unchanged.
 
 The easiest way to create overlays( `Modal` , `Popover` , `Dialog` etc) for both `react` and `react-native` . 
 
@@ -264,19 +263,21 @@ var styles = StyleSheet.create({
 
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 RNOH: 0.72.23; SDK: HarmonyOS NEXT Developer Beta1; IDE: DevEco Studio: 5.0.3.27; ROM: 3.0.0.19; 
 
-## 静态方法
+RNOH: 0.72.33; SDK: Openharmony 5.0.0.71(API Version 12 Release); IDE: DevEco Studio: 5.0.3.900; ROM: Next.0.0.71;
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+## Static Methods
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
@@ -287,12 +288,10 @@ RNOH: 0.72.23; SDK: HarmonyOS NEXT Developer Beta1; IDE: DevEco Studio: 5.0.3.27
 | RootSiblingPortal(props: { children: ReactNode;})  | 允许将子组件渲染到应用的根组件之外的任意位置  | null  | no | Android/IOS  | yes |
 | setSiblingWrapper(wrapper: (sibling: ReactNode) => ReactNode)  | 设置全局组件的包装器  | void  | no | Android/IOS  | yes |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/magicismight/react-native-root-siblings/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->
+This project is licensed under [The MIT License (MIT)](https://github.com/magicismight/react-native-root-siblings/blob/master/LICENSE).

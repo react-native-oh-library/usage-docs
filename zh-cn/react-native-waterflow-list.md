@@ -1,4 +1,3 @@
-﻿<!--{%raw%}-->
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -24,13 +23,13 @@
 #### **npm**
 
 ```bash
-npm i react-native-waterflow-list@1.2.2
+npm i react-native-waterflow-list@1.2.3
 ```
 
 #### **yarn**
 
 ```bash
-yarn add react-native-waterflow-list@1.2.2
+yarn add react-native-waterflow-list@1.2.3
 ```
 
 <!-- tabs:end -->
@@ -138,6 +137,7 @@ export default () => {
 在以下版本验证通过：
 
 1. RNOH:0.72.29; SDK:HarmonyOS NEXT Developer Beta6 SDK; IDE:DevEco Studio 5.0.3.706; ROM:NEXT.0.0.60;
+1. RNOH: 0.72.33; SDK: Openharmony 5.0.0.71(API Version 12 Release); IDE: DevEco Studio: 5.0.3.900; ROM: Next.0.0.71;
 
 ## 属性
 

@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> 模板版本：v0.2.0
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-root-siblings</code> </h1>
@@ -272,6 +271,8 @@ var styles = StyleSheet.create({
 
 RNOH: 0.72.23; SDK: HarmonyOS NEXT Developer Beta1; IDE: DevEco Studio: 5.0.3.27; ROM: 3.0.0.19; 
 
+RNOH: 0.72.33; SDK: Openharmony 5.0.0.71(API Version 12 Release); IDE: DevEco Studio: 5.0.3.900; ROM: Next.0.0.71;
+
 ## 静态方法
 
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
@@ -294,5 +295,3 @@ RNOH: 0.72.23; SDK: HarmonyOS NEXT Developer Beta1; IDE: DevEco Studio: 5.0.3.27
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/magicismight/react-native-root-siblings/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

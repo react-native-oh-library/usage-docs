@@ -289,7 +289,7 @@ export default HeaderImageExample;
 | `onTouchBottom`           | Called when the component is not displayed any more after scroll up   (onHide + onBeginDisplayed)  | function | No       | All      | Yes               |
 
 ## 遗留问题
-- [ ] disableHeaderGrow 属性在iOS上可以控制下拉放大背景图 在harmony上无此效果 [issue#1](https://github.com/bamlab/react-native-image-header-scroll-view/issues/76 )
+- [ ] disableHeaderGrow 属性在iOS上可以控制下拉放大背景图 ，在harmony上无此效果， 是因为源库的overscrollMode="never"属性导致， issue里面有解决方案 [issue#1](https://github.com/bamlab/react-native-image-header-scroll-view/issues/134 )
 ## 其他
 -  foregroundExtrapolate属性无法生效，与Android、iOS一致：[issue#2](https://github.com/bamlab/react-native-image-header-scroll-view/issues/132 )。
 -  ScrollViewComponent属性无法滚动，与Android、iOS一致：[issue#3](https://github.com/bamlab/react-native-image-header-scroll-view/issues/133 )。

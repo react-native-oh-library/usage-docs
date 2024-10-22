@@ -289,7 +289,7 @@ This document is verified based on the following versions：
 | `onTouchBottom`           | Called when the Bottom of the component touch the Top of the ScrollView. (onHide + onBeginDisplayed)  | function | No       | All      | Yes               |
 
 ## Known Issues
-- [ ] disableHeaderGrow 属性在iOS上可以控制下拉放大背景图 在harmony上无此效果 [issue#1](https://github.com/bamlab/react-native-image-header-scroll-view/issues/76 )
+- [ ] disableHeaderGrow 属性在iOS上可以控制下拉放大背景图 ，在harmony上无此效果， 是因为源库的overscrollMode="never"属性导致， issue里面有解决方案 [issue#1](https://github.com/bamlab/react-native-image-header-scroll-view/issues/134 )
 
 ## Others
 -  foregroundExtrapolate属性无法生效，与Android、iOS一致：[issue#2](https://github.com/bamlab/react-native-image-header-scroll-view/issues/132 )。

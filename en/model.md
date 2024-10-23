@@ -80,7 +80,7 @@ export default App;
 
 ## Use Codegen
 
-If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/zh-cn/codegen.md).
+If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/en/codegen.md).
 
 ## Link
 
@@ -129,7 +129,7 @@ ohpm install
 
 Method 2: Directly link to the source code.
 
-> [!TIP] For details, see [Directly Linking Source Code](/zh-cn/link-source-code.md).
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
 ### 3. Configuring CMakeLists and Introducing xxx Package
 

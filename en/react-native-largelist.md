@@ -1,6 +1,4 @@
-<!-- {% raw %} -->
-
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-largelist</code> </h1>
@@ -15,15 +13,15 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-largelist)
+> [!TIP] [Github address](https://github.com/react-native-oh-library/react-native-largelist)
 
-## 安装与使用
+## Installation and Usage
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-largelist Releases](https://github.com/react-native-oh-library/react-native-largelist/releases)，并下载适用版本的 tgz 包。
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-largelist Releases](https://github.com/react-native-oh-library/react-native-largelist/releases)
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
->[!TIP] # 处替换为 tgz 包的路径
+>[!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
@@ -40,9 +38,9 @@ yarn add @react-native-oh-tpl/react-native-largelist@file:#
 ```
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 // Largelist
@@ -123,40 +121,40 @@ const styles = StyleSheet.create({
 });
 ```
 
-更多示例可以查看[largelistExample](https://github.com/bolan9999/react-native-largelist/tree/master/Examples)
+For more examples, see [largelistExample](https://github.com/bolan9999/react-native-largelist/tree/master/Examples)
 
 ## Link
 
-本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-spring-scrollview 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+The implementation of this library depends on the native code of @react-native-oh-tpl/react-native-spring-scrollview . If you have already included this library in your HarmonyOS project, you do not need to include it again. You can skip this section and  use the library directly.
 
-如未引入请参照[@react-native-oh-tpl/react-native-spring-scrollview 文档的 Link 章节](/zh-cn/react-native-spring-scrollview.md#link)进行引入
+If you have not included it, please refer to the [Linking section of the @react-native-oh-tpl/react-native-spring-scrollview ](/zh-cn/react-native-spring-scrollview.md#link)
 
-### 运行
+### Running
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-然后编译、运行即可。
+Then build and run the code.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-largelist Releases](https://github.com/react-native-oh-library/react-native-largelist/releases)
+Check the release version information in the release address of the third-party library:[@react-native-oh-tpl/react-native-largelist Releases](https://github.com/react-native-oh-library/react-native-largelist/releases)
 
-## 属性
+## Properties 
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 ### Largelist:
 | Name                           | Description                                                                                                                                                                                                                           | Type                                                                                                          | Required | Platform    | HarmonyOS Support |
@@ -213,14 +211,10 @@ ohpm install
 | directionalLockEnabled | 当此属性为true时，它会试着锁定只在水平或垂直一个方向上滚动。 | boolean | no       | Android/iOS | no               |
 | headerStickyEnabled    | 将头部吸在StickForm的顶部，Section跟着吸在头部的下边。       | boolean | no       | Android/iOS | no               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-react-native-largelist组件：[列表数据显示不完整，列表后有空白](https://github.com/bolan9999/react-native-largelist/issues/489)
+## License
 
-## 开源协议
-
-本项目基于 [The MIT License (MIT)](https://github.com/bolan9999/react-native-largelist/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->
+This project is licensed under [The MIT License (MIT)](https://github.com/bolan9999/react-native-largelist/blob/master/LICENSE).

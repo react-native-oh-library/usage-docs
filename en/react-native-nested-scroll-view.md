@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-nested-scroll-view</code> </h1>
@@ -14,15 +13,15 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-nested-scroll-view)
+> [!TIP] [Github address](https://github.com/react-native-oh-library/react-native-nested-scroll-view)
 
-## 安装与使用
+## Installation and Usage
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-nested-scroll-view Releases](https://github.com/react-native-oh-library/react-native-nested-scroll-view/releases)，并下载适用版本的 tgz 包。
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-nested-scroll-view Releases](https://github.com/react-native-oh-library/react-native-nested-scroll-view/releases)
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
-> [!TIP] # 处替换为 tgz 包的路径
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
@@ -40,9 +39,9 @@ yarn add @react-native-oh-tpl/react-native-nested-scroll-view@file:#
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React from 'react';
@@ -99,36 +98,34 @@ const styles = StyleSheet.create({
 export default NestedScrollViewExample;
 ```
 
-### 运行
+### Running
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-然后编译、运行即可。
+Then build and run the code.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-nested-scroll-view Releases](https://github.com/react-native-oh-library/react-native-nested-scroll-view/releases)
+Check the release version information in the release address of the third-party library:[@react-native-oh-tpl/react-native-nested-scroll-view Releases](https://github.com/react-native-oh-library/react-native-nested-scroll-view/releases)
 
-## 属性
+## Properties 
 
 Android的ScrollView并不支持像iOS的ScrollView那样的嵌套滚动，在React Native中直接使用原生的ScrollView实现嵌套滚动时，会出现一些滚动上的问题，例如嵌套滚动不流畅或无法正确响应滚动事件等，因此Android使用react-native-nested-scroll-view来解决嵌套滚动的问题；而iOS使用的是React Native中的ScrollView来实现嵌套滚动，HarmonyOS与iOS保持一致，接受所有[React Native ScrollView](https://reactnative.dev/docs/scrollview#props) 组件的Props
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-常用属性如下：
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
@@ -161,9 +158,9 @@ Android的ScrollView并不支持像iOS的ScrollView那样的嵌套滚动，在Re
 
 Android的ScrollView并不支持像iOS的ScrollView那样的嵌套滚动，在React Native中直接使用原生的ScrollView实现嵌套滚动时，会出现一些滚动上的问题，例如嵌套滚动不流畅或无法正确响应滚动事件等，因此Android使用react-native-nested-scroll-view来解决嵌套滚动的问题；而iOS使用的是React Native中的ScrollView来实现嵌套滚动，HarmonyOS与iOS保持一致，接受所有[React Native ScrollView](https://reactnative.dev/docs/scrollview#methods) 组件的Methods
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
@@ -172,12 +169,10 @@ Android的ScrollView并不支持像iOS的ScrollView那样的嵌套滚动，在Re
 | flashScrollIndicators  | 该方法用于显示滚动指示器，通常在需要提醒用户可以滚动时使用。| function  | no       | Android/IOS  | yes                |
 
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/cesardeazevedo/react-native-nested-scroll-view/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->
+This project is licensed under [The MIT License (MIT)](https://github.com/cesardeazevedo/react-native-nested-scroll-view/blob/master/LICENSE).

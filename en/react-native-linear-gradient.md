@@ -109,7 +109,7 @@ Open the harmony directory of the HarmonyOS project in DevEco Studio.
 }
 ```
 
-### 2.Introducing Native Code
+### 2. Introducing Native Code
 
 Currently, two methods are available:
 
@@ -138,9 +138,9 @@ ohpm install
 
 Method 2: Directly link to the source code.
 
-> [!TIP] For details, see [Directly Linking Source Code.](/zh-cn/link-source-code.md)
+> [!TIP] For details, see [Directly Linking Source Code.](/en/link-source-code.md)
 
-### 3.Configuring CMakeLists and Introducing LinearGradientPackage Package
+### 3. Configuring CMakeLists and Introducing LinearGradientPackage Package
 
 Open entry/src/main/cpp/CMakeLists.txt and add the following code:
 
@@ -199,7 +199,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 4.Running
+### 4. Running
 
 Click the sync button in the upper right corner.
 

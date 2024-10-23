@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-syan-image-picker</code> </h1>
@@ -14,15 +13,17 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-syan-image-picker) 
+> [!TIP] [Github address](https://github.com/react-native-oh-library/react-native-syan-image-picker) 
 
-## 安装与使用
+## Installation and Usage
 
-release未发布。
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package:[@react-native-oh-tpl/react-native-syan-image-picker Releases](https://github.com/react-native-oh-library/react-native-syan-image-picker/releases)
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
-> [!TIP] # 处替换为 tgz 包的路径
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
+
+<!-- tabs:start -->
 
 #### **npm**
 
@@ -30,17 +31,17 @@ release未发布。
 npm install @react-native-oh-tpl/react-native-syan-image-picker@file:#
 ```
 
-
-
 #### **yarn**
 
 ```bash
 yarn add @react-native-oh-tpl/react-native-syan-image-picker@file:#
 ```
 
-下面的代码展示了这个库的基本使用场景：
+<!-- tabs:end -->
 
-> [!WARNING] 使用时 import 的库名不变。
+The following code shows the basic use scenario of the repository:
+
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React from "react";
@@ -154,19 +155,17 @@ SyanImagePicker.openVideoPicker(options, (err, videos) => {
 }
 ```
 
-## 使用 Codegen
+## Use Codegen
 
-本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/zh-cn/codegen.md)。
-
-
+This repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/en/codegen.md).
 
 ## Link
 
-目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
 
-首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmonyOS`
+Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 1.在工程根目录的 `oh-package.json5` 添加 overrides 字段
+### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
 
 ```json
 {
@@ -177,18 +176,16 @@ SyanImagePicker.openVideoPicker(options, (err, videos) => {
 }
 ```
 
-### 2.引入原生端代码
+### 2. Introducing Native Code
 
-目前有两种方法：
+Currently, two methods are available:
 
-1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
-2. 直接链接源码。
 
-方法一：通过 har 包引入（推荐）
+Method 1 (recommended): Use the HAR file.
 
-> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
+> [!TIP] The HAR file is stored in the `harmony` directory in the installation path of the third-party library.
 
-打开 `entry/oh-package.json5`，添加以下依赖
+Open `entry/oh-package.json5` file and add the following dependencies:
 
 ```json
 "dependencies": {
@@ -197,22 +194,22 @@ SyanImagePicker.openVideoPicker(options, (err, videos) => {
   }
 ```
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-方法二：直接链接源码
+Method 2: Directly link to the source code.
 
-> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
-### 3.在 ArkTs 侧引入SyanImagePickerPackage
+### 3. Introducing SyanImagePickerPackage to ArkTS
 
-打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
 
 ```diff
   ...
@@ -226,39 +223,37 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 4.运行
+### 4. Running
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-然后编译、运行即可。
+Then build and run the code.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-release未发布。
+Check the release version information in the release address of the third-party library:[@react-native-oh-tpl/react-native-syan-image-picker Releases](https://github.com/react-native-oh-library/react-native-syan-image-picker/releases)
 
-本文档内容基于以下版本验证通过：
-
-
+This document is verified based on the following versions:
 
 1.  RNOH：0.72.26; SDK：HarmonyOS NEXT Developer Beta1 B.0.22、IDE：DevEco Studio 5.0.3.300SP2; ROM：3.0.0.24;
 
 
 
 ## ImagePickerOption(选择图片或数据的配置项)
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                            | Description                                                  | Type    | Required |  Platform   | HarmonyOS Support |
 | ------------------------------- | ------------------------------------------------------------ | ------- | :------: | :---------: | :---------------: |
@@ -292,9 +287,9 @@ release未发布。
 | showSelectedIndex               | 是否显示序号， 默认不显示                                    | boolean |   yes    | iOS/Android |        no         |
 
 ## SelectedPhoto（选择的图片或视频的返回结果）
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name         | Description                                                  | Type   | Required | Platform    | HarmonyOS Support |
 | ------------ | ------------------------------------------------------------ | ------ | -------- | ----------- | ----------------- |
@@ -307,9 +302,9 @@ release未发布。
 | base64       | 图片的 base64 编码，如果 enableBase64 设置 false，则不返回该属性 | string | yes      | iOS/Android | yes               |
 
 ## API
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                 | Description                        | Type                                                     | Required | Platform    | HarmonyOS Support |
 | -------------------- | ---------------------------------- | -------------------------------------------------------- | -------- | ----------- | ----------------- |
@@ -322,7 +317,7 @@ release未发布。
 | removeAllPhoto       | 删除所有已选择的照片               | void                                                     | yes      | iOS/Android | yes               |
 | openVideoPicker      | 打开视频选择器,选择视频            | callback: (err: null \| string, photos: SelectedPhoto[]) | yes      | iOS/Android | yes               |
 
-## 遗留问题
+## Known Issues
 
 - [ ]  isRecordSelected: 是否已选图片[issues#2](https://github.com/react-native-oh-library/react-native-syan-image-picker/issues/2)
 - [ ]  CropW: 裁剪宽度，默认屏幕宽度60%[issues#3](https://github.com/react-native-oh-library/react-native-syan-image-picker/issues/3)
@@ -345,10 +340,8 @@ release未发布。
 - [ ]  MinSecond: 选择视频最小时长[issues#20](https://github.com/react-native-oh-library/react-native-syan-image-picker/issues/20)
 - [ ]  showSelectedIndex: 是否显示序号[issues#21](https://github.com/react-native-oh-library/react-native-syan-image-picker/issues/21)
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/syanbo/react-native-syan-image-picker/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->
+This project is licensed under [The MIT License (MIT)](https://github.com/syanbo/react-native-syan-image-picker/blob/master/LICENSE).

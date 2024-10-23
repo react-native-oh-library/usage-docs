@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> 模板版本：v0.2.0
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-simple-toast</code></h1>
@@ -13,16 +12,15 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-simple-toast)
+> [!TIP] [Github address](https://github.com/react-native-oh-library/react-native-simple-toast)
 
+## Installation and Usage
 
-## 安装与使用
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-simple-toast Releases](https://github.com/react-native-oh-library/react-native-simple-toast/releases)
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-simple-toast Releases](https://github.com/react-native-oh-library/react-native-simple-toast/releases)，并下载适用版本的 tgz 包。
+Go to the project directory and execute the following instruction:
 
-进入到工程目录并输入以下命令：
-
->[!TIP] # 处替换为 tgz 包的路径
+>[!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
@@ -40,9 +38,9 @@ yarn add @react-native-oh-tpl/react-native-simple-toast@file:#
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
->[!WARNING] 使用时 import 的库名不变。
+>[!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import * as React from 'react';
@@ -115,50 +113,50 @@ export default function App() {
   );
 }
 ```
-## 约束与限制
+## Constraints
 
-### 兼容性
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机ROM。
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-RNOH：0.72.23; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.19
+This document is verified based on the following versions:
+
+1. RNOH：0.72.23; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.19
 
 ## API
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-
-| Name                   | Description               | Required | Platform | HarmonyOS Support |
-| ---------------------- |---------------------------| -------- |----------|-------------------|
-| show(message, duration, options)        | 吐司                        | No       | All      | partially         |
-| showWithGravity(message, duration, gravity, options)   | 可设置top,bottom和center位置的吐司 | No       | All      | No                |
-| showWithGravityAndOffset(message,duration,gravity,xOffset,yOffset,options,); | 可设置x轴和y轴偏移的吐司             | No       | All      | No                |
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 
-## 属性
+| Name                                                         | Description                                                 | Required | Platform | HarmonyOS Support |
+| ------------------------------------------------------------ | ----------------------------------------------------------- | -------- | -------- | ----------------- |
+| show(message, duration, options)                             | show toast                                                  | No       | All      | partially         |
+| showWithGravity(message, duration, gravity, options)         | Toast that can be set to top, bottom, and center positions. | No       | All      | No                |
+| showWithGravityAndOffset(message,duration,gravity,xOffset,yOffset,options,); | Toast that can be set with x-axis and y-axis offsets.       | No       | All      | No                |
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+## Properties 
+
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name | Description      | Type             | Required |   HarmonyOS Support  |
 | ---- |------------------|------------------| -------- |  ------------------ |
-LONG  | toast显示时间:LONG   | number           | / | yes
-SHORT | toast显示时间：SHORT       | number | / | yes
-TOP | toast显示位置:TOP    | number | / | no
-BOTTOM | toast显示位置:BOTTOM | number | / | no
-CENTER | toast显示位置:CENTER | number | / | no
+|LONG  | Toast Display Duration: LONG | number           | / | yes|
+|SHORT | Toast Display Duration: SHORT | number | / | yes|
+|TOP | Toast Display Position:TOP | number | / | no|
+|BOTTOM | Toast Display Position: BOTTOM | number | / | no|
+|CENTER | Toast Display Position: CENTER | number | / | no|
 
-## 遗留问题
-- [ ]  HarmonyOS toast不支持修改字体，背景色等样式[issue#3](https://github.com/react-native-oh-library/react-native-simple-toast/issues/3)
-- [ ]  HarmonyOS rn框架toast组件不支持设置位置及偏移[issue#2](https://github.com/react-native-oh-library/react-native-simple-toast/issues/2)
+## Known Issues
+- [ ]  Does not support modifying font, background color in HarmonyOS [issue#3](https://github.com/react-native-oh-library/react-native-simple-toast/issues/3)
+- [ ]  The Toast component in the RNOH framework does not support setting position or offset. [issue#2](https://github.com/react-native-oh-library/react-native-simple-toast/issues/2)
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/vonovak/react-native-simple-toast/blob/master/LICENSE) ，请自由地享受和参与开源。
-<!-- {% endraw %} -->
+This project is licensed under [The MIT License (MIT)](https://github.com/vonovak/react-native-simple-toast/blob/master/LICENSE).

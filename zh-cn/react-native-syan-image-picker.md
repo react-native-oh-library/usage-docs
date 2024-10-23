@@ -1,4 +1,5 @@
 <!-- {% raw %} -->
+
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -18,11 +19,13 @@
 
 ## 安装与使用
 
-release未发布。
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-syan-image-picker Releases](https://github.com/react-native-oh-library/react-native-syan-image-picker/releases)
 
 进入到工程目录并输入以下命令：
 
 > [!TIP] # 处替换为 tgz 包的路径
+
+<!-- tabs:start -->
 
 #### **npm**
 
@@ -30,13 +33,13 @@ release未发布。
 npm install @react-native-oh-tpl/react-native-syan-image-picker@file:#
 ```
 
-
-
 #### **yarn**
 
 ```bash
 yarn add @react-native-oh-tpl/react-native-syan-image-picker@file:#
 ```
+
+<!-- tabs:end -->
 
 下面的代码展示了这个库的基本使用场景：
 
@@ -158,13 +161,11 @@ SyanImagePicker.openVideoPicker(options, (err, videos) => {
 
 本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/zh-cn/codegen.md)。
 
-
-
 ## Link
 
-目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
 
-首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmonyOS`
+首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
 
 ### 1.在工程根目录的 `oh-package.json5` 添加 overrides 字段
 
@@ -245,11 +246,9 @@ ohpm install
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-release未发布。
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-syan-image-picker Releases](https://github.com/react-native-oh-library/react-native-syan-image-picker/releases)
 
 本文档内容基于以下版本验证通过：
-
-
 
 1.  RNOH：0.72.26; SDK：HarmonyOS NEXT Developer Beta1 B.0.22、IDE：DevEco Studio 5.0.3.300SP2; ROM：3.0.0.24;
 

@@ -105,7 +105,7 @@ export default class ScrollToAndOnScrollExample extends React.Component {
 
 本库HarmonyOS侧实现依赖@react-native-oh-tpl/lottie-react-native的原生端代码，如已在HarmonyOS工程中引入过该库，则无需再次引入，可跳过本章步骤，直接使用。
 
-如为引入请参考[@react-native-oh-tpl/lottie-react-native文档的link章节](/zh-cn/lottie-react-native.md#link)进行引入
+如未引入请参考[@react-native-oh-tpl/lottie-react-native文档的link章节](/zh-cn/lottie-react-native.md#link)进行引入
 
 ### 1.在工程根目录的 `oh-package.json5` 添加 overrides 字段
 

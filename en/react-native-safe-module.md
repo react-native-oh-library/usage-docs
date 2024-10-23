@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-safe-module</code> </h1>
@@ -13,16 +12,16 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-safe-module)
+> [!TIP] [Github address](https://github.com/react-native-oh-library/react-native-safe-module)
 
-## 安装与使用
+## Installation and Usage
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-safe-module Releases](https://github.com/react-native-oh-library/react-native-safe-module/releases)，并下载适用版本的 tgz 包。
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-safe-module Releases](https://github.com/react-native-oh-library/react-native-safe-module/releases).
 
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
-> [!TIP] # 处替换为 tgz 包的路径
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
@@ -40,9 +39,9 @@ yarn add @react-native-oh-tpl/react-native-safe-module@file:#
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React from 'react';
@@ -66,27 +65,26 @@ const App = () => {
 export default App;
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-safe-module Releases](https://github.com/react-native-oh-library/react-native-safe-module/releases)
+Check the release version information in the release address of the third-party library:[@react-native-oh-tpl/react-native-safe-module Releases](https://github.com/react-native-oh-library/react-native-safe-module/releases)
 
 ## API
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 
 Name | Description | Type | Required | Platform | HarmonyOS   Support
 -- | -- | -- | -- | -- | --
-SafeModule.create(options) | 创建Module | Object | Yes | iOS/Android | Yes |  
+SafeModule.create(options) | create Module | Object | Yes | iOS/Android | Yes 
 
-
-**options**：SafeModule.create(options) 方法的参数
+**options**：SafeModule.create(options)  Parameters
 
 | Name                                                      | Description                                                                                                         | Type     | Required | Platform | HarmonyOS Support |
 | --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | ----------------- |
@@ -97,12 +95,11 @@ SafeModule.create(options) | 创建Module | Object | Yes | iOS/Android | Yes |
 | options.isEventEmitter                              |  A flag indicating that the native module is expected to be an EventEmitter. Puts the EventEmitter instance on the emitter property of the resulting module. Defaults to false.                                                                                                  | bool   | No       | iOS/Android      | Yes                |
 
 
-## 遗留问题
+## Known Issues
 
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [MIT License](https://github.com/lelandrichardson/react-native-safe-module/blob/master/LICENSE) ，请自由地享受和参与开源。
-<!-- {% endraw %} -->
+This project is licensed under [MIT License](https://github.com/lelandrichardson/react-native-safe-module/blob/master/LICENSE).

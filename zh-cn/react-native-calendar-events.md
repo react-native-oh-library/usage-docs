@@ -255,10 +255,6 @@ export default CalendarDemo;
   }
 }
 ```
-目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
-
-首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
-
 ### 2.引入原生端代码
 
 目前有两种方法：
@@ -291,13 +287,6 @@ ohpm install
 方法二：直接链接源码
 
 > [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
-
-打开终端，执行：
-
-```bash
-cd entry
-ohpm install --no-link
-```
 
 ### 3.在 ArkTs 侧引入 CalendarEventPackage
 

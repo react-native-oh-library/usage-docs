@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-SmartRefreshLayout</code> </h1>
@@ -13,15 +12,15 @@
     </a>
 </p>
 
-> [!Tip] [Github 地址](https://github.com/react-native-oh-library/react-native-smartrefreshlayout)
+> [!Tip] [Github address](https://github.com/react-native-oh-library/react-native-smartrefreshlayout)
 
-## 安装与使用
+## Installation and Usage
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-smartrefreshlayout Releases](https://github.com/react-native-oh-library/react-native-smartrefreshlayout/releases)，并下载适用版本的 tgz 包。
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-smartrefreshlayout Releases](https://github.com/react-native-oh-library/react-native-smartrefreshlayout/releases).
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
-> [!TIP] # 处替换为 tgz 包的路径
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
@@ -39,9 +38,9 @@ yarn add @react-native-oh-tpl/react-native-smartrefreshlayout@file:#
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React, { useState } from "react";
@@ -58,8 +57,8 @@ import {
 } from "react-native-smartrefreshlayout";
 
 const App = () => {
-  const [text, setText] = useState("状态");
-  const [text1, setText1] = useState("刷新时间");
+  const [text, setText] = useState("Status");
+  const [text1, setText1] = useState("Refresh time");
 
   const [headerHeight, setHeaderHeight] = useState(66);
   const [color, setColor] = useState("#fff000");
@@ -125,7 +124,7 @@ const App = () => {
         }}
       >
         <Text style={{ height: 40, width: "100%", backgroundColor: "green" }}>
-          切换颜色（正在刷新中不支持切换背景色）
+          Switch Color (Background color switching is not supported while refreshing)
         </Text>
       </TouchableOpacity>
 
@@ -144,7 +143,7 @@ const App = () => {
           setText("onHeaderMoving" + JSON.stringify(e.nativeEvent));
         }}
         onRefresh={() => {
-          setText1("时间：" + new Date().getTime() + "onRefresh触发刷新");
+          setText1("Time：" + new Date().getTime() + "onRefresh");
         }}
         HeaderComponent={
           <AnyHeader style = {{ height: 0 }}>
@@ -179,11 +178,11 @@ export default App;
 
 ## Link
 
-目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
 
-首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
+Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 1.在工程根目录的 `oh-package.json5` 添加 overrides 字段
+### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
 
 ```json
 {
@@ -193,18 +192,16 @@ export default App;
   }
 }
 ```
-### 2.引入原生端代码
+### 2. Introducing Native Code
 
-目前有两种方法：
+Currently, two methods are available:
 
-1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
-2. 直接链接源码。
 
-方法一：通过 har 包引入 （推荐）
+Method 1 (recommended): Use the HAR file.
 
-> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
+> [!TIP] The HAR file is stored in the `harmony` directory in the installation path of the third-party library.
 
-打开 `entry/oh-package.json5`，添加以下依赖
+Open `entry/oh-package.json5` file and add the following dependencies:
 
 ```json
 "dependencies": {
@@ -214,22 +211,22 @@ export default App;
   }
 ```
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-方法二：直接链接源码
+Method 2: Directly link to the source code.
 
-> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
-### 3.配置 CMakeLists 和引入 SmartRefreshLayoutPackage
+### 3. Configuring CMakeLists and Introducing SmartRefreshLayoutPackage
 
-打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
+Open  `entry/src/main/cpp/CMakeLists.txt` and add the following code:
 
 ```diff
 project(rnapp)
@@ -265,7 +262,7 @@ target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 # RNOH_BEGIN: manual_package_linking_2
 ```
 
-打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
+Open `entry/src/main/cpp/PackageProvider.cpp`  and add the following code:
 
 ```diff
 #include "RNOH/PackageProvider.h"
@@ -282,9 +279,9 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 4.在 ArkTs 侧引入 SmartRefreshPackage（版本>=0.6.7-0.2.9）
+### 4. Introducing SmartRefreshPackage to ArkTS（Version>=0.6.7-0.2.9）
 
-打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+Open the  `entry/src/main/ets/RNPackagesFactory.ts`  file and add the following code:
 
 ```diff
   ...
@@ -298,34 +295,34 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 5.运行
+### 5. Running
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-然后编译、运行即可。
+Then build and run the code.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-smartrefreshlayout Releases](https://github.com/react-native-oh-library/react-native-SmartRefreshLayout/releases)
+Check the release version information in the release address of the third-party library:[@react-native-oh-tpl/react-native-smartrefreshlayout Releases](https://github.com/react-native-oh-library/react-native-SmartRefreshLayout/releases)
 
-## 属性
+## Properties
 
-> [!Tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!Tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!Tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!Tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-**组件 SmartRefreshControl**
+**SmartRefreshControl**
 
 | Name                  | Description                                                      | Type                                                                         | Required | Platform | HarmonyOS Support |
 | --------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------- | -------- | -------- | ----------------- |
@@ -345,8 +342,7 @@ ohpm install
 | `onHeaderReleased`    | Header 释放时触发                                                | function                                                                     | No       | Android  | Yes                |
 | `onHeaderMoving`      | header 移动过程中触发,包括下拉过程和释放过程。                   | ({nativeEvent: {percent:number, offset:number, headerHeight:number}})=>void; | No       | Android  | Yes               |
 
-
-**组件 AnyHeader**
+**AnyHeader**
 
 当前组件支持
 
@@ -354,7 +350,7 @@ ohpm install
 | -------------- | ------------------------ | ------ | -------- | -------- | -------- |
 | `primaryColor` | 刷新组件 Header 的主调色 | string | No       | Android  | Yes   |
 
-**组件 DefaultHeader/ClassicsHeader**
+**DefaultHeader/ClassicsHeader**
 
 当前组件支持
 
@@ -363,7 +359,7 @@ ohpm install
 | `primaryColor` | 刷新组件 Header 的主调色 | string | No       | Android  | Yes   |
 | `accentColor`  | 刷新组件 Header 的强调色 | string | No       | Android  | Yes   |
 
-**组件 StoreHouseHeader**
+**StoreHouseHeader**
 
 当前组件支持
 
@@ -375,25 +371,23 @@ ohpm install
 
 ---
 
-## 静态方法
+## Static Methods
 
-> [!Tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!Tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!Tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!Tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
 | finishRefresh  | complete refresh         | function  | No | Android      | Yes |
 
-## 遗留问题
+## Known Issues
 
 - [X] SmartRefreshLayout 包裹 FlatList 组件，多次下拉刷新，item 会回弹：[Issue #11 ](https://github.com/react-native-oh-library/react-native-SmartRefreshLayout/issues/11)
 - [ ] SmartRefreshLayout 的StoreHouseHeader刷新头，暂不支持透明度的变化：[Issue #45 ](https://github.com/react-native-oh-library/react-native-SmartRefreshLayout/issues/45)
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [Apache License 2.0](https://github.com/react-native-studio/react-native-SmartRefreshLayout/blob/0.6.7/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->
+This project is licensed under [Apache License 2.0](https://github.com/react-native-studio/react-native-SmartRefreshLayout/blob/0.6.7/LICENSE).

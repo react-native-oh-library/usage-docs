@@ -17,13 +17,13 @@
 
 ## 安装与使用
 
-请到三方库的 Releases
-发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-baidu-map Releases](https://github.com/react-native-oh-library/react-native-baidu-map/releases)
-，并下载适用版本的 tgz 包。
+请到三方库的 Releases发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-baidu-map Releases](https://github.com/react-native-oh-library/react-native-baidu-map/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
 > [!TIP] # 处替换为 tgz 包的路径
+
+<!-- tabs:end -->
 
 #### **npm**
 
@@ -385,8 +385,7 @@ ohpm install
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-请到三方库相应的 Releases 发布地址查看 Release
-配套的版本信息：[@react-native-oh-tpl/react-native-baidu-map Releases](https://github.com/react-native-oh-library/react-native-baidu-map/releases)
+请到三方库相应的 Releases 发布地址查看 Release配套的版本信息：[@react-native-oh-tpl/react-native-baidu-map Releases](https://github.com/react-native-oh-library/react-native-baidu-map/releases)
 
 ### 权限要求
 
@@ -446,8 +445,7 @@ ohpm install
 
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标
-> iOS 或 Android 的效果。
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标iOS 或 Android 的效果。
 
 #### MapView Props 属性
 
@@ -554,8 +552,7 @@ ohpm install
 
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标
-> iOS 或 Android 的效果。
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标iOS 或 Android 的效果。
 
 #### BaiduMapManager
 

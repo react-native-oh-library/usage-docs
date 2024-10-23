@@ -217,8 +217,6 @@ ohpm install
 
 ## 其他
 
-react-native-largelist组件：[列表数据显示不完整，列表后有空白](https://github.com/bolan9999/react-native-largelist/issues/489)
-
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/bolan9999/react-native-largelist/blob/master/LICENSE) ，请自由地享受和参与开源。

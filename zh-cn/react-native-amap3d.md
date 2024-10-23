@@ -496,12 +496,12 @@ ohpm install
 - [X] scaleControlsEnabled：高德SDK暂不支持: [issue#9](https://github.com/react-native-oh-library/react-native-amap3d/issues/9)
 - [ ] headingFilter：高德SDK暂不支持: [issue#12](https://github.com/react-native-oh-library/react-native-amap3d/issues/12)
 - [ ] geodesic：高德SDK暂不支持: [issue#36](https://github.com/react-native-oh-library/react-native-amap3d/issues/36)
-- [ ] onCameraMove: 高德SDK暂不支持： [issue#14](https://github.com/react-native-oh-library/react-native-amap3d/issues/14)
+- [x] onCameraMove: 高德SDK暂不支持： [issue#14](https://github.com/react-native-oh-library/react-native-amap3d/issues/14)
 - [ ] onCameraIdle: 高德SDK暂不支持: [issue#15](https://github.com/react-native-oh-library/react-native-amap3d/issues/15)
 - [X] onPressPoi：高德SDK暂不支持: [issue#13](https://github.com/react-native-oh-library/react-native-amap3d/issues/13)
 - [ ] onLocation：高德SDK暂不支持: [issue#10](https://github.com/react-native-oh-library/react-native-amap3d/issues/10)
 - [ ] onCallback：高德SDK部分支持: [issue#21](https://github.com/react-native-oh-library/react-native-amap3d/issues/21)
-- [ ] moveCamera：harmony暂不支持: [issue#19](https://github.com/react-native-oh-library/react-native-amap3d/issues/19)
+- [x] moveCamera：harmony暂不支持: [issue#19](https://github.com/react-native-oh-library/react-native-amap3d/issues/19)
 - [ ] call：harmony暂不支持: [issue#5](https://github.com/react-native-oh-library/react-native-amap3d/issues/5)
 
 ### Marker

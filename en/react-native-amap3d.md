@@ -1,5 +1,4 @@
-<!--{%raw%}-->
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-amap3d</code> </h1>
@@ -14,16 +13,15 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-amap3d)
+> [!TIP] [Github address](https://github.com/react-native-oh-library/react-native-amap3d)
 
+## Installation and Usage
 
-## 安装与使用
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-amap3d Releases](https://github.com/react-native-oh-library/react-native-amap3d/releases).
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-amap3d Releases](https://github.com/react-native-oh-library/react-native-amap3d/releases)，并下载适用版本的 tgz 包。
+Go to the project directory and execute the following instruction:
 
-进入到工程目录并输入以下命令：
-
-> [!TIP] # 处替换为 tgz 包的路径
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
@@ -41,9 +39,9 @@ yarn add @react-native-oh-tpl/react-native-amap3d@file:#
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React from 'react';
@@ -147,11 +145,11 @@ export default AMapDemo;
 
 ## Link
 
-目前HarmonyOS暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
 
-首先需要使用 DevEco Studio 打开项目里的HarmonyOS工程 `harmony`
+Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 1.在工程根目录的 `oh-package.json5` 添加 overrides 字段
+### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
 
 ```json
 {
@@ -162,18 +160,16 @@ export default AMapDemo;
 }
 ```
 
-### 2.引入原生端代码
+### 2. Introducing Native Code
 
-目前有两种方法：
+Currently, two methods are available:
 
-1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
-2. 直接链接源码。
 
-方法一：通过 har 包引入（推荐）
+Method 1 (recommended): Use the HAR file.
 
-> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
+> [!TIP] The HAR file is stored in the `harmony` directory in the installation path of the third-party library.
 
-打开 `entry/oh-package.json5`，添加以下依赖
+Open `entry/oh-package.json5` file and add the following dependencies:
 
 ```json
 "dependencies": {
@@ -182,22 +178,22 @@ export default AMapDemo;
   }
 ```
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-方法二：直接链接源码
+Method 2: Directly link to the source code.
 
-> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
-### 3.配置 CMakeLists 和引入 MapViewPackge
+### 3. Configuring CMakeLists and Introducing MapViewPackge
 
-打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
+Open `entry/src/main/cpp/CMakeLists.txt` and add the following code:
 
 ```diff
 project(rnapp)
@@ -235,7 +231,7 @@ target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 # RNOH_END: manual_package_linking_2
 ```
 
-打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
+Open `entry/src/main/cpp/PackageProvider.cpp` and add the following code:
 
 ```diff
 #include "RNOH/PackageProvider.h"
@@ -255,9 +251,9 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 ```
 
 
-### 4.在 ArkTs 侧引入 react-native-amap3d 组件
+### 4. Introducing react-native-amap3d Component to ArkTS
 
-找到 `function buildCustomRNComponent()`，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
+Find `function buildCustomRNComponent()`, which is usually located in `entry/src/main/ets/pages/index.ets` or `entry/src/main/ets/rn/LoadBundle.ets`, and add the following code:
 
 ```diff
 ...
@@ -312,9 +308,9 @@ export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
 ...
 ```
 
-> [!TIP] 本库使用了混合方案，需要添加组件名。
+> [!TIP] If the repository uses a mixed solution, the component name needs to be added.  
 
-在`entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets` 找到常量 `arkTsComponentNames` 在其数组里添加组件名
+Find the constant `arkTsComponentNames` in `entry/src/main/ets/pages/index.ets` or `entry/src/main/ets/rn/LoadBundle.ets` and add the component name to the array.
 
 ```diff
 const arkTsComponentNames: Array<string> = [
@@ -329,9 +325,9 @@ const arkTsComponentNames: Array<string> = [
   ];
 ```
 
-### 5.在 ArkTs 侧引入 AMap3DPackage
+### 5. Introducing AMap3DPackage to ArkTS 
 
-打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
 
 
 ```diff  
@@ -345,33 +341,33 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 6.运行
+### 6. Running
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal: 
 
 ```bash
 cd entry
 ohpm install
 ```
 
-然后编译、运行即可。
+Then build and run the code.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-amap3d Releases](https://github.com/react-native-oh-library/react-native-amap3d/releases)
+Check the release version information in the release address of the third-party library:[@react-native-oh-tpl/react-native-amap3d Releases](https://github.com/react-native-oh-library/react-native-amap3d/releases)
 
 
-## 属性
+## Properties 
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 ### MapView
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
@@ -436,11 +432,11 @@ ohpm install
 | geodesic  | 是否绘制大地线        | boolean  | yes | iOS      | no |
 | dotted  | 是否绘制虚线        | boolean  | yes | iOS      | yes |
 
-## 静态方法
+## Static Methods
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 ### MapView
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
@@ -472,9 +468,9 @@ ohpm install
 
 ## API
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
@@ -482,42 +478,41 @@ ohpm install
 | getVersion  | 获取版本信息         | Promise<string>  | yes | iOS      | no |
 
 ## 遗留问题
-- [ ] initSDK：hramony暂不支持: [issue#16](https://github.com/react-native-oh-library/react-native-amap3d/issues/16)
-- [ ] getVersion：hramony暂不支持: [issue#17](https://github.com/react-native-oh-library/react-native-amap3d/issues/17)
+- [ ] initSDK: Does not support in hramony: [issue#16](https://github.com/react-native-oh-library/react-native-amap3d/issues/16)
+- [ ] getVersion: Does not support in hramony: [issue#17](https://github.com/react-native-oh-library/react-native-amap3d/issues/17)
 ### MapView
-- [ ] indoorViewEnabled：高德SDK暂不支持: [issue#6](https://github.com/react-native-oh-library/react-native-amap3d/issues/6)
-- [ ] compassEnabled：高德SDK暂不支持: [issue#7](https://github.com/react-native-oh-library/react-native-amap3d/issues/7)
-- [ ] buildingsEnabled：高德SDK暂不支持: [issue#33](https://github.com/react-native-oh-library/react-native-amap3d/issues/33)
-- [ ] myLocationEnabled：高德SDK暂不支持: [issue#29](https://github.com/react-native-oh-library/react-native-amap3d/issues/29)
-- [ ] distanceFilter：高德SDK暂不支持: [issue#11](https://github.com/react-native-oh-library/react-native-amap3d/issues/11)
-- [ ] anchor:高德SDK暂不支持: [issue#34](https://github.com/react-native-oh-library/react-native-amap3d/issues/34)
-- [ ] centerOffset:高德SDK暂不支持: [issue#35](https://github.com/react-native-oh-library/react-native-amap3d/issues/35)
-- [X] zoomControlsEnabled：高德SDK暂不支持: [issue#8](https://github.com/react-native-oh-library/react-native-amap3d/issues/8)
-- [X] scaleControlsEnabled：高德SDK暂不支持: [issue#9](https://github.com/react-native-oh-library/react-native-amap3d/issues/9)
-- [ ] headingFilter：高德SDK暂不支持: [issue#12](https://github.com/react-native-oh-library/react-native-amap3d/issues/12)
-- [ ] geodesic：高德SDK暂不支持: [issue#36](https://github.com/react-native-oh-library/react-native-amap3d/issues/36)
-- [ ] onCameraMove: 高德SDK暂不支持： [issue#14](https://github.com/react-native-oh-library/react-native-amap3d/issues/14)
-- [ ] onCameraIdle: 高德SDK暂不支持: [issue#15](https://github.com/react-native-oh-library/react-native-amap3d/issues/15)
-- [X] onPressPoi：高德SDK暂不支持: [issue#13](https://github.com/react-native-oh-library/react-native-amap3d/issues/13)
-- [ ] onLocation：高德SDK暂不支持: [issue#10](https://github.com/react-native-oh-library/react-native-amap3d/issues/10)
-- [ ] onCallback：高德SDK部分支持: [issue#21](https://github.com/react-native-oh-library/react-native-amap3d/issues/21)
-- [ ] moveCamera：harmony暂不支持: [issue#19](https://github.com/react-native-oh-library/react-native-amap3d/issues/19)
-- [ ] call：harmony暂不支持: [issue#5](https://github.com/react-native-oh-library/react-native-amap3d/issues/5)
+- [ ] indoorViewEnabled: Amap SDK is not supported: [issue#6](https://github.com/react-native-oh-library/react-native-amap3d/issues/6)
+- [ ] compassEnabled: Amap SDK is not supported: [issue#7](https://github.com/react-native-oh-library/react-native-amap3d/issues/7)
+- [ ] buildingsEnabled: Amap SDK is not supported: [issue#33](https://github.com/react-native-oh-library/react-native-amap3d/issues/33)
+- [ ] myLocationEnabled: Amap SDK is not supported: [issue#29](https://github.com/react-native-oh-library/react-native-amap3d/issues/29)
+- [ ] distanceFilter: Amap SDK is not supported: [issue#11](https://github.com/react-native-oh-library/react-native-amap3d/issues/11)
+- [ ] anchor: Amap SDK is not supported: [issue#34](https://github.com/react-native-oh-library/react-native-amap3d/issues/34)
+- [ ] centerOffset: Amap SDK is not supported: [issue#35](https://github.com/react-native-oh-library/react-native-amap3d/issues/35)
+- [X] zoomControlsEnabled: Amap SDK is not supported: [issue#8](https://github.com/react-native-oh-library/react-native-amap3d/issues/8)
+- [X] scaleControlsEnabled: Amap SDK is not supported: [issue#9](https://github.com/react-native-oh-library/react-native-amap3d/issues/9)
+- [ ] headingFilter: Amap SDK is not supported: [issue#12](https://github.com/react-native-oh-library/react-native-amap3d/issues/12)
+- [ ] geodesic: Amap SDK is not supported: [issue#36](https://github.com/react-native-oh-library/react-native-amap3d/issues/36)
+- [x] onCameraMove: Amap SDK is not supported: [issue#14](https://github.com/react-native-oh-library/react-native-amap3d/issues/14)
+- [ ] onCameraIdle: Amap SDK is not supported: [issue#15](https://github.com/react-native-oh-library/react-native-amap3d/issues/15)
+- [X] onPressPoi: Amap SDK is not supported: [issue#13](https://github.com/react-native-oh-library/react-native-amap3d/issues/13)
+- [ ] onLocation: Amap SDK is not supported: [issue#10](https://github.com/react-native-oh-library/react-native-amap3d/issues/10)
+- [ ] onCallback: Amap SDK has partial support: [issue#21](https://github.com/react-native-oh-library/react-native-amap3d/issues/21)
+- [x] moveCamera: Does not support in hramony: [issue#19](https://github.com/react-native-oh-library/react-native-amap3d/issues/19)
+- [ ] call: Does not support in hramony: [issue#5](https://github.com/react-native-oh-library/react-native-amap3d/issues/5)
 
 ### Marker
-- [ ] icon：高德SDK暂不支持: [issue#20](https://github.com/react-native-oh-library/react-native-amap3d/issues/20)
-- [ ] update：harmony暂不支持: [issue#18](https://github.com/react-native-oh-library/react-native-amap3d/issues/18)
+- [ ] icon: Amap SDK is not supported yet: [issue#20](https://github.com/react-native-oh-library/react-native-amap3d/issues/20)
+- [ ] update: Amap SDK is not supported yet: [issue#18](https://github.com/react-native-oh-library/react-native-amap3d/issues/18)
 ### Cluster
-- [ ] Cluster：高德SDK暂不支持添加该组件: [issue#2](https://github.com/react-native-oh-library/react-native-amap3d/issues/2)
+- [ ] Cluster: Amap SDK does not currently support adding this component: [issue#2](https://github.com/react-native-oh-library/react-native-amap3d/issues/2)
 ### HeatMap
-- [ ] HeatMap：高德SDK暂不支持添加该组件: [issue#3](https://github.com/react-native-oh-library/react-native-amap3d/issues/3)
+- [ ] HeatMap: Amap SDK does not currently support adding this component: [issue#3](https://github.com/react-native-oh-library/react-native-amap3d/issues/3)
 ### MultiPoint
-- [ ] MultiPoint：高德SDK暂不支持添加该组件: [issue#4](https://github.com/react-native-oh-library/react-native-amap3d/issues/4)
+- [ ] MultiPoint: Amap SDK does not currently support adding this component: [issue#4](https://github.com/react-native-oh-library/react-native-amap3d/issues/4)
 
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [MIT License (MIT)](https://github.com/qiuxiang/react-native-amap3d/blob/main/license) ，请自由地享受和参与开源。
-<!--{%endraw%}-->
+This project is licensed under [MIT License (MIT)](https://github.com/qiuxiang/react-native-amap3d/blob/main/license).

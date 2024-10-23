@@ -1016,7 +1016,7 @@ ohpm install
 | cropperToolbarWidgetColor (Android only) | string (default `darker orange`)                             | When cropping image, determines the color of Toolbar text and buttons. | no       | Android | no       |
 | freeStyleCropEnabled                      | bool (default false)                                         | Enables user to apply custom rectangle area for cropping     | no       | All      | yes      |
 | cropperToolbarTitle                       | string (default `Edit Photo`)                                | When cropping image, determines the title of Toolbar.        | no       | All      | yes      |
-| cropperCircleOverlay                      | bool (default false)                                         | Enable or disable circular cropping mask.                    | no       | All      | yes      |
+| cropperCircleOverlay                      | bool (default false)                                         | Enable or disable circular cropping mask.                    | no       | All      | no      |
 | disableCropperColorSetters (Android only) | bool (default false)                                         | When cropping image, disables the color setters for cropping library. | no       | Android | no       |
 | minFiles (iOS only)                    | number (default 1)                                           | Min number of files to select when using `multiple` option   | no       | iOS   | no      |
 | maxFiles (iOS only)                    | number (default 5)                                           | Max number of files to select when using `multiple` option   | no       | iOS   | yes      |
@@ -1027,7 +1027,7 @@ ohpm install
 | compressImageMaxWidth                     | number (default none)                                        | Compress image with maximum width                            | no       | All      | yes      |
 | compressImageMaxHeight                    | number (default none)                                        | Compress image with maximum height                           | no       | All      | yes      |
 | compressImageQuality                      | number (default 1 (Android)/0.8 (iOS))                       | Compress image with quality (from 0 to 1, where 1 is best quality). On iOS, values larger than 0.8 don't produce a noticeable quality increase in most images, while a value of 0.8 will reduce the file size by about half or less compared to a value of 1. | no       | All      | yes      |
-| loadingLabelText (iOS only)            | string (default "Processing assets...")                      | Text displayed while photo is loading in picker              | no       | iOS   | yes      |
+| loadingLabelText (iOS only)            | string (default "Processing assets...")                      | Text displayed while photo is loading in picker              | no       | iOS   | no      |
 | mediaType                                 | string (default any)                                         | Accepted mediaType for image selection, can be one of: 'photo', 'video', or 'any' | no       | All      | yes      |
 | showsSelectedCount (iOS only)          | bool (default true)                                          | Whether to show the number of selected assets                | no       | iOS   | no      |
 | sortOrder (iOS only)                   | string (default 'none', supported values: 'asc', 'desc', 'none') | Applies a sort order on the creation date on how media is displayed within the albums/detail photo views when opening the image picker | no       | iOS   | no       |
@@ -1057,6 +1057,8 @@ ohpm install
 - [ ] Android Demo 设置是否显示底部控件 [#14](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/14)
 - [ ] 使用multiple选项时无法设置最小文件数 [#39](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/39)
 - [ ] 使用multiple选项时无法设置是否显示选中的资产数量 [#40](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/40)
+- [ ] photoAccessHelper选取完成之后没有loading过渡动画效果 [#45](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/45)
+- [ ] @ohos.multimedia.image无法进行圆形效果裁切 [#46](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/46)
 
 ## 其他
 

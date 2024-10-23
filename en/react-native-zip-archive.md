@@ -546,7 +546,7 @@ ohpm install
 | unzipWithPassword   | Extract files or folders with a password                     | string  | no       | All      | yes               |
 | isPasswordProtected | Check if the password exists during password decompression   | boolean | no       | All      | yes               |
 | unzipAssets         | Pass in the specified directory during decompression         | string  | no       | All      | yes               |
-| getUncompressedSize | Check the size of the compressed file during decompression   | number  | no       | All      | yes               |
+| getUncompressedSize | File size after decompression                                | number  | no       | All      | yes               |
 | subscribe           | Display progress bar during compression and password decompression | void    | no       | All      | yes               |
 
 ## 遗留问题

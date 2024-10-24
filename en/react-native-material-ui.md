@@ -43,10 +43,6 @@ yarn add react-native-material-ui@file:#
 下面的代码展示了这个库的基本使用场景：
 
 > [!WARNING] 使用时 import 的库名不变。
- 
-### 外部字体使用
-> [!ATTENTION] 使用外部字体时，请确保entry/src/main/ets/assets/fonts和entry/src/main/resource/rawfile/assets/assets/fonts下同时拥有要使用的ttf文件，否则图标不能正常显示
-使用外部字体时，不管是用户自己制作的字体文件还是从网站下载的字体文件，都需要有 *.ttf 和 *.json 文件(文件目录不固定，能引用到就可以了)
 
 ```js
 
@@ -144,100 +140,54 @@ export default ActionButtonDemo
 ```
 ### 在 ArkTs 侧引入和注册字体文件
 
-步骤一： 复制字体文件到 `entry/src/main/ets/assets/fonts` 目录下(如使用了外部字体文件，需要将*.ttf文件复制过来)
+步骤一： 复制字体文件到 `entry/src/main/resources/rawfile/assets/assets/fonts` 目录下(如使用了外部字体文件，需要将*.ttf 文件复制过来)
 
 步骤二： 打开 `entry/src/main/ets/pages/Index.ets`，添加以下代码
 
 ```
-    import font from '@ohos.font';
-    //...
-    //特别注意：FontAwesome 系列中字体的 familyName 需要通过代码逻辑自行理解
-   const fonts: font.FontOptions[] = [
-  {
-    familyName: 'Material Icons',
-    familySrc: '/assets/fonts/MaterialIcons.ttf'
-  },
-  {
-    familyName: 'Pacifico-Regular',
-    familySrc: '/assets/fonts/Pacifico-Regular.ttf'
-  },
-  {
-    familyName: 'StintUltraCondensed-Regular',
-    familySrc: '/assets/fonts/StintUltraCondensed-Regular.ttf'
-  },
-  {
-    familyName: 'Entypo',
-    familySrc: '/assets/fonts/Entypo.ttf'
-  },
-  {
-    familyName: 'EvilIcons',
-    familySrc: '/assets/fonts/EvilIcons.ttf'
-  },
-  {
-    familyName: 'Feather',
-    familySrc: '/assets/fonts/Feather.ttf'
-  },
-  {
-    familyName: 'FontAwesome5_Brands',
-    familySrc: '/assets/fonts/FontAwesome5_Brands.ttf'
-  },
-  {
-    familyName: 'FontAwesome5_Regular',
-    familySrc: '/assets/fonts/FontAwesome5_Regular.ttf'
-  },
-  {
-    familyName: 'FontAwesome5_Solid',
-    familySrc: '/assets/fonts/FontAwesome5_Solid.ttf'
-  },
-  {
-    familyName: 'Foundation',
-    familySrc: '/assets/fonts/Pacifico-Regular.ttf'
-  },
-  {
-    familyName: 'Ionicons',
-    familySrc: '/assets/fonts/Ionicons.ttf'
-  },
-  {
-    familyName: 'Foundation',
-    familySrc: '/assets/fonts/Pacifico-Regular.ttf'
-  },
-  {
-    familyName: 'MaterialCommunityIcons',
-    familySrc: '/assets/fonts/MaterialCommunityIcons.ttf'
-  },
-  {
-    familyName: 'Octicons',
-    familySrc: '/assets/fonts/Octicons.ttf'
-  },
-  {
-    familyName: 'SimpleLineIcons',
-    familySrc: '/assets/fonts/SimpleLineIcons.ttf'
-  },
-  {
-    familyName: 'Octicons',
-    familySrc: '/assets/fonts/Octicons.ttf'
-  },
-  {
-    familyName: 'Zocial',
-    familySrc: '/assets/fonts/Zocial.ttf'
-  },
+ const fonts: Record<string, Resource> = {
+   "Pacifico-Regular": $rawfile("assets/assets/fonts/Pacifico-Regular.ttf"),
+   "StintUltraCondensed-Regular": $rawfile("assets/assets/fonts/StintUltraCondensed-Regular.ttf"),
+   'Entypo': $rawfile('assets/assets/fonts/Entypo.ttf'),
+   'EvilIcons': $rawfile('assets/assets/fonts/EvilIcons.ttf'),
+   'Feather': $rawfile('assets/assets/fonts/Feather.ttf'),
+   'FontAwesome': $rawfile('assets/assets/fonts/FontAwesome.ttf'),
+   'FontAwesome5Brands-Regular': $rawfile('assets/assets/fonts/FontAwesome5_Brands.ttf'),
+   'FontAwesome5Free-Regular': $rawfile('assets/assets/fonts/FontAwesome5_Regular.ttf'),
+   'FontAwesome5Free-Solid': $rawfile('assets/assets/fonts/FontAwesome5_Solid.ttf'),
+   'FontAwesome6Brands-Regular': $rawfile('assets/assets/fonts/FontAwesome6_Brands.ttf'),
+   'FontAwesome6Free-Regular': $rawfile('assets/assets/fonts/FontAwesome6_Regular.ttf'),
+   'FontAwesome6Free-Solid': $rawfile('assets/assets/fonts/FontAwesome6_Solid.ttf'),
+   'fontcustom': $rawfile('assets/assets/fonts/Foundation.ttf'),
+   'Ionicons': $rawfile('assets/assets/fonts/Ionicons.ttf'),
+   'Material Design Icons': $rawfile('assets/assets/fonts/MaterialCommunityIcons.ttf'),
+   'Material Icons': $rawfile('assets/assets/fonts/MaterialIcons.ttf'),
+   'Octicons': $rawfile('assets/assets/fonts/Octicons.ttf'),
+   'simple-line-icons': $rawfile('assets/assets/fonts/SimpleLineIcons.ttf'),
+   'zocial': $rawfile('assets/assets/fonts/Zocial.ttf'),
+ }
 
-]
+@Entry
+@Component
+struct Index {
+  //...
+  build() {
+    Column(){
+      //...
 
-    @Entry
-    @Component
-    struct Index {
+      //注册字体文件
+      RNApp({
+        rnInstanceConfig: {
+          //...
+          fontResourceByFontFamily: fonts
+        },
         //...
-        aboutToAppear() {
-            //...
+      })
 
-            //注册字体文件
-            for (const customFont of fonts) {
-                font.registerFont(customFont)
-            }
-        }
-        //...
     }
+    //...
+  }
+}
 ```
 
 ## 约束与限制
@@ -322,7 +272,7 @@ export default ActionButtonDemo
 |:---------|:-----------------------------------------------:|:-------------------------------:|:--------:|:-----------:|:-----------------:|
 | active   |         The key of selected/active tab          |        PropTypes.string         |    no    | iOS/Android |        yes        |
 | children |          BottomNavigation.Action nodes          |    PropTypes.node.isRequired    |   yes    | iOS/Android |        yes        |
-| hidden   | Whether or not the BottomNavigation should show |         PropTypes.bool          |    no    | iOS/Android |        yes        |
+| hidden   | Whether or not the BottomNavigation should show |         PropTypes.bool          |    no    | iOS/Android |        No         |
 | style    |        Inline style of bottom navigation        | container: View.propTypes.style |    no    | iOS/Android |        yes        |
 
 ### BottomNavigation.Action
@@ -396,7 +346,7 @@ export default ActionButtonDemo
 | Name            |                    Description                    |                                                  Type                                                   | Required |  Platform   | HarmonyOS Support |
 |:----------------|:-------------------------------------------------:|:-------------------------------------------------------------------------------------------------------:|:--------:|:-----------:|:-----------------:|
 | image           |              image for Drawer.header              |                           PropTypes.shape({ type: PropTypes.oneOf([Image]) })                           |    no    | iOS/Android |        yes        |
-| backgroundColor |      Background image of the drawer header.       |                                            PropTypes.string                                             |    no    | iOS/Android |        yes        |
+| backgroundColor |      Background image of the drawer header.       |                                            PropTypes.string                                             |    no    | iOS/Android |        No         |
 | children        |           Subnodes in the drawer.header           |                                             PropTypes.node                                              |    no    | iOS/Android |        yes        |
 | style           | You can override any style for this drawer.header | style: PropTypes.shape({contentContainer: View.propTypes.style,container: View.propTypes.style,     }), |    no    | iOS/Android |        yes        |
 
@@ -427,7 +377,7 @@ export default ActionButtonDemo
 | title   |             title of drawers:sections              |               PropTypes.string               |   yes    | iOS/Android |        yes        |
 | items   |             tems of drawers:isections              |          **Drawer:Section  items**           |   yes    | iOS/Android |        yes        |
 | divider |             dividerof drawers:sections             |                PropTypes.bool                |    no    | iOS/Android |        yes        |
-| style   | You can override any style for this Drawer:Section | PropTypes.shape({**Drawer:Section  style**}) |    no    | iOS/Android |        yes        |
+| style   | You can override any style for this Drawer:Section | PropTypes.shape({**Drawer:Section  style**}) |    no    | iOS/Android |        No         |
 
 ##### Drawer:Section  items
 
@@ -437,21 +387,11 @@ export default ActionButtonDemo
 | value       | PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired | yes      | iOS/Android | yes               |
 | label       | PropTypes.string                                                      | no       | iOS/Android | yes               |
 | onPress     | PropTypes.func                                                        | no       | iOS/Android | yes               |
-| onLongPress | PropTypes.func                                                        | no       | iOS/Android | yes               |
+| onLongPress | PropTypes.func                                                        | no       | iOS/Android | No                |
 | active      | PropTypes.bool                                                        | no       | iOS/Android | yes               |
-| disabled    | PropTypes.bool                                                        | no       | iOS/Android | yes               |
+| disabled    | PropTypes.bool                                                        | no       | iOS/Android | No                |
 
-##### Drawer:Section  style
-
-| name      | Type                 | Required | Platform    | HarmonyOS Support |
-|-----------|----------------------|----------|-------------|-------------------|
-| container | View.propTypes.style | no       | iOS/Android | yes               |
-| item      | View.propTypes.style | no       | iOS/Android | yes               |
-| subheader | View.propTypes.style | no       | iOS/Android | yes               |
-| icon      | View.propTypes.style | no       | iOS/Android | yes               |
-| value     | View.propTypes.style | no       | iOS/Android | yes               |
-| label     | View.propTypes.style | no       | iOS/Android | yes               |
-| disabled  | View.propTypes.style | no       | iOS/Android | yes               |
+##### 
 
 ### ListItem
 
@@ -463,7 +403,7 @@ export default ActionButtonDemo
 | numberOfLines       |                   line number                    |                                                                               PropTypes.oneOf([1, 2, 3, 'dynamic'])                                                                               |    no    | iOS/Android |        yes        |
 | style               |   You can override any style for this Listltem   |                                                                                          ListItem  style                                                                                          |    no    | iOS/Android |        yes        |
 | leftElement         |                    left side                     |                                                                PropTypes.oneOfType([         PropTypes.element,PropTypes.string ]                                                                 |    no    | iOS/Android |        yes        |
-| onLeftElementPress  | Event triggered when the left button is pressed  |                                                                                          PropTypes.func                                                                                           |    no    | iOS/Android |        yes        |
+| onLeftElementPress  | Event triggered when the left button is pressed  |                                                                                          PropTypes.func                                                                                           |    no    | iOS/Android |        No         |
 | centerElement       |                   center side                    | PropTypes.oneOfType([PropTypes.element,         PropTypes.string,  PropTypes.shape({primaryText: PropTypes.string.isRequired,secondaryText: PropTypes.string,tertiaryText: PropTypes.string }) ]) |   yes    | iOS/Android |        yes        |
 | rightElement        |                    right side                    |                          PropTypes.element, PropTypes.string,         PropTypes.shape({ menu: PropTypes.shape({                 labels: PropTypes.array.isRequired}) })                           |    no    | iOS/Android |        yes        |
 | onRightElementPress | Event triggered when the right button is pressed |                                                                                          PropTypes.func                                                                                           |    no    | iOS/Android |        yes        |
@@ -518,7 +458,7 @@ export default ActionButtonDemo
 | searchable          | When you want to activate search feature you have to pass this object with config of search. | **searchable props** |   yes    |   iOS/Android    |        yes        |
 | size                |                        This size is used for each icon on the toolbar                        |   PropTypes.number   |    no    |   iOS/Android    |        yes        |
 | style               |                  You can override any style for the component via this prop                  |  **Toolbar style**   |    no    |   iOS/Android    |        yes        |
-| hidden              |                            Wether or not the Toolbar should show                             |    PropTypes.bool    |    no    |   iOS/Android    |        yes        |
+| hidden              |                            Wether or not the Toolbar should show                             |    PropTypes.bool    |    no    |   iOS/Android    |        No         |
 | onPress             |                            Called when centerElement was pressed.                            |    PropTypes.func    |    no    |   iOS/Android    |        yes        |
 | leftElement         |                               Will be shown on the left side.                                |  PropTypes.element   |    no    |   iOS/Android    |        yes        |
 | onLeftElementPress  |                             Called when leftElement was pressed.                             |    PropTypes.func    |    no    |   iOS/Android    |        yes        |
@@ -537,8 +477,8 @@ export default ActionButtonDemo
 | onSubmitEditing        | Called when user press submit button on hw keyboard                | PropTypes.func   | no       | iOS/Android | yes               |
 | placeholder            | Will shown as placeholder for search input.                        | PropTypes.string | no       | iOS/Android | yes               |
 | autoFocus              | Indicates when input should be focused after the search is opened. | PropTypes.bool   | no       | iOS/Android | yes               |
-| autoCapitalize         | Enable auto-capitalize for search input                            | PropTypes.string | no       | iOS/Android | yes               |
-| autoCorrect            | Enable auto-correct for search input                               | PropTypes.bool   | no       | iOS/Android | yes               |
+| autoCapitalize         | Enable auto-capitalize for search input                            | PropTypes.string | no       | iOS/Android | No                |
+| autoCorrect            | Enable auto-correct for search input                               | PropTypes.bool   | no       | iOS/Android | No                |
 | icon                   | Override default search icon                                       | PropTypes.string | no       | iOS/Android | yes               |
 
 ##### rightElement props
@@ -602,9 +542,15 @@ class Main extends Component {
 
 ## 其他
 
-- [ ] RadioButton组件功能在Android和iOS不生效， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/xotahal/react-native-material-ui/issues/25)
+- RadioButton组件功能在Android和iOS不生效， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/xotahal/react-native-material-ui/issues/25)
+-  BottomNavigation和Toolbar组件hidden属性功能在Android和iOS不生效， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/xotahal/react-native-material-ui/issues/357)
+-  Toolbar组件autoCapitalize属性和autoCorrect功能在Android和iOS不生效， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/xotahal/react-native-material-ui/issues/520)
+-  Drawer:Section组件中的style属性设置样式在Android和iOS不生效，HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/xotahal/react-native-material-ui/issues/160)
+-  Drawer:Section组件中itmes属性对象中的onLongPress属性和disabled属性在Android和iOS不生效，HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/xotahal/react-native-material-ui/issues/521)
+-  ListItem组件中onLeftElementPress属性在Android和iOS不生效，HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/xotahal/react-native-material-ui/issues/522)
+-  Drawer:Header组件中backgroundColor属性与子元素中的Style属性冲突在Android和iOS不生效，HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/xotahal/react-native-material-ui/issues/523)
 
 ## 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/xotahal/react-native-material-ui/blob/master/LICENSE)
-，请自由地享受和参与开源。
+本项目基于 [The MIT License (MIT)](https://github.com/xotahal/react-native-material-ui/blob/master/LICENSE)，请自由地享受和参与开源。
+

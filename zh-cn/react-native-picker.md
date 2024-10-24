@@ -266,7 +266,7 @@ ohpm install
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | --- |----------|---------| ------ | ----------- |-------------------|
 |isLoop                | 列的内容是否可以循环 | boolean      | yes   |    Android   | yes               |
-|pickerTextEllipsisLen | 文本的省略长度的 | number       | yes   |    Android   | no                |
+|pickerTextEllipsisLen | 文本的起始省略长度 | number       | yes   |    Android   | no                |
 |pickerConfirmBtnText  | 确认按钮的文本内容 | string       | yes   |iOS/Android  | yes               |
 |pickerCancelBtnText   | 取消按钮的文本内容 | string       | yes   |iOS/Android  | yes               |
 |pickerTitleText       | 顶部标题的文本内容 | string       | yes   |iOS/Android  | yes               |

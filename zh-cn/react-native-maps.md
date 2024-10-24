@@ -600,6 +600,8 @@ ohpm install
 
 'none' \ 'standard' \ 'terrain'
 
+注：HarmonyOS 侧的双击放大由 zoomEnabled 开启，zoomTapEnabled 不能单独关闭该功能。
+
 ### 静态方法
 
 | Name     | Description | Type     | Required | Platform    | HarmonyOS Support |

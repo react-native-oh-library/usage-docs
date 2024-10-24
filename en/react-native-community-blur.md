@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>@react-native-community/blur</code> </h1>
@@ -12,15 +12,17 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-blur)
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-blur)
 
-## 安装与使用
+## Installation and Usage
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-community-blur Releases](https://github.com/react-native-oh-library/react-native-blur/releases)，并下载适用版本的 tgz 包。
+本库已经适配`C-API版本`从版本`4.4.0-0.1.0`开始的版本为`C-API版本`，`C-API版本`在性能和速度上都优于`ArkTS版本`。
 
-进入到工程目录并输入以下命令：
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-community-blur Releases](https://github.com/react-native-oh-library/react-native-blur/releases).
 
-> [!TIP] # 处替换为 tgz 包的路径
+Go to the project directory and execute the following instruction:
+
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
@@ -38,8 +40,9 @@ yarn add @react-native-oh-tpl/blur@file:#
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React, { useState} from 'react';
@@ -118,9 +121,9 @@ export const Blurs = () => {
 
 export const BlurDemo = () => {
   const [showBlurs, setShowBlurs] = React.useState(false);
+    //'../assets/bgimage.jpeg' 此路径的图片为本地图片，在使用demo时将此图片的路径换为自己本地图片路径
   return (
     <View style={styles.container}>
-    //'../assets/bgimage.jpeg' 此路径的图片为本地图片，在使用demo时将此图片的路径换为自己本地图片路径
       <Image
       
         source={require('../assets/bgimage.jpeg')}
@@ -199,13 +202,13 @@ const styles = StyleSheet.create({
 });
 ```
 
-## Link
+## Link (ArkTS版本的引入方式)
 
-目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
 
-首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
+Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 1.在工程根目录的 `oh-package.json5` 添加 overrides 字段
+### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
 
 ```js
  {
@@ -216,18 +219,15 @@ const styles = StyleSheet.create({
 }
 ```
 
-### 2.引入原生端代码
+### 2. Introducing Native Code
 
-目前有两种方法：
+Currently, two methods are available:
 
-1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
-2. 直接链接源码。
+Method 1 (recommended): Use the HAR file.
 
-方法一：通过 har 包引入
+> [!TIP] The HAR file is stored in the `harmony` directory in the installation path of the third-party library.
 
-> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
+Open `entry/oh-package.json5` file and add the following dependencies:
 
 ```json
 "dependencies": {
@@ -237,22 +237,22 @@ const styles = StyleSheet.create({
   }
 ```
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-方法二：直接链接源码
+Method 2: Directly link to the source code.
 
-> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
-### 3.配置 CMakeLists 和引入 BlurPackage
+### 3. Configuring CMakeLists and Introducing BlurPackage
 
-打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
+Open `entry/src/main/cpp/CMakeLists.txt` and add the following code:
 
 ```diff
 project(rnapp)
@@ -281,7 +281,7 @@ target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 # RNOH_END: link_packages
 ```
 
-打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
+Open `entry/src/main/cpp/PackageProvider.cpp` and add the following code:
 
 
 ```diff
@@ -299,10 +299,9 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 4.在 ArkTs 侧引入 BlurView 组件
+### 4.Introducing BlurView Component to ArkTS
 
-找到 `function buildCustomRNComponent()`，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
-
+Find `function buildCustomRNComponent()`, which is usually located in `entry/src/main/ets/pages/index.ets` or `entry/src/main/ets/rn/LoadBundle.ets`, and add the following code:
 
 ```diff
 + import {  BlurView, BLUR_TYPE } from "@react-native-oh-tpl/blur"
@@ -320,11 +319,9 @@ function buildCustomRNComponent(ctx: ComponentBuilderContext) {
 }
 ```
 
+> [!TIP] If the repository uses a mixed solution, the component name needs to be added.
 
-在`entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets` 找到常量 `arkTsComponentNames` 在其数组里添加组件名
-
->[!TIP] 本库使用了混合方案，需要添加组件名。
-
+Find the constant `arkTsComponentNames` in `entry/src/main/ets/pages/index.ets` or `entry/src/main/ets/rn/LoadBundle.ets` and add the component name to the array.
 
 ```diff
 const arkTsComponentNames: Array<string> = [
@@ -335,32 +332,144 @@ const arkTsComponentNames: Array<string> = [
   ];
 ```
 
-### 5.运行
+### 5.Running
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
-````
+```
 
-然后编译、运行即可。
+Then build and run the code.
 
-## 约束与限制
+## Link (C-API版本的引入方式)
 
-### 兼容性
+Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-community-blur Releases](https://github.com/react-native-oh-library/react-native-blur/releases)
+### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
 
-## 属性
+```js
+ {
+  ...
+  "overrides": {
+    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+  }
+}
+```
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+### 2. Introducing Native Code
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+Currently, two methods are available:
+
+
+Method 1 (recommended): Use the HAR file.
+
+> [!TIP] The HAR file is stored in the `harmony` directory in the installation path of the third-party library.
+
+Open `entry/oh-package.json5` file and add the following dependencies:
+
+```json
+"dependencies": {
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+
+    "@react-native-oh-tpl/blur": "file:../../node_modules/@react-native-oh-tpl/blur/harmony/blur.har"
+  }
+```
+
+Click the `sync` button in the upper right corner.
+
+Alternatively, run the following instruction on the terminal:
+
+```bash
+cd entry
+ohpm install
+```
+
+Method 2: Directly link to the source code.
+
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
+
+### 3. Configuring CMakeLists and Introducing BlurPackage
+
+Open `entry/src/main/cpp/CMakeLists.txt` and add the following code:
+
+```diff
+project(rnapp)
+cmake_minimum_required(VERSION 3.4.1)
+set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
+
+add_subdirectory("${RNOH_CPP_DIR}" ./rn)
+
+# RNOH_BEGIN: add_package_subdirectories
+add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
++ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/blur/src/main/cpp" ./blur)
+# RNOH_END: add_package_subdirectories
+
+add_library(rnoh_app SHARED
+    "./PackageProvider.cpp"
+    "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
+)
+
+target_link_libraries(rnoh_app PUBLIC rnoh)
+
+# RNOH_BEGIN: link_packages
+target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
++ target_link_libraries(rnoh_app PUBLIC blur)
+# RNOH_END: link_packages
+```
+
+Open `entry/src/main/cpp/PackageProvider.cpp` and add the following code:
+
+
+```diff
+#include "RNOH/PackageProvider.h"
+#include "SamplePackage.h"
++ #include "BlurViewPackage.h"
+
+using namespace rnoh;
+
+std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
+    return {
+      std::make_shared<SamplePackage>(ctx),
++     std::make_shared<BlurViewPackage>(ctx)
+    };
+}
+```
+
+### 4.Running
+
+Click the `sync` button in the upper right corner.
+
+Alternatively, run the following instruction on the terminal:
+
+```bash
+cd entry
+ohpm install
+```
+
+Then build and run the code.
+
+
+## Constraints
+
+### Compatibility
+
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
+
+Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-community-blur Releases](https://github.com/react-native-oh-library/react-native-blur/releases)
+
+## Properties
+
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                                | Description                                                                               | Type      | Required | Platform | HarmonyOS Support |
 | ----------------------------------- | ----------------------------------------------------------------------------------------- | --------- |----------| ------- | ----------------- |
@@ -399,25 +508,24 @@ ohpm install
 | `thinMaterialLight`      | An adaptable blur effect that creates the appearance of a thin material                                | iOS 13 only           | yes               |
 | `ultraThinMaterialLight` | An adaptable blur effect that creates the appearance of an ultra-thin material                         | iOS 13 only           | yes                |
 
-## API
+## APIs
 
-> [!TIP] "Platform"列表示该组件在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该组件；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name           | Description                                                                                | Type |Required     | Platform | HarmonyOS Support |
 | -------------- | ------------------------------------------------------------------------------------------ | ----|----- |----------| ----------------- |
 | `BlurView`     | Preload images to display later. e.g.                                                      | component|no | iOS,Android      | yes               |
 | `VibrancyView` | The vibrancy effect lets the content underneath a blurred view show through more vibrantly | component|no | iOS      | no                |
 
-## 遗留问题
+## Known Issues
 
 - [ ] @react-native-community/blur的 VibrancyView组件未实现HarmonyOS化 [issue#7](https://github.com/react-native-oh-library/react-native-blur/issues/7)
 - [ ] @react-native-community/blur的reducedTransparencyFallbackColor属性未实现 HarmonyOS化[issue#8](https://github.com/react-native-oh-library/react-native-blur/issues/8)
 
+## Others
 
-## 其他
+## License
 
-## 开源协议
-
-本项目基于 [The MIT License (MIT)](https://github.com/Kureev/react-native-blur/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/Kureev/react-native-blur/blob/master/LICENSE).

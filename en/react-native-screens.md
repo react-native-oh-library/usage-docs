@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-screens</code> </h1>
@@ -12,11 +12,11 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/software-mansion/react-native-screens)
+> [!TIP] [GitHub address](https://github.com/software-mansion/react-native-screens)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -40,9 +40,9 @@ yarn add react-native-screens
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React from 'react';
@@ -68,7 +68,7 @@ function Home({navigation}) {
 function Detail({navigation}) {
     return (
         <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-            <Text>我是Details Screen</Text>
+            <Text>Details Screen</Text>
             <Button title="To Home" onPress={() => navigation.goBack()} />
         </View>
     );
@@ -83,12 +83,12 @@ function NativeNavigation() {
                 <Stack.Screen
                     name="Home"
                     component={Home}
-                    options={{title: '我是Home的title'}}
+                    options={{title: 'Home的title'}}
                 />
                 <Stack.Screen
                     name="Detail"
                     component={Detail}
-                    options={{title: '我是Detail的title'}}
+                    options={{title: 'Detail的title'}}
                 />
             </Stack.Navigator>
         </NavigationContainer>
@@ -115,22 +115,23 @@ enableScreens(false);
 
 ## Link
 
-本库 HarmonyOS 侧实现依赖 @react-native-oh-tpl/stack 与 @react-native-oh-tpl/react-native-safe-area-context 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+The HarmonyOS implementation of this library depends on the native code from @react-native-oh-tpl/stack and @react-native-oh-tpl/react-native-safe-area-context. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly.
 
-如未引入请参照 [@react-native-oh-tpl/stack 文档的 Link 章节](/zh-cn/react-navigation-stack.md) 与 [@react-native-oh-tpl/react-native-safe-area-context 文档的 Link 章节](/zh-cn/react-native-safe-area-context.md)进行引入。
+If it is not included, follow the guide provided in [@react-native-oh-tpl/stack](/en/react-navigation-stack.md) and [@react-native-oh-tpl/react-native-safe-area-context](/en/react-native-safe-area-context.md) to add it to your project.
 
-## 约束与限制
-### 兼容性
+## Constraints
 
-本文档内容基于以下版本验证通过：
+### Compatibility
 
-1.RNOH：0.72.29; SDK：HarmonyOS-NEXT-DB6 5.0.0.61; IDE：DevEco Studio 5.0.3.706; ROM：3.0.0.60;
+This document is verified based on the following versions:
 
-## 属性
+1.RNOH:0.72.29; SDK:HarmonyOS-NEXT-DB6 5.0.0.61; IDE:DevEco Studio 5.0.3.706; ROM:3.0.0.60;
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+## Properties
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                                                      | Description                                                                           | Type     | Required | Platform    | HarmonyOS Support |
 |-----------------------------------------------------------|---------------------------------------------------------------------------------------|----------|----------|-------------|-------------------|
@@ -147,12 +148,12 @@ enableScreens(false);
 | userHeaderHeight                                          | 计算静态标题栏的高度，当屏幕方向发生更改，此值会发生更改                                                          | function | No       | iOS Android | NO                |
 | userAnimatedHeaderHeight                                  | 动态计算标题栏的高度，此值会随着每个视图布局变化而变化                                                           | function | No       | iOS Android | NO                |
 
-## 遗留问题
+## Known Issues
 
 - [ ] ArkUI侧未提供capi接口，容器组件需要capi化，故本库未实现harmonyOS原生化适配，harmonyOS侧仅支持部分属性。
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/software-mansion/react-native-screens/blob/main/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/software-mansion/react-native-screens/blob/main/LICENSE).

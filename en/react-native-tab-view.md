@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-tab-view</code> </h1>
@@ -12,15 +12,15 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-navigation/tree/sig)
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-navigation/tree/sig)
 
-## 安装与使用
+## Installation and Usage
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-tab-view Releases](https://github.com/react-native-oh-library/react-navigation/releases)，并下载适用版本的 tgz 包。
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-tab-view Releases](https://github.com/react-native-oh-library/react-navigation/releases).
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
-> [!TIP] # 处替换为 tgz 包的路径
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
@@ -38,9 +38,9 @@ yarn add @react-native-oh-tpl/react-native-tab-view@file:#
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React from "react";
@@ -179,9 +179,9 @@ const styles = StyleSheet.create({
 
 ## Link
 
-本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-pager-view 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+The HarmonyOS implementation of this library depends on the native code from @react-native-oh-tpl/react-native-webview. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly. 
 
-如未引入请参照[@react-native-oh-tpl/react-native-pager-view 文档的 Link 章节](/zh-cn/react-native-pager-view.md#link)进行引入
+If it is not included, follow the guide provided in [@react-native-oh-tpl/react-native-pager-view](/en/react-native-pager-view.md#link) to add it to your project.
 
 ## Tip
 本库依赖react-native-pager-view的能力，react-native-pager-view的能力已从ArkTS切换至CAPI。开启CAPI配置后过渡动画功能才能正常生效。
@@ -198,21 +198,22 @@ const styles = StyleSheet.create({
     })
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[ @react-native-oh-tpl/react-native-tab-view Releases](https://github.com/react-native-oh-library/react-navigation/releases/)
+Check the release version information in the release address of the third-party library: [ @react-native-oh-tpl/react-native-tab-view Releases](https://github.com/react-native-oh-library/react-navigation/releases/)
 
-## 属性
+## Properties
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 **TabView**：选项卡组件
+
 | Name                  | Description                                                                                                                                                                                         | Type                              | Required | Platform | HarmonyOS Support |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|----------|----------|-------------------|
 | navigationState       | State for the tab view.                                                                                                                                                                             | fucntion                          | yes      | all      | yes               |
@@ -235,6 +236,7 @@ const styles = StyleSheet.create({
 | style                 | Style to apply to the tab view container.                                                                                                                                                           | object                            | no       | all      | yes               |
 
 **TabBar**：选项卡标签栏
+
 | Name                    | Description                                                                                                                                                                                        | Type     | Required | Platform | HarmonyOS Support |
 |-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|----------|----------|-------------------|
 | getLabelText            | Function which takes an object with the current route and returns the label text for the tab. Uses route.title by default.                                                                         | function | no       | all      | yes               |
@@ -261,15 +263,15 @@ const styles = StyleSheet.create({
 | style (TabBar)          | Style to apply to the tab bar container.                                                                                                                                                           | object   | no       | all      | yes               |
 | gap                     | Define a spacing between tabs.                                                                                                                                                                     | number   | no       | all      | yes               |
 
-## 遗留问题
+## Known Issues
 
 - [x] 已解决： 页面滑动时，有概率卡在中间，无法自动回正[issue#5](https://github.com/react-native-oh-library/react-navigation/issues/5)
 - [ ] TabBar中的bounces属性，不生效，无法实现滚动回弹效果[issue#34](https://github.com/react-native-oh-library/react-navigation/issues/34)
 
-## 其他
+## Others
 
 - TabBar中的pressColor属性，不生效，无法实现按下更改颜色。 pressColor属性，是专门为Android平台设计的，这个属性在PlatformPressable中直接传递，在IOS上，pressColor属性没有直接对应的实现，IOS使用不同的机制来处理触摸反馈。
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/satya164/react-native-tab-view/blob/main/LICENSE.md) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/satya164/react-native-tab-view/blob/main/LICENSE.md).

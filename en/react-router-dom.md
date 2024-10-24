@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-router-dom</code> </h1>
@@ -12,25 +12,27 @@
     </a>
 </p>
 
-> [!Tip] [Github 地址](https://github.com/remix-run/react-router/tree/main/packages/react-router-dom)
+> [!TIP] [GitHub address](https://github.com/remix-run/react-router/tree/main/packages/react-router-dom)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 #### **npm**
 
 ```bash
 npm i react-router-dom@6.22.3
 ```
+
 #### **yarn**
 
 ```bash
 yarn add react-router-dom@6.22.3
 ```
-下面的代码展示了这个库的基本使用场景：
 
-> [!WARNING] 使用时 import 的库名不变。
+The following code shows the basic use scenario of the repository:
+
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React from 'react';
@@ -319,20 +321,21 @@ const DomDemo = () => {
 };
 export default DomDemo;
 ```
-## 约束与限制
 
-### 兼容性
+## Constraints
 
-本文档内容基于以下版本验证通过：
+### Compatibility
+
+This document is verified based on the following versions:
 
 1. RNOH: 0.72.28; SDK:HarmonyOS-Next-DB6 5.0.0.61 SDK; IDE: DevEco Studio 5.0.3.706; ROM: 3.0.0.61;
 2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
-## 属性
+## Properties
 
-> [!Tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!Tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 ### Component
 
@@ -352,6 +355,7 @@ export default DomDemo;
 | ScrollRestoration   |     This component will emulate the browser's scroll restoration on location changes after loaders have completed to ensure the scroll position is restored to the right spot, even across domains. | Component | no       | web   | no        |
 
 ### Hooks
+
 | Name                            | Description       | Type     | Required | Platform | HarmonyOS Support |
 |---------------------------------| ----------------- |----------|----------|----------|-------------------|
 | useLocation                     | This hook returns the current [`location`](https://reactrouter.com/en/main/utils/location) object. This can be useful if you'd like to perform some side effect whenever the current location changes. | Function | no       | All      | yes               |
@@ -388,6 +392,7 @@ export default DomDemo;
 | useActionData                   | This hook provides the returned value from the previous navigation's `action` result, or `undefined` if there was no submission.                                                                | Function | no       | web      | no                |
 
 ### Utilities
+
 | Name               | Description                                                                                                                                                                                                                                                                                               | Type      | Required | Platform | HarmonyOS Support |
 |--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------|----------|----------|-------------------|
 | redirect           | Because you can return or throw responses in loaders and actions, you can use redirect to redirect to another route..                                                                                                                                                                                     | Function  | no       | web      | no                |
@@ -400,12 +405,10 @@ export default DomDemo;
 | resolvePath        | `resolvePath` resolves a given `To` value into an actual `Path` object with an absolute `pathname`. This is useful whenever you need to know the exact path for a relative `To` value.                                                                                                                    | Function  | no       | web      | no                |
 | generatePath       | `generatePath` interpolates a set of params into a route path string with `:id` and `*` placeholders. This can be useful when you want to eliminate placeholders from a route path so it matches statically instead of using a dynamic parameter.                                                         | Function  | no       | web      | no                |
 
+## Known Issues
 
-## 遗留问题
+## Others
 
-## 其他
+## License
 
-## 开源协议
-
-本项目基于 [The MIT License (MIT)](https://github.com/remix-run/react-router/blob/main/LICENSE.md) ，请自由地享受和参与开源。
-
+This project is licensed under [The MIT License (MIT)](https://github.com/remix-run/react-router/blob/main/LICENSE.md).

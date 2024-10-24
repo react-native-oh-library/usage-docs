@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-autoheight-webview</code> </h1>
@@ -13,15 +12,15 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-autoheight-webview)
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-autoheight-webview)
 
-## 安装与使用
+## Installation and Usage
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-autoheight-webview Releases](https://github.com/react-native-oh-library/react-native-autoheight-webview/releases)，并下载适用版本的 tgz 包。
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-autoheight-webview Releases](https://github.com/react-native-oh-library/react-native-autoheight-webview/releases).
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
-> [!TIP] # 处替换为 tgz 包的路径
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
@@ -39,9 +38,9 @@ yarn add @react-native-oh-tpl/react-native-autoheight-webview@file:#
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React from "react";
@@ -78,23 +77,22 @@ export function WebviewExample() {
 
 ## Link
 
-本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-webview 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+The HarmonyOS implementation of this library depends on the native code from @react-native-oh-tpl/react-native-webview. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly. 
+If it is not included, follow the guide provided in [@react-native-oh-tpl/react-native-webview](/en/react-native-webview.md) to add it to your project.
 
-如未引入请参照[@react-native-oh-tpl/react-native-webview 文档](/zh-cn/react-native-webview.md)进行引入
+## Constraints
 
-## 约束与限制
+### Compatibility
 
-### 兼容性
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+Check the release version information in the release address of the third-party library: [ @react-native-oh-tpl/react-native-autoheight-webview Releases](https://github.com/react-native-oh-library/react-native-autoheight-webview/releases)
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[ @react-native-oh-tpl/react-native-autoheight-webview Releases](https://github.com/react-native-oh-library/react-native-autoheight-webview/releases)
+## Properties
 
-## 属性
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                              | Description                                                                                                                                                                                                                                                                                                  | Type                                                               | Required | Platform | HarmonyOS Support                                                                                                 |
 |-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|----------|----------|-------------------------------------------------------------------------------------------------------------------|
@@ -111,8 +109,7 @@ export function WebviewExample() {
 | `scrollEnabledWithZoomedin?`      | Making the webview scrollable<br /> on iOS when zoomed in even <br />if scrollEnabled is false.                                                                                                                                                                                                              | boolean                                                            | No       | iOS      | yes                                                                                                                |
 | `viewportContent?`                | Please note that<br /> 'width=device-width'<br/> with scalesPageToFit<br/>  may cause some layout issues <br/> on Android and harmony, <br/>for these conditions, <br/>using customScript prop<br /> to apply custom viewport meta.                                                                          | string                                                             | No       | iOS,Android      | yes                                                                                                               |
 
-## 遗留问题
-
+## Known Issues
 
 - [ ] AutoHeightWebview 的originWhitelist属性依赖webview的originWhitelist属性暂未实现HarmonyOS 化[issue#200](https://github.com/react-native-oh-library/react-native-webview/issues/200)
 - [ ] AutoHeightWebview 的source属性依赖webview的source属性只是部分实现HarmonyOS 化[issue#200](https://github.com/react-native-oh-library/react-native-webview/issues/200)
@@ -120,10 +117,8 @@ export function WebviewExample() {
 - [x] AutoHeightWebview 的scrollEnabledWithZoomedin属性未实现 HarmonyOS 化[issue#1](https://github.com/react-native-oh-library/react-native-autoheight-webview/issues/1)
 - [x] 中文乱码[issue#2](https://github.com/react-native-oh-library/react-native-autoheight-webview/issues/2)
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The ISC License (ISC)](https://github.com/iou90/react-native-autoheight-webview/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->
+This project is licensed under [The ISC License (ISC)](https://github.com/iou90/react-native-autoheight-webview/blob/master/LICENSE).

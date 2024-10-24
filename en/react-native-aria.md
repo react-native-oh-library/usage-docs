@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-aria</code> </h1>
@@ -13,14 +12,14 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/gluestack/react-native-aria/tree/main)
+> [!TIP] [GitHub address](https://github.com/gluestack/react-native-aria/tree/main)
 
-## 安装与使用
+## Installation and Usage
 
 React Native ARIA是可增量采用的。每个组件都作为单独的包发布，因此您可以在单个组件中使用它，并随着时间的推移逐渐添加更多组件。所有这些包都在npm上的@react-native-aria范围内发布。
 > [!TIP] 该库已经不再维护，如果执行总包命令，项目运行缺失模块，就需要卸载旧包，在命令后增加--legacy-peer-deps，然后再次下载包文件
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 #### **yarn**
 
@@ -56,7 +55,9 @@ npm install @react-native-aria/button@0.2.7
 
 <!-- tabs:end -->
 
-下面的代码展示了useToggleButton的基本使用场景：
+The following code shows the basic use scenario of the repository:
+
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React from "react";
@@ -512,11 +513,11 @@ export default TriggerWrapper
 
 更多hooks请参考[react-native-aria官方文档](https://geekyants.github.io/react-native-aria/docs/)
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.59;
 2. RNOH：0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.29(SP1) ; IDE：DevEco Studio 5.0.3.400; ROM：3.0.0.25;
@@ -525,9 +526,9 @@ export default TriggerWrapper
 
 ## Hooks
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name               | Description                                                                                                                                                                                                   | Type     | Required | Platform | HarmonyOS Support |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|----------|----------|-------------------|
@@ -539,12 +540,11 @@ export default TriggerWrapper
 | OverlayContainer   | Provides React Portal like functionality for React Native apps which can be useful for displaying absolutely positioned components like Menu, Tooltip, Popover.                                               | Function | no       | iOS,Android      | yes               |
 | useOverlayPosition | Handles positioning overlays like popovers and menus relative to a trigger element, and updating the position when the window resizes.                                                                        | Function | no       | iOS,Android      | yes               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/gluestack/react-native-aria/blob/main/LICENSE)，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/gluestack/react-native-aria/blob/main/LICENSE).
 
-<!-- {% endraw %} -->

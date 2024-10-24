@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-redash</code> </h1>
@@ -12,9 +12,11 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/wcandillon/react-native-redash/)
+> [!TIP] [GitHub address](https://github.com/wcandillon/react-native-redash/)
 
-## 安装与使用
+## Installation and Usage
+
+Go to the project directory and execute the following instruction:
 
 #### **yarn**
 
@@ -30,9 +32,7 @@ npm install react-native-redash@^18.1.3
 
 <!-- tabs:end -->
 
-> [!TIP] redash库依赖react-native-reanimated动画库， 请参照文档的Link章节进行引进。
-
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
 ```js
 import { mix,
@@ -538,31 +538,35 @@ export default function RadashDemo() {
 
 ## Link
 
-本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-reanimated 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+The HarmonyOS implementation of this library depends on the native code from @react-native-oh-tpl/react-native-webview. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly.
 
-如未引入请参照[@react-native-oh-tpl/react-native-reanimated 文档的 Link 章节](/zh-cn/react-native-reanimated.md#link)进行引入
+If it is not included, follow the guide provided in [@react-native-oh-tpl/react-native-reanimated](/en/react-native-reanimated.md#link) to add it to your project.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过:
+This document is verified based on the following versions:
 
 1. RNOH：0.72.28; SDK：HarmonyOS NEXT Developer Beta6 SDK 5.0.0.61; IDE：DevEco Studio 5.0.3.706; ROM：3.0.0.61;
 
-## 静态方法
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+## Static Methods
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 如下是已验证接口展示:
 
 ### **Animations**
+
 |          Name           |                    Description                    |                           Type                           | Required |  Platform   | HarmonyOS Support |
 |:-----------------------:| :-----------------------------------------------: | :------------------------------------------------------: | :------: | :---------: | :---------------: |
 | withPause()                   | Make an animation pausable. The state of the animation (paused or not) is controlled by a boolean shared value.                                               | function | No       | iOS/Android               | yes               |
 | withBouncing()                | Add a bouncing behavior to a physics-based animation. An animation is defined as being physics-based if it contains a velocity in its state.                  | function | No       | iOS/Android               | yes               |
+
 ### **Coordinates**
+
 |          Name           |                    Description                    |                           Type                           | Required |  Platform   | HarmonyOS Support |
 |:-----------------------:| :-----------------------------------------------: | :------------------------------------------------------: | :------: | :---------: | :---------------: |
 | canvas2Cartesian() | Convert plane coordinate system to Cadir coordinate system         | function | No       | iOS/Android               | yes               |
@@ -571,11 +575,15 @@ export default function RadashDemo() {
 | polar2Cartesian()  | Convert polar coordinate system to Cadir coordinate system         | function | No       | iOS/Android               | yes               |
 | polar2Canvas()     | Convert polar coordinate system to plane coordinate system         | function | No       | iOS/Android               | yes               |
 | canvas2Polar()     | Convert plane coordinate system to polar coordinate system         | function | No       | iOS/Android               | yes               |
+
 ### **Strings**
+
 |          Name           |                    Description                    |                           Type                           | Required |  Platform   | HarmonyOS Support |
 |:-----------------------:| :-----------------------------------------------: | :------------------------------------------------------: | :------: | :---------: | :---------------: |
 | ReText | This component is like <Text> but accepts a string animation node as property. Behind the scene, <ReText> is using <TextInput> with some default styling. Therefore there might be some slight inconsistencies with <Text>. | function | No       | iOS/Android               | yes               |
+
 ### **Math**
+
 |          Name           |                    Description                    |                           Type                           | Required |  Platform   | HarmonyOS Support |
 |:-----------------------:| :-----------------------------------------------: | :------------------------------------------------------: | :------: | :---------: | :---------------: |
 | mix()              | mix performs a linear interpolation between x and y using a to weight between them. The return value is computed as x _ (1 - value) + y _ value   | function       | No       | iOS/Android               | yes               |
@@ -588,16 +596,22 @@ export default function RadashDemo() {
 | round()            | Computes animation node rounded to precision  | function | No       | iOS/Android               | yes               |
 | cubicBezier()      | Returns the coordinate of a cubic bezier curve. t is the length of the curve from 0 to 1. cubicBezier(0, p0, p1, p2, p3) equals p0 and cubicBezier(1, p0, p1, p2, p3) equals p3. p0 and p3 are respectively the starting and ending point of the curve. p1 and p2 are the control points. | function | No       | iOS/Android               | yes               |
 | cubicBezierYForX() | Given a cubic Bèzier curve, return the y value for x  | function | No       | iOS/Android               | yes               |
+
 ### **Transitions**
+
 |          Name           |                    Description                    |                           Type                           | Required |  Platform   | HarmonyOS Support |
 |:-----------------------:| :-----------------------------------------------: | :------------------------------------------------------: | :------: | :---------: | :---------------: |
 | useTiming() | Transitions can attach an animation value to a change of React state. | function | No       | iOS/Android               | yes               |
 | useSpring() | Transitions can attach an animation value to a change of React state. | function | No       | iOS/Android               | yes               |
+
 ### **Vectors**
+
 |          Name           |                    Description                    |                           Type                           | Required |  Platform   | HarmonyOS Support |
 |:-----------------------:| :-----------------------------------------------: | :------------------------------------------------------: | :------: | :---------: | :---------------: |
 | useVector() | Returns a vector of shared values. | function | No       | iOS/Android               | yes               |
+
 ### **Paths**
+
 |          Name           |                    Description                    |                           Type                           | Required |  Platform   | HarmonyOS Support |
 |:-----------------------:| :-----------------------------------------------: | :------------------------------------------------------: | :------: | :---------: | :---------------: |
 | createPath(path, {x, y})                             | Create a new path  | function | No       | iOS/Android               | yes               |
@@ -606,20 +620,23 @@ export default function RadashDemo() {
 | parse(path)                                          | Parse an SVG path into a sequence of Bèzier curves. The SVG is normalized to have absolute values and to be approximated to a sequence of Bèzier curves. | function | No       | iOS/Android               | yes               |
 | serialize(path)                                      | Serialize a path into an SVG path string | function | No       | iOS/Android               | yes               |
 | interpolatePath()                                    | Interpolate between paths | function | No       | iOS/Android               | yes               |
+
 ### **Physics**
+
 |          Name           |                    Description                    |                           Type                           | Required |  Platform   | HarmonyOS Support |
 |:-----------------------:| :-----------------------------------------------: | :------------------------------------------------------: | :------: | :---------: | :---------------: |
 | snapPoint() | Select a point where the animation should snap to given the value of the gesture and it's velocity. | function | No       | iOS/Android               | yes               |
+
 ### **Colors**
+
 |          Name           |                    Description                    |                           Type                           | Required |  Platform   | HarmonyOS Support |
 |:-----------------------:| :-----------------------------------------------: | :------------------------------------------------------: | :------: | :---------: | :---------------: |
 | mixColor() | Identical to interpolateColor() but with an animation value that goes from 0 to 1. | function | No       | iOS/Android               | yes               |
 
+## Known Issues
 
-## 遗留问题
+## Others
 
-## 其他
+## License
 
-## 开源协议
-
-本项目基于 [The MIT License (MIT)](https://github.com/wcandillon/react-native-redash/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/wcandillon/react-native-redash/blob/master/LICENSE).

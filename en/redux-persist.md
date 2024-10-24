@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > Template version: v0.1.3
 
 <p align="center">
@@ -34,7 +33,7 @@ To achieve persistence, you also need to rely on the 'HarmonyOS-enabled async-st
 
 The following code shows the basic use scenario of the repository:
 
-1.Create a file named store.ts
+1. Create a file named store.ts
 
 ```ts
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
@@ -108,7 +107,7 @@ export const persistRootStore = persistStore(rootStore);
 export default rootStore;
 ```
 
-2.Once the store.ts file is created, place a <code>&lt;PersistGate&gt;</code> on the outer layer of the &gt; of the <code>&lt;App</code> and pass the persistRootStore as a prop
+2. Once the store.ts file is created, place a <code>&lt;PersistGate&gt;</code> on the outer layer of the <code>&lt;App&gt;</code>and pass the persistRootStore as a prop
 
 ```ts
 import store, {persistRootStore} from './store'
@@ -157,5 +156,3 @@ Please check for details [redux-persist official documentation](https://github.c
 ## License
 
 This project is licensed under [The MIT License (MIT)](https://github.com/rt2zz/redux-persist/blob/master/LICENSE).
-
-<!-- {% endraw %} -->

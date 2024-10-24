@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > Template version: v0.2.2
 
 <p align="center">
@@ -30,7 +29,7 @@ npm install redux@^5.0.1
 
 The following code shows the basic use scenario of the repository:
 
-1.编写子reducer，负责state具体变化的过程
+1. Write a sub-reducer, which is responsible for the process of specific changes to the state
 
 ```ts
 const defaultState = {
@@ -59,7 +58,7 @@ const rootReducer = combineReducers({
 });
 ```
 
-2.定义 Slice State 和 Action Types。每个 slice 文件都应该为其初始 state 值定义一个类型，以便 createSlice 能够推断每个案例 reducer 中的 state 类型。
+2. Define Slice States and Action Types. Each slice file should define a type for its initial state value so that createSlice can infer the state type in each case reducer.
 
 ```ts
 const rootReducer = combineReducers({ counterState: counterReducerfun });
@@ -67,7 +66,7 @@ const store = createStore(rootReducer);
 const addNumberAction = { type: "ADD_NUMBER" };
 ```
 
-3.在<code>&lt;App&gt;</code>的外层放置一个<code>&lt;Provider&gt;</code>，并将 store 作为 prop 传递
+3. place a <code>&lt;Provider&gt;</code> on the outer layer of the <code>&lt;App&gt;</code>and pass the store as a prop
 
 ```ts
 export default function TestPage() {
@@ -81,7 +80,7 @@ export default function TestPage() {
 }
 ```
 
-4.在 React 组件中使用 Redux State 和 Actions
+4. Use Redux States and Actions in your React components
 
 ```ts
 import React, { useState } from "react";
@@ -155,5 +154,3 @@ For details, see [Redux Official Documents](https://www.redux.org.cn/api/compose
 ## License
 
 This project is licensed under [The MIT License (MIT)](https://github.com/reduxjs/redux/blob/master/LICENSE.md).
-
-<!-- {% endraw %} -->

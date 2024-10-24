@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > Template version: v0.1.3
 
 <p align="center">
@@ -10,7 +9,7 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/lodash/lodash/tree/4.17.21)
+> [!tip] [Github address](https://github.com/lodash/lodash/tree/4.17.21)
 
 ## Installation and Usage
 
@@ -192,5 +191,3 @@ The following is a display of validated interfaces:
 ## License
 
 This project is licensed under [The MIT License (MIT)](https://github.com/lodash/lodash/blob/4.17.21/LICENSE) ，Please enjoy and participate freely in open source.
-
-<!-- {% endraw %} -->

@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > Template version: v0.2.2
 
 <p align="center">
@@ -30,7 +29,7 @@ npm install react-redux@^9.1.0
 
 The following code shows the basic use scenario of the repository:
 
-1.创建一个命名为store.ts的文件
+1. Create a file named store.ts
 
 ```ts
 import { configureStore } from "@reduxjs/toolkit";
@@ -48,7 +47,7 @@ export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 ```
 
-2.创建store.ts的文件后，在<code>&lt;App&gt;</code>的外层放置一个<code>&lt;Provider&gt;</code>，并将 store 作为 prop 传递
+2. Once the store.ts file is created, place a <code>&lt;Provider&gt;</code> on the outer layer of the <code>&lt;App&gt;</code>and pass the store as a prop
 
 ```ts
 export default function TestPage() {
@@ -63,7 +62,7 @@ export default function TestPage() {
 }
 ```
 
-3.创建一个命名为Hooks.ts的文件,虽然可以将 RootState 和 AppDispatch 类型导入每个组件，但最好创建 useDispatch 和 useSelector hooks 类型化版本以供在应用程序中使用。
+3. Create a file named Hooks.ts, and while you can import the RootState and AppDispatch types into each component, it's a good idea to create typed versions of useDispatch and useSelector hooks for use in your application.
 
 ```ts
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
@@ -73,7 +72,7 @@ export const useAppDispatch: () => AppDispatch = useDispatch;
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 ```
 
-4.定义 Slice State 和 Action Types。每个 slice 文件都应该为其初始 state 值定义一个类型，以便 createSlice 能够推断每个案例 reducer 中的 state 类型。
+4. Define Slice States and Action Types. Each slice file should define a type for its initial state value so that createSlice can infer the state type in each case reducer.
 
 ```ts
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
@@ -108,9 +107,9 @@ export const selectCount = (state: RootState) => state.user.user;
 export default counterSlice.reducer;
 ```
 
-生成的 action creators 将根据你为 reducer 提供的 PayloadAction<T> 类型正确输入以接收 payload 参数。例如，incrementByAmount 需要一个 number 作为其参数。
+The resulting action creators will be correctly entered to receive the payload parameter based on the PayloadAction<T> type you provided for the reducer. For example, incrementByAmount requires a number as its argument.
 
-在某些情况下，TypeScript 可能会不必要地收紧初始 state 的类型。如果发生这种情况，你可以通过使用 as 转换初始 state 来解决它，而不是声明变量的类型：
+In some cases, TypeScript may unnecessarily tighten the type of the initial state. If this happens, you can work around it by transforming the initial state with as instead of declaring the type of variable:
 
 ```ts
 interface CounterState {
@@ -118,7 +117,7 @@ interface CounterState {
 }
 ```
 
-5.在 React 组件中使用 Redux State 和 Actions
+5. Use Redux States and Actions in your React components
 
 ```ts
 import React, { useState } from "react";
@@ -167,5 +166,3 @@ For details, see [React Redux Official Documents](https://cn.react-redux.js.org/
 ## License
 
 This project is licensed under [The MIT License (MIT)](https://github.com/reduxjs/react-redux/blob/master/LICENSE.md).
-
-<!-- {% endraw %} -->

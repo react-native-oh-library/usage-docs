@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > Template version: v0.1.3
 
 <p align="center">
@@ -10,7 +9,7 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/mobxjs/mobx/tree/mobx%406.10.0)
+> [!tip] [Github address](https://github.com/mobxjs/mobx/tree/mobx%406.10.0)
 
 ## Installation and Usage
 
@@ -193,5 +192,3 @@ The following is a display of validated interfaces:
 ## License
 
 This project is licensed under  [The MIT License (MIT)](https://github.com/mobxjs/mobx/blob/mobx%406.10.0/LICENSE), Please enjoy and participate freely in open source.
-
-<!-- {% endraw %} -->

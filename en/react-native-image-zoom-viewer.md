@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > Template version: v0.2.2
 
 <p align="center">
@@ -66,7 +65,7 @@ const ReactImageZoon = () => {
     return (
       <View style={{ backgroundColor: "red" }}>
         <Text style={{ backgroundColor: "red", color: "#fff", fontSize: 20 }}>
-          自定义页头或页脚
+          Customize the header or footer
         </Text>
       </View>
     );
@@ -150,8 +149,8 @@ const ReactImageZoon = () => {
             renderArrowLeft;pageAnimateTime;renderHeader;renderFooter;
             onClick;footerContainerStyle;failImageSource
           </Text>
-          <Text>保存到相机的回调onSaveToCamera</Text>
-          <Text>查看更改的状态{changeStatus}</Text>
+          <Text>Callbacks saved to the camera: onSaveToCamera</Text>
+          <Text>View the status of the change{changeStatus}</Text>
         </View>
         <View style={{ width: "100%", height: 500 }}>
           <ImageViewer
@@ -191,20 +190,20 @@ const ReactImageZoon = () => {
           />
         </View>
         <View style={styles.container}>
-          <Button title="下一页滑动0" onPress={() => setFlipThreshold(0)} />
+          <Button title="NextSliding thresholds 0" onPress={() => setFlipThreshold(0)} />
           <Button
-            title="下一页滑动阈值1000"
+            title="NextSliding thresholds 1000"
             onPress={() => setFlipThreshold(1000)}
           />
           <Button
-            title="页脚位置"
+            title="Footer position"
             onPress={() => setFlexooterContainerStyle(200)}
           />
           <Button title="Clear" onPress={clearBtn} />
         </View>
         <Text></Text>
         <Button
-          title="翻页动画"
+          title="Flip animation"
           onPress={() => setPageAnimateTime(500)}
         ></Button>
       </ScrollView>
@@ -239,7 +238,7 @@ Check the release version information in the release address of the third-party 
 | ---------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ----------- | ----------------- | ---------------------------------------- |
 | imageUrls              | Image Source                                                 | array                                                        | Android iOS | YES               |                                          |
 | enableImageZoom        | Enable image zoom                                            | boolean                                                      | Android iOS | NO                |                                          |
-| onShowModal            | The callback for show modal                                  | function <br />(content?: JSX.Element) => void               | NO          | NO                | 此属性在HarmonyOS，Android ，iOS均不生效 |
+| onShowModal            | The callback for show modal                                  | function <br />(content?: JSX.Element) => void               | NO          | NO                | This attribute does not take effect on HarmonyOS, Android, or iOS |
 | onCancel               | The callback for cancel modal                                | function <br />() => void                                    | Android iOS | YES               |                                          |
 | flipThreshold          | Swipe threshold of the next page                             | number                                                       | Android iOS | YES               |                                          |
 | maxOverflow            | The X position maximum, that current page can slide to the next page | number                                                       | Android iOS | YES               |                                          |
@@ -273,15 +272,12 @@ Check the release version information in the release address of the third-party 
 
 ## Known Issues
 
-- [ ] 本库 CameraRoll.saveToCameraRoll 还未完全 HarmonyOS 化，暂不支持调起相册 （未解决）[issues#1](https://github.com/react-native-oh-library/react-native-image-viewer/issues/1)
-- [ ] 本库依赖 react-native-image-zoom ,enableImageZoom属性还未完全 HarmonyOS 化（未解决）[issues#2](https://github.com/react-native-oh-library/react-native-image-viewer/issues/1)
-- [ ] 本库依赖 react-native-image-zoom ,长按触发框架图片拖拽，应用崩溃（未解决）[issues#3](https://github.com/react-native-oh-library/react-native-image-viewer/issues/1)
+- [ ] CameraRoll.saveToCameraRoll is not yet fully HarmonyOS and does not support recalling albums (Unresolved)[issues#1](https://github.com/react-native-oh-library/react-native-image-viewer/issues/1)
+- [ ] This library relies on react-native-image-zoom, and the enableImageZoom property is not yet fully HarmonyOS(Unresolved)[issues#2](https://github.com/react-native-oh-library/react-native-image-viewer/issues/1)
+- [ ] This library relies on react-native-image-zoom, and a long press triggers the frame image to be dragged and dropped, and the application crashes(Unresolved)[issues#3](https://github.com/react-native-oh-library/react-native-image-viewer/issues/1)
 
 ## Others
 
 ## License
 
 This project is licensed under [The MIT License (MIT)](https://github.com/ascoders/react-native-image-viewer/blob/master/LICENSE).
-
-<!-- {% endraw %} -->
-

@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > Template version: v0.2.2
 
 <p align="center">
@@ -306,14 +305,10 @@ Check the release version information in the release address of the third-party 
 
 ## Known Issues
 
-- [ ] 属性leftActivationValue在鸿蒙暂时未适配 [issue#4](https://github.com/react-native-oh-library/react-native-swipe-list-view/issues/4) 
+- [ ] The leftActivationValue property is not adapted in HarmonyOS for the time being [issue#4](https://github.com/react-native-oh-library/react-native-swipe-list-view/issues/4) 
 
 ## Others
 
 ## License
 
 This project is licensed under [The MIT License (MIT)](https://github.com/jemise111/react-native-swipe-list-view/blob/master/LICENSE).
-
-
-
-<!-- {% endraw %} -->

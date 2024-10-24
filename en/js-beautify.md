@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > Template version: v0.2.2
 
 <p align="center">
@@ -113,9 +112,9 @@ var prettyText2 = js_beautify(text2, {
 console.log(text2);
 console.log(prettyText2);
 
-var text3 = `[{id:1,title:"潮流女装"},
-  {id:2,title:"品牌男装"},
-  {id:3,title:"手机电脑"}] `;
+var text3 = `[{id:1,title:"Trendy Women's Clothing"},
+  {id:2,title:"Branded menswear"},
+  {id:3,title:"Mobile phone and computer"}] `;
 var prettyText3 = js_beautify(text3, {
   keep_array_indentation: true,
 });
@@ -208,7 +207,7 @@ var prettyText12 = js_beautify(text12, {operator_position: 'before-newline'});
 var prettyCode13 = js_beautify(text12, {operator_position: 'after-newline'});
 var prettyCode14 = js_beautify(text12, {operator_position: 'preserve-newline'});
 
-console.log('原始代码:' + text12);
+console.log('Original code:' + text12);
 console.log(prettyText12);
 console.log(prettyCode13);
 console.log(prettyCode14);
@@ -326,7 +325,7 @@ var sourceCode6 = `<!DOCTYPE html>
     </style>
   </head>
   <body>
-    <p>这个页面的背景色是灰色。</p>
+    <p>The background color of this page is gray.</p>
   </body>
 </html>`;
 var prettySourceCode17 = html_beautify(sourceCode6, {brace_style: 'collapse'});
@@ -354,7 +353,7 @@ var options1 = {
   wrap_line_length: '50',
 };
 var sourceCode8 =
-  '<p>这是一个非常长的段落，它包含了大量的文字和标签，导致不易在一行内进行清晰展示。</p><div><h1>标题</h1><p>内容</p></div>';
+  '<p>This is a very long paragraph, and it contains a lot of text and tags, which makes it difficult to present clearly in one line.</p><div><h1>title</h1><p>content</p></div>';
 var prettySourceCode19 = html_beautify(sourceCode8, options1);
 console.log(prettySourceCode19);
 
@@ -410,7 +409,7 @@ console.log(prettySourceCode26);
 
 var sourceCode10 = '<p><span>Hello</span></p><p><span>World</span></p>';
 var prettySourceCode27 = html_beautify(sourceCode10, {inline: ['span']});
-console.log('原始代码');
+console.log('Original code');
 console.log(sourceCode10);
 console.log("\n'inline': ['span']");
 console.log(prettySourceCode27);
@@ -420,7 +419,7 @@ var sourceCode11 = `<button-component>lorem ipsum</button-component>`;
 var prettySourceCode28 = html_beautify(sourceCode11, {
   nline_custom_elements: true,
 });
-console.log('原始代码');
+console.log('Original code');
 console.log(sourceCode11);
 console.log("\n'nline_custom_elements':true");
 console.log(prettySourceCode28);
@@ -431,7 +430,7 @@ var sourceCode12 =
 var prettySourceCode29 = html_beautify(sourceCode12, {
   unformatted: ['span', 'b', 'i'],
 });
-console.log('原始代码');
+console.log('Original code');
 console.log(sourceCode12);
 console.log("\n''unformatted': ['span', 'b', 'i']");
 console.log(prettySourceCode29);
@@ -449,7 +448,7 @@ The formatting should be improved.
 var prettySourceCode30 = html_beautify(sourceCode13, {
   content_unformatted: ['pre'],
 });
-console.log('原始代码');
+console.log('Original code');
 console.log(sourceCode13);
 console.log("\n'content_unformatted': ['pre']");
 console.log(prettySourceCode30);
@@ -457,7 +456,7 @@ console.log(prettySourceCode30);
 
 var sourceCode14 = `<div><p>Hello World!</p></div>`;
 var prettySourceCode31 = html_beautify(sourceCode14, {extra_liners: ['p']});
-console.log('原始代码');
+console.log('Original code');
 console.log(sourceCode14);
 console.log("\n'extra_liners': ['p']");
 console.log(prettySourceCode31);
@@ -480,7 +479,7 @@ function BeautifyDemo(): JSX.Element {
         <Text>{uglyCss}</Text>
         <Text style={styles.titleStyle}>{'\npretty CSS:'}</Text>
         <Text>{prettyCss}</Text>
-        <Text style={styles.textStyle}>Js细分测试</Text>
+        <Text style={styles.textStyle}>Js TEST</Text>
         <Text style={styles.titleStyle}>{'\nOriginal JS:'}</Text>
         <Text>{code}</Text>
         <Text style={styles.titleStyle}>{"\n'indent_size': 8"}</Text>
@@ -573,7 +572,7 @@ function BeautifyDemo(): JSX.Element {
         <Text>{prettyText14}</Text>
         <Text style={styles.titleStyle}>{"\n'wrap_line_length': 10，："}</Text>
         <Text>{prettyText15}</Text>
-        <Text style={styles.textStyle}>Css细分测试</Text>
+        <Text style={styles.textStyle}>Css TEST</Text>
         <Text style={styles.titleStyle}>{'\npretty CSS:'}</Text>
         <Text>{sourceCode}</Text>
         <Text style={styles.titleStyle}>{"\n'indent_size: 2'"}</Text>
@@ -585,9 +584,9 @@ function BeautifyDemo(): JSX.Element {
         <Text style={styles.titleStyle}>{"\n'eol: \n'"}</Text>
         <Text>{prettySourceCode4}</Text>
         <Text style={styles.titleStyle}>{"\n'end_with_newline': false"}</Text>
-        <Text>{prettySourceCode5}这里为end_with_newline": false,换不了行</Text>
+        <Text>{prettySourceCode5}this use " end_with_newline": false,it can't change the line</Text>
         <Text style={styles.titleStyle}>{"\n'end_with_newline': true"}</Text>
-        <Text>{prettySourceCode55}这里为end_with_newline": true,可换行</Text>
+        <Text>{prettySourceCode55}this use " end_with_newline": true,it can change the line</Text>
         <Text style={styles.titleStyle}>{"\n'brace_style': 'collapse'"}</Text>
         <Text>{prettySourceCode6}</Text>
         <Text style={styles.titleStyle}>{'\npretty CSS:'}</Text>
@@ -603,7 +602,7 @@ function BeautifyDemo(): JSX.Element {
         </Text>
         <Text>{prettySourceCode8}</Text>
 
-        <Text style={styles.textStyle}>html细分测试</Text>
+        <Text style={styles.textStyle}>html TEST</Text>
         <Text style={styles.titleStyle}>{'Original HTML:'}</Text>
         <Text>{sourceCode3}</Text>
         <Text style={styles.titleStyle}>{"\n'indent_size': 10"}</Text>
@@ -615,7 +614,7 @@ function BeautifyDemo(): JSX.Element {
         <Text style={styles.titleStyle}>{"\n'eol': 换行符"}</Text>
         <Text>{prettySourceCode12}</Text>
         <Text style={styles.titleStyle}>{"\n'end_with_newline': false"}</Text>
-        <Text>{prettySourceCode13}这里为end_with_newline": false,换不了行</Text>
+        <Text>{prettySourceCode13}this use " end_with_newline": false,it can't change the line</Text>
         <Text style={styles.titleStyle}>{"\n'indent-inner-html': true"}</Text>
         <Text>{prettySourceCode14}</Text>
         <Text style={styles.titleStyle}>{"\n'preserve_newlines': true"}</Text>
@@ -711,7 +710,7 @@ For details, see [js-beautify document](https://github.com/beautifier/js-beautif
 
 ### js_beautify
 
-该库的接口为`js_beautify`，通过传入不同的`options`，实现对应的功能。
+The interface of the library is 'js_beautify', and different 'options' are passed in to implement the corresponding functions.
 
 | Name        | Description                                                                                                    | Type     | Required | HarmonyOS Support |
 | ----------- | -------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------------- |
@@ -719,7 +718,7 @@ For details, see [js-beautify document](https://github.com/beautifier/js-beautif
 
 ### options
 
-options对应的参数如下所示，当对应属性未指定时，均为如下默认值。
+The following parameters are used for options, and if the corresponding attributes are not specified, the default values are as follows.
 
 ```
 {
@@ -756,5 +755,3 @@ options对应的参数如下所示，当对应属性未指定时，均为如下�
 ## License
 
 This project is licensed under [The MIT License (MIT)](https://github.com/beautifier/js-beautify/blob/main/LICENSE).
-
-<!-- {% endraw %} -->

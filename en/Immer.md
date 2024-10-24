@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-Template version: v0.2.1
+> Template version: v0.2.1
 
 <p align="center">
   <h1 align="center"> <code>immer</code> </h1>
@@ -14,7 +13,7 @@ Template version: v0.2.1
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/immerjs/immer)
+> [!TIP] [Github address](https://github.com/immerjs/immer)
 
 ## Installation and Usage
 
@@ -97,7 +96,7 @@ const MyComponent = () => {
   const [count, setCount] = useState({age: 0});
   let [baseState, setBaseState] = useState([
     {
-      title: '标题1',
+      title: 'Title1',
       done: true,
     },
   ]);
@@ -113,7 +112,7 @@ const MyComponent = () => {
   const [state, setState] = useState(initialState);
   const [freezeRest, setFreezeRest] = useState({a: 1, b: {c: 2}});
   const [stateRes, setStateRes] = useState({count: 0, text: 'hello-world'});
-  const [texts, setTexts] = useState('请输入内容');
+  const [texts, setTexts] = useState('Please enter your content');
   const [stateNothing, setStateNothing] = useState({
     name: 'John',
     age: 30,
@@ -130,7 +129,7 @@ const MyComponent = () => {
   const [numStatus, setNumStatus] = useState(false);
   const [draftsStatus, setDratfStatus] = useState(false);
   let originalRes = {
-    name: '初始数据1',
+    name: 'Initial data 1',
     age: 18,
   };
   let fork = originalRes;
@@ -174,7 +173,7 @@ const MyComponent = () => {
     if (baseState.length < 3) {
       return setBaseState(
         produce(baseState, draftState => {
-          draftState.push({title: '新增', done: states});
+          draftState.push({title: 'Add', done: states});
           setStates((states = isDraft(draftState)));
         }),
       );
@@ -190,7 +189,7 @@ const MyComponent = () => {
   const onChange = (item: object, e: number) => {
     const res = produce(baseState, draftState => {
       draftState[e].done = !draftState[e].done;
-      draftState[e].title = '更改后数据';
+      draftState[e].title = 'Updated Data';
       setStates((states = isDraft(draftState)));
     });
     setBaseState(res);
@@ -291,28 +290,28 @@ const MyComponent = () => {
     const res = freeze(Object.assign({}, freezeRest), true);
     res.a = 110;
     res.b.c = 220;
-    console.log('调用freeze-deep:', overStates, res);
+    console.log('invoke freeze-deep:', overStates, res);
     setFreezeRest(res);
   };
   const tryToModifyFrozenStateLeft = () => {
     const res = freeze(Object.assign({}, freezeRest), false);
     res.a = 111;
     res.b.c = 222;
-    console.log('调用freeze-deep:', overStates, res);
+    console.log('invoke freeze-deep:', overStates, res);
     setFreezeRest(res);
   };
   const ClickOffFreeze = () => {
     const res1 = Object.assign({}, freezeRest);
     res1.a = 10;
     res1.b.c = 20;
-    console.log('未调用freeze:', res);
+    console.log('not invoke freeze:', res);
     setFreezeRest(res1);
   };
   const ClickOnFreeze = () => {
     const res = freeze(Object.assign({}, freezeRest));
     res.a = 11;
     res.b.c = 22;
-    console.log('调用freeze:', res);
+    console.log('invoke freeze:', res);
     setFreezeRest(res);
   };
   const inputText = e => {
@@ -480,9 +479,9 @@ const MyComponent = () => {
     <ScrollView style={{height: '100%'}}>
       <View style={styles.container}>
         <Text style={styles.text}>Immer</Text>
-        {/* 验证---produce---api */}
+        {/* verify ---produce---api */}
         <View style={styles.container}>
-          <Text style={styles.text}>验证-produce-期望值不可变数据可以更改</Text>
+          <Text style={styles.text}>verify -produce- Expectation immutable data can be changed</Text>
           <View
             style={{
               flexDirection: 'row',
@@ -490,11 +489,11 @@ const MyComponent = () => {
               justifyContent: 'space-between',
               width: '60%',
             }}>
-            <Button title="计数加+" onPress={incrementCount} />
+            <Button title="Count +" onPress={incrementCount} />
             <Text style={{fontSize: 20}}>Count: {count.age}</Text>
-            <Button title="计数减-" onPress={decrement} />
+            <Button title="Count -" onPress={decrement} />
           </View>
-          <Button title="添加" onPress={onAdd} />
+          <Button title="Add" onPress={onAdd} />
           <View
             style={{
               width: '100%',
@@ -510,9 +509,9 @@ const MyComponent = () => {
                 }}
                 key={index}>
                 <View style={{width: '70%'}}>
-                  <Text>标题：{item.title}</Text>
-                  <Text>状态:{item.done ? 'true' : 'false'}</Text>
-                  <Text>isDraft状态:{`${states}`}</Text>
+                  <Text>Title:{item.title}</Text>
+                  <Text>State:{item.done ? 'true' : 'false'}</Text>
+                  <Text>isDraft state:{`${states}`}</Text>
                 </View>
                 <View
                   style={{
@@ -523,13 +522,13 @@ const MyComponent = () => {
                     alignItems: 'center',
                   }}>
                   <Button
-                    title="更改"
+                    title="Update"
                     onPress={() => {
                       onChange(item, index);
                     }}
                   />
                   <Button
-                    title="删除"
+                    title="Delete"
                     onPress={() => {
                       onDelete(index);
                     }}
@@ -539,20 +538,20 @@ const MyComponent = () => {
             ))}
           </View>
         </View>
-        {/* --------验证----createDraft--&--finishDraft---------------- */}
+        {/* --------verify ----createDraft--&--finishDraft---------------- */}
         <View style={styles.container}>
-          <Text style={styles.text}>验证createDraft--&--finishDraft</Text>
+          <Text style={styles.text}>verify createDraft--&--finishDraft</Text>
           <Text>Count: {state.count}</Text>
           <Text>Text: {state.text}</Text>
           <Button title="Increment" onPress={increment} />
           <Button title="Change Text" onPress={changeText} />
         </View>
-        {/* -----------------验证--original-------current--------------- */}
+        {/* -----------------verify --original-------current--------------- */}
         <View style={styles.container}>
           <Text style={styles.text}>
-            验证original--current--期望值验证original:获取修改后的原始状态
+            verify original--current--Expected value verify original: obtains the original state after the modification
           </Text>
-          <Text>初始数据：{JSON.stringify(originals)}</Text>
+          <Text>Initial data：{JSON.stringify(originals)}</Text>
           <Text>original:{res}</Text>
           <Text>res:{originals.users[0].name}</Text>
           <Text>current: {currentText}</Text>
@@ -560,53 +559,53 @@ const MyComponent = () => {
         </View>
         {/* ------enablePatches-----produceWithPatches------------------ */}
         <View style={styles.container}>
-          <Text style={styles.text}>验证enablePatches--produceWithPatches</Text>
+          <Text style={styles.text}>verify enablePatches--produceWithPatches</Text>
           <Text>{text}</Text>
           <Text>result:{JSON.stringify(result)}</Text>
           <Text>patches:{JSON.stringify(patches)}</Text>
           <Text>inversePatches:{JSON.stringify(inversePatches)}</Text>
           <Button title="Add World" onPress={handleClick} />
         </View>
-        {/* ----------验证--enableMapSet------------------------------- */}
+        {/* ----------verify --enableMapSet------------------------------- */}
         <View style={styles.container}>
-          <Text style={styles.text}>验证enableMapSet</Text>
+          <Text style={styles.text}>verify enableMapSet</Text>
           <Text>Current Map:</Text>
           {renderMapEntries()}
           <Button title="Update Map" onPress={updateMap} />
         </View>
-        {/* -----------------验证--freeze----------------------- */}
+        {/* -----------------verify --freeze----------------------- */}
         <View style={styles.container}>
-          <Text style={styles.text}>验证freeze</Text>
+          <Text style={styles.text}>verify freeze</Text>
           <Text>
-            freeze(obj,deep?)obj：要冻结的对象deep（可选）：一个布尔值，默认为false。如果为true，则深度冻结对象（包括其所有嵌套的对象）。如果为false或未提供，则只冻结对象的顶层属性
+            freeze(obj,deep?)obj：Object to be frozen deep (optional): A boolean value, defaults to false. If true, the object is deep frozen, including all of its nested objects. If false or not provided, only the top-level properties of the object are frozen
           </Text>
           <View style={{flexDirection: 'row', justifyContent: 'space-evenly'}}>
             <View style={{alignItems: 'center'}}>
               <Text>init:{JSON.stringify(freezeRest)}</Text>
               <Button
-                title="未调用freeze 改变数据init a=10 c=20"
+                title="not invoke freeze ,changing the data : init a=10 c=20"
                 onPress={ClickOffFreeze}
               />
               <Button
-                title="调用freeze 改变数据init a=11 c=22"
+                title="invoke freeze ,changing the data : init a=11 c=22"
                 onPress={ClickOnFreeze}
               />
               <Button
-                title="当deep状态为false时，改变数据init a=110 c=220"
+                title="when the state of deep is false ,changing the data : init a=110 c=220"
                 onPress={tryToModifyFrozenStateLeft}
               />
               <Button
-                title="当deep状态为true时，改变数据init a=110 c=220"
+                title="when the state of deep is true ,changing the data : init a=110 c=220"
                 onPress={incrementCountLeft}
               />
             </View>
           </View>
         </View>
-        {/* --------------验证--setAutoFreeze------------------- */}
+        {/* --------------verify --setAutoFreeze------------------- */}
         <View style={styles.container}>
-          <Text style={styles.text}>---验证setAutoFreeze----</Text>
+          <Text style={styles.text}>---verify setAutoFreeze----</Text>
           <Text>
-            setAutoFreeze为自动冻结,状态：{JSON.stringify(overStates)}
+            setAutoFreeze is freeze, state：{JSON.stringify(overStates)}
           </Text>
           <Switch onValueChange={toggleSwitch} value={overStates} />
           <TextInput
@@ -614,21 +613,21 @@ const MyComponent = () => {
             onChangeText={inputText}
             value={texts}
           />
-          <Text>你输入的内容是: {stateRes.text}</Text>
+          <Text>What you entered: {stateRes.text}</Text>
           <Text>Current Count: {JSON.stringify(stateRes)}</Text>
         </View>
-        {/* --------------验证---nothing------------------------ */}
+        {/* --------------verify ---nothing------------------------ */}
         <View style={styles.container}>
-          <Text style={styles.text}>验证nothing</Text>
+          <Text style={styles.text}>verify nothing</Text>
           <Text>
-            定义的数据：
+            Defined data:
             {JSON.stringify(stateNothing)}
           </Text>
           <Text>Name: {typeof stateNothing}</Text>
           <View style={{flexDirection: 'row'}}>
             <View style={{marginRight: 10}}>
               <Button
-                title="标记nothing"
+                title="mark nothing"
                 onPress={() => {
                   clickNothing(nothing);
                 }}
@@ -636,7 +635,7 @@ const MyComponent = () => {
             </View>
             <View>
               <Button
-                title="标记undefined"
+                title="mark undefined"
                 onPress={() => {
                   clickNothing(undefined);
                 }}
@@ -644,100 +643,100 @@ const MyComponent = () => {
             </View>
           </View>
         </View>
-        {/* -----------验证----isDraftable---------------------- */}
+        {/* -----------verify ----isDraftable---------------------- */}
         <View style={styles.container}>
-          <Text style={styles.text}>验证isDraftable</Text>
+          <Text style={styles.text}>verify isDraftable</Text>
           {/* <Button title="Check Draftability" onPress={checkDraftability} />
           <Text>{result ? '可变对象' : '不可变对象'}</Text> */}
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
-            <Text>状态--isDraftable({JSON.stringify(obj)})</Text>
+            <Text>state--isDraftable({JSON.stringify(obj)})</Text>
             <Button title="isDraftObj" onPress={isDraftObj} />
-            <Text>状态:{JSON.stringify(objStatus)}</Text>
+            <Text>state:{JSON.stringify(objStatus)}</Text>
           </View>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
-            <Text>状态--isDraftable({JSON.stringify(arr)})</Text>
+            <Text>state--isDraftable({JSON.stringify(arr)})</Text>
             <Button title="isDraftArr" onPress={isDraftArr} />
-            <Text>状态--{JSON.stringify(arrStatus)}</Text>
+            <Text>state--{JSON.stringify(arrStatus)}</Text>
           </View>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
-            <Text>状态--isDraftable({JSON.stringify(str)})</Text>
+            <Text>state--isDraftable({JSON.stringify(str)})</Text>
             <Button title="isDraftStr" onPress={isDraftStr} />
-            <Text>状态--{JSON.stringify(strStatus)}</Text>
+            <Text>state--{JSON.stringify(strStatus)}</Text>
           </View>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
-            <Text>状态--isDraftable({JSON.stringify(num)})</Text>
+            <Text>state--isDraftable({JSON.stringify(num)})</Text>
             <Button title="isDraftNum" onPress={isDraftNum} />
-            <Text>状态--{JSON.stringify(numStatus)}</Text>
+            <Text>state--{JSON.stringify(numStatus)}</Text>
           </View>
           <View style={{flexDirection: 'row', alignItems: 'center'}}>
-            <Text>状态--isDraftable({JSON.stringify(frozenObj)})</Text>
+            <Text>state--isDraftable({JSON.stringify(frozenObj)})</Text>
             <Button title="isDrafts" onPress={isDrafts} />
-            <Text>状态--{JSON.stringify(draftsStatus)}</Text>
+            <Text>state--{JSON.stringify(draftsStatus)}</Text>
           </View>
         </View>
-        {/* -----------验证---immerable-------------------- */}
+        {/* -----------verify ---immerable-------------------- */}
         <View style={styles.container}>
           <Text style={styles.text}>
-            验证---immerable,可以添加到构造函数或原型的符号
+            verify ---immerable,Symbols that can be added to constructors or prototypes
           </Text>
           <Text>NUM:{JSON.stringify(myState)}</Text>
           <Button title="Update Value" onPress={updateValue} />
         </View>
-        {/* -----------------验证--castImmutable----------------------- */}
+        {/* -----------------verify --castImmutable----------------------- */}
         <View style={styles.container}>
-          <Text style={styles.text}>验证castImmutable</Text>
-          <Text>castImmutable,期望值castImmutable为true时数据不可变</Text>
+          <Text style={styles.text}>verify castImmutable</Text>
+          <Text>castImmutable,If the expected castImmune is true, the data is immutable</Text>
           <Text>castImmutable:{produceStatus ? 'true' : 'false'}</Text>
           <Button title="castImmutable status" onPress={Clickfn} />
           <Text>Age: {data.age}</Text>
           <Button title="Update Age" onPress={updateData} />
         </View>
-        {/* -------------------验证--castDraft--- */}
+        {/* -------------------verify --castDraft--- */}
         <View style={styles.container}>
-          <Text style={styles.text}>验证castDraft</Text>
+          <Text style={styles.text}>verify castDraft</Text>
           <Text>
-            castDraft,期望将任何不可变类型转换为其可变对应物。这只是一个转换,实际上并没有做任何事情
+            castDraft, Expect any immutable type to be converted to its mutable counterpart. It's just a conversion and doesn't actually do anything
           </Text>
           <Text>Count: {castDraftState.count}</Text>
           <Button title="AddFn" onPress={AddFn} />
           <Button title="doubleCount" onPress={doubleCount} />
           <Button title="resetCount" onPress={resetCount} />
         </View>
-        {/* ---------------验证--applyPatches-------------- */}
+        {/* ---------------verify --applyPatches-------------- */}
         <View style={styles.container}>
-          <Text style={styles.text}>验证applyPatches</Text>
-          <Text>初始数据：{JSON.stringify(originalRes)}</Text>
+          <Text style={styles.text}>verify applyPatches</Text>
+          <Text>Initial data:{JSON.stringify(originalRes)}</Text>
           <Button title="改变初始值age=10" onPress={ClickChange} />
           <Button title="fn1" onPress={fn1} />
-          <Text>改变后数据：{JSON.stringify(obj1)}</Text>
+          <Text>Updated data:{JSON.stringify(obj1)}</Text>
           <Button title="fn2" onPress={fn2} />
-          <Text>恢复的数据--{JSON.stringify(obj2)}</Text>
+          <Text>Recovered data:{JSON.stringify(obj2)}</Text>
         </View>
         <View style={styles.container}>
           <Text style={styles.text}>
-            验证Draft暴露的 TypeScript 类型以将不可变类型转换为可变类型
+            verify the TypeScript type exposed by Draft to convert an immutable type to a soft type
           </Text>
           <Text>{JSON.stringify(draftRes)}</Text>
-          <Button title="add--使用Draft<T>" onPress={handleAddHobby} />
+          <Button title="add--use Draft<T>" onPress={handleAddHobby} />
         </View>
-        {/* 验证Immutable<T> */}
+        {/* verify Immutable<T> */}
         {/*   <View style={styles.container}>
           <Text style={styles.text}>
-            验证Immutable暴露的 TypeScript 类型以将可变类型转换为不可变类型
+            verify Immutable暴露的 TypeScript 类型以将可变类型转换为不可变类型
           </Text>
           <Text>初始数据：{JSON.stringify(immutableObj1)}</Text>
           <Text>更改后数据:{JSON.stringify(immutableData)}</Text>
           <Button title="change" onPress={changeObj1} />
         </View> */}
-        {/* 验证setUseStrictShallowCopy */}
+        {/* verify setUseStrictShallowCopy */}
         <View style={styles.container}>
           <Text style={styles.text}>
-            验证setUseStrictShallowCopy
-            可用于启用严格浅拷贝，如果启用，immer会确保不会意外的修改原始对象
+            verify setUseStrictShallowCopy
+            It can be used to enable strict shallow copy, and if enabled, immer will ensure that the original object is not accidentally modified
           </Text>
-          <Text>初始数据：{JSON.stringify(setUseStrictShallowCopyRes)}</Text>
-          <Text>更改后数据：{JSON.stringify(setUseStrictShallowCopyInit)}</Text>
-          <Button title="使用" onPress={useSetUseStrictShallowCopy} />
+          <Text>Initial data:{JSON.stringify(setUseStrictShallowCopyRes)}</Text>
+          <Text>Updated data:{JSON.stringify(setUseStrictShallowCopyInit)}</Text>
+          <Button title="use" onPress={useSetUseStrictShallowCopy} />
         </View>
       </View>
     </ScrollView>
@@ -816,5 +815,3 @@ This document is verified based on the following versions:
 ## License
 
 This project is licensed under [The MIT License (MIT)](https://github.com/immerjs/immer/blob/main/LICENSE), Please enjoy and participate freely in open source.
-
-<!-- {% endraw %} -->

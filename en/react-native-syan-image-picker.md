@@ -176,7 +176,108 @@ Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 }
 ```
 
-### 2. Introducing Native Code
+### 2.Configure Entry
+
+**(1)Create ImageCropAbility.ets under entry/src/main/ets/entryability**
+
+```
+import UIAbility from '@ohos.app.ability.UIAbility'
+import window from '@ohos.window'
+
+const TAG = 'ImageEditAbility';
+
+export default class ImageCropAbility.ets extends UIAbility {
+
+  onWindowStageCreate(windowStage: window.WindowStage) {
+    this.setWindowOrientation(windowStage, window.Orientation.PORTRAIT)
+    windowStage.loadContent('pages/ImageEdit', (err, data) => {
+      if (err.code) {
+        console.info(TAG,'Failed to load the content. Cause: %{public}s',
+          JSON.stringify(err) ?? '')
+        return;
+      }
+      console.info(TAG,'Succeeded in loading the content')
+    });
+    try {
+      windowStage.getMainWindowSync().setWindowLayoutFullScreen(true, (err)=>{
+        if (err.code) {
+          console.error('Failed to enable the full-screen mode. Cause: ' + JSON.stringify(err));
+          return;
+        }
+        console.info('Succeeded in enabling the full-screen mode.');
+      })
+    } catch (exception) {
+      console.error('Failed to set the system bar to be invisible. Cause: ' + JSON.stringify(exception));
+    }
+  }
+
+  setWindowOrientation(stage: window.WindowStage, orientation: window.Orientation): void {
+    console.info(TAG,"into setWindowOrientation :")
+    if (!stage || !orientation) {
+      return;
+    }
+    stage.getMainWindow().then(windowInstance => {
+      windowInstance.setPreferredOrientation(orientation);
+    })
+  }
+
+  onBackground() {
+    this.context.terminateSelf();
+  }
+}
+```
+
+**(2)egister ImageCropAbility.ets in entry/src/main/module.json5.**
+
+```
+"abilities":[{
+        "name": "ImageCropAbility.ets",
+        "srcEntry": "./ets/entryability/ImageCropAbility.ets.ets",
+        "description": "$string:EntryAbility_desc",
+        "icon": "$media:icon",
+        "startWindowIcon": "$media:startIcon",
+        "startWindowBackground": "$color:start_window_background",
+        "removeMissionAfterTerminate": true,
+
+}
+...
+]
+
+```
+
+**(3)Create ImageEdit.ets under entry/src/main/ets/pages.**
+
+```
+import { ImageCrop } from '@react-native-oh-tpl/react-native-syan-image-picker';
+
+@Entry
+@Component
+struct ImageEdit {
+
+ build() {
+  Row(){
+   Column(){
+    ImageCrop();
+   }
+   .width('100%')
+  }
+  .height('100%')
+ }
+}
+```
+
+**(4)Add configuration in entry/src/main/resources/base/profile/main_pages.json.**
+
+```
+{
+ "src": [
+  "pages/Index",
+  "pages/ImageEdit"
+ ]
+}
+```
+
+### 3. Introducing Native Code
 
 Currently, two methods are available:
 
@@ -207,7 +308,7 @@ Method 2: Directly link to the source code.
 
 > [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
-### 3. Introducing SyanImagePickerPackage to ArkTS
+### 4. Introducing SyanImagePickerPackage to ArkTS
 
 Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
 
@@ -223,7 +324,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 4. Running
+### 5. Running
 
 Click the `sync` button in the upper right corner.
 
@@ -265,25 +366,25 @@ This document is verified based on the following versions:
 | enableBase64                    | 是否返回base64编码，默认不返回                               | boolean |   yes    | iOS/Android |        yes        |
 | videoCount                      | 选择的视频个数                                               | number  |   yes    | iOS/Android |        yes        |
 | allowPickingMultipleVideo       | 允许选择多个视频                                             | boolean |   yes    | iOS/Android |        yes        |
-| isRecordSelected                | 是否已选图片                                                 | bool    |   yes    | iOS/Android |        no         |
-| CropW                           | 裁剪宽度，默认屏幕宽度60%                                    | number  |   yes    | iOS/Android |        no         |
-| CropH                           | 裁剪高度，默认屏幕宽度60%                                    | number  |   yes    | iOS/Android |        no         |
+| isRecordSelected                | 是否已选图片                                                 | bool    |   yes    | iOS/Android |        yes         |
+| CropW                           | 裁剪宽度，默认屏幕宽度60%                                    | number  |   yes    | iOS/Android |        yes         |
+| CropH                           | 裁剪高度，默认屏幕宽度60%                                    | number  |   yes    | iOS/Android |        yes         |
 | isGif                           | 是否允许选择GIF，默认false，暂无回调GIF数据                  | boolean |   yes    | iOS/Android |        no         |
-| showCropCircle                  | 是否显示圆形裁剪区域，默认false                              | boolean |   yes    | iOS/Android |        no         |
-| circleCropRadius                | 圆形裁剪半径，默认屏幕宽度一半                               | number  |   yes    | iOS/Android |        no         |
-| showCropFrame                   | 是否显示裁剪区域，默认true                                   | boolean |   yes    | iOS/Android |        no         |
-| showCropGrid                    | 是否隐藏裁剪区域网格，默认false                              | boolean |   yes    | iOS/Android |        no         |
-| freeStyleCropEnabled            | 裁剪框是否可拖拽                                             | boolean |   yes    | iOS/Android |        no         |
-| rotateEnabled                   | 裁剪是否可旋转图片                                           | boolean |   yes    | iOS/Android |        no         |
-| scaleEnabled                    | 裁剪是否可放大缩小图片                                       | boolean |   yes    | iOS/Android |        no         |
+| showCropCircle                  | 是否显示圆形裁剪区域，默认false                              | boolean |   yes    | iOS/Android |        yes         |
+| circleCropRadius                | 圆形裁剪半径，默认屏幕宽度一半                               | number  |   yes    | iOS/Android |        yes         |
+| showCropFrame                   | 是否显示裁剪区域，默认true                                   | boolean |   yes    | Android |        no         |
+| showCropGrid                    | 是否隐藏裁剪区域网格，默认false                              | boolean |   yes    | Android |        no         |
+| freeStyleCropEnabled            | 裁剪框是否可拖拽                                             | boolean |   yes    | Android |        no         |
+| rotateEnabled                   | 裁剪是否可旋转图片                                           | boolean |   yes    | Android |        no         |
+| scaleEnabled                    | 裁剪是否可放大缩小图片                                       | boolean |   yes    | Android |        no         |
 | compressFocusAlpha              | 压缩时保留图片透明度（开启后png压缩后尺寸会变大但是透明度会保留) | boolean |   yes    | iOS/Android |        no         |
-| minimumCompressSize             | 小于100kb的图片不压缩（Android）                             | number  |   yes    | iOS/Android |        no         |
-| allowPickingOriginalPhoto       | 选择原生图片                                                 | boolean |   yes    | iOS/Android |        no         |
-| MaxSecond                       | 选择视频最大时长，默认是180秒                                | number  |   yes    | iOS/Android |        no         |
-| videoMaximumDuration            | 视频最大拍摄时间，默认是10分钟，单位是秒                     | number  |   yes    | iOS/Android |        no         |
-| isWeChatStyle                   | 是否是微信风格选择界面 Android Only                          | boolean |   yes    | iOS/Android |        no         |
+| minimumCompressSize             | 小于100kb的图片不压缩（Android）                             | number  |   yes    | Android |        no         |
+| allowPickingOriginalPhoto       | 选择原生图片                                                 | boolean |   yes    | iOS/Android |        yes         |
+| MaxSecond                       | 选择视频最大时长，默认是180秒                                | number  |   yes    | Android |        no         |
+| videoMaximumDuration            | 视频最大拍摄时间，默认是10分钟，单位是秒                     | number  |   yes    | iOS/Android |        yes         |
+| isWeChatStyle                   | 是否是微信风格选择界面 Android Only                          | boolean |   yes    | Android |        no         |
 | sortAscendingByModificationDate | 对照片排序，按修改时间升序，默认是YES。如果设置为NO,最新的照片会显示在最前面，内部的拍照按钮会排在第一个 | boolean |   yes    | iOS/Android |        no         |
-| MinSecond                       | 选择视频最小时长，默认是1秒                                  | number  |   yes    | iOS/Android |        no         |
+| MinSecond                       | 选择视频最小时长，默认是1秒                                  | number  |   yes    | Android |        no         |
 | showSelectedIndex               | 是否显示序号， 默认不显示                                    | boolean |   yes    | iOS/Android |        no         |
 
 ## SelectedPhoto（选择的图片或视频的返回结果）
@@ -320,24 +421,9 @@ This document is verified based on the following versions:
 ## Known Issues
 
 - [ ]  isRecordSelected: 是否已选图片[issues#2](https://github.com/react-native-oh-library/react-native-syan-image-picker/issues/2)
-- [ ]  CropW: 裁剪宽度，默认屏幕宽度60%[issues#3](https://github.com/react-native-oh-library/react-native-syan-image-picker/issues/3)
-- [ ]  CropH: 裁剪高度，默认屏幕宽度60%[issues#4](https://github.com/react-native-oh-library/react-native-syan-image-picker/issues/4)
 - [ ]  isGif: 是否允许选择GIF[issues#5](https://github.com/react-native-oh-library/react-native-syan-image-picker/issues/5)
-- [ ]  showCropCircle: 是否显示圆形裁剪区域[issues#6](https://github.com/react-native-oh-library/react-native-syan-image-picker/issues/6)
-- [ ]  circleCropRadius: 圆形裁剪半径[issues#7](https://github.com/react-native-oh-library/react-native-syan-image-picker/issues/7)
-- [ ]  showCropFrame: 是否显示裁剪区域[issues#8](https://github.com/react-native-oh-library/react-native-syan-image-picker/issues/8)
-- [ ]  showCropGrid: 是否隐藏裁剪区域网格[issues#9](https://github.com/react-native-oh-library/react-native-syan-image-picker/issues/9)
-- [ ]  freeStyleCropEnabled: 裁剪框是否可拖拽[issues#10](https://github.com/react-native-oh-library/react-native-syan-image-picker/issues/10)
-- [ ]  rotateEnabled: 裁剪是否可旋转图片[issues#11](https://github.com/react-native-oh-library/react-native-syan-image-picker/issues/11)
-- [ ]  scaleEnabled: 裁剪是否可放大缩小图片[issues#12](https://github.com/react-native-oh-library/react-native-syan-image-picker/issues/12)
 - [ ]  compressFocusAlpha: 压缩时保留图片透明度[issues#13](https://github.com/react-native-oh-library/react-native-syan-image-picker/issues/13)
-- [ ]  minimumCompressSize: 小于100kb的图片不压缩[issues#14](https://github.com/react-native-oh-library/react-native-syan-image-picker/issues/14)
-- [ ]  allowPickingOriginalPhoto: 选择原生图片[issues#15](https://github.com/react-native-oh-library/react-native-syan-image-picker/issues/15)
-- [ ]  MaxSecond: 选择视频最大时长[issues#16](https://github.com/react-native-oh-library/react-native-syan-image-picker/issues/16)
-- [ ]  videoMaximumDuration: 视频最大拍摄时间[issues#17](https://github.com/react-native-oh-library/react-native-syan-image-picker/issues/17)
-- [ ]  isWeChatStyle: 是否是微信风格选择界面[issues#18](https://github.com/react-native-oh-library/react-native-syan-image-picker/issues/18)
 - [ ]  sortAscendingByModificationDate: 对照片排序，按修改时间升序[issues#19](https://github.com/react-native-oh-library/react-native-syan-image-picker/issues/19)
-- [ ]  MinSecond: 选择视频最小时长[issues#20](https://github.com/react-native-oh-library/react-native-syan-image-picker/issues/20)
 - [ ]  showSelectedIndex: 是否显示序号[issues#21](https://github.com/react-native-oh-library/react-native-syan-image-picker/issues/21)
 
 ## Others

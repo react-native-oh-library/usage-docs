@@ -202,7 +202,7 @@ const styles = StyleSheet.create({
 
 |           Name           |                         Description                          |   Type   | Required |  Platform   | HarmonyOS Support |
 | :----------------------: | :----------------------------------------------------------: | :------: | :------: | :---------: | :---------------: |
-|           data           |      Transforms the first character in a capital letter      | boolean  |    no    | iOS/Android |        Yes        |
+|           data           |                      Each item of data                       |  array   |    no    | iOS/Android |        Yes        |
 |      flatListStyle       |            Style prop for the underlying FlatList            |  object  |    no    | iOS/Android |        Yes        |
 |        itemStyles        |    Style props to apply to all DraxView items in the list    |  object  |    no    | iOS/Android |        Yes        |
 |    renderItemContent     |      Render function for content of an item's DraxView       |    /     |    no    | iOS/Android |        Yes        |

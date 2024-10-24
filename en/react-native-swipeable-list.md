@@ -1,6 +1,6 @@
 <!-- {% raw %} -->
 
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-swipeable-list</code> </h1>
@@ -15,9 +15,9 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/esthor/react-native-swipeable-list)
+> [!TIP] [ GitHub address](https://github.com/esthor/react-native-swipeable-list)
 
-## 安装与使用
+## Installation and Usage
 
 <!-- tabs:start -->
 
@@ -35,9 +35,9 @@ yarn add react-native-swipeable-list@0.1.2
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React, { useState } from "react";
@@ -422,22 +422,21 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-在下述版本验证通过:
+This document is verified based on the following versions:
 
 1. RNOH：0.72.27; SDK：HarmonyOS NEXT Developer Beta1 5.0.0.25; IDE：DevEco Studio 5.0.3.400SP7; ROM：3.0.0.25;
-2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
-## 属性
+## Properties
 
 SwipeableFlatList 组件接收所有[React Native FlatList](https://facebook.github.io/react-native/docs/flatlist)组件的 Props.
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                | Description                                                                                                                                                                                  | Type      | Required | Platform    | HarmonyOS Support |
 | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------- | ----------- | ----------------- |
@@ -447,12 +446,12 @@ SwipeableFlatList 组件接收所有[React Native FlatList](https://facebook.git
 | maxSwipeDistance    | Maximum distance to open to after a swipe.                                                                                                                                                   | number    | no       | iOS/Android | yes               |
 | renderQuickActions  | Callback method to render the view that will be unveiled on swipe. Type `renderItemType` (which provides `index` and `item`, which will be very useful for performing actions on your items. | function  | yes      | iOS/Android | yes               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/esthor/react-native-swipeable-list/blob/main/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/esthor/react-native-swipeable-list/blob/main/LICENSE).
 
 <!-- {% endraw %} -->

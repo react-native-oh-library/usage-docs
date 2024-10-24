@@ -1,6 +1,6 @@
 <!-- {% raw %} -->
 
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-ble-manager</code> </h1>
@@ -15,17 +15,15 @@
     </a>
 </p>
 
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-ble-manager)
 
+## Installation and Usage
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-ble-manager)
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-ble-manager Releases](https://github.com/react-native-oh-library/react-native-ble-manager/releases).
 
-## 安装与使用
+Go to the project directory and execute the following instruction:
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-ble-manager Releases](https://github.com/react-native-oh-library/react-native-ble-manager/releases)，并下载适用版本的 tgz 包。
-
-进入到工程目录并输入以下命令：
-
-> [!TIP] # 处替换为 tgz 包的路径
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
@@ -43,9 +41,9 @@ yarn add @react-native-oh-tpl/react-native-ble-manager@file:#
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React, { useState, useEffect } from 'react';
@@ -139,14 +137,14 @@ export default function BleManagerDemo() {
                         }}></Button>
                     </View>
                     <View style={{ height: 50, width: 120 }}>
-                        <Button title='获取serves' onPress={() => {
+                        <Button title='get serves' onPress={() => {
                             ReactNativeBleManager.retrieveServices(item.id, ['00001888-0000-1000-8000-00805F9B34FB'])
                         }}></Button>
                     </View>
                     <View style={{ height: 50 }}>
                         <Button title='getBondedPeripherals' onPress={async () => {
                             const list = await ReactNativeBleManager.getBondedPeripherals()
-                            console.log('返回已绑定的设备' + JSON.stringify(list))
+                            console.log('returns bound devices' + JSON.stringify(list))
                         }}></Button>
                     </View>
                     <View style={{ height: 50 }}>
@@ -163,12 +161,12 @@ export default function BleManagerDemo() {
                         }}></Button>
                     </View>
                     <View style={{ height: 50, width: 120 }}>
-                        <Button title='写入value' onPress={() => {
+                        <Button title='write value' onPress={() => {
                             ReactNativeBleManager.write(item.id, '00001888-0000-1000-8000-00805F9B34FB', '00001820-0000-1000-8000-00805F9B34FB', [1])
                         }}></Button>
                     </View>
                     <View style={{ height: 50, width: 120 }}>
-                        <Button title='写入des' onPress={() => {
+                        <Button title='write des' onPress={() => {
                             ReactNativeBleManager.writeDescriptor(item.id, '00001888-0000-1000-8000-00805F9B34FB', '00001820-0000-1000-8000-00805F9B34FB', '00002902-0000-1000-8000-00805F9B34FB', [1])
 
                         }}></Button>
@@ -226,7 +224,7 @@ export default function BleManagerDemo() {
                     <View style={{ height: 50, width: 120 }}>
                         <Button title='removeBond' onPress={() => {
                             ReactNativeBleManager.removeBond(item.id).then(() => {
-                                Alert.alert('此接口为系统接口，三方库无法调用')
+                                Alert.alert('the interface is system interface and cannot be called by third-party libraries')
                             })
                         }}></Button>
                     </View>
@@ -240,7 +238,7 @@ export default function BleManagerDemo() {
             <View style={styles.titleArea}>
                 <Text style={styles.title}>BleManager</Text>
             </View>
-           
+
             <View style={{ width: '100%', display: 'flex', flexDirection: "row", justifyContent: 'space-around', alignItems: 'center',marginTop:10 }}>
             <View style={{ height: 50, width: 'auto'}}>
                         <Button title='enableBluetooth' onPress={() => {
@@ -429,17 +427,17 @@ const styles = StyleSheet.create({
 });
 ```
 
-## 使用 Codegen
+## Use Codegen
 
-本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/codegen.md)。
+If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/en/codegen.md).
 
 ## Link
 
-目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
 
-首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
+Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 1.在工程根目录的 `oh-package.json5` 添加 overrides 字段
+### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
 
 ```json
 {
@@ -450,22 +448,19 @@ const styles = StyleSheet.create({
 }
 ```
 
-### 2.引入原生端代码
+### 2. Introducing Native Code
 
-目前有两种方法：
+Currently, two methods are available:
 
-1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
-2. 直接链接源码。
+Method 1 (recommended): Use the HAR file.
 
-方法一：通过 har 包引入（推荐）
+> [!TIP] The HAR file is stored in the `harmony` directory in the installation path of the third-party library.
 
-> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
+Open `entry/oh-package.json5` file and add the following dependencies:
 
-打开 `entry/oh-package.json5`，添加以下依赖
+> [!TIP] 因本库需要两台手机去进行对端扫描和连接，所以两台手机各装一个 har 包编译（`ble_managerGatt.har` 和 `ble_managerServers.har`）
 
->[!TIP] 因本库需要两台手机去进行对端扫描和连接，所以两台手机各装一个har包编译（`ble_managerGatt.har` 和 `ble_managerServers.har`）
-
-第一台手机：`ble_managerGatt.har`
+the first mobile phone: `ble_managerGatt.har`
 
 ```json
 "dependencies": {
@@ -474,7 +469,7 @@ const styles = StyleSheet.create({
   }
 ```
 
-第二台手机：`ble_managerServers.har`
+the second mobile phone: `ble_managerServers.har`
 
 ```json
 "dependencies": {
@@ -483,22 +478,22 @@ const styles = StyleSheet.create({
   }
 ```
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-方法二：直接链接源码
+Method 2: Directly link to the source code.
 
-> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
-### 3.在 ArkTs 侧引入 BlePackage
+### 3. Introducing BlePackage to ArkTS
 
-打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
 
 ```diff
   ...
@@ -513,98 +508,97 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 4.运行
+### 4. Running
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-然后编译、运行即可。
+Then build and run the code.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-ble-manager Releases](https://github.com/react-native-oh-library/react-native-ble-manager/releases)
+Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-ble-manager Releases](https://github.com/react-native-oh-library/react-native-ble-manager/releases)
 
-### 权限要求
+### Permission Requirements
 
-- 由于此库涉及蓝牙系统控制功能，使用对应接口时则需要配置对应的权限，权限需配置在entry/src/main目录下module.json5文件中。其中部分权限需弹窗向用户申请授权。具体权限配置见文档：[程序访问控制](https://gitee.com/openharmony/docs/blob/master/zh-cn/application-dev/security/AccessToken/Readme-CN.md#/openharmony/docs/blob/master/zh-cn/application-dev/security/AccessToken/app-permission-mgmt-overview.md)。
+- 由于此库涉及蓝牙系统控制功能，使用对应接口时则需要配置对应的权限，权限需配置在 entry/src/main 目录下 module.json5 文件中。其中部分权限需弹窗向用户申请授权。具体权限配置见文档：[程序访问控制](https://gitee.com/openharmony/docs/blob/master/en/application-dev/security/AccessToken/Readme-CN.md#/openharmony/docs/blob/master/en/application-dev/security/AccessToken/app-permission-mgmt-overview.md)。
 
-- 此库部分功能与接口需要normal权限：ohos.permission.ACCESS_BLUETOOTH。
+- 此库部分功能与接口需要 normal 权限：ohos.permission.ACCESS_BLUETOOTH。
 
 ## API
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                                         | Description                                                  | Required | Platform    | HarmonyOS Support |
-| -------------------------------------------- | ------------------------------------------------------------ | -------- | ----------- | ----------------- |
-| start                                        | Init the module. Returns a `Promise` object. Don’t call this multiple times. | No       | IOS/Android | Yes               |
-| scan                                         | Scan for available peripherals                               | No       | IOS/Android | Yes               |
-| stopScan                                     | Stop the scanning                                            | No       | IOS/Android | yes               |
+| Name                                         | Description                                                                                                       | Required | Platform    | HarmonyOS Support |
+| -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | -------- | ----------- | ----------------- |
+| start                                        | Init the module. Returns a `Promise` object. Don’t call this multiple times.                                      | No       | IOS/Android | Yes               |
+| scan                                         | Scan for available peripherals                                                                                    | No       | IOS/Android | Yes               |
+| stopScan                                     | Stop the scanning                                                                                                 | No       | IOS/Android | yes               |
 | connect                                      | Attempts to connect to a peripheral. In many case if you can’t connect you have to scan for the peripheral before | No       | IOS/Android | Yes               |
-| disconnect                                   | Disconnect from a peripheral                                 | No       | IOS/Android | Yes               |
-| enableBluetooth                              | Create the ACTION_REQUEST_ENABLE to ask the user to activate the bluetooth | No       | Android     | Yes               |
-| checkState                                   | Force the module to check the state of the native BLE manager and trigger a BleManagerDidUpdateState event | No       | IOS/Android | Yes               |
-| readRSSI                                     | Read the current value of the RSSI                           | No       | IOS/Android | Yes               |
-| createBond                                   | Start the bonding (pairing) process with the remote device   | No       | Android     | Yes               |
-| retrieveServices                             | Retrieve the peripheral’s services and characteristics       | No       | IOS/Android | Yes               |
-| startNotification                            | Start the notification on the specified characteristic, you need to call `retrieveServices` method before | No       | IOS/Android | Yes               |
-| read                                         | Read the current value of the specified characteristic, you need to call `retrieveServices` method before | No       | IOS/Android | Yes               |
-| write                                        | Write with response to the specified characteristic, you need to call `retrieveServices` method before | No       | IOS/Android | Yes               |
-| readDescriptor                               | Read the current value of the specified descriptor, you need to call `retrieveServices` method before | No       | IOS/Android | Yes               |
-| writeDescriptor                              | Write a value to the specified descriptor, you need to call `retrieveServices` method before | No       | IOS/Android | Yes               |
-| requestMTU                                   | Request an MTU size used for a given connection              | No       | Android     | Yes               |
-| getConnectedPeripherals                      | Return the connected peripherals                             | No       | IOS/Android | Yes               |
-| getBondedPeripherals                         | Return the bonded peripherals                                | No       | IOS/Android | Yes               |
-| getDiscoveredPeripherals                     | Return the discovered peripherals after a scan               | No       | IOS/Android | Yes               |
-| removeBond                                   | Remove a paired device                                       | No       | Android     | No                |
-| refreshCache                                 | refreshes the peripheral’s services and characteristics cache Returns a `Promise` object. | No       | Android     | No                |
-| requestConnectionPriority                    | Request a connection parameter update                        | No       | Android     | No                |
-| startNotificationUseBuffer                   | Start the notification on the specified characteristic, you need to call `retrieveServices` method before | No       | Android     | No                |
-| removePeripheral                             | Removes a disconnected peripheral from the cached list       | No       | Android     | Yes               |
-| CompanionScan                                | Scan for companion devices                                   | No       | Android     | No                |
-| getAssociatedPeripherals                     | Retrive associated peripherals (from companion manager)      | No       | Android     | No                |
-| removeAssociatedPeripheral                   | Remove a associated peripheral                               | No       | Android     | No                |
-| setName                                      | Create the request to set the name of the bluetooth adapter  | No       | Android     | No                |
-| isScanning                                   | Checks whether the scan is in progress and return `true` or `false` | No       | IOS/Android | Yes               |
-| writeWithoutResponse                         | Write without response to the specified characteristic, you need to call `retrieveServices` method before | No       | IOS/Android | No                |
-| getMaximumWriteValueLengthForWithoutResponse | Return the maximum value length for WriteWithoutResponse     | No       | IOS         | No                |
-| getMaximumWriteValueLengthForWithResponse    | Return the maximum value length for WriteWithResponse        | No       | IOS         | No                |
-| isPeripheralConnected                        | Check whether a specific peripheral is connected and return `true` or `false` | No       | IOS         | Yes               |
-| supportsCompanion                            | Check if current device supports companion device manager    | No       | Android     | No                |
-| stopNotification                             | Stop the notification on the specified characteristic        | No       | IOS/Android | No                |
+| disconnect                                   | Disconnect from a peripheral                                                                                      | No       | IOS/Android | Yes               |
+| enableBluetooth                              | Create the ACTION_REQUEST_ENABLE to ask the user to activate the bluetooth                                        | No       | Android     | Yes               |
+| checkState                                   | Force the module to check the state of the native BLE manager and trigger a BleManagerDidUpdateState event        | No       | IOS/Android | Yes               |
+| readRSSI                                     | Read the current value of the RSSI                                                                                | No       | IOS/Android | Yes               |
+| createBond                                   | Start the bonding (pairing) process with the remote device                                                        | No       | Android     | Yes               |
+| retrieveServices                             | Retrieve the peripheral’s services and characteristics                                                            | No       | IOS/Android | Yes               |
+| startNotification                            | Start the notification on the specified characteristic, you need to call `retrieveServices` method before         | No       | IOS/Android | Yes               |
+| read                                         | Read the current value of the specified characteristic, you need to call `retrieveServices` method before         | No       | IOS/Android | Yes               |
+| write                                        | Write with response to the specified characteristic, you need to call `retrieveServices` method before            | No       | IOS/Android | Yes               |
+| readDescriptor                               | Read the current value of the specified descriptor, you need to call `retrieveServices` method before             | No       | IOS/Android | Yes               |
+| writeDescriptor                              | Write a value to the specified descriptor, you need to call `retrieveServices` method before                      | No       | IOS/Android | Yes               |
+| requestMTU                                   | Request an MTU size used for a given connection                                                                   | No       | Android     | Yes               |
+| getConnectedPeripherals                      | Return the connected peripherals                                                                                  | No       | IOS/Android | Yes               |
+| getBondedPeripherals                         | Return the bonded peripherals                                                                                     | No       | IOS/Android | Yes               |
+| getDiscoveredPeripherals                     | Return the discovered peripherals after a scan                                                                    | No       | IOS/Android | Yes               |
+| removeBond                                   | Remove a paired device                                                                                            | No       | Android     | No                |
+| refreshCache                                 | refreshes the peripheral’s services and characteristics cache Returns a `Promise` object.                         | No       | Android     | No                |
+| requestConnectionPriority                    | Request a connection parameter update                                                                             | No       | Android     | No                |
+| startNotificationUseBuffer                   | Start the notification on the specified characteristic, you need to call `retrieveServices` method before         | No       | Android     | No                |
+| removePeripheral                             | Removes a disconnected peripheral from the cached list                                                            | No       | Android     | Yes               |
+| CompanionScan                                | Scan for companion devices                                                                                        | No       | Android     | No                |
+| getAssociatedPeripherals                     | Retrive associated peripherals (from companion manager)                                                           | No       | Android     | No                |
+| removeAssociatedPeripheral                   | Remove a associated peripheral                                                                                    | No       | Android     | No                |
+| setName                                      | Create the request to set the name of the bluetooth adapter                                                       | No       | Android     | No                |
+| isScanning                                   | Checks whether the scan is in progress and return `true` or `false`                                               | No       | IOS/Android | Yes               |
+| writeWithoutResponse                         | Write without response to the specified characteristic, you need to call `retrieveServices` method before         | No       | IOS/Android | No                |
+| getMaximumWriteValueLengthForWithoutResponse | Return the maximum value length for WriteWithoutResponse                                                          | No       | IOS         | No                |
+| getMaximumWriteValueLengthForWithResponse    | Return the maximum value length for WriteWithResponse                                                             | No       | IOS         | No                |
+| isPeripheralConnected                        | Check whether a specific peripheral is connected and return `true` or `false`                                     | No       | IOS         | Yes               |
+| supportsCompanion                            | Check if current device supports companion device manager                                                         | No       | Android     | No                |
+| stopNotification                             | Stop the notification on the specified characteristic                                                             | No       | IOS/Android | No                |
 
-## 遗留问题
+## Known Issues
 
 - [ ] refreshCache 用于清理和刷新蓝牙设备缓存的一部分 [issue#3](https://github.com/react-native-oh-library/react-native-ble-manager/issues/3)
 - [ ] requestConnectionPriority 用于请求蓝牙连接优先级 [issue#4](https://github.com/react-native-oh-library/react-native-ble-manager/issues/4)
 - [ ] startNotificationUseBuffer 用来启动一个带缓冲区的通知服务 [issue#6](https://github.com/react-native-oh-library/react-native-ble-manager/issues/6)
 - [ ] CompanionScan 扫描配套设备[issue#5](https://github.com/react-native-oh-library/react-native-ble-manager/issues/5)
 - [ ] getAssociatedPeripherals 检索相关外围设备（从配套管理器） [issue#7](https://github.com/react-native-oh-library/react-native-ble-manager/issues/7)
-- [ ] removeAssociatedPeripheral 移除相关外围设备  [issue#8](https://github.com/react-native-oh-library/react-native-ble-manager/issues/8)
-- [ ] setName 创建设置蓝牙适配器名称  [issue#9](https://github.com/react-native-oh-library/react-native-ble-manager/issues/9)
+- [ ] removeAssociatedPeripheral 移除相关外围设备 [issue#8](https://github.com/react-native-oh-library/react-native-ble-manager/issues/8)
+- [ ] setName 创建设置蓝牙适配器名称 [issue#9](https://github.com/react-native-oh-library/react-native-ble-manager/issues/9)
 - [ ] supportsCompanion 检查当前设备是否支持配套设备管理器 [issue#10](https://github.com/react-native-oh-library/react-native-ble-manager/issues/10)
 - [ ] stopNotification 停止指定特征的通知 [issue#11](https://github.com/react-native-oh-library/react-native-ble-manager/issues/11)
 - [ ] writeWithoutResponse 写入不响应指定特性 [issue#12](https://github.com/react-native-oh-library/react-native-ble-manager/issues/12)
 - [ ] removeBond 删除已配对的设备 [issue#13](https://github.com/react-native-oh-library/react-native-ble-manager/issues/13)
 - [ ] getMaximumWriteValueLengthForWithoutResponse 用于获取在不带响应的情况下可以写入的最大数据长度 [issue#14](https://github.com/react-native-oh-library/react-native-ble-manager/issues/14)
-- [ ] getMaximumWriteValueLengthForWithResponse 它用于获取在带有响应的情况下可以写入的最大数据长度  [issue#15](https://github.com/react-native-oh-library/react-native-ble-manager/issues/15)
+- [ ] getMaximumWriteValueLengthForWithResponse 它用于获取在带有响应的情况下可以写入的最大数据长度 [issue#15](https://github.com/react-native-oh-library/react-native-ble-manager/issues/15)
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于[The MIT License (MIT)](https://github.com/innoveit/react-native-ble-manager/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under[The MIT License (MIT)](https://github.com/innoveit/react-native-ble-manager/blob/master/LICENSE).
 
 <!-- {% endraw %} -->
-

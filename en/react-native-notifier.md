@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-notifier</code> </h1>
@@ -13,11 +13,11 @@
     </a>
 </p>
 
+> [!TIP] [GitHub address](https://github.com/seniv/react-native-notifier)
 
->[!TIP] [Github 地址](https://github.com/seniv/react-native-notifier)
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 #### **npm**
 
@@ -31,130 +31,134 @@ npm install react-native-notifier@2.0.0
 yarn add react-native-notifier@2.0.0
 ```
 
-
-
-下面的代码展示了这个库的基本使用场景：
-
+The following code shows the basic use scenario of the repository:
 
 ```js
-import * as React from 'react';
-import { View, Text,SafeAreaView,TouchableOpacity } from "react-native";
+import * as React from "react";
+import { View, Text, SafeAreaView, TouchableOpacity } from "react-native";
 
-import {Notifier, NotifierWrapper  } from 'react-native-notifier';
+import { Notifier, NotifierWrapper } from "react-native-notifier";
 
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 export const Notifier = () => {
   return (
- <>
-<SafeAreaView style={{ flex: 1 }}>
- <GestureHandlerRootView style={{ flex: 1 }}>
-   <NotifierWrapper>
-     <TouchableOpacity  
-         style={{
-         alignItems: 'center',
-         borderRadius: 5,
-         marginHorizontal: 10,
-         backgroundColor: '#007BFF',
-         padding: 15,
-         marginTop: 10,
-         marginBottom:10
-         }}
-         onPress={() =>
-         Notifier.showNotification({
-         title: '基本测试',
-         description: '基本测试',
-        })
-    }>
-       <Text >onPress</Text>
-     </TouchableOpacity>
-   </NotifierWrapper>
- </GestureHandlerRootView>
-</SafeAreaView>
- </>
-)
+    <>
+      <SafeAreaView style={{ flex: 1 }}>
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <NotifierWrapper>
+            <TouchableOpacity
+              style={{
+                alignItems: "center",
+                borderRadius: 5,
+                marginHorizontal: 10,
+                backgroundColor: "#007BFF",
+                padding: 15,
+                marginTop: 10,
+                marginBottom: 10,
+              }}
+              onPress={() =>
+                Notifier.showNotification({
+                  title: "basic tests",
+                  description: "basic tests",
+                })
+              }
+            >
+              <Text>onPress</Text>
+            </TouchableOpacity>
+          </NotifierWrapper>
+        </GestureHandlerRootView>
+      </SafeAreaView>
+    </>
+  );
 };
 ```
+
 ## Link
 
-本库 HarmonyOS 侧实现依赖 @react-native-oh-tpl/react-native-gesture-handler 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+The HarmonyOS implementation of this library depends on the native code from @react-native-oh-tpl/react-native-gesture-handler. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly.
 
-如未引入请参照[@react-native-oh-tpl/react-native-gesture-handler 文档](/zh-cn/react-native-gesture-handler.md)进行引入
-## 约束与限制
-### 兼容性
+If it is not included, follow the guide provided in [@react-native-oh-tpl/react-native-gesture-handler](/en/react-native-gesture-handler.md) to add it to your project.
 
-本文档内容基于以下版本验证通过:
+## Constraints
+
+### Compatibility
+
+This document is verified based on the following versions:
 
 1. RNOH: 0.72.28; SDK: HarmonyOS-NEXT-DB1 5.0.0.31; IDE: DevEco Studio 5.0.3.500; ROM: 3.0.0.25;
 
-## 属性
+## Properties
 
-详细请查看 [react-native-notifier 的文档介绍](https://github.com/seniv/react-native-notifier)
+For details, see [react-native-notifier docs](https://github.com/seniv/react-native-notifier)
 
 Both `NotifierWrapper` and `NotifierRoot` receive the same props.
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support  |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| omitGlobalMethodsHookup  | If set to `true`, global `Notifier` methods will not control this component. It's useful in case you have more than one `NotifierWrapper` or `NotifierRoot` rendered. If enabled, the only way to display notifications is using refs. | Boolean  | yes | All      | No |
-| useRNScreensOverlay  | use `FullWindowOverlay` component from `react-native-screens` library. If `true`, Notifier will be rendered above NativeStackNavigation modals and RN Modal on iOS. This Option will work only if `react-native-screens` library is installed. iOS Only. | Boolean  | yes | iOS      | No |
-| rnScreensOverlayViewStyle  | Style that will be used for RN View that is inside of FullWindowOverlay. iOS Only. | ViewStyle  | yes | iOS      | No |
+| Name                      | Description                                                                                                                                                                                                                                              | Type      | Required | Platform | HarmonyOS Support |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------- | -------- | ----------------- |
+| omitGlobalMethodsHookup   | If set to `true`, global `Notifier` methods will not control this component. It's useful in case you have more than one `NotifierWrapper` or `NotifierRoot` rendered. If enabled, the only way to display notifications is using refs.                   | Boolean   | yes      | All      | No                |
+| useRNScreensOverlay       | use `FullWindowOverlay` component from `react-native-screens` library. If `true`, Notifier will be rendered above NativeStackNavigation modals and RN Modal on iOS. This Option will work only if `react-native-screens` library is installed. iOS Only. | Boolean   | yes      | iOS      | No                |
+| rnScreensOverlayViewStyle | Style that will be used for RN View that is inside of FullWindowOverlay. iOS Only.                                                                                                                                                                       | ViewStyle | yes      | iOS      | No                |
 
 ## API
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support  |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| showNotification  | Show notification with params. | Function  | yes | All      | yes |
-| hideNotification  |Hide notification and run callback function when notification completely hidden. | Function  | yes | All      | yes |
-| clearQueue  |Clear [notifications queue](https://github.com/seniv/react-native-notifier/tree/main?tab=readme-ov-file#queue-mode) and optionally hide currently displayed notification. Might be useful to run after logout, after which queued notifications should not be displayed.| Function  | yes | All      | yes |
+| Name             | Description                                                                                                                                                                                                                                                              | Type     | Required | Platform | HarmonyOS Support |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- | -------- | -------- | ----------------- |
+| showNotification | Show notification with params.                                                                                                                                                                                                                                           | Function | yes      | All      | yes               |
+| hideNotification | Hide notification and run callback function when notification completely hidden.                                                                                                                                                                                         | Function | yes      | All      | yes               |
+| clearQueue       | Clear [notifications queue](https://github.com/seniv/react-native-notifier/tree/main?tab=readme-ov-file#queue-mode) and optionally hide currently displayed notification. Might be useful to run after logout, after which queued notifications should not be displayed. | Function | yes      | All      | yes               |
 
 ### `showNotification`
+
 ```
 Notifier.showNotification(params: object);
 ```
 
 `params`
 
-| Name                | Description                                                  | Type     | Required | Platform    | HarmonyOS Support |
-| ------------------- | ------------------------------------------------------------ | -------- | -------- | ----------- | ----------------- |
-| title  | Title of notification. Passed to Component. | String| Yes | All  |Yes  |
-| description |Description of notification. Passed to Component. | String | Yes | All    | Yes    |
-| duration |Time after notification will disappear. Set to 0 to not hide notification automatically  | Number | No |All    | Yes   
-| Component |Component of the notification body. You can use one of the [bin components](https://github.com/seniv/react-native-notifier/tree/main?tab=readme-ov-file#components), or your [custom component](https://github.com/seniv/react-native-notifier/tree/main?tab=readme-ov-file#custom-component).  | Component | No |All    | Yes   
-| componentProps | Additional props that are passed to Component. See all available props of built-in components in the [components section](https://github.com/seniv/react-native-notifier/tree/main?tab=readme-ov-file#components).  | Object | No |All    | Yes   
-| containerStyle |tyles Object or a Function that will receive translateY: Animated.Value as first parameter and should return Styles that will be used in container. Using this parameter it is possible to create[ your own animations of the notification](https://github.com/seniv/react-native-notifier/tree/main?tab=readme-ov-file#custom-animations).   | bool |No | All    | Yes   
-| containerProps | 	Props of Animated Container  | Object |No | All    | Yes  
-| queueMode | Determines the order in which notifications are shown. Read more in the [Queue Mode](https://github.com/seniv/react-native-notifier/tree/main?tab=readme-ov-file#queue-mode) section.  | String |No | All    | Yes  
-| swipeEnabled |Can notification be hidden by swiping it out | bool |No | All    | Yes  
-| animationDuration | How fast notification will appear/disappear | Number |No | All    | Yes  
-| showAnimationDuration | How fast notification will appear.   | Number |No | All    | Yes  
-| hideAnimationDuration	 | How fast notification will disappear.| Number |No | All    | Yes 
-| easing | Animation easing. Details:[easing](https://reactnative.dev/docs/easing)  | Easing |No | All    | Yes   
-| showEasing | Show Animation easing.| Easing |No | All    | Yes   
-| hideEasing |Hide Animation easing. | Easing |No | All    | Yes   
-| onShown | Function called when entering animation is finished | () => void |No | All    | Yes  
-| onStartHiding | Function called when notification started hiding | () => void |No | All    | Yes  
-| onHidden |Function called when notification completely hidden | () => void |No | All    | Yes  
-| onPress | Function called when user press on notification | () => void |No | All    | Yes  
-| hideOnPress | Should notification hide when user press on it| Boolean |No | All    | Yes  
-| swipePixelsToClose	 | How many pixels user should swipe-up notification to dismiss it | Number |No | All    | Yes  
-| swipeEasing	 | Animation easing after user finished swiping | Easing |No | All    | Yes  
-| swipeAnimationDuration	 | How fast should be animation after user finished swiping | Number |No | All    | Yes  
-| translucentStatusBar	 | Add additional top padding that equals to StatusBar.currentHeight. Android Only. | Number |No | Android    | No  
+| Name                   | Description                                                                                                                                                                                                                                                                                                                                 | Type       | Required | Platform | HarmonyOS Support |
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | -------- | -------- | ----------------- |
+| title                  | Title of notification. Passed to Component.                                                                                                                                                                                                                                                                                                 | String     | Yes      | All      | Yes               |
+| description            | Description of notification. Passed to Component.                                                                                                                                                                                                                                                                                           | String     | Yes      | All      | Yes               |
+| duration               | Time after notification will disappear. Set to 0 to not hide notification automatically                                                                                                                                                                                                                                                     | Number     | No       | All      | Yes               |
+| Component              | Component of the notification body. You can use one of the [bin components](https://github.com/seniv/react-native-notifier/tree/main?tab=readme-ov-file#components), or your [custom component](https://github.com/seniv/react-native-notifier/tree/main?tab=readme-ov-file#custom-component).                                              | Component  | No       | All      | Yes               |
+| componentProps         | Additional props that are passed to Component. See all available props of built-in components in the [components section](https://github.com/seniv/react-native-notifier/tree/main?tab=readme-ov-file#components).                                                                                                                          | Object     | No       | All      | Yes               |
+| containerStyle         | tyles Object or a Function that will receive translateY: Animated.Value as first parameter and should return Styles that will be used in container. Using this parameter it is possible to create[ your own animations of the notification](https://github.com/seniv/react-native-notifier/tree/main?tab=readme-ov-file#custom-animations). | bool       | No       | All      | Yes               |
+| containerProps         | Props of Animated Container                                                                                                                                                                                                                                                                                                                 | Object     | No       | All      | Yes               |
+| queueMode              | Determines the order in which notifications are shown. Read more in the [Queue Mode](https://github.com/seniv/react-native-notifier/tree/main?tab=readme-ov-file#queue-mode) section.                                                                                                                                                       | String     | No       | All      | Yes               |
+| swipeEnabled           | Can notification be hidden by swiping it out                                                                                                                                                                                                                                                                                                | bool       | No       | All      | Yes               |
+| animationDuration      | How fast notification will appear/disappear                                                                                                                                                                                                                                                                                                 | Number     | No       | All      | Yes               |
+| showAnimationDuration  | How fast notification will appear.                                                                                                                                                                                                                                                                                                          | Number     | No       | All      | Yes               |
+| hideAnimationDuration  | How fast notification will disappear.                                                                                                                                                                                                                                                                                                       | Number     | No       | All      | Yes               |
+| easing                 | Animation easing. Details:[easing](https://reactnative.dev/docs/easing)                                                                                                                                                                                                                                                                     | Easing     | No       | All      | Yes               |
+| showEasing             | Show Animation easing.                                                                                                                                                                                                                                                                                                                      | Easing     | No       | All      | Yes               |
+| hideEasing             | Hide Animation easing.                                                                                                                                                                                                                                                                                                                      | Easing     | No       | All      | Yes               |
+| onShown                | Function called when entering animation is finished                                                                                                                                                                                                                                                                                         | () => void | No       | All      | Yes               |
+| onStartHiding          | Function called when notification started hiding                                                                                                                                                                                                                                                                                            | () => void | No       | All      | Yes               |
+| onHidden               | Function called when notification completely hidden                                                                                                                                                                                                                                                                                         | () => void | No       | All      | Yes               |
+| onPress                | Function called when user press on notification                                                                                                                                                                                                                                                                                             | () => void | No       | All      | Yes               |
+| hideOnPress            | Should notification hide when user press on it                                                                                                                                                                                                                                                                                              | Boolean    | No       | All      | Yes               |
+| swipePixelsToClose     | How many pixels user should swipe-up notification to dismiss it                                                                                                                                                                                                                                                                             | Number     | No       | All      | Yes               |
+| swipeEasing            | Animation easing after user finished swiping                                                                                                                                                                                                                                                                                                | Easing     | No       | All      | Yes               |
+| swipeAnimationDuration | How fast should be animation after user finished swiping                                                                                                                                                                                                                                                                                    | Number     | No       | All      | Yes               |
+| translucentStatusBar   | Add additional top padding that equals to StatusBar.currentHeight. Android Only.                                                                                                                                                                                                                                                            | Number     | No       | Android  | No                |
 
 ### `hideNotification`
+
 ```
 Notifier.hideNotification(onHiddenCallback?: (result: Animated.EndResult) => void);
 ```
 
 ### `clearQueue`
+
 ```
 Notifier.clearQueue(hideDisplayedNotification?: boolean);
 ```
@@ -170,57 +174,61 @@ By default, `reset` mode is used, which means every new notification clears the 
 In most cases, you will probably use only `reset` or `standby` modes.
 
 All possible modes:
-| Mode                |   Effect                                          |                
-| ------------------- | ------------------------------------ | 
+| Mode | Effect |  
+| ------------------- | ------------------------------------ |
 | reset | Clear notification queue and immediately display the new notification. Used by default.
 | standby | Add notification to the end of the queue.
 | next | Put notification in the first place in the queue. Will be shown right after the current notification disappears.
 | immediate | Similar to next, but also it will hide currently displayed notification.
 
-## 静态方法
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+## Properties
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 ### `NotifierComponents.Notifications`
+
 Currently, there are 2 components out of the box. If none of them fits your needs, then you can easily create your [Custom Component].
 
-| Name | Type | Default |  Description |  Platform | HarmonyOS Support  |
-| ---- | ----------- | ---- |  -------- |  ---- |  -------- | 
-| title  | String | null  | Title of notification. | All | Yes
-| description  | String | null  | Description of notification. | All | Yes
-| componentProps.titleStyle  | TextStyle | null  | The style to use for rendering title. | All | Yes
-| componentProps.descriptionStyle  | TextStyle | null  |The style to use for rendering description. | All | Yes
-| componentProps.imageSource  | Object | null  | Passed to <Image /> as source param. | All | Yes
-| componentProps.imageStyle  | ImageStyle | null  | The style to use for rendering image. | All | Yes
-| componentProps.containerStyle  | ViewStyle | null  | The style to use for notification container. | All | Yes
-| componentProps.ContainerComponent  | Component | SafeAreaView  | A container of the component. Set it in case you use different SafeAreaView than the standard | All | Yes
-| componentProps.maxTitleLines  | number | null  | The maximum number of lines to use for rendering title. | All | Yes
-| componentProps.maxDescriptionLines  | number | null  | The maximum number of lines to use for rendering description. | All | Yes
+| Name                               | Type       | Default      | Description                                                                                   | Platform | HarmonyOS Support |
+| ---------------------------------- | ---------- | ------------ | --------------------------------------------------------------------------------------------- | -------- | ----------------- |
+| title                              | String     | null         | Title of notification.                                                                        | All      | Yes               |
+| description                        | String     | null         | Description of notification.                                                                  | All      | Yes               |
+| componentProps.titleStyle          | TextStyle  | null         | The style to use for rendering title.                                                         | All      | Yes               |
+| componentProps.descriptionStyle    | TextStyle  | null         | The style to use for rendering description.                                                   | All      | Yes               |
+| componentProps.imageSource         | Object     | null         | Passed to <Image /> as source param.                                                          | All      | Yes               |
+| componentProps.imageStyle          | ImageStyle | null         | The style to use for rendering image.                                                         | All      | Yes               |
+| componentProps.containerStyle      | ViewStyle  | null         | The style to use for notification container.                                                  | All      | Yes               |
+| componentProps.ContainerComponent  | Component  | SafeAreaView | A container of the component. Set it in case you use different SafeAreaView than the standard | All      | Yes               |
+| componentProps.maxTitleLines       | number     | null         | The maximum number of lines to use for rendering title.                                       | All      | Yes               |
+| componentProps.maxDescriptionLines | number     | null         | The maximum number of lines to use for rendering description.                                 | All      | Yes               |
 
 ### `NotifierComponents.Alert`
 
-| Name | Type | Default |  Description | Platform | HarmonyOS Support  |
-| ---- | ----------- | ---- |  -------- | ---- |  -------- |
-| title  | String | null  | Title of notification. |  All | Yes
-| description  | String | null  | Description of notification. |  All | Yes
-| componentProps.titleStyle  | TextStyle | null  | The style to use for rendering title. |  All | Yes
-| componentProps.descriptionStyle  | TextStyle | null  |The style to use for rendering description. |  All | Yes
-|componentProps.alertType  | String | 'success'  |Background color will be changed depending on the type. Available values: error(red), success(green), warn(orange) and info(blue). |  All | Yes
-| componentProps.backgroundColor | String | null  | While the background of the alert depends on alertType, you can also set the other color you want. |  All | Yes
-| componentProps.textColor  | String | 'white'  | Color of title and description. |  All | Yes
-| componentProps.ContainerComponent  | Component | SafeAreaView  | A container of the component. Set it in case you use different SafeAreaView than the standard |  All | Yes
-| componentProps.maxTitleLines  | number | null  | The maximum number of lines to use for rendering title. |  All | Yes
-| componentProps.maxDescriptionLines  | number | null  | The maximum number of lines to use for rendering description. | All | Yes
+| Name                               | Type      | Default      | Description                                                                                                                        | Platform | HarmonyOS Support |
+| ---------------------------------- | --------- | ------------ | ---------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------------- |
+| title                              | String    | null         | Title of notification.                                                                                                             | All      | Yes               |
+| description                        | String    | null         | Description of notification.                                                                                                       | All      | Yes               |
+| componentProps.titleStyle          | TextStyle | null         | The style to use for rendering title.                                                                                              | All      | Yes               |
+| componentProps.descriptionStyle    | TextStyle | null         | The style to use for rendering description.                                                                                        | All      | Yes               |
+| componentProps.alertType           | String    | 'success'    | Background color will be changed depending on the type. Available values: error(red), success(green), warn(orange) and info(blue). | All      | Yes               |
+| componentProps.backgroundColor     | String    | null         | While the background of the alert depends on alertType, you can also set the other color you want.                                 | All      | Yes               |
+| componentProps.textColor           | String    | 'white'      | Color of title and description.                                                                                                    | All      | Yes               |
+| componentProps.ContainerComponent  | Component | SafeAreaView | A container of the component. Set it in case you use different SafeAreaView than the standard                                      | All      | Yes               |
+| componentProps.maxTitleLines       | number    | null         | The maximum number of lines to use for rendering title.                                                                            | All      | Yes               |
+| componentProps.maxDescriptionLines | number    | null         | The maximum number of lines to use for rendering description.                                                                      | All      | Yes               |
 
-## 遗留问题
+## Known Issues
 
-- [ ] translucentStatusBar状态栏透明在HarmonyOS不支持,useRNScreensOverlay,rnScreensOverlayViewStyle两个属性依赖于react-native-screens，暂未适配harmonyOS  
+- [ ] translucentStatusBar 状态栏透明在 HarmonyOS 不支持,useRNScreensOverlay,rnScreensOverlayViewStyle 两个 Properties 依赖于 react-native-screens，暂未适配 harmonyOS
 
-## 其他
+## Others
 
-- omitGlobalMethodsHookup源库属性未生效 问题：[issues#102](https://github.com/seniv/react-native-notifier/issues/102) 
-## 开源协议
+- omitGlobalMethodsHookup 源库 Properties 未生效 问题：[issues#102](https://github.com/seniv/react-native-notifier/issues/102)
 
-本项目基于 [The MIT License (MIT)](https://github.com/seniv/react-native-notifier/blob/main/LICENSE) ，请自由地享受和参与开源。
+## License
+
+This project is licensed under [The MIT License (MIT)](https://github.com/seniv/react-native-notifier/blob/main/LICENSE).
+
 <!-- {% endraw %} -->

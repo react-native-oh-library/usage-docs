@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>rn-emoji-keyboard</code> </h1>
@@ -12,15 +12,15 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/rn-emoji-keyboard)
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/rn-emoji-keyboard)
 
-## 安装与使用
+## Installation and Usage
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/rn-emoji-keyboard Releases](https://github.com/react-native-oh-library/rn-emoji-keyboard/releases)，并下载适用版本的 tgz 包。
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/rn-emoji-keyboard Releases](https://github.com/react-native-oh-library/rn-emoji-keyboard/releases).
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
-> [!TIP] # 处替换为 tgz 包的路径
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
@@ -38,11 +38,12 @@ yarn add @react-native-oh-tpl/rn-emoji-keyboard@file:#
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
-> [!TIP] 本示例依赖@react-native-async-storage/async-storage库，参照[@react-native-async-storage/async-storage文档](/zh-cn/react-native-async-storage-async-storage.md)进行引入
+> [!TIP] 本示例依赖@react-native-async-storage/async-storage 库，参照[@react-native-async-storage/async-storage](/en/react-native-async-storage-async-storage.md)进行引入
+
 ```ts
 import React from "react";
 import { StyleSheet, Button, Text } from "react-native";
@@ -139,20 +140,21 @@ const styles = StyleSheet.create({
 });
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/rn-emoji-keyboard Releases](https://github.com/react-native-oh-library/rn-emoji-keyboard/releases)
+Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/rn-emoji-keyboard Releases](https://github.com/react-native-oh-library/rn-emoji-keyboard/releases)
 
-## 属性
-详细请查看 [rn-emoji-keyboard 的文档介绍](https://github.com/TheWidlarzGroup/rn-emoji-keyboard)
+## Properties
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+For details, see [rn-emoji-keyboard docs](https://github.com/TheWidlarzGroup/rn-emoji-keyboard)
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                            | Description                                                                                                                                                                                                                                            | Type                                                                     | Required | Platform    | HarmonyOS Support |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------ | -------- | ----------- | ----------------- |
@@ -215,39 +217,39 @@ const styles = StyleSheet.create({
 
 ### Full list of EmojisByCategory type
 
-| Name  | Description | Type          | Required | Platform    | HarmonyOS Support |
-| ----- | ----------- | ------------- | -------- | ----------- | ----------------- |
-| title | EmojisByCategory  title       | CategoryTypes | yes      | iOS/Android | yes               |
-| data  | EmojisByCategory emoji data        | JsonEmoji[]   | yes      | iOS/Android | yes               |
+| Name  | Description                 | Type          | Required | Platform    | HarmonyOS Support |
+| ----- | --------------------------- | ------------- | -------- | ----------- | ----------------- |
+| title | EmojisByCategory title      | CategoryTypes | yes      | iOS/Android | yes               |
+| data  | EmojisByCategory emoji data | JsonEmoji[]   | yes      | iOS/Android | yes               |
 
 ### Full list of CategoryTypes type
 
-| Name  | Description | Type          | Required | Platform    | HarmonyOS Support |
-| ----- | ----------- | ------------- | -------- | ----------- | ----------------- |
+| Name            | Description        | Type                                                                                                                                                                          | Required | Platform    | HarmonyOS Support |
+| --------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- | ----------------- |
 | `CategoryTypes` | CategoryTypes type | "search" \| "smileys_emotion" \| "people_body" \| "animals_nature" \| "food_drink" \| "travel_places" \| "activities" \| "objects" \| "symbols" \| "flags" \| "recently_used" | no       | iOS/Android | yes               |
 
 ### Full list of JsonEmoji type
 
-| Name        | Description | Type     | Required | Platform    | HarmonyOS Support |
-| ----------- | ----------- | -------- | -------- | ----------- | ----------------- |
-| emoji       | JsonEmoji   emoji      | string   | yes      | iOS/Android | yes               |
-| name        | JsonEmoji     name    | string   | yes      | iOS/Android | yes               |
-| v           | JsonEmoji   version     | string   | yes      | iOS/Android | yes               |
-| toneEnabled | JsonEmoji    toneEnabled     | boolean  | yes      | iOS/Android | yes               |
-| keywords    | JsonEmoji  keywords       | string[] | no      | iOS/Android | yes               |
+| Name        | Description           | Type     | Required | Platform    | HarmonyOS Support |
+| ----------- | --------------------- | -------- | -------- | ----------- | ----------------- |
+| emoji       | JsonEmoji emoji       | string   | yes      | iOS/Android | yes               |
+| name        | JsonEmoji name        | string   | yes      | iOS/Android | yes               |
+| v           | JsonEmoji version     | string   | yes      | iOS/Android | yes               |
+| toneEnabled | JsonEmoji toneEnabled | boolean  | yes      | iOS/Android | yes               |
+| keywords    | JsonEmoji keywords    | string[] | no       | iOS/Android | yes               |
 
 ### Full list of EmojiType type
 
-| Name        | Description | Type     | Required | Platform    | HarmonyOS Support |
-| ----------- | ----------- | -------- | -------- | ----------- | ----------------- |
-| emoji       | EmojiType   emoji      | string   | yes      | iOS/Android | yes               |
-| name        | EmojiType     name    | string   | yes      | iOS/Android | yes               |
-| slug           | EmojiType   slug     | string   | yes      | iOS/Android | yes               |
-| unicode_version | EmojiType   version     | string  | yes      | iOS/Android | yes               |
-| toneEnabled    | EmojiType  toneEnabled       | boolean | yes      | iOS/Android | yes               |
-| alreadySelected    | EmojiType alreadySelected     | boolean | no      | iOS/Android | yes               |
+| Name            | Description               | Type    | Required | Platform    | HarmonyOS Support |
+| --------------- | ------------------------- | ------- | -------- | ----------- | ----------------- |
+| emoji           | EmojiType emoji           | string  | yes      | iOS/Android | yes               |
+| name            | EmojiType name            | string  | yes      | iOS/Android | yes               |
+| slug            | EmojiType slug            | string  | yes      | iOS/Android | yes               |
+| unicode_version | EmojiType version         | string  | yes      | iOS/Android | yes               |
+| toneEnabled     | EmojiType toneEnabled     | boolean | yes      | iOS/Android | yes               |
+| alreadySelected | EmojiType alreadySelected | boolean | no       | iOS/Android | yes               |
 
-## 静态方法
+## Properties
 
 ### useRecentPicksPersistence
 
@@ -266,13 +268,13 @@ Async storage? - sure. Backend as store - no problem. Choose how you want to han
 | `initialization` | This property is used at the very beginning to restore previous state.                                     | Function | yes      | iOS/Android | yes               |
 | `onStateChange`  | This property is used every time when user selects emoji and keyboard has enabled enableRecentlyUsed props | Function | yes      | iOS/Android | yes               |
 
-## 遗留问题
+## Known Issues
 
 - [x] rn-emoji-keyboard 的键盘弹出后回弹默认高度表情键盘无法点击: [issue#1](https://github.com/react-native-oh-library/rn-emoji-keyboard/issues/1)
 - [ ] rn-emoji-keyboard 展开旋钮动画卡顿: [issue#2](https://github.com/react-native-oh-library/rn-emoji-keyboard/issues/2)
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/TheWidlarzGroup/rn-emoji-keyboard/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/TheWidlarzGroup/rn-emoji-keyboard/blob/master/LICENSE).

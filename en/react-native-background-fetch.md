@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-background-fetch</code> </h1>
@@ -13,15 +13,15 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-background-fetch)
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-background-fetch)
 
-## 安装与使用
+## Installation and Usage
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-background-fetch Releases](https://github.com/react-native-oh-library/react-native-background-fetch/releases)，并下载适用版本的 tgz 包。
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-background-fetch Releases](https://github.com/react-native-oh-library/react-native-background-fetch/releases).
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
-> [!TIP] # 处替换为 tgz 包的路径
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
@@ -39,9 +39,9 @@ yarn add @react-native-oh-tpl/react-native-background-fetch@file:#
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React from "react";
@@ -198,17 +198,17 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-## 使用 Codegen
+## Use Codegen
 
-本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/zh-cn/codegen.md)。
+If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/en/codegen.md).
 
 ## Link
 
-目前鸿蒙暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
 
-首先需要使用 DevEco Studio 打开项目里的鸿蒙工程 `harmony`
+Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 在工程根目录的 `oh-package.json5` 添加 overrides 字段
+### Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
 
 ```json
 {
@@ -219,18 +219,15 @@ export default App;
 }
 ```
 
-### 引入原生端代码
+### Introducing Native Code
 
-目前有两种方法：
+Currently, two methods are available:
 
-1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
-2. 直接链接源码。
+Method 1 (recommended): Use the HAR file.
 
-方法一：通过 har 包引入（推荐）
+> [!TIP] The HAR file is stored in the `harmony` directory in the installation path of the third-party library.
 
-> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
+Open `entry/oh-package.json5` file and add the following dependencies:
 
 ```json
 "dependencies": {
@@ -239,22 +236,22 @@ export default App;
   }
 ```
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-方法二：直接链接源码
+Method 2: Directly link to the source code.
 
-> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
-### 在 ArkTs 侧引入 RNBackgroundFetchPackage
+### Introducing RNBackgroundFetchPackage to ArkTS
 
-打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
 
 ```diff
   ...
@@ -268,7 +265,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 在 ArkTs 侧引入 RNBackgroundFetchExtensionAbility
+### Introducing RNBackgroundFetchExtensionAbility to ArkTS
 
 1. 打开 `entry/src/main/ets`，新建目录及 ArkTS 文件，新建一个目录并命名为 WorkSchedulerExtension。在 WorkSchedulerExtension 目录下，新建一个 ArkTS 文件并命名为 WorkSchedulerExtension.ets，用以实现延迟任务回调接口。
 
@@ -277,12 +274,10 @@ import { workScheduler } from "@kit.BackgroundTasksKit";
 import RNBackgroundFetchExtensionAbility from "@react-native-oh-tpl/react-native-background-fetch/src/main/ets/WorkSchedulerExtension/WorkSchedulerExtension";
 
 export default class MyWorkSchedulerExtensionAbility extends RNBackgroundFetchExtensionAbility {
-  // 延迟任务开始回调
   onWorkStart(workInfo: workScheduler.WorkInfo) {
     super.onWorkStart(workInfo);
   }
 
-  // 延迟任务结束回调
   onWorkStop(workInfo: workScheduler.WorkInfo) {
     super.onWorkStop(workInfo);
   }
@@ -305,34 +300,34 @@ export default class MyWorkSchedulerExtensionAbility extends RNBackgroundFetchEx
 }
 ```
 
-### 运行
+### Running
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-然后编译、运行即可。
+Then build and run the code.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-background-fetch Releases](https://github.com/react-native-oh-library/react-native-background-fetch/releases)
+Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-background-fetch Releases](https://github.com/react-native-oh-library/react-native-background-fetch/releases)
 
 ## API
 
 ### BackgroundFetch
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name         | Description                                                                                                                                 | Type     | Params | Required | Platform | HarmonyOS Support |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------ | -------- | -------- | ----------------- |
@@ -422,18 +417,17 @@ BackgroundFetch.status(callback?: (status: BackgroundFetchStatus) => void): Prom
 | `BackgroundFetchStatus.STATUS_DENIED`     | The user explicitly disabled background behavior for this app or for the whole system.                                                                                        | `BackgroundFetchStatus` | yes      | iOS      | no                |
 | `BackgroundFetchStatus.STATUS_AVAILABLE`  | Background fetch is available and enabled.                                                                                                                                    | `BackgroundFetchStatus` | yes      | all      | yes               |
 
-## 遗留问题
+## Known Issues
 
-- [ ] configure 接口部分参数不支持harmonyOS。[issue#2](https://github.com/react-native-oh-library/react-native-background-fetch/issues/2)
-- [ ] scheduleTask 接口部分参数不支持harmonyOS。[issue#4](https://github.com/react-native-oh-library/react-native-background-fetch/issues/4)
+- [ ] configure 接口部分参数不支持 harmonyOS。[issue#2](https://github.com/react-native-oh-library/react-native-background-fetch/issues/2)
+- [ ] scheduleTask 接口部分参数不支持 harmonyOS。[issue#4](https://github.com/react-native-oh-library/react-native-background-fetch/issues/4)
 
-## 其他
+## Others
 
-- iOS可能需要数天的时间才能启动机器学习算法并开始触发常规事件。同时，您应该定期将应用程序带到前台，以使用用户的行为训练iOS机器学习算法。之后iOS才会定期执行任务。
-- Android中，不需要机器算法介入，configure函数可以每15分钟调用一次，scheduleTask可以最低每隔1分钟调用一次。
-- HarmonyOS中，系统会根据内存、功耗、设备温度、用户使用习惯等统一调度，如当系统内存资源不足或温度达到一定挡位时，系统将延迟调度该任务。假如你设置20分钟后执行，第一次任务不一定是20分钟就会执行，有可能十几分钟就执行了，往后的任务得起码2小时以后才会执行，更多详情请查看下面的链接内容。https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/work-scheduler-V5
+- iOS 可能需要数天的时间才能启动机器学习算法并开始触发常规事件。同时，您应该定期将应用程序带到前台，以使用用户的行为训练 iOS 机器学习算法。之后 iOS 才会定期执行任务。
+- Android 中，不需要机器算法介入，configure 函数可以每 15 分钟调用一次，scheduleTask 可以最低每隔 1 分钟调用一次。
+- HarmonyOS 中，系统会根据内存、功耗、设备温度、用户使用习惯等统一调度，如当系统内存资源不足或温度达到一定挡位时，系统将延迟调度该任务。假如你设置 20 分钟后执行，第一次任务不一定是 20 分钟就会执行，有可能十几分钟就执行了，往后的任务得起码 2 小时以后才会执行，更多详情请查看下面的链接内容。https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/work-scheduler-V5
 
+## License
 
-## 开源协议
-
-本项目基于 [The MIT License (MIT)](https://github.com/transistorsoft/react-native-background-fetch/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/transistorsoft/react-native-background-fetch/blob/master/LICENSE).

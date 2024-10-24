@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-quick-base64</code> </h1>
@@ -12,15 +12,15 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-quick-base64)
+> [!TIP] [ GitHub address](https://github.com/react-native-oh-library/react-native-quick-base64)
 
-## 安装与使用
+## Installation and Usage
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-quick-base64 Releases](https://github.com/react-native-oh-library/react-native-quick-base64/releases)，并下载适用版本的 tgz 包。
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-quick-base64 Releases](https://github.com/react-native-oh-library/react-native-quick-base64/releases).
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
-> [!TIP] # 处替换为 tgz 包的路径
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
@@ -38,9 +38,9 @@ yarn add @react-native-oh-tpl/react-native-quick-base64@file:#
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React, { useState } from 'react';
@@ -190,7 +190,7 @@ export function QuickBase64Test() {
   }
 
   /**
-   * @param text 
+   * @param text
    * base64FromArrayBuffer方法接受一个Base64编码的字符串或ArrayBuffer，
    * 以及一个可选的布尔值参数，该参数决定是否生成的Base64字符串是URL安全的。
    * 这个方法将ArrayBuffer对象转换为Base64编码的字符串。
@@ -202,11 +202,11 @@ export function QuickBase64Test() {
     }
   }
 
-  /** 
+  /**
   * @description base64转换Unit8Array 去除换行符
   * @param text
   * @param removeLinebreaks true
-  * 
+  *
   */
   const onPressNBFABUrlSafe = (text: string | ArrayBuffer, urlSafe: boolean = false) => {
     if (nativeModule?.base64FromArrayBuffer) {
@@ -215,13 +215,13 @@ export function QuickBase64Test() {
     }
   }
 
-  /** 
+  /**
    * @description base64转换Unit8Array
    * base64ToArrayBuffer方法接受一个Base64编码的字符串和一个可选的布尔值参数，
    * 该参数决定是否在转换过程中删除换行符。这个方法将Base64编码的字符串转换为ArrayBuffer对象。
    * @param text
    * @param removeLinebreaks 默认值 false
-   * 
+   *
    */
   const onPressNBTAB = (text: string) => {
     if (nativeModule?.base64ToArrayBuffer) {
@@ -230,11 +230,11 @@ export function QuickBase64Test() {
     }
   }
 
-  /** 
+  /**
    * @description base64转换Unit8Array 去除换行符
    * @param text
    * @param removeLinebreaks true
-   * 
+   *
    */
   const onPressNBTABRemoveLinebreaks = (text: string, removeLinebreaks: boolean = false) => {
     if (nativeModule?.base64ToArrayBuffer) {
@@ -421,17 +421,17 @@ const styles = StyleSheet.create({
 });
 ```
 
-## 使用Codegen
+## Use Codegen
 
-本库未带rc.x的版本号是已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/zh-cn/codegen.md)。
+本库未带 rc.x 的版本号是已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/en/codegen.md)。
 
 ## Link
 
-目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
 
-首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
+Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 1.在工程根目录的 `oh-package.json5` 添加 overrides 字段
+### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
 
 ```json
 {
@@ -442,18 +442,15 @@ const styles = StyleSheet.create({
 }
 ```
 
-### 2.引入原生端代码
+### 2. Introducing Native Code
 
-目前有两种方法：
+Currently, two methods are available:
 
-1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
-2. 直接链接源码。
+Method 1 (recommended): Use the HAR file.
 
-方法一：通过 har 包引入（推荐）
+> [!TIP] The HAR file is stored in the `harmony` directory in the installation path of the third-party library.
 
-> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
+Open `entry/oh-package.json5` file and add the following dependencies:
 
 ```json
  "dependencies": {
@@ -463,22 +460,22 @@ const styles = StyleSheet.create({
  }
 ```
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-方法二：直接链接源码
+Method 2: Directly link to the source code.
 
-> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
+> [!TIP] or details, see [Directly Linking Source Code](/en/link-source-code.md).
 
-### 3.配置 CMakeLists 和引入 GestureHandlerPackage
+### 3. Configuring CMakeLists and Introducing GestureHandlerPackage
 
-打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
+Open `entry/src/main/cpp/CMakeLists.txt` and add the following code:
 
 ```diff
 project(rnapp)
@@ -516,7 +513,7 @@ target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 # RNOH_END: manual_package_linking_2
 ```
 
-打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
+Open `entry/src/main/cpp/PackageProvider.cpp` and add the following code:
 
 ```diff
 #include "RNOH/PackageProvider.h"
@@ -533,9 +530,9 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 4.在 ArkTs 侧引入 Gesture Handler Package
+### 4. Introducing Gesture Handler Package to ArkTS
 
-打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
 
 ```diff
 + import { RNQuickBase64Package } from '@react-native-oh-tpl/react-native-quick-base64/ts';
@@ -548,51 +545,50 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 5.运行
+### 5. Running
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-然后编译、运行即可。
+Then build and run the code.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-quick-base64 Releases](https://github.com/react-native-oh-library/react-native-quick-base64/releases)
+Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-quick-base64 Releases](https://github.com/react-native-oh-library/react-native-quick-base64/releases)
 
-> [!TIP] [官方文档](https://github.com/craftzdog/react-native-quick-base64)
+> [!TIP] [Official Documenttation](https://github.com/craftzdog/react-native-quick-base64)
 
-## 静态方法
+## Static Methods
 
-以下是提供的静态方法数据:
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| NAME         | Description                                                             | TYPE | Required | Platform | HarmonyOS Support |
-| ---------------- | --------------------------------------------------------------------------- | ------ | ------ | -------- | -------- |
-| btoa            | Encodes a string in base64.                                               | Function | no | All      | yes      |
-| atob | Decodes a base64 encoded string. | Function | no | All      | yes      |
-| toByteArray | Takes a base64 string and returns a byte array. Optional `removeLinebreaks` removes all `\n` characters. | Function | no | All      | yes      |
-| byteLength | Takes a base64 string and returns length of byte array. | Function | no | All      | yes      |
-| fromByteArray | Takes a byte array and returns a base64 string. Optional `urlSafe` flag `true` will use [the URL-safe dictionary](https://github.com/craftzdog/react-native-quick-base64/blob/9d02dfd02599ca104d2ed6c1e2d938ddd9d6cd15/cpp/base64.h#L75). | Function | no | All      | yes      |
-| shim | Adds `btoa` and `atob` functions to `global`. | Function | no | All      | yes      |
-| trimBase64Padding | Trims the `=` padding character(s) off of the end of a base64 encoded string. Also, for base64url encoded strings, it will trim off the trailing `.` character(s). | Function | no | All      | yes      |
-| getNative | Obtain the native base64ToArrayBuffer and base64FromArrayBuffer functions. | Function | no | All      | yes      |
+| NAME              | Description                                                                                                                                                                                                                               | TYPE     | Required | Platform | HarmonyOS Support |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | ----------------- |
+| btoa              | Encodes a string in base64.                                                                                                                                                                                                               | Function | no       | All      | yes               |
+| atob              | Decodes a base64 encoded string.                                                                                                                                                                                                          | Function | no       | All      | yes               |
+| toByteArray       | Takes a base64 string and returns a byte array. Optional `removeLinebreaks` removes all `\n` characters.                                                                                                                                  | Function | no       | All      | yes               |
+| byteLength        | Takes a base64 string and returns length of byte array.                                                                                                                                                                                   | Function | no       | All      | yes               |
+| fromByteArray     | Takes a byte array and returns a base64 string. Optional `urlSafe` flag `true` will use [the URL-safe dictionary](https://github.com/craftzdog/react-native-quick-base64/blob/9d02dfd02599ca104d2ed6c1e2d938ddd9d6cd15/cpp/base64.h#L75). | Function | no       | All      | yes               |
+| shim              | Adds `btoa` and `atob` functions to `global`.                                                                                                                                                                                             | Function | no       | All      | yes               |
+| trimBase64Padding | Trims the `=` padding character(s) off of the end of a base64 encoded string. Also, for base64url encoded strings, it will trim off the trailing `.` character(s).                                                                        | Function | no       | All      | yes               |
+| getNative         | Obtain the native base64ToArrayBuffer and base64FromArrayBuffer functions.                                                                                                                                                                | Function | no       | All      | yes               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-quick-base64/blob/sig/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-quick-base64/blob/sig/LICENSE).

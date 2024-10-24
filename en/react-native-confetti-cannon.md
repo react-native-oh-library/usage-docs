@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-confetti-cannon</code> </h1>
@@ -13,11 +13,11 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/VincentCATILLON/react-native-confetti-cannon)
+> [!TIP] [ GitHub address](https://github.com/VincentCATILLON/react-native-confetti-cannon)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -35,84 +35,79 @@ yarn add react-native-confetti-cannon@1.5.2
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
 #### Using a Component
 
 ```js
-import * as React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import ConfettiCannon from 'react-native-confetti-cannon';
+import * as React from "react";
+import { StyleSheet, View, Text } from "react-native";
+import ConfettiCannon from "react-native-confetti-cannon";
 
 export default function ConfettiCannonExample() {
-
   return (
-    <View style={{width: '100%', height: '100%'}}>
-      <ConfettiCannon
-        count={50}
-        origin={{x: -10, y: -10}}
-      />
+    <View style={{ width: "100%", height: "100%" }}>
+      <ConfettiCannon count={50} origin={{ x: -10, y: -10 }} />
     </View>
-  )
+  );
 }
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH: 0.72.27; OH SDK: HarmonyOS-Next-DB1 5.0.0.25; IDE: DevEco Studio: 5.0.3.400; ROM: 3.0.0.25;
-2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
+2. RNOH: 0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
-## 属性
+## Properties
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support  |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| count  | items count to display        | number  |    yes    |  iOS,Android,Web  |         yes        |
-| origin  | animation position origin       | {x: number, y: number}  |    yes    |  iOS,Android,Web  |         yes        |
-| explosionSpeed  | explosion duration (ms) from origin to top        | number  |    no    |  iOS,Android,Web  |         yes        |
-| fallSpeed  | fall duration (ms) from top to bottom        | number  |    no    |  iOS,Android,Web  |         yes        |
-| fadeOut  | make the confettis disappear at the end        | boolean  |    no    |  iOS,Android,Web  |         yes        |
-| colors  | give your own colors to the confettis        | string[]  |    no    |  iOS,Android,Web  |         yes        |
-| autoStart  | auto start the animation        | boolean  |    no    |  iOS,Android,Web  |         yes        |
-| autoStartDelay  | delay to wait before triggering animation        | number  |    no    |  iOS,Android,Web  |         yes        |
+| Name           | Description                                | Type                   | Required | Platform        | HarmonyOS Support |
+| -------------- | ------------------------------------------ | ---------------------- | -------- | --------------- | ----------------- |
+| count          | items count to display                     | number                 | yes      | iOS,Android,Web | yes               |
+| origin         | animation position origin                  | {x: number, y: number} | yes      | iOS,Android,Web | yes               |
+| explosionSpeed | explosion duration (ms) from origin to top | number                 | no       | iOS,Android,Web | yes               |
+| fallSpeed      | fall duration (ms) from top to bottom      | number                 | no       | iOS,Android,Web | yes               |
+| fadeOut        | make the confettis disappear at the end    | boolean                | no       | iOS,Android,Web | yes               |
+| colors         | give your own colors to the confettis      | string[]               | no       | iOS,Android,Web | yes               |
+| autoStart      | auto start the animation                   | boolean                | no       | iOS,Android,Web | yes               |
+| autoStartDelay | delay to wait before triggering animation  | number                 | no       | iOS,Android,Web | yes               |
 
+## Event
 
-## 事件
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+| Name              | Description                            | Type     | Required | Platform        | HarmonyOS Support |
+| ----------------- | -------------------------------------- | -------- | -------- | --------------- | ----------------- |
+| onAnimationStart  | callback triggered at animation start  | Function | no       | iOS,Android,Web | yes               |
+| onAnimationResume | callback triggered at animation resume | Function | no       | iOS,Android,Web | yes               |
+| onAnimationStop   | callback triggered at animation stop   | Function | no       | iOS,Android,Web | yes               |
+| onAnimationEnd    | callback triggered at animation end    | Function | no       | iOS,Android,Web | yes               |
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support  |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-|  onAnimationStart  |    callback triggered at animation start	    | Function  |    no    |  iOS,Android,Web  |         yes        |
-|  onAnimationResume  |    callback triggered at animation resume	    | Function  |    no    |  iOS,Android,Web  |         yes        |
-|  onAnimationStop  |    callback triggered at animation stop	    | Function  |    no    |  iOS,Android,Web  |         yes        |
-|  onAnimationEnd  |    callback triggered at animation end	    | Function  |    no    |  iOS,Android,Web  |         yes        |
+## Static Methods
 
-## 静态方法
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+| Name   | Description                           | Type     | Required | Platform        | HarmonyOS Support |
+| ------ | ------------------------------------- | -------- | -------- | --------------- | ----------------- |
+| start  | start the animation programmatically  | Function | no       | iOS,Android,Web | yes               |
+| resume | resume the animation programmatically | Function | no       | iOS,Android,Web | yes               |
+| stop   | stop the animation programmatically   | Function | no       | iOS,Android,Web | yes               |
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support  |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-|  start  |    start the animation programmatically	    | Function  |    no    |  iOS,Android,Web  |         yes        |
-|  resume  |    resume the animation programmatically	    | Function  |    no    |  iOS,Android,Web  |         yes        |
-|  stop  |    stop the animation programmatically	    | Function  |    no    |  iOS,Android,Web  |         yes        |
+## Known Issues
 
-## 遗留问题
+## Others
 
-## 其他
+## License
 
-## 开源协议
-
-本项目基于 [The MIT License (MIT)](https://github.com/VincentCATILLON/react-native-confetti-cannon/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/VincentCATILLON/react-native-confetti-cannon/blob/master/LICENSE).

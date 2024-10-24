@@ -1,6 +1,6 @@
 <!-- {% raw %} -->
 
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-fast-image</code> </h1>
@@ -14,15 +14,15 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-fast-image)
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-fast-image)
 
-## 安装与使用
+## Installation and Usage
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-fast-image Releases](https://github.com/react-native-oh-library/react-native-fast-image/releases)，并下载适用版本的 tgz 包。
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-fast-image Releases](https://github.com/react-native-oh-library/react-native-fast-image/releases).
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
-> [!TIP] # 处替换为 tgz 包的路径
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
@@ -40,9 +40,9 @@ yarn add @react-native-oh-tpl/react-native-fast-image@file:#
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React from "react";
@@ -105,11 +105,11 @@ const styles = StyleSheet.create({
 
 ## Link
 
-目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
 
-首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
+Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 1.在工程根目录的 `oh-package.json5` 添加 overrides 字段
+### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
 
 ```json
 {
@@ -120,18 +120,15 @@ const styles = StyleSheet.create({
 }
 ```
 
-### 2.引入原生端代码
+### 2. Introducing Native Code
 
-目前有两种方法：
+Currently, two methods are available:
 
-1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
-2. 直接链接源码。
+Method 1 (recommended): Use the HAR file.
 
-方法一：通过 har 包引入（推荐）
+> [!TIP] The HAR file is stored in the `harmony` directory in the installation path of the third-party library.
 
-> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
+Open `entry/oh-package.json5` file and add the following dependencies:
 
 ```json
 "dependencies": {
@@ -140,22 +137,22 @@ const styles = StyleSheet.create({
   }
 ```
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-方法二：直接链接源码
+Method 2: Directly link to the source code.
 
-> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
-### 3.配置 CMakeLists 和引入 FastImagePackage
+### 3. Configuring CMakeLists and Introducing FastImagePackage
 
-打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
+Open `entry/src/main/cpp/CMakeLists.txt` and add the following code:
 
 ```diff
 project(rnapp)
@@ -193,7 +190,7 @@ target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 # RNOH_END: manual_package_linking_2
 ```
 
-打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
+Open `entry/src/main/cpp/PackageProvider.cpp` and add the following code:
 
 ```diff
 #include "RNOH/PackageProvider.h"
@@ -212,9 +209,9 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 4.在 ArkTs 侧引入 FastImagePackage
+### 4. Introducing FastImagePackage to ArkTS
 
-打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
 
 ```diff
   ...
@@ -228,69 +225,69 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 5.运行
+### 5. Running
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-然后编译、运行即可。
+Then build and run the code.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-fast-image Releases](https://github.com/react-native-oh-library/react-native-fast-image/releases)
+Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-fast-image Releases](https://github.com/react-native-oh-library/react-native-fast-image/releases)
 
-## 属性
+## Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                           | Description                                                                               | Type             | Required | Platform | HarmonyOS Support |
-| ------------------------------ | ----------------------------------------------------------------------------------------- | ---------------- | -------- | -------- | ----------------- |
-| `source.uri`                   | Source for the remote image to load.                                                      | string           | yes      | All      | yes               |
-| `source.headers?`              | Headers to load the image with. e.g. { Authorization: 'someAuthToken' }.                  | object           | yes      | All      | yes               |
-| `source.priority?`             | loading url priority                                                                      | enum             | no       | All      | no                |
-| `source.cache?`                | setting loading url cache mode                                                            | enum             | no       | All      | no                |
-| `defaultSource?`               | An asset loaded with require(...).                                                        | number           | yes      | All      | yes               |
-| `resizeMode?`                  | loading image for scale mode                                                              | enum             | yes      | All      | yes               |
-| `onLoadStart`                  | Called when the image starts to load.                                                     | function         | yes      | All      | yes               |
-| `onProgress`                   | Called when the image is loading.                                                         | function         | yes      | All      | yes               |
-| `onLoad`                       | Called on a successful image fetch. Called with the width and height of the loaded image. | function         | yes      | All      | yes               |
-| `onError`                      | Called on an image fetching error.                                                        | function         | yes      | All      | yes               |
-| `onLoadEnd`                    | Called when the image finishes loading, whether it was successful or an error.            | function         | yes      | All      | yes               |
-| `tintColor?`                   | If supplied, changes the color of all the non-transparent pixels to the given color.      | number \| string | yes      | All      | yes               |
+| Name               | Description                                                                               | Type             | Required | Platform | HarmonyOS Support |
+| ------------------ | ----------------------------------------------------------------------------------------- | ---------------- | -------- | -------- | ----------------- |
+| `source.uri`       | Source for the remote image to load.                                                      | string           | yes      | All      | yes               |
+| `source.headers?`  | Headers to load the image with. e.g. { Authorization: 'someAuthToken' }.                  | object           | yes      | All      | yes               |
+| `source.priority?` | loading url priority                                                                      | enum             | no       | All      | no                |
+| `source.cache?`    | setting loading url cache mode                                                            | enum             | no       | All      | no                |
+| `defaultSource?`   | An asset loaded with require(...).                                                        | number           | yes      | All      | yes               |
+| `resizeMode?`      | loading image for scale mode                                                              | enum             | yes      | All      | yes               |
+| `onLoadStart`      | Called when the image starts to load.                                                     | function         | yes      | All      | yes               |
+| `onProgress`       | Called when the image is loading.                                                         | function         | yes      | All      | yes               |
+| `onLoad`           | Called on a successful image fetch. Called with the width and height of the loaded image. | function         | yes      | All      | yes               |
+| `onError`          | Called on an image fetching error.                                                        | function         | yes      | All      | yes               |
+| `onLoadEnd`        | Called when the image finishes loading, whether it was successful or an error.            | function         | yes      | All      | yes               |
+| `tintColor?`       | If supplied, changes the color of all the non-transparent pixels to the given color.      | number \| string | yes      | All      | yes               |
 
-## 静态方法
+## Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                                              | Description                                | Type     | Required | Platform | HarmonyOS Support |
-| ------------------------------------------------- | ------------------------------------------ | -------- | -------- | -------- | ----------------- |
-| `FastImage.preload`          | Preload images to display later. e.g.      | function | no       | All      | yes                |
-| `FastImage.clearMemoryCache` | Clear all images from memory cache.        | function | no       | All      | yes                |
-| `FastImage.clearDiskCache`   | Clear all images from disk cache. priority | function | no       | All      | yes                |
+| Name                         | Description                                | Type     | Required | Platform | HarmonyOS Support |
+| ---------------------------- | ------------------------------------------ | -------- | -------- | -------- | ----------------- |
+| `FastImage.preload`          | Preload images to display later. e.g.      | function | no       | All      | yes               |
+| `FastImage.clearMemoryCache` | Clear all images from memory cache.        | function | no       | All      | yes               |
+| `FastImage.clearDiskCache`   | Clear all images from disk cache. priority | function | no       | All      | yes               |
 
-## 遗留问题
+## Known Issues
 
-- [ ] 不支持属性 source.cache.  [issue#57](https://github.com/react-native-oh-library/react-native-fast-image/issues/57)
-- [ ] 不支持属性 source.priority.  [issue#56](https://github.com/react-native-oh-library/react-native-fast-image/issues/56)
+- [ ] 不支持 Properties source.cache. [issue#57](https://github.com/react-native-oh-library/react-native-fast-image/issues/57)
+- [ ] 不支持 Properties source.priority. [issue#56](https://github.com/react-native-oh-library/react-native-fast-image/issues/56)
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/DylanVann/react-native-fast-image/blob/main/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/DylanVann/react-native-fast-image/blob/main/LICENSE).
 
 <!-- {% endraw %} -->

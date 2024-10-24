@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-recaptcha-that-works</code> </h1>
@@ -13,11 +13,11 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/douglasjunior/react-native-recaptcha-that-works)
+> [!TIP] [ GitHub address](https://github.com/douglasjunior/react-native-recaptcha-that-works)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -35,10 +35,10 @@ yarn add react-native-recaptcha-that-works@2.0.0
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
 ```js
-import React, {useRef, useCallback, useState} from 'react';
+import React, { useRef, useCallback, useState } from "react";
 import {
   SafeAreaView,
   StyleSheet,
@@ -47,27 +47,27 @@ import {
   StatusBar,
   Button,
   Alert,
-} from 'react-native';
+} from "react-native";
 
-import Recaptcha, { RecaptchaRef } from 'react-native-recaptcha-that-works';
+import Recaptcha, { RecaptchaRef } from "react-native-recaptcha-that-works";
 
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
   },
   container: {
-    backgroundColor: '#00ff00',
-    justifyContent: 'center',
-    alignItems: 'center',
+    backgroundColor: "#00ff00",
+    justifyContent: "center",
+    alignItems: "center",
     flex: 1,
   },
 });
 
 const App = () => {
-  const size = 'invisible';
-  const [token, setToken] = useState('<none>');
+  const size = "invisible";
+  const [token, setToken] = useState("<none>");
 
-  const $recaptcha = useRef<RecaptchaRef | null>(null);
+  const $recaptcha = (useRef < RecaptchaRef) | (null > null);
 
   const handleOpenPress = useCallback(() => {
     $recaptcha.current?.open();
@@ -97,15 +97,15 @@ const App = () => {
         baseUrl="http://127.0.0.1"
         size={size}
         theme="dark"
-        onLoad={() => Alert.alert('onLoad event')}
-        onClose={() => Alert.alert('onClose event')}
+        onLoad={() => Alert.alert("onLoad event")}
+        onClose={() => Alert.alert("onClose event")}
         onError={(err) => {
-          Alert.alert('onError event');
+          Alert.alert("onError event");
           console.warn(err);
         }}
-        onExpire={() => Alert.alert('onExpire event')}
+        onExpire={() => Alert.alert("onExpire event")}
         onVerify={(token) => {
-          Alert.alert('onVerify event');
+          Alert.alert("onVerify event");
           setToken(token);
         }}
         enterprise={false}
@@ -116,20 +116,20 @@ const App = () => {
 };
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH: 0.72.28; OH SDK: HarmonyOS-Next-DB2 5.0.0.31 (API Version 12 Beta2); IDE: DevEco Studio: 5.0.3.500; ROM: 3.0.0.31;
-2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
+2. RNOH: 0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
-## 属性
+## Properties
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name             | Description                                                                                                                                                                                                                                                                                        | Type                                                                                                       | Required | Platform    | HarmonyOS Support |
 | ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | -------- | ----------- | ----------------- |
@@ -153,21 +153,21 @@ const App = () => {
 | hideBadge        | When `size = 'invisible'`, you are allowed to hide the badge as long as you include the reCAPTCHA branding visibly in the user flow. [See detail](https://developers.google.com/recaptcha/docs/faq#id-like-to-hide-the-recaptcha-badge.-what-is-allowed).                                          | `boolean`                                                                                                  | no       | iOS,Android | yes               |
 | enterprise       | Use the new [reCAPTCHA Enterprise API](https://cloud.google.com/recaptcha-enterprise/docs/using-features). Note: for enterprise you need to choose the `size` [when creating the `siteKey`](https://github.com/douglasjunior/react-native-recaptcha-that-works/issues/55#issuecomment-2107089307). | `boolean` (enterprise)                                                                                     | no       | iOS,Android | yes               |
 
-## 静态方法
+## Static Methods
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name  | Description                | Type       | Required | Platform    | HarmonyOS Support |
 | ----- | -------------------------- | ---------- | -------- | ----------- | ----------------- |
 | open  | Open the reCAPTCHA Modal.  | `function` | no       | iOS,Android | yes               |
 | close | Close the reCAPTCHA Modal. | `function` | no       | iOS,Android | yes               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/douglasjunior/react-native-recaptcha-that-works/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/douglasjunior/react-native-recaptcha-that-works/blob/master/LICENSE).

@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-material-ripple</code> </h1>
@@ -12,12 +12,11 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/n4kz/react-native-material-ripple)
+> [!TIP] [ GitHub address](https://github.com/n4kz/react-native-material-ripple)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
-
+Go to the project directory and execute the following instruction:
 
 #### **npm**
 
@@ -31,7 +30,7 @@ npm install react-native-material-ripple@0.9.1
 yarn add react-native-material-ripple@0.9.1
 ```
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
 ```ts
 import React, { useState } from "react";
@@ -125,21 +124,20 @@ export const MateriaRippleExample = () => {
 };
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH：0.72.27; SDK：HarmonyOS NEXT Developer Beta1 5.0.0.25; IDE：DevEco Studio 5.0.3.400; ROM：3.0.0.25
 2. RNOH：0.72.28; SDK：HarmonyOS NEXT Developer Beta3 5.0.0.36; IDE：DevEco Studio 5.0.3.535; ROM：5.0.0.36
-3. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
-## 属性
+## Properties
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                          | Description                                     | Type     | Required | Platform    | HarmonyOS Support |
 | ----------------------------- | ----------------------------------------------- | -------- | -------- | ----------- | ----------------- |
@@ -154,17 +152,16 @@ export const MateriaRippleExample = () => {
 | `disabled`                    | Ripple should ignore touches(default:false)     | Boolean  | no       | iOS/Android | yes               |
 | `onPressIn`                   | Touch moved in or started callback              | Function | no       | iOS/Android | yes               |
 | `onPressOut`                  | Touch moved out or terminated callback          | Function | no       | iOS/Android | yes               |
-| `onPress`                     | Touch up inside bounds callback                  | Function | no       | iOS/Android | yes               |
+| `onPress`                     | Touch up inside bounds callback                 | Function | no       | iOS/Android | yes               |
 | `onLongPress`                 | Touch delayed after onPressIn callback          | Function | no       | iOS/Android | yes               |
 | `onRippleAnimation`           | Animation start callback                        | Function | no       | iOS/Android | yes               |
 
 Other [TouchableWithoutFeedback](https://facebook.github.io/react-native/docs/touchablewithoutfeedback.html) properties will also work
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The BSD License (BSD)](https://github.com/n4kz/react-native-material-ripple/blob/master/license.txt) ，请自由地享受和参与开源。
-
+This project is licensed under [The BSD License (BSD)](https://github.com/n4kz/react-native-material-ripple/blob/master/license.txt).

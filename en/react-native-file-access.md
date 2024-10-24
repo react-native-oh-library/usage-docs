@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-file-access</code> </h1>
@@ -12,15 +12,15 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-file-access)
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-file-access)
 
-## 安装与使用
+## Installation and Usage
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-file-access Releases](https://github.com/react-native-oh-library/react-native-file-access/releases)，并下载适用版本的 tgz 包。
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-file-access Releases](https://github.com/react-native-oh-library/react-native-file-access/releases).
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
-> [!TIP] # 处替换为 tgz 包的路径
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
@@ -38,9 +38,9 @@ yarn add @react-native-oh-tpl/react-native-file-access@file:#
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 > [!TIP] 以下 demo 中使用的是本地文件。
 
@@ -65,24 +65,20 @@ export function FileAccessDemo() {
   const [concatBeyts, setConcatBeyts] = useState<number>();
   const [dirOrNot, setDirOrNot] = useState<any>('');
 
-  // 将内容写入文件
   const wirteFile = () => {
     FileSystem.writeFile(Dirs.DocumentDir + '/0801' + '/text1.txt', "DDDD", "utf8")
   };
 
-  // 读取文件的内容
   const readFile = () => {
     FileSystem.readFile(Dirs.DocumentDir + "/0801.txt").then((res) => {
       setFileContent(res);
     })
   };
 
-  // 删除文件
   const unlink = () => {
     FileSystem.unlink(Dirs.DocumentDir + '/0812.txt');
   };
 
-  // 创建一个新目录，返回创建目录的路径
   const mkdir = () => {
     FileSystem.mkdir(Dirs.DocumentDir + "/wxwx").then((res) => {
       setMkdirParam(res);
@@ -91,17 +87,14 @@ export function FileAccessDemo() {
     });
   };
 
-  // 移动文件
   const mv = () => {
     FileSystem.mv(Dirs.DocumentDir + "/text.txt", Dirs.DocumentDir + "/text1.txt");
   };
 
-  // 解压一个 zip 档案
   const unzip = () => {
     FileSystem.unzip(Dirs.DocumentDir + "/wxwx.zip", Dirs.DocumentDir);
   };
 
-  // 读取文件元数据
   const stat = () => {
     FileSystem.stat(Dirs.DocumentDir + "/text1.txt").then((res) => {
       setStatInfo(JSON.stringify(res));
@@ -110,7 +103,6 @@ export function FileAccessDemo() {
     })
   };
 
-  // 检查路径是否存在
   const exists = () => {
     FileSystem.exists(Dirs.DocumentDir + "/text1.txt").then((res) => {
       setExists(res);
@@ -119,12 +111,10 @@ export function FileAccessDemo() {
     });
   };
 
-  // 复制文件
   const cp = async () => {
     await FileSystem.cp(Dirs.DocumentDir + "/text1.txt", Dirs.DocumentDir + "/text4.txt")
   };
 
-  // 对文件内容进行哈希处理
   const hash = () => {
     FileSystem.hash(Dirs.DocumentDir + "/text1.txt", 'SHA-256').then((res) => {
       setHashValue(res);
@@ -133,13 +123,11 @@ export function FileAccessDemo() {
     });
   };
 
-  // 检查路径是否是目录
   const isDir = async () => {
     let res = await FileSystem.isDir(Dirs.DocumentDir + '/text1.txt');
     setDirOrNot(res);
   };
 
-  // 列出目录中的文件
   const ls = async () => {
     await FileSystem.ls(Dirs.DocumentDir).then((res) => {
       setLsList(res.join('、'));
@@ -148,7 +136,6 @@ export function FileAccessDemo() {
     });
   };
 
-  // 检查设备可用空间
   const df = async () => {
     await FileSystem.df().then(res => {
       setFreeSize(res?.internal_free);
@@ -156,7 +143,6 @@ export function FileAccessDemo() {
     })
   };
 
-  // 读取目录中所有文件的元数据
   const statDir = () => {
     FileSystem.statDir(Dirs.DocumentDir).then(res => {
       setStatDirInfo(res);
@@ -165,7 +151,6 @@ export function FileAccessDemo() {
     });
   };
 
-  // 读取文件的一大块内容，从位于的字节开始offset，读取length字节
   const readFileChunk = () => {
     FileSystem.readFileChunk(Dirs.DocumentDir + "/text2.txt", 1, 1, 'utf8').then((res) => {
       setReadFileChunkInfo(res);
@@ -174,12 +159,10 @@ export function FileAccessDemo() {
     });
   };
 
-  // 将内容附加到文件
   const appendFile = async () => {
     await FileSystem.appendFile(Dirs.DocumentDir + "/text3.txt", "AAAAAA", 'utf8');
   }
 
-  // 将一个文件附加到另一个文件。返回写入的字节数
   const concatFiles = async () => {
     await FileSystem.concatFiles(Dirs.DocumentDir + "/text3.txt", Dirs.DocumentDir + "/text4.txt").then((res) => {
       setConcatBeyts(res)
@@ -192,106 +175,106 @@ export function FileAccessDemo() {
     <ScrollView>
       <View style={styles.baseArea}>
         <Text style={{ flex: 1 }}>FileAccess.wirteFile()</Text>
-        <Button title="运行" color="#841584" onPress={wirteFile}></Button>
+        <Button title=" Running" color="#841584" onPress={wirteFile}></Button>
       </View>
       <View style={{ height: 'auto', backgroundColor: "#FFF", marginTop: 6 }}>
         <View style={styles.baseArea}>
           <Text style={{ flex: 1 }}>FileAccess.readFile()</Text>
-          <Button title="运行" color="#841584" onPress={readFile}></Button>
+          <Button title=" Running" color="#841584" onPress={readFile}></Button>
         </View>
-        <Text>读取的文件内容：{fileContent}</Text>
+        <Text>read the file contents: {fileContent}</Text>
       </View>
       <View style={styles.baseArea}>
         <Text style={{ flex: 1 }}>FileAccess.unlink()</Text>
-        <Button title="运行" color="#841584" onPress={unlink}></Button>
+        <Button title=" Running" color="#841584" onPress={unlink}></Button>
       </View>
       <View style={{ height: 'auto', backgroundColor: "#FFF", marginTop: 6 }}>
         <View style={styles.baseArea}>
           <Text style={{ flex: 1 }}>FileAccess.mkdir()</Text>
-          <Button title="运行" color="#841584" onPress={mkdir}></Button>
+          <Button title=" Running" color="#841584" onPress={mkdir}></Button>
         </View>
-        <Text>新目录路径：{mkdirParam}</Text>
+        <Text>new directory path: {mkdirParam}</Text>
       </View>
       <View style={styles.baseArea}>
         <Text style={{ flex: 1 }}>FileAccess.mv()</Text>
-        <Button title="运行" color="#841584" onPress={mv}></Button>
+        <Button title=" Running" color="#841584" onPress={mv}></Button>
       </View>
       <View style={{ height: 'auto', backgroundColor: "#FFF", marginTop: 6 }}>
         <View style={styles.baseArea}>
           <Text style={{ flex: 1 }}>FileAccess.stat()</Text>
-          <Button title="运行" color="#841584" onPress={stat}></Button>
+          <Button title=" Running" color="#841584" onPress={stat}></Button>
         </View>
-        <Text>文件信息：{statInfo}</Text>
+        <Text>file information: {statInfo}</Text>
       </View>
       <View style={{ height: 'auto', backgroundColor: "#FFF", marginTop: 6 }}>
         <View style={styles.baseArea}>
           <Text style={{ flex: 1 }}>FileAccess.exists()</Text>
-          <Button title="运行" color="#841584" onPress={exists}></Button>
+          <Button title=" Running" color="#841584" onPress={exists}></Button>
         </View>
-        <Text>文件是否存在：{isExists === '' ? '' : isExists ? '存在' : '不存在'}</Text>
+        <Text>does the file exist: {isExists === '' ? '' : isExists ? 'exist' : 'does not exist'}</Text>
       </View>
       <View style={styles.baseArea}>
         <Text style={{ flex: 1 }}>FileAccess.cp()</Text>
-        <Button title="运行" color="#841584" onPress={cp}></Button>
+        <Button title=" Running" color="#841584" onPress={cp}></Button>
       </View>
       <View style={{ height: 'auto', backgroundColor: "#FFF", marginTop: 6 }}>
         <View style={styles.baseArea}>
           <Text style={{ flex: 1 }}>FileAccess.isDir()</Text>
-          <Button title="运行" color="#841584" onPress={isDir}></Button>
+          <Button title=" Running" color="#841584" onPress={isDir}></Button>
         </View>
-        <Text>是否是目录：{dirOrNot === '' ? '' : dirOrNot ? '是' : '不是'}</Text>
+        <Text>is it a directory: {dirOrNot === '' ? '' : dirOrNot ? 'yes' : 'no'}</Text>
       </View>
       <View style={{ height: 'auto', backgroundColor: "#FFF", marginTop: 6 }}>
         <View style={styles.baseArea}>
           <Text style={{ flex: 1 }}>FileAccess.ls()</Text>
-          <Button title="运行" color="#841584" onPress={ls}></Button>
+          <Button title=" Running" color="#841584" onPress={ls}></Button>
         </View>
-        <Text>目录中的文件：{lsList}</Text>
+        <Text>files in the directory: {lsList}</Text>
       </View>
       <View style={{ height: 'auto', backgroundColor: "#FFF", marginTop: 6 }}>
         <View style={styles.baseArea}>
           <Text style={{ flex: 1 }}>FileAccess.df()</Text>
-          <Button title="运行" color="#841584" onPress={df}></Button>
+          <Button title=" Running" color="#841584" onPress={df}></Button>
         </View>
-        <Text>可用空间：{freeSize ? (freeSize / (1024 * 1024 * 1024)).toFixed(2) : ''}GB</Text>
-        <Text>总空间：{totalSize ? (totalSize / (1024 * 1024 * 1024)).toFixed(2) : ''}GB</Text>
+        <Text>available space: {freeSize ? (freeSize / (1024 * 1024 * 1024)).toFixed(2) : ''}GB</Text>
+        <Text>total space: {totalSize ? (totalSize / (1024 * 1024 * 1024)).toFixed(2) : ''}GB</Text>
       </View>
       <View style={{ height: 'auto', backgroundColor: "#FFF", marginTop: 6 }}>
         <View style={styles.baseArea}>
           <Text style={{ flex: 1 }}>FileAccess.hash()</Text>
-          <Button title="运行" color="#841584" onPress={hash}></Button>
+          <Button title=" Running" color="#841584" onPress={hash}></Button>
         </View>
-        <Text>哈希值：{hashValue}</Text>
+        <Text>hash value: {hashValue}</Text>
       </View>
       <View style={styles.baseArea}>
         <Text style={{ flex: 1 }}>FileAccess.unzip()</Text>
-        <Button title="运行" color="#841584" onPress={unzip}></Button>
+        <Button title=" Running" color="#841584" onPress={unzip}></Button>
       </View>
       <View style={{ height: 'auto', backgroundColor: "#FFF", marginTop: 6 }}>
         <View style={styles.baseArea}>
           <Text style={{ flex: 1 }}>FileAccess.statDir()</Text>
-          <Button title="运行" color="#841584" onPress={statDir}></Button>
+          <Button title=" Running" color="#841584" onPress={statDir}></Button>
         </View>
-        <Text>以下为目录下的文件信息：</Text>
+        <Text>the following is the file information in the directory</Text>
         {statDirInfo.map((item, index) => (<Text key={index}>{JSON.stringify(item)}</Text>))}
       </View>
       <View style={{ height: 'auto', backgroundColor: "#FFF", marginTop: 6 }}>
         <View style={styles.baseArea}>
           <Text style={{ flex: 1 }}>FileAccess.readFileChunk()</Text>
-          <Button title="运行" color="#841584" onPress={readFileChunk}></Button>
+          <Button title=" Running" color="#841584" onPress={readFileChunk}></Button>
         </View>
-        <Text>读取的部分文件内容：{readFileChunkInfo}</Text>
+        <Text>read part of the file content: {readFileChunkInfo}</Text>
       </View>
       <View style={styles.baseArea}>
         <Text style={{ flex: 1 }}>FileAccess.appendFile()</Text>
-        <Button title="运行" color="#841584" onPress={appendFile}></Button>
+        <Button title=" Running" color="#841584" onPress={appendFile}></Button>
       </View>
       <View style={{ height: 'auto', backgroundColor: "#FFF", marginTop: 6 }}>
         <View style={styles.baseArea}>
           <Text style={{ flex: 1 }}>FileAccess.concatFiles()</Text>
-          <Button title="运行" color="#841584" onPress={concatFiles}></Button>
+          <Button title=" Running" color="#841584" onPress={concatFiles}></Button>
         </View>
-        <Text>写入的字节数：{concatBeyts}</Text>
+        <Text>number of bytes written: {concatBeyts}</Text>
       </View>
     </ScrollView>
   );
@@ -318,17 +301,17 @@ const styles = StyleSheet.create({
 
 ```
 
-## 使用 Codegen
+## Use Codegen
 
-本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/zh-cn/codegen.md)。
+If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/en/codegen.md).
 
 ## Link
 
-目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
 
-首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
+Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 1.在工程根目录的 `oh-package.json5` 添加 overrides 字段
+### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
 
 ```
 {
@@ -339,18 +322,15 @@ const styles = StyleSheet.create({
 }
 ```
 
-### 2.引入原生端代码
+### 2. Introducing Native Code
 
-目前有两种方法：
+Currently, two methods are available:
 
-1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
-2. 直接链接源码。
+Method 1 (recommended): Use the HAR file.
 
-方法一：通过 har 包引入
+> [!TIP] The HAR file is stored in the `harmony` directory in the installation path of the third-party library.
 
-> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
+Open `entry/oh-package.json5` file and add the following dependencies:
 
 ```json
 "dependencies": {
@@ -359,22 +339,22 @@ const styles = StyleSheet.create({
   }
 ```
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-方法二：直接链接源码
+Method 2: Directly link to the source code.
 
-> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
-### 3.在 ArkTs 侧引入 RNFileAccessPackage
+### 3. Introducing RNFileAccessPackage to ArkTS
 
-打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
 
 ```diff
   ...
@@ -388,32 +368,32 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 4.运行
+### 4. Running
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-然后编译、运行即可。
+Then build and run the code.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-file-access Releases](https://github.com/react-native-oh-library/react-native-file-access/releases)
+Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-file-access Releases](https://github.com/react-native-oh-library/react-native-file-access/releases)
 
 ## API
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.。
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 #### File System Access API
 
@@ -441,12 +421,12 @@ ohpm install
 | unzip          | Extract a zip archive.                                                                         | Function | No       | iOS/Android | Yes               |
 | writeFile      | Write content to a file.                                                                       | Function | No       | iOS/Android | Yes               |
 
-## 遗留问题
+## Known Issues
 
 - [ ] getAppGroupDir method (Get application directory permissions, iOS, Mac iOS only) This is a dependency problem. Currently, the Harmony side does not provide support. [issue#4](https://github.com/react-native-oh-library/react-native-file-access/issues/4)
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/alpha0010/react-native-file-access/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/alpha0010/react-native-file-access/blob/master/LICENSE).

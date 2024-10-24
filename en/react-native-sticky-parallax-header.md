@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-sticky-parallax-header</code></h1>
@@ -12,15 +12,15 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-sticky-parallax-header)
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-sticky-parallax-header)
 
-## 安装与使用
+## Installation and Usage
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-sticky-parallax-header Releases](https://github.com/react-native-oh-library/react-native-sticky-parallax-header/releases)，并下载适用版本的 tgz 包。
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-sticky-parallax-header Releases](https://github.com/react-native-oh-library/react-native-sticky-parallax-header/releases).
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
-> [!TIP] # 处替换为 tgz 包的路径
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
@@ -38,9 +38,9 @@ yarn add @react-native-oh-tpl/react-native-sticky-parallax-header@file:#
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import * as React from "react";
@@ -139,37 +139,39 @@ const TabbedHeaderPagerExample: React.FC = () => {
   );
 };
 ```
+
 ## Link
 
-本库依赖以下三方库，请查看对应文档：
-+ [@react-native-oh-tpl/react-native-reanimated](/zh-cn/react-native-reanimated.md)
-+ [@react-native-oh-tpl/react-native-safe-area-context](/zh-cn/react-native-safe-area-context.md)
+This repository depends on the following libraries, please refer to the corresponding documentation: 
 
-本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-reanimated的原生端代码，如已在鸿蒙工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+- [@react-native-oh-tpl/react-native-reanimated](/en/react-native-reanimated.md)
+- [@react-native-oh-tpl/react-native-safe-area-context](/en/react-native-safe-area-context.md)
 
-如未引入请参照[@react-native-oh-tpl/react-native-reanimated 文档](/zh-cn/react-native-reanimated.md)、[@react-native-oh-tpl/react-native-safe-area-context 文档](/zh-cn/react-native-safe-area-context.md)进行引入
+The HarmonyOS implementation of this library depends on the native code from @react-native-oh-tpl/react-native-reanimated. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly.
 
-## 约束与限制
+If it is not included, follow the guide provided in [@react-native-oh-tpl/react-native-reanimated](/en/react-native-reanimated.md)、[@react-native-oh-tpl/react-native-safe-area-context ](/en/react-native-safe-area-context.md) to add it to your project.
 
-### 兼容性
+## Constraints
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+### Compatibility
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-sticky-parallax-header Releases](https://github.com/react-native-oh-library/react-native-sticky-parallax-header/releases)，并下载适用版本的 tgz 包。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
+
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-sticky-parallax-header Releases](https://github.com/react-native-oh-library/react-native-sticky-parallax-header/releases).
 
 ## Headers
 
 包含 Tabbed Header Pager、Tabbed Header List、Details Header、Avatar Header、Custom Sticky Header 以及 FlashList Headers 几个大类
 
-### Tabbed Header Pager 组件
+### Tabbed Header Pager components
 
-Tabbed Header Pager 属性
+Tabbed Header Pager Properties
 
 Inherits [ScrollViewProps](https://reactnative.dev/docs/next/scrollview#props)
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                           | Description                             | Type                                                   | Required | Platform    | HarmonyOS Support |
 | ------------------------------ | --------------------------------------- | ------------------------------------------------------ | -------- | ----------- | ----------------- |
@@ -216,21 +218,21 @@ Inherits [ScrollViewProps](https://reactnative.dev/docs/next/scrollview#props)
 | titleStyle                     | 标题文字样式                            | style = StyleProp<TextStyle>                           | no       | iOS/Android | yes               |
 | titleTestID                    | 标题测试 ID                             | string                                                 | no       | iOS/Android | yes               |
 
-### Methods 方法
+### Static Methods
 
 | Name     | Description                             | Type     | Required | Platform    | HarmonyOS Support |
 | -------- | --------------------------------------- | -------- | -------- | ----------- | ----------------- |
 | goToPage | function - (pageNumber: number) => void | function | no       | iOS/Android | no                |
 
-### Tabbed Header List 组件
+### Tabbed Header List components
 
-Tabbed Header List 属性
+Tabbed Header List Properties
 
 Inherits [SectionListProps](https://reactnative.dev/docs/next/sectionlist/#props)
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                           | Description                             | Type                                              | Required | Platform    | HarmonyOS Support |
 | ------------------------------ | --------------------------------------- | ------------------------------------------------- | -------- | ----------- | ----------------- |
@@ -276,28 +278,28 @@ Inherits [SectionListProps](https://reactnative.dev/docs/next/sectionlist/#props
 
 包含 DetailsHeaderScrollView、DetailsHeaderFlatList 以及 DetailsHeaderSectionList 三个组件。
 
-### Details Header ScrollView 组件
+### Details Header ScrollView components
 
-Details Header ScrollView 属性
-Inherits [ScrollViewProps](https://reactnative.dev/docs/next/scrollview#props)及 Shared DetailsHeader props 属性。
+Details Header ScrollView Properties
+Inherits [ScrollViewProps](https://reactnative.dev/docs/next/scrollview#props)及 Shared DetailsHeader props Properties。
 
-### Details Header FlatList 组件
+### Details Header FlatList components
 
-Details Header FlatList 属性
-Inherits [FlatListProps](https://reactnative.dev/docs/next/flatlist#props)及 Shared DetailsHeader props 属性。
+Details Header FlatList Properties
+Inherits [FlatListProps](https://reactnative.dev/docs/next/flatlist#props)及 Shared DetailsHeader props Properties。
 
-### Details Header SectionList 组件
+### Details Header SectionList components
 
-Details Header SectionList 属性
-Inherits [SectionListProps](https://reactnative.dev/docs/next/sectionlist/#props)及 Shared DetailsHeader props 属性。
+Details Header SectionList Properties
+Inherits [SectionListProps](https://reactnative.dev/docs/next/sectionlist/#props)及 Shared DetailsHeader props Properties。
 
-### Shared DetailsHeader props 属性
+### Shared DetailsHeader props Properties
 
-DetailsHeaderScrollView、DetailsHeaderFlatList 以及 DetailsHeaderSectionList 三个组件共享属性。
+DetailsHeaderScrollView、DetailsHeaderFlatList 以及 DetailsHeaderSectionList 三个组件共享 Properties。
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                           | Description                             | Type                                                  | Required | Platform    | HarmonyOS Support |
 | ------------------------------ | --------------------------------------- | ----------------------------------------------------- | -------- | ----------- | ----------------- |
@@ -349,28 +351,28 @@ DetailsHeaderScrollView、DetailsHeaderFlatList 以及 DetailsHeaderSectionList 
 
 包含 AvatarHeaderScrollView、AvatarHeaderFlatList 以及 AvatarHeaderSectionList 三个组件。
 
-### Avatar Header ScrollView 组件
+### Avatar Header ScrollView components
 
-Avatar Header ScrollView 属性
-Inherits [ScrollViewProps](https://reactnative.dev/docs/next/scrollview#props)及 Shared AvatarHeader props 属性。
+Avatar Header ScrollView Properties
+Inherits [ScrollViewProps](https://reactnative.dev/docs/next/scrollview#props)及 Shared AvatarHeader props Properties。
 
-### Avatar Header FlatList 组件
+### Avatar Header FlatList components
 
-Avatar Header FlatList 属性
-Inherits [FlatListProps](https://reactnative.dev/docs/next/flatlist#props)及 Shared AvatarHeader props 属性。
+Avatar Header FlatList Properties
+Inherits [FlatListProps](https://reactnative.dev/docs/next/flatlist#props)及 Shared AvatarHeader props Properties。
 
-### Avatar Header SectionList 组件
+### Avatar Header SectionList components
 
-Avatar Header SectionList 属性
-Inherits [SectionListProps](https://reactnative.dev/docs/next/sectionlist/#props)及 Shared AvatarHeader props 属性。
+Avatar Header SectionList Properties
+Inherits [SectionListProps](https://reactnative.dev/docs/next/sectionlist/#props)及 Shared AvatarHeader props Properties。
 
-### Shared AvatarHeader props 属性
+### Shared AvatarHeader props Properties
 
-AvatarHeaderScrollView、AvatarHeaderFlatList 以及 AvatarHeaderSectionList 三个组件共享属性。
+AvatarHeaderScrollView、AvatarHeaderFlatList 以及 AvatarHeaderSectionList 三个组件共享 Properties。
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                           | Description                             | Type                                                  | Required | Platform    | HarmonyOS Support |
 | ------------------------------ | --------------------------------------- | ----------------------------------------------------- | -------- | ----------- | ----------------- |
@@ -415,28 +417,28 @@ AvatarHeaderScrollView、AvatarHeaderFlatList 以及 AvatarHeaderSectionList 三
 
 包含 StickyHeaderScrollView、StickyHeaderFlatList 以及 StickyHeaderSectionList 三个组件。
 
-### Sticky Header ScrollView 组件
+### Sticky Header ScrollView components
 
-Sticky Header ScrollView 属性
-Inherits [ScrollViewProps](https://reactnative.dev/docs/next/scrollview#props)及 Shared StickyHeader props 属性。
+Sticky Header ScrollView Properties
+Inherits [ScrollViewProps](https://reactnative.dev/docs/next/scrollview#props)及 Shared StickyHeader props Properties。
 
-### Sticky Header FlatList 组件
+### Sticky Header FlatList components
 
-Sticky Header FlatList 属性
-Inherits [FlatListProps](https://reactnative.dev/docs/next/flatlist#props)及 Shared StickyHeader props 属性。
+Sticky Header FlatList Properties
+Inherits [FlatListProps](https://reactnative.dev/docs/next/flatlist#props)及 Shared StickyHeader props Properties。
 
-### Sticky Header SectionList 组件
+### Sticky Header SectionList components
 
-Avatar Header SectionList 属性
-Inherits [SectionListProps](https://reactnative.dev/docs/next/sectionlist/#props)及 Shared StickyHeader props 属性。
+Avatar Header SectionList Properties
+Inherits [SectionListProps](https://reactnative.dev/docs/next/sectionlist/#props)及 Shared StickyHeader props Properties。
 
-### Shared StickyHeader props 属性
+### Shared StickyHeader props Properties
 
-StickyHeaderScrollView、StickyHeaderFlatList 以及 StickyHeaderSectionList 三个组件共享属性。
+StickyHeaderScrollView、StickyHeaderFlatList 以及 StickyHeaderSectionList 三个组件共享 Properties。
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                  | Description                         | Type                                              | Required | Platform    | HarmonyOS Support |
 | --------------------- | ----------------------------------- | ------------------------------------------------- | -------- | ----------- | ----------------- |
@@ -458,27 +460,27 @@ StickyHeaderScrollView、StickyHeaderFlatList 以及 StickyHeaderSectionList 三
 
 ### Avatar Header FlashList 组件
 
-Avatar Header FlashList 属性
-Inherits [FlashListProps](https://shopify.github.io/flash-list/docs/usage/)及 Shared AvatarHeader props 属性。
+Avatar Header FlashList Properties
+Inherits [FlashListProps](https://shopify.github.io/flash-list/docs/usage/)及 Shared AvatarHeader props Properties。
 
 ### Details Header FlashList 组件
 
-Details Header FlashList 属性
-Inherits [FlashListProps](https://shopify.github.io/flash-list/docs/usage/)及 Shared DetailsHeader props 属性。
+Details Header FlashList Properties
+Inherits [FlashListProps](https://shopify.github.io/flash-list/docs/usage/)及 Shared DetailsHeader props Properties。
 
 ### Tabbed Header FlashList 组件
 
-Tabbed Header FlashList 属性
-Inherits [FlashListProps](https://shopify.github.io/flash-list/docs/usage/)及 Tabbed Header List props 属性。
+Tabbed Header FlashList Properties
+Inherits [FlashListProps](https://shopify.github.io/flash-list/docs/usage/)及 Tabbed Header List props Properties。
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-- [ ] 原库TabbedHeaderPager组件部分属性不生效[issue#415](https://github.com/netguru/sticky-parallax-header/issues/415)
-- [ ] 原库DetailHeader、AvatarHeader组件部分属性不生效 [issue#416](https://github.com/netguru/sticky-parallax-header/issues/416)
-- [ ] 原库ref.current.goToPage方法不存在 [issue#412](https://github.com/netguru/sticky-parallax-header/issues/412)
+- [ ] 原库 TabbedHeaderPager 组件部分 Properties 不生效[issue#415](https://github.com/netguru/sticky-parallax-header/issues/415)
+- [ ] 原库 DetailHeader、AvatarHeader 组件部分 Properties 不生效 [issue#416](https://github.com/netguru/sticky-parallax-header/issues/416)
+- [ ] 原库 ref.current.goToPage 方法不存在 [issue#412](https://github.com/netguru/sticky-parallax-header/issues/412)
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/netguru/sticky-parallax-header/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/netguru/sticky-parallax-header/blob/master/LICENSE).

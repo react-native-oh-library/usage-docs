@@ -457,9 +457,9 @@ Check the release version information in the release address of the third-party 
 
 ### Permission Requirements
 
-由于此库涉及语音识别会使用到系统录音功能，使用时需要配置对应的权限，权限需配置在 entry/src 目录下 module.json5 和 entry/src/main/resources/base/element 目录下 string.json 文件
+Due to the fact that this library involves speech recognition and will use the system recording function, corresponding permissions need to be configured when using it. The permissions need to be configured in the module.json file in the entry/src/main directory and in the stringjson file in the entry/src/main/resources/base/element directory
 
-打开 `module.json5`，添加：
+open `module.json5`，add：
 
 ```diff
 ...
@@ -478,7 +478,7 @@ Check the release version information in the release address of the third-party 
     ]
 ```
 
-打开 `string.json`，添加权限申请原因：
+open `string.json`，Reason for adding permission request：
 
 ```diff
 ...
@@ -504,14 +504,14 @@ Check the release version information in the release address of the third-party 
 
 | Name                                 | Description                                                                                                                                                           | Type              | Required | Platform     | HarmonyOS Support |
 | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | -------- | ------------ | ----------------- |
-| Voice.isAvailable()                  | Checks whether a speech recognition service is available on the system.                                                                                               | Promise<0 \| 1>   | no       | Android, iOS | yes               |
-| Voice.start(locale)                  | Starts listening for speech for a specific locale. Returns null if no error occurs.                                                                                   | Promise<unknown>  | no       | Android, iOS | yes               |
-| Voice.stop()                         | Stops listening for speech. Returns null if no error occurs.                                                                                                          | Promise<unknown>  | no       | Android, iOS | yes               |
-| Voice.cancel()                       | Cancels the speech recognition. Returns null if no error occurs.                                                                                                      | Promise<unknown>  | no       | Android, iOS | yes               |
-| Voice.destroy()                      | Destroys the current SpeechRecognizer instance. Returns null if no error occurs.                                                                                      | Promise<unknown>  | no       | Android, iOS | yes               |
-| Voice.removeAllListeners()           | Cleans/nullifies overridden Voice static methods.                                                                                                                     | void              | no       | Android, iOS | yes               |
-| Voice.isRecognizing()                | Return if the SpeechRecognizer is recognizing.                                                                                                                        | Promise<0 \| 1>   | no       | Android, iOS | yes               |
-| Voice.getSpeechRecognitionServices() | Returns a list of the speech recognition engines available on the device. (Example: ['com.google.android.googlequicksearchbox'] if Google is the only one available.) | Promise<string[]> | no       | Android      | no                |
+| isAvailable()：Promise<isAvailable:<0 \| 1 >    | Checks whether a speech recognition service is available on the system.                                                                                               | function   | no       | Android, iOS | yes               |
+| start(locale)(locale: any, options = {})：Promise<unknown> | Starts listening for speech for a specific locale. Returns null if no error occurs.                                                                                   | function | no       | Android, iOS | yes               |
+| stop()：Promise<unknown>    | Stops listening for speech. Returns null if no error occurs.                                                                                                          | function  | no       | Android, iOS | yes               |
+| cancel()：Promise<unknown>    | Cancels the speech recognition. Returns null if no error occurs.                                                                                                      | function  | no       | Android, iOS | yes               |
+| destroy()：Promise<unknown>     | Destroys the current SpeechRecognizer instance. Returns null if no error occurs.                                                                                      | function  | no       | Android, iOS | yes               |
+| removeAllListeners()| Cleans/nullifies overridden Voice static methods.                                                                                                                     | void              | no       | Android, iOS | yes               |
+| isRecognizing()：Promise<isRecognizing:<0 \| 1 > | Return if the SpeechRecognizer is recognizing.                                                                                                                        |function   | no       | Android, iOS | yes               |
+| getSpeechRecognitionServices() | Returns a list of the speech recognition engines available on the device. (Example: ['com.google.android.googlequicksearchbox'] if Google is the only one available.) | function | no       | Android      | no                |
 
 ## 事件回调
 

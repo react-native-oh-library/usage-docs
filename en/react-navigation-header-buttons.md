@@ -128,6 +128,16 @@ export function UsageWithIcons({ navigation }) {
 }
 ```
 
+## LINK
+
+This repository depends on the following libraries, please refer to the corresponding documentation: 
+
+- [@react-navigation/native](/en/react-navigation-native.md)
+- [@react-navigation/elements](/en/react-navigation-elements.md)
+- [@react-native-oh-library/react-native-safe-area-context](/en/react-native-safe-area-context.md)
+
+If the library has been imported to the Harmony project, you do not need to import it again. If the library has not been imported, see @react-navigation/native Document、@react-navigation/elements Document、@react-native-oh-library/react-native-safe-area-context Document. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly.
+
 ## Constraints
 
 ### Compatibility

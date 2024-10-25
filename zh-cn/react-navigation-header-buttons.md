@@ -125,6 +125,16 @@ export function UsageWithIcons({ navigation }) {
 }
 ```
 
+## Link
+
+本库依赖以下三方库，请查看对应文档：
+
+- [@react-navigation/native](/zh-cn/react-navigation-native.md)
+- [@react-navigation/elements](/zh-cn/react-navigation-elements.md)
+- [@react-native-oh-library/react-native-safe-area-context](/zh-cn/react-native-safe-area-context.md)
+
+如已在鸿蒙工程中引入过该库，则无需再次引入，未引入请参照[@react-navigation/native 文档](/zh-cn/react-navigation-native.md)、[@react-navigation/elements 文档](/zh-cn/react-navigation-elements.md)、[@react-native-oh-library/react-native-safe-area-context 文档](/zh-cn/react-native-safe-area-context.md)进行引入 
+
 ## 约束与限制
 
 ### 兼容性

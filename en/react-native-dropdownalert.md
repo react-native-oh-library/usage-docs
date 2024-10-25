@@ -391,9 +391,9 @@ DropdownAlert 是 DropdownAlert 库导出的核心组件，定义了弹框所有
 | titleNumberOfLines               | 弹窗标题的最大行数，                                                                                         | number                         | no           | All      | yes               |
 | messageNumberOfLines             | 弹窗正文的最大行数，超过则省略                                                                               | number                         | no           | All      | yes               |
 | elevation                        | 高度                                                                                                         | number                         | no           | All      | yes               |
-| zIndex                           | z 轴的值，类型                                                                                               | number                         | no           | All      | yes               |
+| zIndex                           | z 轴的值，类型                                                                                               | number                         | no           | All      | no                |
 | panResponderDismissDistance      | 下滑弹窗消失距离                                                                                             | number                         | no           | All      | yes               |
-| animatedViewStyle                | DropAlert 对象内部的 animatedView 样式                                                                       | ViewStyle                      | no           | All      | yes               |
+| animatedViewStyle                | DropAlert 对象内部的 animatedView 样式                                                                       | ViewStyle                      | no           | All      | no                |
 | alertViewStyle                   | DropAlert 对象内部的 alertViewStyle 样式                                                                     | ViewStyle                      | no           | All      | yes               |
 | safeViewStyle                    | DropAlert 对象内部的 safeView 样式                                                                           | ViewStyle                      | no           | All      | yes               |
 | textViewStyle                    | DropAlert 对象内部的 textView 样式                                                                           | ViewStyle                      | no           | All      | yes               |
@@ -410,7 +410,7 @@ DropdownAlert 是 DropdownAlert 库导出的核心组件，定义了弹框所有
 | showCancel                       | 是否显示弹窗的 cancel 模块                                                                                   | boolean                        | no           | All      | yes               |
 | onDismissPressDisabled           | 是否允许通过点击关闭弹窗                                                                                     | boolean                        | no           | All      | yes               |
 | panResponderEnabled              | 是否允许通过向下滑动关闭弹窗，仅在 alertPosition 为“bottom”时生效                                            | boolean                        | no           | All      | yes               |
-| translucent                      | 是否半透明                                                                                                   | boolean                        | no           | All      | yes               |
+| translucent                      | 是否半透明                                                                                                   | boolean                        | no           | All      | no                |
 | updateStatusBar                  | 是否更新状态栏                                                                                               | boolean                        | no           | All      | yes               |
 | activeStatusBarStyle             | 弹框出现时，将状态栏置为设置的样式，需要配合 updateStatusBar=true 才生效                                     | StatusBarStyle                 | no           | Android  | yes               |
 | inactiveStatusBarStyle           | 弹框消失时，将状态栏置为设置的样式，需要配合 updateStatusBar=true 才生效                                     | StatusBarStyle                 | no           | Android  | yes               |
@@ -436,6 +436,10 @@ DropdownAlert 是 DropdownAlert 库导出的核心组件，定义了弹框所有
 ## 遗留问题
 
 ## 其他
+
+- DropdownAlert 组件的 animatedViewStyle 属性不生效，设置之后弹窗变为黑色，与 iOS/Android 一致 [issue#314](https://github.com/testshallpass/react-native-dropdownalert/issues/314)
+- DropdownAlert 组件的 zindex 属性不生效，层级关系并未体现，与 iOS/Android 一致 [issue#315](https://github.com/testshallpass/react-native-dropdownalert/issues/315)
+- DropdownAlert 组件的 translucent 属性不生效，没有显示出状态栏半透明的效果，与 Android 一致 [issue#316](https://github.com/testshallpass/react-native-dropdownalert/issues/316)
 
 ## 开源协议
 

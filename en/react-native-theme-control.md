@@ -44,7 +44,6 @@ The following code shows the basic use scenario of the repository:
 
 ```js
 import * as React from 'react';
-
 import { Text, useColorScheme, View } from 'react-native';
 import {
     setThemePreference,
@@ -63,11 +62,8 @@ export function SimpleScreen() {
     const textColor = isDarkMode ? 'white' : 'black';
     const barsBackground = isDarkMode ? '#9900F0' : '#A0BCC2';
     const dividerColor = textColor;
-
     const textColorStyle = { color: textColor };
-
     const values: Array<ThemePreference> = ['light', 'dark', 'system'];
-
     return (
         <View
     style={{
@@ -167,7 +163,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 4.在 entry/src/main/ets/abilityStage 新建 MyAbilityStage.ets
+### 4. Add the `MyAbilityStage.ets` in `entry/src/main/ets/abilityStage` 
 
 Open the `entry/src/main/ets/abilityStage/MyAbilityStage.ets` file and add the following code:
 
@@ -194,7 +190,7 @@ export default class MyAbilityStage extends AbilityStage {
 }
 ```
 
-### 5.在 entry/src/main/ets/entryability/EntryAbility.ets 配置生命周期调用
+### 5. Open the `entry/src/main/ets/entryability/EntryAbility.ets` file and add the following code:
 
 Open the `entry/src/main/ets/abilityStage/MyAbilityStage.ets` file and add the following code:
 
@@ -202,7 +198,7 @@ Open the `entry/src/main/ets/abilityStage/MyAbilityStage.ets` file and add the f
 + import {RNAbility} from 'rnoh';
 + import Want from '@ohos.app.ability.Want';
 + import { RNThemeControlModule } from '@react-native-oh-tpl/react-native-theme-control';
-
+    .....
 +  export default class EntryAbility extends RNAbility {
 +    onCreate(want: Want): void {
 +    super.onCreate(want);
@@ -212,6 +208,22 @@ Open the `entry/src/main/ets/abilityStage/MyAbilityStage.ets` file and add the f
     return 'pages/Index';
   }
 }
+```
+Open the `entry/src/main/module.json5` file and add the following code：
+```diff
+"module": {
+    "name": "entry",
++   "srcEntry": "./ets/abilityStage/MyAbilityStage.ets",
+    "type": "entry",
+    .....
+    
+"abilities": [
+  {
+    "name": "EntryAbility",
+     .....
+     "visible": true,
++    "recoverable": true,
+     .....
 ```
 
 ### 6. Running
@@ -241,13 +253,16 @@ Check the release version information in the release address of the third-party 
 
 > [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                    | Description                         | Type     | Required | Platform    | HarmonyOS Support |
-| ----------------------- | ----------------------------------- | -------- | -------- | ----------- | ----------------- |
-| getThemePreference      | Get Theme Preferences               | function | No       | IOS/Android | yes               |
-| setNavbarAppearance     | Set Navigation Bar Appearance       | function | No       | IOS/Android | yes               |
-| setAppBackground        | Set the background color of the app | function | No       | IOS/Android | yes               |
-| setTheme                | Set Theme                           | function | No       | IOS/Android | yes               |
-| recoverApplicationTheme | Restoring Theme Storage             | function | No       | IOS/Android | yes               |
+| Name                | Description                                                                                                                                                | Type       | Required | Platform     | HarmonyOS Support |
+|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|----------|--------------|-------------------|
+| SystemBars          | Setting the System Status Bar                                                                                                                              | Components | No       | IOS/Android  | Yes               |
+| NavigationBar       | Setting the Navigation Bar                                                                                                                                 | Components | No       | Android      | No                |
+| AppBackground       | Sets the background color of the UIApplication window (iOS) or the current Activity (Android).                                                             | Components | No       | IOS/Android  | Yes               |
+| setNavbarAppearance | Set the appearance of the navigation bar imperatively                                                                                                      | Function   | No       | IOS/Android  | Yes               |
+| setAppBackground    | Set background color                                                                                                                                       | Function   | No       | IOS/Android  | Yes               |
+| setThemePreference  | Set the theme                                                                                                                                              | Function   | No       | IOS/Android  | Yes               |
+| getThemePreference  | Get Subject                                                                                                                                                | Function   | No       | IOS/Android  | Yes               |
+| useThemePreference  | A React hook that returns the current theme preference, which might be dark, light (if you have set the theme before by calling setAppearance) or system.  | Function   | No       | IOS/Android  | Yes               |
 
 ## Known Issues
 

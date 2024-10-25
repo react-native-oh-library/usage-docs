@@ -46,7 +46,6 @@ yarn add @react-native-oh-tpl/react-native-theme-control@file:#
 
 ```js   
 import * as React from 'react';
-
 import { Text, useColorScheme, View } from 'react-native';
 import {
     setThemePreference,
@@ -65,11 +64,8 @@ export function SimpleScreen() {
     const textColor = isDarkMode ? 'white' : 'black';
     const barsBackground = isDarkMode ? '#9900F0' : '#A0BCC2';
     const dividerColor = textColor;
-
     const textColorStyle = { color: textColor };
-
     const values: Array<ThemePreference> = ['light', 'dark', 'system'];
-
     return (
         <View
     style={{
@@ -200,7 +196,7 @@ export default class MyAbilityStage extends AbilityStage {
 ```
 ### 5.在 entry/src/main/ets/entryability/EntryAbility.ets  配置生命周期调用 
 
-打开 `entry/src/main/ets/abilityStage/MyAbilityStage.ets`，添加：
+打开 `entry/src/main/ets/entryability/EntryAbility.ets`，添加：
 ```diff
 + import {RNAbility} from 'rnoh';
 + import Want from '@ohos.app.ability.Want';
@@ -215,6 +211,22 @@ export default class MyAbilityStage extends AbilityStage {
     return 'pages/Index';
   }
 }
+```
+打开 `entry/src/main/module.json5`，添加：
+```diff
+"module": {
+    "name": "entry",
++   "srcEntry": "./ets/abilityStage/MyAbilityStage.ets",
+    "type": "entry",
+    .....
+    
+"abilities": [
+  {
+    "name": "EntryAbility",
+     .....
+     "visible": true,
++    "recoverable": true,
+     .....
 ```
 
 ### 6.运行
@@ -248,13 +260,16 @@ ohpm install
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name                    | Description                         | Type      | Required | Platform     | HarmonyOS Support |
-|-------------------------|-------------------------------------|-----------|----------|--------------|-------------------|
-| getThemePreference      | Get Theme Preferences               | function  | No       | IOS/Android  | yes               |
-| setNavbarAppearance     | Set Navigation Bar Appearance       | function  | No       | IOS/Android  | yes               |
-| setAppBackground        | Set the background color of the app | function  | No       | IOS/Android  | yes               |
-| setTheme                | Set Theme                           | function  | No       | IOS/Android  | yes               |
-| recoverApplicationTheme | Restoring Theme Storage             | function  | No       | IOS/Android  | yes               |
+| Name                | Description                                                                                                                                                | Type       | Required | Platform     | HarmonyOS Support |
+|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|----------|--------------|-------------------|
+| SystemBars          | Setting the System Status Bar                                                                                                                              | Components | No       | IOS/Android  | Yes               |
+| NavigationBar       | Setting the Navigation Bar                                                                                                                                 | Components | No       | Android      | No                |
+| AppBackground       | Sets the background color of the UIApplication window (iOS) or the current Activity (Android).                                                             | Components | No       | IOS/Android  | Yes               |
+| setNavbarAppearance | Set the appearance of the navigation bar imperatively                                                                                                      | Function   | No       | IOS/Android  | Yes               |
+| setAppBackground    | Set background color                                                                                                                                       | Function   | No       | IOS/Android  | Yes               |
+| setThemePreference  | Set the theme                                                                                                                                              | Function   | No       | IOS/Android  | Yes               |
+| getThemePreference  | Get Subject                                                                                                                                                | Function   | No       | IOS/Android  | Yes               |
+| useThemePreference  | A React hook that returns the current theme preference, which might be dark, light (if you have set the theme before by calling setAppearance) or system.  | Function   | No       | IOS/Android  | Yes               |
 
 ## 遗留问题
 

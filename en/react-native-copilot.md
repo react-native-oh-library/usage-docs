@@ -226,7 +226,8 @@ If it is not included, follow the guide provided in [@react-native-oh-tpl/react-
 
 This document is verified based on the following versions:
 
-RNOH：0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.25; IDE：DevEco Studio 5.0.3.400SP7; ROM：3.0.0.25;
+1. RNOH：0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.25; IDE：DevEco Studio 5.0.3.400SP7; ROM：3.0.0.25;
+2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 ## Properties
 
@@ -236,19 +237,47 @@ For details, see [react-native-copilot](https://github.com/mohebifar/react-nativ
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name            | Description                       | Type     | Required | Platform    | HarmonyOS Support |
-| --------------- | --------------------------------- | -------- | -------- | ----------- | ----------------- |
-| CopilotProps    | Prompt Style Properties           | type     | no       | Android/iOS | yes               |
-| TooltipProps    | Prompt Tool Properties            | type     | no       | Android/iOS | yes               |
-| CopilotProvider | Custom Tooltip Styles             | function | no       | Android/iOS | yes               |
-| CopilotStep     | Customizing Component Step Styles | function | no       | Android/iOS | yes               |
-| DefaultUI       | Default UI Attributes             | object   | no       | Android/iOS | yes               |
-| useCopilot      | Use Prompt Style                  | function | no       | Android/iOS | yes               |
-| walkthroughable | Wrappable Components              | function | no       | Android/iOS | yes               |
+| Name            | Description                       | Type         | Required | Platform    | HarmonyOS Support |
+| --------------- | --------------------------------- | ------------ | -------- | ----------- | ----------------- |
+| CopilotProps    | Prompt Style Properties           | CopilotProps | no       | Android/iOS | partially         |
+| TooltipProps    | Prompt Tool Properties            | TooltipProps | no       | Android/iOS | yes               |
+| CopilotProvider | Custom Tooltip Styles             | function     | no       | Android/iOS | yes               |
+| CopilotStep     | Customizing Component Step Styles | function     | no       | Android/iOS | yes               |
+| DefaultUI       | Default UI Attributes             | object       | no       | Android/iOS | yes               |
+| useCopilot      | Use Prompt Style                  | function     | no       | Android/iOS | yes               |
+| walkthroughable | Wrappable Components              | function     | no       | Android/iOS | yes               |
+
+### CopilotProps
+
+| Name                    | Description                   | Type                                                                    | Required | Platform    | HarmonyOS Support |
+| ----------------------- | ----------------------------- | ----------------------------------------------------------------------- | -------- | ----------- | ----------------- |
+| easing                  | The animation display will be smoother            | ((value: number) => number) \| undefined                                | no       | Android/iOS | yes               |
+| overlay                 | Use SVG or View to execute animations | "svg" \| "view"                                                         | no       | Android/iOS | yes               |
+| animationDuration       | Animation execution time                  | number                                                                  | no       | Android/iOS | yes               |
+| tooltipComponent        | 可自定义 tooltip 组件         | React.ComponentType\<TooltipProps\>                                     | no       | Android/iOS | yes               |
+| tooltipStyle            | Customizable tooltip components                | ViewStyle                                                               | no       | Android/iOS | yes               |
+| stepNumberComponent     | Customizable step component            | React.ComponentType\<any\>                                              | no       | Android/iOS | yes               |
+| animated                | Do you want to enable animation                  | boolean                                                                 | no       | Android/iOS | yes               |
+| labels                  | Text of step button                | Partial\<Record\<"skip" \| "previous" \| "next" \| "finish", string\>\> | no       | Android/iOS | yes               |
+| androidStatusBarVisible | Show or hide the StatusBar          | boolean                                                                 | no       | Android     | no                |
+| svgMaskPath             | Custom Modal Box                  | Function                                                                | no       | Android/iOS | yes               |
+| verticalOffset          | The offset of the modal box distance element        | number                                                                  | no       | Android/iOS | yes               |
+| arrowColor              | The color of the arrow                    | string                                                                  | no       | Android/iOS | yes               |
+| arrowSize               | The position of the arrow                    | number                                                                  | no       | Android/iOS | yes               |
+| margin                  | The distance between two modal boxes            | number                                                                  | no       | Android/iOS | yes               |
+| stopOnOutsideClick      | Call stop when clicking on the mask           | boolean                                                                 | no       | Android/iOS | yes               |
+| backdropColor           | The color of the external background                    | string                                                                  | no       | Android/iOS | yes               |
+
+### TooltipProps
+
+| Name         | Description    | Type                                                                    | Required | Platform    | HarmonyOS Support |
+| ------------ | -------------- | ----------------------------------------------------------------------- | -------- | ----------- | ----------------- |
+| TooltipProps | Text of step button | Partial\<Record\<"skip" \| "previous" \| "next" \| "finish", string\>\> | no       | Android/iOS | yes               |
 
 ## Known Issues
 
 ## Others
+- The androidStatusBarVisible property is invalid on HarmonyOS. This property is used to calculate the position of the modal box even after hiding the Status Bar on Android. However, when HarmonyOS hides the Status Bar, its height is 0, so this property is invalid on HarmonyOS.
 
 ## License
 

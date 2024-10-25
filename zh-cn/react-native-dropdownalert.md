@@ -390,7 +390,7 @@ DropdownAlert 是 DropdownAlert 库导出的核心组件，定义了弹框所有
 | dismissInterval                  | 弹窗自动消失的时间毫秒值                                                                                     | number                         | no           | All      | yes               |
 | titleNumberOfLines               | 弹窗标题的最大行数，                                                                                         | number                         | no           | All      | yes               |
 | messageNumberOfLines             | 弹窗正文的最大行数，超过则省略                                                                               | number                         | no           | All      | yes               |
-| elevation                        | 高度                                                                                                         | number                         | no           | All      | yes               |
+| elevation                        | 高度                                                                                                         | number                         | no           | All      | no                |
 | zIndex                           | z 轴的值，类型                                                                                               | number                         | no           | All      | no                |
 | panResponderDismissDistance      | 下滑弹窗消失距离                                                                                             | number                         | no           | All      | yes               |
 | animatedViewStyle                | DropAlert 对象内部的 animatedView 样式                                                                       | ViewStyle                      | no           | All      | no                |
@@ -406,7 +406,7 @@ DropdownAlert 是 DropdownAlert 库导出的核心组件，定义了弹框所有
 | onDismissCancel                  | 弹窗关闭触发的函数，支持的关闭方式为点击 cancel                                                              | function                       | no           | All      | yes               |
 | onDismissPress                   | 弹窗关闭触发的函数，支持的关闭方式为点击弹窗                                                                 | function                       | no           | All      | yes               |
 | onDismissPanResponder            | 弹窗关闭触发的函数，支持的关闭方式为向下滑动，仅在 alertPosition 为“bottom”时生效                            | function                       | no           | All      | yes               |
-| onDismissProgrammatic            | 弹窗关闭触发的函数，支持的关闭方式为程序式关闭，也是默认的值，如果非上面四种关闭方式，则默认触发此关闭函数。 | function                       | no           | All      | yes               |
+| onDismissProgrammatic            | 弹窗关闭触发的函数，支持的关闭方式为程序式关闭，也是默认的值，如果非上面四种关闭方式，则默认触发此关闭函数。 | function                       | no           | All      | no                |
 | showCancel                       | 是否显示弹窗的 cancel 模块                                                                                   | boolean                        | no           | All      | yes               |
 | onDismissPressDisabled           | 是否允许通过点击关闭弹窗                                                                                     | boolean                        | no           | All      | yes               |
 | panResponderEnabled              | 是否允许通过向下滑动关闭弹窗，仅在 alertPosition 为“bottom”时生效                                            | boolean                        | no           | All      | yes               |
@@ -440,6 +440,7 @@ DropdownAlert 是 DropdownAlert 库导出的核心组件，定义了弹框所有
 - DropdownAlert 组件的 animatedViewStyle 属性不生效，设置之后弹窗变为黑色，与 iOS/Android 一致 [issue#314](https://github.com/testshallpass/react-native-dropdownalert/issues/314)
 - DropdownAlert 组件的 zindex 属性不生效，层级关系并未体现，与 iOS/Android 一致 [issue#315](https://github.com/testshallpass/react-native-dropdownalert/issues/315)
 - DropdownAlert 组件的 translucent 属性不生效，没有显示出状态栏半透明的效果，与 Android 一致 [issue#316](https://github.com/testshallpass/react-native-dropdownalert/issues/316)
+- DropdownAlert 组件绑定的 onDismissProgrammatic 函数无法触发，与 iOS/Android 一致 [issue#317](https://github.com/testshallpass/react-native-dropdownalert/issues/317)
 
 ## 开源协议
 

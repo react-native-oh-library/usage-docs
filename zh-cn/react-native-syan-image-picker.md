@@ -180,7 +180,7 @@ SyanImagePicker.openVideoPicker(options, (err, videos) => {
 
 ### 2.配置Entry
 
-**(1)在 entry/src/main/ets/entryability 下创建 ImageCropAbility.ets.ets**
+**(1)在 entry/src/main/ets/entryability 下创建 ImageCropAbility.ets**
 
 ```
 import UIAbility from '@ohos.app.ability.UIAbility'
@@ -188,7 +188,7 @@ import window from '@ohos.window'
 
 const TAG = 'ImageEditAbility';
 
-export default class ImageCropAbility.ets extends UIAbility {
+export default class ImageCropAbility extends UIAbility {
 
   onWindowStageCreate(windowStage: window.WindowStage) {
     this.setWindowOrientation(windowStage, window.Orientation.PORTRAIT)
@@ -234,7 +234,7 @@ export default class ImageCropAbility.ets extends UIAbility {
 ```
 "abilities":[{
         "name": "ImageCropAbility.ets",
-        "srcEntry": "./ets/entryability/ImageCropAbility.ets.ets",
+        "srcEntry": "./ets/entryability/ImageCropAbility.ets",
         "description": "$string:EntryAbility_desc",
         "icon": "$media:icon",
         "startWindowIcon": "$media:startIcon",

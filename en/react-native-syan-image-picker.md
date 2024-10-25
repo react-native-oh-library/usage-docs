@@ -186,7 +186,7 @@ import window from '@ohos.window'
 
 const TAG = 'ImageEditAbility';
 
-export default class ImageCropAbility.ets extends UIAbility {
+export default class ImageCropAbility extends UIAbility {
 
   onWindowStageCreate(windowStage: window.WindowStage) {
     this.setWindowOrientation(windowStage, window.Orientation.PORTRAIT)
@@ -232,7 +232,7 @@ export default class ImageCropAbility.ets extends UIAbility {
 ```
 "abilities":[{
         "name": "ImageCropAbility.ets",
-        "srcEntry": "./ets/entryability/ImageCropAbility.ets.ets",
+        "srcEntry": "./ets/entryability/ImageCropAbility.ets",
         "description": "$string:EntryAbility_desc",
         "icon": "$media:icon",
         "startWindowIcon": "$media:startIcon",

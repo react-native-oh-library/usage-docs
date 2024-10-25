@@ -1024,8 +1024,8 @@ ohpm install
 | smartAlbums (iOS only)                 | array ([supported values](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Fivpusic%2Freact-native-image-crop-picker%2Fblob%2Fmaster%2FREADME.md%23smart-album-types-ios)) (default ['UserLibrary', 'PhotoStream', 'Panoramas', 'Videos', 'Bursts']) | List of smart albums to choose from                          | no       | iOS   | no       |
 | useFrontCamera                            | bool (default false)                                         | Whether to default to the front/'selfie' camera when opened. Please note that not all Android devices handle this parameter, see [issue #1058](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Fivpusic%2Freact-native-image-crop-picker%2Fissues%2F1058) | no       | All      | yes      |
 | compressVideoPreset (iOS only)         | string (default MediumQuality)                               | Choose which preset will be used for video compression       | no       | iOS   | no       |
-| compressImageMaxWidth                     | number (default none)                                        | Compress image with maximum width                            | no       | All      | yes      |
-| compressImageMaxHeight                    | number (default none)                                        | Compress image with maximum height                           | no       | All      | yes      |
+| compressImageMaxWidth                     | number (default none)                                        | Compress image with maximum width                            | no       | All      | no      |
+| compressImageMaxHeight                    | number (default none)                                        | Compress image with maximum height                           | no       | All      | no      |
 | compressImageQuality                      | number (default 1 (Android)/0.8 (iOS))                       | Compress image with quality (from 0 to 1, where 1 is best quality). On iOS, values larger than 0.8 don't produce a noticeable quality increase in most images, while a value of 0.8 will reduce the file size by about half or less compared to a value of 1. | no       | All      | yes      |
 | loadingLabelText (iOS only)            | string (default "Processing assets...")                      | Text displayed while photo is loading in picker              | no       | iOS   | no      |
 | mediaType                                 | string (default any)                                         | Accepted mediaType for image selection, can be one of: 'photo', 'video', or 'any' | no       | All      | yes      |
@@ -1059,6 +1059,7 @@ ohpm install
 - [ ] 使用multiple选项时无法设置是否显示选中的资产数量 [#40](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/40)
 - [ ] photoAccessHelper选取完成之后没有loading过渡动画效果 [#45](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/45)
 - [ ] @ohos.multimedia.image无法进行圆形效果裁切 [#46](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/46)
+- [ ] @ohos.multimedia.image中PackingOption无法设置宽高属性 [#47](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/47)
 
 ## 其他
 

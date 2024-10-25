@@ -94,6 +94,7 @@ If it is not included, follow the guide provided in [@react-native-oh-tpl/react-
 This document is verified based on the following versions:
 
 1. RNOH: 0.72.27; SDK: HarmonyOS-NEXT-DB1 5.0.0.25; IDE: DevEco Studio 5.0.3.400SP7; ROM: 3.0.0.29;
+2. RNOH: 0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 ## Properties
 
@@ -103,6 +104,7 @@ This document is verified based on the following versions:
 
 |          Name           |                                                                                         Description                                                                                         |              Type               | Required |  Platform   | HarmonyOS Support |
 | :---------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------: | :------: | :---------: | :---------------: |
+|        duration         |                                                                                Countdown duration in seconds                                                                                |             number              |   Yes    | Android/iOS |        Yes        |
 |         colors          |                      colors prop is either:(Single valid color in any format or URL to a gradient;Array of colors in HEX format. At least 2 colors should be provided)                      |       `string & string[]`       |    No    | Android/iOS |        Yes        |
 |       colorsTime        | Indicates the time when a color should switch to the next color. The first number is the countdown duration and the last one is 0 or goal. Works only when colors is an array of HEX colors |            number[]             |    No    | Android/iOS |        Yes        |
 |        isPlaying        |                                                                                   Play or pause animation                                                                                   |             boolean             |    No    | Android/iOS |        Yes        |

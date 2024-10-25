@@ -40,6 +40,7 @@ yarn add @react-native-oh-tpl/mixpanel-react-native@file:#
 下面的代码展示了这个库的基本使用场景：
 
 > [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] 代码使用的 token值 需要在[ mixpanel 官网](https://mixpanel.com)上的项目设置中获取，事件发送后需要在[ mixpanel 官网](https://mixpanel.com)的项目分析中查看相应的数据
 
 ```js
 import React from 'react';

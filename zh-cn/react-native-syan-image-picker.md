@@ -233,7 +233,7 @@ export default class ImageCropAbility extends UIAbility {
 
 ```
 "abilities":[{
-        "name": "ImageCropAbility.ets",
+        "name": "ImageCropAbility",
         "srcEntry": "./ets/entryability/ImageCropAbility.ets",
         "description": "$string:EntryAbility_desc",
         "icon": "$media:icon",

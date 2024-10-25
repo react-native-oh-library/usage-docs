@@ -227,11 +227,11 @@ export default class ImageCropAbility extends UIAbility {
 }
 ```
 
-**(2)egister ImageCropAbility.ets in entry/src/main/module.json5.**
+**(2)Register ImageCropAbility.ets in entry/src/main/module.json5.**
 
 ```
 "abilities":[{
-        "name": "ImageCropAbility.ets",
+        "name": "ImageCropAbility",
         "srcEntry": "./ets/entryability/ImageCropAbility.ets",
         "description": "$string:EntryAbility_desc",
         "icon": "$media:icon",

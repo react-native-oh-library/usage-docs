@@ -357,15 +357,14 @@ ohpm install
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name                                | Description                                    | Type      | Required | Platform   | HarmonyOS Support                     |
-|-------------------------------------|------------------------------------------------|-----------| -------- |------------|---------------------------------------|
-| removeCookieByName(cookieName)      | remove Cookies by cookieName                   | function  | No       | All        | yes                                   |
-| getCookies(domain)                  | query cookies by domain                        | function  | No       | All        | yes                                   |
-| fetch(hostname, options, callback)  | Initiate a fetch request with the certificate. | function  | No       | All        | 1:目前只支持key-value格式 2：文件格式存在bug，还在解决   |
+| Name                                | Description                                    | Type      | Required | Platform   | HarmonyOS Support |
+|-------------------------------------|------------------------------------------------|-----------| -------- |------------|-------------------|
+| removeCookieByName(cookieName)      | remove Cookies by cookieName                   | function  | No       | All        | yes               |
+| getCookies(domain)                  | query cookies by domain                        | function  | No       | All        | yes               |
+| fetch(hostname, options, callback)  | Initiate a fetch request with the certificate. | function  | No       | All        | yes               |
 
 
 ## 遗留问题
-- [ ] fetch接口，目前文件上传还不支持 [issue#1](https://github.com/react-native-oh-library/react-native-ssl-pinning/issues/4)
 
 ## 其他
 

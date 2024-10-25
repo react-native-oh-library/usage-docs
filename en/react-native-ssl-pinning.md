@@ -12,7 +12,7 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-ssl-pinning)
+> [!TIP] [Github address](https://github.com/react-native-oh-library/react-native-ssl-pinning)
 
 ## Installation and Usage
 
@@ -236,7 +236,7 @@ export default SslPingDemo;
 
 ## Use Codegen
 
-If this repository has been adapted to Codegen, generate the bridge code of the third-party library by using the Codegen. For details, see Codegen Usage Guide.
+this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/en/codegen.md).
 
 ## Link
 
@@ -283,7 +283,7 @@ ohpm install
 
 Method 2: Directly link to the source code.
 
-> [!TIP] For details, see [Directly Linking Source Code.](/zh-cn/link-source-code.md)
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
 ### 3.Introducing SslPinningPackage Package to ArkTS
 
@@ -323,9 +323,9 @@ Check the release version information in the release address of the third-party 
 
 ### Permission Requirements
 
-#### 在 entry 目录下的module.json5中添加权限
+#### Add permissions to the module.json5 file in the entry directory.
 
-打开 `entry/src/main/module.json5`，添加：
+Open entry/src/main/module.json5 and add the following information:
 
 ```diff
 ...
@@ -342,15 +342,14 @@ Check the release version information in the release address of the third-party 
 
 > [!tip] If the value of HarmonyOS Support is yes, it means that the HarmonyOS platform supports this property; no means the opposite; partially means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                                | Description                                    | Type      | Required | Platform   | HarmonyOS Support                     |
-|-------------------------------------|------------------------------------------------|-----------| -------- |------------|---------------------------------------|
-| removeCookieByName(cookieName)      | remove Cookies by cookieName                   | function  | No       | All        | yes                                   |
-| getCookies(domain)                  | query cookies by domain                        | function  | No       | All        | yes                                   |
-| fetch(hostname, options, callback)  | Initiate a fetch request with the certificate. | function  | No       | All        | 1:目前只支持key-value格式 2：文件格式存在bug，还在解决   |
+| Name                                | Description                                    | Type      | Required | Platform   | HarmonyOS Support |
+|-------------------------------------|------------------------------------------------|-----------| -------- |------------|-------------------|
+| removeCookieByName(cookieName)      | remove Cookies by cookieName                   | function  | No       | All        | yes               |
+| getCookies(domain)                  | query cookies by domain                        | function  | No       | All        | yes               |
+| fetch(hostname, options, callback)  | Initiate a fetch request with the certificate. | function  | No       | All        | yes               |
 
 
 ## Known Issues
-- [ ] fetch interface, file upload is not supported at present. [issue#1](https://github.com/react-native-oh-library/react-native-ssl-pinning/issues/4)
 
 ## Others
 

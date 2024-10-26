@@ -312,7 +312,6 @@ ohpm install
 
 ## 遗留问题
 
-- [ ] Realm-js库的get_synchronized_realm、sync_session、get_latest_subscription_set方法问题：目前暂不能使用，需要依赖的realm-core三方库提供后再做支持。[issue#1](https://github.com/react-native-oh-library/realm-js/issues/1)
 - [ ] realm-js库目前只能在root后的手机上使用。[issue#2](https://github.com/react-native-oh-library/realm-js/issues/2)
 
 ## 其他

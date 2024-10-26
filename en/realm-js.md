@@ -125,7 +125,7 @@ function TaskApp() {
 
 ## Use Codegen
 
-If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/zh-cn/codegen.md).
+If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/en/codegen.md).
 
 ## Link
 
@@ -173,7 +173,7 @@ ohpm install
 
 Method 2: Directly link to the source code.
 
-> [!TIP] For details, see [Directly Linking Source Code](/zh-cn/link-source-code.md).
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
 ### 3. Configuring CMakeLists and Introducing RealmPackage Package
 
@@ -313,7 +313,7 @@ Check the release version information in the release address of the third-party 
 | writeCopyTo(config): void | Writes a compacted copy of the Realm with the given configuration | function |No | All | Yes |
 
 ## Known Issues
-- [ ] Problem with the get_synchronized_realm, sync_session and get_latest_subscription_set methods in the Realm-js library: Currently unavailable, support will need to be provided by the dependent realm-core third-party library before implementation. [issue#1](https://github.com/react-native-oh-library/realm-js/issues/1)
+
 - [ ] The realm-js library can currently only be used on rooted phones. [issue#2](https://github.com/react-native-oh-library/realm-js/issues/2)
 
 ## Others

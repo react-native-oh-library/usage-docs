@@ -280,31 +280,35 @@ ohpm install
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- |-------- | -------- | ------------------ |
 | useRealm() | Returns the instance of the Realm opened by the `RealmProvider` | function  |No       | All      | Yes      |
-| useObject(type, primaryKey) | Returns a Realm.Object from a given type and value of primary key | function  |No       | All      | Yes      |
-| useQuery() | Returns a Realm.Collection of Realm.Objects from a given type. | function  |No       | All      | Yes      |
-| useUser() | Hook to access the currently authenticated Realm user from the UserProvider context. | function  |No | All | Yes |
-| useAuth() | Hook providing operations and corresponding state for authenticating with an Atlas App. | function  |No | All | Yes |
-| logIn(credentials) | Log in with a Realm.Credentials instance. This allows login with any authentication mechanism supported by Realm. | function  |No | All | Yes |
-| logInWithAnonymous() | Log in with the Anonymous authentication provider | function  |No | All | Yes |
-| logInWithApiKey(key) | Log in with an API key. | function  |No | All | Yes |
-| logInWithEmailPassword(credentials) | Log in with Email / Password. | function  |No | All | Yes |
-| logInWithJWT(credentials) | Log in with a JSON Web Token (JWT). | function  |No | All | Yes |
-| logInWithGoogle(credentials) | Log in with Google. | function  |No | All | Yes |
-| logInWithApple(idToken) | Log in with Apple. | function  |No | All | Yes |
-| logInWithFacebook(accessToken) | Log in with Facebook. | function  |No | All | Yes |
-| logInWithFunction(payload) | Log in with a custom function. | function  |No | All | Yes |
-| logOut() | Log out the current user. | function  |No | All | Yes |
-| useEmailPasswordAuth() | Hook providing operations and corresponding state for authenticating with an Atlas App with Email/Password. | function  |No | All | Yes |
-| logIn(credentials) | Convenience function to log in a user with an email and password - users. | function  |No | All | Yes |
-| logOut() | Log out the current user. | function  |No | All | Yes |
-| register(args) | Register a new user. | function  |No | All | Yes |
-| Confirm(args) | Confirm a user's account by providing the `token` and `tokenId` received. | function  |No | All | Yes |
-| resendConfirmationEmail(args) | Resend a user's confirmation email. | function  |No | All | Yes |
-| retryCustomConfirmation(args) | Retry the custom confirmation function for a given user. | function  |No | All | Yes |
-| sendResetPasswordEmail(args) | Send a password reset email for a given user. | function  |No | All | Yes |
-| resetPassword(args) | Complete resetting a user's password. | function  |No | All | Yes |
-| callResetPasswordFunction(args, restArgs) | Call the configured password reset function, passing in any additional arguments to the function. | function  |No | All | Yes |
-| useApp() | Hook to access the current Realm.App from the AppProvider context. | function  |No | All | Yes |
+| useQuery() | Returns a Realm.Collection of Realm.Objects from a given type | function  |No       | All      | Yes      |
+| new Realm(): Realm | Create a new Realm instance, at the default path | function  |No | All | Yes |
+| new Realm(path): Realm | Create a new Realm instance at the provided path | function  |No | All | Yes |
+| new Realm(config): Realm | Create a new Realm instance using the provided  config | function  |No | All | Yes |
+| setLogLevel(level, category?): void | Sets the log level | function  |No | All | Yes |
+| shutdown(): void | Closes all Realms, cancels all pendingRealm.open calls, clears internal caches, resets the logger and collects garbage. | function  |No | All | Yes |
+| exists(path:): boolean | Checks if the Realm already exists on disk | function  |No | All | Yes |
+| exists(config): boolean | Checks if the Realm already exists on disk | function  |No | All | Yes |
+| deleteFile(config): void | Delete the Realm file for the given configuration | function  |No | All | Yes |
+| open(): ProgressRealmPromise | Open the default Realm asynchronously with a promise | function  |No | All | Yes |
+| open(path): ProgressRealmPromise | Open a Realm asynchronously with a promise | function  |No | All | Yes |
+| open(config): ProgressRealmPromise | Open a Realm asynchronously with a promise | function  |No | All | Yes |
+| isEmpty(): boolean | Indicates if this Realm contains any objects                 | function  |No | All | Yes |
+| path(): string | The path to the file where this Realm is stored | function  |No | All | Yes |
+| isReadOnly(): boolean | Indicates if this Realm was opened as read-only | function  |No | All | Yes |
+| isInMemory(): boolean | Indicates if this Realm was opened in-memory | function  |No | All | Yes |
+| schema(): CanonicalObjectSchema[] | A normalized representation of the schema provided in the Configuration when this Realm was constructed | function  |No | All | Yes |
+| schemaVersion(): number | The current schema version of the Realm | function  |No | All | Yes |
+| isInTransaction(): boolean | Indicates if this Realm is in a write transaction | function  |No | All | Yes |
+| isInMigration(): boolean | Indicates if this Realm is in migration | function  |No | All | Yes |
+| isClosed(): boolean | Indicates if this Realm has been closed | function  |No | All | Yes |
+| close(): void | Closes this Realm so it may be re-opened with a newer schema version | function  |No | All | Yes |
+| create() | Create a new RealmObject of the given type and with the specified properties | function  |No | All | Yes |
+| delete() | Deletes the provided Realm object, or each one inside the provided collection | function |No | All | Yes |
+| deleteAll(): void | This will delete **all** objects in the Realm! | function |No | All | Yes |
+| objectForPrimaryKey() | Searches for a Realm object by its primary key | function |No | All | Yes |
+| objects() | Returns all objects of the given type in the Realm | function |No | All | Yes |
+| write(callback) | Synchronously call the provided callback inside a write transaction | function |No | All | Yes |
+| writeCopyTo(config): void | Writes a compacted copy of the Realm with the given configuration | function |No | All | Yes |
 
 ## 遗留问题
 

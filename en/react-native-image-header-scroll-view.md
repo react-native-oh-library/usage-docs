@@ -17,24 +17,27 @@
 
 
 > [!TIP] [Github address](https://github.com/bamlab/react-native-image-header-scroll-view)
-> 因 v1.0.0 中存在无法触发 TriggeringView 组件回调的问题，以下基于 v0.10.3 版本验证
 
 ## Installation and Usage
 
-Go to the project directory and execute the following instruction：
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-image-header-scroll-view Releases](https://github.com/react-native-oh-library/react-native-image-header-scroll-view/releases).
+
+Go to the project directory and execute the following instruction:
+
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm install react-native-image-header-scroll-view@0.10.3
+npm install @react-native-oh-tpl/react-native-image-header-scroll-view@file:#
 ```
 
 #### **yarn**
 
 ```bash
-yarn add react-native-image-header-scroll-view@0.10.3
+yarn add @react-native-oh-tpl/react-native-image-header-scroll-view@file:#
 ```
 
 <!-- tabs:end -->
@@ -173,7 +176,7 @@ function HeaderImageExample () {
           fadeOutForeground={true} 
           foregroundParallaxRatio={1}
           overlayColor={'blue'} 
-          renderHeader={() => <Image source={'请输入本地图片路径'} style={styles.image} />} 
+          renderHeader={() => <Image source={'Please enter the local image path'} style={styles.image} />} 
           renderFixedForeground={() => (
             <Animated.View
                     style={[styles.navTitleView,{ opacity: fadeAnim}]}  >
@@ -226,11 +229,9 @@ export default HeaderImageExample;
 
 ### Compatibility
 
-This document is verified based on the following versions：
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.18;
-2. RNOH：0.72.29; SDK：HarmonyOS NEXT Developer Beta6; IDE：DevEco Studio 5.0.3.706; ROM：Next0.0.66;
-3. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
+Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-image-header-scroll-view Releases](https://github.com/react-native-oh-library/react-native-image-header-scroll-view/releases)
 
 ## API
 
@@ -252,7 +253,7 @@ This document is verified based on the following versions：
 | `overlayColor`           | Color of the overlay on the header | string | No       | All      | Yes               |
 | `useNativeDriver`           | Use native driver for the animation for performance improvement. A few props are unsupported at the moment if useNativeDriver=true (onScroll, ScrollComponent, renderTouchableFixedForeground) | boolean | No       | All      | Yes               |
 | `headerContainerStyle`           | Optional styles to be passed to the container of the header component | Object | No       | All      | Yes               |
-| `disableHeaderGrow`           | Disable to grow effect on the header | boolean | No       | All      | No              |
+| `disableHeaderGrow`           | Disable to grow effect on the header | boolean | No       | All      | Yes             |
 
 
 #### **Foreground**
@@ -289,7 +290,6 @@ This document is verified based on the following versions：
 | `onTouchBottom`           | Called when the Bottom of the component touch the Top of the ScrollView. (onHide + onBeginDisplayed)  | function | No       | All      | Yes               |
 
 ## Known Issues
-- [ ] disableHeaderGrow 属性在iOS上可以控制下拉放大背景图 ，在harmony上无此效果， 是因为源库的overscrollMode="never"属性导致， issue里面有解决方案 [issue#1](https://github.com/bamlab/react-native-image-header-scroll-view/issues/134 )
 
 ## Others
 -  foregroundExtrapolate属性无法生效，与Android、iOS一致：[issue#2](https://github.com/bamlab/react-native-image-header-scroll-view/issues/132 )。

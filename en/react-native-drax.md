@@ -141,81 +141,81 @@ const styles = StyleSheet.create({
 
 ### DraxView
 
-|               Name                |                         Description                          |   Type   | Required |  Platform   | HarmonyOS Support |
-| :-------------------------------: | :----------------------------------------------------------: | :------: | :------: | :---------: | :---------------: |
-|            onDragStart            |     Called in the dragged view when a drag action begins     | function |    no    | iOS/Android |        Yes        |
-|              onDrag               | Called in the dragged view repeatedly while dragged, not over any receiver | function |    no    | iOS/Android |        Yes        |
-|            onDragEnter            | Called in the dragged view when initially dragged over a new receiver | function |    no    | iOS/Android |        Yes        |
-|            onDragOver             | Called in the dragged view repeatedly while dragged over a receiver. | function |    no    | iOS/Android |        Yes        |
-|            onDragExit             |  Called in the dragged view when dragged off of a receiver   | function |    no    | iOS/Android |        Yes        |
-|             onDragEnd             | Called in the dragged view when drag ends not over any receiver or is cancelled | function |    no    | iOS/Android |        Yes        |
-|            onDragDrop             |  Called in the dragged view when drag ends over a receiver   | function |    no    | iOS/Android |        Yes        |
-|           onSnapbackEnd           |  Called in the dragged view when drag release snapback ends  | function |    no    | iOS/Android |        Yes        |
-|        onReceiveDragEnter         | Called in the receiver view each time an item is initially dragged over it | function |    no    | iOS/Android |        Yes        |
-|         onReceiveDragOver         | Called in the receiver view repeatedly while an item is dragged over it | function |    no    | iOS/Android |        Yes        |
-|         onReceiveDragExit         | Called in the receiver view when item is dragged off of it or drag is cancelled | function |    no    | iOS/Android |        Yes        |
-|         onReceiveDragDrop         |      Called in the receiver view when drag ends over it      | function |    no    | iOS/Android |        Yes        |
-|        onMonitorDragStart         | Called in the monitor view when a drag action begins over it | function |    no    | iOS/Android |        Yes        |
-|        onMonitorDragEnter         | Called in the monitor view each time an item is initially dragged over it | function |    no    | iOS/Android |        Yes        |
-|         onMonitorDragOver         | Called in the monitor view repeatedly while an item is dragged over it | function |    no    | iOS/Android |        Yes        |
-|         onMonitorDragExit         |  Called in the monitor view when item is dragged off of it   | function |    no    | iOS/Android |        Yes        |
-|         onMonitorDragEnd          | Called in the monitor view when drag ends over it while not over any receiver or drag is cancelled | function |    no    | iOS/Android |        Yes        |
-|         onMonitorDragDrop         | Called in the monitor view when drag ends over it while over a receiver | function |    no    | iOS/Android |        Yes        |
-|          animateSnapback          | Whether or not to animate hover view snapback after drag release, defaults to true | boolean  |    no    | iOS/Android |        Yes        |
-|              payload              | Convenience prop to provide one value for both `dragPayload` and `receiverPayload` |   any    |    no    | iOS/Android |        Yes        |
-|            dragPayload            | Payload that will be delivered to receiver views when this view is dragged; overrides `payload` |   any    |    no    | iOS/Android |        Yes        |
-|          receiverPayload          | Payload that will be delievered to dragged views when this view receives them; overrides `payload` |   any    |    no    | iOS/Android |        Yes        |
-|         dragInactiveStyle         | Additional view style applied while this view is not being dragged or released |  object  |    no    | iOS/Android |        Yes        |
-|           draggingStyle           | Additional view style applied while this view is being dragged |  object  |    no    | iOS/Android |        Yes        |
-|     draggingWithReceiverStyle     | Additional view style applied while this view is being dragged over a receiver |  object  |    no    | iOS/Android |        Yes        |
-|   draggingWithoutReceiverStyle    | Additional view style applied while this view is being dragged NOT over a receiver |  object  |    no    | iOS/Android |        Yes        |
-|         dragReleasedStyle         | Additional view style applied while this view has just been released from a drag |  object  |    no    | iOS/Android |        Yes        |
-|            hoverStyle             | Additional view style applied to the hovering copy of this view during drag/release |  object  |    no    | iOS/Android |        Yes        |
-|        hoverDraggingStyle         | Additional view style applied to the hovering copy of this view while dragging |  object  |    no    | iOS/Android |        Yes        |
-|  hoverDraggingWithReceiverStyle   | Additional view style applied to the hovering copy of this view while dragging over a receiver |  object  |    no    | iOS/Android |        Yes        |
-| hoverDraggingWithoutReceiverStyle | Additional view style applied to the hovering copy of this view while dragging NOT over a receiver |  object  |    no    | iOS/Android |        Yes        |
-|      hoverDragReleasedStyle       | Additional view style applied to the hovering copy of this view when just released |  object  |    no    | iOS/Android |        Yes        |
-|       receiverInactiveStyle       | Additional view style applied while this view is not receiving a drag |  object  |    no    | iOS/Android |        Yes        |
-|          receivingStyle           | Additional view style applied while this view is receiving a drag |  object  |    no    | iOS/Android |        Yes        |
-|        otherDraggingStyle         | Additional view style applied to this view while any other view is being dragged |  object  |    no    | iOS/Android |        Yes        |
-|  otherDraggingWithReceiverStyle   | Additional view style applied to this view while any other view is being dragged over a receiver |  object  |    no    | iOS/Android |        Yes        |
-| otherDraggingWithoutReceiverStyle | Additional view style applied to this view while any other view is being dragged NOT over a receiver |  object  |    no    | iOS/Android |        Yes        |
-|           renderContent           |       Custom render function for content of this view        |    /     |    no    | iOS/Android |        Yes        |
-|        renderHoverContent         | Custom render function for content of hovering copy of this view, defaults to renderContent |    /     |    no    | iOS/Android |        Yes        |
-|           registration            | For external registration of this view, to access internal methods, similar to a ref | function |    no    | iOS/Android |        Yes        |
-|             onMeasure             |          For receiving view measurements externally          | function |    no    | iOS/Android |        Yes        |
-|         lockDragXPosition         |               If true, lock drag's x-position                | boolean  |    no    | iOS/Android |        Yes        |
-|         lockDragYPosition         |               If true, lock drag's y position                | boolean  |    no    | iOS/Android |        Yes        |
-|             children              |                React children of the DraxView                |    /     |    no    | iOS/Android |        Yes        |
-|              noHover              | If true, do not render hover view copies for this view when dragging | boolean  |    no    | iOS/Android |        Yes        |
-|          longPressDelay           | Time in milliseconds view needs to be pressed before drag starts |  number  |    no    | iOS/Android |        Yes        |
-|             draggable             |               Whether the view can be dragged                | boolean  |    no    | iOS/Android |        Yes        |
+|               Name                |                         Description                          |     Type      | Required |  Platform   | HarmonyOS Support |
+| :-------------------------------: | :----------------------------------------------------------: | :-----------: | :------: | :---------: | :---------------: |
+|            onDragStart            |          Callback function at the start of dragging          |   function    |    no    | iOS/Android |        Yes        |
+|              onDrag               |              Callback function during dragging               |   function    |    no    | iOS/Android |        Yes        |
+|            onDragEnter            |           Callback function when a drag is entered           |   function    |    no    | iOS/Android |        Yes        |
+|            onDragOver             |       Callback function when dragging the floating top       |   function    |    no    | iOS/Android |        Yes        |
+|            onDragExit             |            Callback function when the drag exits             |   function    |    no    | iOS/Android |        Yes        |
+|             onDragEnd             |           Callback function at the end of dragging           |   function    |    no    | iOS/Android |        Yes        |
+|            onDragDrop             |        Callback function when dragging and releasing         |   function    |    no    | iOS/Android |        Yes        |
+|           onSnapbackEnd           |    Callback function at the end of the rebound animation     |   function    |    no    | iOS/Android |        Yes        |
+|        onReceiveDragEnter         |           Callback function when a drag is entered           |   function    |    no    | iOS/Android |        Yes        |
+|         onReceiveDragOver         |         Callback function when dragging and hovering         |   function    |    no    | iOS/Android |        Yes        |
+|         onReceiveDragExit         |            Callback function when the drag exits             |   function    |    no    | iOS/Android |        Yes        |
+|         onReceiveDragDrop         |        Callback function when dragging and releasing         |   function    |    no    | iOS/Android |        Yes        |
+|        onMonitorDragStart         |    Callback function when the start of a drag is detected    |   function    |    no    | iOS/Android |        Yes        |
+|        onMonitorDragEnter         |       Callback function when a drag entry is detected        |   function    |    no    | iOS/Android |        Yes        |
+|         onMonitorDragOver         |         Callback function when dragging is detected          |   function    |    no    | iOS/Android |        Yes        |
+|         onMonitorDragExit         |        Callback function when a drag exit is detected        |   function    |    no    | iOS/Android |        Yes        |
+|         onMonitorDragEnd          |    Callback function when the end of dragging is detected    |   function    |    no    | iOS/Android |        Yes        |
+|         onMonitorDragDrop         |      Callback function after a drag release is detected      |   function    |    no    | iOS/Android |        Yes        |
+|          animateSnapback          | Whether to animate hovering view snapshots after drag release |    boolean    |    no    | iOS/Android |        Yes        |
+|              payload              |                  Data passed when dragging                   |      any      |    no    | iOS/Android |        Yes        |
+|            dragPayload            |              Data transferred by the drag party              |      any      |    no    | iOS/Android |        Yes        |
+|          receiverPayload          |               Data transferred by the receiver               |      any      |    no    | iOS/Android |        Yes        |
+|         dragInactiveStyle         |            Style of the drag side before the drag            |    object     |    no    | iOS/Android |        Yes        |
+|           draggingStyle           |      The style applied to the drag side during the drag      |    object     |    no    | iOS/Android |        Yes        |
+|     draggingWithReceiverStyle     | The style applied to the drag side when the drag side is directly above the recipient |    object     |    no    | iOS/Android |        Yes        |
+|   draggingWithoutReceiverStyle    | The style applied to the drag side when the drag side is not directly above the recipient |    object     |    no    | iOS/Android |        Yes        |
+|         dragReleasedStyle         | The style applied to the drag side when the drag side is released |    object     |    no    | iOS/Android |        Yes        |
+|            hoverStyle             | Drag sideDrag sideThe style applied to the drag side snapshot when the snapshot is hovered |    object     |    no    | iOS/Android |        Yes        |
+|        hoverDraggingStyle         | Drag side The style applied to the drag side snapshot when dragging |    object     |    no    | iOS/Android |        Yes        |
+|  hoverDraggingWithReceiverStyle   | The style applied to the snapshot of the drager when the drager is directly above the recipient |    object     |    no    | iOS/Android |        Yes        |
+| hoverDraggingWithoutReceiverStyle | The style applied to the drag side snapshot when the drag side is not directly above the recipient |    object     |    no    | iOS/Android |        Yes        |
+|      hoverDragReleasedStyle       | Drag side The style applied to the drag side snapshot when the drag stops |    object     |    no    | iOS/Android |        Yes        |
+|       receiverInactiveStyle       |  The style applied to the recipient before the drag starts   |    object     |    no    | iOS/Android |        Yes        |
+|          receivingStyle           | The style applied to the recipient when the drag is directly above the recipient |    object     |    no    | iOS/Android |        Yes        |
+|        otherDraggingStyle         |      Styles applied to the drag side during other drags      |    object     |    no    | iOS/Android |        Yes        |
+|  otherDraggingWithReceiverStyle   | The style applied to the drag side when the other drag side is directly above the recipient |    object     |    no    | iOS/Android |        Yes        |
+| otherDraggingWithoutReceiverStyle | The style applied to the drag party when the other drag party is not directly above the recipient |    object     |    no    | iOS/Android |        Yes        |
+|           renderContent           | Renders the content of the internal subnodes of the drag-and-drop component |   function    |    no    | iOS/Android |        Yes        |
+|        renderHoverContent         | Used to render the content of the internal subnodes of the drag-and-drop copy component |   function    |    no    | iOS/Android |        Yes        |
+|           registration            | Callback function, which can receive data transferred within the component |   function    |    no    | iOS/Android |        Yes        |
+|             onMeasure             | Callback function, which can receive data transferred within the component |   function    |    no    | iOS/Android |        Yes        |
+|         lockDragXPosition         | Indicates whether to lock the drag in the horizontal direction (x axis) |    boolean    |    no    | iOS/Android |        Yes        |
+|         lockDragYPosition         | Indicates whether to lock the drag in the vertical direction (y axis) |    boolean    |    no    | iOS/Android |        Yes        |
+|             children              | Renders the content of the internal subnodes of the drag-and-drop component. This parameter is valid only when the renderContent rendering method does not exist | React Element |    no    | iOS/Android |        Yes        |
+|              noHover              |   Sets whether to disable the drag-and-drop copy function    |    boolean    |    no    | iOS/Android |        Yes        |
+|          longPressDelay           | Sets the minimum time (in milliseconds) for the view to recognize touch and hold gestures |    number     |    no    | iOS/Android |        Yes        |
+|             draggable             | Indicates whether dragging is allowed. The default value is true |    boolean    |    no    | iOS/Android |        Yes        |
 
 ###  DraxScrollView
 
-|   Name   |                  Description                   |   Type   | Required |  Platform   | HarmonyOS Support |
-| :------: | :--------------------------------------------: | :------: | :------: | :---------: | :---------------: |
-| children |         React children of the DraxView         |    /     |    no    | iOS/Android |        Yes        |
-| onScroll | Callback generated when scrolling is triggered | function |    no    | iOS/Android |        Yes        |
+|   Name   |          Description          |     Type      | Required |  Platform   | HarmonyOS Support |
+| :------: | :---------------------------: | :-----------: | :------: | :---------: | :---------------: |
+| children | Component React Node subnode  | React Element |    no    | iOS/Android |        Yes        |
+| onScroll | Sliding event callback method |   function    |    no    | iOS/Android |        Yes        |
 
 ### DraxList
 
 |           Name           |                         Description                          |   Type   | Required |  Platform   | HarmonyOS Support |
 | :----------------------: | :----------------------------------------------------------: | :------: | :------: | :---------: | :---------------: |
-|           data           |                      Each item of data                       |  array   |    no    | iOS/Android |        Yes        |
-|      flatListStyle       |            Style prop for the underlying FlatList            |  object  |    no    | iOS/Android |        Yes        |
-|        itemStyles        |    Style props to apply to all DraxView items in the list    |  object  |    no    | iOS/Android |        Yes        |
-|    renderItemContent     |      Render function for content of an item's DraxView       |    /     |    no    | iOS/Android |        Yes        |
-|  renderItemHoverContent  | Render function for content of an item's hovering copy, defaults to renderItemContent |    /     |    no    | iOS/Android |        Yes        |
-|     onItemDragStart      | Callback handler for when a list item reorder drag action begins | function |    no    | iOS/Android |        Yes        |
-| onItemDragPositionChange | Callback handler for when a list item position (index) changes during a reorder drag | function |    no    | iOS/Android |        Yes        |
-|      onItemDragEnd       | Callback handler for when a list item reorder drag action ends | function |    no    | iOS/Android |        Yes        |
-|      onItemReorder       | Callback handler for when a list item is moved within the list, reordering the list | function |    no    | iOS/Android |        Yes        |
-|       reorderable        | Can the list be reordered by dragging items? Defaults to true if onItemReorder is set | boolean  |    no    | iOS/Android |        Yes        |
-|    viewPropsExtractor    | Function that receives an item and returns a list of DraxViewProps to apply to that item's DraxView | function |    no    | iOS/Android |        Yes        |
-|         onScroll         |        Callback generated when scrolling is triggered        | function |    no    | iOS/Android |        Yes        |
-|      itemsDraggable      |          Can the items be dragged? Defaults to true          | boolean  |    no    | iOS/Android |        Yes        |
-| lockItemDragsToMainAxis  |       If true, lock item drags to the list's main axis       | boolean  |    no    | iOS/Android |        Yes        |
+|           data           |            Data source of the DraxList component             |  array   |    no    | iOS/Android |        Yes        |
+|      flatListStyle       |      Sets the style of the internal FlatList component       |  object  |    no    | iOS/Android |        Yes        |
+|        itemStyles        | Sets the style of an item in the internal FlatList component |  object  |    no    | iOS/Android |        Yes        |
+|    renderItemContent     |  Method for Rendering Item Items in the DraxList Component   | function |    no    | iOS/Android |        Yes        |
+|  renderItemHoverContent  | Method of Rendering Item Snapshots in the DraxList Component | function |    no    | iOS/Android |        Yes        |
+|     onItemDragStart      | Callback is executed when an item in the DraxList component starts to be dragged | function |    no    | iOS/Android |        Yes        |
+| onItemDragPositionChange | Callback is executed when the position of an item in the DraxList component changes | function |    no    | iOS/Android |        Yes        |
+|      onItemDragEnd       | Callback when the drag of an item in the DraxList component ends | function |    no    | iOS/Android |        Yes        |
+|      onItemReorder       | Callback for recording the moving index position of an item  | function |    no    | iOS/Android |        Yes        |
+|       reorderable        |           Sets whether to enable automatic sorting           | boolean  |    no    | iOS/Android |        Yes        |
+|    viewPropsExtractor    |     Props can be returned based on the data of each item     | function |    no    | iOS/Android |        Yes        |
+|         onScroll         |                Sliding event callback method                 | function |    no    | iOS/Android |        Yes        |
+|      itemsDraggable      | Indicates whether items in the FlatList component can be dragged | boolean  |    no    | iOS/Android |        Yes        |
+| lockItemDragsToMainAxis  | Indicates whether to lock the drag direction of items in the FlatList component to the main axis direction | boolean  |    no    | iOS/Android |        Yes        |
 
 ## 遗留问题
 

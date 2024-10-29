@@ -202,7 +202,7 @@ const styles = StyleSheet.create({
 });
 ```
 
-## Link (ArkTS版本的引入方式)
+## Link
 
 Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
 
@@ -299,7 +299,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 4.Introducing BlurView Component to ArkTS
+### 4.Introducing BlurView Component to ArkTS (使用4.4.0-0.1.0及之后的版本忽略这步配置)
 
 Find `function buildCustomRNComponent()`, which is usually located in `entry/src/main/ets/pages/index.ets` or `entry/src/main/ets/rn/LoadBundle.ets`, and add the following code:
 
@@ -344,118 +344,6 @@ ohpm install
 ```
 
 Then build and run the code.
-
-## Link (C-API版本的引入方式)
-
-Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
-
-Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
-
-### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
-
-```js
- {
-  ...
-  "overrides": {
-    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
-  }
-}
-```
-
-### 2. Introducing Native Code
-
-Currently, two methods are available:
-
-
-Method 1 (recommended): Use the HAR file.
-
-> [!TIP] The HAR file is stored in the `harmony` directory in the installation path of the third-party library.
-
-Open `entry/oh-package.json5` file and add the following dependencies:
-
-```json
-"dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "@react-native-oh-tpl/blur": "file:../../node_modules/@react-native-oh-tpl/blur/harmony/blur.har"
-  }
-```
-
-Click the `sync` button in the upper right corner.
-
-Alternatively, run the following instruction on the terminal:
-
-```bash
-cd entry
-ohpm install
-```
-
-Method 2: Directly link to the source code.
-
-> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
-
-### 3. Configuring CMakeLists and Introducing BlurPackage
-
-Open `entry/src/main/cpp/CMakeLists.txt` and add the following code:
-
-```diff
-project(rnapp)
-cmake_minimum_required(VERSION 3.4.1)
-set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-+ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
-set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
-
-add_subdirectory("${RNOH_CPP_DIR}" ./rn)
-
-# RNOH_BEGIN: add_package_subdirectories
-add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/blur/src/main/cpp" ./blur)
-# RNOH_END: add_package_subdirectories
-
-add_library(rnoh_app SHARED
-    "./PackageProvider.cpp"
-    "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
-)
-
-target_link_libraries(rnoh_app PUBLIC rnoh)
-
-# RNOH_BEGIN: link_packages
-target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
-+ target_link_libraries(rnoh_app PUBLIC blur)
-# RNOH_END: link_packages
-```
-
-Open `entry/src/main/cpp/PackageProvider.cpp` and add the following code:
-
-
-```diff
-#include "RNOH/PackageProvider.h"
-#include "SamplePackage.h"
-+ #include "BlurViewPackage.h"
-
-using namespace rnoh;
-
-std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
-    return {
-      std::make_shared<SamplePackage>(ctx),
-+     std::make_shared<BlurViewPackage>(ctx)
-    };
-}
-```
-
-### 4.Running
-
-Click the `sync` button in the upper right corner.
-
-Alternatively, run the following instruction on the terminal:
-
-```bash
-cd entry
-ohpm install
-```
-
-Then build and run the code.
-
 
 ## Constraints
 

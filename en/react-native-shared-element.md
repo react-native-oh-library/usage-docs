@@ -392,9 +392,10 @@ Check the release version information in the release address of the third-party 
 
 | Name          | Description                                                      | Type   | Required | Platform | HarmonyOS Support |
 |---------------|------------------------------------------------------------------|--------|----------|----------|-------------------|
+| auto          |  the default alignment strategy is used, which is center-center  | string | no       | ALL      | yes               |
 | left-center   | Aligns the shared element to the left-center position            | string | no       | ALL      | yes               |
 | left-top      | Aligns the shared element to the left-top position               | string | no       | ALL      | yes               |
-| left-right    | Aligns the shared element to the left-right position             | string | no       | ALL      | yes               |
+| left-bottom    | Aligns the shared element to the left-bottom position             | string | no       | ALL      | yes               |
 | right-center  | Aligns the shared element to the right-center position          | string | no       | ALL      | yes               |
 | right-top     | Aligns the shared element to the right-top position              | string | no       | ALL      | yes               |
 | right-bottom  | Aligns the shared element to the right-bottom position           | string | no       | ALL      | yes               |

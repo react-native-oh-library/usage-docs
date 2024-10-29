@@ -253,9 +253,9 @@ export default Avatars;
 
 ## Link
 
-The HarmonyOS implementation of this library relies on the native code of @react-native-oh-tpl/react-native-safe-area-context. If the library has already been introduced in the HarmonyOS project, there is no need to introduce it again. You can skip the steps in this chapter and use it directly.
+The HarmonyOS implementation of this library relies on the native code of @react-native-oh-tpl/react-native-safe-area-context , @react-native-oh-tpl/react-native-linear-gradient If the library has already been introduced in the HarmonyOS project, there is no need to introduce it again. You can skip the steps in this chapter and use it directly.
 
-If not introduced, please refer to [Link section of @react-native-oh-tpl/react-native-safe-area-context  documentation](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-safe-area-context.md#link) for introduction.
+If not introduced, please refer to [Link section of @react-native-oh-tpl/react-native-safe-area-context  documentation](https://gitee.com/react-native-oh-library/usage-docs/blob/master/en/react-native-safe-area-context.md#link), [Link section of @react-native-oh-tpl/react-native-linear-gradient  documentation](https://gitee.com/react-native-oh-library/usage-docs/blob/master/en/react-native-linear-gradient.md#link) for introduction.
 
 ### Introduce and register font files on the ArkTs side
 

@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-dotenv</code> </h1>
@@ -12,13 +12,11 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/goatandsheep/react-native-dotenv)
+> [!TIP] [GitHub address](https://github.com/goatandsheep/react-native-dotenv)
 
-## 安装与使用
+## Installation and Usage
 
-
-
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -36,9 +34,9 @@ yarn add -D react-native-dotenv@3.4.9
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import {API_URL, API_TOKEN} from '@env';
@@ -68,9 +66,9 @@ export function TestDotenv() {
 }
 ```
 
-基础配置：
+Basic Configuration:
 
-**.babelrc 或 babel.config.js**
+**`.babelrc` or `babel.config.js`**
 
 ```json
 {
@@ -78,7 +76,7 @@ export function TestDotenv() {
 }
 ```
 
-**.babelrc 或 babel.config.js**
+**`.babelrc` or `babel.config.js`**
 
 > [!TIP] 如果默认值不适合您项目，这里会列出 Babel 配置的可用选项及其各自的默认值，但如果您使用默认设置，则无需添加它们。
 
@@ -232,7 +230,7 @@ declare module "@env" {
 
 把所有你的 `.env` 的变量加入这个 module 内。
 
-最后，在 `tsconfig.json` 文件中添加 `typeRoots` 字段
+Finally, add the `typeRoots` field to the `tsconfig.json` file
 
 ```json
 {
@@ -246,7 +244,7 @@ declare module "@env" {
 }
 ```
 
-### 缓存
+### Cache
 
 > [!WARNING] 请务必查看这一小节
 
@@ -261,7 +259,7 @@ declare module "@env" {
 }
 ```
 
-在 babel config 中添加 `api.cache(false)`，例如
+Add `api.cache(false)` to the `babel.config.js` file, for example:
 
 ```js
 // .babel.config.js
@@ -274,7 +272,7 @@ module.exports = function (api) {
 };
 ```
 
-在 `metro.config.js` 中添加 `resetCache: true`，例如
+Add `resetCache: true` to the `metro.config.js` file, for example:
 
 ```js
 // metro.config.js
@@ -286,19 +284,19 @@ module.exports = {
 
 更多清除缓存的方法请参考 [react-naitve-dotenv 官方指引](https://github.com/goatandsheep/react-native-dotenv)
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
-1. RNOH：0.72.27; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.1.430; ROM：3.0.0.26;
-2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
+1. RNOH: 0.72.27; SDK: HarmonyOS NEXT Developer Beta1; IDE: DevEco Studio 5.0.1.430; ROM: 3.0.0.26;
+2. RNOH: 0.72.33; SDK: OpenHarmony 5.0.0.71(API Version 12 Release); IDE: DevEco Studio 5.0.3.900; ROM: NEXT.0.0.71;
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/goatandsheep/react-native-dotenv/blob/main/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/goatandsheep/react-native-dotenv/blob/main/LICENSE).

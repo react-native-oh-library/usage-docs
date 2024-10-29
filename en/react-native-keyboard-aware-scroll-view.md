@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-keyboard-aware-scroll-view</code> </h1>
@@ -13,17 +12,17 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-keyboard-aware-scroll-view)
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-keyboard-aware-scroll-view)
 
-## 安装与使用
+## Installation and Usage
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-keyboard-aware-scroll-view Releases](https://github.com/react-native-oh-library/react-native-keyboard-aware-scroll-view/releases)，并下载适用版本的 tgz 包
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-keyboard-aware-scroll-view Releases](https://github.com/react-native-oh-library/react-native-keyboard-aware-scroll-view/releases).
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
+
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
-
-> [!TIP] # 处替换为 tgz 包的路径
 
 #### **npm**
 
@@ -39,9 +38,9 @@ yarn add @react-native-oh-tpl/react-native-keyboard-aware-scroll-view@file:#
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```tsx
 import React, { useState, useRef } from "react";
@@ -96,21 +95,21 @@ const styles = StyleSheet.create({
 });
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-keyboard-aware-scroll-view Releases](https://github.com/react-native-oh-library/react-native-keyboard-aware-scroll-view/releases)
+Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-keyboard-aware-scroll-view Releases](https://github.com/react-native-oh-library/react-native-keyboard-aware-scroll-view/releases)
 
-## 属性
+## Properties
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-详情见 [react-native-keyboard-aware-scroll-view 源库地址](https://github.com/APSL/react-native-keyboard-aware-scroll-view)
+For details, see [react-native-keyboard-aware-scroll-view](https://github.com/APSL/react-native-keyboard-aware-scroll-view)
 
 | Name                      | Description                                                                                    | Type                                                                                                                                                             | Required | Platform | HarmonyOS Support |
 | ------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------------- |
@@ -131,15 +130,13 @@ const styles = StyleSheet.create({
 | scrollToEnd               | Scroll to end with or without animation.                                                       | (animated?: bool = true) => void                                                                                                                                 | NO       | All      | YES               |
 | scrollIntoView            | Scrolls an element inside a KeyboardAwareScrollView into view.                                 | (element: React.Element<\*>, options: { getScrollPosition: ?(parentLayout, childLayout, contentOffset) => { x: number, y: number, animated: boolean } }) => void | NO       | All      | YES                |
 
-## 遗留问题
+## Known Issues
 
 - [ ] RN0.72.28版本新架构暂未支持UIManager.viewIsDescendantOf() API，该API功能为：判断组件节点嵌套关系，并在callback中返回boolean类型参数: [issue#12](https://github.com/react-native-oh-library/react-native-keyboard-aware-scroll-view/issues/12)
 - [ ] 键盘抬起部分生命周期未HarmonyOS化，功能不受影响 问题:[issue#17](https://github.com/react-native-oh-library/react-native-keyboard-aware-scroll-view/issues/17)
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/APSL/react-native-keyboard-aware-scroll-view/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->
+This project is licensed under [The MIT License (MIT)](https://github.com/APSL/react-native-keyboard-aware-scroll-view/blob/master/LICENSE).

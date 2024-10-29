@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-subscribe</code> </h1>
@@ -13,9 +13,10 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/tdzl2003/react-subscribe)
+> [!TIP] [GitHub address](https://github.com/tdzl2003/react-subscribe)
 
-## 安装与使用
+## Installation and Usage
+
 <!-- tabs:start -->
 
 #### **npm**
@@ -32,7 +33,7 @@ yarn add react-subscribe@1.3.2
 
 <!-- tabs:end -->
 
-下面的代码展示了Timer这个组件的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
 ```js
 import React from 'react';
@@ -54,23 +55,26 @@ export class ReactSubscribeTimerTest extends React.Component {
     if (this.state.cd <= 0) {
       return (
         <View>
-          <Button title='点击' onPress={() => this.timeClick()}>点击</Button>
+          <Button title='click' onPress={() => this.timeClick()}>click</Button>
           <Text>Cooldown is over and onTimer will not be called again!</Text>
         </View>
       );
     }
     return (
       <View>
-        <Button title='点击' onPress={() => this.timeClick()}>点击</Button>
+        <Button title='click' onPress={() => this.timeClick()}>click</Button>
         {this.state.listening && <Timer interval={this.props.interval} onTimer={this.onTimer}><Text>There is still {this.state.cd} seconds to go.</Text></Timer>}
-        <Text>点击按钮启动倒计时</Text>
+        <Text>Click the button to start the countdown</Text>
       </View>
     );
   }
 }
 ```
-下面的代码展示了Subscribe这个组件的基本使用场景：
-> [!WARNING] 使用时 target一般配合fbemitter组件使用
+
+The following code shows the basic use scenario of the Subscribe component:
+
+> [!WARNING] Generally, the `target` is used together with the fbemitter component.
+> 
 ```js
 import React from 'react';
 import { Subscribe } from 'react-subscribe';
@@ -130,12 +134,12 @@ export class ReactSubscribeSubscribeTest extends React.Component {
           value={111}
         />
         <TextInput
-          placeholder="请输入内容发送内容"
+          placeholder="Please enter the content to be sent"
           style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
           onChangeText={text => this.onChangeMessage(text)}
           value={111}
         />
-        <Button title='点击发送' onPress={() => this.sendMessage()}>点击</Button>
+        <Button title='send' onPress={() => this.sendMessage()}>click</Button>
         <Text>'1.监听test1'</Text>
         <Subscribe target={this.props.eventEmitter1} eventName="test1" listener={this.eventNameEvent} />
         {this.test1Message !== null && <Text>test1监听数据:{this.test1Message}</Text>}
@@ -148,7 +152,8 @@ export class ReactSubscribeSubscribeTest extends React.Component {
   }
 }
 ```
-使用样例
+
+Example
 
 ``` 
 import { EventEmitter } from 'fbemitter';
@@ -156,7 +161,9 @@ import { EventEmitter } from 'fbemitter';
 <ReactSubscribeSubscribeTest eventEmitter1={eventEmitter1} eventEmitter2={eventEmitter1}/>
 
 ```
-下面的代码展示了Fetch这个组件的基本使用场景：
+
+The following code shows the basic use scenario of the Fetch component:
+
 ```js
 import React from 'react';
 import { View,StyleSheet,Text,TouchableOpacity,Button } from 'react-native';
@@ -188,7 +195,7 @@ export class ReactSubscribeFetchTest extends React.Component {
     if(this.props.manners === 1){
       return(
         <View>
-         <Button title='点击' onPress={() => this.timeClick()}>点击</Button>
+         <Button title='click' onPress={() => this.timeClick()}>click</Button>
           {this.state.listening && <Fetch doFetch={customRequest} url={this.props.url}>
           <SomeComponent2/>
         </Fetch>}
@@ -197,7 +204,7 @@ export class ReactSubscribeFetchTest extends React.Component {
     }
     return(
       <View>
-       <Button title='点击' onPress={() => this.timeClick()}>点击</Button>
+       <Button title='click' onPress={() => this.timeClick()}>click</Button>
         {this.state.listening && <Fetch url={this.props.url} type={this.props.type} options={this.fetch_option}>
         <SomeComponent/>
       </Fetch>}
@@ -214,7 +221,7 @@ function SomeComponent({ data, loading, error, reload, statusCode }) {
     return (
       <View>
         <Text>error:{error.message}</Text>
-        <Button title='点击重新请求' onPress={() => reload()}>点击</Button>
+        <Button title='点击重新请求' onPress={() => reload()}>click</Button>
       </View>
     );
   }
@@ -241,7 +248,7 @@ function SomeComponent2({ data, loading, error, reload }) {
     return (
       <View>
         <Text>Error: {error.message}</Text>
-        <Button title='点击重新请求' onPress={() => reload}>点击</Button>
+        <Button title='点击重新请求' onPress={() => reload}>click</Button>
       </View>
     );
   }
@@ -253,23 +260,24 @@ function SomeComponent2({ data, loading, error, reload }) {
   );
 }
 ```
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
-1. RNOH: 0.72.26; SDK：HarmonyOS-Next-DB1; IDE：DevEco Studio 5.0.3.300; ROM：3.0.0.25;
-2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
+1. RNOH: 0.72.26; SDK: HarmonyOS-Next-DB1; IDE: DevEco Studio 5.0.3.300; ROM: 3.0.0.25;
+2. RNOH: 0.72.33; SDK: OpenHarmony 5.0.0.71(API Version 12 Release); IDE: DevEco Studio 5.0.3.900; ROM: NEXT.0.0.71;
 
-## 属性
+## Properties
 
->[!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
->[!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 ### react-subscribe:
-Fetch组件详情见[react-subscribe](https://github.com/tdzl2003/react-subscribe/blob/master/src/Fetch.js)
+
+For details about the Fetch component, see [react-subscribe](https://github.com/tdzl2003/react-subscribe/blob/master/src/Fetch.js)
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
@@ -279,7 +287,7 @@ Fetch组件详情见[react-subscribe](https://github.com/tdzl2003/react-subscrib
 | type  | 请求返回数据处理的类型(值只能为'text'或 'json'或'blob')  | string | yes | Android/iOS | yes |
 | children| 子组件，接收请求返回数据处理,接收参数有(loading:是否在请求中,statusCode：请求状态码（自定义请求不设置该值）,data:返回业务数据,error:请求错误信息（例：请求超时）,reload:刷新当前请求方法) | element | no | Android/iOS | yes |
 
-Timer组件详情见[react-subscribe](https://github.com/tdzl2003/react-subscribe/blob/master/src/Timer.js)
+For details about the Timer component, see [react-subscribe](https://github.com/tdzl2003/react-subscribe/blob/master/src/Timer.js)
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
@@ -287,7 +295,7 @@ Timer组件详情见[react-subscribe](https://github.com/tdzl2003/react-subscrib
 | onTimer  | 定时执行方法 | function   | no | Android/iOS | yes |
 | children | 子组件   | element  | no | Android/iOS  | yes |
 
-Subscribe组件详情见[react-subscribe](https://github.com/tdzl2003/react-subscribe/blob/master/src/Subscribe.js)
+For details about the Subscribe component, see [react-subscribe](https://github.com/tdzl2003/react-subscribe/blob/master/src/Subscribe.js)
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
@@ -296,7 +304,7 @@ Subscribe组件详情见[react-subscribe](https://github.com/tdzl2003/react-subs
 | listener  | 监听方法（当发射器触发当前事件时执行的方法） | function  | no | Android/iOS  | yes |
 | children | 子组件 | element  | no | Android/iOS  | yes |
 
-SubscribeDOM组件详情见[react-subscribe](https://github.com/tdzl2003/react-subscribe/blob/master/src/SubscribeDOM.js)
+For details about the SubscribeDOM component, see [react-subscribe](https://github.com/tdzl2003/react-subscribe/blob/master/src/SubscribeDOM.js)
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
@@ -305,10 +313,10 @@ SubscribeDOM组件详情见[react-subscribe](https://github.com/tdzl2003/react-s
 | listener  | 监听方法（当发射器触发当前事件时执行的方法） | function  | no | webOnly  | no |
 | children | 子组件 | element  | no | webOnly  | no |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The ISC License (ISC)](https://www.isc.org/licenses/) ，请自由地享受和参与开源。
+This project is licensed under [The ISC License (ISC)](https://www.isc.org/licenses/).

@@ -1,4 +1,4 @@
-模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-modals</code> </h1>
@@ -13,11 +13,9 @@
     </a>
 </p>
 
+> [!TIP] [GitHub address](https://github.com/jacklam718/react-native-modals)
 
-> [!TIP] [Github 地址](https://github.com/jacklam718/react-native-modals)
-
-
-## 安装与使用
+## Installation and Usage
 
 <!-- tabs:start -->
 
@@ -35,9 +33,9 @@ yarn add react-native-modals@0.22.3
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 // The Component can not be used until ModalPortal is mounted. You should register in your app root. For example (App.tsx):
@@ -56,12 +54,9 @@ const App = () => {
     </View>
   );
 }
-
 ```
 
-
 ```js
-
 // create modalsDemo.tsx in the same directory as the App.tsx file
 
 import React, { useState } from 'react'
@@ -94,23 +89,21 @@ export default ModalsDemo = () => {
     </>
   )
 }
-
-
 ```
 
-## 约束与限制
-### 兼容性
+## Constraints
 
-本文档内容基于以下版本验证通过：
+### Compatibility
 
-RNOH：0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.29(SP1); IDE：DevEco Studio 5.0.3.400SP7; ROM：3.0.0.25;
+This document is verified based on the following versions:
 
+1. RNOH: 0.72.27; SDK: HarmonyOS-Next-DB1 5.0.0.29(SP1); IDE: DevEco Studio 5.0.3.400SP7; ROM: 3.0.0.25;
 
-## 属性
+## Properties
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 ### Modal/BottomModal
 
@@ -144,7 +137,6 @@ RNOH：0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.29(SP1); IDE：DevEco Studio 5.0.
 | swipeThreshold | Set the threshold of the swipe movement.default is 100   | Number  | no |     all  |       yes|
 | footer | for example: <View><Button text=\"DISMISS\" align=\"center\" onPress={() => {}}/></View>  | React Element  | no |     all  |       yes|
 
-
 ### ModalTitle
 
 | Name  | Description | Type | Required | Platform | HarmonyOS Support  |
@@ -162,7 +154,6 @@ RNOH：0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.29(SP1); IDE：DevEco Studio 5.0.
 | children | Set Container Subcomponent   | any  | no |     all  |       yes|
 | style | Setting a Custom Container Style   | any  | no |     all  |       yes|
 
-
 ### ModalFooter
 
 | Name  | Description | Type | Required | Platform | HarmonyOS Support  |
@@ -170,7 +161,6 @@ RNOH：0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.29(SP1); IDE：DevEco Studio 5.0.
 | children | Set Container Subcomponent   | ModalButton  | no |     all  |       yes|
 | bordered | Set the display and close of the container top dividing line.default is true.   | Boolean  | no |     all  |       yes|
 | style | Setting a Custom Container Style   | any  | no |     all  |       yes|
-
 
 ### ModalButton
 
@@ -184,7 +174,6 @@ RNOH：0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.29(SP1); IDE：DevEco Studio 5.0.
 | activeOpacity | Set button click background opacity. default is 0.6   | Number  | no |     all  |       yes|
 | disabled | Sets whether the button is available.default is false.   | Boolean  | no |     all  |       yes|
 | bordered | Sets whether there is a dividing line on the left of the button.default is false.   | Boolean  | no |     all  |       yes|
-
 
 ### Backdrop
 
@@ -226,10 +215,10 @@ RNOH：0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.29(SP1); IDE：DevEco Studio 5.0.
 | useNativeDriver | Whether to enable the native animation driver. default is true.   | Boolean  | no |     all  |       yes|
 
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/jacklam718/react-native-modals/blob/master/LICENSE.md) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/jacklam718/react-native-modals/blob/master/LICENSE.md).

@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-drax</code> </h1>
@@ -12,19 +12,15 @@
     </a>
 </p>
 
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-drax)
 
+## Installation and Usage
 
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-drax Releases](https://github.com/react-native-oh-library/react-native-drax/releases).
 
+Go to the project directory and execute the following instruction:
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-drax)
-
-## 安装与使用
-
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-drax Releases](https://github.com/react-native-oh-library/react-native-drax/releases)，并下载适用版本的 tgz 包。
-
-进入到工程目录并输入以下命令：
-
-> [!TIP] # 处替换为 tgz 包的路径
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
@@ -42,9 +38,9 @@ yarn add @react-native-oh-tpl/react-native-drax@file:#
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React, { useState } from 'react';
@@ -121,23 +117,23 @@ const styles = StyleSheet.create({
 
 ## Link
 
-本库鸿蒙侧实现依赖@react-native-oh-tpl/react-native-gesture-handler 的原生端代码，如已在鸿蒙工程中引入过这个库，则无需再次引入，可跳过本章节步骤，直接使用。
+The HarmonyOS implementation of this library depends on the native code from @react-native-oh-tpl/react-native-gesture-handler. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly.
 
-如未引入请参照[@react-native-oh-tpl/react-native-gesture-handler 文档](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-gesture-handler.md)  进行引入
+If it is not included, follow the guide provided in [@react-native-oh-tpl/react-native-gesture-handler](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-gesture-handler.md) to add it to your project.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-drax Releases](https://github.com/react-native-oh-library/react-native-drax/releases)
+Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-drax Releases](https://github.com/react-native-oh-library/react-native-drax/releases)
 
-## 属性
+## Properties
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 Yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 ### DraxView
 
@@ -217,12 +213,12 @@ const styles = StyleSheet.create({
 |      itemsDraggable      | Indicates whether items in the FlatList component can be dragged | boolean  |    no    | iOS/Android |        Yes        |
 | lockItemDragsToMainAxis  | Indicates whether to lock the drag direction of items in the FlatList component to the main axis direction | boolean  |    no    | iOS/Android |        Yes        |
 
-## 遗留问题
+## Known Issues
 
 - [ ] DraxList和DraxScrollView组件存在拖拽不流畅的情况，[issue#1](https://github.com/react-native-oh-library/react-native-drax/issues/1)
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License(MIT)](https://github.com/nuclearpasta/react-native-drax/blob/main/LICENSE.md)，请自由地享受和参与开源。
+This project is licensed under [The MIT License(MIT)](https://github.com/nuclearpasta/react-native-drax/blob/main/LICENSE.md).

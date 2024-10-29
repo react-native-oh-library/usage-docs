@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-check-box</code> </h1>
@@ -12,11 +12,11 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/crazycodeboy/react-native-check-box)
+> [!TIP] [GitHub address](https://github.com/crazycodeboy/react-native-check-box)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -32,7 +32,7 @@ yarn add react-native-check-box@2.1.7
 ```
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
 ```js
 import React, {Component} from 'react';
@@ -73,40 +73,42 @@ const styles = StyleSheet.create({
 });
 ```
 
-## 兼容性
+## Constraints
 
-在以下版本验证通过
+### Compatibility
 
-1. RNOH：0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.25; IDE：DevEco Studio 5.0.3.400; ROM：3.0.0.25;
-2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
+This document is verified based on the following versions:
 
-## 属性
+1. RNOH: 0.72.27; SDK: HarmonyOS-Next-DB1 5.0.0.25; IDE: DevEco Studio 5.0.3.400; ROM: 3.0.0.25;
+2. RNOH: 0.72.33; SDK: OpenHarmony 5.0.0.71(API Version 12 Release); IDE: DevEco Studio 5.0.3.900; ROM: NEXT.0.0.71;
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+## Properties
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                   | Description                                                                                                                  | Type                      | Required | Platform    |  HarmonyOS Support |
-| ---------------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------------- | -------- | ----------- | -------- |
-| style                  | Custom style checkbox                                                                                                 | ViewPropTypes.style       | No       | Android、IOS | Yes      |
-| leftText               | Custom left Text                                                                                                      | PropTypes.string          | No       | Android、IOS | Yes      |
-| leftTextStyle          | Custom left Text style                                                                                                | Text.propTypes.style      | No       | Android、IOS | Yes      |
-| rightText              | Custom right Text                                                                                                     | PropTypes.string          | No       | Android、IOS | Yes      |
-| rightTextView          | Custom right TextView                                                                                                 | PropTypes.element         | No       | Android、IOS | Yes      |
-| rightTextStyle         | Custom right Text style                                                                                               | Text.propTypes.style      | No       | Android、IOS | Yes      |
-| checkedImage           | Custom checked Image                                                                                                  | PropTypes.element         | No       | Android、IOS | Yes      |
-| unCheckedImage         | Custom unchecked Image                                                                                                | PropTypes.element         | No       | Android、IOS | Yes      |
-| isChecked              | checkbox checked state                                                                                                | PropTypes.bool            | Yes      | Android、IOS | Yes      |
-| onClick                | callback function                                                                                                     | PropTypes.func.isRequired | Yes      | Android、IOS | Yes      |
-| disabled               | Disable the checkbox button                                                                                           | PropTypes.bool            | No       | Android、IOS | Yes      |
-| checkBoxColor          | Tint color of the checkbox image (this props is for both checked and unchecked state)                                 | PropTypes.string          | Yes      | Android、IOS | Yes      |
-| checkedCheckBoxColor   | Tint color of the checked state checkbox image (this prop will override value of checkBoxColor for checked state)     | PropTypes.string          | No       | Android、IOS | Yes      |
-| uncheckedCheckBoxColor | Tint color of the unchecked state checkbox image (this prop will override value of checkBoxColor for unchecked state) | PropTypes.string          | No       | Android、IOS | Yes      |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------------- | -------- |-------------| -------- |
+| style                  | Custom style checkbox                                                                                                 | ViewPropTypes.style       | No       | Android IOS | Yes      |
+| leftText               | Custom left Text                                                                                                      | PropTypes.string          | No       | Android IOS | Yes      |
+| leftTextStyle          | Custom left Text style                                                                                                | Text.propTypes.style      | No       | Android IOS | Yes      |
+| rightText              | Custom right Text                                                                                                     | PropTypes.string          | No       | Android IOS | Yes      |
+| rightTextView          | Custom right TextView                                                                                                 | PropTypes.element         | No       | Android IOS | Yes      |
+| rightTextStyle         | Custom right Text style                                                                                               | Text.propTypes.style      | No       | Android IOS | Yes      |
+| checkedImage           | Custom checked Image                                                                                                  | PropTypes.element         | No       | Android IOS | Yes      |
+| unCheckedImage         | Custom unchecked Image                                                                                                | PropTypes.element         | No       | Android IOS | Yes      |
+| isChecked              | checkbox checked state                                                                                                | PropTypes.bool            | Yes      | Android IOS | Yes      |
+| onClick                | callback function                                                                                                     | PropTypes.func.isRequired | Yes      | Android IOS | Yes      |
+| disabled               | Disable the checkbox button                                                                                           | PropTypes.bool            | No       | Android IOS | Yes      |
+| checkBoxColor          | Tint color of the checkbox image (this props is for both checked and unchecked state)                                 | PropTypes.string          | Yes      | Android IOS | Yes      |
+| checkedCheckBoxColor   | Tint color of the checked state checkbox image (this prop will override value of checkBoxColor for checked state)     | PropTypes.string          | No       | Android IOS | Yes      |
+| uncheckedCheckBoxColor | Tint color of the unchecked state checkbox image (this prop will override value of checkBoxColor for unchecked state) | PropTypes.string          | No       | Android IOS | Yes      |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [MIT License](https://github.com/crazycodeboy/react-native-check-box/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [MIT License](https://github.com/crazycodeboy/react-native-check-box/blob/master/LICENSE).

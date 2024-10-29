@@ -1,6 +1,4 @@
-<!-- {% raw %} -->
-
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>@ant-design/react-native</code> </h1>
@@ -14,11 +12,11 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/ant-design/ant-design-mobile-rn)
+> [!TIP] [GitHub address](https://github.com/ant-design/ant-design-mobile-rn)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -34,39 +32,35 @@ npm install @ant-design/react-native@5.2.2
 yarn add @ant-design/react-native@5.2.2
 ```
 
-> [!TIP] 本库还依赖了[@react-native-oh-tpl/slider](/zh-cn/react-native-community-slider.md)、[@react-native-oh-tpl/react-native-gesture-handler](/zh-cn/react-native-gesture-handler.md)、[@react-native-oh-tpl/react-native-modal-popover](/zh-cn/react-native-modal-popover.md)、[@react-native-oh-tpl/react-native-reanimated](/zh-cn/react-native-reanimated.md)和[react-native-community/segmented-control](/zh-cn/react-native-community-segmented-control.md)
-
-> **Warning:**
-> @bang88/react-native-ultimate-listview 这个依赖库还没鸿蒙化，会影响到里面的一个 ListView 组件，如果想暂时解决掉这个报错的话，可以在 node_modules\@bang88\react-native-ultimate-listview\src 目录下添加一个 refreshableScrollView.js 文件。
+> [!WARNING] @bang88/react-native-ultimate-listview 这个依赖库还没鸿蒙化，会影响到里面的一个 ListView 组件，如果想暂时解决掉这个报错的话，可以在 node_modules\@bang88\react-native-ultimate-listview\src 目录下添加一个 refreshableScrollView.js 文件。
 
 ## 链接字体图标
 
+Open `react-native.config.js` and add the following code:
+
 ```bash
-// 配置根目录下的 `react-native.config.js` 文件
 module.exports = {
   assets: ['node_modules/@ant-design/icons-react-native/fonts'],
 };
 ```
 
-然后
+Then, run the following instruction on the terminal:
 
 ```bash
-# 手动执行命令
 npm install react-native-asset && npx react-native-asset
 ```
 
 ### 在 ArkTs 侧引入和注册字体文件
 
-> [!WARNING] 使用时 import 的库名不变。
+Step 1:
 
-步骤一：
 复制字体文件到 `\entry\src\main\resources\rawfile\fonts` 目录下(没有 fonts 文件夹就新建一个，如使用了外部字体文件，需要将\*.ttf 文件复制过来)
 
-步骤二：
-打开 `entry/src/main/ets/pages/Index.ets`，添加以下代码
+Step 2:
+
+Open `entry/src/main/ets/pages/Index.ets` and add the following code:
 
 ```diff
-
     @Entry
     @Component
     struct Index {
@@ -94,7 +88,9 @@ npm install react-native-asset && npx react-native-asset
 
 > [!TIP] Demo 中字体属于 IconFont 文件；自定义字体也需要用统一的方法在此注册。
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
+
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```jsx
 import React from "react";
@@ -188,45 +184,45 @@ export default class BasicTagExample extends React.Component {
 
 ## Link
 
-> [!TIP] @react-native-oh-tpl/react-native-gesture-handler 安装 v2.14.7 版本配套使用
+> [!TIP] @react-native-oh-tpl/react-native-gesture-handler Version: v2.14.7
 
-> [!TIP] @react-native-oh-tpl/slider 安装 v4.4.3-0.3.2 版本配套使用
+> [!TIP] @react-native-oh-tpl/slider Version: v4.4.3-0.3.2
 
-> [!TIP] @react-native-oh-tpl/react-native-modal-popover 安装 v2.1.3-0.0.1 版本配套使用
+> [!TIP] @react-native-oh-tpl/react-native-modal-popover Version: v2.1.3-0.0.1
 
-> [!TIP] @react-native-oh-tpl/react-native-reanimated 安装 v3.6.2 版本配套使用
+> [!TIP] @react-native-oh-tpl/react-native-reanimated Version: v3.6.2
 
-本库 HarmonyOS 侧实现依赖 @react-native-oh-tpl/slider、@react-native-oh-tpl/react-native-gesture-handler 、@react-native-oh-tpl/react-native-reanimated 和@react-native-oh-tpl/react-native-modal-popover 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+The HarmonyOS implementation of this library depends on the native code from @react-native-oh-tpl/slider @react-native-oh-tpl/react-native-gesture-handler @react-native-oh-tpl/react-native-reanimated and @react-native-oh-tpl/react-native-modal-popover. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly.
 
-如未引入请参照文档进行引入
+If it is not included, follow the guides to add it to your project:
 
-- [@react-native-oh-tpl/slider 引入方法](/zh-cn/react-native-community-slider.md)
+- [@react-native-oh-tpl/slider](/en/react-native-community-slider.md)
 
-- [@react-native-oh-tpl/react-native-gesture-handler 引入方法](/zh-cn/react-native-gesture-handler.md)
+- [@react-native-oh-tpl/react-native-gesture-handler](/en/react-native-gesture-handler.md)
 
-- [@react-native-oh-tpl/react-native-modal-popover 引入方法](/zh-cn/react-native-modal-popover.md)
+- [@react-native-oh-tpl/react-native-modal-popover](/en/react-native-modal-popover.md)
 
-- [@react-native-oh-tpl/react-native-reanimated](/zh-cn/react-native-reanimated.md)
+- [@react-native-oh-tpl/react-native-reanimated](/en/react-native-reanimated.md)
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
-1. RNOH: 0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.25; IDE：DevEco Studio 5.0.3.400SP7; ROM：3.0.0.25;
+1. RNOH: 0.72.27; SDK: HarmonyOS-Next-DB1 5.0.0.25; IDE: DevEco Studio 5.0.3.400SP7; ROM: 3.0.0.25;
 
-## 组件
+## Component
 
-详细请查看 [ant-design-mobile-rn 的文档介绍](http://rn.mobile.ant.design/docs/react/introduce-cn)
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+
+For details, see [ant-design-mobile-rn](http://rn.mobile.ant.design/docs/react/introduce-cn)
 
 以下为目前已支持的组件属性：
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-**Accordion**：手风琴组件，可以折叠/展开的内容区域。
+**Accordion**: 手风琴组件，可以折叠/展开的内容区域。
 
 |       Name        |              Description               |           Type            | Required | Platform | HarmonyOS Support |
 | :---------------: | :------------------------------------: | :-----------------------: | :------: | :------: | :---------------: |
@@ -235,14 +231,14 @@ export default class BasicTagExample extends React.Component {
 
 更多自定义属性请参考 https://github.com/oblador/react-native-collapsible#properties-1
 
-**Accordion.Panel**：Accordion 子组件。
+**Accordion.Panel**: Accordion 子组件。
 
 |  Name  |  Description   |          Type           | Required | Platform | HarmonyOS Support |
 | :----: | :------------: | :---------------------: | :------: | :------: | :---------------: |
 |  key   | 对应 activeKey |         String          |    No    |   All    |        Yes        |
 | header |   面板头内容   | React.Element or String |   Yes    |   All    |        Yes        |
 
-**ActionSheet**：动作面板组件，从底部弹出的模态框，提供和当前场景相关的 2 个以上的操作动作，也支持提供标题和描述。
+**ActionSheet**: 动作面板组件，从底部弹出的模态框，提供和当前场景相关的 2 个以上的操作动作，也支持提供标题和描述。
 
 |          Name          |                 Description                  |          Type           | Required | Platform | HarmonyOS Support |
 | :--------------------: | :------------------------------------------: | :---------------------: | :------: | :------: | :---------------: |
@@ -252,13 +248,13 @@ export default class BasicTagExample extends React.Component {
 |         title          |                   顶部标题                   |         String          |    No    |   All    |        Yes        |
 |        message         |             顶部标题下的简要消息             | String 或 React.element |    No    |   All    |        Yes        |
 
-**Card**：卡片组件，用于组织信息和操作，通常也作为详细信息的入口。
+**Card**: 卡片组件，用于组织信息和操作，通常也作为详细信息的入口。
 
 | Name | Description |  Type   | Required | Platform | HarmonyOS Support |
 | :--: | :---------: | :-----: | :------: | :------: | :---------------: |
 | full |  是否通栏   | boolean |    No    |   All    |        Yes        |
 
-**Card.Header**：卡片子组件。
+**Card.Header**: 卡片子组件。
 
 |    Name    |   Description    |         Type          | Required | Platform | HarmonyOS Support |
 | :--------: | :--------------: | :-------------------: | :------: | :------: | :---------------: |
@@ -267,14 +263,14 @@ export default class BasicTagExample extends React.Component {
 | thumbStyle |   标题图片样式   |        Object         |    No    |   All    |        Yes        |
 |   extra    | 卡片标题辅助内容 | React.Element、String |    No    |   All    |        Yes        |
 
-**Card.Footer**：卡片子组件。
+**Card.Footer**: 卡片子组件。
 
 |  Name   | Description  |         Type          | Required | Platform | HarmonyOS Support |
 | :-----: | :----------: | :-------------------: | :------: | :------: | :---------------: |
 | content |   尾部内容   | React.Element、String |    No    |   All    |        Yes        |
 |  extra  | 尾部辅助内容 | React.Element、String |    No    |   All    |        Yes        |
 
-**Icon**：图标组件。
+**Icon**: 图标组件。
 
 | Name  |     Description     |                Type                | Required | Platform | HarmonyOS Support |
 | :---: | :-----------------: | :--------------------------------: | :------: | :------: | :---------------: |
@@ -282,7 +278,7 @@ export default class BasicTagExample extends React.Component {
 | size  |      图标大小       | 'xxs'/'xs'/'sm'/'md'/'lg' / number |    No    |   All    |        Yes        |
 | color |      图标颜色       |               Color                |    No    |   All    |        Yes        |
 
-**List**：列表组件，单个连续模块垂直排列，显示当前的内容、状态和可进行的操作。eg：联系人列表。
+**List**: 列表组件，单个连续模块垂直排列，显示当前的内容、状态和可进行的操作。eg：联系人列表。
 
 |     Name     |   Description    |                                                              Type                                                              | Required | Platform | HarmonyOS Support |
 | :----------: | :--------------: | :----------------------------------------------------------------------------------------------------------------------------: | :------: | :------: | :---------------: |
@@ -290,7 +286,7 @@ export default class BasicTagExample extends React.Component {
 | renderFooter |   list footer    |                                                            (): void                                                            |    No    |   All    |        Yes        |
 |    styles    | 语义化结构 style | [ListStyle](https://github.com/ant-design/ant-design-mobile-rn/blob/5.2.2/components/list/index.zh-CN.md#liststyle-语义化样式) |    No    |   All    |        Yes        |
 
-**List.Item**：列表子组件。
+**List.Item**: 列表子组件。
 
 |     Name     |                                         Description                                         |                                                                                      Type                                                                                      | Required | Platform | HarmonyOS Support |
 | :----------: | :-----------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------: | :------: | :---------------: |
@@ -303,11 +299,11 @@ export default class BasicTagExample extends React.Component {
 |     wrap     |                          是否换行，默认情况下，文字超长会被隐藏，                           |                                                                                    Boolean                                                                                     |    No    |   All    |        Yes        |
 |    styles    |                                      语义化结构 style                                       | [ListItemStyle](https://github.com/ant-design/ant-design-mobile-rn/blob/5.2.0-rc.0/components/list/index.zh-CN.md#listitemstyle-%E8%AF%AD%E4%B9%89%E5%8C%96%E6%A0%B7%E5%BC%8F) |    No    |   All    |        Yes        |
 
-**List.Item.Brief**：列表辅助说明组件。
+**List.Item.Brief**: 列表辅助说明组件。
 
-**ListView**：列表 Experimental 组件，当你需要一个 infinite scroll 列表时，请使用 ListView。[更多文档](https://github.com/gameboyVito/react-native-ultimate-listview)
+**ListView**: 列表 Experimental 组件，当你需要一个 infinite scroll 列表时，请使用 ListView。[更多文档](https://github.com/gameboyVito/react-native-ultimate-listview)
 
-**Modal**：对话框组件，用作显示系统的重要信息，并请求用户进行操作反馈，eg：删除某个重要内容时，弹出 Modal 进行二次确认。
+**Modal**: 对话框组件，用作显示系统的重要信息，并请求用户进行操作反馈，eg：删除某个重要内容时，弹出 Modal 进行二次确认。
 
 |      Name      |                                                                     Description                                                                      |          Type           | Required | Platform | HarmonyOS Support |
 | :------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------: | :------: | :------: | :---------------: |
@@ -322,7 +318,7 @@ export default class BasicTagExample extends React.Component {
 |     footer     |                                                                       底部内容                                                                       | Array [{text, onPress}] |    No    |   All    |        Yes        |
 | onRequestClose | onRequestClose 回调会在用户按下 Android 设备上的后退按键或是 Apple TV 上的菜单键时触发。返回 true 时会在 modal 处于开启状态时阻止 BackHandler 事件。 |       (): boolean       |    No    |   All    |        No         |
 
-**Modal.alert(title, message, actions?, platform?)**：对话框组件。
+**Modal.alert(title, message, actions?, platform?)**: 对话框组件。
 
 |     Name      |                             Description                             |          Type           | Required | Platform | HarmonyOS Support |
 | :-----------: | :-----------------------------------------------------------------: | :---------------------: | :------: | :------: | :---------------: |
@@ -331,7 +327,7 @@ export default class BasicTagExample extends React.Component {
 |    actions    |                  按钮组, [{text, onPress, style}]                   |          Array          |    No    |   All    |        Yes        |
 | onBackHandler | 返回键的回调(非必须)，返回 true 则关闭 modal，false 阻止 modal 关闭 |       (): boolean       |    No    |   All    |        Yes        |
 
-**Modal.prompt(title, message, callbackOrActions, type?, defaultValue?, placeholders?, platform?)**：对话框组件。
+**Modal.prompt(title, message, callbackOrActions, type?, defaultValue?, placeholders?, platform?)**: 对话框组件。
 
 |       Name        |                             Description                             |                     Type                      | Required | Platform | HarmonyOS Support |
 | :---------------: | :-----------------------------------------------------------------: | :-------------------------------------------: | :------: | :------: | :---------------: |
@@ -343,16 +339,16 @@ export default class BasicTagExample extends React.Component {
 |   placeholders    |                              ['', '']                               |                   String[]                    |    No    |   All    |        Yes        |
 |   onBackHandler   | 返回键的回调(非必须)，返回 true 则关闭 modal，false 阻止 modal 关闭 |                  (): boolean                  |    No    |   All    |        No         |
 
-**Modal.operation(actions?, onBackHandler?)**：对话框组件。
+**Modal.operation(actions?, onBackHandler?)**: 对话框组件。
 
 |     Name      |                             Description                             |    Type     | Required | Platform | HarmonyOS Support |
 | :-----------: | :-----------------------------------------------------------------: | :---------: | :------: | :------: | :---------------: |
 |    actions    |                  按钮组, [{text, onPress, style}]                   |    Array    |    No    |   All    |        Yes        |
 | onBackHandler | 返回键的回调(非必须)，返回 true 则关闭 modal，false 阻止 modal 关闭 | (): boolean |    No    |   All    |        Yes        |
 
-**Portal**：Portal 组件，注意：源码复制自 react-native-paper 更多信息请移步https://callstack.github.io/react-native-paper/portal.html。
+**Portal**: Portal 组件，注意：源码复制自 react-native-paper 更多信息请移步https://callstack.github.io/react-native-paper/portal.html。
 
-**Result**：结果页组件，在整张页面中组织插画、图标、文字等内容，向用户反馈操作结果。
+**Result**: 结果页组件，在整张页面中组织插画、图标、文字等内容，向用户反馈操作结果。
 
 |     Name      |          Description          |           Type            | Required | Platform | HarmonyOS Support |
 | :-----------: | :---------------------------: | :-----------------------: | :------: | :------: | :---------------: |
@@ -364,7 +360,7 @@ export default class BasicTagExample extends React.Component {
 |  buttonType   |     请参考 button 的配置      |          string           |    No    |   All    |        Yes        |
 | onButtonClick |         按钮回调函数          |     (e: Object): void     |    No    |   All    |        Yes        |
 
-**Toast**：轻提示组件，一种轻量级反馈/提示，可以用来显示不会打断用户操作的内容，适合用于页面转场、数据交互的等场景中。
+**Toast**: 轻提示组件，一种轻量级反馈/提示，可以用来显示不会打断用户操作的内容，适合用于页面转场、数据交互的等场景中。
 
 |   Name    |          Description           |                                                               Type                                                                | Required | Platform | HarmonyOS Support |
 | :-------: | :----------------------------: | :-------------------------------------------------------------------------------------------------------------------------------: | :------: | :------: | :---------------: |
@@ -388,7 +384,7 @@ export default class BasicTagExample extends React.Component {
 
 **Toast.removeAll**: 关闭所有显示中的 `Toast`。
 
-**ActivityIndicator**：活动指示器组件，表明某个任务正在进行中。
+**ActivityIndicator**: 活动指示器组件，表明某个任务正在进行中。
 
 |   Name    |          Description           |  Type   | Required | Platform | HarmonyOS Support |
 | :-------: | :----------------------------: | :-----: | :------: | :------: | :---------------: |
@@ -398,7 +394,7 @@ export default class BasicTagExample extends React.Component {
 |   text    |          loading 文本          | string  |    No    |   All    |        Yes        |
 |   color   |          spinner 颜色          | string  |    No    |   All    |        Yes        |
 
-**Badge**：徽标数组件，图标右上角的红点、数字或者文字。用于告知用户，该区域的状态变化或者待处理任务的数量。
+**Badge**: 徽标数组件，图标右上角的红点、数字或者文字。用于告知用户，该区域的状态变化或者待处理任务的数量。
 
 |     Name      |        Description         |       Type       | Required | Platform | HarmonyOS Support |
 | :-----------: | :------------------------: | :--------------: | :------: | :------: | :---------------: |
@@ -408,7 +404,7 @@ export default class BasicTagExample extends React.Component {
 |      dot      | 不展示数字，只有一个小红点 |     boolean      |    No    |   All    |        Yes        |
 | overflowCount |      展示封顶的数字值      |      number      |    No    |   All    |        Yes        |
 
-**Button**：按钮组件，点击后会触发一个操作。
+**Button**: 按钮组件，点击后会触发一个操作。
 
 |      Name       |                     Description                      |       Type        | Required | Platform | HarmonyOS Support |
 | :-------------: | :--------------------------------------------------: | :---------------: | :------: | :------: | :---------------: |
@@ -424,7 +420,7 @@ export default class BasicTagExample extends React.Component {
 | onShowUnderlay  |       同 RN TouchableHighlight onShowUnderlay        | (e: Object): void |    No    |   All    |        Yes        |
 | onHideUnderlay  |       同 RN TouchableHighlight onHideUnderlay        | (e: Object): void |    No    |   All    |        Yes        |
 
-**Carousel**：走马灯组件。
+**Carousel**: 走马灯组件。
 
 |       Name       |      Description       |            Type            | Required | Platform | HarmonyOS Support |
 | :--------------: | :--------------------: | :------------------------: | :------: | :------: | :---------------: |
@@ -446,7 +442,7 @@ export default class BasicTagExample extends React.Component {
 | :--: | :------------: | :---------------------------------------: | :------: | :------: | :---------------: |
 | goTo | 跳转到指定位置 | (index: number, animated?: boolean): void |    No    |   All    |        Yes        |
 
-**Checkbox**：复选框组件。
+**Checkbox**: 复选框组件。
 
 |      Name      |               Description               |        Type        | Required | Platform | HarmonyOS Support |
 | :------------: | :-------------------------------------: | :----------------: | :------: | :------: | :---------------: |
@@ -456,11 +452,11 @@ export default class BasicTagExample extends React.Component {
 | indeterminate  | 设置 indeterminate 状态，只负责样式控制 |      Boolean       |    No    |   All    |        Yes        |
 |    onChange    |        change 事件触发的回调函数        | (e: Event) => void |    No    |   All    |        Yes        |
 
-**Checkbox.CheckboxItem**：基于 List.Item 对 Checkbox 进行封装,List.Item 的 thumb 属性固定传入 Checkbox,其他属性和 List.Item 一致。 其他 API 和 Checkbox 相同。
+**Checkbox.CheckboxItem**: 基于 List.Item 对 Checkbox 进行封装,List.Item 的 thumb 属性固定传入 Checkbox,其他属性和 List.Item 一致。 其他 API 和 Checkbox 相同。
 
-**Checkbox.AgreeItem**：用于同意协议这种场景的复选框。
+**Checkbox.AgreeItem**: 用于同意协议这种场景的复选框。
 
-**DatePicker**：日期选择组件，用于选择日期或者时间。
+**DatePicker**: 日期选择组件，用于选择日期或者时间。
 
 |     Name      |                                           Description                                            |                                            Type                                             | Required | Platform | HarmonyOS Support |
 | :-----------: | :----------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------: | :------: | :------: | :---------------: |
@@ -475,7 +471,7 @@ export default class BasicTagExample extends React.Component {
 |    locale     |                             国际化，可覆盖全局 LocaleProvider 的配置                             | Object: {okText, dismissText, extra, DatePickerLocale:{ year,month,day,hour,minute,am,pm }} |    No    |   All    |        Yes        |
 |    filter     |                                        过滤可供选择的时间                                        |                                      DatePickerFilter                                       |    No    |   All    |        Yes        |
 
-**DatePickerView**：日期选择器组件，atePickerView 的功能类似于 DatePicker ，但它是直接渲染在区域中，而不是弹出窗口。
+**DatePickerView**: 日期选择器组件，atePickerView 的功能类似于 DatePicker ，但它是直接渲染在区域中，而不是弹出窗口。
 
 |     Name      |                                           Description                                            |                        Type                         | Required | Platform | HarmonyOS Support |
 | :-----------: | :----------------------------------------------------------------------------------------------: | :-------------------------------------------------: | :------: | :------: | :---------------: |
@@ -489,7 +485,7 @@ export default class BasicTagExample extends React.Component {
 |  renderLabel  | 自定义渲染每列展示的内容。其中 type 参数为 precision 中的任意值或 now，data 参数为默认渲染的数字 | (type:Precision / 'now', data: number) => ReactNode |    No    |   All    |        Yes        |
 |    filter     |                                        过滤可供选择的时间                                        |                  DatePickerFilter                   |    No    |   All    |        Yes        |
 
-**InputItem**：文本输入组件，用于接受单行文本。
+**InputItem**: 文本输入组件，用于接受单行文本。
 
 |           Name           |                                                                                                                     Description                                                                                                                     |        Type         | Required | Platform | HarmonyOS Support |
 | :----------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------: | :------: | :------: | :---------------: |
@@ -513,7 +509,7 @@ export default class BasicTagExample extends React.Component {
 |           last           |                                                                                           如果是最后一项，则将移除 borderBottom（默认拥有 borderBottom）                                                                                            |        bool         |    No    |   All    |        Yes        |
 |          locale          |                                                                                                国际化, 当 type 为 money，可以自定义确认按钮的文案。                                                                                                 |        bool         |    No    |   All    |        No         |
 
-**Picker**：选择器组件，在一组预设数据中进行选择，e.g. 省市区选择。
+**Picker**: 选择器组件，在一组预设数据中进行选择，e.g. 省市区选择。
 
 |        Name        |                                                           Description                                                            |                                       Type                                       | Required | Platform | HarmonyOS Support |
 | :----------------: | :------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------: | :------: | :------: | :---------------: |
@@ -550,6 +546,7 @@ export default class BasicTagExample extends React.Component {
 | numberOfLines |                                       允许每列显示行数                                       |         Number         |    No    |   All    |        Yes        |
 
 **Picker 遮罩层**
+
 还支持自定义遮罩样式，如使用渐变组件`<LinearGradient />`。当前默认为白色半透明。
 
 |       Name       |       Description        |                                             Type                                             | Required | Platform | HarmonyOS Support |
@@ -558,7 +555,8 @@ export default class BasicTagExample extends React.Component {
 | renderMaskBottom | 自定义渲染下半部分遮罩层 | `()=> ReactNode` 或 `<View style={{ flex: 1, backgroundColor: 'rgba(255,255,255,0.8)' }} />` |    No    |   All    |        Yes        |
 
 **Picker 的 Children**
-通常是 [List.Item](/components/list-cn/#List.Item) ，以下属性也是围绕着`List.Item`展开：
+
+通常是 [List.Item](/components/list-cn/#List.Item) ，以下属性也是围绕着`List.Item`展开: 
 
 |    Name     |                  Description                  |          Type           | Required | Platform | HarmonyOS Support |
 | :---------: | :-------------------------------------------: | :---------------------: | :------: | :------: | :---------------: |
@@ -568,7 +566,7 @@ export default class BasicTagExample extends React.Component {
 |  disabled   |                  是否不可用                   |         Boolean         |    No    |   All    |        Yes        |
 |   format    |  格式化选中值的函数，用于回显在 extra 属性上  | (labels: string[]): any |    No    |   All    |        Yes        |
 
-**PickerView**：PickerView 的功能类似于 Picker ，但它是直接渲染在区域中，而不是弹出窗口。
+**PickerView**: PickerView 的功能类似于 Picker ，但它是直接渲染在区域中，而不是弹出窗口。
 
 |      Name      |                              Description                               |                                       Type                                       | Required | Platform | HarmonyOS Support |
 | :------------: | :--------------------------------------------------------------------: | :------------------------------------------------------------------------------: | :------: | :------: | :---------------: |
@@ -602,7 +600,7 @@ export default class BasicTagExample extends React.Component {
 |  renderMaskTop   | 自定义渲染上半部分遮罩层 | `()=> ReactNode` 或 `<View style={{ flex: 1, backgroundColor: 'rgba(255,255,255,0.8)' }} />` |    No    |   All    |        Yes        |
 | renderMaskBottom | 自定义渲染下半部分遮罩层 | `()=> ReactNode` 或 `<View style={{ flex: 1, backgroundColor: 'rgba(255,255,255,0.8)' }} />` |    No    |   All    |        Yes        |
 
-**Progress**：进度条组件，表明某个任务的当前进度。
+**Progress**: 进度条组件，表明某个任务的当前进度。
 
 |   Name   |                        Description                         |  Type   | Required | Platform | HarmonyOS Support |
 | :------: | :--------------------------------------------------------: | :-----: | :------: | :------: | :---------------: |
@@ -612,7 +610,7 @@ export default class BasicTagExample extends React.Component {
 |  style   |                         进度条样式                         | object  |    No    |   All    |        Yes        |
 | barStyle |                          进度样式                          | object  |    No    |   All    |        Yes        |
 
-**Pagination**：分页器组件。
+**Pagination**: 分页器组件。
 
 |   Name   |                Description                 |             Type             | Required | Platform | HarmonyOS Support |
 | :------: | :----------------------------------------: | :--------------------------: | :------: | :------: | :---------------: |
@@ -624,7 +622,7 @@ export default class BasicTagExample extends React.Component {
 |  locale  | 国际化, 可以覆盖全局 LocaleProvider 的配置 | Object：{prevText, nextText} |    No    |   All    |        Yes        |
 | onChange |         change 事件触发的回调函数          |      (e: Object): void       |    No    |   All    |        Yes        |
 
-**Radio**：单选框组件。
+**Radio**: 单选框组件。
 
 |      Name      |          Description          |                     Type                      | Required | Platform | HarmonyOS Support |
 | :------------: | :---------------------------: | :-------------------------------------------: | :------: | :------: | :---------------: |
@@ -635,9 +633,10 @@ export default class BasicTagExample extends React.Component {
 |     value      | 携带的标识值，用于 Group 模式 |                  RadioValue                   |    No    |   All    |        Yes        |
 
 **Radio.RadioItem**
+
 基于 List.Item 对 Radio 进行封装,List.Item 的 extra 属性固定传入 Radio,其他属性和 List.Item 一致。 其他 API 和 Radio 相同。
 
-**Radio.Group**：单选框子组件。
+**Radio.Group**: 单选框子组件。
 
 |     Name     |        Description        |                                       Type                                        | Required | Platform | HarmonyOS Support |
 | :----------: | :-----------------------: | :-------------------------------------------------------------------------------: | :------: | :------: | :---------------: |
@@ -647,7 +646,7 @@ export default class BasicTagExample extends React.Component {
 |   onChange   | change 事件触发的回调函数 |                   (e: { target: { checked: boolean } }) => void                   |    No    |   All    |        Yes        |
 |    value     |   用于设置当前选中的值    |                                    RadioValue                                     |    No    |   All    |        Yes        |
 
-**Stepper**：步进器，用作增加或者减少当前数值。
+**Stepper**: 步进器，用作增加或者减少当前数值。
 
 |       Name       |                                                      Description                                                      |                                    Type                                    | Required | Platform | HarmonyOS Support |
 | :--------------: | :-------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------: | :------: | :------: | :---------------: |
@@ -669,7 +668,7 @@ export default class BasicTagExample extends React.Component {
 |    stringMode    | 字符值模式，开启后支持高精度小数。开启后 `defaultValue`、`value`、`min`、`max`、`onChange` 等都将转换为 `string` 类型 |                                 `boolean`                                  |    No    |   All    |        Yes        |
 |    inputStyle    |                                               react native 显示数字样式                                               |                           ReactNative StyleSheet                           |    No    |   All    |        Yes        |
 
-**Steps**：步骤条组件，显示一个任务的进度；或者引导用户完成某个复杂任务。
+**Steps**: 步骤条组件，显示一个任务的进度；或者引导用户完成某个复杂任务。
 
 |   Name    |                                 Description                                 |               Type                | Required | Platform | HarmonyOS Support |
 | :-------: | :-------------------------------------------------------------------------: | :-------------------------------: | :------: | :------: | :---------------: |
@@ -678,7 +677,7 @@ export default class BasicTagExample extends React.Component {
 |  status   |             指定当前步骤的状态，可选 wait process finish error              |              string               |    No    |   All    |        Yes        |
 | direction |                     step 样式( RN 目前只支持 vertical )                     | Enum { 'vertical', 'horizontal' } |    No    |   All    |        Yes        |
 
-**Steps.Step**：步骤条组件，步骤条内的每一个步骤。
+**Steps.Step**: 步骤条组件，步骤条内的每一个步骤。
 
 |    Name     |                             Description                              |                                         Type                                          | Required | Platform | HarmonyOS Support |
 | :---------: | :------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: | :------: | :------: | :---------------: |
@@ -688,7 +687,7 @@ export default class BasicTagExample extends React.Component {
 |    icon     |                            步骤图标，可选                            |                                 object/React.Element                                  |    No    |   All    |        Yes        |
 | renderIcon  |                         自定义步骤图标，可选                         | (params: { starting: boolean; waiting: boolean; error: boolean; }) => React.ReactNode |    No    |   All    |        Yes        |
 
-**Switch**：滑动开关组件，在两个互斥对象进行选择，eg：选择开或关。
+**Switch**: 滑动开关组件，在两个互斥对象进行选择，eg：选择开或关。
 
 |       Name        |                       Description                       |                  Type                   | Required | Platform | HarmonyOS Support |
 | :---------------: | :-----------------------------------------------------: | :-------------------------------------: | :------: | :------: | :---------------: |
@@ -701,7 +700,7 @@ export default class BasicTagExample extends React.Component {
 |  checkedChildren  |                      选中时的内容                       |                ReactNode                |    No    |   All    |        Yes        |
 | unCheckedChildren |                     非选中时的内容                      |                ReactNode                |    No    |   All    |        Yes        |
 
-**Tabs**：标签页组件，用于让用户在不同的视图中进行切换。
+**Tabs**: 标签页组件，用于让用户在不同的视图中进行切换。
 
 |            Name            |        Description         |                          Type                          | Required | Platform | HarmonyOS Support |
 | :------------------------: | :------------------------: | :----------------------------------------------------: | :------: | :------: | :---------------: |
@@ -739,7 +738,7 @@ export default class BasicTagExample extends React.Component {
 |    page    |    Tab 分页尺寸    |                    number                    |    No    |   All    |        Yes        |
 | onTabClick |  tab 被点击的回调  | (tab: Models.TabData, index: number) => void |    No    |   All    |        Yes        |
 
-**Tag**：标签组件，进行标记和分类的小标签，用于标记事物的属性和维度，以及进行分类。
+**Tag**: 标签组件，进行标记和分类的小标签，用于标记事物的属性和维度，以及进行分类。
 
 |    Name     |            Description             |          Type          | Required | Platform | HarmonyOS Support |
 | :---------: | :--------------------------------: | :--------------------: | :------: | :------: | :---------------: |
@@ -752,7 +751,7 @@ export default class BasicTagExample extends React.Component {
 | afterClose  |            关闭后的回调            |        (): void        |    No    |   All    |        Yes        |
 | onLongPress |             长按的回调             |        (): void        |    No    |   All    |        Yes        |
 
-**TextareaItem**：多行输入组件。
+**TextareaItem**: 多行输入组件。
 
 |     Name     |                                                            Description                                                             |        Type         | Required | Platform | HarmonyOS Support |
 | :----------: | :--------------------------------------------------------------------------------------------------------------------------------: | :-----------------: | :------: | :------: | :---------------: |
@@ -771,7 +770,7 @@ export default class BasicTagExample extends React.Component {
 | labelNumber  | 定宽枚举值：num \* @input-label-width: 34px，可用 2-7 之间的数字，一般(不能保证全部)能对应显示出相应个数的中文文字(不考虑英文字符) |       number        |    No    |   All    |        Yes        |
 |     last     |                                   如果是最后一项，则将移除 borderBottom（默认拥有 borderBottom）                                   |        bool         |    No    |   All    |        Yes        |
 
-**Flex**：布局组件，Flex 是 CSS flex 布局的一个封装。
+**Flex**: 布局组件，Flex 是 CSS flex 布局的一个封装。
 
 |   Name    |                               Description                               |  Type  | Required | Platform | HarmonyOS Support |
 | :-------: | :---------------------------------------------------------------------: | :----: | :------: | :------: | :---------------: |
@@ -780,7 +779,7 @@ export default class BasicTagExample extends React.Component {
 |  justify  | 子元素在主轴上的对齐方式，可选`start`,`end`,`center`,`between`,`around` | String |    No    |   All    |        Yes        |
 |   align   |    子元素在交叉轴上的对齐方式，可选`start`,`end`,`center`,`stretch`     | String |    No    |   All    |        Yes        |
 
-**Grid**：宫格组件，在水平和垂直方向，将布局切分成若干等大的区块。
+**Grid**: 宫格组件，在水平和垂直方向，将布局切分成若干等大的区块。
 
 |      Name      |              Description               |               Type                | Required | Platform | HarmonyOS Support |
 | :------------: | :------------------------------------: | :-------------------------------: | :------: | :------: | :---------------: |
@@ -796,33 +795,33 @@ export default class BasicTagExample extends React.Component {
 
 `isCarousel = true` 模式时，还可以传递 [carousel](https://mobile.ant.design/components/carousel) 相关的 API。
 
-**国际化和皮肤配置**：为组件内建文案提供统一的国际化支持。
+**国际化和皮肤配置**: 为组件内建文案提供统一的国际化支持。
 
 |  Name  |                                                                               Description                                                                                |  Type  | Required | Platform | HarmonyOS Support |
 | :----: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----: | :------: | :------: | :---------------: |
 | locale |                                             语言包配置，语言包可到 `@ant-design/react-native/lib/locale-provider/`目录下寻找                                             | object |    No    |   All    |        Yes        |
 | theme  | 主题样式配置，可根据需要覆盖部分或者全部变量，具体变量请查看 [theme](https://github.com/ant-design/ant-design-mobile-rn/blob/master/components/style/themes/default.tsx) | object |    No    |   All    |        Yes        |
 
-**View**：基础组件，更安全的 View 基础组件。
+**View**: 基础组件，更安全的 View 基础组件。
 
 |   Name   | Description |                     Type                     | Required | Platform | HarmonyOS Support |
 | :------: | :---------: | :------------------------------------------: | :------: | :------: | :---------------: |
 | children |   子组件    |      React.ReactNode 或 React.ReactText      |    No    |   All    |        Yes        |
 |  style   |    样式     | StyleProp<ViewStyle> 或 StyleProp<TextStyle> |    No    |   All    |        Yes        |
 
-**WhiteSpace**：上下留白组件。
+**WhiteSpace**: 上下留白组件。
 
 | Name |             Description             |  Type  | Required | Platform | HarmonyOS Support |
 | :--: | :---------------------------------: | :----: | :------: | :------: | :---------------: |
 | size | 上下留白的间距，可选 xs,sm,md,lg,xl | string |    No    |   All    |        Yes        |
 
-**WingBlank**：两翼留白组件。
+**WingBlank**: 两翼留白组件。
 
 | Name |            Description             |  Type  | Required | Platform | HarmonyOS Support |
 | :--: | :--------------------------------: | :----: | :------: | :------: | :---------------: |
 | size | 两翼留白的间距，可选`sm`,`md`,`lg` | string |    No    |   All    |        Yes        |
 
-**NoticeBar**：通告栏组件，在导航栏下方，一般用作系统提醒、活动提醒等通知。
+**NoticeBar**: 通告栏组件，在导航栏下方，一般用作系统提醒、活动提醒等通知。
 
 |     Name     |                   Description                   |                                                                      Type                                                                      | Required | Platform | HarmonyOS Support |
 | :----------: | :---------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------------: | :------: | :------: | :---------------: |
@@ -853,7 +852,7 @@ export default class BasicTagExample extends React.Component {
 |    trailing     |             上一次循环后到下一次动画的延迟时间（以毫秒为单位）              |                 `Number`                 |    No    |   All    |        Yes        |
 |    wrapStyle    |                           Marquee 组件外部 style                            |               `ViewStyle`                |    No    |   All    |        Yes        |
 
-**SearchBar**：搜索栏组件，一般可位于 NavBar 下方，通过『取消按钮』退出激活状态。
+**SearchBar**: 搜索栏组件，一般可位于 NavBar 下方，通过『取消按钮』退出激活状态。
 
 |       Name       |                  Description                  |        Type         | Required | Platform | HarmonyOS Support |
 | :--------------: | :-------------------------------------------: | :-----------------: | :------: | :------: | :---------------: |
@@ -869,7 +868,7 @@ export default class BasicTagExample extends React.Component {
 |    cancelText    |             定制`取消`按钮的文字              |       String        |    No    |   All    |        Yes        |
 |     disabled     |                   设置禁用                    |        bool         |    No    |   All    |        Yes        |
 
-**TabBar**：标签栏组件，位于 APP 底部，方便用户在不同功能模块之间进行快速切换。
+**TabBar**: 标签栏组件，位于 APP 底部，方便用户在不同功能模块之间进行快速切换。
 
 |        Name         |   Description    |  Type  | Required | Platform | HarmonyOS Support |
 | :-----------------: | :--------------: | :----: | :------: | :------: | :---------------: |
@@ -877,7 +876,8 @@ export default class BasicTagExample extends React.Component {
 |      tintColor      |  选中的字体颜色  | String |    No    |   All    |        Yes        |
 | unselectedTintColor | 未选中的字体颜色 | String |    No    |   All    |        Yes        |
 
-**TabBar.Item**：TabBar 子组件。
+**TabBar.Item**: TabBar 子组件。
+
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :----------: | :---------------------------------------------------: | :-------------: | :--------------: | :------: | :---------------: |
 | badge | 徽标数 | Number \ String | No | All | Yes |
@@ -889,7 +889,7 @@ export default class BasicTagExample extends React.Component {
 | key | 唯一标识 | String | No | All | Yes |
 | iconStyle | icon 样式 | String | No | All | Yes |
 
-**Slider**：滑动输入条组件，允许用户在一个区间中选择特定值，eg：控制屏幕的显示亮度。
+**Slider**: 滑动输入条组件，允许用户在一个区间中选择特定值，eg：控制屏幕的显示亮度。
 
 |     Name      |                                                                   Description                                                                    |                                                                 Type                                                                 | Required | Platform | HarmonyOS Support |
 | :-----------: | :----------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------: | :------: | :------: | :---------------: |
@@ -908,7 +908,7 @@ export default class BasicTagExample extends React.Component {
 |   onChange    |                                    当 Slider 的值发生改变时，会触发 onChange 事件，并把改变后的值作为参数传入                                    |                                                               Function                                                               |    No    |   All    |        Yes        |
 | onAfterChange |                                                与 `ontouchend` 触发时机一致，把当前值作为参数传入                                                |                                                               Function                                                               |    No    |   All    |        Yes        |
 
-**Popover**：气泡组件，在点击控件或者某个区域后，浮出一个气泡菜单来做更多的操作。 如果设置了遮罩层，建议通过点击遮罩层的任一位置，进行退出。
+**Popover**: 气泡组件，在点击控件或者某个区域后，浮出一个气泡菜单来做更多的操作。 如果设置了遮罩层，建议通过点击遮罩层的任一位置，进行退出。
 
 |          Name          |                                    Description                                    |                                                            Type                                                             | Required | Platform | HarmonyOS Support |
 | :--------------------: | :-------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------: | :------: | :------: | :---------------: |
@@ -922,7 +922,7 @@ export default class BasicTagExample extends React.Component {
 |    useNativeDriver     |                            动画是否使用 Native Driver                             |                                                           boolean                                                           |    No    |   All    |        Yes        |
 |       onDismiss        |                             Popover 关闭后的回调函数                              |                                                          function                                                           |    No    |   All    |        No         |
 
-**Popover.Item**：气泡子组件。
+**Popover.Item**: 气泡子组件。
 
 |   Name   |     Description     |   Type    | Required | Platform | HarmonyOS Support |
 | :------: | :-----------------: | :-------: | :------: | :------: | :---------------: |
@@ -930,7 +930,7 @@ export default class BasicTagExample extends React.Component {
 |  style   |      item 样式      | ViewStyle |    No    |   All    |        Yes        |
 |  value   | 可作为选中的条目 ID |    any    |   Yes    |   All    |        Yes        |
 
-**SwipeAction**：滑动操作组件。
+**SwipeAction**: 滑动操作组件。
 
 |        Name         |         Description          |                                                                   Type                                                                   | Required | Platform | HarmonyOS Support |
 | :-----------------: | :--------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------: | :------: | :------: | :---------------: |
@@ -942,7 +942,7 @@ export default class BasicTagExample extends React.Component {
 | closeOnTouchOutside | 是否在点击其他区域时自动归位 |                                                                `boolean`                                                                 |    No    |   All    |        Yes        |
 |       styles        |       语义化结构 style       | [SwipeActionStyle](https://github.com/ant-design/ant-design-mobile-rn/blob/5.2.2/components/swipe-action-cn#swipeactionstyle-语义化样式) |    No    |   All    |        Yes        |
 
-**SwipeAction.Button**：滑动操作组件内的 Button。
+**SwipeAction.Button**: 滑动操作组件内的 Button。
 
 |       Name        |  Description   |                                                      Type                                                      | Required | Platform | HarmonyOS Support |
 | :---------------: | :------------: | :------------------------------------------------------------------------------------------------------------: | :------: | :------: | :---------------: |
@@ -954,7 +954,7 @@ export default class BasicTagExample extends React.Component {
 |      onPress      |  按钮点击事件  |                                                    (): void                                                    |    No    |   All    |        Yes        |
 | actionButtonProps | 其他额外 props | [RectButtonProps](https://docs.swmansion.com/react-native-gesture-handler/docs/components/buttons/#rectbutton) |    No    |   All    |        Yes        |
 
-**Collapse**：折叠面板组件， 可以折叠/展开的内容区域。
+**Collapse**: 折叠面板组件， 可以折叠/展开的内容区域。
 
 |       Name       |                          Description                          |                                                                                                                        Type                                                                                                                        | Required | Platform | HarmonyOS Support |
 | :--------------: | :-----------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------: | :------: | :---------------: |
@@ -965,7 +965,7 @@ export default class BasicTagExample extends React.Component {
 |     onChange     |                        切换面板时触发                         |                                                                                                         手风琴模式：`(activeKey: string)`                                                                                                          |    No    |   All    |        Yes        |
 |      styles      |                       语义化结构 style                        | 同 [ListStyle](https://github.com/ant-design/ant-design-mobile-rn/blob/5.2.2/components/list-cn#liststyle-语义化样式) & [ListItemStyle](https://github.com/ant-design/ant-design-mobile-rn/blob/5.2.2/components/list-cn#listitemstyle-语义化样式) |    No    |   All    |        Yes        |
 
-**Collapse.Panel**：折叠面板子组件。
+**Collapse.Panel**: 折叠面板子组件。
 
 |      Name      |         Description         |                                                             Type                                                              | Required | Platform | HarmonyOS Support |
 | :------------: | :-------------------------: | :---------------------------------------------------------------------------------------------------------------------------: | :------: | :------: | :---------------: |
@@ -978,7 +978,7 @@ export default class BasicTagExample extends React.Component {
 |     styles     |      语义化结构 style       | 同 [ListItemStyle](https://github.com/ant-design/ant-design-mobile-rn/blob/5.2.2/components/list-cn#listitemstyle-语义化样式) |    No    |   All    |        Yes        |
 |     title      |       标题栏左侧内容        |                                                          `ReactNode`                                                          |    No    |   All    |        Yes        |
 
-**Input**：文本输入组件，通过键盘输入内容，是最基础的表单域包装。
+**Input**: 文本输入组件，通过键盘输入内容，是最基础的表单域包装。
 
 |     Name     |                                               Description                                               |                                                               Type                                                                | Required | Platform | HarmonyOS Support |
 | :----------: | :-----------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------: | :------: | :------: | :---------------: |
@@ -999,7 +999,7 @@ export default class BasicTagExample extends React.Component {
 
 **Input.TextArea**
 
-同 `Input` 属性，外加：
+同 `Input` 属性，外加: 
 
 |   Name   |            Description            |                                                               Type                                                                | Required | Platform | HarmonyOS Support |
 | :------: | :-------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------: | :------: | :------: | :---------------: |
@@ -1104,7 +1104,7 @@ export default class BasicTagExample extends React.Component {
 |      submit       |                                                                     提交表单，与点击 `submit` 按钮效果相同                                                                     |                                                                                                                                     () => void                                                                                                                                      |    No    |   All    |        Yes        |
 |  validateFields   |                                                           触发表单验证，设置 `recursive` 时会递归校验所有包含的路径                                                            | (nameList?: [NamePath](https://github.com/ant-design/ant-design-mobile-rn/blob/5.2.2/components/form/index.zh-CN.md#namepath)[], config?: [ValidateConfig](https://github.com/ant-design/ant-design-mobile-rn/blob/5.2.2/components/form/index.zh-CN.md#validateFields)) => Promise |    No    |   All    |        Yes        |
 
-**Tooltip**：气泡组件，在点击控件或者某个区域后，浮出一个气泡菜单来做更多的操作。
+**Tooltip**: 气泡组件，在点击控件或者某个区域后，浮出一个气泡菜单来做更多的操作。
 
 |      Name       |         Description          |                                                  Type                                                   | Required | Platform | HarmonyOS Support |
 | :-------------: | :--------------------------: | :-----------------------------------------------------------------------------------------------------: | :------: | :------: | :---------------: |
@@ -1136,20 +1136,18 @@ export default class BasicTagExample extends React.Component {
 | onPress  |              点击时触发              | `() => void` |    No    |   All    |        Yes        |
 |   text   | 菜单列表，当弹出内容为标准菜单时使用 | `ReactNode`  |    No    |   All    |        Yes        |
 
-## 遗留问题
+## Known Issues
 
 - [ ] PickerView 组件在 harmony 暂不支持，待ArkUI规格升级之后再重新适配
 - [ ] Input.TextArea 组件在 harmony 暂不支持，待ArkUI规格升级之后再重新适配
 
-## 其他
+## Others
 
 - Drawer 组件暂时无法支持，与 Android/IOS 一致[issue#1352](https://github.com/ant-design/ant-design-mobile-rn/issues/1352)、[issue#1338](https://github.com/ant-design/ant-design-mobile-rn/issues/1338)。
 - Tooltip 组件气泡位置异常展示，与 Android/IOS 一致[issue#1376](https://github.com/ant-design/ant-design-mobile-rn/issues/1376)。
 - Radio 组件的 defaultCheck 属性无法正常生效，与 Android/IOS 一致[issue#1380](https://github.com/ant-design/ant-design-mobile-rn/issues/1380)。
 - Picker 组件的 defaultValue 属性无法正常生效，与 Android/IOS 一致[issue#1381](https://github.com/ant-design/ant-design-mobile-rn/issues/1381)。
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/ant-design/ant-design-mobile-rn/blob/master/LICENSE)，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->
+This project is licensed under [The MIT License (MIT)](https://github.com/ant-design/ant-design-mobile-rn/blob/master/LICENSE).

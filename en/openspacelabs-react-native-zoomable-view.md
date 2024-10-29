@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>@openspacelabs/react-native-zoomable-view</code> </h1>
@@ -14,11 +13,11 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/openspacelabs/react-native-zoomable-view)
+> [!TIP] [GitHub address](https://github.com/openspacelabs/react-native-zoomable-view)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -36,9 +35,9 @@ yarn add @openspacelabs/react-native-zoomable-view@2.1.6
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import { View, StyleSheet, Image, Animated } from "react-native";
@@ -121,20 +120,20 @@ const styles = StyleSheet.create({
 });
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
-1. RNOH: 0.72.26; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.300; ROM：3.0.0.25;
-2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
+1. RNOH: 0.72.26; SDK: HarmonyOS NEXT Developer Beta1; IDE: DevEco Studio 5.0.3.300; ROM: 3.0.0.25;
+2. RNOH: 0.72.33; SDK: OpenHarmony 5.0.0.71(API Version 12 Release); IDE: DevEco Studio 5.0.3.900; ROM: NEXT.0.0.71;
 
-## 属性
+## Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                             | Type     | Description                                                                                                                                                                                                                                                                                                                          | Required | Platform | HarmonyOS Support |
 | -------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- | -------- | ----------------- |
@@ -180,11 +179,10 @@ const styles = StyleSheet.create({
 | moveTo                           | function | Shifts the zoomed part to a specific point (in px relative to x: 0, y: 0)                                                                                                                                                                                                                                                            | no       | All      | yes               |
 | moveBy                           | function | Shifts the zoomed part by a specific pixel number                                                                                                                                                                                                                                                                                    | no       | All      | yes               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/openspacelabs/react-native-zoomable-view/blob/master/LICENSE) ，请自由地享受和参与开源。
-<!-- {% endraw %} -->
+This project is licensed under [The MIT License (MIT)](https://github.com/openspacelabs/react-native-zoomable-view/blob/master/LICENSE).

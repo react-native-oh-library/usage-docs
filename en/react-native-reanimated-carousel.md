@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-reanimated-carousel</code> </h1>
@@ -12,11 +12,11 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/dohooo/react-native-reanimated-carousel)
+> [!TIP] [GitHub address](https://github.com/dohooo/react-native-reanimated-carousel)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -34,9 +34,7 @@ yarn add react-native-reanimated-carousel@3.5.1
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
-
-> [!TIP] 本示例依赖 react-native-gesture-handler、react-native-reanimated 库，参照[@react-native-oh-tpl/react-native-gesture-handler 文档](/zh-cn/react-native-gesture-handler.md)、[@react-native-oh-tpl/react-native-reanimated 文档](/zh-cn/react-native-reanimated.md)进行引入。
+The following code shows the basic use scenario of the repository:
 
 ```ts
 import React, { useState, useRef } from "react";
@@ -176,23 +174,23 @@ const styles = StyleSheet.create({
 
 ## Link
 
-本库鸿蒙侧实现依赖@react-native-oh-tpl/react-native-gesture-handler、@react-native-oh-tpl/react-native-reanimated 的原生端代码，如已在鸿蒙工程中引入过这两个库，则无需再次引入，可跳过本章节步骤，直接使用。
+The HarmonyOS implementation of this library depends on the native code from @react-native-oh-tpl/react-native-gesture-handler and @react-native-oh-tpl/react-native-reanimated. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly.
 
-如未引入请参照[@react-native-oh-tpl/react-native-gesture-handler 文档](/zh-cn/react-native-gesture-handler.md)、[@react-native-oh-tpl/react-native-reanimated 文档](/zh-cn/react-native-reanimated.md)进行引入
+If it is not included, follow the guide provided in [@react-native-oh-tpl/react-native-gesture-handler](/en/react-native-gesture-handler.md) and [@react-native-oh-tpl/react-native-reanimated](/en/react-native-reanimated.md) to add it to your project.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH: 0.72.29; SDK: HarmonyOS-Next-DB6 5.0.0.61; IDE: DevEco Studio 5.0.3.706; ROM: NEXT.0.0.61;
 
-## 属性
+## Properties
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 ### Basic Props
 
@@ -259,10 +257,10 @@ const styles = StyleSheet.create({
 | scrollTo | Use count to scroll to a position where relative to the current position, scrollTo({count:-2}) is equivalent to prev(2), scrollTo({count:2}) is equivalent to next(2). And also can jump to specific position, e.g. scrollTo({index:2,animated:false}) | no |  | ({ index: number, count: number, animated: boolean, onFinished?: () => void }) => void | All | yes |
 | getCurrentIndex | Get current item index | no |  | ()=>number | All | yes |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/dohooo/react-native-reanimated-carousel/blob/main/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/dohooo/react-native-reanimated-carousel/blob/main/LICENSE).

@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 
 > 模板版本：v0.2.2
 
@@ -385,7 +384,6 @@ build() {
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | --------------------------------------- | ----------------- |
 | sync              | sync方法，自动模式更新                                                                                                                | function | yes      | Android IOS | yes               |
 | getUpdateMetadata | 获取当前已安装更新的元数据(RemotePackage),当使用sync方法时，不需要调用本方法，因为sync会自动调用                                                                 | function | no       | Android iOS                             | yes               |
-| DownloadProgress  | 下载中的进度回调，当使用sync方法时，不需要调用本方法，因为sync会自动调用                                                                                     | function | no       | Android iOS                             | yes               |
 | restartApp        | 重启App，当使用sync方法时，不需要调用本方法，因为sync会自动调用                                                                                        | function | no       | Android iOS                             | yes               |
 | getCurrentPackage | 获取应用版本信息，当使用sync方法时，不需要调用本方法，因为sync会自动调用                                                                                     | function | no       | Android iOS                             | yes               |
 | getConfiguration  | 获取应用配置信息，appVersion（版本号），deploymentKey（deploymentKey），serverUrl（服务器地址），clientUniqueId（唯一标识码）,当使用sync方法时，不需要调用本方法，因为sync会自动调用 | function | no       | Android iOS                             | yes               |
@@ -428,5 +426,3 @@ build() {
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/microsoft/react-native-code-push/blob/master/LICENSE.md) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

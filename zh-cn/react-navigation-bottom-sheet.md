@@ -201,9 +201,9 @@ const styles = StyleSheet.create({
 ```
 ## Link
 
-本库鸿蒙侧实现依赖@react-native-oh-tpl/react-native-gesture-handler、@react-native-oh-tpl/react-native-reanimated 的原生端代码，如已在鸿蒙工程中引入过这两个库，则无需再次引入，可跳过本章节步骤，直接使用。
+本库鸿蒙侧实现依赖@react-native-oh-tpl/react-native-gesture-handler、@react-native-oh-tpl/react-native-reanimated、@react-native-oh-tpl/bottom-sheet的原生端代码，如已在鸿蒙工程中引入过这三个库，则无需再次引入，可跳过本章节步骤，直接使用。
 
-如未引入请参照[@react-native-oh-tpl/react-native-gesture-handler 文档](/zh-cn/react-native-gesture-handler.md)、[@react-native-oh-tpl/react-native-reanimated 文档](/zh-cn/react-native-reanimated.md)进行引入
+如未引入请参照[@react-native-oh-tpl/react-native-gesture-handler 文档](/zh-cn/react-native-gesture-handler.md)、[@react-native-oh-tpl/react-native-reanimated 文档](/zh-cn/react-native-reanimated.md)、[@react-native-oh-tpl/bottom-sheet 文档](/zh-cn/gorhom-bottom-sheet.md)进行引入
 
 ## 约束与限制
 

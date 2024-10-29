@@ -202,9 +202,9 @@ const styles = StyleSheet.create({
 
 ## Link
 
-The HarmonyOS implementation of this library depends on the native code from @react-native-oh-tpl/react-native-gesture-handler、@react-native-oh-tpl/react-native-reanimated. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly.
+The HarmonyOS implementation of this library depends on the native code from @react-native-oh-tpl/react-native-gesture-handler、@react-native-oh-tpl/react-native-reanimated、@react-native-oh-tpl/bottom-sheet. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly.
 
-If it is not included, follow the guide provided in [@react-native-oh-tpl/react-native-gesture-handler](/en/react-native-gesture-handler.md)、[@react-native-oh-tpl/react-native-reanimated](/en/react-native-reanimated.md) to add it to your project.
+If it is not included, follow the guide provided in [@react-native-oh-tpl/react-native-gesture-handler](/en/react-native-gesture-handler.md)、[@react-native-oh-tpl/react-native-reanimated](/en/react-native-reanimated.md)、[@react-native-oh-tpl/bottom-sheet](/en/gorhom-bottom-sheet.md) to add it to your project.
 
 ## Constraints
 

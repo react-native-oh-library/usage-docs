@@ -302,7 +302,7 @@ ohpm install
 {
   "string": [
 +    {
-+      "name": "name":"page_show",
++      "name": "page_show",
 +      "value": "page from npm package"
 +    }
   ]

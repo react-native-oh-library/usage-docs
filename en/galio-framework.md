@@ -204,7 +204,7 @@ For details, see[galio](https://galio.io/docs/#/components)
 |    Name     |                                             Description                                              |      Type       | Required |  Platform   | HarmonyOS Support |
 | :---------: | :--------------------------------------------------------------------------------------------------: | :-------------: | :------: | :---------: | :---------------: |
 | capitalize  |                          Transforms the first character in a capital letter                          |     boolean     |    no    | iOS/Android |        Yes        |
-|    color    |      your options are: 'primary', 'theme', 'warning', 'succes', 'transparent' or your own color      |     string      |    no    | iOS/Android |        Yes        |
+|    color    |      your options are: 'primary', 'theme', 'warning', 'success', 'transparent' or your own color      |     string      |    no    | iOS/Android |        Yes        |
 |  disabled   |                                         Disables the button                                          |     boolean     |    no    | iOS/Android |        Yes        |
 |    icon     |                            pick whatever icon you want from Expo's icons                             | boolean, string |    no    | iOS/Android |        Yes        |
 |  iconColor  |                                        sets the icon's color                                         | boolean, string |    no    | iOS/Android |        Yes        |
@@ -217,7 +217,7 @@ For details, see[galio](https://galio.io/docs/#/components)
 |   opacity   |                                     changes the button's opacity                                     |     boolean     |    no    | iOS/Android |        Yes        |
 |   radius    |                                     changes the button's radius                                      |     string      |    no    |     No      |        No         |
 | shadowColor | the default shadowColor is based on the button's color but you can also write a specific shadowColor |     string      |    no    | iOS/Android |        Yes        |
-| shadowColor |                                            removes shadow                                            |     boolean     |    no    | iOS/Android |        Yes        |
+| shadowless |                                            removes shadow                                            |     boolean     |    no    | iOS/Android |        Yes        |
 |    size     |                                  your options are: 'large', 'small'                                  |     number      |    no    | iOS/Android |        Yes        |
 |  uppercase  |                                     makes all letters uppercase                                      |     boolean     |    no    | iOS/Android |        Yes        |
 

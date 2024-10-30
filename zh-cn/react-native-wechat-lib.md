@@ -41,7 +41,7 @@ yarn add @react-native-ohos/react-native-wechat-lib
 
 > [!WARNING] 使用时 import 的库名不变。
 
-> [tips] 下面 demo 在使用的过程中，请将 AppID 改为在[微信开放平台申请鸿蒙应用]([接入指南 / 鸿蒙接入指南 (qq.com)](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/ohos.html))的 AppID 
+> [tips] 下面 demo 在使用的过程中，请将 AppID 改为在[微信开放平台申请鸿蒙应用](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Access_Guide/ohos.html)的 AppID
 
 ```js
 import * as React from 'react';
@@ -55,11 +55,6 @@ export default function App() {
   React.useEffect(() => {
     registerApp('AppID', 'universalLink').then((res) => {
       console.log("registerApp: " + res)
-      getApiVersion().then((num) => {
-        console.log("test: " + num)
-        setVersionNumber(num)
-        // openWXApp().then()
-      })
     });
 
   }, []);
@@ -67,7 +62,6 @@ export default function App() {
   function onLogin() {
     sendAuthRequest('snsapi_userinfo', '')
       .then((response: any) => {
-        // todo 登录 response.code
         Alert.alert('登录成功，code: ' + response.code)
       })
       .catch(error => {
@@ -192,11 +186,11 @@ ohpm install
 
 > [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
-### 3.配置EntryAbility
+### 3.配置 EntryAbility
 
- 鸿蒙工程下EntryAbility，一般位于entry\src\main\ets\entryability\EntryAbility.ets
+鸿蒙工程下 EntryAbility，一般位于 `entry\src\main\ets\entryability\EntryAbility.ets`
 
-``` diff
+```diff
 import {RNAbility} from '@rnoh/react-native-openharmony';
 + import { AbilityConstant, Want } from '@kit.AbilityKit';
 + import { WechatLibTurboModule } from '@react-native-ohos/react-native-wechat-lib';
@@ -222,7 +216,7 @@ export default class EntryAbility extends RNAbility {
 
 ```
 
-###4.配置 CMakeLists 和引入 BaseReactNativeWechatLibPackage
+### 4.配置 CMakeLists 和引入 BaseReactNativeWechatLibPackage
 
 打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
 
@@ -320,7 +314,6 @@ ohpm install
 
 ## API
 
-
 > [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
 > [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
@@ -351,9 +344,9 @@ ohpm install
 
 ## 其他
 
-- ShareText(ShareTextMetadata),ShareImage(ShareImageMetadata) ,ShareLocalImage(ShareImageMetadata) 只支持分享，不支持收藏，原因为目前微信Open SDK还不支持 HarmonyOS 平台的收藏
-- isWXAppInstalled()不支持原因是 HarmonyOS 不支持获取设备上安装的应用列表数据
-- isWXAppSupportApi(),getApiVersion() ,ShareFile(ShareFileMetadata) ,ShareMusic(ShareMusicMetadata),ShareVideo(ShareVideoMetadata),ShareWebpage (ShareWebpageMetadata) ,ShareMiniProgram(ShareMiniProgramMetadata),LaunchMiniProgram (LaunchMiniProgramMetadata) ,ChooseInvoice (ChooseInvoice),subscribeMessage(SubscribeMessageMetadata) 这些接口目前在 HarmonyOS 微信Open SDK还不支持
+- ShareText、ShareImage、ShareLocalImage 只支持分享，不支持收藏，原因为目前微信 Open SDK 还不支持 HarmonyOS 平台的收藏
+- isWXAppInstalled 不支持原因是 HarmonyOS 不支持获取设备上安装的应用列表数据
+- isWXAppSupportApi、getApiVersion、ShareFile、ShareMusic、ShareVideo、ShareWebpage 、ShareMiniProgram、LaunchMiniProgram、ChooseInvoice、subscribeMessage 这些接口目前在 HarmonyOS 微信 Open SDK 还不支持
 
 ## 开源协议
 

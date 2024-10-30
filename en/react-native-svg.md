@@ -194,6 +194,17 @@ function buildCustomComponent(ctx: ComponentBuilderContext) {
 ...
 ```
 
+> [!TIP] 本库使用了混合方案，需要添加组件名。
+
+在`entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets` 找到常量 `arkTsComponentNames` 在其数组里添加组件名
+
+```diff
+const arkTsComponentNames: Array<string> = [
+  ...
++ SVG_VIEW_TYPE_NAME
+  ];
+```
+
 ### 5.运行
 
 点击右上角的 `sync` 按钮

@@ -195,7 +195,7 @@ export default CardDemo;
 |   middle    |     alignItems: 'center' alignSelf: 'center'.      |     boolean     |    no    | iOS/Android |        Yes        |
 |    right    |              alignItems: 'flex-start'              |     boolean     |    no    | iOS/Android |        Yes        |
 |     row     |                flexDirection: 'row'                |     boolean     |    no    | iOS/Android |        Yes        |
-|    safe     |        Wraps the Block with a SafeAreaView         |     boolean     |    no    | iOS/Android |        Yes        |
+|    safe     |        Wraps the Block with a SafeAreaView         |     boolean     |    no    |     No      |        No         |
 |   shadow    |              adds shadow on the Block              |     boolean     |    no    | iOS/Android |        Yes        |
 | shadowColor |             changes the shadow's color             |     string      |    no    | iOS/Android |        Yes        |
 |    space    | your options are: 'between', 'around' or 'evenly'  |     string      |    no    | iOS/Android |        Yes        |
@@ -359,7 +359,7 @@ export default CardDemo;
 | positionIndicator |              one of: 'top', 'center', 'bottom'               |   string    |    no    | iOS/Android |        Yes        |
 |  positionOffset   |                  Whether to use positioning                  |   number    |    no    | iOS/Android |        Yes        |
 |  fadeInDuration   |         The number of ms for the fade in animation.          |   number    |    no    | iOS/Android |        Yes        |
-|  fadeOutDuration  |         The number of ms for the fade out animation.         |   number    |    no    | iOS/Android |        Yes        |
+|  fadeOutDuration  |         The number of ms for the fade out animation.         |   number    |    no    |     no      |        No         |
 |       color       |   one of: 'primary', 'theme', 'info', 'warning', 'success'   |   string    |    no    | iOS/Android |        Yes        |
 |       round       |         Maybe you want a rounded toast notification?         |   boolean   |    no    | iOS/Android |        Yes        |
 |     textStyle     |     Style object for the children prop used as a string.     |   object    |    no    | iOS/Android |        Yes        |
@@ -401,8 +401,8 @@ export default CardDemo;
 ## 遗留问题
 
 ## 其他
-
+- fadeOutDuration使用会出现闪退 [issue#264](https://github.com/galio-org/galio/issues/264)
+- Block组件里面使用safe属性没有效果 [issue#265](https://github.com/galio-org/galio/issues/265)
 ## 开源协议
 
 本项目基于 [The MIT License(MIT)](https://github.com/galio-org/galio/blob/master/LICENSE.md)，请自由地享受和参与开源。
-

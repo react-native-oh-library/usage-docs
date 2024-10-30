@@ -192,7 +192,7 @@ For details, see[galio](https://galio.io/docs/#/components)
 |   middle    |     alignItems: 'center' alignSelf: 'center'.      |     boolean     |    no    | iOS/Android |        Yes        |
 |    right    |              alignItems: 'flex-start'              |     boolean     |    no    | iOS/Android |        Yes        |
 |     row     |                flexDirection: 'row'                |     boolean     |    no    | iOS/Android |        Yes        |
-|    safe     |        Wraps the Block with a SafeAreaView         |     boolean     |    no    | iOS/Android |        Yes        |
+|    safe     |        Wraps the Block with a SafeAreaView         |     boolean     |    no    |     No      |        No         |
 |   shadow    |              adds shadow on the Block              |     boolean     |    no    | iOS/Android |        Yes        |
 | shadowColor |             changes the shadow's color             |     string      |    no    | iOS/Android |        Yes        |
 |    space    | your options are: 'between', 'around' or 'evenly'  |     string      |    no    | iOS/Android |        Yes        |
@@ -348,18 +348,18 @@ For details, see[galio](https://galio.io/docs/#/components)
 
 ### [Toast Notification](https://galio.io/docs/#/components/toastnotification?id=toast-notification)
 
-|       Name        |                                             Description                                              |    Type     | Required |  Platform   | HarmonyOS Support |
-| :---------------: | :--------------------------------------------------------------------------------------------------: | :---------: | :------: | :---------: | :---------------: |
-|       style       |                                 Styling the Block which encapsulate                                  |   object    |    no    | iOS/Android |        Yes        |
+|       Name        |                         Description                          |    Type     | Required |  Platform   | HarmonyOS Support |
+| :---------------: | :----------------------------------------------------------: | :---------: | :------: | :---------: | :---------------: |
+|       style       |             Styling the Block which encapsulate              |   object    |    no    | iOS/Android |        Yes        |
 |     children      | The content of your toast notification. You can even just write a text or create your own component. | node/string |    no    | iOS/Android |        Yes        |
-|      isShow       |                             Toggle between the toast being shown or not.                             |    bool     |    no    | iOS/Android |        Yes        |
-| positionIndicator |                                  one of: 'top', 'center', 'bottom'                                   |   string    |    no    | iOS/Android |        Yes        |
-|  positionOffset   |                                      Whether to use positioning                                      |   number    |    no    | iOS/Android |        Yes        |
-|  fadeInDuration   |                             The number of ms for the fade in animation.                              |   number    |    no    | iOS/Android |        Yes        |
-|  fadeOutDuration  |                             The number of ms for the fade out animation.                             |   number    |    no    | iOS/Android |        Yes        |
-|       color       |                       one of: 'primary', 'theme', 'info', 'warning', 'success'                       |   string    |    no    | iOS/Android |        Yes        |
-|       round       |                             Maybe you want a rounded toast notification?                             |   boolean   |    no    | iOS/Android |        Yes        |
-|     textStyle     |                         Style object for the children prop used as a string.                         |   object    |    no    | iOS/Android |        Yes        |
+|      isShow       |         Toggle between the toast being shown or not.         |    bool     |    no    | iOS/Android |        Yes        |
+| positionIndicator |              one of: 'top', 'center', 'bottom'               |   string    |    no    | iOS/Android |        Yes        |
+|  positionOffset   |                  Whether to use positioning                  |   number    |    no    | iOS/Android |        Yes        |
+|  fadeInDuration   |         The number of ms for the fade in animation.          |   number    |    no    | iOS/Android |        Yes        |
+|  fadeOutDuration  |         The number of ms for the fade out animation.         |   number    |    no    |     No      |        No         |
+|       color       |   one of: 'primary', 'theme', 'info', 'warning', 'success'   |   string    |    no    | iOS/Android |        Yes        |
+|       round       |         Maybe you want a rounded toast notification?         |   boolean   |    no    | iOS/Android |        Yes        |
+|     textStyle     |     Style object for the children prop used as a string.     |   object    |    no    | iOS/Android |        Yes        |
 
 ### [Slider](https://galio.io/docs/#/components/slider?id=slider)
 
@@ -396,9 +396,9 @@ For details, see[galio](https://galio.io/docs/#/components)
 | size  | Set Font Size, [SIZES reference table](https://galio.io/docs/?ref=galio-repo#/GalioTheme?id=sizes-reference-table) | Object |    no    | iOS/Android |        Yes        |
 
 ## Known Issues
-
 ## Others
-
+- fadeOutDuration使用会出现闪退 [issue#264](https://github.com/galio-org/galio/issues/264)
+- Block组件里面使用safe属性没有效果 [issue#265](https://github.com/galio-org/galio/issues/265)
 ## License
 
-This project is licensed under [The MIT License(MIT)](https://github.com/galio-org/galio/blob/master/LICENSE.md).
+This project is licensed under [The MIT License(MIT)](https://github.com/galio-org/galio/blob/master/LICENSE.md)。

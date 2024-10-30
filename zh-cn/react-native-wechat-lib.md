@@ -17,7 +17,7 @@
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-wechat-lib Releases](https://github.com/react-native-oh-library/react-native-wechat-lib/releases)。
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-ohos/react-native-wechat-lib Releases](https://github.com/react-native-oh-library/react-native-wechat-lib/releases)。
 
 进入到工程目录并输入以下命令：
 
@@ -26,13 +26,13 @@
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-wechat-lib
+npm install @react-native-ohos/react-native-wechat-lib
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-wechat-lib
+yarn add @react-native-ohos/react-native-wechat-lib
 ```
 
 <!-- tabs:end -->
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/react-native-wechat-lib": "file:../../node_modules/@react-native-ohos/react-native-wechat-lib/harmony/react_native_wechat_lib.har"
+    "@react-native-ohos/react-native-wechat-lib": "file:../../node_modules/@react-native-ohos/react-native-wechat-lib/harmony/react_native_wechat_lib.har"
   }
 ```
 
@@ -316,7 +316,7 @@ ohpm install
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-wechat-lib](https://github.com/react-native-oh-library/react-native-wechat-lib/releases)
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-ohos/react-native-wechat-lib](https://github.com/react-native-oh-library/react-native-wechat-lib/releases)
 
 ## API
 

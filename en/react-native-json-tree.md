@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-json-tree</code> </h1>
@@ -12,9 +12,9 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/Dean177/react-native-json-tree)
+> [!TIP] [GitHub address](https://github.com/Dean177/react-native-json-tree)
 
-## 安装与使用
+## Installation and Usage
 
 #### **npm**
 
@@ -30,9 +30,9 @@ yarn add react-native-json-tree@^1.3.0
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React from "react";
@@ -136,7 +136,6 @@ export default () => {
     name: "moon",
   };
 
-  // 格式化日期
   const formatDate = (date: any) => {
     if (!(date instanceof Date)) return "";
     const year = date.getFullYear();
@@ -145,7 +144,6 @@ export default () => {
     return `${year}-${month}-${day}`;
   };
 
-  // 根据数据类型格式化, 展示经过处理的数据
   const postprocessValue = (value: any) => {
     if (value instanceof Date) {
       return formatDate(value);
@@ -164,7 +162,6 @@ export default () => {
   };
 
   const isCustomNode = (value: any) => {
-    // 如果节点值是数字，则使用自定义渲染
     return typeof value === "number";
   };
 
@@ -255,24 +252,24 @@ export default () => {
 };
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
-1. RNOH：0.72.29; SDK：HarmonyOS NEXT Developer Beta6; IDE：DevEco Studio 5.0.3.706; ROM：NEXT.0.0.36;
+1. RNOH: 0.72.29; SDK: HarmonyOS NEXT Developer Beta6; IDE: DevEco Studio 5.0.3.706; ROM: NEXT.0.0.36;
 2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
-## 属性
+## Properties
 
-详细请查看 [react-native-json-tree 的文档介绍](https://github.com/Dean177/react-native-json-tree)
+For details, see [react-native-json-tree docs](https://github.com/Dean177/react-native-json-tree)
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name               | Description                                                                               | Type         | Required | Platform | HarmonyOS Support |
 | ------------------ | ----------------------------------------------------------------------------------------- | ------------ | -------- | -------- | ----------------- |
@@ -290,12 +287,10 @@ export default () => {
 | `postprocessValue` | `For customizing values before they are rendered`.                                        | `()=>void`   | No       | All      | Yes               |
 | `isCustomNode`     | `Specify which nodes should use custom rendered properties.`                              | `()=>bool`   | No       | All      | Yes               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-- JSONTree 组件的 collectionLimit 属性不生效，与 iOS 一致 [issue#163](https://github.com/Dean177/react-native-json-tree/issues/163)
+## License
 
-## 开源协议
-
-本项目基于 [The MIT License (MIT)](https://github.com/Dean177/react-native-json-tree/blob/master/LICENSE.md) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/Dean177/react-native-json-tree/blob/master/LICENSE.md).

@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-dropdownalert</code> </h1>
@@ -12,15 +12,15 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-dropdownalert)
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-dropdownalert)
 
-## 安装与使用
+## Installation and Usage
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-dropdownalert Releases](https://github.com/react-native-oh-library/react-native-dropdownalert/releases)，并下载适用版本的 tgz 包。
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-dropdownalert Releases](https://github.com/react-native-oh-library/react-native-dropdownalert/releases).
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
-> [!TIP] # 处替换为 tgz 包的路径
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
@@ -38,9 +38,9 @@ yarn add @react-native-oh-tpl/react-native-dropdownalert@file:#
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React, { useRef, useState } from "react";
@@ -243,13 +243,13 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-dropdownalert Releases](https://github.com/react-native-oh-library/react-native-dropdownalert/releases)
+Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-dropdownalert Releases](https://github.com/react-native-oh-library/react-native-dropdownalert/releases)
 
 ## DropdownAlert
 
@@ -257,11 +257,11 @@ export default App;
 
 DropdownAlertType 是 DropdownAlert 库导出的一个枚举对象，列举了弹框的类型。
 
-#### DropdownAlertType 属性
+#### DropdownAlertType Property
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name    | Description  | Type   | **Required** | Platform | HarmonyOS Support |
 | ------- | ------------ | ------ | ------------ | -------- | ----------------- |
@@ -274,7 +274,7 @@ DropdownAlertType 是 DropdownAlert 库导出的一个枚举对象，列举了�
 
 DropdownAlertDismissAction 是 DropdownAlert 库导出的一个枚举对象，列举了弹框消失的动作类型。
 
-#### DropdownAlertDismissAction 属性
+#### DropdownAlertDismissAction Property
 
 | Name         | Description       | Type   | **Required** | Platform | HarmonyOS Support |
 | ------------ | ----------------- | ------ | ------------ | -------- | ----------------- |
@@ -288,7 +288,7 @@ DropdownAlertDismissAction 是 DropdownAlert 库导出的一个枚举对象，�
 
 DropdownAlertColor 是 DropdownAlert 库导出的一个枚举对象，列举了弹框的颜色
 
-#### DropdownAlertColor 属性
+#### DropdownAlertColor Property
 
 | Name    | Description    | Type   | **Required** | Platform | HarmonyOS Support |
 | ------- | -------------- | ------ | ------------ | -------- | ----------------- |
@@ -302,7 +302,7 @@ DropdownAlertColor 是 DropdownAlert 库导出的一个枚举对象，列举了�
 
 DropDownAlertImage 是 DropdownAlert 库导出的一个枚举对象，列举了弹框的图片资源。
 
-#### DropDownAlertImage 属性
+#### DropDownAlertImage Property
 
 | Name    | Description                                                            | Type                | **Required** | Platform | HarmonyOS Support |
 | ------- | ---------------------------------------------------------------------- | ------------------- | ------------ | -------- | ----------------- |
@@ -316,7 +316,7 @@ DropDownAlertImage 是 DropdownAlert 库导出的一个枚举对象，列举了�
 
 DropdownAlertToValue 是 DropdownAlert 库导出的一个枚举对象，有两种值 Alert 和 Dismiss。
 
-#### DropdownAlertToValue 属性
+#### DropdownAlertToValue Property
 
 | Name    | Description | Type   | **Required** | Platform | HarmonyOS Support |
 | ------- | ----------- | ------ | ------------ | -------- | ----------------- |
@@ -327,7 +327,7 @@ DropdownAlertToValue 是 DropdownAlert 库导出的一个枚举对象，有两�
 
 DropDownAlertTestID 是 DropdownAlert 库导出的一个枚举对象，列举了弹框的测试 ID。
 
-#### DropDownAlertTestID 属性
+#### DropDownAlertTestID Property
 
 | Name         | Description       | Type   | **Required** | Platform | HarmonyOS Support |
 | ------------ | ----------------- | ------ | ------------ | -------- | ----------------- |
@@ -345,7 +345,7 @@ DropDownAlertTestID 是 DropdownAlert 库导出的一个枚举对象，列举了
 
 DropdownAlertData 是 DropdownAlert 库导出的一个 class 对象，定义了弹框的数据内容，如标题、提示信息等。
 
-#### DropdownAlertData 属性
+#### DropdownAlertData Property
 
 | Name     | Description                             | Type                | **Required** | Platform | HarmonyOS Support |
 | -------- | --------------------------------------- | ------------------- | ------------ | -------- | ----------------- |
@@ -360,18 +360,18 @@ DropdownAlertData 是 DropdownAlert 库导出的一个 class 对象，定义了�
 
 DropdownAlertData 是 DropdownAlert 库导出的一个 class 对象，定义了弹框弹出位置，有顶部弹出和底部弹出两种。
 
-#### DropdownAlertPosition 属性
+#### DropdownAlertPosition Property
 
 | Name   | Description            | Type              | **Required** | Platform | HarmonyOS Support |
 | ------ | ---------------------- | ----------------- | ------------ | -------- | ----------------- |
 | Top    | 顶部弹出，值为'top'    | DropdownAlertType | no           | All      | yes               |
 | Bottom | 底部弹出，值为'bottom' | string            | no           | All      | yes               |
 
-### DropdownAlert 组件
+### DropdownAlert components
 
 DropdownAlert 是 DropdownAlert 库导出的核心组件，定义了弹框所有属性，与 DropdownAlertProps 属性一致。
 
-#### DropdownAlert 属性
+#### DropdownAlert Property
 
 | Name                             | Description                                                                                                  | Type                           | **Required** | Platform | HarmonyOS Support |
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------ | ------------------------------ | ------------ | -------- | ----------------- |
@@ -390,10 +390,10 @@ DropdownAlert 是 DropdownAlert 库导出的核心组件，定义了弹框所有
 | dismissInterval                  | 弹窗自动消失的时间毫秒值                                                                                     | number                         | no           | All      | yes               |
 | titleNumberOfLines               | 弹窗标题的最大行数，                                                                                         | number                         | no           | All      | yes               |
 | messageNumberOfLines             | 弹窗正文的最大行数，超过则省略                                                                               | number                         | no           | All      | yes               |
-| elevation                        | 高度                                                                                                         | number                         | no           | All      | no                |
-| zIndex                           | z 轴的值，类型                                                                                               | number                         | no           | All      | no                |
+| elevation                        | 高度                                                                                                         | number                         | no           | All      | yes               |
+| zIndex                           | z 轴的值，类型                                                                                               | number                         | no           | All      | yes               |
 | panResponderDismissDistance      | 下滑弹窗消失距离                                                                                             | number                         | no           | All      | yes               |
-| animatedViewStyle                | DropAlert 对象内部的 animatedView 样式                                                                       | ViewStyle                      | no           | All      | no                |
+| animatedViewStyle                | DropAlert 对象内部的 animatedView 样式                                                                       | ViewStyle                      | no           | All      | yes               |
 | alertViewStyle                   | DropAlert 对象内部的 alertViewStyle 样式                                                                     | ViewStyle                      | no           | All      | yes               |
 | safeViewStyle                    | DropAlert 对象内部的 safeView 样式                                                                           | ViewStyle                      | no           | All      | yes               |
 | textViewStyle                    | DropAlert 对象内部的 textView 样式                                                                           | ViewStyle                      | no           | All      | yes               |
@@ -406,11 +406,11 @@ DropdownAlert 是 DropdownAlert 库导出的核心组件，定义了弹框所有
 | onDismissCancel                  | 弹窗关闭触发的函数，支持的关闭方式为点击 cancel                                                              | function                       | no           | All      | yes               |
 | onDismissPress                   | 弹窗关闭触发的函数，支持的关闭方式为点击弹窗                                                                 | function                       | no           | All      | yes               |
 | onDismissPanResponder            | 弹窗关闭触发的函数，支持的关闭方式为向下滑动，仅在 alertPosition 为“bottom”时生效                            | function                       | no           | All      | yes               |
-| onDismissProgrammatic            | 弹窗关闭触发的函数，支持的关闭方式为程序式关闭，也是默认的值，如果非上面四种关闭方式，则默认触发此关闭函数。 | function                       | no           | All      | no                |
+| onDismissProgrammatic            | 弹窗关闭触发的函数，支持的关闭方式为程序式关闭，也是默认的值，如果非上面四种关闭方式，则默认触发此关闭函数。 | function                       | no           | All      | yes               |
 | showCancel                       | 是否显示弹窗的 cancel 模块                                                                                   | boolean                        | no           | All      | yes               |
 | onDismissPressDisabled           | 是否允许通过点击关闭弹窗                                                                                     | boolean                        | no           | All      | yes               |
 | panResponderEnabled              | 是否允许通过向下滑动关闭弹窗，仅在 alertPosition 为“bottom”时生效                                            | boolean                        | no           | All      | yes               |
-| translucent                      | 是否半透明                                                                                                   | boolean                        | no           | All      | no                |
+| translucent                      | 是否半透明                                                                                                   | boolean                        | no           | All      | yes               |
 | updateStatusBar                  | 是否更新状态栏                                                                                               | boolean                        | no           | All      | yes               |
 | activeStatusBarStyle             | 弹框出现时，将状态栏置为设置的样式，需要配合 updateStatusBar=true 才生效                                     | StatusBarStyle                 | no           | Android  | yes               |
 | inactiveStatusBarStyle           | 弹框消失时，将状态栏置为设置的样式，需要配合 updateStatusBar=true 才生效                                     | StatusBarStyle                 | no           | Android  | yes               |
@@ -433,15 +433,10 @@ DropdownAlert 是 DropdownAlert 库导出的核心组件，定义了弹框所有
 | children                         | 弹窗子元素                                                                                                   | ReactNode                      | no           | All      | yes               |
 | alertPosition                    | top' 或者 'bottom'                                                                                           | string                         | no           | All      | yes               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-- DropdownAlert 组件的 animatedViewStyle 属性不生效，设置之后弹窗变为黑色，与 iOS/Android 一致 [issue#314](https://github.com/testshallpass/react-native-dropdownalert/issues/314)
-- DropdownAlert 组件的 zindex 属性不生效，层级关系并未体现，与 iOS/Android 一致 [issue#315](https://github.com/testshallpass/react-native-dropdownalert/issues/315)
-- DropdownAlert 组件的 translucent 属性不生效，没有显示出状态栏半透明的效果，与 Android 一致 [issue#316](https://github.com/testshallpass/react-native-dropdownalert/issues/316)
-- DropdownAlert 组件绑定的 onDismissProgrammatic 函数无法触发，与 iOS/Android 一致 [issue#317](https://github.com/testshallpass/react-native-dropdownalert/issues/317)
+## License
 
-## 开源协议
-
-本项目基于 [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-dropdownalert/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-dropdownalert/blob/master/LICENSE).

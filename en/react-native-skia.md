@@ -1,4 +1,4 @@
-模板版本：v0.2.2
+Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-skia</code> </h1>
@@ -13,15 +13,15 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-skia)
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-skia)
 
-## 安装与使用
+## Installation and Usage
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-skia Releases](https://github.com/react-native-oh-library/react-native-skia/releases)，并下载适用版本的 tgz 包。
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-skia Releases](https://github.com/react-native-oh-library/react-native-skia/releases).
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
-> [!TIP] # 处替换为 tgz 包的路径
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
@@ -39,9 +39,9 @@ yarn add @react-native-oh-tpl/react-native-skia@file:#
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React from "react";
@@ -67,11 +67,11 @@ export default App;
 
 ## Link
 
-目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
 
-首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
+Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 1.在工程根目录的 `oh-package.json5` 添加 overrides 字段
+### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
 
 ```json
 {
@@ -82,18 +82,15 @@ export default App;
 }
 ```
 
-### 2.引入原生端代码
+### 2. Introducing Native Code
 
-目前有两种方法：
+Currently, two methods are available:
 
-1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
-2. 直接链接源码。
+Method 1 (recommended): Use the HAR file.
 
-方法一：通过 har 包引入（推荐）
+> [!TIP] The HAR file is stored in the `harmony` directory in the installation path of the third-party library.
 
-> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
+Open `entry/oh-package.json5` file and add the following dependencies:
 
 ```json
 "dependencies": {
@@ -102,22 +99,22 @@ export default App;
   }
 ```
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-方法二：直接链接源码
+Method 2: Directly link to the source code.
 
-> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
+> [!TIP] For details, see [Directly Linking Source Code](/zh-cn/link-source-code.md).
 
-### 3.配置 CMakeLists 和引入 SkiaPackage
+### 3. Configuring CMakeLists and Introducing SkiaPackage
 
-打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
+Open `entry/src/main/cpp/CMakeLists.txt` and add the following code:
 
 ```diff
 project(rnapp)
@@ -155,7 +152,7 @@ target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 # RNOH_END: manual_package_linking_2
 ```
 
-打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
+Open `entry/src/main/cpp/PackageProvider.cpp` and add the following code:
 
 ```diff
 #include "RNOH/PackageProvider.h"
@@ -174,9 +171,9 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 4.在 ArkTs 侧引入 SkiaDomView 组件
+### 4. Introducing SkiaDomView Component to ArkTS
 
-找到 `function buildCustomRNComponent()`，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
+Find `function buildCustomRNComponent()`, which is usually located in `entry/src/main/ets/pages/index.ets` or `entry/src/main/ets/rn/LoadBundle.ets`, and add the following code:
 
 ```diff
   ...
@@ -196,9 +193,9 @@ export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
 ...
 ```
 
-> [!TIP] 本库使用了混合方案，需要添加组件名。
+> [!TIP] If the repository uses a mixed solution, the component name needs to be added.
 
-在`entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets` 找到常量 `arkTsComponentNames` 在其数组里添加组件名
+Find the constant `arkTsComponentNames` in `entry/src/main/ets/pages/index.ets` or `entry/src/main/ets/rn/LoadBundle.ets` and add the component name to the array.
 
 ```diff
 const arkTsComponentNames: Array<string> = [
@@ -209,9 +206,9 @@ const arkTsComponentNames: Array<string> = [
   ];
 ```
 
-### 5.在 ArkTs 侧引入 RNSkiaPackage
+### 5. Introducing RNSkiaPackage to ArkTS
 
-打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
 
 ```diff
   ...
@@ -225,56 +222,52 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 6.运行
+### 6. Running
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-然后编译、运行即可。
+Then build and run the code.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-skia Releases](https://github.com/react-native-oh-library/react-native-skia/releases)
+Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-skia Releases](https://github.com/react-native-oh-library/react-native-skia/releases)
 
-> [!tip] [skia 官方文档](https://shopify.github.io/react-native-skia/docs/getting-started/installation)
-
-> [!tip] 使用此库需要配置 [@react-native-oh-tpl/react-native-reanimated](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-reanimated.md)
-
-## 组件
+## Components
 
 ### Canvas
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-| Name     | Description                                                                                                                                            | Type                     | Required | Platform    | HarmonyOS Support |
-| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------ | -------- | ----------- | ----------------- |
-| style    | View style                                                                                                                                             | ViewStyle                | no       | android/ios | yes               |
-| ref      | Reference to the SkiaView object                                                                                                                       | Ref<SkiaView>            | no       | android/ios | yes               |
-| mode     | By default, the canvas is only updated when the drawing tree or animation values change. With mode="continuous", the canvas will redraw on every frame | default \| continuous    | no       | android/ios | yes               |
-| onSize   | Reanimated value to which the canvas size will be assigned                                                                                             | SharedValue<Size>        | no       | android/ios | yes               |
-| onLayout | Invoked on mount and on layout changes                                                                                                                 | NativeEvent<LayoutEvent> | no       | android/ios | yes               |
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+>
+> | Name     | Description                                                                                                                                            | Type                     | Required | Platform    | HarmonyOS Support |
+> | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------ | -------- | ----------- | ----------------- |
+> | style    | View style                                                                                                                                             | ViewStyle                | no       | android/ios | yes               |
+> | ref      | Reference to the SkiaView object                                                                                                                       | Ref<SkiaView>            | no       | android/ios | yes               |
+> | mode     | By default, the canvas is only updated when the drawing tree or animation values change. With mode="continuous", the canvas will redraw on every frame | default/continuous       | no       | android/ios | yes               |
+> | onSize   | Reanimated value to which the canvas size will be assigned                                                                                             | SharedValue<Size>        | no       | android/ios | yes               |
+> | onLayout | Invoked on mount and on layout changes                                                                                                                 | NativeEvent<LayoutEvent> | no       | android/ios | yes               |
 
 ### Group
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name       | Description                                                                                                                                                                                                            | Type              | Required | Platform    | HarmonyOS Support |
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | -------- | ----------- | ----------------- |
@@ -286,11 +279,11 @@ ohpm install
 
 ### Path
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name   | Description                                                                                                                                                                                                                                      | Type             | Required | Platform    | HarmonyOS Support |
 | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------- | -------- | ----------- | ----------------- |
@@ -299,234 +292,90 @@ ohpm install
 | end    | Trims the end of the path. Value is in the range `[0, 1]` (default is 1).                                                                                                                                                                        | number           | no       | android/ios | yes               |
 | stroke | Turns this path into the filled equivalent of the stroked path. This will fail if the path is a hairline. `StrokeOptions` describes how the stroked path should look. It contains three properties: `width`, `strokeMiterLimit` and, `precision` | StrokeOptions    | no       | android/ios | yes               |
 
-### Rect
+### Polygons
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name   | Description              | Type   | Required | Platform    | HarmonyOS Support |
-| ------ | ------------------------ | ------ | -------- | ----------- | ----------------- |
-| x      | X coordinate.            | number | yes      | android/ios | yes               |
-| y      | Y coordinate.            | number | yes      | android/ios | yes               |
-| width  | Width of the rectangle.  | number | yes      | android/ios | yes               |
-| height | Height of the rectangle. | number | yes      | android/ios | yes               |
+| Name   | Description              | Type             | Required | Platform    | HarmonyOS Support |
+| ------ | ------------------------ | ---------------- | -------- | ----------- | ----------------- |
+| x      | X coordinate.            | SkPath`or`string | no       | android/ios | yes               |
+| y      | Y coordinate.            | number           | no       | android/ios | yes               |
+| width  | Width of the rectangle.  | number           | no       | android/ios | yes               |
+| height | Height of the rectangle. | StrokeOptions    | no       | android/ios | yes               |
 
-### RoundedRect
+### Ellipses
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-| Name   | Description                                        | Type             | Required | Platform    | HarmonyOS Support |
-| ------ | -------------------------------------------------- | ---------------- | -------- | ----------- | ----------------- |
-| x      | X coordinate.                                      | SkPath`or`string | yes      | android/ios | yes               |
-| y      | Y coordinate.                                      | number           | yes      | android/ios | yes               |
-| width  | Width of the rectangle.                            | number           | yes      | android/ios | yes               |
-| height | Height of the rectangle.                           | StrokeOptions    | yes      | android/ios | yes               |
-| r      | Corner radius. Defaults to `ry` if specified or 0. | number`or`Vector | no       | android/ios | yes               |
-
-### DiffRect
-
-#### 属性
-
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-| Name  | Description      | Type          | Required | Platform    | HarmonyOS Support |
-| ----- | ---------------- | ------------- | -------- | ----------- | ----------------- |
-| outer | Outer rectangle. | Rect \| RRect | yes      | android/ios | yes               |
-| inner | Inner rectangle. | Rect \| RRect | yes      | android/ios | yes               |
-
-### Line
-
-#### 属性
-
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-| Name | Description  | Type  | Required | Platform    | HarmonyOS Support |
-| ---- | ------------ | ----- | -------- | ----------- | ----------------- |
-| p1   | Start point. | Point | yes      | android/ios | yes               |
-| p2   | End point.   | Point | yes      | android/ios | yes               |
-
-### Points
-
-#### 属性
-
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-| Name   | Description                                                                                                                                                | Type      | Required | Platform    | HarmonyOS Support |
-| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------- | ----------- | ----------------- |
-| points | Points to draw.                                                                                                                                            | Point     | yes      | android/ios | yes               |
-| mode   | How should the points be connected. Can be `points` (no connection), `lines` (connect pairs of points), or `polygon` (connect lines). Default is `points`. | PointMode | yes      | android/ios | yes               |
-
-### Circle
-
-#### 属性
-
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name | Description  | Type   | Required | Platfor     | HarmonyOS Support |
 | ---- | ------------ | ------ | -------- | ----------- | ----------------- |
-| cx   | Start point. | number | yes      | android/ios | yes               |
-| cy   | End point.   | number | yes      | android/ios | yes               |
-| r    | Radius.      | number | yes      | android/ios | yes               |
-
-### Oval
-
-#### 属性
-
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-| Name   | Description                             | Type   | Required | Platfor     | HarmonyOS Support |
-| ------ | --------------------------------------- | ------ | -------- | ----------- | ----------------- |
-| x      | X coordinate of the bounding rectangle. | number | yes      | android/ios | yes               |
-| y      | Y coordinate of the bounding rectangle. | number | yes      | android/ios | yes               |
-| width  | Width of the bounding rectangle.        | number | yes      | android/ios | yes               |
-| height | Height of the bounding rectangle.       | number | yes      | android/ios | yes               |
+| cx   | Start point. | number | no       | android/ios | yes               |
+| cy   | End point.   | number | no       | android/ios | yes               |
+| r`   | Radius.      | number | no       | android/ios | yes               |
 
 ### Atlas
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name       | Type              | Description                                                       | Required | android/ios | HarmonyOS Support |
-| ---------- | ----------------- | ----------------------------------------------------------------- | -------- | ----------- | ----------------- |
-| image      | `SkImage or null` | Altas: image containing the sprites.                              | yes      | android/ios | yes               |
-| sprites    | `SkRect[]`        | locations of sprites in atlas.                                    | yes      | android/ios | yes               |
-| transforms | `RSXform[]`       | Rotation/scale transforms to be applied for each sprite.          | yes      | android/ios | yes               |
-| colors     | `SkColor[]`       | Optional. Color to blend the sprites with.                        | no       | android/ios | yes               |
-| blendMode  | `BlendMode`       | Optional. Blend mode used to combine sprites and colors together. | no       | android/ios | yes               |
+| Name       | Type              | Description                                                               | Required | android/ios | HarmonyOS Support |
+| ---------- | ----------------- | ------------------------------------------------------------------------- | -------- | ----------- | ----------------- |
+| image      | `SkImage or null` | Altas: image containing the sprites.                                      | no       | android/ios | yes               |
+| sprites    | `SkRect[]`        | locations of sprites in atlas.                                            | no       | android/ios | yes               |
+| transforms | `RSXform[]`       | Rotation/scale transforms to be applied for each sprite.                  | no       | android/ios | yes               |
+| colors     | `SkColor[]`       | Optional. Color to blend the sprites with.                                | yes      | android/ios | yes               |
+| blendMode  | `BlendMode`       | Optional. Blend mode used to combine sprites and colors together.\*\*\*\* | yes      | android/ios | yes               |
 
 ### Vertices
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name      | Type         | Description                                                                                                                                                           | Required | android/ios | HarmonyOS Support |
 | --------- | ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- | ----------------- |
-| vertices  | `Point[]`    | Vertices to draw                                                                                                                                                      | yes      | android/ios | yes               |
-| mode      | `VertexMode` | Can be `triangles`, `trianglesStrip` or `triangleFan`. Default is `triangles`                                                                                         | no       | android/ios | yes               |
-| indices   | `number[]`   | Indices of the vertices that form the triangles. If not provided, the order of the vertices will be taken. Using this property enables you not to duplicate vertices. | no       | android/ios | yes               |
-| textures  | `Point[]`.   | [Texture mapping](https://en.wikipedia.org/wiki/Texture_mapping). The texture is the shader provided by the paint.                                                    | yes      | android/ios | yes               |
-| colors    | `string[]`   | Optional colors to be associated to each vertex                                                                                                                       | no       | android/ios | yes               |
-| blendMode | `BlendMode`  | If `colors` is provided, colors are blended with the paint using the blend mode. Default is `dstOver` if colors are provided, `srcOver` if not.                       | no       | android/ios | yes               |
+| vertices  | `Point[]`    | Vertices to draw                                                                                                                                                      | no       | android/ios | yes               |
+| mode      | `VertexMode` | Can be `triangles`, `trianglesStrip` or `triangleFan`. Default is `triangles`                                                                                         | yes      | android/ios | yes               |
+| indices   | `number[]`   | Indices of the vertices that form the triangles. If not provided, the order of the vertices will be taken. Using this property enables you not to duplicate vertices. | yes      | android/ios | yes               |
+| textures  | `Point[]`.   | [Texture mapping](https://en.wikipedia.org/wiki/Texture_mapping). The texture is the shader provided by the paint.                                                    | no       | android/ios | yes               |
+| colors    | `string[]`   | Optional colors to be associated to each vertex                                                                                                                       | yes      | android/ios | yes               |
+| blendMode | `BlendMode`  | If `colors` is provided, colors are blended with the paint using the blend mode. Default is `dstOver` if colors are provided, `srcOver` if not.                       | yes      | android/ios | yes               |
 
 ### Patch
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name      | Type             | Description                                                  | Required | android/ios | HarmonyOS Support |
-| --------- | ---------------- | ------------------------------------------------------------ | -------- | ----------- | ----------------- |
-| patch     | `CubicBezier[4]` | Specifies four cubic Bezier starting at the top-left corner, in clockwise order, sharing every fourth point. The last cubic Bezier ends at the first point. | yes      | android/ios | yes               |
-| textures  | `Point[]`.       | [Texture mapping](https://en.wikipedia.org/wiki/Texture_mapping). The texture is the shader provided by the paint | yes      | android/ios | yes               |
-| colors    | `string[]`       | Optional colors to be associated to each corner              | no       | android/ios | yes               |
-| blendMode | `BlendMode`      | If `colors` is provided, colors are blended with the paint using the blend mode. Default is `dstOver` if colors are provided, `srcOver` if not | no       | android/ios | yes               |
-
-### Picture
-
-#### 属性
-
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-| Name    | Type      | Description       | Required | android/ios | HarmonyOS Support |
-| ------- | --------- | ----------------- | -------- | ----------- | ----------------- |
-| picture | SkPicture | Picture to render | yes      | android/ios | yes               |
-
-### Box
-
-#### 属性
-
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-| Name | Type              | Description               | Required | android/ios | HarmonyOS Support |
-| ---- | ----------------- | ------------------------- | -------- | ----------- | ----------------- |
-| box  | SkRRect \| SkRect | The destination rectangle | yes      | android/ios | yes               |
-
-### BoxShadow
-
-#### 属性
-
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-| Name   | Type    | Description                                     | Required | android/ios | HarmonyOS Support |
-| ------ | ------- | ----------------------------------------------- | -------- | ----------- | ----------------- |
-| dx     | number  | The X offset of the shadow.                     | no       | android/ios | yes               |
-| dy     | number  | The Y offset of the shadow.                     | no       | android/ios | yes               |
-| spread | number  | Optional colors to be associated to each corner | no       | android/ios | yes               |
-| blur   | number  | The blur radius for the shadow                  | yes      | android/ios | yes               |
-| color  | Color   | The color of the drop shadow                    | no       | android/ios | yes               |
-| inner  | boolean | Shadows are drawn within the input content      | no       | android/ios | yes               |
-
-### Shader
-
-#### 属性
-
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-| Name     | Type                                                                       | Description                   | Required | android/ios | HarmonyOS Support |
-| -------- | -------------------------------------------------------------------------- | ----------------------------- | -------- | ----------- | ----------------- |
-| source   | RuntimeEffect                                                              | Compiled shaders              | yes      | android/ios | yes               |
-| uniforms | { [name: string]: number \| Vector \| Vector[] \| number[] \| number[][] } | uniform values                | yes      | android/ios | yes               |
-| children | Shader                                                                     | Shaders to be used as uniform | yes      | android/ios | yes               |
-
-### ImageShader
-
-#### 属性
-
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-| Name      | Description                                                                                                              | Type              | Required | android/ios | HarmonyOS Support |
-| --------- | ------------------------------------------------------------------------------------------------------------------------ | ----------------- | -------- | ----------- | ----------------- |
-| image     | Image instance.                                                                                                          | SkImage           | yes      | android/ios | yes               |
-| tx        | Can be `clamp`, `repeat`, `mirror`, or `decal`.                                                                          | TileMode shaders  | no       | android/ios | yes               |
-| ty        | Can be `clamp`, `repeat`, `mirror`, or `decal`.                                                                          | TileMode values   | no       | android/ios | yes               |
-| fm        | Can be `linear` or `nearest`.                                                                                            | FilterMode values | no       | android/ios | yes               |
-| mm        | Can be `none` or `last`.                                                                                                 | MipmapMode        | no       | android/ios | yes               |
-| fit       | Calculate the transformation matrix to fit the rectangle defined by `fitRect`.                                           | Fit               | no       | android/ios | yes               |
-| rect      | The destination rectangle to calculate the transformation matrix via the `fit` property.                                 | SkRect            | no       | android/ios | yes               |
-| transform | The origin property is a helper to set the origin of the transformation. This property is not inherited by its children. | Transforms2d      | no       | android/ios | yes               |
+| Name      | Type             | Description                                                                                                                                                 | Required | android/ios | HarmonyOS Support |
+| --------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ----------- | ----------------- |
+| cubics    | `CubicBezier[4]` | Specifies four cubic Bezier starting at the top-left corner, in clockwise order, sharing every fourth point. The last cubic Bezier ends at the first point. | no       | android/ios | yes               |
+| textures  | `Point[]`.       | [Texture mapping](https://en.wikipedia.org/wiki/Texture_mapping). The texture is the shader provided by the paint                                           | no       | android/ios | yes               |
+| colors    | `string[]`       | Optional colors to be associated to each corner                                                                                                             | yes      | android/ios | yes               |
+| blendMode | `BlendMode`      | If `colors` is provided, colors are blended with the paint using the blend mode. Default is `dstOver` if colors are provided, `srcOver` if not              | yes      | android/ios | yes               |
 
 ### Gradients 公共属性
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name      | Description                                                                                                                                                                                                                                                                                            | Type         | Required | Platform    | HarmonyOS Support |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------ | -------- | ----------- | ----------------- |
@@ -538,11 +387,11 @@ ohpm install
 
 ### LinearGradient
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name  | Description                     | Type  | Required | Platform    | HarmonyOS Support |
 | ----- | ------------------------------- | ----- | -------- | ----------- | ----------------- |
@@ -551,11 +400,11 @@ ohpm install
 
 ### RadialGradient
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name | Description             | Type   | Required | Platform    | HarmonyOS Support |
 | ---- | ----------------------- | ------ | -------- | ----------- | ----------------- |
@@ -564,11 +413,11 @@ ohpm install
 
 ### TwoPointConicalGradient
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name   | Description                 | Type   | Required | Platform    | HarmonyOS Support |
 | ------ | --------------------------- | ------ | -------- | ----------- | ----------------- |
@@ -579,11 +428,11 @@ ohpm install
 
 ### SweepGradient
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name  | Description                            | Type   | Required | Platform    | HarmonyOS Support |
 | ----- | -------------------------------------- | ------ | -------- | ----------- | ----------------- |
@@ -593,45 +442,45 @@ ohpm install
 
 ### FractalNoise
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name       | Description                                                                                                                    | Type   | Required | Platform    | HarmonyOS Support |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------ | ------ | -------- | ----------- | ----------------- |
 | freqX      | base frequency in the X direction; range [0.0, 1.0]                                                                            | number | yes      | android/ios | yes               |
 | freqY      | base frequency in the Y direction; range [0.0, 1.0]                                                                            | number | yes      | android/ios | yes               |
-| octaves    | octaves                                                                                                                        | number | no       | android/ios | yes               |
-| seed       | seed                                                                                                                           | number | no       | android/ios | yes               |
+| octaves    |                                                                                                                                | number | yes      | android/ios | yes               |
+| seed       |                                                                                                                                | number | yes      | android/ios | yes               |
 | tileWidth  | if this and `tileHeight` are non-zero, the frequencies will be modified so that the noise will be tileable for the given size. | number | no       | android/ios | yes               |
 | tileHeight | if this and `tileWidth` are non-zero, the frequencies will be modified so that the noise will be tileable for the given size.  | number | no       | android/ios | yes               |
 
 ### Turbulence
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name       | Description                                                                                                                    | Type   | Required | Platform    | HarmonyOS Support |
 | ---------- | ------------------------------------------------------------------------------------------------------------------------------ | ------ | -------- | ----------- | ----------------- |
 | freqX      | base frequency in the X direction; range [0.0, 1.0]                                                                            | number | yes      | android/ios | yes               |
 | freqY      | base frequency in the Y direction; range [0.0, 1.0]                                                                            | number | yes      | android/ios | yes               |
-| octaves    | octaves                                                                                                                        | number | no       | android/ios | yes               |
-| seed       | seed                                                                                                                           | number | no       | android/ios | yes               |
+| octaves    |                                                                                                                                | number | yes      | android/ios | yes               |
+| seed       |                                                                                                                                | number | yes      | android/ios | yes               |
 | tileWidth  | if this and `tileHeight` are non-zero, the frequencies will be modified so that the noise will be tileable for the given size. | number | no       | android/ios | yes               |
 | tileHeight | if this and `tileWidth` are non-zero, the frequencies will be modified so that the noise will be tileable for the given size.  | number | no       | android/ios | yes               |
 
 ### Blend
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                          | Type      | Required | Platform    | HarmonyOS Support |
 | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | -------- | ----------- | ----------------- |
@@ -640,11 +489,11 @@ ohpm install
 
 ### ColorShader
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name  | Description | Type   | Required | Platform    | HarmonyOS Support |
 | ----- | ----------- | ------ | -------- | ----------- | ----------------- |
@@ -652,40 +501,40 @@ ohpm install
 
 ### DiscretePathEffect
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name      | Description                                                   | Type       | Required | Platform    | HarmonyOS Support |
 | --------- | ------------------------------------------------------------- | ---------- | -------- | ----------- | ----------------- |
 | length    | length of the subsegments.                                    | number     | yes      | android/ios | yes               |
 | deviation | limit of the movement of the endpoints.                       | number     | yes      | android/ios | yes               |
-| seed      | modifies the randomness. See SkDiscretePathEffect.h for more. | number     | no       | android/ios | yes               |
+| seed      | modifies the randomness. See SkDiscretePathEffect.h for more. | number     | yes      | android/ios | yes               |
 | children  | Optional path effect to apply.                                | PathEffect | no       | android/ios | yes               |
 
 ### DashPathEffect
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name      | Description                                                                                                                             | Type       | Required | Platform    | HarmonyOS Support |
 | --------- | --------------------------------------------------------------------------------------------------------------------------------------- | ---------- | -------- | ----------- | ----------------- |
 | intervals | even number of entries with even indices specifying the length of the "on" intervals, and the odd index specifying the length of "off". | number[]   | yes      | android/ios | yes               |
-| phase     | offset into the intervals array. Defaults to 0.                                                                                         | number     | no       | android/ios | yes               |
+| phase     | offset into the intervals array. Defaults to 0.                                                                                         | number     | yes      | android/ios | yes               |
 | children  | Optional path effect to apply.                                                                                                          | PathEffect | no       | android/ios | yes               |
 
 ### CornerPathEffect
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name     | Description                    | Type       | Required | Platform    | HarmonyOS Support |
 | -------- | ------------------------------ | ---------- | -------- | ----------- | ----------------- |
@@ -694,11 +543,11 @@ ohpm install
 
 ### Path1DPathEffect
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name     | Description                                                                     | Type              | Required | Platform    | HarmonyOS Support |
 | -------- | ------------------------------------------------------------------------------- | ----------------- | -------- | ----------- | ----------------- |
@@ -710,11 +559,11 @@ ohpm install
 
 ### Path2DPathEffect
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name     | Description                   | Type       | Required | Platform    | HarmonyOS Support |
 | -------- | ----------------------------- | ---------- | -------- | ----------- | ----------------- |
@@ -724,11 +573,11 @@ ohpm install
 
 ### Line2DPathEffect
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name     | Description                   | Type       | Required | Platform    | HarmonyOS Support |
 | -------- | ----------------------------- | ---------- | -------- | ----------- | ----------------- |
@@ -736,194 +585,28 @@ ohpm install
 | matrix   | Matrix to be applied          | IMatrix    | yes      | android/ios | yes               |
 | children | Optional path effect to apply | PathEffect | no       | android/ios | yes               |
 
-### Shadow
-
-#### 属性
-
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-| Name       | Description                                            | Type        | Required | Platform    | HarmonyOS Support |
-| ---------- | ------------------------------------------------------ | ----------- | -------- | ----------- | ----------------- |
-| dx         | The X offset of the shadow.                            | number      | yes      | android/ios | yes               |
-| dy         | The Y offset of the shadow.                            | number      | no       | android/ios | yes               |
-| blur       | The blur radius for the shadow                         | number      | no       | android/ios | yes               |
-| color      | The color of the drop shadow                           | Color       | no       | android/ios | yes               |
-| inner      | Shadows are drawn within the input content             | boolean     | no       | android/ios | yes               |
-| shadowOnly | If true, the result does not include the input content | boolean     | no       | android/ios | yes               |
-| children   | Optional image filter to be applied first              | ImageFilter | no       | android/ios | yes               |
-
-### Blur
-
-#### 属性
-
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-| Name     | Description                                                   | Type             | Required | Platform    | HarmonyOS Support |
-| -------- | ------------------------------------------------------------- | ---------------- | -------- | ----------- | ----------------- |
-| blur     | The Gaussian sigma blur value                                 | number`or`Vector | yes      | android/ios | yes               |
-| mode     | `mirror`, `repeat`, `clamp`, or `decal` (default is `decal`). | TileMode         | no       | android/ios | yes               |
-| children | Optional image filter to be applied first.                    | ImageFilter      | no       | android/ios | yes               |
-
-### DisplacementMap
-
-#### 属性
-
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-| Name     | Description                                                                          | Type         | Required | Platform    | HarmonyOS Support |
-| -------- | ------------------------------------------------------------------------------------ | ------------ | -------- | ----------- | ----------------- |
-| channelX | Color channel to be used along the X axis. Possible values are `r`, `g`, `b`, or `a` | ColorChannel | yes      | android/ios | yes               |
-| channelY | Color channel to be used along the Y axis. Possible values are `r`, `g`, `b`, or `a` | ColorChannel | no       | android/ios | yes               |
-| scale    | Displacement scale factor to be used                                                 | number       | no       | android/ios | yes               |
-| children | Optional image filter to be applied first                                            | ImageFilter  | no       | android/ios | yes               |
-
-### Offset
-
-#### 属性
-
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-| Name     | Description                                | Type        | Required | Platform    | HarmonyOS Support |
-| -------- | ------------------------------------------ | ----------- | -------- | ----------- | ----------------- |
-| x        | Offset along the X axis.                   | number      | yes      | android/ios | yes               |
-| y        | Offset along the Y axis.                   | number      | yes      | android/ios | yes               |
-| children | Optional image filter to be applied first. | ImageFilter | no       | android/ios | yes               |
-
-### Morphology
-
-#### 属性
-
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-| Name     | Description                                                         | Type             | Required | Platform    | HarmonyOS Support |
-| -------- | ------------------------------------------------------------------- | ---------------- | -------- | ----------- | ----------------- |
-| operator | whether to erode (i.e., thin) or dilate (fatten). Default is dilate | erode`or`dilate  | yes      | android/ios | yes               |
-| radius   | Radius of the effect.                                               | number`or`Vector | yes      | android/ios | yes               |
-| children | Optional image filter to be applied first.                          | ImageFilter      | no       | android/ios | yes               |
-
-### RuntimeShader
-
-#### 属性
-
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-| Name     | Description                                | Type            | Required | Platform    | HarmonyOS Support |
-| -------- | ------------------------------------------ | --------------- | -------- | ----------- | ----------------- |
-| source   | Shader to use as an image filter           | SkRuntimeEffect | yes      | android/ios | yes               |
-| children | Optional image filter to be applied first. | ImageFilter     | no       | android/ios | yes               |
-
-### BlurMask
-
-#### 属性
-
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-| Name       | Description                                                           | Type      | Required | Platform    | HarmonyOS Support |
-| ---------- | --------------------------------------------------------------------- | --------- | -------- | ----------- | ----------------- |
-| blur       | Standard deviation of the Gaussian blur. Must be > 0.                 | number    | yes      | android/ios | yes               |
-| style      | Can be `normal`, `solid`, `outer`, or `inner` (default is `normal`).  | BlurStyle | no       | android/ios | yes               |
-| respectCTM | if true the blur's sigma is modified by the CTM (default is `false`). | bool      | no       | android/ios | yes               |
-
-### ColorMatrix
-
-#### 属性
-
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-| Name     | Description                                | Type        | Required | Platform    | HarmonyOS Support |
-| -------- | ------------------------------------------ | ----------- | -------- | ----------- | ----------------- |
-| matrix   | Color Matrix (5x4)                         | number[]    | yes      | android/ios | yes               |
-| children | Optional color filter to be applied first. | ColorFilter | no       | android/ios | yes               |
-
-### BlendColor
-
-#### 属性
-
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-| Name     | Description                                                                               | Type        | Required | Platform    | HarmonyOS Support |
-| -------- | ----------------------------------------------------------------------------------------- | ----------- | -------- | ----------- | ----------------- |
-| color    | Color                                                                                     | Color       | yes      | android/ios | yes               |
-| mode     | Sets the blend mode that is, the mode used to combine source color with destination color | BlendMode   | yes      | android/ios | yes               |
-| children | Optional color filter to be applied first.                                                | ColorFilter | no       | android/ios | yes               |
-
-### Lerp
-
-#### 属性
-
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-| Name     | Description                                | Type        | Required | Platform    | HarmonyOS Support |
-| -------- | ------------------------------------------ | ----------- | -------- | ----------- | ----------------- |
-| t        | Value between 0 and 1.                     | number      | yes      | android/ios | yes               |
-| children | Optional color filter to be applied first. | ColorFilter | yes      | android/ios | yes               |
-
-### LinearToSRGBGamma
-
-#### 属性
-
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-| Name     | Description                                | Type        | Required | Platform    | HarmonyOS Support |
-| -------- | ------------------------------------------ | ----------- | -------- | ----------- | ----------------- |
-| children | Optional color filter to be applied first. | ColorFilter | no       | android/ios | yes               |
-
-### SRGBToLinearGamma
-
-#### 属性
-
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-| Name     | Description                                | Type        | Required | Platform    | HarmonyOS Support |
-| -------- | ------------------------------------------ | ----------- | -------- | ----------- | ----------------- |
-| children | Optional color filter to be applied first. | ColorFilter | no       | android/ios | yes               |
-
 ### Mask
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name     | Description                                          | Type               | Required | Platform    | HarmonyOS Support |
 | -------- | ---------------------------------------------------- | ------------------ | -------- | ----------- | ----------------- |
 | mode     | Is it a luminance or alpha mask (default is `alpha`) | alpha \| luminance | no       | android/ios | yes               |
-| clip     | clip the mask so it doesn't exceed the content       | boolean            | no       | android/ios | yes               |
+| clip     | clip the mask so it doesn't exceed the content       | bool               | no       | android/ios | yes               |
 | mask     | ReactNode                                            | ReactNode[]        | yes      | android/ios | yes               |
 | children | ReactNode                                            | ReactNode[]        | yes      | android/ios | yes               |
 
 ### Image
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name   | Description                                                                                                                                                                | Type    | Required | Platform    | HarmonyOS Support |
 | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------- | ----------- | ----------------- |
@@ -934,13 +617,13 @@ ohpm install
 | height | The height of the destination image.                                                                                                                                       | number  | yes      | android/ios | yes               |
 | fit    | The method used to fit the image into the rectangle. Values can be `contain`, `fill`, `cover`, `fitHeight`, `fitWidth`, `scaleDown`, or `none` (the default is `contain`). | Fit     | no       | android/ios | yes               |
 
-### ImageSVG
+### SVG Image
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name   | Description                                 | Type   | Required | Platform    | HarmonyOS Support |
 | ------ | ------------------------------------------- | ------ | -------- | ----------- | ----------------- |
@@ -952,11 +635,11 @@ ohpm install
 
 ### Paragraph
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name      | Description                                   | Type        | Required | Platform    | HarmonyOS Support |
 | --------- | --------------------------------------------- | ----------- | -------- | ----------- | ----------------- |
@@ -967,11 +650,11 @@ ohpm install
 
 ### Text
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name | Description                                   | Type   | Required | Platform    | HarmonyOS Support |
 | ---- | --------------------------------------------- | ------ | -------- | ----------- | ----------------- |
@@ -982,11 +665,11 @@ ohpm install
 
 ### Glyphs
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name   | Description                                                | Type    | Required | Platform    | HarmonyOS Support |
 | ------ | ---------------------------------------------------------- | ------- | -------- | ----------- | ----------------- |
@@ -995,27 +678,27 @@ ohpm install
 | y      | y coordinate of the origin of the entire run. Default is 0 | number  | yno      | android/ios | yes               |
 | font   | Font to use                                                | SkFont  | yes      | android/ios | yes               |
 
-### TextPath
+### Text Path
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name | Description                                                                                                                                                                             | Type           | Required | Platform    | HarmonyOS Support |
 | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | -------- | ----------- | ----------------- |
 | path | Path to draw. Can be a string using the [SVG Path notation](https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Paths#line_commands) or an object created with `Skia.Path.Make()` | Path \| string | yes      | android/ios | yes               |
 | text | Text to draw                                                                                                                                                                            | string         | yes      | android/ios | yes               |
-| font | Font to use                                                                                                                                                                             | SkFont         | yes      | android/ios | yes               |
+| font | Font to use                                                                                                                                                                             |                |          |             |                   |
 
-### TextBlob
+### Text Path
 
-#### 属性
+#### Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name | Description                                                | Type     | Required | Platform    | HarmonyOS Support |
 | ---- | ---------------------------------------------------------- | -------- | -------- | ----------- | ----------------- |
@@ -1023,48 +706,24 @@ ohpm install
 | x    | x coordinate of the origin of the entire run. Default is 0 | number   | no       | android/ios | yes               |
 | y    | y coordinate of the origin of the entire run. Default is 0 | number   | no       | android/ios | yes               |
 
-### BackdropFilter
-
-#### 属性
-
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-| Name   | Description                                                                             | Type                     | Required | Platform    | HarmonyOS Support |
-| ------ | --------------------------------------------------------------------------------------- | ------------------------ | -------- | ----------- | ----------------- |
-| filter | Applies an image filter to the area behind the canvas or behind a defined clipping mask | ReactNode \| ReactNode[] | yes      | android/ios | yes               |
-
-### BackdropBlur
-
-#### 属性
-
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-| Name | Description | Type   | Required | Platform    | HarmonyOS Support |
-| ---- | ----------- | ------ | -------- | ----------- | ----------------- |
-| blur | Blur radius | number | yes      | android/ios | yes               |
-
 ## RNSkiaModule API
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name    | Description      | Type     | Required | Platform    | HarmonyOS Support |
 | ------- | ---------------- | -------- | -------- | ----------- | ----------------- |
 | install | initialized skia | function | yes      | android/ios | yes               |
 
-## 遗留问题
+## Known Issues
 
 - [x] Text 组件无法使用 问题: [issue#Text 暂不支持](https://github.com/react-native-oh-library/react-native-skia/issues/5)
 - [ ] Video 组件无法使用 问题: [issue#Video 暂不支持](https://github.com/react-native-oh-library/react-native-skia/issues/6)
 - [x] Image 组件无法使用 问题: [issue#Image 暂不支持](https://github.com/react-native-oh-library/react-native-skia/issues/7)
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-skia/blob/sig/LICENSE.md) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-skia/blob/sig/LICENSE.md).

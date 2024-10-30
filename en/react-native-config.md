@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-config</code> </h1>
@@ -12,29 +12,35 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-config)
-## 基本用法
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-config)
+
+## Basic Usage
+
 在 React Native 应用程序的根目录中创建一个新`.env`文件
+
 ```bash
 API_URL=https://myapi.com
 GOOGLE_MAPS_API_KEY=abcdefgh
 ```
-然后从您的应用程序访问那里定义的变量：
+
+然后从您的应用程序访问那里定义的变量:
+
 ```bash
 import Config from "react-native-config";
 
 Config.API_URL; // 'https://myapi.com'
 Config.GOOGLE_MAPS_API_KEY; // 'abcdefgh'
 ```
+
 请记住，此模块不会混淆或加密机密以进行打包，因此请勿将敏感密钥存储在`.env`中[基本上不可能阻止用户对移动应用程序机密进行逆向工程](https://rammic.github.io/2015/07/28/hiding-secrets-in-android-apps/)，因此请在设计应用程序（和 API）时牢记这一点。
 
-## 安装与使用
+## Installation and Usage
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-library/react-native-config Releases](https://github.com/react-native-oh-library/react-native-config/releases)，并下载适用版本的 tgz 包。
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-library/react-native-config Releases](https://github.com/react-native-oh-library/react-native-config/releases).
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
-> [!TIP] # 处替换为 tgz 包的路径
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 #### npm
 
@@ -48,10 +54,9 @@ npm install @react-native-oh-tpl/react-native-config@file:#
 yarn add @react-native-oh-tpl/react-native-config@file:#
 ```
 
+The following code shows the basic use scenario of the repository:
 
-下面的代码展示了这个库的基本使用场景：
-
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```
 import React, {Component} from 'react';
@@ -84,17 +89,17 @@ const styles = StyleSheet.create({
 });
 ```
 
-## 使用 Codegen
+## Use Codegen
 
-本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/zh-cn/codegen.md)。
+If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/zh-cn/codegen.md).
 
 ## Link
 
-目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
 
-首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
+Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 1.在工程根目录的 `oh-package.json5` 添加 overrides 字段
+### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
 
 ```json
 {
@@ -105,7 +110,7 @@ const styles = StyleSheet.create({
 }
 ```
 
-### 2.引入原生端代码
+### 2. Introducing Native Code
 
 该库仅支持源码形式引入
 
@@ -129,7 +134,7 @@ modules:[
 ]
 ```
 
-打开 `entry/oh-package.json5`，添加以下依赖
+Open `entry/oh-package.json5` file and add the following dependencies:
 
 ```json
 "dependencies": {
@@ -138,18 +143,18 @@ modules:[
   }
 ```
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-### 3.在 ArkTs 侧引入 RNConfigPackage
+### 3. Introducing RNConfigPackage to ArkTS
 
-打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
 
 ```diff
 import type { RNPackageContext, RNPackage } from 'rnoh/ts';
@@ -164,45 +169,48 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 4.运行
+### 4. Running
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-然后编译、运行即可。
+Then build and run the code.
 
 ### 多环境
-将不同环境的配置保存在不同的文件中：`.env.staging`，`.env.production`等等。
-默认情况下，`react-native-config `将从`.env`中读取。最简单的方法是用环境变量告诉它读取什么文件，以命令行中使用IDE下的`hvigor.js`的方式（不推荐）。
+
+将不同环境的配置保存在不同的文件中: `.env.staging`，`.env.production`等等。
+默认情况下，`react-native-config `将从`.env`中读取。最简单的方法是用环境变量告诉它读取什么文件，以命令行中使用 IDE 下的`hvigor.js`的方式（不推荐）。
 
 例如在`CMD`窗口下
 
-首先从RN工程根目录 `cd harmony` 进入harmony目录
+首先从 RN 工程根目录 `cd harmony` 进入 harmony 目录
 
-然后先停止守护进程：
+然后先停止守护进程:
 
 ```bash
 "D:\DevEcoStudio\tools\node\node.exe" "D:\DevEcoStudio\tools\hvigor\bin\hvigorw.js" --stop-daemon-all
 ```
 
-*注意，命令中`node.exe`与`hvigor.js`路径为`DevEco Studio`安装目录下的`tools`目录下，需根据实际情况更改。
+\*注意，命令中`node.exe`与`hvigor.js`路径为`DevEco Studio`安装目录下的`tools`目录下，需根据实际情况更改。
 
-然后设置环境变量`ENVFILE`为想要指定的配置文件名（注意：文件名后不要加空格），并用`hvigor.js`构建工程，例如：
+然后设置环境变量`ENVFILE`为想要指定的配置文件名（注意: 文件名后不要加空格），并用`hvigor.js`构建工程，例如:
 
 ```bash
 set ENVFILE=.env.staging&&"D:\DevEcoStudio\tools\node\node.exe" "D:\DevEcoStudio\tools\hvigor\bin\hvigorw.js"  --mode module -p module=entry@default -p product=default -p requiredDeviceType=phone assembleHap --analyze=normal --parallel --increm
 ```
-之后可打开`DevEco Studio`构建运行，但此时为保证所设环境变量与工程构建在同一进程，不可在`DevEco Studio`的终端中以hvigor命令构建工程。
+
+之后可打开`DevEco Studio`构建运行，但此时为保证所设环境变量与工程构建在同一进程，不可在`DevEco Studio`的终端中以 hvigor 命令构建工程。
 
 #### 建立映射
 
-或者，您可以定义一个映射来将构建与环境文件关联起来，可以在`harmony`工程根目录的`build-profile.json5`中的`products`中的`buildOption`节点下的`arkOptions`子节点中通过增加`buildProfileFields`字段配置映射，字段中以键值对的方式配置，其中key值为小写的工程构建类型，value为该构建类型下所要读取的文件名
+或者，您可以定义一个映射来将构建与环境文件关联起来，可以在`harmony`工程根目录的`build-profile.json5`中的`products`中的`buildOption`节点下的`arkOptions`子节点中通过增加`buildProfileFields`字段配置映射，字段中以键值对的方式配置，其中 key 值为小写的工程构建类型，value 为该构建类型下所要读取的文件名
+
 ```json
 "products": [
       {
@@ -222,30 +230,28 @@ set ENVFILE=.env.staging&&"D:\DevEcoStudio\tools\node\node.exe" "D:\DevEcoStudio
     ]
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-library/react-native-config Releases](https://github.com/react-native-oh-library/react-native-config/releases)
+Check the release version information in the release address of the third-party library: [@react-native-oh-library/react-native-config Releases](https://github.com/react-native-oh-library/react-native-config/releases)
 
-## 属性
+## Properties
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name            | Description                       | Type     | Required | Platform    | HarmonyOS Support |
-| --------------- | --------------------------------- | -------- | -------- | ----------- | ----------------- |
-| Config    | 类中属性名及其值对应.env文件中所定义的键值对           | Object     | no       | Android/iOS | yes               |
+| Name   | Description                                   | Type   | Required | Platform    | HarmonyOS Support |
+| ------ | --------------------------------------------- | ------ | -------- | ----------- | ----------------- |
+| Config | 类中属性名及其值对应.env 文件中所定义的键值对 | Object | no       | Android/iOS | yes               |
 
+## Known Issues
 
-## 遗留问题
+## Others
 
-## 其他
+## License
 
-## 开源协议
-
-本项目基于 [The MIT License (MIT)](https://github.com/lugg/react-native-config/blob/master/LICENSE) ，请自由地享受和参与开源。
-
+This project is licensed under [The MIT License (MIT)](https://github.com/lugg/react-native-config/blob/master/LICENSE).

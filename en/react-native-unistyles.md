@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-unistyles</code> </h1>
@@ -13,15 +13,15 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-unistyles)
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-unistyles)
 
-## 安装与使用
+## Installation and Usage
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-unistyles Releases](https://github.com/react-native-oh-library/react-native-unistyles/releases)，并下载适用版本的 tgz 包。
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-unistyles Releases](https://github.com/react-native-oh-library/react-native-unistyles/releases).
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
-> [!TIP] # 处替换为 tgz 包的路径
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
@@ -39,9 +39,9 @@ yarn add @react-native-oh-tpl/react-native-unistyles@file:#
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import {
@@ -90,7 +90,9 @@ export function UnistylesExample() {
     <ScrollView>
       <View style={basic_styles.consta}>
         <StatusBar barStyle="light-content"></StatusBar>
-        <Text style={basic_styles.titleStyle}>{"变更状态栏颜色:"}</Text>
+        <Text style={basic_styles.titleStyle}>
+          {"Change the color of the status bar:"}
+        </Text>
         <Button
           title="status"
           onPress={() => {
@@ -104,18 +106,21 @@ export function UnistylesExample() {
           }}
         ></Button>
 
-        <Text style={basic_styles.titleStyle}>{"变更主题对象:"}</Text>
+        <Text style={basic_styles.titleStyle}>
+          {"Change the theme object:"}
+        </Text>
         <View style={styles.container}>
           <Text style={styles.text}>
             {" "}
-            当前主题:{UnistylesRuntime.themeName} 重新渲染的次数:{renderCount.current++}
+            Current topic:{UnistylesRuntime.themeName} The number of times to re
+            render:{renderCount.current++}
           </Text>
           <Text style={styles.theme}>
             {" "}
             Colors: {JSON.stringify(theme.colors, null, 2)}{" "}
           </Text>
           <Button
-            title="变更light主题"
+            title="Change the light theme"
             onPress={() => {
               anti_shake = !anti_shake;
               if (anti_shake) {
@@ -136,13 +141,13 @@ export function UnistylesExample() {
           />
         </View>
 
-        <Text style={basic_styles.titleStyle}>{"更改页面样式:"}</Text>
+        <Text style={basic_styles.titleStyle}>{"Change page style:"}</Text>
         <Text style={styles.text}>
           {" "}
-          这个页面正在使用 {UnistylesRuntime.themeName} 主题.
+          This page is currently in use {UnistylesRuntime.themeName} .
         </Text>
         <Button
-          title="更改页面主题"
+          title="Change page theme"
           color={theme.colors.accent}
           onPress={() => {
             anti_shake = !anti_shake;
@@ -155,12 +160,12 @@ export function UnistylesExample() {
           }}
         />
 
-        <Text style={basic_styles.titleStyle}>{"自适应主题:"}</Text>
+        <Text style={basic_styles.titleStyle}>{"Adaptive Theme:"}</Text>
         <Text style={styles.container}>
-          {" 系统主题:" + UnistylesRuntime.colorScheme}
+          {" System Theme:" + UnistylesRuntime.colorScheme}
         </Text>
         <Button
-          title="启用自适应主题"
+          title="Enable adaptive themes"
           onPress={() => {
             anti_shake = !anti_shake;
             if (anti_shake) {
@@ -169,14 +174,17 @@ export function UnistylesExample() {
           }}
         />
 
-        <Text style={basic_styles.titleStyle}>{"插件:"}</Text>
+        <Text style={basic_styles.titleStyle}>{"plug-in unit:"}</Text>
         <View style={styles.unscaledBox}></View>
         <Text>
-          前缀为unscaled的样式会被插件跳过,已启用的插件
+          Styles with the prefix unscaled will be skipped by the plugin, while
+          plugins that have already been enabled will be skipped
           {UnistylesRuntime.enabledPlugins}
         </Text>
         <Button
-          title={isAutoGuidelinePluginEnabled ? "关闭插件" : "启用插件"}
+          title={
+            isAutoGuidelinePluginEnabled ? "Close plugin" : "Enable plugins"
+          }
           onPress={() => {
             anti_shake = !anti_shake;
             if (anti_shake) {
@@ -188,16 +196,19 @@ export function UnistylesExample() {
         />
 
         <Text style={basic_styles.titleStyle}>
-          {"在StyleSheets中使用runtime:"}
+          {"Using runtime in StyleSheets:"}
         </Text>
         <View style={styles.box}>
           <Text>
-            占据了屏幕一半大小的方块width:{styles.box.width} 861 height:
+            The width of the square occupying half the size of the screen:
+            {styles.box.width} 861 height:
             {styles.box.height}
           </Text>
         </View>
 
-        <Text style={basic_styles.titleStyle}>{"动态函数式样式表:"}</Text>
+        <Text style={basic_styles.titleStyle}>
+          {"Dynamic functional style sheet:"}
+        </Text>
         <View style={styles.dynamicFunction(2)}>
           <Text>accent</Text>
         </View>
@@ -205,25 +216,28 @@ export function UnistylesExample() {
           <Text>barbie</Text>
         </View>
 
-        <Text style={basic_styles.titleStyle}>{"媒体查询:"}</Text>
+        <Text style={basic_styles.titleStyle}>{"Media inquiry:"}</Text>
         <View style={styles.container1}>
           <Text>
-            你的屏幕大小是:{UnistylesRuntime.screen.width}x
-            {UnistylesRuntime.screen.height};当宽大于500时背景是
-            {theme.colors.backgroundColor}，宽大于900时背景为
+            What is the size of your screen:{UnistylesRuntime.screen.width}x
+            {UnistylesRuntime.screen.height};When the width is greater than 500,
+            the background is
+            {theme.colors.backgroundColor}，When the width is greater than 900, the
+            background is
             {theme.colors.aloes}
           </Text>
         </View>
 
         <Text style={basic_styles.titleStyle}>
-          {"在StyleSheets中使用variants:"}
+          {"Using variables in StyleSheets:"}
         </Text>
         <View style={styles.box_variants}></View>
         <Text style={basic_styles.titleStyle}>{":"}</Text>
 
-        <Text style={basic_styles.titleStyle}>{"字体大小偏好:"}</Text>
+        <Text style={basic_styles.titleStyle}>{"Font size preference:"}</Text>
         <Text>
-          {"现在的字体大小偏好设置为:" + UnistylesRuntime.contentSizeCategory}
+          {"The current font size preference is set to:" +
+            UnistylesRuntime.contentSizeCategory}
         </Text>
       </View>
     </ScrollView>
@@ -377,11 +391,11 @@ const autoGuidelinePlugin: UnistylesPlugin = {
 
 ## Link
 
-目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
 
-首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
+Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 1.在工程根目录的 `oh-package.json5` 添加 overrides 字段
+### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
 
 ```json
 {
@@ -392,18 +406,15 @@ const autoGuidelinePlugin: UnistylesPlugin = {
 }
 ```
 
-### 2.引入原生端代码
+### 2. Introducing Native Code
 
-目前有两种方法：
+Currently, two methods are available:
 
-1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
-2. 直接链接源码。
+Method 1 (recommended): Use the HAR file.
 
-方法一：通过 har 包引入（推荐）
+> [!TIP] The HAR file is stored in the `harmony` directory in the installation path of the third-party library.
 
-> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
+Open `entry/oh-package.json5` file and add the following dependencies:
 
 ```json
 "dependencies": {
@@ -412,22 +423,22 @@ const autoGuidelinePlugin: UnistylesPlugin = {
 }
 ```
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-方法二：直接链接源码
+Method 2: Directly link to the source code.
 
-> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
+> [!TIP] For details, see [Directly Linking Source Code](/zh-cn/link-source-code.md).
 
-### 3.配置 CMakeLists 和引入 UnistylesPackage
+### 3. Configuring CMakeLists and Introducing UnistylesPackage
 
-打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
+Open `entry/src/main/cpp/CMakeLists.txt` and add the following code:
 
 ```diff
 project(rnapp)
@@ -465,7 +476,7 @@ target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 # RNOH_END: manual_package_linking_2
 ```
 
-打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
+Open `entry/src/main/cpp/PackageProvider.cpp` and add the following code:
 
 ```diff
 #include "RNOH/PackageProvider.h"
@@ -484,9 +495,9 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 4.在 ArkTs 侧引入 RNUnistylesPackage
+### 4. Introducing RNUnistylesPackage to ArkTS
 
-打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
 
 ```diff
   ...
@@ -500,81 +511,80 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 5.运行
+### 5. Running
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-然后编译、运行即可。
+Then build and run the code.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-unistyles Releases](https://github.com/react-native-oh-library/react-native-unistyles/releases)
+Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-unistyles Releases](https://github.com/react-native-oh-library/react-native-unistyles/releases)
 
 ## Runtime
 
 ### UnistylesRuntime
 
-UnistylesRuntime 是 Unitstyles 库 的一个Host Object。它始终保持最新状态，并允许您与Unistyles的原生层进行交互
+UnistylesRuntime 是 Unitstyles 库 的一个 Host Object。它始终保持最新状态，并允许您与 Unistyles 的原生层进行交互
 
 #### UnistylesRuntime 属性
 
-| Name                 | Description                                                                  | Type                 | Required | Platform        | HarmonyOS Support |
-| -------------------- | ---------------------------------------------------------------------------- | -------------------- | -------- | --------------- | ----------------- |
-| screenWidth          | Screen dimensions Width                                                      | number               | no       | All             | yes               |
-| screenHeight         | Screen dimensions Height                                                     | number               | no       | All             | yes               |
-| enabledPlugins       | Names of currently enabled plugins                                           | boolean              | no       | All             | yes               |
-| hasAdaptiveThemes    | Indicates if you have enabled adaptive themes                                | boolean              | no       | All             | yes               |
-| themeName            | Name of the selected theme or an empty string if you don’t use themes        | string               | no       | All             | yes               |
-| breakpoint           | Current breakpoint or always undefined if you don’t use breakpoints          | UnistylesBreakpoints | no       | All             | yes               |
-| colorScheme          | Get your device’s color scheme. Available options dark, light or unspecified | string               | no       | All             | yes               |
-| contentSizeCategory  | Your device’s content size category                                          | string               | no       | All             | yes               |
-| insets               | Device insets which are safe to put content into                             | inset                | no       | All             | yes               |
-| statusBar.width      | Status bar dimensions width                                                  | number               | no       | All             | yes               |
-| statusBar.height     | Status bar dimensions height                                                 | number               | no       | All             | yes               |
-| navigationBar.height | Navigation bar dimensions height                                             | number               | no       | Android 		  | yes               |
-| navigationBar.width  | Navigation bar dimensions width                                              | number               | no       | Android 		  | yes               |
-| ScreenOrientation    | Your device’s orientation                                                    | ScreenOrientation    | no       | All             | yes               |
+| Name                 | Description                                                                  | Type                 | Required | Platform | HarmonyOS Support |
+| -------------------- | ---------------------------------------------------------------------------- | -------------------- | -------- | -------- | ----------------- |
+| screenWidth          | Screen dimensions Width                                                      | number               | no       | All      | yes               |
+| screenHeight         | Screen dimensions Height                                                     | number               | no       | All      | yes               |
+| enabledPlugins       | Names of currently enabled plugins                                           | boolean              | no       | All      | yes               |
+| hasAdaptiveThemes    | Indicates if you have enabled adaptive themes                                | boolean              | no       | All      | yes               |
+| themeName            | Name of the selected theme or an empty string if you don’t use themes        | string               | no       | All      | yes               |
+| breakpoint           | Current breakpoint or always undefined if you don’t use breakpoints          | UnistylesBreakpoints | no       | All      | yes               |
+| colorScheme          | Get your device’s color scheme. Available options dark, light or unspecified | string               | no       | All      | yes               |
+| contentSizeCategory  | Your device’s content size category                                          | string               | no       | All      | yes               |
+| insets               | Device insets which are safe to put content into                             | inset                | no       | All      | yes               |
+| statusBar.width      | Status bar dimensions width                                                  | number               | no       | All      | yes               |
+| statusBar.height     | Status bar dimensions height                                                 | number               | no       | All      | yes               |
+| navigationBar.height | Navigation bar dimensions height                                             | number               | no       | Android  | yes               |
+| navigationBar.width  | Navigation bar dimensions width                                              | number               | no       | Android  | yes               |
+| ScreenOrientation    | Your device’s orientation                                                    | ScreenOrientation    | no       | All      | yes               |
 
-目前 UnistylesRuntime 支持：
+目前 UnistylesRuntime 支持:
 
-* `statusBar.setColor`
-Update statusBar color at runtime
+- `statusBar.setColor`
+  Update statusBar color at runtime
 
-* `navigationBar.setColor`
-Update navigationBar color at runtime
+- `navigationBar.setColor`
+  Update navigationBar color at runtime
 
-* `setAdaptiveThemes`
-Toggle adaptive themes 
+- `setAdaptiveThemes`
+  Toggle adaptive themes
 
-* `setTheme`
-Change the current theme    
+- `setTheme`
+  Change the current theme
 
-* `updateTheme`
-Update the theme at runtime
+- `updateTheme`
+  Update the theme at runtime
 
-* `removePlugin`
-Disable a plugin 
+- `removePlugin`
+  Disable a plugin
 
-* `addPlugin`
-Enable a plugin 
+- `addPlugin`
+  Enable a plugin
 
+## Static Methods
 
-## 静态方法
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 #### global
 
@@ -595,9 +605,9 @@ Enable a plugin
 
 ## API
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 #### UnistylesRegistry
 
@@ -607,10 +617,10 @@ Enable a plugin
 | addBreakpoints | register breakpoints | function | no       | All      | yes               |
 | addConfig      | register config      | function | no       | All      | yes               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/jpudysz/react-native-unistyles/blob/main/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/jpudysz/react-native-unistyles/blob/main/LICENSE).

@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>@ptomasroos/react-native-multi-slider</code> </h1>
@@ -14,16 +13,15 @@
     </a>
 </p>
 
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-multi-slider)
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-multi-slider)
+## Installation and Usage
 
-## 安装与使用
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-multi-slider Releases](https://github.com/react-native-oh-library/react-native-multi-slider/releases).
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-multi-slider Releases](https://github.com/react-native-oh-library/react-native-multi-slider/releases)，并下载适用版本的 tgz 包。
+Go to the project directory and execute the following instruction:
 
-进入到工程目录并输入以下命令：
-
-> [!TIP] # 处替换为 tgz 包的路径
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
@@ -41,15 +39,23 @@ yarn add @react-native-oh-tpl/react-native-multi-slider@file:#
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
-import React from 'react';
+import React from "react";
 
-import { StyleSheet, View, Text, ScrollView, Alert, Animated, Image } from 'react-native';
-import MultiSlider from '@ptomasroos/react-native-multi-slider';
+import {
+  StyleSheet,
+  View,
+  Text,
+  ScrollView,
+  Alert,
+  Animated,
+  Image,
+} from "react-native";
+import MultiSlider from "@ptomasroos/react-native-multi-slider";
 
 const AnimatedView = Animated.createAnimatedComponent(View);
 
@@ -60,7 +66,7 @@ CustomLabel.defaultProps = {
 const width = 50;
 const pointerWidth = width * 0.47;
 
-function LabelBase(props:any) {
+function LabelBase(props: any) {
   const { position, value, leftDiff, pressed } = props;
   const scaleValue = React.useRef(new Animated.Value(0.1)); // Behaves oddly if set to 0
   const cachedPressed = React.useRef(pressed);
@@ -98,7 +104,7 @@ function LabelBase(props:any) {
   );
 }
 
-function CustomLabel(props:any) {
+function CustomLabel(props: any) {
   const {
     leftDiff,
     oneMarkerValue,
@@ -131,25 +137,33 @@ class CustomMarker extends React.Component<any> {
   render() {
     return (
       <View>
-        <Text style={markerStyles.text}>{this.props.valuePrefix}{this.props.currentValue}</Text>
+        <Text style={markerStyles.text}>
+          {this.props.valuePrefix}
+          {this.props.currentValue}
+        </Text>
         <Image
           style={markerStyles.image}
           source={
-            this.props.pressed ? require('./ruby.png') : require('./diamond.png')
+            this.props.pressed
+              ? require("./ruby.png")
+              : require("./diamond.png")
           }
           resizeMode="contain"
         />
-        <Text style={markerStyles.text}>{this.props.valuePrefix}{this.props.currentValue}{this.props.valueSuffix}</Text>
+        <Text style={markerStyles.text}>
+          {this.props.valuePrefix}
+          {this.props.currentValue}
+          {this.props.valueSuffix}
+        </Text>
       </View>
     );
   }
 }
 
 export default function MultiSliderDemo() {
-  let testRef = React.useRef<View>(null);
-  let [currentTestId, setCurrentTestId] = React.useState('');
+  let testRef = React.useRef < View > null;
+  let [currentTestId, setCurrentTestId] = React.useState("");
 
-  // 滑动指标配置
   const touchDimensionsConfig = {
     height: 60,
     width: 60,
@@ -157,66 +171,68 @@ export default function MultiSliderDemo() {
     slipDisplacement: 200,
   };
 
-  // 当值开始变化时回调
-  const onValuesChangeStart = () => Alert.alert('Success', '值开始变化时回调');
+  const onValuesChangeStart = () =>
+    Alert.alert("Success", "Callback when the value starts to change");
 
-  // 值改变时回调
-  const onValuesChange = () => Alert.alert('Success', '值改变时回调');
+  const onValuesChange = () =>
+    Alert.alert("Success", "Callback when value changes");
 
-  // 当值停止变化时回调
-  const onValuesChangeFinish = () => Alert.alert('Success', '值停止变化时回调');
+  const onValuesChangeFinish = () =>
+    Alert.alert("Success", "Callback when the value stops changing");
 
-  // 第一个光标切换时回调
-  const onToggleOne = () => Alert.alert('Success', '第一个光标切换回调');
+  const onToggleOne = () =>
+    Alert.alert("Success", "The first cursor switch callback");
 
-  // 第二个光标切换时回调
-  const onToggleTwo = () => Alert.alert('Success', '第二个光标切换回调');
+  const onToggleTwo = () =>
+    Alert.alert("Success", "Second cursor switch callback");
 
-  // 获取绑定的testID
   const getCurrentTestId = () => {
-    const testId = testRef.current?.props.testID || '';
+    const testId = testRef.current?.props.testID || "";
     setCurrentTestId(testId);
   };
 
   return (
     <ScrollView>
       <View style={styles.container}>
-        <Text style={styles.title}>MultiSlider功能验证</Text>
+        <Text style={styles.title}>MultiSlider feature validation</Text>
         <View style={styles.sliders}>
-          <Text style={styles.text}>values（设置values，1和6）</Text>
+          <Text style={styles.text}>Values (set values, 1 and 6)</Text>
           <MultiSlider values={[1, 6]} />
 
           <Text style={styles.text}>
-            onValuesChangeStart（值开始变化触发回调）
+            OnValuesChangeStart (triggering callback when value starts to
+            change)
           </Text>
           <MultiSlider onValuesChangeStart={onValuesChangeStart} />
 
           <Text style={styles.text}>
-            onValuesChange（值改变时回调触发回调）
+            OnValuesChange (callback triggered when value changes)
           </Text>
           <MultiSlider onValuesChange={onValuesChange} />
 
           <Text style={styles.text}>
-            onValuesChangeFinish（当值停止变化时回调）
+            OnValuesChangeFinish (callback when value stops changing)
           </Text>
           <MultiSlider onValuesChangeFinish={onValuesChangeFinish} />
 
-          <Text style={styles.text}>sliderLength（滑块长度{100}）</Text>
+          <Text style={styles.text}>sliderLength（Slide length{100}）</Text>
           <MultiSlider sliderLength={100} />
 
           <Text style={styles.text}>
-            touchDimensions（滑动指标borderRadius 50）
+            TouchDimensions (sliding indicator borderRadius 50)
           </Text>
           <MultiSlider touchDimensions={touchDimensionsConfig} />
 
-          <Text style={styles.text}>enableLabel（开启自定义标签）</Text>
+          <Text style={styles.text}>EnableLabel (enable custom labels)</Text>
           <MultiSlider enableLabel customLabel={() => <CustomLabel />} />
 
-          <Text style={styles.text}>customMarker（自定义光标）</Text>
+          <Text style={styles.text}>CustomMarker (custom cursor)</Text>
           <MultiSlider customMarker={CustomMarker} />
 
           <Text style={styles.text}>customMarkerLeft/Right</Text>
-          <Text style={styles.text}>自定义左右光标：默认未启用</Text>
+          <Text style={styles.text}>
+            Custom left and right cursor: not enabled by default
+          </Text>
           <MultiSlider
             values={[0, 10]}
             customMarkerLeft={() => <CustomMarker />}
@@ -224,7 +240,9 @@ export default function MultiSliderDemo() {
           />
 
           <Text style={styles.text}>isMarkersSeparated</Text>
-          <Text style={styles.text}>自定义左右光标：启用</Text>
+          <Text style={styles.text}>
+            Customize left and right cursor: Enable
+          </Text>
           <MultiSlider
             values={[0, 10]}
             isMarkersSeparated={true}
@@ -232,45 +250,61 @@ export default function MultiSliderDemo() {
             customMarkerRight={() => <CustomMarker pressed />}
           />
 
-          <Text style={styles.text}>min（滑块可用最小值3）</Text>
+          <Text style={styles.text}>
+            Min (slider can use a minimum value of 3)
+          </Text>
           <MultiSlider enableLabel min={3} />
 
-          <Text style={styles.text}>max（滑块可用最大值8）</Text>
+          <Text style={styles.text}>
+            Max (maximum available slider value of 8)
+          </Text>
           <MultiSlider enableLabel max={8} />
 
-          <Text style={styles.text}>step（滑块步长5）</Text>
+          <Text style={styles.text}>Step (slider step size 5)</Text>
           <MultiSlider enableLabel step={5} />
 
-          <Text style={styles.text}>optionsArray（节点标记）</Text>
+          <Text style={styles.text}>OptionsArray (Node Tag)</Text>
           <MultiSlider enableLabel optionsArray={[2, 6, 9]} />
 
-          <Text style={styles.text}>containerStyle（滑块容器样式）</Text>
+          <Text style={styles.text}>
+            ContainerStyle (slider container style)
+          </Text>
           <MultiSlider
-            containerStyle={{backgroundColor: 'lightblue', padding: 10}}
+            containerStyle={{ backgroundColor: "lightblue", padding: 10 }}
           />
 
-          <Text style={styles.text}>trackStyle（轨道样式：默认）</Text>
-          <MultiSlider trackStyle={{backgroundColor: 'red', height: 5}} />
+          <Text style={styles.text}>TrackStyle (default track style)</Text>
+          <MultiSlider trackStyle={{ backgroundColor: "red", height: 5 }} />
 
-          <Text style={styles.text}>selectedStyle（轨道样式：滑过后）</Text>
-          <MultiSlider selectedStyle={{backgroundColor: 'green', height: 5}} />
+          <Text style={styles.text}>
+            SelectedStyle (track style: after sliding)
+          </Text>
+          <MultiSlider
+            selectedStyle={{ backgroundColor: "green", height: 5 }}
+          />
 
-          <Text style={styles.text}>unselectedStyle（轨道样式：未滑过）</Text>
-          <MultiSlider unselectedStyle={{backgroundColor: 'red', height: 5}} />
+          <Text style={styles.text}>
+            UnselectdStyle (track style: not slid over)
+          </Text>
+          <MultiSlider
+            unselectedStyle={{ backgroundColor: "red", height: 5 }}
+          />
 
-          <Text style={styles.text}>markerContainerStyle（光标容器样式）</Text>
+          <Text style={styles.text}>
+            MarkerContainerStyle (cursor container style)
+          </Text>
           <MultiSlider
             markerContainerStyle={{
-              backgroundColor: 'transparent',
-              borderColor: 'blue',
+              backgroundColor: "transparent",
+              borderColor: "blue",
               borderWidth: 2,
             }}
           />
 
-          <Text style={styles.text}>markerStyle（光标样式）</Text>
+          <Text style={styles.text}>MarkerStyle (cursor style)</Text>
           <MultiSlider
             markerStyle={{
-              backgroundColor: 'red',
+              backgroundColor: "red",
               width: 20,
               height: 20,
               borderRadius: 10,
@@ -278,19 +312,19 @@ export default function MultiSliderDemo() {
           />
 
           <Text style={styles.text}>
-            pressedMarkerStyle（接触光标后的样式）
+            PressedMarkerStyle (the style after touching the cursor)
           </Text>
-          <MultiSlider pressedMarkerStyle={{backgroundColor: 'darkblue'}} />
+          <MultiSlider pressedMarkerStyle={{ backgroundColor: "darkblue" }} />
 
-          <Text style={styles.text}>valuePrefix（值的前缀 b）</Text>
+          <Text style={styles.text}>Valueprefix (value prefix b)</Text>
           <MultiSlider
             values={[0, 10]}
             customMarker={CustomMarker}
             valuePrefix="b"
           />
 
-          <Text style={{...styles.text, marginTop: 20}}>
-            valueSuffix（值的后缀 a）
+          <Text style={{ ...styles.text, marginTop: 20 }}>
+            ValueSuffix (suffix a for values)
           </Text>
           <MultiSlider
             values={[0, 10]}
@@ -298,80 +332,97 @@ export default function MultiSliderDemo() {
             valueSuffix="a"
           />
 
-          <Text style={styles.text}>enabledOne（禁用第一个光标）</Text>
+          <Text style={styles.text}>EnabledOne (disable the first cursor)</Text>
           <MultiSlider values={[0, 10]} enabledOne={false} />
 
-          <Text style={styles.text}>enabledTwo（禁用第二个光标）</Text>
+          <Text style={styles.text}>
+            EnabledTwo (disable the second cursor)
+          </Text>
           <MultiSlider values={[0, 10]} enabledTwo={false} />
 
           <Text style={styles.text}>stepsAs</Text>
-          <Text style={styles.text}>自定义步骤标签，默认展示</Text>
+          <Text style={styles.text}>
+            Customize step labels, default display
+          </Text>
           <MultiSlider
             values={[0, 10]}
             step={2}
             showSteps
             stepsAs={[
-              {index: 1, stepLabel: 't1', prefix: 'a1', suffix: 'b1'},
-              {index: 2, stepLabel: 't2', prefix: 'a2', suffix: 'b2'},
+              { index: 1, stepLabel: "t1", prefix: "a1", suffix: "b1" },
+              { index: 2, stepLabel: "t2", prefix: "a2", suffix: "b2" },
             ]}
           />
 
           <Text style={styles.text}>showStepLabels</Text>
-          <Text style={styles.text}>隐藏/显示自定义步骤标签，这里隐藏</Text>
+          <Text style={styles.text}>Hide/Show Custom Step Tags, Hide Here</Text>
           <MultiSlider
             values={[0, 10]}
             step={2}
             showSteps
             showStepLabels={false}
             stepsAs={[
-              {index: 1, stepLabel: 't', prefix: 'a', suffix: 'b'},
-              {index: 2, stepLabel: 't', prefix: 'a', suffix: 'b'},
+              { index: 1, stepLabel: "t", prefix: "a", suffix: "b" },
+              { index: 2, stepLabel: "t", prefix: "a", suffix: "b" },
             ]}
           />
 
           <Text style={styles.text}>
-            showStepMarkers（显示步骤对应的刻度点）
+            ShowStepMarkers (display the scale points corresponding to the
+            steps)
           </Text>
           <MultiSlider values={[0, 10]} step={2} showSteps showStepMarkers />
 
           <Text style={styles.text}>onToggleOne</Text>
-          <Text style={styles.text}>点击第一个光标回调</Text>
+          <Text style={styles.text}>
+            Click on the first cursor to call back
+          </Text>
           <MultiSlider values={[0, 10]} onToggleOne={onToggleOne} />
 
           <Text style={styles.text}>onToggleTwo</Text>
-          <Text style={styles.text}>点击第二个光标回调</Text>
+          <Text style={styles.text}>
+            Click on the second cursor to call back
+          </Text>
           <MultiSlider values={[0, 10]} onToggleTwo={onToggleTwo} />
 
           <Text style={styles.text}>allowOverlap</Text>
-          <Text style={styles.text}>允许/禁止光标重叠，默认禁止，这里允许</Text>
+          <Text style={styles.text}>
+            Allow/prohibit cursor overlap, default prohibited, allowed here
+          </Text>
           <MultiSlider values={[0, 10]} enableLabel allowOverlap={true} />
 
-          <Text style={styles.text}>snapped（步进式移动光标）</Text>
+          <Text style={styles.text}>Snapped (Step by Step Moving cursor)</Text>
           <MultiSlider sliderLength={300} step={3} snapped />
 
-          <Text style={styles.text}>smoothSnapped（跳转最近节点）</Text>
+          <Text style={styles.text}>SmoothSnapped (jump to nearest node)</Text>
           <MultiSlider smoothSnapped sliderLength={300} step={3} />
 
-          <View style={{marginTop: 60, marginBottom: 150}}>
-            <Text style={styles.text}>vertical（垂直方向）</Text>
+          <View style={{ marginTop: 60, marginBottom: 150 }}>
+            <Text style={styles.text}>Vertical (vertical direction)</Text>
             <MultiSlider vertical />
           </View>
 
-          <Text style={styles.text}>markerOffsetX（横向偏移20）</Text>
+          <Text style={styles.text}>MarkerOffsetX (lateral offset of 20)</Text>
           <MultiSlider markerOffsetX={20} />
 
-          <Text style={styles.text}>markerOffsetY（纵向偏移20）</Text>
+          <Text style={styles.text}>MarkerOffsetY (vertical offset of 20)</Text>
           <MultiSlider markerOffsetY={20} />
 
-          <Text style={styles.text}>markerSize（光标与边缘的距离）</Text>
+          <Text style={styles.text}>
+            MarkerSize (distance between cursor and edge)
+          </Text>
           <MultiSlider markerSize={50} />
 
           <Text style={styles.text}>minMarkerOverlapDistance</Text>
-          <Text style={styles.text}>避免大光标重叠，间隔100</Text>
+          <Text style={styles.text}>
+            Avoid large cursor overlap, with an interval of 100
+          </Text>
           <MultiSlider values={[0, 10]} minMarkerOverlapDistance={100} />
 
           <Text style={styles.text}>minMarkerOverlapStepDistance</Text>
-          <Text style={styles.text}>避免大光标重叠，间隔2步</Text>
+          <Text style={styles.text}>
+            Avoid overlapping large cursor with an interval of 2 steps
+          </Text>
           <MultiSlider
             values={[0, 300]}
             step={3}
@@ -380,13 +431,13 @@ export default function MultiSliderDemo() {
             minMarkerOverlapStepDistance={2}
           />
 
-          <Text style={styles.text}>imageBackgroundSource（背景图片）</Text>
-          <MultiSlider imageBackgroundSource={require('./logo-og.png')} />
+          <Text style={styles.text}>ImageContextSource (Background Image)</Text>
+          <MultiSlider imageBackgroundSource={require("./logo-og.png")} />
 
-          <Text style={styles.text}>testID（设置testID）</Text>
-          <MultiSlider values={[0, 6]} testID={'666'} ref={testRef} />
+          <Text style={styles.text}>TestID (Set testID)</Text>
+          <MultiSlider values={[0, 6]} testID={"666"} ref={testRef} />
           <Text onPress={getCurrentTestId}>
-            {currentTestId || '点击获取testID'}
+            {currentTestId || "Click to obtain testID"}
           </Text>
         </View>
       </View>
@@ -394,37 +445,36 @@ export default function MultiSliderDemo() {
   );
 }
 
-
 const labelStyles = StyleSheet.create({
   parentView: {
-    position: 'relative',
+    position: "relative",
   },
   sliderLabel: {
-    position: 'absolute',
-    justifyContent: 'center',
-    bottom: '100%',
+    position: "absolute",
+    justifyContent: "center",
+    bottom: "100%",
     width: width,
     height: width,
   },
   sliderLabelText: {
-    textAlign: 'center',
+    textAlign: "center",
     lineHeight: width,
     borderRadius: width / 2,
     borderWidth: 2,
-    borderColor: '#999',
-    backgroundColor: '#fff',
+    borderColor: "#999",
+    backgroundColor: "#fff",
     flex: 1,
     fontSize: 18,
-    color: '#aaa',
+    color: "#aaa",
   },
   pointer: {
-    position: 'absolute',
+    position: "absolute",
     bottom: -pointerWidth / 4,
     left: (width - pointerWidth) / 2,
-    transform: [{ rotate: '45deg' }],
+    transform: [{ rotate: "45deg" }],
     width: pointerWidth,
     height: pointerWidth,
-    backgroundColor: '#999',
+    backgroundColor: "#999",
   },
 });
 
@@ -434,113 +484,111 @@ const markerStyles = StyleSheet.create({
     width: 40,
   },
   text: {
-    alignSelf: 'center',
+    alignSelf: "center",
     paddingVertical: 20,
   },
   title: {
     fontSize: 30,
-  },  
+  },
 });
 
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
-    sliders: {
-      margin: 20,
-      // width: 280,
-    },
-    text: {
-      alignSelf: 'center',
-      paddingVertical: 20,
-    },
-    title: {
-      fontSize: 30,
-    },
-    sliderOne: {
-      flexDirection: 'row',
-      justifyContent: 'space-around',
-    },
-  });
+  container: {
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  sliders: {
+    margin: 20,
+    // width: 280,
+  },
+  text: {
+    alignSelf: "center",
+    paddingVertical: 20,
+  },
+  title: {
+    fontSize: 30,
+  },
+  sliderOne: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+  },
+});
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-multi-slider Releases](https://github.com/react-native-oh-library/react-native-multi-slider/releases)
+Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-multi-slider Releases](https://github.com/react-native-oh-library/react-native-multi-slider/releases)
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
-1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.18;
+1. RNOH: 0.72.20; SDK: HarmonyOS NEXT Developer Beta1; IDE: DevEco Studio 5.0.3.200; ROM: 3.0.0.18;
 
-## 属性
+## Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。遗留问题
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.Known Issues
 
-| Name                         | Description                                                  | Type              | Required | Platform | HarmonyOS Support |
-| ---------------------------- | ------------------------------------------------------------ | ----------------- | -------- | -------- | ----------------- |
-| values                       | Prefixed values of the slider.                               | array of numbers  | NO       | All      | YES               |
-| onValuesChangeStart          | Callback when the value starts changing                      | function          | NO       | All      | YES               |
-| onValuesChange               | Callback when the value changes                              | function          | NO       | All      | YES               |
-| onValuesChangeFinish         | Callback when the value stops changing                       | function          | NO       | All      | YES               |
-| sliderLength                 | Length of the slider                                         | number            | NO       | All      | YES               |
-| touchDimensions              | Defines the size of the touch area of the slider             | object            | NO       | All      | YES               |
-| enableLabel                  | Enable the label rendering                                   | function          | NO       | All      | YES               |
-| customLabel                  | Component used for rendering a label above the cursors.      | function          | NO       | All      | YES               |
-| customMarker                 | Component used for the cursor.                               | function          | NO       | All      | YES               |
-| customMarkerLeft             | Component used for the left cursor.                          | function          | NO       | All      | YES               |
-| customMarkerRight            | Component used for the right cursor.                         | function          | NO       | All      | YES               |
-| isMarkersSeparated           | Enable custom left and right cursors                         | boolean           | NO       | All      | YES               |
-| min                          | Minimum value available in the slider.                       | number            | NO       | All      | YES               |
-| max                          | Maximum value available in the slider.                       | number            | NO       | All      | YES               |
-| step                         | Step value of the slider.                                    | number            | NO       | All      | YES               |
-| optionsArray                 | Possible values of the slider. Ignores min and max.          | array of numbers  | NO       | All      | YES               |
-| containerStyle               | The style of the slider container                            | style object      | NO       | All      | YES               |
-| trackStyle                   | track Default Style                                          | style object      | NO       | All      | YES               |
-| selectedStyle                | Style after track sliding                                    | style object      | NO       | All      | YES               |
-| unselectedStyle              | Style when the track is not sliding                          | style object      | NO       | All      | YES               |
-| markerContainerStyle         | Marker container style                                       | style object      | NO       | All      | YES               |
-| markerStyle                  | Marker style                                                 | style object      | NO       | All      | YES               |
-| pressedMarkerStyle           | Marker style after touch                                     | style object      | NO       | All      | YES               |
-| stepStyle                    | Step style                                                   | style object      | NO       | -        | YES               |
-| stepLabelStyle               | Step lable style                                             | style object      | NO       | -        | YES               |
-| stepMarkerStyle              | Step marker style                                            | style object      | NO       | -        | YES               |
-| valuePrefix                  | Prefix added to the value.                                   | string            | NO       | All      | YES               |
-| valueSuffix                  | Suffix added to the value.                                   | string            | NO       | All      | YES               |
-| enabledOne                   | Enables the first cursor                                     | boolean           | NO       | All      | YES               |
-| enabledTwo                   | Enables the second cursor                                    | boolean           | NO       | All      | YES               |
-| stepsAs                      | Use stepsAs when you want to customize the steps-labels. stepsAs expects an array of objects [{index: number, stepLabel: string, prefix: string, suffix: string}]. Where index is for which step you want to customize, and all the other steps will show its index as its stepLabel. Both showSteps and showStepsLabels has to be enabled for stepsAs to be used. | array of objects  | NO       | All      | YES               |
-| showSteps                    | Show steps                                                   | boolean           | NO       | All      | YES               |
-| showStepMarkers              | Show steps-markers on the track, showSteps has to be enabled as well | boolean           | NO       | All      | YES               |
-| showStepLabels               | Show steps-labels underneath the track, showSteps has to be enabled as well | boolean           | NO       | All      | YES               |
-| onToggleOne                  | Listener when first cursor toggles.                          | function callback | NO       | All      | YES               |
-| onToggleTwo                  | Listener when second cursor toggles.                         | function callback | NO       | All      | YES               |
-| allowOverlap                 | Allow the overlap within the cursors.                        | boolean           | NO       | All      | YES               |
-| snapped                      | Use this when you want a fixed position for your markers, this will split the slider in N specific positions | boolean           | NO       | All      | YES               |
-| smoothSnapped                | Same as snapped but you can move the slider as usual. When released it will go to the nearest marker | boolean           | NO       | All      | YES               |
-| vertical                     | Use vertical orientation instead of horizontal.              | boolean           | NO       | All      | YES               |
-| markerOffsetX                | Offset first cursor.                                         | number            | NO       | All      | YES               |
-| markerOffsetY                | Offset second cursor.                                        | number            | NO       | All      | YES               |
-| markerSize                   | It determines the marker margin from the edges of the track, useful to avoid the markers to overflow out of the track. | number            | NO       | All      | YES               |
-| minMarkerOverlapDistance     | if this is > 0 and allowOverlap is false, this value will determine the closest two markers can come to each other. This can be used for cases where you have two markers large cursors and you don't want them to overlap. Note that markers will still overlap at the start if starting values are too near. | number            | NO       | All      | YES               |
+| Name                         | Description                                                                                                                                                                                                                                                                                                                                                                            | Type              | Required | Platform | HarmonyOS Support |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | -------- | -------- | ----------------- |
+| values                       | Prefixed values of the slider.                                                                                                                                                                                                                                                                                                                                                         | array of numbers  | NO       | All      | YES               |
+| onValuesChangeStart          | Callback when the value starts changing                                                                                                                                                                                                                                                                                                                                                | function          | NO       | All      | YES               |
+| onValuesChange               | Callback when the value changes                                                                                                                                                                                                                                                                                                                                                        | function          | NO       | All      | YES               |
+| onValuesChangeFinish         | Callback when the value stops changing                                                                                                                                                                                                                                                                                                                                                 | function          | NO       | All      | YES               |
+| sliderLength                 | Length of the slider                                                                                                                                                                                                                                                                                                                                                                   | number            | NO       | All      | YES               |
+| touchDimensions              | Defines the size of the touch area of the slider                                                                                                                                                                                                                                                                                                                                       | object            | NO       | All      | YES               |
+| enableLabel                  | Enable the label rendering                                                                                                                                                                                                                                                                                                                                                             | function          | NO       | All      | YES               |
+| customLabel                  | Component used for rendering a label above the cursors.                                                                                                                                                                                                                                                                                                                                | function          | NO       | All      | YES               |
+| customMarker                 | Component used for the cursor.                                                                                                                                                                                                                                                                                                                                                         | function          | NO       | All      | YES               |
+| customMarkerLeft             | Component used for the left cursor.                                                                                                                                                                                                                                                                                                                                                    | function          | NO       | All      | YES               |
+| customMarkerRight            | Component used for the right cursor.                                                                                                                                                                                                                                                                                                                                                   | function          | NO       | All      | YES               |
+| isMarkersSeparated           | Enable custom left and right cursors                                                                                                                                                                                                                                                                                                                                                   | boolean           | NO       | All      | YES               |
+| min                          | Minimum value available in the slider.                                                                                                                                                                                                                                                                                                                                                 | number            | NO       | All      | YES               |
+| max                          | Maximum value available in the slider.                                                                                                                                                                                                                                                                                                                                                 | number            | NO       | All      | YES               |
+| step                         | Step value of the slider.                                                                                                                                                                                                                                                                                                                                                              | number            | NO       | All      | YES               |
+| optionsArray                 | Possible values of the slider. Ignores min and max.                                                                                                                                                                                                                                                                                                                                    | array of numbers  | NO       | All      | YES               |
+| containerStyle               | The style of the slider container                                                                                                                                                                                                                                                                                                                                                      | style object      | NO       | All      | YES               |
+| trackStyle                   | track Default Style                                                                                                                                                                                                                                                                                                                                                                    | style object      | NO       | All      | YES               |
+| selectedStyle                | Style after track sliding                                                                                                                                                                                                                                                                                                                                                              | style object      | NO       | All      | YES               |
+| unselectedStyle              | Style when the track is not sliding                                                                                                                                                                                                                                                                                                                                                    | style object      | NO       | All      | YES               |
+| markerContainerStyle         | Marker container style                                                                                                                                                                                                                                                                                                                                                                 | style object      | NO       | All      | YES               |
+| markerStyle                  | Marker style                                                                                                                                                                                                                                                                                                                                                                           | style object      | NO       | All      | YES               |
+| pressedMarkerStyle           | Marker style after touch                                                                                                                                                                                                                                                                                                                                                               | style object      | NO       | All      | YES               |
+| stepStyle                    | Step style                                                                                                                                                                                                                                                                                                                                                                             | style object      | NO       | -        | YES               |
+| stepLabelStyle               | Step lable style                                                                                                                                                                                                                                                                                                                                                                       | style object      | NO       | -        | YES               |
+| stepMarkerStyle              | Step marker style                                                                                                                                                                                                                                                                                                                                                                      | style object      | NO       | -        | YES               |
+| valuePrefix                  | Prefix added to the value.                                                                                                                                                                                                                                                                                                                                                             | string            | NO       | All      | YES               |
+| valueSuffix                  | Suffix added to the value.                                                                                                                                                                                                                                                                                                                                                             | string            | NO       | All      | YES               |
+| enabledOne                   | Enables the first cursor                                                                                                                                                                                                                                                                                                                                                               | boolean           | NO       | All      | YES               |
+| enabledTwo                   | Enables the second cursor                                                                                                                                                                                                                                                                                                                                                              | boolean           | NO       | All      | YES               |
+| stepsAs                      | Use stepsAs when you want to customize the steps-labels. stepsAs expects an array of objects [{index: number, stepLabel: string, prefix: string, suffix: string}]. Where index is for which step you want to customize, and all the other steps will show its index as its stepLabel. Both showSteps and showStepsLabels has to be enabled for stepsAs to be used.                     | array of objects  | NO       | All      | YES               |
+| showSteps                    | Show steps                                                                                                                                                                                                                                                                                                                                                                             | boolean           | NO       | All      | YES               |
+| showStepMarkers              | Show steps-markers on the track, showSteps has to be enabled as well                                                                                                                                                                                                                                                                                                                   | boolean           | NO       | All      | YES               |
+| showStepLabels               | Show steps-labels underneath the track, showSteps has to be enabled as well                                                                                                                                                                                                                                                                                                            | boolean           | NO       | All      | YES               |
+| onToggleOne                  | Listener when first cursor toggles.                                                                                                                                                                                                                                                                                                                                                    | function callback | NO       | All      | YES               |
+| onToggleTwo                  | Listener when second cursor toggles.                                                                                                                                                                                                                                                                                                                                                   | function callback | NO       | All      | YES               |
+| allowOverlap                 | Allow the overlap within the cursors.                                                                                                                                                                                                                                                                                                                                                  | boolean           | NO       | All      | YES               |
+| snapped                      | Use this when you want a fixed position for your markers, this will split the slider in N specific positions                                                                                                                                                                                                                                                                           | boolean           | NO       | All      | YES               |
+| smoothSnapped                | Same as snapped but you can move the slider as usual. When released it will go to the nearest marker                                                                                                                                                                                                                                                                                   | boolean           | NO       | All      | YES               |
+| vertical                     | Use vertical orientation instead of horizontal.                                                                                                                                                                                                                                                                                                                                        | boolean           | NO       | All      | YES               |
+| markerOffsetX                | Offset first cursor.                                                                                                                                                                                                                                                                                                                                                                   | number            | NO       | All      | YES               |
+| markerOffsetY                | Offset second cursor.                                                                                                                                                                                                                                                                                                                                                                  | number            | NO       | All      | YES               |
+| markerSize                   | It determines the marker margin from the edges of the track, useful to avoid the markers to overflow out of the track.                                                                                                                                                                                                                                                                 | number            | NO       | All      | YES               |
+| minMarkerOverlapDistance     | if this is > 0 and allowOverlap is false, this value will determine the closest two markers can come to each other. This can be used for cases where you have two markers large cursors and you don't want them to overlap. Note that markers will still overlap at the start if starting values are too near.                                                                         | number            | NO       | All      | YES               |
 | minMarkerOverlapStepDistance | if this is > 0 and allowOverlap is false, this value will determine the closest two markers can come to each other (in steps, not pixels). This can be used for cases where you have two markers large cursors and you don't want them to overlap. Note that markers will still overlap at the start if starting values are too near. CANNOT be combined with minMarkerOverlapDistance | number            | NO       | All      | YES               |
-| imageBackgroundSource        | Specifies the source required for the ImageBackground        | string            | NO       | All      | YES               |
-| testID                       | Used to locate this view in end-to-end tests                 | string            | NO       | All      | YES               |
+| imageBackgroundSource        | Specifies the source required for the ImageBackground                                                                                                                                                                                                                                                                                                                                  | string            | NO       | All      | YES               |
+| testID                       | Used to locate this view in end-to-end tests                                                                                                                                                                                                                                                                                                                                           | string            | NO       | All      | YES               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于[The MIT License (MIT)](https://github.com/ptomasroos/react-native-multi-slider/blob/master/LICENSE)，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->
+This project is licensed under[The MIT License (MIT)](https://github.com/ptomasroos/react-native-multi-slider/blob/master/LICENSE)，请自由地享受和参与开源。

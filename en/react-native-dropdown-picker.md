@@ -1,4 +1,4 @@
-模板版本：v0.2.2
+Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-dropdown-picker</code> </h1>
@@ -13,9 +13,9 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/hossein-zare/react-native-dropdown-picker)
+> [!TIP] [GitHub address](https://github.com/hossein-zare/react-native-dropdown-picker)
 
-## 安装与使用
+## Installation and Usage
 
 <!-- tabs:start -->
 
@@ -33,9 +33,9 @@ yarn add react-native-dropdown-picker@5.4.6
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React, { useState } from "react";
@@ -86,22 +86,23 @@ export default function App() {
 }
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH: 0.72.27; SDK: HarmonyOS-Next-DB1 5.0.0.25 (API Version 12 Canary4); IDE: DevEco Studio 5.0.3.400SP7; ROM: 3.0.0.29;
 2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
-## 属性
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+## Properties
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                       | Description                                                                                                      | Type                                                               | Required | Platform | HarmonyOS Support |
-|----------------------------|------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------|----------|----------|-------------------|
+| -------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | -------- | -------- | ----------------- |
 | items                      | State variable that holds the items.                                                                             | array                                                              | yes      | All      | yes               |
 | value                      | State variable that specifies the value of the selected item. It's an array of values for multiple item pickers. | string\|string[]                                                   | yes      | All      | yes               |
 | open                       | State variable that specifies whether the picker is open.                                                        | boolean                                                            | yes      | All      | yes               |
@@ -155,7 +156,7 @@ export default function App() {
 | activityIndicatorSize      | Changes the default size of the ActivityIndicator.                                                               | number                                                             | no       | All      | yes               |
 | searchable                 | Enables the search feature in the drop-down menu / modal.                                                        | boolean                                                            | no       | All      | yes               |
 | searchTextInputProps       | Adds native props for the text input.                                                                            | object                                                             | no       | All      | yes               |
-| searchWithRegionalAccents  | Allows searching without typing local accents.                                                                   | boolean                                                            | no       | All      | no               |
+| searchWithRegionalAccents  | Allows searching without typing local accents.                                                                   | boolean                                                            | no       | All      | no                |
 | disableLocalSearch         | Disables search between local items. This comes in handy for remote search.                                      | boolean                                                            | no       | All      | yes               |
 | addCustomItem              | Shows the searched text as an item when there's nothing to show.                                                 | boolean                                                            | no       | All      | yes               |
 | searchPlaceholder          | Changes the placeholder text of the text input. Both of the following properties are available.                  | string                                                             | no       | All      | yes               |
@@ -210,26 +211,26 @@ export default function App() {
 | modalTitleStyle            | Set modalTitleStyle                                                                                              | object                                                             | no       | All      | yes               |
 | rtl                        | Makes the component right to left.                                                                               | boolean                                                            | no       | All      | yes               |
 
+## Static Methods
 
-## 静态方法
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name              | Description                                           | Type     | Required | Platform | HarmonyOS Support |
-|-------------------|-------------------------------------------------------|----------|----------|----------|-------------------|
+| ----------------- | ----------------------------------------------------- | -------- | -------- | -------- | ----------------- |
 | setLanguage       | You can also change the default language globally.    | function | no       | All      | yes               |
 | addTranslation    | You are able to add a new translation to the package. | function | no       | All      | yes               |
 | modifyTranslation | Modify an existing translation                        | function | no       | All      | yes               |
 | addTheme          | Add a theme                                           | function | no       | All      | yes               |
 | setTheme          | Change the default theme​                             | function | no       | All      | yes               |
-## 遗留问题
 
-- [ ] 方法String.prototype.normalize('NFD')在RN框架下有问题，导致属性searchWithRegionalAccents不生效。
+## Known Issues
 
-## 其他
+- [ ] 方法 String.prototype.normalize('NFD')在 RN 框架下有问题，导致属性 searchWithRegionalAccents 不生效。
 
-## 开源协议
+## Others
 
-本项目基于 [The MIT License (MIT)](https://github.com/hossein-zare/react-native-dropdown-picker/blob/5.x/LICENSE) ，请自由地享受和参与开源。
+## License
+
+This project is licensed under [The MIT License (MIT)](https://github.com/hossein-zare/react-native-dropdown-picker/blob/5.x/LICENSE).

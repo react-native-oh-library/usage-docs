@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-gifted-chat</code> </h1>
@@ -12,14 +12,13 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/FaridSafi/react-native-gifted-chat)
+> [!TIP] [GitHub address](https://github.com/FaridSafi/react-native-gifted-chat)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
-
 
 #### **npm**
 
@@ -35,7 +34,7 @@ yarn add react-native-gifted-chat@2.4.0
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
 ```tsx
 import React, { useState } from 'react'
@@ -90,20 +89,19 @@ export function App() {
   )
 }
 ```
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
-1. RNOH: 0.72.27; SDK: HarmonyOS-Next-DB1 5.0.0.29(SP1); IDE: DevEco Studio 5.0.3.403; ROM: 3.0.0.25;
-2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
+RNOH: 0.72.27; SDK: HarmonyOS-Next-DB1 5.0.0.29(SP1); IDE: DevEco Studio 5.0.3.403; ROM: 3.0.0.25;
 
-## 属性
+## Properties
 
->[!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+>[!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
->[!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+>[!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 |              Name               |                         Description                          |      Type       | Required |  Platform   | HarmonyOS Support |
 | :-----------------------------: | :----------------------------------------------------------: | :-------------: | :------: | :---------: | :---------------: |
@@ -185,14 +183,14 @@ export function App() {
 |     **shouldUpdateMessage**     | Lets the message component know when to update outside of normal cases. |   *Function*    |    No    | iOS/Android |        Yes        |
 |       **infiniteScroll**        | infinite scroll up when reach the top of messages container, automatically call onLoadEarlier function if exist (not yet supported for the web). You need to add `loadEarlier` prop too. |    *Boolean*    |    No    | iOS/Android |        Yes        |
 
-## 遗留问题
+## Known Issues
  - [ ] iOS 和 HarmonyOS侧效果有差异 RN输入框键盘弹出遮挡了输入框 新建一个项目加一个在屏幕底下的输入框,键盘弹出会默认把输入框顶上来
  - [ ] 输入框最大高 maxComposerHeight 设置无效果 监听输入框高度改变 onContentSizeChange未触发
  - [ ] 输入工具栏最小高 minInputToolbarHeight 设置无效果 监听输入框高度改变 onContentSizeChange未触发
  - [ ] 聊天与屏幕底部的距离 bottomOffset 设置无法查看效果,IOS设置后效果为键盘弹出后聊天栏与输入栏之间的距离,RN键盘弹出未把输入框顶上来
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/FaridSafi/react-native-gifted-chat/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/FaridSafi/react-native-gifted-chat/blob/master/LICENSE).

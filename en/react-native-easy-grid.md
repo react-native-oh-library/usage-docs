@@ -1,6 +1,4 @@
-<!-- {% raw %} -->
-
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-easy-grid</code> </h1>
@@ -14,12 +12,11 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/GeekyAnts/react-native-easy-grid)
+> [!TIP] [GitHub address](https://github.com/GeekyAnts/react-native-easy-grid)
 
+## Installation and Usage
 
-## 安装与使用
-
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 #### **npm**
 
@@ -30,74 +27,65 @@ npm install react-native-easy-grid@0.2.2
 #### **yarn**
 
 ```bash
-yarn add react-native-easy-grid@0.2.2 
+yarn add react-native-easy-grid@0.2.2
 ```
 
 <!-- tabs:end -->
 
+The following code shows the basic use scenario of the repository:
 
-下面的代码展示了这个库的基本使用场景：
-
-> [!WARNING] 使用时 import 的库名不变。
-
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
-
 import React from "react";
-import { Text } from 'react-native';
+import { Text } from "react-native";
 import { Col, Row, Grid } from "react-native-easy-grid";
 
 const App = () => {
- 
   return (
     <Grid>
-      <Col style={{ backgroundColor: '#9400D3' }}>
-        <Row size={1} style={{ backgroundColor: '#FFB6C1' }}></Row>
-        <Row size={2} style={{ backgroundColor: '#9400D3' }}></Row>
+      <Col style={{ backgroundColor: "#9400D3" }}>
+        <Row size={1} style={{ backgroundColor: "#FFB6C1" }}></Row>
+        <Row size={2} style={{ backgroundColor: "#9400D3" }}></Row>
       </Col>
-      <Col size={2} style={{ backgroundColor: '#FF4500' }}></Col>
+      <Col size={2} style={{ backgroundColor: "#FF4500" }}></Col>
       <Col size={3}>
-        <Row size={1} style={{ backgroundColor: '#FFB6C1' }}></Row>
-        <Row size={2} style={{ backgroundColor: '#9400D3' }}></Row>
-        <Row size={1} style={{ backgroundColor: '#008000' }}></Row>
+        <Row size={1} style={{ backgroundColor: "#FFB6C1" }}></Row>
+        <Row size={2} style={{ backgroundColor: "#9400D3" }}></Row>
+        <Row size={1} style={{ backgroundColor: "#008000" }}></Row>
       </Col>
     </Grid>
-  )
-      
+  );
 };
 
 export default App;
-  
 ```
-## 约束与限制
 
-##### 兼容性
+## Constraints
 
-本文档内容基于以下版本验证通过：
+##### Compatibility
 
-RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
+This document is verified based on the following versions:
 
+RNOH: 0.72.27; SDK: HarmonyOS-NEXT Developer Beta1 5.0.0.25 ; IDE: DevEco Studio 5.0.3.400SP7; ROM: 3.0.0.25;
 
-## 属性
+## Properties
 
-Grid、Row、Col组件接收所有 [React Native View](https://reactnative.dev/docs/view#props)组件的Props
+Grid、Row、Col 组件接收所有 [React Native View](https://reactnative.dev/docs/view#props)组件的 Props
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-**RowProps和ColProps的公共属性：**
+**RowProps 和 ColProps 的公共属性: **
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support  |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-|   size  | 布局占比   | number   | no | iOS,Android      | yes |
-|   onPress：() => void  |  点击事件       | function     | no | iOS,Android      | yes |
+| Name                | Description | Type     | Required | Platform    | HarmonyOS Support |
+| ------------------- | ----------- | -------- | -------- | ----------- | ----------------- |
+| size                | 布局占比    | number   | no       | iOS,Android | yes               |
+| onPress: () => void | 点击事件    | function | no       | iOS,Android | yes               |
 
+## Known Issues
 
-## 遗留问题
+## License
 
-## 开源协议
-
-本项目基于 [Apache License 2.0](https://github.com/GeekyAnts/react-native-easy-grid/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->
+This project is licensed under [Apache License 2.0](https://github.com/GeekyAnts/react-native-easy-grid/blob/master/LICENSE).

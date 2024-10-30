@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-vconsole</code> </h1>
@@ -12,13 +12,11 @@
     </a>
 </p>
 
+> [!TIP] [GitHub address](https://github.com/kafudev/react-native-vconsole)
 
+## Installation and Usage
 
-> [!TIP] [Github 地址](https://github.com/kafudev/react-native-vconsole)
-
-## 安装与使用
-
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -36,9 +34,9 @@ yarn add @kafudev/react-native-vconsole@0.1.11
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 
@@ -56,11 +54,11 @@ export const ConsoleDemo = () => {
 
 function PropsType() {
     const appInfo = {
-        原生构建类型: "1",
-        原生版本号: "ConfigReader.VERSION_NAME",
-        原生构建时间: "ConfigReader.BUILD_TIME",
-        热更新版本号: "codePushStore.info.label",
-        热更新详情: "codePushStore.info.desc"
+        Native build type: "1",
+        Native version number: "ConfigReader.VERSION_NAME",
+        Native build time: "ConfigReader.BUILD_TIME",
+        Hot update version number: "codePushStore.info.label",
+        Hot update details: "codePushStore.info.desc"
     }
 
     return (
@@ -72,8 +70,8 @@ function PropsType() {
 
 const styles = StyleSheet.create({
     container: {
-        position: 'absolute', // 绝对定位
-        bottom: 180, // 底部边界与父容器底部对齐
+        position: 'absolute',
+        bottom: 180,
         width: '100%',
         height: 200,
         borderWidth: 1,
@@ -93,20 +91,20 @@ const styles = StyleSheet.create({
 });
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
-1. RNOH: 0.72.29; SDK：HarmonyOS-Next-DB6 5.0.0.61; IDE：DevEco Studio 5.0.3.706; ROM：3.0.0.65;
+1. RNOH: 0.72.29; SDK: HarmonyOS-Next-DB6 5.0.0.61; IDE: DevEco Studio 5.0.3.706; ROM: 3.0.0.65;
 2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
-## 属性
+## Properties
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name    | Description                              | Type    | Required | Platform | HarmonyOS Support |
 | ------- | ---------------------------------------- | ------- | -------- | -------- | ----------------- |
@@ -115,13 +113,13 @@ const styles = StyleSheet.create({
 | showBtn | Whether to show buttons                  | boolean | no       | All      | yes               |
 | panels  | Custom panels                            | json    | no       | All      | yes               |
 
-## 遗留问题
+## Known Issues
 
-- [ ] 本库在HarmonyOS存在Clipboard无法使用的问题，其已从新版rn框架中移除，依赖Clipboard的相关功能，监控面板network标签页Copy cURL to clipboard、Copy request query to clipboard、Copy response to clipboard均无法正常复制以及粘贴，问题: [issue#2](https://github.com/kafudev/react-native-vconsole/issues/2)
-- [ ] 本库在HarmonyOS存在DevMenu菜单无法启用的问题，新版本rn框架中已经将其从NativeModules移除，DevMenu菜单里的ReLoad、Fps等调试相关功能均无法正常使用， 问题: [issue#3](https://github.com/kafudev/react-native-vconsole/issues/3)
+- [ ] 本库在 HarmonyOS 存在 Clipboard 无法使用的问题，其已从新版 rn 框架中移除，依赖 Clipboard 的相关功能，监控面板 network 标签页 Copy cURL to clipboard、Copy request query to clipboard、Copy response to clipboard 均无法正常复制以及粘贴，问题: [issue#2](https://github.com/kafudev/react-native-vconsole/issues/2)
+- [ ] 本库在 HarmonyOS 存在 DevMenu 菜单无法启用的问题，新版本 rn 框架中已经将其从 NativeModules 移除，DevMenu 菜单里的 ReLoad、Fps 等调试相关功能均无法正常使用， 问题: [issue#3](https://github.com/kafudev/react-native-vconsole/issues/3)
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/kafudev/react-native-vconsole/blob/main/LICENSE) ，请自由地享受和参与开源
+This project is licensed under [The MIT License (MIT)](https://github.com/kafudev/react-native-vconsole/blob/main/LICENSE) ，请自由地享受和参与开源

@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-video-controls</code> </h1>
@@ -13,22 +13,22 @@
 </p>
 
 
-> [!TIP] [Github 地址](https://github.com/itsnubix/react-native-video-controls)
+> [!TIP] [Github address](https://github.com/itsnubix/react-native-video-controls)
 
-## 安装与使用
+## Installation and Usage
 
-> [!TIP] 需要配套的服务和三方依赖
+> [!TIP] Need matching services and third-party dependencies.
 
-react-native-video-controls依赖于以下三方库
+react-native-video-controls depends on the follow third-party library:
 
 | Dependencies       | Version |
 | :----------------- | :------ |
 | react-native-video | >=2.0.0 |
 | lodash             | ^4.16.4 |
 
-本库依赖[@react-native-oh-tpl/react-native-video](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-video.md#link)以及简化开发的JS工具[lodash](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/lodash.md)
+The library depends on [@react-native-oh-tpl/react-native-video](https://gitee.com/react-native-oh-library/usage-docs/blob/master/en/react-native-video.md#link) and simplify development JS tool [lodash](https://gitee.com/react-native-oh-library/usage-docs/blob/master/en/lodash.md)
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 #### **npm**
 
@@ -42,9 +42,9 @@ npm install --save react-native-video-controls
 yarn add react-native-video-controls
 ```
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React from "react";
@@ -94,25 +94,25 @@ export default App;
 
 ## Link
 
-本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-video代码以及简化开发工具lodash，如已在 HarmonyOS 工程中引入过这些库，且版本无误则无需再次引入，可跳过本章节步骤，直接使用。
+The HarmonyOS implementation of this library depends on the native code from @react-native-oh-tpl/react-native-video. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly. If it is not included, follow the guide provided in @react-native-oh-tpl/react-native-video to add it to your project.
 
-如未引入请参照[@react-native-oh-tpl/react-native-video文档](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-video.md#link)和[lodash文档](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/lodash.md)进行引入。安装完成后请在终端使用`npm list react-native-video`和`npm list lodash`查看video组件版本和lodash工具版本是否正确
+If not introduce the library, please refer to [@react-native-oh-tpl/react-native-video document](https://gitee.com/react-native-oh-library/usage-docs/blob/master/en/react-native-video.md#link) and [lodash document](https://gitee.com/react-native-oh-library/usage-docs/blob/master/en/lodash.md) for introducing。After finished installation, please use command `npm list react-native-video` and `npm list lodash` in terminal, and check if the component video version and lodash tool version are correct.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH: 0.72.28; SDK: HarmonyOS NEXT Developer Beta3 5.0.0.36(12 Beta3); IDE: DevEco Studio 5.0.3.535; ROM: 5.0.0.31;
 
-## 属性
+## Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The Platform column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip]  If the value of HarmonyOS Support is yes, it means that the HarmonyOS platform supports this property; no means the opposite; partially means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-> [!tip] "Name"列属性navigator在使用时，请参考本文档其他
+> [!tip] While Name column property navigator is in usage, please refer to this document's others.
 
 | Name                         | Description                                                  |     Type     | Required |  Platform   | HarmonyOS Support |
 | ---------------------------- | ------------------------------------------------------------ | :----------: | :------: | :---------: | :---------------: |
@@ -143,12 +143,12 @@ export default App;
 | onBack                       | Function fired when back button is pressed, override if using custom navigation |    Event     |    no    | iOS/Android |        yes        |
 | onEnd                        | Fired when the video is complete                             |    Event     |    no    | iOS/Android |        yes        |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-+ 源库未提供navigator属性功能实现也未提及该属性的依赖，但可由navigation相关库提供该属性的功能，在使用时请参照[react-navigation-stack文档](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-navigation-stack.md)和[react-navigation-native文档](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-navigation-native.md)引入navigation相关库。
++ If Source library doesn't offer navigator property function and not offer this property's dependency, navigation related library can offer this property functions. For the usage please refer to [react-navigation-stack document](https://gitee.com/react-native-oh-library/usage-docs/blob/master/en/react-navigation-stack.md) and [react-navigation-native document](https://gitee.com/react-native-oh-library/usage-docs/blob/master/en/react-navigation-native.md) introducing navigation related library.
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/itsnubix/react-native-video-controls/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/itsnubix/react-native-video-controls/blob/master/LICENSE).

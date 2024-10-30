@@ -308,6 +308,8 @@ export function CountryPickerTest() {
 
 ## 遗留问题
 
+- [ ] 搜索条件没有按照translation属性进行过滤 [issue#534](https://github.com/xcarpentier/react-native-country-picker-modal/issues/534) 
+
 ## 其他
 
 ## 开源协议

@@ -302,18 +302,18 @@ For details, see[galio](https://galio.io/docs/#/components)
 
 ### [NavBar](https://galio.io/docs/#/components/navbar?id=navbar)
 
-|     Name      |                          Description                          |     Type     | Required |  Platform   | HarmonyOS Support |
-| :-----------: | :-----------------------------------------------------------: | :----------: | :------: | :---------: | :---------------: |
-|     back      |              Adds a back button for your navBar.              |   boolean    |    no    | iOS/Android |        Yes        |
-|  transparent  |   Sets the backgroundColor and borderColor to 'transparent'   |   boolean    |    no    | iOS/Android |        Yes        |
-|     title     |                      Title of the NavBar                      | node, string |    no    | iOS/Android |        Yes        |
-|  titleStyle   |                Sets the styling for the title                 |    object    |    no    | iOS/Android |        Yes        |
-|     left      |                    Left side of the NavBar                    |     node     |    no    | iOS/Android |        Yes        |
+|     Name      |                         Description                          |     Type     | Required |  Platform   | HarmonyOS Support |
+| :-----------: | :----------------------------------------------------------: | :----------: | :------: | :---------: | :---------------: |
+|     back      |             Adds a back button for your navBar.              |   boolean    |    no    | iOS/Android |        Yes        |
+|  transparent  |  Sets the backgroundColor and borderColor to 'transparent'   |   boolean    |    no    | iOS/Android |        Yes        |
+|     title     |                     Title of the NavBar                      | node, string |    no    | iOS/Android |        Yes        |
+|  titleStyle   |                Sets the styling for the title                |    object    |    no    | iOS/Android |        Yes        |
+|     left      |                   Left side of the NavBar                    |     node     |    no    | iOS/Android |        Yes        |
 |   leftStyle   | Sets the styling for the View wrapping the left side element. |    object    |    no    | iOS/Android |        Yes        |
-| leftIconColor |            Sets the color of the left side's icon.            |    string    |    no    | iOS/Android |        Yes        |
-|  onLeftPress  |           Function for the left side of the navbar            |   function   |    no    | iOS/Android |        Yes        |
-|     right     |                   Right side of the NavBar                    |     node     |    no    | iOS/Android |        Yes        |
-|  rightStyle   | Sets the styling for the View wrapping the left side element. |    object    |    no    | iOS/Android |        Yes        |
+| leftIconColor |           Sets the color of the left side's icon.            |    string    |    no    | iOS/Android |        Yes        |
+|  onLeftPress  |           Function for the left side of the navbar           |   function   |    no    | iOS/Android |        Yes        |
+|     right     |                   Right side of the NavBar                   |     node     |    no    | iOS/Android |        Yes        |
+|  rightStyle   | Sets the styling for the View wrapping the right side element. |    object    |    no    | iOS/Android |        Yes        |
 
 ### [Radio](https://galio.io/docs/#/components/radio?id=radio)
 
@@ -399,8 +399,9 @@ For details, see[galio](https://galio.io/docs/#/components)
 ## Others
 
 - Flashback occurs when fadeOutDuration is used [issue#264](https://github.com/galio-org/galio/issues/264)
+
 - Using the safe attribute in the Block component does not take effect [issue#265](https://github.com/galio-org/galio/issues/265)
 
 ## License
 
-This project is licensed under [The MIT License(MIT)](https://github.com/galio-org/galio/blob/master/LICENSE.md)
+This project is licensed under [The MIT License(MIT)](https://github.com/galio-org/galio/blob/master/LICENSE.md).

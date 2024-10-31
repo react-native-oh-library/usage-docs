@@ -316,7 +316,7 @@ export default CardDemo;
 | leftIconColor |           Sets the color of the left side's icon.            |    string    |    no    | iOS/Android |        Yes        |
 |  onLeftPress  |           Function for the left side of the navbar           |   function   |    no    | iOS/Android |        Yes        |
 |     right     |                   Right side of the NavBar                   |     node     |    no    | iOS/Android |        Yes        |
-|  rightStyle   | Sets the styling for the View wrapping the left side element. |    object    |    no    | iOS/Android |        Yes        |
+|  rightStyle   | Sets the styling for the View wrapping the right side element. |    object    |    no    | iOS/Android |        Yes        |
 
 ### [Radio](https://galio.io/docs/#/components/radio?id=radio)
 

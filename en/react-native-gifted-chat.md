@@ -184,12 +184,11 @@ RNOH: 0.72.27; SDK: HarmonyOS-Next-DB1 5.0.0.29(SP1); IDE: DevEco Studio 5.0.3.4
 |       **infiniteScroll**        | infinite scroll up when reach the top of messages container, automatically call onLoadEarlier function if exist (not yet supported for the web). You need to add `loadEarlier` prop too. |    *Boolean*    |    No    | iOS/Android |        Yes        |
 
 ## Known Issues
- - [ ] iOS 和 HarmonyOS侧效果有差异 RN输入框键盘弹出遮挡了输入框 新建一个项目加一个在屏幕底下的输入框,键盘弹出会默认把输入框顶上来
- - [ ] 输入框最大高 maxComposerHeight 设置无效果 监听输入框高度改变 onContentSizeChange未触发
- - [ ] 输入工具栏最小高 minInputToolbarHeight 设置无效果 监听输入框高度改变 onContentSizeChange未触发
- - [ ] 聊天与屏幕底部的距离 bottomOffset 设置无法查看效果,IOS设置后效果为键盘弹出后聊天栏与输入栏之间的距离,RN键盘弹出未把输入框顶上来
 
 ## Others
+-  输入框最大高 maxComposerHeight 设置无效果 maxComposerHeight为复杂数据类型,设置后在HarmonyOS侧效果偶发
+-  输入工具栏最小高 minInputToolbarHeight 设置无效,与iOS一致
+-  聊天与屏幕底部的距离 bottomOffset 设置无效,与iOS一致
 
 ## License
 

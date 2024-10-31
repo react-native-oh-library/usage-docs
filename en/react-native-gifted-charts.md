@@ -565,7 +565,7 @@ For details, see [react-native-gifted-charts](https://github.com/Abhinandan-Kush
 | yAxisIndicesHeight | Height of the pointers on the Y axis | number | no | all | yes
 | yAxisIndicesWidth | Width of the pointers on the Y axis | number | no | all | yes
 | yAxisIndicesColor | Color of the pointers on the X axis | ColorValue | no | all | yes
-| yAxisIndicesColor | To hide axes, rules, labels altogether | boolean | no | all | yes
+| hideAxesAndRules | To hide axes, rules, labels altogether | boolean | no | all | yes
 | yAxisLabelTexts | Array of label texts to be displayed along y axis | Array<string>| no | all |yes
 | xAxisLabelTexts | Array of label texts to be displayed below x axis | Array<string>| no | all |yes
 | xAxisLabelTextStyle | Style of label texts to be displayed below x axis | object | no | all | yes
@@ -573,7 +573,7 @@ For details, see [react-native-gifted-charts](https://github.com/Abhinandan-Kush
 | xAxisLabelsHeight | Height of X axis labels container | number | no | all | yes
 | xAxisLabelsVerticalShift | prop to adjust the vertical position of X axis labels (move X axis labels up or down) | number | no | all |yes
 | rotateLabel | To rotate the X axis labels (by 60deg) | boolean | no | all | yes
-| hideOrigin | To hide the y Axis label at origin (i.e. 0) | boolean | no | all | ye
+| hideOrigin | To hide the y Axis label at origin (i.e. 0) | boolean | no | all | yes
 | secondaryYAxis | displays and controls the properties of the secondary Y axis on the right side | secondaryYAxisType | no | all |yes
 | secondaryData | the secondary data that will be rendered along the secondary Y axis | Array of items | no | all |yes
 | secondaryLineConfig | properties of the secondary data line (secondaryLineConfigType is described below) | secondaryLineConfigType| no | all |yes

@@ -156,7 +156,7 @@ export default CardDemo;
 本文档内容基于以下版本验证通过：
 
 1. RNOH: 0.72.27; SDK: HarmonyOS NEXT Developer Beta1 5.0.0.25(API Version 12 Canary4); IDE: DevEco Studio 5.0.3.400SP7; ROM: 3.0.0.29;
-2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
+2. RNOH: 0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 ## 属性
 
@@ -320,18 +320,18 @@ export default CardDemo;
 
 ### [Radio](https://galio.io/docs/#/components/radio?id=radio)
 
-|      Name       |                Description                |                             Type                             | Required |  Platform   | HarmonyOS Support |
-| :-------------: | :---------------------------------------: | :----------------------------------------------------------: | :------: | :---------: | :---------------: |
-|      color      |                  color.                   |                            string                            |    no    | iOS/Android |        Yes        |
-| containerStyle  |              Container Style              |                             any                              |    no    | iOS/Android |        Yes        |
-| radioOuterStyle |            Title of the NavBar            |                             any                              |    no    | iOS/Android |        Yes        |
-| radioInnerStyle |      Sets the styling for the title       |                             any                              |    no    | iOS/Android |        Yes        |
-|    disabled     |              Prohibited Use               |                           boolean                            |    no    | iOS/Android |        Yes        |
-|  flexDirection  | Determines the direction of the main axis | oneOfType(['row', 'row-reverse', 'column', 'column-reverse']), string |    no    | iOS/Android |        Yes        |
-|  initialValue   |               Initial Value               |                           boolean                            |    no    | iOS/Android |        Yes        |
-|      label      |                   Label                   |                            string                            |    no    | iOS/Android |        Yes        |
-|   labelStyle    |               Label Styles                |                             any                              |    no    | iOS/Android |        Yes        |
-|    onChange     |       Change when radio is seleted        |                           function                           |    no    | iOS/Android |        Yes        |
+|      Name       |                  Description                   |                             Type                             | Required |  Platform   | HarmonyOS Support |
+| :-------------: | :--------------------------------------------: | :----------------------------------------------------------: | :------: | :---------: | :---------------: |
+|      color      |                     color                      |                            string                            |    no    | iOS/Android |        Yes        |
+| containerStyle  |                Container Style                 |                             any                              |    no    | iOS/Android |        Yes        |
+| radioOuterStyle | Sets the style of the outer layer of the radio |                             any                              |    no    | iOS/Android |        Yes        |
+| radioInnerStyle |       Sets the style Inner of the radio        |                             any                              |    no    | iOS/Android |        Yes        |
+|    disabled     |                 Prohibited Use                 |                           boolean                            |    no    | iOS/Android |        Yes        |
+|  flexDirection  |   Determines the direction of the main axis    | oneOfType(['row', 'row-reverse', 'column', 'column-reverse']), string |    no    | iOS/Android |        Yes        |
+|  initialValue   |                 Initial Value                  |                           boolean                            |    no    | iOS/Android |        Yes        |
+|      label      |                     Label                      |                            string                            |    no    | iOS/Android |        Yes        |
+|   labelStyle    |                  Label Styles                  |                             any                              |    no    | iOS/Android |        Yes        |
+|    onChange     |          Change when radio is seleted          |                           function                           |    no    | iOS/Android |        Yes        |
 
 ### [Text](https://galio.io/docs/#/components/text?id=text)
 
@@ -401,8 +401,11 @@ export default CardDemo;
 ## 遗留问题
 
 ## 其他
+
 - fadeOutDuration使用会出现闪退 [issue#264](https://github.com/galio-org/galio/issues/264)
+
 - Block组件里面使用safe属性没有效果 [issue#265](https://github.com/galio-org/galio/issues/265)
+
 ## 开源协议
 
 本项目基于 [The MIT License(MIT)](https://github.com/galio-org/galio/blob/master/LICENSE.md)，请自由地享受和参与开源。

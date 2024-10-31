@@ -150,8 +150,8 @@ export default ViewExample;
 | `alwaysVisible`       | When set to `true` Accessory View will be always visible at the bottom of the screen. Good for sticky `TextInput`'s | `boolean`              | no       | `false`     | iOS/Android | yes               |
 | `bumperHeight`        | Bumper height to prevent visual glitches if animation couldn't keep up with the keyboard animation. | `number`               | no       | 15          | iOS/Android | yes               |
 | `visibleOpacity`      | Opacity of the Accessory when it is visible. *Note:* Opacity is used for hiding the accessory to prevent render delays. | `number`               | no       | 1           | iOS/Android | yes               |
-| `heightProperty`      | Control how the component manages its height. The component listens for children changes and automatically adjusts its height, so `height` is usually sufficient. For use with a multiline, autogrowing `TextInput`, `minHeight` is recommended. Values: `['height', 'minHeight']` | `enum:string`          | no       | `height`    | iOS/Android | yes               |
-| `hiddenOpacity`       | Opacity of the Accessory when it is hidden.                  | `number`               | no       | 0           | iOS/Android | yes               |
+| `heightProperty`      | Control how the component manages its height. The component listens for children changes and automatically adjusts its height, so `height` is usually sufficient. For use with a multiline, autogrowing `TextInput`, `minHeight` is recommended. Values: `['height', 'minHeight']` | `enum:string`          | no       | `height`    | iOS/Android | no                |
+| `hiddenOpacity`       | Opacity of the Accessory when it is hidden.                  | `number`               | no       | 0           | iOS/Android | no                |
 | `hideBorder`          | Set true if you want to hide top border of the Accessory     | `boolean`              | no       | false       | iOS/Android | yes               |
 | `inSafeAreaView`      | Set true if you want to adapt SafeAreaView on iPhone X       | `boolean`              | no       | false       | iOS         | no                |
 | `androidAdjustResize` | Set true in ejected apps to adjust resize                    | `boolean`              | no       | false       | Android     | no                |
@@ -203,6 +203,10 @@ export default ViewExample;
 - androidAdjustResize 是为适配安卓键盘弹出时窗口的布局，HarmonyOS键盘弹出没有该问题，无需设置该属性。
 
 - doneDisabled和doneHidden属性在iOS,Android不生效，HarmonyOS与其表现一致: [issue#99](https://github.com/ardaogulcan/react-native-keyboard-accessory/issues/99)
+
+- heightProperty属性在iOS,Android不生效，HarmonyOS与其表现一致: [issue#100](https://github.com/ardaogulcan/react-native-keyboard-accessory/issues/100)
+
+- hiddenOpacity属性在iOS,Android不生效，HarmonyOS与其表现一致: [issue#101](https://github.com/ardaogulcan/react-native-keyboard-accessory/issues/101)
 
 ## 开源协议
 

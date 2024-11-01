@@ -111,7 +111,7 @@ export default function () {
 本库依赖以下三方库，请查看对应文档：
 + [@react-native-oh-tpl/react-native-gesture-handler](/zh-cn/react-native-gesture-handler.md)
 + [@react-native-oh-tpl/react-native-reanimated](/zh-cn/react-native-reanimated.md)
-+ [@react-native-oh-tpl/bottom-sheet](/zh-cn/react-native-bottom-sheet.md)
++ [@react-native-oh-tpl/bottom-sheet](/zh-cn/gorhom-bottom-sheet.md)
 
 本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-reanimated、@react-native-oh-tpl/react-native-gesture-handler的原生端代码，如已在鸿蒙工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
 

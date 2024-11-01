@@ -114,7 +114,7 @@ This repository depends on the following libraries, please refer to the correspo
 
 - [@react-native-oh-tpl/react-native-gesture-handler](/en/react-native-gesture-handler.md)
 - [@react-native-oh-tpl/react-native-reanimated](/en/react-native-reanimated.md)
-- [@react-native-oh-tpl/bottom-sheet](/en/react-native-bottom-sheet.md)
+- [@react-native-oh-tpl/bottom-sheet](/en/gorhom-bottom-sheet.md)
 
 The HarmonyOS implementation of this library depends on the native code from @react-native-oh-tpl/react-native-reanimated、@react-native-oh-tpl/react-native-gesture-handler. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly.
 

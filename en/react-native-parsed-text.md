@@ -1,5 +1,3 @@
-<!-- {% raw %} -->
-
 > Template version: v0.2.2
 
 <p align="center">
@@ -231,4 +229,3 @@ Displayed text will be : `Mention ^^@michel^^`
 
 This project is licensed under [TTHE MIT License (MIT)](https://github.com/taskrabbit/react-native-parsed-text/blob/master/LICENSE.txt).
 
-<!-- {% endraw %} -->

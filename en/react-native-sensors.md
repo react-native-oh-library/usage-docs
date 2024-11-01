@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > Template version: v0.2.2
 
 <p align="center">
@@ -214,5 +213,3 @@ gyroscope Required permissions: ohos.permission.GYROSCOPE
 ## License
 
 This project is licensed under [The MIT License (MIT)](https://github.com/react-native-sensors/react-native-sensors/blob/master/LICENSE), Please enjoy and participate freely in open source.
-
-<!-- {% endraw %} -->

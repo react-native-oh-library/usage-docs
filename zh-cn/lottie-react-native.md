@@ -1,5 +1,3 @@
-<!-- {% raw %} -->
-
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -301,4 +299,3 @@ rawfile 路径：`entry/src/main/resources/rawfile`
 
 本项目基于 [Apache License 2.0](https://github.com/lottie-react-native/lottie-react-native/blob/master/LICENSE) ，请自由地享受和参与开源。
 
-<!-- {% endraw %} -->

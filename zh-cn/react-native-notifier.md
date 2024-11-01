@@ -223,4 +223,3 @@ Currently, there are 2 components out of the box. If none of them fits your need
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/seniv/react-native-notifier/blob/main/LICENSE) ，请自由地享受和参与开源。
-<!-- {% endraw %} -->

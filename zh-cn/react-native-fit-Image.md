@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-模板版本：v0.2.2
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-fit-image</code> </h1>
@@ -325,5 +324,3 @@ export default FitImageDemo;
 ## 开源协议
 
 本项目基于 [THE BEER-WARE LICENSE](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Fhuiseoul%2Freact-native-fit-image%2Fblob%2Fmaster%2FLICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

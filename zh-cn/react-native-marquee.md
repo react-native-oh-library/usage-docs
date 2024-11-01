@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -108,5 +107,3 @@ MarqueText组件基本上继承了[TextProps](https://reactnative.dev/docs/text)
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/kyo504/react-native-marquee/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

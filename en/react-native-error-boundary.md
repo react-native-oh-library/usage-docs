@@ -1,5 +1,3 @@
-<!-- {% raw %} -->
-
 > Template version: v0.2.2
 
 <p align="center">
@@ -128,4 +126,3 @@ onError(error: Error, stackTrace: string): void
 
 This project is licensed under [The MIT License (MIT)](https://github.com/carloscuesta/react-native-error-boundary/blob/master/LICENSE).
 
-<!-- {% endraw %} -->

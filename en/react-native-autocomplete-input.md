@@ -1,5 +1,3 @@
-<!-- {% raw %} -->
-
 > Template version: v0.2.2
 
 <p align="center">
@@ -196,4 +194,3 @@ RNOH：0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.25; IDE：DevEco Studio 5.0.3.400
 
 This project is licensed under [The MIT License (MIT)](https://github.com/byteburgers/react-native-autocomplete-input/blob/main/LICENSE).
 
-<!-- {% endraw %} -->

@@ -1,5 +1,3 @@
-<!-- {% raw %} -->
-
 > Template version: v0.2.2
 
 <p align="center">
@@ -201,4 +199,3 @@ This document is verified based on the following versions:
 
 This project is licensed under [The MIT License](https://github.com/bhrott/react-native-masked-text/blob/master/LICENSE).
 
-<!-- {% endraw %} -->

@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > Template version: v0.2.0
 
 <p align="center">
@@ -222,5 +221,3 @@ This document is verified based on the following versions：
 ## License
 
 This project is licensed under [MIT License](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Foblador%2Freact-native-progress%2Fblob%2Fmaster%2FLICENSE).
-
-<!-- {% endraw %} -->

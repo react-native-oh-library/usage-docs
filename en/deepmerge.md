@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > Template version: v0.2.2
 
 <p align="center">
@@ -127,5 +126,3 @@ For details, see [deepmerge Source Code](https://github.com/TehShrike/deepmerge)
 ## License
 
 This project is licensed under [The MIT License (MIT)](https://github.com/TehShrike/deepmerge/blob/master/license.txt).
-
-<!-- {% endraw %} -->

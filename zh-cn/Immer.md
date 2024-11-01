@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-模板版本：v0.2.1
+> 模板版本：v0.2.1
 
 <p align="center">
   <h1 align="center"> <code>immer</code> </h1>
@@ -817,5 +816,3 @@ export default MyComponent;
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/immerjs/immer/blob/main/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

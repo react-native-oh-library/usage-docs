@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > 模板版本：v0.2.1
 
 <p align="center">
@@ -169,4 +168,3 @@ Can be passed within optional `config` property.
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/glepur/react-native-swipe-gestures?tab=MIT-1-ov-file) ，请自由地享受和参与开源。
-<!-- {% endraw %} -->

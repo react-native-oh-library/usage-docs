@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > 模板版本：v0.2.1
 
 <p align="center">
@@ -632,5 +631,3 @@ children | One or many react-native-svg components that will be used to enhance 
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/JesperLekland/react-native-svg-charts/blob/dev/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

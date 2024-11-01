@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > Template version: v0.2.2
 
 <p align="center">
@@ -224,4 +223,3 @@ AudioQuality、MeteringEnabled、MeasurementMode is only for ios now.
 ## License
 
 This project is licensed under [The MIT License (MIT)](https://github.com/jsierles/react-native-audio/blob/master/LICENSE), Please enjoy and participate freely in open source.
-<!-- {% endraw %} -->

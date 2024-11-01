@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 
 # Codegen 使用指导
 
@@ -99,4 +98,3 @@ PackageProvider::getPackages(Package::Context ctx) {
 }
 ```
 
-<!-- {% endraw %} -->

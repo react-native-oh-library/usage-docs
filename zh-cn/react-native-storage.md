@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -415,5 +414,3 @@ RNOH: 0.72.22; SDK: OpenHarmony(api12) 5.0.0.22; IDE: DevEco Studio 5.0.3.228; R
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/sunnylqm/react-native-storage/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

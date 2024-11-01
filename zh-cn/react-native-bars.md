@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-模板版本：v0.2.2
+>模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-bars</code> </h1>
@@ -219,4 +218,3 @@ ohpm install
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/zoontek/react-native-bars/blob/main/LICENSE) ，请自由地享受和参与开源。
-<!-- {% endraw %} -->

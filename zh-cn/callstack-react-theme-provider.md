@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -106,6 +105,9 @@ const styles = StyleSheet.create({
 
 export default RNThemeProvider;
 ```
+## 约束与限制
+
+## 兼容性
 
 本文档内容基于以下版本验证通过：
 
@@ -141,5 +143,3 @@ export default RNThemeProvider;
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/callstack/react-theme-provider/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

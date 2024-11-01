@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > Template version: v0.2.2
 
 <p align="center">
@@ -127,5 +126,3 @@ The following are the HarmonyOS properties：
 ## License
 
 This project is licensed under [The MIT License (MIT)](https://github.com/iamacup/react-native-markdown-display/blob/master/LICENSE).
-
-<!-- {% endraw %} -->

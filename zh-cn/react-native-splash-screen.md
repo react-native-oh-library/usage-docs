@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -224,4 +223,3 @@ HarmonyOS 中，在入口 onWindowStageCreate 中调用 windowStage.loadContent 
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/crazycodeboy/react-native-splash-screen/blob/master/LICENSE) ，请自由地享受和参与开源。
-<!-- {% endraw %} -->

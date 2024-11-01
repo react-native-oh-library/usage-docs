@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-Template version: v0.2.0
+> Template version: v0.2.0
 
 <p align="center">
   <h1 align="center"> <code>EventBus</code> </h1>
@@ -329,5 +328,3 @@ See for details [EventBus](https://github.com/krasimir/EventBus/blob/master/READ
 ## License
 
 This project is licensed under [The MIT License (MIT)](https://www.mit-license.org/).
-
-<!-- {% endraw %} -->

@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -320,4 +319,3 @@ export function PopoverCenterExample() {
 ## 开源协议
 
 本项目基于 [License](https://github.com/doomsower/react-native-modal-popover/blob/master/LICENSE) ，请自由地享受和参与开源。
-<!-- {% endraw %} -->

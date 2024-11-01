@@ -1,6 +1,4 @@
-<!-- {% raw %} -->
-
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>styled-system</code> </h1>
@@ -184,4 +182,3 @@ export default App;
 
 本项目基于 [The MIT License (MIT)](https://github.com/styled-system/styled-system/blob/master/LICENSE.md) ，请自由地享受和参与开源。
 
-<!-- {% endraw %} -->

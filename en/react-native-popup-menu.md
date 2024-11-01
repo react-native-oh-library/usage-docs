@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > Template version: v0.2.2
 
 <p align="center">
@@ -158,5 +157,3 @@ For details, see [react-native-popup-menu](https://github.com/instea/react-nativ
 ## License
 
 This project is licensed under [The ISC License (ISC)](https://github.com/instea/react-native-popup-menu/blob/master/LICENSE).
-
-<!-- {% endraw %} -->

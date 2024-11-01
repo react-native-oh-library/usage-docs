@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -125,5 +124,3 @@ export function WebviewExample() {
 ## 开源协议
 
 本项目基于 [The ISC License (ISC)](https://github.com/iou90/react-native-autoheight-webview/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

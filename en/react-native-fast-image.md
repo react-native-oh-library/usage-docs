@@ -1,5 +1,3 @@
-<!-- {% raw %} -->
-
 > Template version: v0.2.2
 
 <p align="center">
@@ -290,4 +288,3 @@ Check the release version information in the release address of the third-party 
 
 This project is licensed under [The MIT License (MIT)](https://github.com/DylanVann/react-native-fast-image/blob/main/LICENSE).
 
-<!-- {% endraw %} -->

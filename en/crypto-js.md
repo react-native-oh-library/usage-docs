@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> Template version: v0.1.3
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>crypto-js</code> </h1>
@@ -622,5 +621,3 @@ import C from "crypto-js";
 ## License
 
 This project is licensed under [MIT License](https://github.com/brix/crypto-js/blob/4.2.0/LICENSE), Please enjoy and participate freely in open source.
-
-<!-- {% endraw %} -->

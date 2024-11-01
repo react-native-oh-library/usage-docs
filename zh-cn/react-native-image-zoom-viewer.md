@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -286,5 +285,4 @@ export default ReactImageZoon;
 
 本项目基于 [The MIT License (MIT)](https://github.com/ascoders/react-native-image-viewer/blob/master/LICENSE) ，请自由地享受和参与开源。
 
-<!-- {% endraw %} -->
 

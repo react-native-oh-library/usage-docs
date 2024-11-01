@@ -1,5 +1,3 @@
-<!-- {% raw %} -->
-
 > Template version: v0.2.2
 
 <p align="center">
@@ -649,4 +647,3 @@ FontProps 组件 Properties HarmonyOS 侧支持情况
 
 This project is licensed under [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-svg/blob/harmony/LICENSE).
 
-<!-- {% endraw %} -->

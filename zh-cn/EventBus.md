@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-模板版本：v0.2.0
+> 模板版本：v0.2.0
 
 <p align="center">
   <h1 align="center"> <code>EventBus</code> </h1>
@@ -325,5 +324,3 @@ export default EventBusDemo;
 ## 遗留问题
 
 ## 其他
-
-<!-- {% endraw %} -->

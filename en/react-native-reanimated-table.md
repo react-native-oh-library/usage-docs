@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-Template version: v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-reanimated-table</code> </h1>
@@ -129,4 +128,3 @@ Please check for details [react-native-reanimated-table](https://github.com/doho
 
 
 This project is licensed under [The MIT License (MIT)](https://github.com/dohooo/react-native-reanimated-table/blob/main/LICENSE).
-<!-- {% endraw %} -->

@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > Template version: v0.2.0
 
 <p align="center">
@@ -259,5 +258,3 @@ moment().format("hh:mm:ss a");
 ## Others
 
 ## License
-
-<!-- {% endraw %} -->

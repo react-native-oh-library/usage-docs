@@ -1,5 +1,3 @@
-<!-- {% raw %} -->
-
 > Template version: v0.2.2
 
 <p align="center">
@@ -183,4 +181,3 @@ For details, see [styled-system GitHub](https://github.com/styled-system/styled-
 
 This project is licensed under [The MIT License (MIT)](https://github.com/styled-system/styled-system/blob/master/LICENSE.md)
 
-<!-- {% endraw %} -->

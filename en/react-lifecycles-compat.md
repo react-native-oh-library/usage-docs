@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > Template version: v0.2.2
 
 <p align="center">
@@ -175,5 +174,3 @@ If your component contains GetsnapshotBeForeupDate, then it must also define com
 ## License
 
 This project is licensed under [The MIT License (MIT)](https://github.com/reactjs/react-lifecycles-compat/blob/master/LICENSE.md).
-
-<!-- {% endraw %} -->

@@ -1,5 +1,3 @@
-<!-- {% raw %} -->
-
 > Template version：v0.2.1
 
 <p align="center">
@@ -652,4 +650,3 @@ details[react-native-svg-charts](https://github.com/JesperLekland/react-native-s
 
 This project is licensed under [The MIT License (MIT)](https://github.com/JesperLekland/react-native-svg-charts/blob/dev/LICENSE).
 
-<!-- {% endraw %} -->

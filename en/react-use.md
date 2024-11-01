@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-Template version: v0.2.1
+> Template version: v0.2.1
 
 <p align="center">
   <h1 align="center"> <code>react-use</code> </h1>
@@ -180,5 +179,3 @@ Please check for details [react-use Official documentation](https://github.com/s
 ## License
 
 This project is licensed under [The MIT License (MIT)](https://github.com/streamich/react-use/blob/master/LICENSE).
-
-<!-- {% endraw %} -->

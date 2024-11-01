@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > Template version: v0.2.2
 
 <p align="center">
@@ -115,5 +114,3 @@ For details, see [styled-components GitHub](https://github.com/styled-components
 ## License
 
 This project is licensed under [The MIT License (MIT)](https://github.com/styled-components/styled-components/blob/main/LICENSE)
-
-<!-- {% endraw %} -->

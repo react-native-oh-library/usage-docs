@@ -1,5 +1,3 @@
-<!-- {% raw %} -->
-
 > Template version: v0.2.2
 
 <p align="center">
@@ -454,4 +452,3 @@ SwipeableFlatList 组件接收所有[React Native FlatList](https://facebook.git
 
 This project is licensed under [The MIT License (MIT)](https://github.com/esthor/react-native-swipeable-list/blob/main/LICENSE).
 
-<!-- {% endraw %} -->

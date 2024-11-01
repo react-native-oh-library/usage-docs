@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-模板版本：v0.2.0
+> 模板版本：v0.2.0
 
 <p align="center">
   <h1 align="center"> <code>react-native-echarts-pro</code> </h1>
@@ -127,5 +126,3 @@ export default function RNEPDemo() {
 ## 开源协议
 
 本项目基于 [MIT License](https://github.com/oblador/react-native-progress/blob/master/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

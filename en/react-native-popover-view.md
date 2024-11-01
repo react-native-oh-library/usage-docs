@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > Template version: v0.2.2
 
 <p align="center">
@@ -185,5 +184,3 @@ This document is verified based on the following versions:
 ## License
 
 This project is licensed under [MIT License](https://github.com/react-native-oh-library/react-native-popover-view/blob/sig/LICENSE).
-
-<!-- {% endraw %} -->

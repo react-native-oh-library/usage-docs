@@ -1,5 +1,3 @@
-<!-- {% raw %} -->
-
 > Template version: v0.2.2
 
 <p align="center">
@@ -246,5 +244,3 @@ rotateImage | rotate picture | Function | no | iOS/Android | yes
 ## License
 
 This project is licensed under [The MIT License (MIT)](https://github.com/dgladkov/react-native-image-rotate/blob/master/LICENSE).
-
-<!-- {% endraw %} -->

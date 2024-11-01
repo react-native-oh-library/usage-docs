@@ -1,5 +1,3 @@
-<!-- {% raw %} -->
-
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -100,4 +98,3 @@ Grid、Row、Col组件接收所有 [React Native View](https://reactnative.dev/d
 
 本项目基于 [Apache License 2.0](https://github.com/GeekyAnts/react-native-easy-grid/blob/master/LICENSE) ，请自由地享受和参与开源。
 
-<!-- {% endraw %} -->

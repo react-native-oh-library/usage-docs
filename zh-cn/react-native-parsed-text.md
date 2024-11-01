@@ -1,5 +1,3 @@
-<!-- {% raw %} -->
-
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -222,5 +220,3 @@ Displayed text will be : ```Mention ^^@michel^^```
 ## 开源协议
 
 本项目基于 [TTHE MIT License (MIT)](https://github.com/taskrabbit/react-native-parsed-text/blob/master/LICENSE.txt) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

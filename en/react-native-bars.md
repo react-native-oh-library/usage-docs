@@ -1,6 +1,4 @@
-<!-- {% raw %} -->
-
-Template version: v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-bars</code> </h1>
@@ -217,4 +215,3 @@ Check the release version information in the release address of the third-party 
 
 This project is licensed under [The MIT License (MIT)](https://github.com/zoontek/react-native-bars/blob/main/LICENSE).
 
-<!-- {% endraw %} -->

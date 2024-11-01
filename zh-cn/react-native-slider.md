@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -193,4 +192,3 @@ const styles = StyleSheet.create({
 
 本项目基于 [The MIT License (MIT)](https://github.com/jeanregisser/react-native-slider/blob/master/LICENSE) ，请自由地享受和参与开源。
 
-<!-- {% endraw %} -->

@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-Template version: v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-drawer-layout-polyfill</code> </h1>
@@ -273,5 +272,3 @@ This document is verified based on the following versions
 ## License
 
 This project is licensed under [The MIT License (MIT)](https://www.mit-license.org/).
-
-<!-- {% endraw %} -->

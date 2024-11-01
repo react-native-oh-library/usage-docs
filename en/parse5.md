@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > Template version: v0.2.2
 
 <p align="center">
@@ -164,5 +163,3 @@ For details, see [parse5 Document address](https://parse5.js.org/index.html)
 ## License
 
 This project is licensed under [The MIT License (MIT)](https://github.com/inikulin/parse5/blob/master/LICENSE).
-
-<!-- {% endraw %} -->

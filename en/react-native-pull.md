@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > Template version: v0.2.2
 
 <p align="center">
@@ -469,5 +468,3 @@ Check the release version information in the release address of the third-party 
 ## License
 
 This project is licensed under [The MIT License (MIT)](https://github.com/greatbsky/react-native-pull/blob/master/LICENSE).
-
-<!-- {% endraw %} -->

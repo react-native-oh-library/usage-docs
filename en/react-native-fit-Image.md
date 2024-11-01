@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-Template version: v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-fit-image</code> </h1>
@@ -325,5 +324,3 @@ This document is verified based on the following versions
 ## License
 
 This project is licensed under [THE BEER-WARE LICENSE](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Fhuiseoul%2Freact-native-fit-image%2Fblob%2Fmaster%2FLICENSE).
-
-<!-- {% endraw %} -->

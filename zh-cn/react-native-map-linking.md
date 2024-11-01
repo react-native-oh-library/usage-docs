@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -165,5 +164,3 @@ iOS系统下需要在App的`info.plist`中配置Schema支持才能唤起地图:
 
 本项目基于 [The MIT License (MIT)](https://github.com/starlight36/react-native-map-linking/blob/master/LICENSE) ，请自由地享受和参与开源。
 
-
-<!-- {% endraw %} -->

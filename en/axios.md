@@ -1,4 +1,4 @@
-> Template version: v0.1.3
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>axios</code> </h1>

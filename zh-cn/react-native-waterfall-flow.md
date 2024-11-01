@@ -208,5 +208,3 @@ export default App;
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/axerjs/react-native-waterfall-flow/blob/HEAD/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

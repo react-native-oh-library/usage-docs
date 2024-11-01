@@ -1,5 +1,3 @@
-<!-- {% raw %} -->
-
 > Template version: v0.2.0
 
 <p align="center">
@@ -158,4 +156,3 @@ This document is verified based on the following versions:
 
 This project is licensed under [The MIT License (MIT)](https://github.com/DanielMSchmidt/react-native-dismiss-keyboard/blob/master/LICENSE).
 
-<!-- {% endraw %} -->

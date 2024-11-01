@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -262,4 +261,3 @@ export default MaterialButtons;
 ## 开源协议
 
 本项目基于 [MIT License](https://github.com/n4kz/react-native-material-buttons/blob/master/license.txt) ，请自由地享受和参与开源。 
-<!-- {% endraw %} -->

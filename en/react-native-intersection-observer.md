@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > Template version: v0.2.2
 
 <p align="center">
@@ -130,5 +129,3 @@ Methods: Inherits [FlatList Methods](https://reactnative.dev/docs/flatlist#metho
 ## License
 
 This project is licensed under [MIT License](https://github.com/zhbhun/react-native-intersection-observer/blob/master/LICENSE).
-
-<!-- {% endraw %} -->

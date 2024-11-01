@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > Template version: v0.2.2
 
 <p align="center">
@@ -121,5 +120,3 @@ This document is verified based on the following versions:
 ## License
 
 This project is licensed under [The MIT License (MIT)](https://github.com/facebook/prop-types/blob/v15.8.1/LICENSE).
-
-<!-- {% endraw %} -->

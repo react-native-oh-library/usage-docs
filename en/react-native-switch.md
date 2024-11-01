@@ -1,5 +1,3 @@
-<!-- {% raw %} -->
-
 > Template version: v0.2.2
 
 <p align="center">
@@ -160,4 +158,3 @@ This document is verified based on the following versions:
 
 This project is licensed under [The MIT License (MIT)](https://github.com/shahen94/react-native-switch/blob/master/LICENSE).
 
-<!-- {% endraw %} -->

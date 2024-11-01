@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> Template version: v0.1.3
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>redux-logger</code> </h1>
@@ -87,5 +86,3 @@ This document is verified based on the following versions:
 ## License
 
 This project is licensed under [The MIT License (MIT)](https://github.com/LogRocket/redux-logger/blob/master/LICENSE).
-
-<!-- {% endraw %} -->

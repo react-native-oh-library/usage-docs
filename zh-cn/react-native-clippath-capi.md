@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > 模板版本：v0.2.2
 
 <p align="center">
@@ -245,5 +244,3 @@ ohpm install
 本项目基于 [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-clippath/blob/capi/LICENSE) ，请自由地享受和参与开源。
 
 ---
-
-<!-- {% endraw %} -->

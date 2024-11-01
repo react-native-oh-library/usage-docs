@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> Template version: v0.1.3
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>redux-actions</code> </h1>
@@ -308,5 +307,3 @@ It is currently recommended to use version 2.6.5. If it is updated to version 3.
 
 
 This project is licensed under [The MIT License (MIT)](https://github.com/redux-utilities/redux-actions/blob/master/LICENSE).
-
-<!-- {% endraw %} -->

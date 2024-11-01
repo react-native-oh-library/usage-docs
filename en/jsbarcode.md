@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > Template version: v0.2.0
 
 <p align="center">
@@ -323,5 +322,3 @@ jsbarcode库依赖react-native-svg库进行条形码展示, 因svg 当前仅实�
 ## License
 
 This project is licensed under [MIT License](https://github.com/lindell/JsBarcode/blob/master/MIT-LICENSE.txt), Please enjoy and participate freely in open source.
-
-<!-- {% endraw %} -->

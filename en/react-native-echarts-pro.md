@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-Template version: v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-echarts-pro</code> </h1>
@@ -127,5 +126,3 @@ For details, see [react-native-echarts-pro](https://github.com/supervons/react-n
 ## License
 
 This project is licensed under [MIT License](https://github.com/oblador/react-native-progress/blob/master/LICENSE).
-
-<!-- {% endraw %} -->

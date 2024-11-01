@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > Template version: v0.2.2
 
 <p align="center">
@@ -232,5 +231,3 @@ var swiper = React.createClass({
 ### License
 
 This project is licensed under [The MIT License (MIT)](https://github.com/leecade/react-native-swiper/blob/master/LICENSE).
-
-<!-- {% endraw %} -->

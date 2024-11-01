@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> 模板版本：v0.1.3
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>prop-types</code> </h1>
@@ -83,6 +82,7 @@ const styles = StyleSheet.create({
 
 export default App;
 ```
+## 约束与限制
 
 ### 兼容性
 
@@ -122,5 +122,3 @@ export default App;
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/facebook/prop-types/blob/v15.8.1/LICENSE) ，请自由地享受和参与开源。
-
-<!-- {% endraw %} -->

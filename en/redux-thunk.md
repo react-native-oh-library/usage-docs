@@ -1,5 +1,4 @@
-<!-- {% raw %} -->
-> Template version: v0.1.3
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>redux-thunk</code> </h1>
@@ -155,5 +154,3 @@ This document is verified based on the following versions:
 ## License
 
 This project is licensed under [The MIT License (MIT)](https://github.com/reduxjs/redux-thunk?tab=MIT-1-ov-file).
-
-<!-- {% endraw %} -->

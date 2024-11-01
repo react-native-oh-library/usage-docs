@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > Template version: v0.2.2
 
 <p align="center">
@@ -112,5 +111,3 @@ For details, see [react-i18next Source Code](https://github.com/i18next/react-i1
 ## License
 
 This project is licensed under [The MIT License (MIT)](https://github.com/i18next/react-i18next/blob/master/LICENSE).
-
-<!-- {% endraw %} -->

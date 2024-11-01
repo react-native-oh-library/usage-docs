@@ -1,4 +1,3 @@
-<!-- {% raw %} -->
 > Template version: v0.2.0
 
 <p align="center">
@@ -344,5 +343,3 @@ dayjs.extend(duration)
 ## License
 
 This project is licensed under [The MIT License (MIT)](https://github.com/iamkun/dayjs/blob/dev/LICENSE).
-
-<!-- {% endraw %} -->

@@ -24,13 +24,13 @@ Go to the project directory and execute the following instruction:
 #### **npm**
 
 ```bash
-$ npm install react-native-responsive-fontsize@0.5.1 --save
+npm install react-native-responsive-fontsize@0.5.1
 ```
 
 #### **yarn**
 
 ```bash
-$ yarn add react-native-responsive-fontsize@0.5.1
+yarn add react-native-responsive-fontsize@0.5.1
 ```
 
 <!-- tabs:end -->

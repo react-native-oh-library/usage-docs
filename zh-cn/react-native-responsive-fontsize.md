@@ -13,24 +13,24 @@
     </a>
 </p>
 
-
-
 > [!TIP] [Github 地址](https://github.com/heyman333/react-native-responsive-fontSize)
 
 ## 安装与使用
+
 <!-- tabs:start -->
+
 进入到工程目录并输入以下命令：
 
 #### **npm**
 
 ```bash
-$ npm install react-native-responsive-fontsize@0.5.1 --save
+npm install react-native-responsive-fontsize@0.5.1
 ```
 
 #### **yarn**
 
 ```bash
-$ yarn add react-native-responsive-fontsize@0.5.1
+yarn add react-native-responsive-fontsize@0.5.1
 ```
 
 <!-- tabs:end -->
@@ -80,6 +80,7 @@ export default App;
 2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 ## 静态方法
+
 > [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
 > [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。

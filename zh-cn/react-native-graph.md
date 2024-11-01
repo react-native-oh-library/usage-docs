@@ -121,6 +121,7 @@ const styles = StyleSheet.create({
 
 2. RNOH：0.72.31; SDK：HarmonyOS NEXT Beta1 SDK 5.0.0.68; IDE：DevEco Studio 5.0.3.810; ROM：5.0.0.60
 
+3. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 ## 属性
 
 > [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
@@ -152,6 +153,8 @@ const styles = StyleSheet.create({
 
 
 ## 遗留问题
+
+- [ ] 依赖手势库的三方库，单击图表后会出现手势指示点出现BUG的情况，会页面卡住无法点击组件中按钮再次点击回归正常，需要等待手势库更新后正常 [issues#38](https://github.com/react-native-oh-library/react-native-harmony-gesture-handler/issues/38)
 
 ## 其他
 - react-native-graph 的animated属性 原库代码现在有问题 无论是false还是true，数据变化都是静态变化，没有动画效果，原库中有使用者提issue和PR，添加合入相应PR代码后才能动画正常[issue#111](https://github.com/margelo/react-native-graph/pull/111)

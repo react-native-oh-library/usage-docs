@@ -120,6 +120,10 @@ This document is verified based on the following versions:
 
 1. RNOH：0.72.28; SDK：HarmonyOS NEXT Developer Beta5 5.0.0.60; IDE：DevEco Studio 5.0.3.655; ROM：3.0.0.60
 
+2. RNOH：0.72.31; SDK：HarmonyOS NEXT Beta1 SDK 5.0.0.68; IDE：DevEco Studio 5.0.3.810; ROM：5.0.0.60
+
+3. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
+
 ## Properties
 
 > [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
@@ -150,7 +154,11 @@ This document is verified based on the following versions:
 
 ## Known Issues
 
+- [ ] 依赖手势库的三方库，单击图表后会出现手势指示点出现 BUG 的情况，会页面卡住无法点击组件中按钮再次点击回归正常，需要等待手势库更新后正常 [issues#38](https://github.com/react-native-oh-library/react-native-harmony-gesture-handler/issues/38)
+
 ## Others
+
+- react-native-graph 的 animated 属性 原库代码现在有问题 无论是 false 还是 true，数据变化都是静态变化，没有动画效果，原库中有使用者提 issue 和 PR，添加合入相应 PR 代码后才能动画正常[issue#111](https://github.com/margelo/react-native-graph/pull/111)
 
 ## License
 

@@ -113,7 +113,7 @@ export default CryptoJSDemo;
 
 #### Compatibility
 
-在下述版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
 2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
@@ -128,9 +128,9 @@ import C from "crypto-js";
 
 #### Base
 
-**静态方法**
+**Static Methods**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name              | Description                      | Type     | Required | HarmonyOS Support |
 | ----------------- | -------------------------------- | -------- | -------- | ----------------- |
@@ -138,7 +138,7 @@ import C from "crypto-js";
 
 **API**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name   | Description                    | Type     | Required | HarmonyOS Support |
 | ------ | ------------------------------ | -------- | -------- | ----------------- |
@@ -148,18 +148,18 @@ import C from "crypto-js";
 
 #### WordArray
 
-**属性**
+**Properties**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name     | Description              | Type     | Required | HarmonyOS Support |
 | -------- | ------------------------ | -------- | -------- | ----------------- |
 | words    | 32位的字节数组。         | number[] | no       | yes               |
 | sigBytes | 此字数组中的有效字节数。 | number   | no       | yes               |
 
-**静态方法**
+**Static Methods**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                   | Description                        | Type     | Required | HarmonyOS Support               |
 | ---------------------- | ---------------------------------- | -------- | -------- | ------------------------------- |
@@ -168,7 +168,7 @@ import C from "crypto-js";
 
 **API**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name     | Description                        | Type     | Required | HarmonyOS Support |
 | -------- | ---------------------------------- | -------- | -------- | ----------------- |
@@ -179,9 +179,9 @@ import C from "crypto-js";
 
 #### CipherParams
 
-**属性**
+**Properties**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name       | Description                                         | Type         | Required | HarmonyOS Support |
 | ---------- | --------------------------------------------------- | ------------ | -------- | ----------------- |
@@ -195,9 +195,9 @@ import C from "crypto-js";
 | blockSize  | 密码的块大小。                                      | number       | no       | yes               |
 | formatter  | 将此cipher params对象转换为字符串的默认格式化策略。 | Format       | no       | yes               |
 
-**静态方法**
+**Static Methods**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                      | Description                       | Type     | Required | HarmonyOS Support |
 | ------------------------- | --------------------------------- | -------- | -------- | ----------------- |
@@ -205,7 +205,7 @@ import C from "crypto-js";
 
 **API**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name     | Description                         | Type     | Required | HarmonyOS Support |
 | -------- | ----------------------------------- | -------- | -------- | ----------------- |
@@ -213,9 +213,9 @@ import C from "crypto-js";
 
 #### X64
 
-**静态方法**
+**Static Methods**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name              | Description            | Type     | Required | HarmonyOS Support |
 | ----------------- | ---------------------- | -------- | -------- | ----------------- |
@@ -223,18 +223,18 @@ import C from "crypto-js";
 
 #### X64WordArray
 
-**属性**
+**Properties**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name     | Description                   | Type     | Required | HarmonyOS Support |
 | -------- | ----------------------------- | -------- | -------- | ----------------- |
 | words    | CryptoJS.x64.Word对象的数组。 | number[] | no       | yes               |
 | sigBytes | 此字数组中的有效字节数。      | number   | no       | yes               |
 
-**静态方法**
+**Static Methods**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                   | Description              | Type     | Required | HarmonyOS Support |
 | ---------------------- | ------------------------ | -------- | -------- | ----------------- |
@@ -242,7 +242,7 @@ import C from "crypto-js";
 
 **API**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name  | Description                      | Type     | Required | HarmonyOS Support |
 | ----- | -------------------------------- | -------- | -------- | ----------------- |
@@ -251,9 +251,9 @@ import C from "crypto-js";
 
 #### mode
 
-**属性**
+**Properties**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name       | Description      | Type | Required | HarmonyOS Support |
 | ---------- | ---------------- | ---- | -------- | ----------------- |
@@ -265,9 +265,9 @@ import C from "crypto-js";
 
 #### pad.Pkcs7
 
-**静态方法**
+**Static Methods**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name              | Description                                   | Type     | Required | HarmonyOS Support |
 | ----------------- | --------------------------------------------- | -------- | -------- | ----------------- |
@@ -276,9 +276,9 @@ import C from "crypto-js";
 
 #### pad.AnsiX923
 
-**静态方法**
+**Static Methods**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                 | Description                                  | Type     | Required | HarmonyOS Support |
 | -------------------- | -------------------------------------------- | -------- | -------- | ----------------- |
@@ -287,9 +287,9 @@ import C from "crypto-js";
 
 #### pad.Iso10126
 
-**静态方法**
+**Static Methods**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                 | Description                                  | Type     | Required | HarmonyOS Support               |
 | -------------------- | -------------------------------------------- | -------- | -------- | ------------------------------- |
@@ -298,9 +298,9 @@ import C from "crypto-js";
 
 #### pad.ZeroPadding
 
-**静态方法**
+**Static Methods**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                    | Description                                     | Type     | Required | HarmonyOS Support |
 | ----------------------- | ----------------------------------------------- | -------- | -------- | ----------------- |
@@ -309,9 +309,9 @@ import C from "crypto-js";
 
 #### pad.NoPadding
 
-**属性**
+**Properties**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name            | Description      | Type | Required | HarmonyOS Support |
 | --------------- | ---------------- | ---- | -------- | ----------------- |
@@ -319,9 +319,9 @@ import C from "crypto-js";
 
 #### algo
 
-**静态方法**
+**Static Methods**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                    | Description                         | Type     | Required | HarmonyOS Support |
 | ----------------------- | ----------------------------------- | -------- | -------- | ----------------- |
@@ -344,9 +344,9 @@ import C from "crypto-js";
 
 #### Hasher
 
-**属性**
+**Properties**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name      | Description                                            | Type   | Required | HarmonyOS Support |
 | --------- | ------------------------------------------------------ | ------ | -------- | ----------------- |
@@ -354,7 +354,7 @@ import C from "crypto-js";
 
 **API**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name     | Description            | Type     | Required | HarmonyOS Support |
 | -------- | ---------------------- | -------- | -------- | ----------------- |
@@ -364,9 +364,9 @@ import C from "crypto-js";
 
 #### HMAC
 
-**静态方法**
+**Static Methods**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name               | Description          | Type     | Required | HarmonyOS Support |
 | :----------------- | -------------------- | -------- | -------- | ----------------- |
@@ -382,7 +382,7 @@ import C from "crypto-js";
 
 **API**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name     | Description                                                                | Type     | Required | HarmonyOS Support |
 | :------- | -------------------------------------------------------------------------- | -------- | -------- | ----------------- |
@@ -392,9 +392,9 @@ import C from "crypto-js";
 
 #### AES
 
-**静态方法**
+**Static Methods**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                       | Description                 | Type     | Required | HarmonyOS Support | Notes                                                                          |
 | :------------------------- | --------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------------------------ |
@@ -404,9 +404,9 @@ import C from "crypto-js";
 
 #### DES
 
-**静态方法**
+**Static Methods**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                       | Description                 | Type     | Required | HarmonyOS Support | Notes                                                                          |
 | :------------------------- | --------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------------------------ |
@@ -416,9 +416,9 @@ import C from "crypto-js";
 
 #### TripleDES
 
-**静态方法**
+**Static Methods**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                             | Description                       | Type     | Required | HarmonyOS Support | Notes                                                                          |
 | :------------------------------- | --------------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------------------------ |
@@ -428,9 +428,9 @@ import C from "crypto-js";
 
 #### RC4
 
-**静态方法**
+**Static Methods**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                       | Description                 | Type     | Required | HarmonyOS Support | Notes                                                                          |
 | :------------------------- | --------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------------------------ |
@@ -440,9 +440,9 @@ import C from "crypto-js";
 
 #### RC4Drop
 
-**静态方法**
+**Static Methods**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                          | Description                     | Type     | Required | HarmonyOS Support | Notes                                                                          |
 | :---------------------------- | ------------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------------------------ |
@@ -452,9 +452,9 @@ import C from "crypto-js";
 
 #### Rabbit
 
-**静态方法**
+**Static Methods**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                          | Description                    | Type     | Required | HarmonyOS Support | Notes                                                                          |
 | :---------------------------- | ------------------------------ | -------- | -------- | ----------------- | ------------------------------------------------------------------------------ |
@@ -464,9 +464,9 @@ import C from "crypto-js";
 
 #### RabbitLegacy
 
-**静态方法**
+**Static Methods**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                                | Description                          | Type     | Required | HarmonyOS Support | Notes                                                                          |
 | :---------------------------------- | ------------------------------------ | -------- | -------- | ----------------- | ------------------------------------------------------------------------------ |
@@ -476,9 +476,9 @@ import C from "crypto-js";
 
 #### Cipher
 
-**属性**
+**Properties**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name    | Description                          | Type   | Required | HarmonyOS Support |
 | :------ | ------------------------------------ | ------ | -------- | ----------------- |
@@ -487,7 +487,7 @@ import C from "crypto-js";
 
 **API**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name     | Description                                                                    | Type     | Required | HarmonyOS Support |
 | :------- | ------------------------------------------------------------------------------ | -------- | -------- | ----------------- |
@@ -497,9 +497,9 @@ import C from "crypto-js";
 
 #### Blowfish
 
-**静态方法**
+**Static Methods**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name               | Description    | Type     | Required | HarmonyOS Support |
 | :----------------- | -------------- | -------- | -------- | ----------------- |
@@ -508,9 +508,9 @@ import C from "crypto-js";
 
 #### SerializableCipher
 
-**静态方法**
+**Static Methods**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                             | Description          | Type     | Required | HarmonyOS Support |
 | :------------------------------- | -------------------- | -------- | -------- | ----------------- |
@@ -519,9 +519,9 @@ import C from "crypto-js";
 
 #### PasswordBasedCipher
 
-**静态方法**
+**Static Methods**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                              | Description          | Type     | Required | HarmonyOS Support | Notes                                                                   |
 | :-------------------------------- | -------------------- | -------- | -------- | ----------------- | ----------------------------------------------------------------------- |
@@ -530,9 +530,9 @@ import C from "crypto-js";
 
 #### kdf.OpenSSL
 
-**静态方法**
+**Static Methods**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                  | Description          | Type     | Required | HarmonyOS Support | Notes                                                                   |
 | :-------------------- | -------------------- | -------- | -------- | ----------------- | ----------------------------------------------------------------------- |
@@ -540,9 +540,9 @@ import C from "crypto-js";
 
 #### kdf.PBKDF2
 
-**静态方法**
+**Static Methods**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                 | Description                        | Type     | Required | HarmonyOS Support |
 | :------------------- | ---------------------------------- | -------- | -------- | ----------------- |
@@ -551,7 +551,7 @@ import C from "crypto-js";
 
 **API**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name    | Description                        | Type     | Required | HarmonyOS Support |
 | :------ | ---------------------------------- | -------- | -------- | ----------------- |
@@ -559,9 +559,9 @@ import C from "crypto-js";
 
 #### EvpKDF
 
-**静态方法**
+**Static Methods**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                 | Description                        | Type     | Required | HarmonyOS Support |
 | :------------------- | ---------------------------------- | -------- | -------- | ----------------- |
@@ -570,7 +570,8 @@ import C from "crypto-js";
 
 **API**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name    | Description                        | Type     | Required | HarmonyOS Support |
 | :------ | ---------------------------------- | -------- | -------- | ----------------- |
@@ -578,9 +579,9 @@ import C from "crypto-js";
 
 #### format
 
-**静态方法**
+**Static Methods**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                       | Description                                 | Type     | Required | HarmonyOS Support |
 | :------------------------- | ------------------------------------------- | -------- | -------- | ----------------- |
@@ -591,9 +592,9 @@ import C from "crypto-js";
 
 #### enc/Encoder
 
-**静态方法**
+**Static Methods**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                      | Description                           | Type     | Required | HarmonyOS Support |
 | :------------------------ | ------------------------------------- | -------- | -------- | ----------------- |

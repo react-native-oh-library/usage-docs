@@ -96,12 +96,14 @@ export default ActivityIndicatorDemo;
 ## 约束与限制
 ### 兼容性
 
-在下述版本验证通过:
-RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.18;
+本文档内容基于以下版本验证通过：
+
+1. RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.18;
+2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 ## 组件
 
-详情查看[Paper官方文档](https://callstack.github.io/react-native-paper/)
+详情查看[Paper官方文档](https://callstack.github.io/react-native-paper)
 
 > [!tip] "Platform"列表示该属性在原三方库上支持的平台。
 
@@ -173,6 +175,7 @@ RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5
 |  style   |  style | Animated.WithAnimatedValue<StyleProp<ViewStyle>> | Yes      | All      | Yes               |
 
 **Appbar.Action**：A component used to display an action item in the appbar.
+
 |  Name   | Description |      Type       | Required | Platform | HarmonyOS Support |
 | :-----: | :---------: | :-------------: | -------- | -------- | ----------------- |
 |  color   |  Custom color for action icon   | string | Yes      | All      | Yes               |
@@ -195,12 +198,11 @@ RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5
 |  disabled    | Whether the button is disabled. A disabled button is greyed out and onPress is not called on touch.   | boolean | Yes      | All      | Yes               |
 |  accessibilityLabel    | Accessibility label for the button. This is read by the screen reader when the user taps the button   | string | Yes      | All      | Yes               |
 |  onPress    | Function to execute on press.   | fuction | Yes      | All      | Yes               |
-|  isLeading (Available in v5.x with theme version 3)    | Whether it's the leading button.   | boolean | Yes      | All      | Yes               |
-|  style   |  Style for Appbar.BackAction container | Animated.WithAnimatedValue<StyleProp<ViewStyle>> | Yes      | All      | Yes               |
-|  ref   |  ref | React.RefObject<View> | Yes      | All      | Yes               |
-|  theme   |  theme | ThemeProp | Yes      | All      | Yes               |
+|       style        |            Style for Appbar.BackAction container             | Animated.WithAnimatedValue<StyleProp<ViewStyle>> | Yes      | All      | Yes               |
+|        ref         |                             ref                              |              React.RefObject<View>               | Yes      | All      | Yes               |
 
 **Appbar.Content**：A component used to display a title and optional subtitle in an appbar
+
 |  Name   | Description |      Type       | Required | Platform | HarmonyOS Support |
 | :-----: | :---------: | :-------------: | -------- | -------- | ----------------- |
 |  title (required)   |  Text or component for the title.  | React.ReactNode | Yes      | All      | Yes               |
@@ -211,9 +213,8 @@ RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5
 |  color    | Custom color for the text   | string | Yes      | All      | Yes               |
 |  titleMaxFontSizeMultiplier    | Specifies the largest possible scale a title font can reach   | number | Yes      | All      | Yes               |
 |  style   |  Style for Appbar.Content container | Animated.WithAnimatedValue<StyleProp<ViewStyle>> | Yes      | All      | Yes               |
-|  ref   |  ref | React.RefObject<View> | Yes      | All      | Yes               |
-|  theme   |  theme | ThemeProp | Yes      | All      | Yes               |
-|  testID   |  testID to be used on tests. | string | Yes      | All      | Yes               |
+|           theme            |                            theme                            |                    ThemeProp                     | Yes      | All      | Yes               |
+|           testID           |                 testID to be used on tests.                 |                      string                      | Yes      | All      | Yes               |
 
 **Appbar.Header**：A component to use as a header at the top of the screen. It can contain the screen title, controls such as navigation buttons, menu button etc.
 |  Name   | Description |      Type       | Required | Platform | HarmonyOS Support |
@@ -233,7 +234,7 @@ RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5
 |  icon (required)  | Icon to display for the Avatar.  | IconSource | Yes      | All      | Yes               |
 |  size  | Size of the avatar.  | number | Yes      | All      | Yes               |
 |  color  | Custom color for the icon.  | string | Yes      | All      | Yes               |
-|  ref   |  ref | React.RefObject<View> | Yes      | All      | Yes               |
+|  style  | style | StyleProp<ViewStyle> | Yes      | All      | Yes               |
 |  theme   |  theme | ThemeProp | Yes      | All      | Yes               |
 
 **Avatar.Image**：Avatars can be used to represent people in a graphical way.
@@ -251,6 +252,7 @@ RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5
 |  theme   | theme  | ThemeProp | Yes      | All      | Yes               |
 
 **Avatar.Text**：Avatars can be used to represent people in a graphical way.
+
 |  Name   | Description |      Type       | Required | Platform | HarmonyOS Support |
 | :-----: | :---------: | :-------------: | -------- | -------- | ----------------- |
 |  label (required)  | Initials to show as the text in the Avatar.  | string  | Yes      | All      | Yes               |
@@ -304,17 +306,19 @@ RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5
 |  getColor  | Get color for the tab, uses route.color by default. | (props: { route: Route }) => string \| undefined \| number \| string \| undefined \| null | Yes      | All      | Yes               |
 |  getLabelText  | Get label text for the tab, uses route.title by default. Use renderLabel to replace label component. | (props: { route: Route }) => string \| undefined \| undefined \| number \| string \| undefined \| null | Yes      | All      | Yes               |
 |  getTestID  | Get the id to locate this tab button in tests, uses route.testID by default. | (props: { route: Route }) => string \| undefined | Yes      | All      | Yes               |
+|  getLazy  | Get lazy for the current screen. Uses true by default. | (props: { route: Route }) => string \| undefined | Yes      | All      | Yes               |
 |  onTabPress  | Function to execute on tab press. It receives the route for the pressed tab, useful for things like scroll to top. | (props: { route: Route } & TabPressEvent) => void | Yes      | All      | Yes               |
 |  onTabLongPress  | Function to execute on tab long press. It receives the route for the pressed tab, useful for things like custom action when longed pressed. | (props: { route: Route } & TabPressEvent) => void | Yes      | All      | Yes               |
 |  activeColor  | Custom color for icon and label in the active tab. | string | Yes      | All      | Yes               |
 |  inactiveColor  | Custom color for icon and label in the inactive tab. | string | Yes      | All      | Yes               |
-|  animationEasing  | The scene animation Easing. | EasingFunction \| undefined | Yes      | All      | Yes               |
+|  sceneAnimationEnabled  | Whether animation is enabled for scenes transitions in shifting mode. | boolean | Yes      | All      | Yes               |
+|  sceneAnimationEasing  | The scene animation Easing. | EasingFunction \| undefined | Yes      | All      | Yes               |
+|  sceneAnimationType  | The scene animation effect. Specify 'shifting' for a different effect. By default, 'opacity' will be used. | 'opacity' \| 'shifting' | Yes      | All      | Yes               |
 |  keyboardHidesNavigationBar  | Whether the bottom navigation bar is hidden when keyboard is shown | boolean | Yes      | All      | Yes               |
 |  safeAreaInsets  | Safe area insets for the tab bar | { top?: number; right?: number; bottom?: number; left?: number; } | Yes      | All      | Yes               |
 |  activeIndicatorStyle  | Style for the bottom navigation bar. You can pass a custom background color here | StyleProp<ViewStyle> | Yes      | All      | Yes               |
 |  labelMaxFontSizeMultiplier  | Specifies the largest possible scale a label font can reach. | number | Yes      | All      | Yes               |
 |  style  | Style for Badge container  | StyleProp<TextStyle> | Yes      | All      | Yes               |
-|  ref  | ref  | React.RefObject<typeof Animated.Text> | Yes      | All      | Yes               |
 |  testID  | TestID used for testing purposes  | string | Yes      | All      | Yes               |
 
 **BottomNavigation.Bar**：A navigation bar which can easily be integrated with React Navigation's Bottom Tabs Navigator.
@@ -332,21 +336,17 @@ RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5
 |  getBadge  | Get badge for the tab, uses route.badge by default. | (props: { route: Route }) => boolean \| number \| string \| undefined \| null | Yes      | All      | Yes               |
 |  getColor  | Get color for the tab, uses route.color by default. | (props: { route: Route }) => string \| undefined \| number \| string \| undefined \| null | Yes      | All      | Yes               |
 |  getLabelText  | Get label text for the tab, uses route.title by default. Use renderLabel to replace label component. | (props: { route: Route }) => string \| undefined \| undefined \| number \| string \| undefined \| null | Yes      | All      | Yes               |
-|  getLazy  | Get lazy for the current screen. Uses true by default. | (props: { route: Route }) => string \| undefined | Yes      | All      | Yes               |
 |  getTestID  | Get the id to locate this tab button in tests, uses route.testID by default. | (props: { route: Route }) => string \| undefined | Yes      | All      | Yes               |
 |  onTabPress  | Function to execute on tab press. It receives the route for the pressed tab, useful for things like scroll to top. | (props: { route: Route } & TabPressEvent) => void | Yes      | All      | Yes               |
 |  onTabLongPress  | Function to execute on tab long press. It receives the route for the pressed tab, useful for things like custom action when longed pressed. | (props: { route: Route } & TabPressEvent) => void | Yes      | All      | Yes               |
 |  activeColor  | Custom color for icon and label in the active tab. | string | Yes      | All      | Yes               |
 |  inactiveColor  | Custom color for icon and label in the inactive tab. | string | Yes      | All      | Yes               |
-|  sceneAnimationEnabled  | Whether animation is enabled for scenes transitions in shifting mode | boolean | Yes      | All      | Yes               |
-|  sceneAnimationType  | The scene animation effect. Specify 'shifting' for a different effect. By default, 'opacity' will be used. | opacity \| shifting | Yes      | All      | Yes               |
-|  sceneAnimationEasing  | The scene animation Easing. | EasingFunction \| undefined | Yes      | All      | Yes               |
+|  animationEasing  | The scene animation Easing. | EasingFunction \| undefined | Yes      | All      | Yes               |
 |  keyboardHidesNavigationBar  | Whether the bottom navigation bar is hidden when keyboard is shown | boolean | Yes      | All      | Yes               |
 |  safeAreaInsets  | Safe area insets for the tab bar | { top?: number; right?: number; bottom?: number; left?: number; } | Yes      | All      | Yes               |
 |  barStyle  | Style for the bottom navigation bar. You can pass a custom background color here | Animated.WithAnimatedValue<StyleProp<ViewStyle>> | Yes      | All      | Yes               |
 |  labelMaxFontSizeMultiplier  | Specifies the largest possible scale a label font can reach. | number | Yes      | All      | Yes               |
 |  style  | Style for Badge container  | StyleProp<TextStyle> | Yes      | All      | Yes               |
-|  ref  | ref  | React.RefObject<typeof Animated.Text> | Yes      | All      | Yes               |
 |  testID  | TestID used for testing purposes  | string | Yes      | All      | Yes               |
 
 **Button**：A button is component that the user can press to trigger an action.
@@ -450,6 +450,31 @@ RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5
 |  theme  | theme  |  ThemeProp | Yes      | All      | Yes               |
 |  testID  | theme  |  string | Yes      | All      | Yes               |
 
+**Checkbox.Android**：Checkboxes allow the selection of multiple options from a set. This component follows platform guidelines for iOS, but can be used on any platform.
+
+|       Name        |             Description              |       TypeTouchableRipple props       | Required | Platform | HarmonyOS Support |
+| :---------------: | :----------------------------------: | :-----------------------------------: | -------- | -------- | ----------------- |
+|  TouchableRipple  |              Touchable               |         TouchableRipple props         | NO       | All      | Yes               |
+| status (required) |         Status of checkbox.          | checked \| unchecked \| indeterminate | Yes      | All      | Yes               |
+|     disabled      |    Whether checkbox is disabled.     |                boolean                | NO       | All      | Yes               |
+|      onPress      |    Function to execute on press.     |  (e: GestureResponderEvent) => void   | NO       | All      | Yes               |
+|  uncheckedColor   | Custom color for unchecked checkbox. |                string                 | NO       | All      | Yes               |
+|       color       |      Custom color for checkbox.      |                string                 | NO       | All      | Yes               |
+|       theme       |                theme                 |               ThemeProp               | NO       | All      | Yes               |
+|      testID       |                theme                 |                string                 | NO       | All      | Yes               |
+
+**Checkbox.IOS**：Checkboxes allow the selection of multiple options from a set. This component follows platform guidelines for iOS, but can be used on any platform.
+
+|       Name        |          Description          |                 Type                  | Required | Platform | HarmonyOS Support |
+| :---------------: | :---------------------------: | :-----------------------------------: | -------- | -------- | ----------------- |
+|  TouchableRipple  |           Touchable           |         TouchableRipple props         | NO       | All      | Yes               |
+| status (required) |      Status of checkbox.      | checked \| unchecked \| indeterminate | Yes      | All      | Yes               |
+|     disabled      | Whether checkbox is disabled. |                boolean                | NO       | All      | Yes               |
+|      onPress      | Function to execute on press. |  (e: GestureResponderEvent) => void   | NO       | All      | Yes               |
+|       color       |  Custom color for checkbox.   |                string                 | NO       | All      | Yes               |
+|       theme       |             theme             |               ThemeProp               | NO       | All      | Yes               |
+|      testID       |             theme             |                string                 | NO       | All      | Yes               |
+
 **Checkbox.Item**：Checkbox.Item allows you to press the whole row (item) instead of only the Checkbox.
 
 |  Name   | Description |      Type       | Required | Platform | HarmonyOS Support |
@@ -488,7 +513,7 @@ RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5
 |  showSelectedCheck   | Whether to display default check icon on selected chip.  |  boolean | Yes      | All      | Yes               |
 |  rippleColor   | Color of the ripple effect.  |  ColorValue | Yes      | All      | Yes               |
 |  disabled   | Whether the chip is disabled.  |  boolean | Yes      | All      | Yes               |
-|  background   | Type of background drawabale to display the feedback (Android).  |  PressableAndroidRippleConfig | Yes      | All      | Yes               |
+|  background   | Type of background drawabale to display the feedback (Android).  |  PressableAndroidRippleConfig | Yes      | Android      |No               |
 |  accessibilityLabel   | Accessibility label for the chip. This is read by the screen reader when the user taps the chip.  |  string | Yes      | All      | Yes               |
 |  closeIconAccessibilityLabel   | Accessibility label for the close icon. This is read by the screen reader when the user taps the close icon.  |  string | Yes      | All      | Yes               |
 |  onPress   | Function to execute on press.  |  (e: GestureResponderEvent) => void | Yes      | All      | Yes               |
@@ -500,7 +525,7 @@ RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5
 |  compact    | Sets smaller horizontal paddings 12dp around label, when there is only label.  |   boolean | Yes      | All      | Yes               |
 |  elevated     | Whether chip should have the elevation.  |   boolean | Yes      | All      | Yes               |
 |  textStyle     | Style of chip's text  |   StyleProp<TextStyle> | Yes      | All      | Yes               |
-|  style     | style  |   Animated.WithAnimatedValue<StyleProp<ViewStyle>> | Yes      | All      | 
+|  style     | style  |   Animated.WithAnimatedValue<StyleProp<ViewStyle>> | Yes      | All      |
 |  theme     | theme  |   ThemeProp | Yes      | All      | Yes               |
 |  testID     | Pass down testID from chip props to touchable for Detox tests.  |   string | Yes      | All      | Yes               |
 |  ellipsizeMode     | Ellipsize Mode for the children text  |   EllipsizeProp | Yes      | All      | Yes               |
@@ -512,7 +537,7 @@ RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5
 |  Name   | Description |      Type       | Required | Platform | HarmonyOS Support |
 | :-----: | :---------: | :-------------: | -------- | -------- | ----------------- |
 |  children (required)  | Content of the DataTable  |  React.ReactNode  | Yes      | All      | Yes               |
-|  style     | style  |    StyleProp<ViewStyle> | Yes      | All      | 
+|  style     | style  |    StyleProp<ViewStyle> | Yes      | All      |
 
 **DataTable.Cell**：A component to show a single cell inside of a table.
 
@@ -521,18 +546,18 @@ RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5
 |  children (required)  | Content of the DataTableCell.  |  React.ReactNode  | Yes      | All      | Yes               |
 |  numeric  | Align the text to the right. Generally monetary or number fields are aligned to right.  |  boolean  | Yes      | All      | Yes               |
 |  onPress  | Function to execute on press.  |  (e: GestureResponderEvent) => void  | Yes      | All      | Yes               |
-|  style     | Text content style of the DataTableCell.  |    StyleProp<ViewStyle> | Yes      | All      | 
+|  style     | Text content style of the DataTableCell.  |    StyleProp<ViewStyle> | Yes      | All      |
 |  textStyle  | Text content style of the DataTableCell.  |   StyleProp<TextStyle>  | Yes      | All      | Yes               |
 |  maxFontSizeMultiplier  | Specifies the largest possible scale a text font can reach. |   number  | Yes      | All      | Yes               |
-|  testID     | testID to be used on tests.  | string | Yes      | All      | 
+|  testID     | testID to be used on tests.  | string | Yes      | All      |
 
 **DataTable.Header**：A component to display title in table header.
 
 |  Name   | Description |      Type       | Required | Platform | HarmonyOS Support |
 | :-----: | :---------: | :-------------: | -------- | -------- | ----------------- |
 |  children (required)  | Content of the DataTableHeader.  |  React.ReactNode  | Yes      | All      | Yes               |
-|  style     | Text content style of the DataTable.Header.  |    StyleProp<ViewStyle> | Yes      | All      | 
-|  theme     | theme  | ThemeProp | Yes      | All      | 
+|  style     | Text content style of the DataTable.Header.  |    StyleProp<ViewStyle> | Yes      | All      |
+|  theme     | theme  | ThemeProp | Yes      | All      |
 
 **DataTable.Pagination**：A component to show pagination for data table.
 
@@ -543,7 +568,7 @@ RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5
 |  onPageChange (required)  | Function to execute on page change. | (page: number) => void  | Yes      | All      | Yes               |
 |  showFastPaginationControls  | Whether to show fast forward and fast rewind buttons in pagination. False by default. | boolean  | Yes      | All      | Yes               |
 |  paginationControlRippleColor  | Color of the pagination control ripple effect. | ColorValue  | Yes      | All      | Yes               |
-|  theme     | theme  | ThemeProp | Yes      | All      | 
+|  theme     | theme  | ThemeProp | Yes      | All      |
 |  numberOfItemsPerPage  | The current number of rows per page. | number  | Yes      | All      | Yes               |
 |  numberOfItemsPerPageList  | Options for a number of rows per page to choose from. | Array<number>  | Yes      | All      | Yes               |
 |  onItemsPerPageChange  | The function to set the number of rows per page. | (numberOfItemsPerPage: number) => void  | Yes      | All      | Yes               |
@@ -553,7 +578,7 @@ RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5
 |  selectPageDropdownAccessibilityLabel  | AccessibilityLabel for selectPageDropdownLabel | string  | Yes      | All      | Yes               |
 |  label  | Label text to display which indicates current pagination. | React.ReactNode  | Yes      | All      | Yes               |
 |  accessibilityLabel  | AccessibilityLabel for label. | string  | Yes      | All      | Yes               |
-|  style     | Text content style of the DataTable.Pagination.  |    StyleProp<ViewStyle> | Yes      | All      | 
+|  style     | Text content style of the DataTable.Pagination.  |    StyleProp<ViewStyle> | Yes      | All      |
 
 **DataTable.Row**：A component to show a single row inside of a table.
 
@@ -563,8 +588,8 @@ RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5
 |  children (required)  | Content of the DataTableRow.  | React.ReactNode  | Yes      | All      | Yes               |
 |  onPress  | Function to execute on press.  | (e: GestureResponderEvent) => void  | Yes      | All      | Yes               |
 |  style     | Text content style of the DataTable.Pagination.  |    StyleProp<ViewStyle> | Yes      | All      |
-|  theme     | theme  |  ThemeProp | Yes      | All      | 
-|  pointerEvents     | pointerEvents passed to the View container, which is wrapping children within TouchableRipple.  |  ViewProps['pointerEvents'] | Yes      | All      | 
+|  theme     | theme  |  ThemeProp | Yes      | All      |
+|  pointerEvents     | pointerEvents passed to the View container, which is wrapping children within TouchableRipple.  |  ViewProps['pointerEvents'] | Yes      | All      |
 
 **DataTable.Title**：A component to display title in table header.
 
@@ -677,7 +702,36 @@ RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5
 |  style  | style  | StyleProp<ViewStyle>  | Yes      | All      | Yes               |
 |  theme  | theme  | ThemeProp  | Yes      | All      | Yes               |
 
+**FAB**：A floating action button represents the primary action on a screen. It appears in front of all screen content.
+
+|            Name            |                         Description                          |                       Type                       | Required | Platform | HarmonyOS Support |
+| :------------------------: | :----------------------------------------------------------: | :----------------------------------------------: | -------- | -------- | ----------------- |
+|      icon (required)       |                 Icon to display for the FAB.                 |                    IconSource                    | Yes      | All      | Yes               |
+|      label (required)      |                   Label for extended FAB.                    |                      string                      | Yes      | All      | Yes               |
+|         uppercase          |               Make the label text uppercased.                |                     boolean                      | Yes      | All      | Yes               |
+|         background         | Type of background drawabale to display the feedback (Android). |           PressableAndroidRippleConfig           | Yes      | All      | Yes               |
+|     accessibilityLabel     | Accessibility label for the FAB. This is read by the screen reader when the user taps the FAB. |                      string                      | Yes      | All      | Yes               |
+|     accessibilityState     | Accessibility state for the FAB. This is read by the screen reader when the user taps the FAB. |                AccessibilityState                | Yes      | All      | Yes               |
+|          animated          |             Whether an icon change is animated.              |                     boolean                      | Yes      | All      | Yes               |
+|           color            |       Custom color for the icon and label of the FAB.        |                      string                      | Yes      | All      | Yes               |
+|        rippleColor         |                 Color of the ripple effect.                  |                    ColorValue                    | Yes      | All      | Yes               |
+|          disabled          | Whether FAB is disabled. A disabled button is greyed out and onPress is not called on touch. |                     boolean                      | Yes      | All      | Yes               |
+|          visible           |              Whether FAB is currently visible.               |                     boolean                      | Yes      | All      | Yes               |
+|          loading           |             Whether to show a loading indicator.             |                     boolean                      | Yes      | All      | Yes               |
+|          onPress           |                Function to execute on press.                 |        (e: GestureResponderEvent) => void        | Yes      | All      | Yes               |
+|        onLongPress         |              Function to execute on long press.              |        (e: GestureResponderEvent) => void        | Yes      | All      | Yes               |
+|       delayLongPress       | The number of milliseconds a user must touch the element before executing onLongPress |                      number                      | Yes      | All      | Yes               |
+|            size            |                  Default value: `'medium'`                   |          'small' \| 'medium' \| 'large'          | Yes      | All      | Yes               |
+|            mode            | Mode of the `FAB`. You can change the mode to adjust the the shadow: |               'flat' \| 'elevated'               | Yes      | All      | Yes               |
+|          variant           | Color mappings variant for combinations of container and icon colors. | 'primary'\|'secondary'  \|'tertiary' \|'surface' | Yes      | All      | Yes               |
+| labelMaxFontSizeMultiplier | Specifies the largest possible scale a label font can reach. |                      number                      | Yes      | All      | Yes               |
+|           style            |                            style                             |               StyleProp<ViewStyle>               | Yes      | All      | Yes               |
+|           theme            |                            theme                             |                    ThemeProp                     | Yes      | All      | Yes               |
+|           testID           |               TestID used for testing purposes               |                      string                      | Yes      | All      | Yes               |
+|            ref             |                             ref                              |              React.RefObject<View>               | Yes      | All      | Yes               |
+
 **AnimatedFAB**：An animated, extending horizontally floating action button represents the primary action in an application.
+
 |  Name   | Description |      Type       | Required | Platform | HarmonyOS Support |
 | :-----: | :---------: | :-------------: | -------- | -------- | ----------------- |
 |  icon (required)   | Icon to display for the FAB.  | IconSource  | Yes      | All      | Yes               |
@@ -738,7 +792,7 @@ RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5
 |  Name   | Description |      Type       | Required | Platform | HarmonyOS Support |
 | :-----: | :---------: | :-------------: | -------- | -------- | ----------------- |
 |  size    | Size of icon.  | number | Yes      | All      | Yes               |
-|  allowFontScaling    | allowFontScaling  | boolean | Yes      | All      | Yes               |
+|  allowFontScaling    | allowFontScaling  | boolean | Yes      | All      | No               |
 |  source (required)    | Icon to display.  | any | Yes      | All      | Yes               |
 |  color    | Color of the icon.  | any | Yes      | All      | Yes               |
 |  style  | style  | StyleProp<ViewStyle>  | Yes      | All      | Yes               |
@@ -823,6 +877,7 @@ RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5
 |  titleEllipsizeMode    | Ellipsize Mode for the Title. One of 'head', 'middle', 'tail', 'clip'. |   EllipsizeProp | Yes      | All      | Yes               |
 |  titleMaxFontSizeMultiplier    | Specifies the largest possible scale a title font can reach. |   number | Yes      | All      | Yes               |
 |  descriptionMaxFontSizeMultiplier    | Specifies the largest possible scale a description font can reach. |   number | Yes      | All      | Yes               |
+|  descriptionEllipsizeMode    | Ellipsize Mode for the Description. One of 'head', 'middle', 'tail', 'clip'. |   'head' 'middle' 'tail' 'clip' | Yes      | All      | Yes               |
 |  testID    | TestID used for testing purposes |   string | Yes      | All      | Yes               |
 
 **List.Section**：A component used to group list items.
@@ -847,7 +902,7 @@ RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5
 |  visible (required)    | Whether the Menu is currently visible. |  boolean | Yes      | All      | Yes               |
 |  anchor (required)    | The anchor to open the menu from. In most cases, it will be a button that opens the menu. |  React.ReactNode | { x: number; y: number } | Yes      | All      | Yes               |
 |  anchorPosition    | Whether the menu should open at the top of the anchor or at its bottom. | top \| bottom | Yes      | All      | Yes               |
-|  statusBarHeight    | Extra margin to add at the top of the menu to account for translucent status bar on Android. If you are using Expo, we assume translucent status bar and set a height for status bar automatically. | number | Yes      | All      | Yes               |
+|  statusBarHeight    | Extra margin to add at the top of the menu to account for translucent status bar on Android. If you are using Expo, we assume translucent status bar and set a height for status bar automatically. | number | Yes      | Android      | false               |
 |  onDismiss    | Callback called when Menu is dismissed.  |  fuction | Yes      | All      | Yes               |
 |  overlayAccessibilityLabel    | Accessibility label for the overlay. This is read by the screen reader when the user taps outside the menu.  |  string | Yes      | All      | Yes               |
 |  children (required)    | Content of the Menu  |  React.ReactNode | Yes      | All      | Yes               |
@@ -888,7 +943,7 @@ RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5
 |  children (required)    | Content of the Modal. |  React.ReactNode | Yes      | All      | Yes               |
 |  contentContainerStyle    | Style for the content of the modal |  Animated.WithAnimatedValue<StyleProp<ViewStyle>> | Yes      | All      | Yes               |
 |  theme  | theme  | ThemeProp  | Yes      | All      | Yes               |
-|  style    | Style for the wrapper of the modal. Use this prop to change the default wrapper style or to override safe area insets with marginTop and marginBottom. |  StyleProp<TextStyle> | Yes      | All      | 
+|  style    | Style for the wrapper of the modal. Use this prop to change the default wrapper style or to override safe area insets with marginTop and marginBottom. |  StyleProp<TextStyle> | Yes      | All      |
 |  testID    | testID to be used on tests. |  string | Yes      | All      | Yes               |
 
 **Portal**：Portal allows rendering a component at a different place in the parent tree.
@@ -938,7 +993,7 @@ RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5
 |  Name   | Description |      Type       | Required | Platform | HarmonyOS Support |
 | :-----: | :---------: | :-------------: | -------- | -------- | ----------------- |
 |  value (required)    | Value of the radio button. |  string | Yes      | All      | Yes               |
-|  label (required)    | Label to be displayed on the item. |  string | Yes      | All      | Yes  |           
+|  label (required)    | Label to be displayed on the item. |  string | Yes      | All      | Yes  |
 |  disabled    | Whether radio is disabled. |  boolean | Yes      | All      | Yes               |
 |  background    | Type of background drawabale to display the feedback (Android). https://reactnative.dev/docs/pressable#rippleconfig |  PressableAndroidRippleConfig | Yes      | All      | Yes               |
 |  onPress    | Function to execute on press. |  Function | Yes      | All      | Yes               |
@@ -1057,12 +1112,12 @@ RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5
 |  selectionColor    | Selection color of the input. On iOS, it sets both the selection color and cursor color. On Android, it sets only the selection color. |  string | Yes      | All      |  Yes      |
 |  underlineColor    | Inactive underline color of the input. |  string | Yes      | All      |  Yes      |
 |  activeUnderlineColor    | Active underline color of the input. |  string | Yes      | All      |  Yes      |
-|  outlineColor    | Active outline color of the input. |  string | Yes      | All      | 
+|  outlineColor    | Active outline color of the input. |  string | Yes      | All      ||
 |  activeOutlineColor    | Active outline color of the input. |  string | Yes      | All      |  Yes      |
 |  textColor    | Color of the text in the input. |  string | Yes      | All      |  Yes      |
 |  dense    | Sets min height with densed layout.  |  boolean | Yes      | All      |  Yes      |
 |  multiline    | Whether the input can have multiple lines.  |  boolean | Yes      | All      |  Yes      |
-|  numberOfLines    | The number of lines to show in the input (Android only).  |  number | Yes      | All      |  Yes      |
+|  numberOfLines    | The number of lines to show in the input (Android only).  |  number | No    | Android |  No  |
 |  onFocus    | Callback that is called when the text input is focused.  |   (args: any) => void | Yes      | All      |  Yes      |
 |  onBlur    | Callback that is called when the text input is blurred.  |   (args: any) => void | Yes      | All      |  Yes      |
 |  render    | Callback to render a custom input component such as react-native-text-input-mask instead of the default TextInput component from react-native.  |   (props: RenderProps) => React.ReactNode | Yes      | All      |  Yes      |
@@ -1079,7 +1134,7 @@ RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5
 |  Name   | Description |      Type       | Required | Platform | HarmonyOS Support |
 | :-----: | :---------: | :-------------: | -------- | -------- | ----------------- |
 |  text (required)    | Text to show. |  string | Yes      | All      |  Yes      |
-|  accessibilityLabel    | Accessibility label for the affix. This is read by the screen reader when the user taps the affix. |  string | Yes      | All      | Yes      | 
+|  accessibilityLabel    | Accessibility label for the affix. This is read by the screen reader when the user taps the affix. |  string | Yes      | All      | Yes      |
 |  textStyle    | Style that is passed to the Text element. |  StyleProp<TextStyle> | Yes      | All      |  Yes      |
 |  theme    | theme | string | Yes      | All      | Yes               |
 
@@ -1139,9 +1194,9 @@ RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5
 **TouchableRipple**：A wrapper for views that should respond to touches. 
 |  Name   | Description |      Type       | Required | Platform | HarmonyOS Support |
 | :-----: | :---------: | :-------------: | -------- | -------- | ----------------- |
-|  borderless   | Whether to render the ripple outside the view bounds. |   boolean | Yes      | All      |  Yes      |
+|  borderless   | Whether to render the ripple outside the view bounds. |   boolean | No     | Android |  No    |
 |  background   | Type of background drawabale to display the feedback. |   Object | Yes      | All      |  Yes      |
-|  centered   | Whether to start the ripple at the center (Web). |   boolean | Yes      | All      |  Yes      |
+|  centered   | Whether to start the ripple at the center (Web). |   boolean | No    | Web   |  No    |
 |  disabled   | Whether to prevent interaction with the touchable. |   boolean | Yes      | All      |  Yes      |
 |  onPress   | Function to execute on press. If not set, will cause the touchable to be disabled. |   (e: GestureResponderEvent) => void | Yes      | All      |  Yes      |
 |  onLongPress   | Function to execute on long press. |   (e: GestureResponderEvent) => void | Yes      | All      |  Yes      |
@@ -1156,6 +1211,13 @@ RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5
 ## 遗留问题
 
 ## 其他
+- Icon 组件allowFontScaling不生效, 参看源码传入的此属性并未传入内部icon组件 [源码位置](https://github.com/callstack/react-native-paper/blob/v5.12.3/src/components/Icon.tsx#L153) 
+- Menu组件中的mode属性为[5.12.4版本新增](https://github.com/callstack/react-native-paper/releases/tag/v5.12.4)，当前版本为5.12.3 
+- Menu statusBarHeight 无效果，此属性为Android平台独有 [源码位置](https://github.com/callstack/react-native-paper/blob/v5.12.3/src/components/Menu/Menu.tsx#L447)
+- DataTableRow 组件使用 TouchableRipple 产生的涟漪效果，在Android上生效，iOS无效果 
+- BottomNavigation safeAreaInset top属性无效果，因为在源码中未使用 [源码位置](https://github.com/callstack/react-native-paper/blob/v5.12.3/src/components/BottomNavigation/BottomNavigationBar.tsx#L580) 
+- BottomNavigation.Bar组件 keyboardHidesNavigationBar属性为父组件BottomNavigation传入，请勿单独使用
+
 
 ## 开源协议
 

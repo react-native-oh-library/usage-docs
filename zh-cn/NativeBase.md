@@ -146,9 +146,7 @@ const styles = StyleSheet.create({
 [继承了React Native中View参数](https://reactnative.dev/docs/view#props)
 
 **Container**: 容器根据当前断点限制内容的宽度，同时保持尺寸的流动性。
-|         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
-| :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-|        centerContent         |        它将根据子元素的内容宽度将其置于中心。        |         boolean       |    No    |   All    |        Yes        |
+[Container实现了Box的功能，所以所有Box的属性都能传给Container]
 
 **Flex**: 布局组件，Flex 是 CSS flex 布局的一个封装
 |         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
@@ -174,10 +172,10 @@ const styles = StyleSheet.create({
 |        reversed         |           确定是否反转堆叠项目的方向。     |        Boolean	         |    No    |   All    |        Yes        |
 |        direction        |           堆叠项目的方向,可选row，column，column-reverse，row-reverse    |        String	         |    No    |   All    |        Yes        |
 |        isHovered         |           是否悬停     |        Boolean	         |    No    |   Web    |        No        |
-|        isFocused         |           是否聚焦     |        Boolean	         |    No    |   All    |        Yes        |
-|        isDisabled         |           是否禁用     |        Boolean	         |    No    |   All    |        Yes        |
-|        isInvalid         |           是否无效     |        Boolean	         |    No    |   All    |        Yes        |
-|        isReadOnly         |           是否只读,如果为 true，则阻止编辑子项的值。与 FormControls 一起使用     |        Boolean	         |    No    |   All    |        Yes        |
+|        isFocused         |           是否聚焦     |        Boolean	         |    No    |   No    |        No        |
+|        isDisabled         |           是否禁用     |        Boolean	         |    No    |   No    |        No        |
+|        isInvalid         |           是否无效     |        Boolean	         |    No    |   No    |        No        |
+|        isReadOnly         |           是否只读,如果为 true，则阻止编辑子项的值。与 FormControls 一起使用     |        Boolean	         |    No    |   No    |        No        |
 
 **VStack / Column**: VStack / Column 布局组件垂直对齐
 |         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
@@ -199,17 +197,17 @@ const styles = StyleSheet.create({
 |        isHovered         |           是否悬停      |        Boolean         |    No    |   Web    |        No        |
 |        isPressed         |           是否按下     |        Boolean         |    No    |   All    |        Yes        |
 |        isFocused         |           是否被聚焦      |        Boolean         |    No    |   All    |        Yes        |
-|        isFocusVisible         |           是否展示焦环      |        Boolean         |    No    |   All    |        Yes        |
+|        isFocusVisible         |           是否展示焦环      |        Boolean         |    No    |   No    |        No        |
 |        startIcon         |           开始图标元素      |        React.element         |    No    |   All    |        Yes        |
 |        endIcon         |           结束图标元素      |        React.element         |    No    |   All    |        Yes        |
 |        isLoadingText         |           正在加载文本      |         String        |    No    |   All    |        Yes        |
-|        spinner         |           是否加载中      |        Boolean         |    No    |   All    |        Yes        |
+|        spinner         |           加载中传入的元素      |        JSX.Element         |    No    |   All    |        Yes        |
 |        isDisabled         |           是否禁用      |        Boolean         |    No    |   All    |        Yes        |
-|        _text_         |          用于为框内的文本提供参数      |        Object         |    No    |   All    |        Yes        |
+|        _text        |          用于为框内的文本提供参数      |        Object         |    No    |   All    |        Yes        |
 |        _stack         |           要传递给按钮内部使用的 HStack 的参数      |        Object         |    No    |   All    |        Yes        |
 |        _icon         |            传递给按钮内部使用的图标的参数      |        Object         |    No    |   All    |        Yes        |
 |        spinnerPlacement         |          指定加载指示器（spinner）的位置，可选start，end    |        String         |    No    |   All    |        Yes        |
-|        _isLoading         |           当按钮加载中时传递的参数     |        Object         |    No    |   All    |        Yes        |
+|        _loading         |           当按钮加载中时传递的参数     |        Object         |    No    |   All    |        Yes        |
 |        _isDisabled         |           当按钮禁用时传递给按钮的参数      |        Object         |    No    |   All    |        Yes        |
 |        _spinner         |           当按钮加载中时传递给按钮的参数      |        Object         |    No    |   All    |        Yes        |
 |        _hover        |           当按钮悬停时传递给按钮的参数     |        Object         |    No    |   Web    |        No        |
@@ -226,16 +224,16 @@ const styles = StyleSheet.create({
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
 |        onHoverIn         |           鼠标移入调用      |        () => void         |    No    |   Web    |        No        |
 |        onHoverOut         |           鼠标移出调用      |        () => void         |    No    |   Web    |        No        |
-|        onFocus         |           聚焦时调用      |        () => void         |    No    |   All    |        Yes        |
-|        onBlur         |           失焦时调用      |        () => void         |    No    |   All    |        Yes        |
+|        onFocus         |           聚焦时调用      |        () => void         |    No    |   No    |        No        |
+|        onBlur         |           失焦时调用      |        () => void         |    No    |   No    |        No        |
 |        _hover         |           悬停参数      |        Object         |    No    |   Web    |        No        |
-|        _pressed         |           按下禁用时参数      |        Object         |    No    |   All    |        Yes        |
+|        _pressed         |           按下时参数      |        Object         |    No    |   All    |        Yes        |
 |        _focus         |           获得焦点时参数      |        Object         |    No    |   All    |        Yes        |
 |        _disabled         |           禁用时参数      |        Object         |    No    |   All    |        Yes        |
 |        isDisabled         |           是否禁用     |        Boolean         |    No    |   All    |        Yes        |
 |        isHovered         |           是否悬停      |        Boolean         |    No    |   Web    |        No        |
 |        isPressed         |           是否按下      |        Boolean         |    No    |   All    |        Yes        |
-|        isFocused         |          是否聚焦      |        Boolean         |    No    |   All    |        Yes        |
+|        isFocused         |          是否聚焦      |        Boolean         |    No    |   No    |        No        |
 |        isFocusVisible         |           是否展示焦环      |        Boolean         |    No    |   All    |        Yes        |
 |        _focusVisible         |           焦点可见时应用的样式属性。这些样式仅在用户使用键盘与应用交互时应用。（仅限 Web）      |        Object         |    No    |   Web    |        No        |
 |        children         |           将组件渲染为 Box 子项。接受 JSX.Element 或 JSX.Element 数组。      |        React.element         |    No    |   All    |        Yes        |
@@ -257,11 +255,11 @@ const styles = StyleSheet.create({
 |        nativeID         |           本地ID      |        String         |    No    |   All    |        Yes        |
 |        isInvalid         |           是否无效    |        Boolean         |    No    |   All    |        Yes        |
 |        isRequired         |            是否必须      |        Boolean         |    No    |   All    |        Yes        |
-|        isDisabled         |           是否禁用      |        Boolean         |    No    |   All    |        Yes        |
+|        isDisabled         |           是否禁用      |        Boolean         |    No    |   No    |        No        |
 |        isReadOnly         |           是否只读      |        Boolean        |    No    |   All    |        Yes        |
 |        _disabled         |           禁用状态下传递参数      |        Object        |    No    |   All    |        Yes        |
-|        htmlFor         |           反映“for”内容属性的值      |        String        |    No    |   All    |        Yes        |
-|        _astrick         |           应用于 astric 文本的道具      |        Object        |    No    |   All    |        Yes        |
+|        htmlFor         |           反映“for”内容属性的值      |        String        |    No    |   Web    |        No        |
+|        _astrick         |           应用于 astric 文本的道具      |        Object        |    No    |   Web    |        No        |
 |        rightIcon         |           表单中使用的左侧侧图标元素      |        React.element        |    No    |   All    |        Yes        |
 |        leftIcon         |           表单中使用的右侧图标元素      |        React.element        |    No    |   All    |        Yes        |
 |        startIcon         |           开始图标元素      |        React.element        |    No    |   All    |        Yes        |
@@ -274,7 +272,7 @@ const styles = StyleSheet.create({
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
 |        colorScheme         |            主题，可选primary，green，red      |        String         |    No    |   All    |        Yes        |
 |        variant         |           风格，可选link，unstyled，solid，ghost，subtle      |        String         |    No    |   All    |        Yes        |
-|        size         |            按钮大小，可选sm（小尺寸）、md（中等尺寸）、lg（大尺寸）      |        String         |    No    |   All    |        Yes        |
+|        size         |            按钮大小，可选xs（微小尺寸）、sm（小尺寸）、md（中等尺寸）、lg（大尺寸）      |        String         |    No    |   All    |        Yes        |
 |        isDisabled         |           是否禁用    |        Boolean         |    No    |   All    |        Yes        |
 |        icon         |           要使用的图标      |         React.element         |    No    |   All    |        Yes        |
 |        _icon         |           要传递给IconButton内部使用的图标的参数      |        Object        |    No    |   All    |        Yes        |
@@ -298,8 +296,8 @@ const styles = StyleSheet.create({
 |        InputRightElement         |           输入框内部右侧元素      |        React.element        |    No    |   All    |        Yes        |
 |        rightElement         |           输入框外部右侧元素      |        React.element        |    No    |   All    |        Yes        |
 |        type         |           类型，可选text，password      |        String        |    No    |   All    |        Yes        |
-|        isFullWidth         |           沾满元素      |        Boolean        |    No    |   All    |        Yes        |
-|        wrapperRef         |           获取节点(鸿蒙中获取不到，用ref可以获取)      |        Any        |    No    |   No    |        No        |
+|        isFullWidth         |           沾满元素      |        Boolean        |    No    |   No    |        No        |
+|        wrapperRef         |           获取节点     |        Any        |    No    |   No    |        No        |
 |        _hover         |           要传递给Input内部使用的悬停的参数      |        Object        |    No    |   Web    |        NO        |
 |        _focus         |           要传递给Input内部使用的聚焦的参数      |        Object        |    No    |   All    |        Yes        |
 |        _disabled         |           要传递给Input内部使用的禁用的参数      |        Object        |    No    |   All    |        Yes        |
@@ -307,8 +305,8 @@ const styles = StyleSheet.create({
 |        _invalid         |           无效状态下传递参数      |        Object        |    No    |   All    |        Yes        |
 |        _input         |           传递给InputBase组件参数      |        Object        |    No    |   All    |        Yes        |
 |        _stack         |            要传递给按钮内部使用的 HStack 的参数      |        Object        |    No    |   All    |        Yes        |
-|        focusOutlineColor         |           当输入框获得焦点时，该属性指定输入框的轮廓颜色      |        Boolean        |    No    |   All    |        Yes        |
-|        invalidOutlineColor         |           当输入框中的内容被认为是无效时，该属性指定输入框的轮廓颜色      |        Boolean        |    No    |   All    |        Yes        |
+|        focusOutlineColor         |           当输入框获得焦点时，该属性指定输入框的轮廓颜色      |        String        |    No    |   All    |        Yes        |
+|        invalidOutlineColor         |           当输入框中的内容被认为是无效时，该属性指定输入框的轮廓颜色      |        String        |    No    |   All    |        Yes        |
 |        ref         |           节点      |        Any        |    No    |   All    |        Yes        |
 
 **TextArea**: 文本域
@@ -327,18 +325,17 @@ const styles = StyleSheet.create({
 |        InputRightElement         |           输入框内部右侧元素      |        React.element        |    No    |   All    |        Yes        |
 |        rightElement         |           输入框外部右侧元素      |        React.element        |    No    |   All    |        Yes        |
 |        type         |           类型，可选text，password      |        String        |    No    |   All    |        Yes        |
-|        isFullWidth         |           沾满元素      |        Boolean        |    No    |   All    |        Yes        |
-|        wrapperRef         |           获取节点(鸿蒙中获取不到，用ref可以获取)      |        Any        |    No    |   No    |        No        |
+|        isFullWidth         |           沾满元素      |        Boolean        |    No    |   No    |        No        |
+|        wrapperRef         |           获取节点     |        Any        |    No    |   All    |        Yes        |
 |        _hover         |           要传递给Input内部使用的悬停的参数      |        Object        |    No    |   Web    |        NO        |
 |        _focus         |           要传递给Input内部使用的聚焦的参数      |        Object        |    No    |   All    |        Yes        |
 |        _disabled         |           要传递给Input内部使用的禁用的参数      |        Object        |    No    |   All    |        Yes        |
 |        _readOnly         |           要传递给Input内部使用的只读的参数      |        Object        |    No    |   All    |        Yes        |
 |        _invalid         |           无效状态下传递参数      |        Object        |    No    |   All    |        Yes        |
-|        _input         |           传递给InputBase组件参数      |        Object        |    No    |   All    |        Yes        |
 |        _stack         |            要传递给按钮内部使用的 HStack 的参数      |        Object        |    No    |   All    |        Yes        |
 |        focusOutlineColor         |           当输入框获得焦点时，该属性指定输入框的轮廓颜色      |        Boolean        |    No    |   All    |        Yes        |
 |        invalidOutlineColor         |           当输入框中的内容被认为是无效时，该属性指定输入框的轮廓颜色      |        Boolean        |    No    |   All    |        Yes        |
-|        ref         |           节点      |        Any        |    No    |   All    |        Yes        |
+|        placeholder           |            提示文本      |        String         |    No    |   All    |        Yes        |
 
 **Link**: 超链接
 |         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
@@ -348,9 +345,9 @@ const styles = StyleSheet.create({
 |        isUnderlined         |            是否有下横线     |        Boolean         |    No    |   All    |        Yes        |
 |        isHovered         |           是否悬停    |        Boolean         |    No    |   Web    |        No        |
 |        onPress         |           按压事件      |          () => void          |    No    |   All    |        Yes        |
-|        isExternal         |           是否直接打开web端      |        String        |    No    |   All    |        Yes        |
+|        isExternal         |           是否直接打开web端      |        String        |    No    |   No    |        No        |
 |        _hover         |          悬停参数      |        Object        |    No    |   Web    |        No        |
-|        wrapperRef         |           获取节点(鸿蒙中获取不到，用ref可以获取)      |        Any        |    No    |   No    |        No        |
+|        wrapperRef         |           获取节点      |        Any        |    No    |   All    |        Yes        |
 
 **Radio**: 单选框
 |         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
@@ -361,10 +358,12 @@ const styles = StyleSheet.create({
 |        isHovered         |           是否悬停    |        Boolean         |    No    |   Web    |        No        |
 |        isPressed         |           是否按压      |         Boolean         |    No    |   All    |        Yes        |
 |        isFocused         |           是否聚焦      |        Boolean        |    No    |   All    |        Yes        |
-|        isFocusVisible         |           焦点是否可见      |        Boolean        |    No    |   All    |        Yes        |
+|        isInvalid         |           是否失效      |        Boolean        |    No    |   All    |        Yes        |
+|        onChange         |          改变事件      |          () => void          |    No    |   All    |        Yes        |
+|        isFocusVisible         |           焦点是否可见      |        Boolean        |    No    |   No    |        No        |
 |        size         |           单选框尺寸lg，md，sm     |        String        |    No    |   All    |        Yes        |
 |        icon         |           接收图标     |         React.element          |    No    |   All    |        Yes        |
-|        wrapperRef         |           获取节点(鸿蒙中获取不到，用ref可以获取)     |        Any        |    No    |   No    |        No        |
+|        wrapperRef         |           获取节点     |        Any        |    No    |   All    |        Yes        |
 |        _stack         |           要传递给单选框内部使用的 HStack 的参数     |        Object        |    No    |   All    |        Yes        |
 |        _disabled         |           当禁用时传递给单选框的参数     |        Object        |    No    |   All    |        Yes        |
 |        _checked         |           当选中时传递给单选框的参数     |        Object        |    No    |   All    |        Yes        |
@@ -381,17 +380,17 @@ const styles = StyleSheet.create({
 |         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
 |        placeholder           |            提示文本      |        String         |    No    |   All    |        Yes        |
-|        color         |            选中颜色      |        String         |    No    |   All    |        Yes        |
-|        placeholderTextColor         |            提示文本颜色     |        String         |    No    |   All    |        Yes        |
-|        _item         |           是否悬停    |        Boolean         |    No    |   No    |        No        |
-|        _selectedItem         |           是否按压      |         Boolean         |    No    |   All    |        Yes        |
-|        selectedValue         |           选中值      |        Boolean        |    No    |   All    |        Yes        |
-|        defaultValue         |           初始值      |        Boolean        |    No    |   All    |        Yes        |
+|        color         |            选中颜色      |        String         |    No    |   No    |        Yes        |
+|        placeholderTextColor         |            提示文本颜色     |        String         |    No    |   iOS    |        No        |
+|        _item         |           每个选项的参数    |        Object         |    No    |   All    |        Yes        |
+|        _selectedItem         |           选中选项的参数      |         Object         |    No    |   All    |        Yes        |
+|        selectedValue         |           选中值      |        String        |    No    |   All    |        Yes        |
+|        defaultValue         |           初始值      |        String        |    No    |   All    |        Yes        |
 |        onValueChange         |           单选事件     |         () => void         |    No    |   All    |        Yes        |
-|        isDisabled         |           是否禁用     |         React.element          |    No    |   All    |        Yes        |
-|        isHovered         |           是否悬停     |        Any        |    No    |   Web    |        No        |
-|        isFocused         |           是否聚焦     |        Object        |    No    |   All    |        Yes        |
-|        isFocusVisible         |           焦点是否可见     |        Object        |    No    |   All    |        Yes        |
+|        isDisabled         |           是否禁用     |         Boolean          |    No    |   All    |        Yes        |
+|        isHovered         |           是否悬停     |        Boolean        |    No    |   Web    |        No        |
+|        isFocused         |           是否聚焦     |        Boolean        |    No    |   All    |        Yes        |
+|        isFocusVisible         |           焦点是否可见     |        Boolean        |    No    |   No    |        No        |
 |        dropdownIcon         |           原有图标     |        React.element        |    No    |   All    |        Yes        |
 |        dropdownOpenIcon         |           打开图标     |        React.element        |    No    |   All    |        Yes        |
 |        dropdownCloseIcon         |           关闭图标     |        React.element        |    No    |   All    |        Yes        |
@@ -401,7 +400,8 @@ const styles = StyleSheet.create({
 |        _actionSheet         |           传递给遮罩层的参数样式     |        Object        |    No    |   All    |        Yes        |
 |        _actionSheetContent         |           传递给内容的参数样式     |        Object        |    No    |   All    |        Yes        |
 |        _actionSheetBody         |           传递给内容Body的参数     |        Object        |    No    |   All    |        Yes        |
-|        wrapperRef         |           获取节点    |        Any        |    No    |   All    |        Yes        |
+|        wrapperRef         |           获取节点    |        Any        |    No    |   No    |        No        |
+|        accessibilityLabel         |           当用户与元素交互时读取的文本    |        String        |    No    |   No    |        No        |
 
 **Select.Item**: 下拉框子集
 |         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
@@ -435,17 +435,16 @@ const styles = StyleSheet.create({
 |        onChange         |          滑块事件      |          () => void          |    No    |   All    |        Yes        |
 |        colorScheme         |           主题      |        String        |    No    |   All    |        Yes        |
 |        orientation         |           展示方向，可选horizontal，vertical'     |        String        |    No    |   All    |        Yes        |
-|        accessibilityLabel         |           滑块文本描述      |        String        |    No    |   All    |        Yes        |
+|        accessibilityLabel         |           滑块文本描述      |        String        |    No    |   No    |        No        |
 |        isReversed         |           是否反转      |        Boolean        |    No    |   All    |        Yes        |
 |        isDisabled         |           是否禁用      |        Boolean        |    No    |   All    |        Yes        |
 |        onChangeEnd         |          松开停止移动事件      |         () => void        |    No    |   All    |        Yes        |
 |        minValue         |           最小值      |        Number        |    No    |   All    |        Yes        |
 |        maxValue         |           最大值      |        Number        |    No    |   All    |        Yes        |
 |        step         |           每次用移动的步数      |        Number        |    No    |   All    |        Yes        |
-|        isReadOnly         |           最大值      |        Boolean        |    No    |   All    |        Yes        |
-|        maxValue         |           最大值      |        Number        |    No    |   All    |        Yes        |
-|        _disabled         |           禁用时启用      |        Number        |    No    |   All    |        Yes        |
-|        _readOnly         |           只读时启用      |        Number        |    No    |   All    |        Yes        |
+|        isReadOnly         |           是否只读      |        Boolean        |    No    |   All    |        Yes        |
+|        _disabled         |           禁用时启用      |        Object        |    No    |   All    |        Yes        |
+|        _readOnly         |           只读时启用      |        Object        |    No    |   All    |        Yes        |
 |        sliderTrackHeight         |           轨道高度      |        Number        |    No    |   All    |        Yes        |
 |        thumbSize         |           滑块大小      |        Number        |    No    |   All    |        Yes        |
 |        _interactionBox         |           交互样式      |        Object        |    No    |   All    |        Yes        |
@@ -453,7 +452,7 @@ const styles = StyleSheet.create({
 **Badge**: 小标识小标签
 |         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-|        variant         |            风格      |        Number         |    No    |   All    |        Yes        |
+|        variant         |            风格      |        String         |    No    |   All    |        Yes        |
 |        colorScheme         |           主题,可选success，danger，info，coolGray     |        String         |    No    |   All    |        Yes        |
 |        rightIcon         |          组件右侧图标      |          React.element         |    No    |   All    |        Yes        |
 |        leftIcon         |          组件左侧图标      |          React.element          |    No    |   All    |        Yes        |
@@ -471,7 +470,7 @@ const styles = StyleSheet.create({
 **Alert**: 状态提示框
 |         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-|        status         |            方向,可选info，warning，success，error      |        String         |    No    |   All    |        Yes        |
+|        status         |            状态,可选info，warning，success，error      |        String         |    No    |   All    |        Yes        |
 |        variant         |           风格    |        String         |    No    |   All    |        Yes        |
 |        colorScheme         |           主题    |        String         |    No    |   All    |        Yes        |
 
@@ -506,7 +505,7 @@ const styles = StyleSheet.create({
 |        endColor         |           结束颜色    |        String         |    No    |   All    |        Yes        |
 |        lines         |            文本中的行数   |        Number         |    No    |   All    |        Yes        |
 |        _line         |            文本中的行数样式参数   |        String         |    No    |   All    |        Yes        |
-|        _stack         |            要传递给按钮内部使用的 HStack 的参数    |        String         |    No    |   All    |        Yes        |
+|        _stack         |            要传递给按钮内部使用的 HStack 的参数    |        String         |    No    |   No    |        No        |
 
 **Spinner**: 加载等待中
 |         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
@@ -532,11 +531,11 @@ const styles = StyleSheet.create({
 |        onCloseComplete         |            显示完成关闭回调   |       () => void        |    No    |   All    |        Yes        |
 |        placement         |            位置，可选top，top-right，top-left，bottom，bottom-left，bottom-right   |      String        |    No    |   All    |        Yes        |
 |        render         |            接收子组件   |      (props: any) => ReactNode       |    No    |   All    |        Yes        |
-|        _title         |            标题样式参数   |       () => void        |    No    |   All    |        Yes        |
-|        _description         |            描述样式参数   |       () => void        |    No    |   All    |        Yes        |
+|        _title         |            标题样式参数   |       Object       |    No    |   All    |        Yes        |
+|        _description         |            描述样式参数   |       Object        |    No    |   All    |        Yes        |
 |        accessibilityAnnouncement         |            Toast 打开时屏幕阅读器播报的文本   |       String       |    No    |   Android     |        No        |
 |        accessibilityLiveRegion         |            Toast 打开时屏幕阅读器播报的文本位置   |       String        |    No    |   Android     |        No        |
-|        avoidKeyboard         |         键盘打开，则 Toast 将向上移动相当于键盘高度   |       Boolean        |    No    |   All    |        Yes        |
+|        avoidKeyboard         |         键盘打开，则 Toast 将向上移动相当于键盘高度   |       Boolean        |    No    |   iOS    |        No        |
 
 **Text**: 文本
 |         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
@@ -546,7 +545,7 @@ const styles = StyleSheet.create({
 |        letterSpacing         |            间距   |       String         |    No    |   All    |        Yes        |
 |        lineHeight         |            行高   |        String        |    No    |   All    |        Yes        |
 |        fontWeight         |            字宽   |        String        |    No    |   All    |        Yes        |
-|        Fonts         |            字型   |        String        |    No    |   All    |        Yes        |
+|        Fonts         |            字型   |        String        |    No    |   No    |        No        |
 |        noOfLines         |            行数   |        Number        |    No    |   All    |        Yes        |
 |        bold         |            加粗   |        Number        |    No    |   All    |        Yes        |
 |        isTruncated         |            超出省略   |        Boolean        |    No    |   All    |        Yes        |
@@ -568,10 +567,10 @@ const styles = StyleSheet.create({
 |        onClose         |           关闭事件    |       () => void        |    No    |   All    |        Yes        |
 |        defaultIsOpen         |           是否打开    |       Boolean        |    No    |   All    |        Yes        |
 |        size         |           尺寸    |       Number        |    No    |   All    |        Yes        |
-|        leastDestructiveRef         |           最小元素节点    |       Object        |    No    |   All    |        Yes        |
+|        leastDestructiveRef         |           最小元素节点    |       Object        |    No    |   No    |        No        |
 |        initialFocusRef         |           打开时焦点元素节点    |       Object        |    No    |   All    |        Yes        |
-|        finalFocusRef         |           关闭时焦点元素节点    |       Boolean        |    No    |   All    |        Yes        |
-|        avoidKeyboard         |           键盘打开，则 AlertDialog 将向上移动相当于键盘高度     |       Boolean        |    No    |   All    |        Yes        |
+|        finalFocusRef         |           关闭时焦点元素节点    |       Object        |    No    |   All    |        Yes        |
+|        avoidKeyboard         |           键盘打开，则 AlertDialog 将向上移动相当于键盘高度     |       Boolean        |    No    |   iOS    |        No        |
 |        closeOnOverlayClick         |           点击关闭    |       Boolean        |    No    |   All    |        Yes        |
 |        isKeyboardDismissable         |           Esc关闭    |       Boolean        |    No    |   No    |        No        |
 |        overlayVisible         |           背景元素是否可见    |       Boolean        |    No    |   All    |        Yes        |
@@ -580,12 +579,12 @@ const styles = StyleSheet.create({
 |        _backdropFade         |           遮罩动画的参数样式    |       Object        |    No    |   All    |        Yes        |
 |        _fade         |           子集褪色动画的参数样式    |       Object        |    No    |   All    |        Yes        |
 |        _slide         |           子集幻灯片动画的参数样式    |       Object        |    No    |   All    |        Yes        |
-|        animationPreset         |           动画类型    |       Object        |    No    |   All    |        Yes        |
+|        animationPreset         |           动画类型    |       String        |    No    |   All    |        Yes        |
 
 **Menu**: 菜单
 |         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-|        trigger         |            手动触发显示的元素  |        () => void        |    No    |   All    |        Yes        |
+|        trigger         |            手动触发显示的元素  |        () => void        |    Yes    |   All    |        Yes        |
 |        onOpen         |            打开事件    |        () => void        |    No    |   All    |        Yes        |
 |        onClose         |           关闭事件    |        () => void        |    No    |   All    |        Yes        |
 |        closeOnSelect         |             选择时菜单是否自动关闭    |        Boolean        |    No    |   All    |        Yes        |
@@ -594,10 +593,42 @@ const styles = StyleSheet.create({
 |        crossOffset         |            控制菜单相对于触发元素的偏移量    |        Number       |    No    |   All    |        Yes        |
 |        offset         |            菜单弹出位置的偏移量    |        Number       |    No    |   All    |        Yes        |
 |        shouldOverlapWithTrigger         |            控制菜单是否与触发元素重叠显示。    |        boolean       |    No    |   All    |        Yes        |
-|        placement         |            位置，可选top,bottom,left,right等    |        Boolean       |    No    |   All    |        Yes        |
-|        _overlay         |            菜单的覆盖层参数    |        Boolean       |    No    |   All    |        Yes        |
-|        _presenceTransition         |            出现和消失过渡效果参数    |        Boolean       |    No    |   All    |        Yes        |
-|        _backdrop         |            背景遮罩参数    |        Boolean       |    No    |   All    |        Yes        |
+|        placement         |            位置，可选top,bottom,left,right等    |        String       |    No    |   All    |        Yes        |
+|        _overlay         |            菜单的覆盖层参数    |        Object       |    No    |   All    |        Yes        |
+|        _presenceTransition         |            出现和消失过渡效果参数    |        Object       |    No    |   All    |        Yes        |
+|        _backdrop         |            背景遮罩参数    |        Object       |    No    |   All    |        Yes        |
+|        shouldFlip         |             没有空间时元素是否翻转    |   Boolean            |    No    |   All    |        Yes        |
+
+**Menu.Item**: 菜单子项
+|         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
+| :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
+|        children         |             子元素    |   JSX.Element             |    No    |   All    |        Yes        |
+|        isDisabled         |             是否禁用    |   Boolean             |    No    |   All    |        Yes        |
+|        _text         |            传给文字的参数    |   Object             |    No    |   All    |        Yes        |
+|        textValue         |             预设的值    |   String             |    No    |   All    |        Yes        |
+
+**Menu.Option**: 菜单选项
+|         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
+| :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
+|        value         |             值    |   String             |    No    |   All    |        Yes        |
+|        _stack         |             传递给stack的参数    |   Object             |    No    |   All    |        Yes        |
+|        _icon         |             传递给图标的参数    |   Object             |    No    |   All    |        Yes        |
+|        _text         |            传给文字的参数    |   Object             |    No    |   All    |        Yes        |
+
+**Menu.MenuGroup**: 菜单组
+|         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
+| :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
+|        title         |             标题    |   String             |    No    |   All    |        Yes        |
+|        children         |             子元素    |   JSX.Element             |    No    |   All    |        Yes        |
+|        _title         |            传给标题的参数    |   Object             |    No    |   All    |        Yes        |
+
+**Menu.MenuOptionGroup**: 菜单选项组
+|         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
+| :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
+|        type         |            类型（可选radio，checkbox）    |   String             |    No    |   All    |        Yes        |
+|        defaultValue         |             默认值    |   String             |    No    |   All    |        Yes        |
+|        value         |            值    |   String             |    No    |   All    |        Yes        |
+|        onChange         |            改变事件    |   () => void             |    No    |   All    |        Yes        |
 
 **Modal**: 弹框
 |         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
@@ -608,16 +639,18 @@ const styles = StyleSheet.create({
 |        size         |            尺寸   |        String        |    No    |   All    |        Yes        |
 |        initialFocusRef         |            模态框打开时最初获得焦点的元素节点    |        Any       |    No    |   All    |        Yes        |
 |        finalFocusRef         |            模态框关闭时最终获得焦点的元素节点    |        Any       |    No    |   All    |        Yes        |
-|        avoidKeyboard         |            键盘打开，则 Modal 将向上移动相当于键盘高度      |        Boolean       |    No    |   All    |        Yes        |
+|        avoidKeyboard         |            键盘打开，则 Modal 将向上移动相当于键盘高度      |        Boolean       |    No    |   iOS    |        No        |
 |        isKeyboardDismissable         |            控制是否可以通过触摸屏幕外部或按下系统返回键来关闭键盘和模态框    |        Boolean       |    No    |   All    |        Yes        |
 |        overlayVisible         |            控制模态框的背景覆盖层（overlay）是否可见    |        Boolean       |    No    |   All    |        Yes        |
 |        backdropVisible         |            控制模态框的背景遮罩是否可见    |        Boolean       |    No    |   All    |        Yes        |
 |        animationPreset         |            动画效果    |        String       |    No    |   All    |        Yes        |
+|        _backdrop         |            背景遮罩参数    |        Object       |    No    |   All    |        Yes        |
 |        _fade         |            动画参数    |        Object       |    No    |   All    |        Yes        |
 |        _slide         |            幻灯片动画参数    |        Object       |    No    |   All    |        Yes        |
 |        _overlay         |            背景覆盖层参数    |        Object       |    No    |   All    |        Yes        |
 |        useRNModal         |          是否使用 React Native 的原生Modal组件来实现模态框      |        Boolean       |    No    |   All    |        Yes        |
-|        _backdropFade         |            背景遮罩参数    |        Boolean       |    No    |   All    |        Yes        |
+|        _backdropFade         |            背景遮罩参数    |        Object       |    No    |   All    |        Yes        |
+|        closeOnOverlayClick         |            点击关闭    |        () => void       |    No    |   All    |        Yes        |
 
 **Popover**: 局部弹框
 |         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
@@ -625,21 +658,19 @@ const styles = StyleSheet.create({
 |        isOpen         |            是否打开    |        Boolean        |    No    |   All    |        Yes        |
 |        onClose         |           关闭事件    |        () => void        |    No    |   All    |        Yes        |
 |        onOpen         |           打开事件    |        () => void        |    No    |   All    |        Yes        |
+|        placement         |           位置    |        String        |    No    |   All    |        Yes        |
 |        defaultIsOpen         |             默认打开    |        Boolean        |    No    |   All    |        Yes        |
-|        size         |            尺寸   |        String        |    No    |   All    |        Yes        |
 |        initialFocusRef         |            模态框打开时最初获得焦点的元素节点    |        Any       |    No    |   All    |        Yes        |
 |        finalFocusRef         |            模态框关闭时最终获得焦点的元素节点    |        Any       |    No    |   All    |        Yes        |
-|        avoidKeyboard         |            键盘打开，则 Modal 将向上移动相当于键盘高度      |        Boolean       |    No    |   All    |        Yes        |
 |        isKeyboardDismissable         |            控制是否可以通过触摸屏幕外部或按下系统返回键来关闭键盘和模态框    |        Boolean       |    No    |   All    |        Yes        |
-|        overlayVisible         |            控制模态框的背景覆盖层（overlay）是否可见    |        Boolean       |    No    |   All    |        Yes        |
-|        backdropVisible         |            控制模态框的背景遮罩是否可见    |        Boolean       |    No    |   All    |        Yes        |
-|        animationPreset         |            动画效果    |        String       |    No    |   All    |        Yes        |
-|        _fade         |            动画参数    |        Object       |    No    |   All    |        Yes        |
-|        _slide         |            幻灯片动画参数    |        Object       |    No    |   All    |        Yes        |
-|        _overlay         |            背景覆盖层参数    |        Object       |    No    |   All    |        Yes        |
 |        useRNModal         |            是否使用 React Native 的原生Modal组件来实现局部弹框     |        Boolean       |    No    |   All    |        Yes        |
 |        trigger         |            手动触发显示的元素  |        () => void        |    No    |   All    |        Yes        |
+|        trapFocus         |            是否应该捕获焦点  |        Boolean        |    No    |   No    |        No        |
+|        crossOffset         |            x轴偏移量  |       Number        |    No    |   All    |        Yes        |
+|        offset         |            y轴偏移量  |       Number        |    No    |   All    |        Yes        |
 |        shouldOverlapWithTrigger         |            控制菜单是否与触发元素重叠显示。    |        boolean       |    No    |   All    |        Yes        |
+|        children         |             子元素    |   JSX.Element             |    No    |   All    |        Yes        |
+|        shouldFlip         |             元素渲染位置不够是否反转    |   Boolean             |    No    |   All    |        Yes        |
 
 **Avatar**: 显示用户头像或图像
 |         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
@@ -647,7 +678,7 @@ const styles = StyleSheet.create({
 |        source         |            图片地址参数    |        Object        |    No    |   All    |        Yes        |
 |        size         |           尺寸    |        String        |    No    |   All    |        Yes        |
 |        _image         |           图片参数    |        Object       |    No    |   All    |        Yes        |
-|        wrapperRef         |             获取节点    |        Boolean        |    No    |   All    |        Yes        |
+|        wrapperRef         |             获取节点    |        Any        |    No    |   All    |        Yes        |
 
 **Icon**: 展示图标
 |         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
@@ -655,7 +686,6 @@ const styles = StyleSheet.create({
 |        as         |            接收矢量图标    |        Any        |    No    |   All    |        Yes        |
 |        size         |           尺寸    |        String        |    No    |   All    |        Yes        |
 |        color         |           颜色    |        String       |    No    |   All    |        Yes        |
-|        children         |             子元素    |   JSX.Element             |    No    |   All    |        Yes        |
 |        name         |             名称    |   String            |    No    |   All    |        Yes        |
 |        viewBox         |             icon盒子参数    |   String            |    No    |   All    |        Yes        |
 |        path         |             icon地址    |   JSX.Element[]            |    No    |   All    |        Yes        |
@@ -688,7 +718,7 @@ const styles = StyleSheet.create({
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
 |        _dragIndicatorWrapperOffSet         |            在操作表内容上方区域内容参数    |        Object        |    No    |   All    |        Yes        |
 |        _dragIndicatorWrapper         |            在操作表内容周围区域内容参数    |         Object      |    No    |   All    |        Yes        |
-|        _dragIndicator         |            在拖动指示器上施加的推力    |         Object       |    No    |   All    |        Yes        |
+|        _dragIndicator         |            拖动指示器的参数    |         Object       |    No    |   All    |        Yes        |
 
 **PresenceTransition**: 组件的出现和消失添加动画过渡效果
 |         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
@@ -706,7 +736,7 @@ const styles = StyleSheet.create({
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
 |        initial         |            动画初始状态的属性    |        Object       |    No    |   All    |        Yes        |
 |        animate         |            动画最终状态的属性    |         Object       |    No    |   All    |        Yes        |
-|        exit         |           组件在隐藏时的状态    |        Boolean        |    No    |   All    |        Yes        |
+|        exit         |           组件在隐藏时的状态    |        Object        |    No    |   All    |        Yes        |
 |        visible         |           是否打开    |        Boolean       |    No    |   All    |        Yes        |
 
 **Slide**: 实现滑动动画
@@ -730,34 +760,46 @@ const styles = StyleSheet.create({
 |        from         |            屏幕尺寸的起点，当屏幕尺寸大于等于这个起点时，组件将被隐藏    |        String       |    No    |   All    |        Yes        |
 |        till         |             屏幕尺寸的终点，当屏幕尺寸小于这个终点时，组件将被隐藏    |         String       |    No    |   All    |        Yes        |
 |        only         |           指定一个或多个特定的屏幕尺寸，只有在这些尺寸下组件才会显示，其他尺寸下将被隐藏    |        String        |    No    |   All    |        Yes        |
-|        colorMode         |           组件在不同颜色模式下的显示状态。NativeBase 通常支持多种颜色模式，如 light（浅色模式）、dark（深色模式）等。    |        React.Element        |    No    |   All    |        Yes        |
+|        colorMode         |           组件在不同颜色模式下的显示状态。NativeBase 通常支持多种颜色模式，如 light（浅色模式）、dark（深色模式）等。    |        React.Element        |    No    |   No    |        No        |
 |        platform         |           系统平台    |        React.Element        |    No    |   All    |        Yes        |
 |        children         |           子元素    |        React.Element        |    No    |   All    |        Yes        |
-|        isSSR         |           组件是否在服务器端渲染（SSR）环境中    |       Boolean        |    No    |   All    |        Yes        |
+|        isSSR         |           组件是否在服务器端渲染（SSR）环境中    |       Boolean        |    No    |   No    |        No        |
 
 **KeyboardAvoidingView**: 拉起键盘视图向上移动的垂直偏移量
 |         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-|        behavior         |            键盘弹出时的行为    |        String 或 Undefined       |    No    |   All    |        Yes        |
-|        contentContainerStyle         |            设置该组件内部内容容器的样式    |         Object       |    No    |   All    |        Yes        |
-|        keyboardVerticalOffset         |           当键盘出现时，视图向上移动的垂直偏移量    |        Number或Undefined        |    No    |   All    |        Yes        |
-|        enabled         |           用于控制KeyboardAvoidingView是否生效    |        Boolean或Undefined        |    No    |   All    |        Yes        |
+|        children        |           将组件渲染为 KeyboardAvoidingView 子项。接受 JSX.Element 或 JSX.Element 数组。      |        React.element         |    No    |   All    |        Yes        |
+
+**Scrollview**: 滚动
+|         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
+| :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
+|        children        |           将组件渲染为 Scrollview 子项。接受 JSX.Element 或 JSX.Element 数组。      |        React.element         |    No    |   All    |        Yes        |
+|        _contentContainerStyle        |         传递给内容容器样式      |        Object         |    No    |   All    |        Yes        |
+
+**View**: 视图
+|         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
+| :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
+|        children        |           将组件渲染为 Scrollview 子项。接受 JSX.Element 或 JSX.Element 数组。      |        React.element         |    No    |   All    |        Yes        |
+
+**FlatList**: 滚动
+|         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |
+| :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
+|        _contentContainerStyle        |           传递给内容容器样式      |        Object         |    No    |   All    |        Yes        |
+|            ref   |         获取节点数据      |        Object         |    No    |   All    |        Yes        |
 
 
 **Other**：包含hooks和外用组件
 | Name                   | Description | Required | Platform | HarmonyOS Support |
 | ---------------------- | ----------- | -------- | ----------------- | ----------------- |
-| Scrollview    | 导出的是RN原生的Scrollview，可直接用RN的Scrollview | NO        | All               | YES               |
-| View     | 导出的是RN原生的View，可直接用RN的View | NO        | All               | YES               |
-| FlatList     | 导出的是RN原生的FlatList，可直接用RN的FlatList | NO        | All              | YES               |
 | useDisclose     | 处理常见的打开、关闭或切换场景，并可以控制反馈组件，如Modal、AlertDialog、Drawer等。 | NO        | All              | YES               |
-| useBreakpointValue     | 用于呈现分段列表的高性能接口 | NO        | All               | YES               |
+| useBreakpointValue     | 用于呈现分段列表的高性能接口 | NO        | NO               | NO               |
 | SectionList     | 导出的是RN原生的SectionList，可直接用RN的SectionList | NO        | All              | YES               |
 | useClipboard     | 使用剪贴板控件并控制将内容复制到剪贴板 | NO        | All               | YES               |
 | useMediaQuery     | 检测单个媒体查询或多个媒体查询之间的匹配。React Native本身不支持媒体查询，因此useMediaQuery仍然有限 | NO        | All               | YES               |
 | useToken     | 解析主题中的设计标记. | NO        | All              | YES               |
-| useColorMode     |设置或检索颜色模式 | NO        | All               | YES               |
-| useColorModeValue     | 基于活动颜色模式值传递的参数中检索值 | NO        | All              | YES               |
+| useColorMode     |设置或检索颜色模式 | NO        | NO               | NO               |
+| useTheme     |从上下文调用主题对象 | NO        | All               | YES               |
+| useColorModeValue     | 基于活动颜色模式值传递的参数中检索值 | NO        | NO              | NO               |
 | useContrastText     | 提供与作为参数传递的背景颜色的颜色对比文本颜色（lightText或darkText） | NO        | All               | YES               |
 | useAccessibleColors  | 更新您的颜色配置，以在应用程序中获得更好的颜色和对比度可访问性。默认情况下，可访问的颜色是关闭的如果您想继续使用可访问的文本颜色，可以使用此挂钩。您还可以使用extendTheme在NativeBaseProvider的配置中传递它 | NO        | All               | YES               |
 | Todo-List     | 用本库的组件写的案例，如有业务需要可自行编写适合的组件 | NO        | All              | YES               |
@@ -773,6 +815,9 @@ const styles = StyleSheet.create({
 | Footer     |用本库的组件写的Footer案例，如有业务需要可自行编写适合的组件 | NO        | All               | YES               |
 
 ## 遗留问题
+- [ ] FormControl组件isDisabled属性无效: [issue#1](https://github.com/GeekyAnts/NativeBase/issues/5707)
+- [ ] Select组件placeholderTextColor属性无效: [issue#16](https://github.com/react-native-oh-library/NativeBase/issues/16)
+- [ ] Modal,AlertDialog,组件avoidKeyboard属性无效: [issue#17](https://github.com/react-native-oh-library/NativeBase/issues/17)
 
 ## 其他
 

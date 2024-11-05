@@ -1,4 +1,4 @@
-> Template version: v0.2.2
+> 模板版本：v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>NativeBase</code> </h1>
@@ -12,13 +12,13 @@
     </a>
 </p>
 
-> [!TIP] [GitHub address](https://github.com/react-native-oh-library/NativeBase)
+> [!TIP] [Github 地址](https://github.com/react-native-oh-library/NativeBase)
 
 ## Installation and Usage
 
 Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/native-base Releases](https://github.com/react-native-oh-library/NativeBase/releases).
 
-Go to the project directory and execute the following instruction:
+Go to the project directory and execute the following instruction：
 
 <!-- tabs:start -->
 
@@ -39,6 +39,7 @@ yarn add @react-native-oh-tpl/native-base@file:#
 The following code shows the basic use scenario of the repository:
 
 ```tsx
+// NativeBaseProvider is a component that makes the theme available throughout your app. It uses React's Context API. Add NativeBaseProvider to the root of your app and update App.js as follows:s
 import React from "react";
 import { SafeAreaView, View } from "react-native";
 import { NativeBaseProvider } from "native-base";
@@ -90,21 +91,9 @@ const styles = StyleSheet.create({
 
 ## Link
 
-本库依赖以下三方库，请查看对应文档:
+The HarmonyOS implementation of this library depends on the native code from @react-native-oh-tpl/react-native-reanimated、@react-native-oh-tpl/react-native-gesture-handler. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly.
 
-- [@react-native-oh-tpl/react-native-gesture-handler](/zh-cn/react-native-gesture-handler.md)
-- [@react-native-oh-tpl/react-native-reanimated](/zh-cn/react-native-reanimated.md)
-- [@react-native-oh-library/react-native-safe-area-context](/zh-cn/react-native-safe-area-context.md)
-- [@react-native-oh-tpl/react-native-svg](/zh-cn/react-native-svg.md)
-- [@react-native-oh-tpl/react-navigation-drawer](/zh-cn/react-navigation-drawer.md)
-- [@react-native-oh-tpl/react-native-tab-view](/zh-cn/react-native-tab-view.md)
-- [@react-native-oh-tpl/react-native-vector-icons](/zh-cn/react-native-vector-icons.md)
-- [@react-native-oh-tpl/react-native-pager-view](/zh-cn/react-native-pager-view.md)
-- [@react-native-oh-tpl/react-native-swipe-list-view](/zh-cn/react-native-swipe-list-view.md)
-
-The HarmonyOS implementation of this library depends on the native code from @react-native-oh-tpl/react-native-gesture-handler、@react-native-oh-tpl/react-native-reanimated、@react-native-oh-library/react-native-safe-area-context、@react-native-oh-tpl/react-native-svg、@react-native-oh-tpl/react-navigation-drawer、@react-native-oh-tpl/react-native-tab-view、@react-native-oh-tpl/react-native-vector-icons、@react-native-oh-tpl/react-native-pager-view. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly.
-
-If it is not included, follow the guide provided in [@react-native-oh-tpl/react-native-gesture-handler](/zh-cn/react-native-gesture-handler.md#link)、[@react-native-oh-tpl/react-native-reanimated](/zh-cn/react-native-reanimated.md#link)、[@react-native-oh-library/react-native-safe-area-context](/zh-cn/react-native-safe-area-context.md#link)、[@react-native-oh-tpl/react-native-svg](/zh-cn/react-native-svg.md#link)、[@react-native-oh-tpl/react-navigation-drawer](/zh-cn/react-navigation-drawer.md#link)、[@react-native-oh-tpl/react-native-tab-view](/zh-cn/react-native-tab-view.md#link)、[@react-native-oh-tpl/react-native-vector-icons](/zh-cn/react-native-vector-icons.md#link)、[@react-native-oh-tpl/react-native-pager-view](/zh-cn/react-native-pager-view.md#link) to add it to your project.
+If it is not included, follow the guide provided in [@react-native-oh-tpl/react-native-gesture-handler docs](/zh-cn/react-native-gesture-handler.md#link)、[@react-native-oh-tpl/react-native-reanimated docs](/zh-cn/react-native-reanimated.md#link)、[@react-native-oh-library/react-native-safe-area-context docs](/zh-cn/react-native-safe-area-context.md#link)、[@react-native-oh-tpl/react-native-svg docs](/zh-cn/react-native-svg.md#link)、[@react-native-oh-tpl/react-navigation-drawer docs](/zh-cn/react-navigation-drawer.md#link)、[@react-native-oh-tpl/react-native-tab-view docs](/zh-cn/react-native-tab-view.md#link)、[@react-native-oh-tpl/react-native-pager-view docs](/zh-cn/react-native-pager-view.md#link)、[@react-native-oh-tpl/react-native-swipe-list-view docs](/zh-cn/react-native-swipe-list-view.md) to add it to your project.
 
 ## Constraints
 
@@ -112,651 +101,692 @@ If it is not included, follow the guide provided in [@react-native-oh-tpl/react-
 
 To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/native-base Releases](https://github.com/react-native-oh-library/NativeBase/releases)
+Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-oh-tpl-native-base Releases](https://github.com/react-native-oh-library/NativeBase/releases)
 
 ## Components
 
-For details, see [NativeBase docs](https://docs.nativebase.io)
+For details about component usage, see. [NativeBase](https://docs.nativebase.io)
 
-以下为目前已支持的组件属性:
+The following component attributes are currently supported:
 
-> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!tip] The Platform column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] If the value of HarmonyOS Support is yes, it means that the HarmonyOS platform supports this property; no means the opposite; partially means some capabilities of this property are supported; Web indicates only Web support. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!tip] If the value of HarmonyOS Support is yes, it means that the HarmonyOS platform supports this property; no means the opposite; partially means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-**AspectRatio**: AspectRatio 控制节点或子组件未定义维度的大小
+**AspectRatio**: AspectRatio controls the size of the undefined dimension of a node or child component. You can refer mozilla.org for more details.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| ratio | 容器的纵横比。例如 `16/9`、`16/10`、`9/16`、`4/3` | Object | No | All | Yes |
+| ratio | The aspect ratio of the container. Some examples are `16/9`, `16/10`, `9/16`, `4/3` | Object | No | All | Yes |
 
-**Box**: 这是一个满足低级布局需求的通用组件。它类似于 div 在 HTML 中。
+**Box**: This is a generic component for low level layout needs. It is similar to a div in HTML.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| children | 将组件渲染为 Box 子项。接受 React.Element 或 JSX.Element 数组。 | React.element | No | All | Yes |
-| \_text | 用于为 Box 内的文本提供参数 | Any | No | All | Yes |
-| bg | 简写设置背景 | String | No | All | Yes |
-| background | 可以接受各种背景相关的设置，如颜色、图像、渐变等 | String | No | All | Yes |
-| bgColor | 明确用于设置背景颜色 | String | No | All | Yes |
-| backgroundColor | 与 bgColor 类似，专门用于设置背景颜色 | String | No | All | Yes |
+| children | Renders components as Box children. Accepts a JSX.Element or an array of JSX.Element.  | React.element | No | All | Yes |
+| \_text | For providing props to Text inside Box | Any | No | All | Yes |
+| bg | Abbreviation Setting Background | String | No | All | Yes |
+| background | Various background-related settings can be accepted, such as color, image, gradient, etc. | String | No | All | Yes |
+| bgColor | Explicitly used to set the background color | String | No | All | Yes |
+| backgroundColor | Similar to bgColor, it is used to set the background color. | String | No | All | Yes |
 
-**Center**: 布局组件中心对齐
-[继承了 React Native 中 View 参数](https://reactnative.dev/docs/view#props)
+**Center**: Center aligns its contents to the center within itself. It is a layout component.
+[Center implements View](https://reactnative.dev/docs/view#props)
 
-**Container**: 容器根据当前断点限制内容的宽度，同时保持尺寸的流动性。
+**Container**: The Container restricts a content's width according to current breakpoint, while keeping the size fluid.
+[The container implements the functions of the box. Therefore, all attributes of the box can be transferred to the container.]
+
+**Flex**: Flex provides helpful style shorthand and is a Box with display: flex.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| centerContent | 它将根据子元素的内容宽度将其置于中心。 | boolean | No | All | Yes |
+| direction | Project positioning direction. Values can be column,column-reverse,row,row-reverse | String | No | All | Yes |
+| wrap | Wrapping mode of child elements nowrap,wrap,wrap-reverse | String | No | All | Yes |
+| align | Alignment mode of the child element on the cross axis. This parameter is optional baseline,normal,stretch | String | No | All | Yes |
+| justify | Alignment mode of the child element on the main axis. This parameter is optional left,normal,right | String | No | All | Yes |
+| basis | This parameter is optional-moz-fit-content,-moz-max-content,-moz-min-content,-webkit-auto,auto,content,fit-content,max-content,min-contents | String | No | All | Yes |
+| grow | This parameter is optional Globals ,(number & {}) , (string & {}) | Number | No | All | Yes |
+| shrink | This parameter is optional Globals , (number & {}) , (string & {}); | Number | No | All | Yes |
 
-**Flex**: 布局组件，Flex 是 CSS flex 布局的一个封装
+**HStack / Row**: HStack aligns items horizontally. Row is also an alias for HStack.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| direction | 项目定位方向，值可以为 column,column-reverse,row,row-reverse | String | No | All | Yes |
-| wrap | 子元素的换行方式 nowrap,wrap,wrap-reverse | String | No | All | Yes |
-| align | 子元素在交叉轴上的对齐方式，可选 baseline,normal,stretch | String | No | All | Yes |
-| justify | 子元素在主轴上的对齐方式，可选 left,normal,right | String | No | All | Yes |
-| basis | 可选-moz-fit-content,-moz-max-content,-moz-min-content,-webkit-auto,auto,content,fit-content,max-content,min-contents | String | No | All | Yes |
-| grow | 可选 Globals ,(number & {}) , (string & {}) | Number | No | All | Yes |
-| shrink | 可选 Globals , (number & {}) , (string & {}); | Number | No | All | Yes |
+| direction | The direction of the Stack Items. This parameter is optional row,column,column-reverse,row-reverse | String | No | All | Yes |
 
-**HStack / Row**: HStack / Row 布局组件水平对齐
+**Stack**: Stack aligns items vertically or horizontally based on the direction prop.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| direction | 堆叠项目的方向，可选 row,column,column-reverse,row-reverse | String | No | All | Yes |
+| divider | The divider element to use between elements. | ReactElement | No | All | Yes |
+| space | The space between each stack item. Accepts Responsive values. This parameter is optional sm,2xs,xs,md,xl,lg,2xl,gutter,SpaceType | ReactElement | No | All | Yes |
+| reversed | Determines whether to reverse the direction of Stack Items. | Boolean | No | All | Yes |
+| direction | The direction of the Stack Items,This parameter is optional row，column，column-reverse，row-reverse | String | No | All | Yes |
+| isHovered | If true, the Stack will be in hovered state | Boolean | No | Web | No |
+| isFocused | If true, the Stack will be focused | Boolean | No | No | No |
+| isDisabled | If true, the Stack will be disabled. | Boolean | No | No | No |
+| isInvalid | If true, the Stack will be invalid. | Boolean | No | No | No |
+| isReadOnly | If true, prevents the value of the children from being edited. Used with FormControls. | Boolean | No | No | No |
 
-**Stack**: 根据方向属性， Stack 垂直或水平对齐项目
+**VStack / Column**: VStack aligns items vertically. Column is also an alias for VStack.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| divider | 元素之间使用的分隔元素。 | ReactElement | No | All | Yes |
-| space | 每个堆栈项之间的空间。接受响应值 sm,2xs,xs,md,xl,lg,2xl,gutter,SpaceType | ReactElement | No | All | Yes |
-| reversed | 确定是否反转堆叠项目的方向。 | Boolean | No | All | Yes |
-| direction | 堆叠项目的方向,可选 row，column，column-reverse，row-reverse | String | No | All | Yes |
-| isHovered | 是否悬停 | Boolean | No | Web | No |
-| isFocused | 是否聚焦 | Boolean | No | All | Yes |
-| isDisabled | 是否禁用 | Boolean | No | All | Yes |
-| isInvalid | 是否无效 | Boolean | No | All | Yes |
-| isReadOnly | 是否只读,如果为 true，则阻止编辑子项的值。与 FormControls 一起使用 | Boolean | No | All | Yes |
+| direction |The direction of the VStack / Column This parameter is optional row,column,column-reverse,row-reverse | String | No | All | Yes |
 
-**VStack / Column**: VStack / Column 布局组件垂直对齐
+**ZStack**: ZStack aligns items to the z-axis.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| direction | 堆叠项目的方向，可选 row,column,column-reverse,row-reverse | String | No | All | Yes |
+| reversed |Determines whether to reverse the direction of ZStack Items. | Boolean | No | All | Yes |
 
-**ZStack**: ZStack 将元素与 z 轴对齐
+**Button**: The Button component triggers an event or an action. Examples can be submitting forms and deleting a data point.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| reversed | 堆叠项目的方向，是否反转 | Boolean | No | All | Yes |
+| variant | The variant of the button style to use.This parameter is optional link，subtle，solid，ghost，outline，unstyled | String | No | All | Yes |
+| colorScheme | The color of the radio when it's checked. This should be one of the color keys in the theme (e.g."green", "red"). | String | No | All | Yes |
+| size | The size of the button.This parameter is optional s）、md、lg | String | No | All | Yes |
+| isLoading | If true, the button will show a spinner. | Boolean | No | All | Yes |
+| isHovered | If true, the button will be in hovered state. | Boolean | No | Web | No |
+| isPressed | If true, the button will be in pressed state. | Boolean | No | All | Yes |
+| isFocused | If true, the button will be focused. | Boolean | No | All | Yes |
+| isFocusVisible | If true, the button focus ring will be visible. | Boolean | No | No | No |
+| startIcon | The start icon element to use in the button. | React.element | No | All | Yes |
+| endIcon | The end icon element to use in the button. | React.element | No | All | Yes |
+| isLoadingText | Loading text | String | No | All | Yes |
+| spinner | The spinner element to use when isLoading is set to true. | JSX.Element | No | All | Yes |
+| isDisabled | If true, the button will be disabled. | Boolean | No | All | Yes |
+| \_text | Props to style the child text | Object | No | All | Yes |
+| \_stack |  Props to be passed to the HStack used inside of Button. HStack | Object | No | All | Yes |
+| \_icon | Props to be passed to the Icon used inside of Button. | Object | No | All | Yes |
+| spinnerPlacement | Prop to decide placement of spinner.This parameter is optional start，end | String | No | All | Yes |
+| \_loading | Props to be passed to the button when isLoading is true. | Object | No | All | Yes |
+| \_isDisabled | Props to be passed to the button when button is disabled. | Object | No | All | Yes |
+| \_spinner | Props to be passed to the spinner when isLoading is true. | Object | No | All | Yes |
+| \_hover | Props to be passed to the button when button is hovered. | Object | No | Web | No |
+| \_pressed | Props to be passed to the button when button is pressed. | Object | No | All | Yes |
+| \_focus | Props to be passed to the button when button is focused. | Object | No | All | Yes |
+| rightIcon | The right icon element to use in the button. | React.element | No | All | Yes |
+| leftIcon | The left icon element to use in the button. | React.element | No | All | Yes |
+| direction | The direction of the Stack Items.This parameter is optional row,column | String | No | All | Yes |
+| children | Renders components as Button children. Accepts a JSX.Element or an array of JSX.Element. | React.element | No | All | Yes |
+| isAttached | If true, button will be atttached together. | Boolean | No | All | Yes |
 
-**Button**: 按钮
+**Pressable**: Pressable is a lower level primitive if you need more flexibility than a button and access to hover, pressed and focus events.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| variant | 风格，可选 link，subtle，solid，ghost，outline，unstyled | String | No | All | Yes |
-| colorScheme | 主题 | String | No | All | Yes |
-| size | 按钮大小，可选 sm（小尺寸）、md（中等尺寸）、lg（大尺寸） | String | No | All | Yes |
-| isLoading | 是否加载中 | Boolean | No | All | Yes |
-| isHovered | 是否悬停 | Boolean | No | Web | No |
-| isPressed | 是否按下 | Boolean | No | All | Yes |
-| isFocused | 是否被聚焦 | Boolean | No | All | Yes |
-| isFocusVisible | 是否展示焦环 | Boolean | No | All | Yes |
-| startIcon | 开始图标元素 | React.element | No | All | Yes |
-| endIcon | 结束图标元素 | React.element | No | All | Yes |
-| isLoadingText | 正在加载文本 | String | No | All | Yes |
-| spinner | 是否加载中 | Boolean | No | All | Yes |
-| isDisabled | 是否禁用 | Boolean | No | All | Yes |
-| _text_ | 用于为框内的文本提供参数 | Object | No | All | Yes |
-| \_stack | 要传递给按钮内部使用的 HStack 的参数 | Object | No | All | Yes |
-| \_icon | 传递给按钮内部使用的图标的参数 | Object | No | All | Yes |
-| spinnerPlacement | 指定加载指示器（spinner）的位置，可选 start，end | String | No | All | Yes |
-| \_isLoading | 当按钮加载中时传递的参数 | Object | No | All | Yes |
-| \_isDisabled | 当按钮禁用时传递给按钮的参数 | Object | No | All | Yes |
-| \_spinner | 当按钮加载中时传递给按钮的参数 | Object | No | All | Yes |
-| \_hover | 当按钮悬停时传递给按钮的参数 | Object | No | Web | No |
-| \_pressed | 当按钮按下时传递给按钮的参数 | Object | No | All | Yes |
-| \_focus | 当按钮获得焦点时传递给按钮的参数 | Object | No | All | Yes |
-| rightIcon | 按钮中使用的右侧图标元素 | React.element | No | All | Yes |
-| leftIcon | 按钮中使用的左侧图标元素 | React.element | No | All | Yes |
-| direction | 堆叠项目的方向，可选 row,column | String | No | All | Yes |
-| children | 将组件渲染为 Box 子项。接受 JSX.Element 或 JSX.Element 数组。 | React.element | No | All | Yes |
-| isAttached | 如果为真，按钮将会连接在一起 | Boolean | No | All | Yes |
+| onHoverIn | Called when a mouse enters the Pressable | () => void | No | Web | No |
+| onHoverOut | Called when a mouse leaves the Pressable | () => void | No | Web | No |
+| onFocus | Called when Pressable receives focus | () => void | No | No | No |
+| onBlur | Called when Pressable loses focus | () => void | No | No | No |
+| \_hover | Style props to be applied when hovered | Object | No | Web | No |
+| \_pressed | Style props to be applied when pressed | Object | No | All | Yes |
+| \_focus | Style props to be applied when focus | Object | No | All | Yes |
+| \_disabled | Style props to be applied when disabled | Object | No | All | Yes |
+| isDisabled | If true, the Pressable will be disabled. | Boolean | No | All | Yes |
+| isHovered | If true, the Pressable will be hovered. | Boolean | No | Web | No |
+| isPressed | If true, the Pressable will be pressed. | Boolean | No | All | Yes |
+| isFocused | If true, the Pressable will be focused. | Boolean | No | No | No |
+| isFocusVisible | If true, the focus ring will be visible . | Boolean | No | All | Yes |
+| \_focusVisible | Style props to be applied when focus visible. These styles will be only applied when user is interacting the app using a keyboard. (Web only) | Object | No | Web | No |
+| children | Renders components as Pressable children. Accepts a JSX.Element or an array of JSX.Element. | React.element | No | All | Yes |
 
-**Pressable**: 创建可触摸交互的元素。
+**CheckBox**: The Checkbox component allows a user to select multiple values from various options in a form.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| onHoverIn | 鼠标移入调用 | () => void | No | Web | No |
-| onHoverOut | 鼠标移出调用 | () => void | No | Web | No |
-| onFocus | 聚焦时调用 | () => void | No | All | Yes |
-| onBlur | 失焦时调用 | () => void | No | All | Yes |
-| \_hover | 悬停参数 | Object | No | Web | No |
-| \_pressed | 按下禁用时参数 | Object | No | All | Yes |
-| \_focus | 获得焦点时参数 | Object | No | All | Yes |
-| \_disabled | 禁用时参数 | Object | No | All | Yes |
-| isDisabled | 是否禁用 | Boolean | No | All | Yes |
-| isHovered | 是否悬停 | Boolean | No | Web | No |
-| isPressed | 是否按下 | Boolean | No | All | Yes |
-| isFocused | 是否聚焦 | Boolean | No | All | Yes |
-| isFocusVisible | 是否展示焦环 | Boolean | No | All | Yes |
-| \_focusVisible | 焦点可见时应用的样式属性。这些样式仅在用户使用键盘与应用交互时应用。（仅限 Web） | Object | No | Web | No |
-| children | 将组件渲染为 Box 子项。接受 JSX.Element 或 JSX.Element 数组。 | React.element | No | All | Yes |
+| id | assign id to checkbox | String | No | All | Yes |
+| name | The name of the input field in a checkbox. | String | No | All | Yes |
+| value | The value to be used in the checkbox input. This is the value that will be returned on form submission | String | No | All | Yes |
+| defaultValue | The initial value of the checkbox group. | String | No | All | Yes |
+| colorScheme | The color of the radio when it's checked. This should be one of the color keys in the theme (e.g."green", "red"). | String | No | All | Yes |
+| size | The size (width and height) of the checkbox. | String | No | All | Yes |
+| onChange | Function called when the state of the checkbox changes. | () => void | No | All | Yes |
+| \_checkbox | Pass props will be passed to each checkbox. | Object | No | All | Yes |
 
-**CheckBox**: 复选框。
+**FormControl**: FormControl is used to form elements by providing context such as isInvalid, isDisabled, and isRequired.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| id | 唯一标识 | String | No | All | Yes |
-| value | 复选框的值 | String | No | All | Yes |
-| defaultValue | 复选框组的初始值 | String | No | All | Yes |
-| colorScheme | 主题，可选 danger，info，orange，purple | String | No | All | Yes |
-| size | 按钮大小，可选 sm（小尺寸）、md（中等尺寸）、lg（大尺寸） | String | No | All | Yes |
-| onChange | 选中事件 | () => void | No | All | Yes |
-| \_checkbox | 选中复选框时传递的参数 | Object | No | All | Yes |
+| nativeID | If provided, this prop is passed to its children. | String | No | All | Yes |
+| isInvalid | If true, the p will be invalid. | Boolean | No | All | Yes |
+| isRequired | If true, the p will be required. | Boolean | No | All | Yes |
+| isDisabled | If true, the p will be disabled. | Boolean | No | No | No |
+| isReadOnly | If true, the p will be readOnly. | Boolean | No | All | Yes |
+| \_disabled | Passed props will be applied on disabled state. | Object | No | All | Yes |
+| htmlFor | Reflects the value of the 'for' content property. | String | No | Web | No |
+| \_astrick | Props applied to astrick text | Object | No | Web | No |
+| rightIcon | The right icon element to use in the FormControl.ErrorMessage. | React.element | No | All | Yes |
+| leftIcon | The left icon element to use in the FormControl.ErrorMessage. | React.element | No | All | Yes |
+| startIcon | The start icon element to use in the FormControl.ErrorMessage. | React.element | No | All | Yes |
+| endIcon | The end icon element to use in the FormControl.ErrorMessage. | React.element | No | All | Yes |
+| \_stack | Props to be passed to the HStack used inside of FormControl.ErrorMessage. FormControl.ErrorMessage 内部使用的 HStack 的参数 | Object | No | All | Yes |
+| \_invalid | Passed props will be applied on invalid state. | Object | No | All | Yes |
 
-**FormControl**: 表单控件
+**IconButton**: IconButton consists of the Button component. It is generally used to make an Icon pressable.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| nativeID | 本地 ID | String | No | All | Yes |
-| isInvalid | 是否无效 | Boolean | No | All | Yes |
-| isRequired | 是否必须 | Boolean | No | All | Yes |
-| isDisabled | 是否禁用 | Boolean | No | All | Yes |
-| isReadOnly | 是否只读 | Boolean | No | All | Yes |
-| \_disabled | 禁用状态下传递参数 | Object | No | All | Yes |
-| htmlFor | 反映“for”内容属性的值 | String | No | All | Yes |
-| \_astrick | 应用于 astric 文本的道具 | Object | No | All | Yes |
-| rightIcon | 表单中使用的左侧侧图标元素 | React.element | No | All | Yes |
-| leftIcon | 表单中使用的右侧图标元素 | React.element | No | All | Yes |
-| startIcon | 开始图标元素 | React.element | No | All | Yes |
-| endIcon | 结束图标元素 | React.element | No | All | Yes |
-| \_stack | 要传递给 FormControl.ErrorMessage 内部使用的 HStack 的参数 | Object | No | All | Yes |
-| \_invalid | 无效状态下传递参数 | Object | No | All | Yes |
+| colorScheme | The color of the radio when it's checked. This should be one of the color keys in the theme (e.g."green", "red"). | String | No | All | Yes |
+| variant | The variant of the button style to use. | String | No | All | Yes |
+| size | The size of the button. | String | No | All | Yes |
+| isDisabled | If true, the button will be disabled. | Boolean | No | All | Yes |
+| icon | The icon to be used. Refer to the Icon section of the docs for the available icon options. | React.element | No | All | Yes |
+| \_icon | Props to be passed to the icon used inside of IconButton. IconButton 内部使用的图标的参数 | Object | No | All | Yes |
+| \_hover |  Style props to be applied when hovered | Object | No | Web | No |
+| \_pressed |  Style props to be applied when pressed | Object | No | All | Yes |
+| \_focus |  Style props to be applied when focus | Object | No | All | Yes |
 
-**IconButton**: 图标按钮
+**Input**: The Input component allows a user to provide input in a text field.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| colorScheme | 主题，可选 primary，green，red | String | No | All | Yes |
-| variant | 风格，可选 link，unstyled，solid，ghost，subtle | String | No | All | Yes |
-| size | 按钮大小，可选 sm（小尺寸）、md（中等尺寸）、lg（大尺寸） | String | No | All | Yes |
-| isDisabled | 是否禁用 | Boolean | No | All | Yes |
-| icon | 要使用的图标 | React.element | No | All | Yes |
-| \_icon | 要传递给 IconButton 内部使用的图标的参数 | Object | No | All | Yes |
-| \_hover | 要传递给 IconButton 内部使用的悬停的参数 | Object | No | Web | No |
-| \_pressed | 要传递给 IconButton 内部使用的按压的参数 | Object | No | All | Yes |
-| \_focus | 要传递给 IconButton 内部使用的聚焦的参数 | Object | No | All | Yes |
+| isInvalid | If true, the p will be invalid. | Boolean | No | All | Yes |
+| variant |The variant of the Input style to use.This parameter is optional outline，filled，underlined，unstyled，rounded | String | No | All | Yes |
+| isDisabled | If true, the button will be disabled. | Boolean | No | All | Yes |
+| isHovered | If true, the Input will be hovered. | Boolean | No | Web | No |
+| isFocused | If true, the Input will be focused. | Boolean | No | All | Yes |
+| size | The size of the button.This parameter is optional sm、md、lg | String | No | All | Yes |
+| isRequired | If true, the Input will be required. | Boolean | No | No | No |
+| isReadOnly | If true, the Input will be readOnly. | Boolean | No | All | Yes |
+| InputLeftElement | If given, adds the provided element to the left of the input. | React.element | No | All | Yes |
+| leftElement | If given, adds the provided element to the left of the input. | React.element | No | All | Yes |
+| InputRightElement | If given, adds the provided element to the right of the input. | React.element | No | All | Yes |
+| rightElement | If given, adds the provided element to the right of the input. | React.element | No | All | Yes |
+| type | Using the type password, user can mask the input. This parameter is optional text，password | String | No | All | Yes |
+| isFullWidth | If true, the input element will span the full width of its parent | Boolean | No | No | No |
+| wrapperRef | Ref to be passed to Icon's wrapper Box | Any | No | No | No |
+| \_hover | Passed props will be applied on hovered state. | Object | No | Web | NO |
+| \_focus | Passed props will be applied on focused state. | Object | No | All | Yes |
+| \_disabled | Passed props will be applied on disabled state. | Object | No | All | Yes |
+| \_readOnly | Passed props will be applied on readOnly state. | Object | No | All | Yes |
+| \_invalid | assed props will be applied on invalid state. | Object | No | All | Yes |
+| \_input | props are passed to InputBase component | Object | No | All | Yes |
+| \_stack | Props to be passed to the Stack used inside. | Object | No | All | Yes |
+| focusOutlineColor | This prop allows you to change outlineColor when input is in the focused state | String | No | All | Yes |
+| invalidOutlineColor | This prop allows you to change outlineColor when input is in invalid state | String | No | All | Yes |
+| ref | Obtain node data | Any | No | All | Yes |
 
-**Input**: 输入框
+**TextArea**: The Textarea component helps create multi-line text inputs.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| isInvalid | 是否无效 | Boolean | No | All | Yes |
-| variant | 风格，可选 outline，filled，underlined，unstyled，rounded | String | No | All | Yes |
-| isDisabled | 是否禁用 | Boolean | No | All | Yes |
-| isHovered | 是否悬停 | Boolean | No | Web | No |
-| isFocused | 是否聚焦 | Boolean | No | All | Yes |
-| size | 输入框尺寸，可选 sm（小尺寸）、md（中等尺寸）、lg（大尺寸） | String | No | All | Yes |
-| isRequired | 是否必传 | Boolean | No | No | No |
-| isReadOnly | 是否只读 | Boolean | No | All | Yes |
-| InputLeftElement | 输入框内部左侧元素 | React.element | No | All | Yes |
-| leftElement | 输入框外部左侧元素 | React.element | No | All | Yes |
-| InputRightElement | 输入框内部右侧元素 | React.element | No | All | Yes |
-| rightElement | 输入框外部右侧元素 | React.element | No | All | Yes |
-| type | 类型，可选 text，password | String | No | All | Yes |
-| isFullWidth | 沾满元素 | Boolean | No | All | Yes |
-| wrapperRef | 获取节点(鸿蒙中获取不到，用 ref 可以获取) | Any | No | No | No |
-| \_hover | 要传递给 Input 内部使用的悬停的参数 | Object | No | Web | NO |
-| \_focus | 要传递给 Input 内部使用的聚焦的参数 | Object | No | All | Yes |
-| \_disabled | 要传递给 Input 内部使用的禁用的参数 | Object | No | All | Yes |
-| \_readOnly | 要传递给 Input 内部使用的只读的参数 | Object | No | All | Yes |
-| \_invalid | 无效状态下传递参数 | Object | No | All | Yes |
-| \_input | 传递给 InputBase 组件参数 | Object | No | All | Yes |
-| \_stack | 要传递给按钮内部使用的 HStack 的参数 | Object | No | All | Yes |
-| focusOutlineColor | 当输入框获得焦点时，该属性指定输入框的轮廓颜色 | Boolean | No | All | Yes |
-| invalidOutlineColor | 当输入框中的内容被认为是无效时，该属性指定输入框的轮廓颜色 | Boolean | No | All | Yes |
-| ref | 节点 | Any | No | All | Yes |
+| isInvalid | If true, the p will be invalid. | Boolean | No | All | Yes |
+| variant | The variant of the Input style to use.This parameter is optional outline，filled，underlined，unstyled，rounded | String | No | All | Yes |
+| isDisabled | If true, the button will be disabled. | Boolean | No | All | Yes |
+| isHovered | If true, the Input will be hovered. | Boolean | No | Web | No |
+| isFocused | If true, the Input will be focused. | Boolean | No | All | Yes |
+| size |The size of the button.This parameter is optional sm、md、lg | String | No | All | Yes |
+| isRequired | If true, the Input will be required. | Boolean | No | No | No |
+| isReadOnly | If true, the Input will be readOnly. | Boolean | No | All | Yes |
+| InputLeftElement | If given, adds the provided element to the left of the input. | React.element | No | All | Yes |
+| leftElement | If given, adds the provided element to the left of the input. | React.element | No | All | Yes |
+| InputRightElement | If given, adds the provided element to the right of the input. | React.element | No | All | Yes |
+| rightElement | If given, adds the provided element to the right of the input. | React.element | No | All | Yes |
+| type |  Using the type password, user can mask the input.This parameter is optional text，password | String | No | All | Yes |
+| isFullWidth | If true, the input element will span the full width of its parent | Boolean | No | No | No |
+| wrapperRef | Ref to be passed to Icon's wrapper Box | Any | No | All | Yes |
+| \_hover | Passed props will be applied on hovered state. | Object | No | Web | NO |
+| \_focus | Passed props will be applied on focused state. | Object | No | All | Yes |
+| \_disabled | Passed props will be applied on disabled state. | Object | No | All | Yes |
+| \_readOnly | Passed props will be applied on readOnly state. | Object | No | All | Yes |
+| \_invalid | Passed props will be applied on invalid state. | Object | No | All | Yes |
+| \_stack | Props to be passed to the Stack used inside. | Object | No | All | Yes |
+| focusOutlineColor | This prop allows you to change outlineColor when input is in the focused state | Boolean | No | All | Yes |
+| invalidOutlineColor | This prop allows you to change outlineColor when input is in invalid state | Boolean | No | All | Yes |
+| placeholder | The string that will be rendered before text input has been entered | String | No | All | Yes |
 
-**TextArea**: 文本域
+**Link**: Links are accessible elements used primarily for navigation. This component is styled to resemble a hyperlink.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| isInvalid | 是否无效 | Boolean | No | All | Yes |
-| variant | 风格，可选 outline，filled，underlined，unstyled，rounded | String | No | All | Yes |
-| isDisabled | 是否禁用 | Boolean | No | All | Yes |
-| isHovered | 是否悬停 | Boolean | No | Web | No |
-| isFocused | 是否聚焦 | Boolean | No | All | Yes |
-| size | 输入框尺寸，可选 sm（小尺寸）、md（中等尺寸）、lg（大尺寸） | String | No | All | Yes |
-| isRequired | 是否必传 | Boolean | No | No | No |
-| isReadOnly | 是否只读 | Boolean | No | All | Yes |
-| InputLeftElement | 输入框内部左侧元素 | React.element | No | All | Yes |
-| leftElement | 输入框外部左侧元素 | React.element | No | All | Yes |
-| InputRightElement | 输入框内部右侧元素 | React.element | No | All | Yes |
-| rightElement | 输入框外部右侧元素 | React.element | No | All | Yes |
-| type | 类型，可选 text，password | String | No | All | Yes |
-| isFullWidth | 沾满元素 | Boolean | No | All | Yes |
-| wrapperRef | 获取节点(鸿蒙中获取不到，用 ref 可以获取) | Any | No | No | No |
-| \_hover | 要传递给 Input 内部使用的悬停的参数 | Object | No | Web | NO |
-| \_focus | 要传递给 Input 内部使用的聚焦的参数 | Object | No | All | Yes |
-| \_disabled | 要传递给 Input 内部使用的禁用的参数 | Object | No | All | Yes |
-| \_readOnly | 要传递给 Input 内部使用的只读的参数 | Object | No | All | Yes |
-| \_invalid | 无效状态下传递参数 | Object | No | All | Yes |
-| \_input | 传递给 InputBase 组件参数 | Object | No | All | Yes |
-| \_stack | 要传递给按钮内部使用的 HStack 的参数 | Object | No | All | Yes |
-| focusOutlineColor | 当输入框获得焦点时，该属性指定输入框的轮廓颜色 | Boolean | No | All | Yes |
-| invalidOutlineColor | 当输入框中的内容被认为是无效时，该属性指定输入框的轮廓颜色 | Boolean | No | All | Yes |
-| ref | 节点 | Any | No | All | Yes |
+| href | URL that should be opened on Link press | String | No | All | Yes |
+| size | Size of the link.This parameter is optional 2xl，xl，lg，md，sm，xsm | String | No | All | Yes |
+| isUnderlined | Whether Link text should be underlined | Boolean | No | All | Yes |
+| isHovered | Whether Link text should be hovered | Boolean | No | Web | No |
+| onPress | Callback that will be invoked on Link press | () => void | No | All | Yes |
+| isExternal | If true, link will be opened in new tab on web. It uses _target property to achieve this| String | No | Web | No |
+| \_hover | Hover props. Accepts all styled system props. | Object | No | Web | No |
+| wrapperRef | Ref to be attached to the Link wrapper | Any | No | All | Yes |
 
-**Link**: 超链接
+**Radio**: Radio limits the selection from a series of options to only one.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| href | 连接地址 | String | No | All | Yes |
-| size | 超连接尺寸 2xl，xl，lg，md，sm，xsm | String | No | All | Yes |
-| isUnderlined | 是否有下横线 | Boolean | No | All | Yes |
-| isHovered | 是否悬停 | Boolean | No | Web | No |
-| onPress | 按压事件 | () => void | No | All | Yes |
-| isExternal | 是否直接打开 web 端 | String | No | All | Yes |
-| \_hover | 悬停参数 | Object | No | Web | No |
-| wrapperRef | 获取节点(鸿蒙中获取不到，用 ref 可以获取) | Any | No | No | No |
+| value | The value to be used in the radio input. This is the value that will be returned on form submission | String | No | All | Yes |
+| colorScheme | The color of the radio. This should be one of the color keys in the theme (e.g."green", "red"). | String | No | All | Yes |
+| isDisabled | If true, the radio will be disabled | Boolean | No | All | Yes |
+| isHovered | If true, the radio will be hovered | Boolean | No | Web | No |
+| isPressed | If true, the radio will be pressed | Boolean | No | All | Yes |
+| isFocused | If true, the radio will be focused | Boolean | No | All | Yes |
+| isInvalid | If true, the radio is marked as invalid. Changes style of unchecked state. | Boolean | No | All | Yes |
+| onChange | The callback fired when any children radio is checked or unchecked. | () => void | No | All | Yes |
+| isFocusVisible | If true, the radio focus ring will be visible | Boolean | No | No | No |
+| size | The size (width and height) of the radio. lg，md，sm | String | No | All | Yes |
+| icon | If given, will use this icon instead of the default. | React.element | No | All | Yes |
+| wrapperRef | Ref to be passed to Icon's wrapper Box | Any | No | All | Yes |
+| \_stack | Props to be passed to the Stack used inside. | Object | No | All | Yes |
+| \_disabled | Passed props wilICheckboxGroupProps will be applied on the disabled state. | Object | No | All | Yes |
+| \_checked | Passed props will be applied on checked state. | Object | No | All | Yes |
+| \_focus | Passed props will be applied on focus state. | Object | No | All | Yes |
+| \_hover | Passed props will be applied on hover state. | Object | No | Web | No |
+| \_invalid | Passed props will be applied on invalid state. | Object | No | All | Yes |
+| \_pressed | Passed props will be applied on pressed state on native. | Object | No | All | Yes |
+| \_icon | Icon related props can be passed in _icon. | Object | No | All | Yes |
+| \_readOnly | Passed props will be applied on readonly state. | Object | No | All | Yes |
+| \_interactionBox | You can style interaction box around the checkbox using this. | Object | No | All | Yes |
+| ref | Obtain node data | Object | No | All | Yes |
 
-**Radio**: 单选框
+**Select**: Select creates a dropdown list of items with the selected item in closed view.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| value | 单选框的值 | String | No | All | Yes |
-| colorScheme | 主题，可选 yellow，green，red | String | No | All | Yes |
-| isDisabled | 是否禁用 | Boolean | No | All | Yes |
-| isHovered | 是否悬停 | Boolean | No | Web | No |
-| isPressed | 是否按压 | Boolean | No | All | Yes |
-| isFocused | 是否聚焦 | Boolean | No | All | Yes |
-| isFocusVisible | 焦点是否可见 | Boolean | No | All | Yes |
-| size | 单选框尺寸 lg，md，sm | String | No | All | Yes |
-| icon | 接收图标 | React.element | No | All | Yes |
-| wrapperRef | 获取节点(鸿蒙中获取不到，用 ref 可以获取) | Any | No | No | No |
-| \_stack | 要传递给单选框内部使用的 HStack 的参数 | Object | No | All | Yes |
-| \_disabled | 当禁用时传递给单选框的参数 | Object | No | All | Yes |
-| \_checked | 当选中时传递给单选框的参数 | Object | No | All | Yes |
-| \_focus | 当聚焦时传递给单选框的参数 | Object | No | All | Yes |
-| \_hover | 当悬停时传递给单选框的参数 | Object | No | Web | No |
-| \_invalid | 当失效时传递给单选框的参数 | Object | No | All | Yes |
-| \_pressed | 当按压时传递给单选框的参数 | Object | No | All | Yes |
-| \_icon | 当传递图标时传递给单选框的参数 | Object | No | All | Yes |
-| \_readOnly | 当只读时传递给单选框的参数 | Object | No | All | Yes |
-| \_interactionBox | 当交互时传递给按钮的参数 | Object | No | All | Yes |
-| ref | 获取节点数据 | Object | No | All | Yes |
+| placeholder | The placeholder that describes the Select. | String | No | All | Yes |
+| color | The Selected Item text color. | String | No | No | Yes |
+| placeholderTextColor | The placeholder text color | String | No | iOS | No |
+| \_item | Item props passed here will be passed to each Select.Item component. | Object | No | All | Yes |
+| \_selectedItem | Item props passed here will be passed to the selected Select.Item component. | Object | No | All | Yes |
+| selectedValue | Currently selected value. Useful for controlling the Select state | String | No | All | Yes |
+| defaultValue | Default selected value. | String | No | All | Yes |
+| onValueChange | Callback to be invoked when Select value is changed | () => void | No | All | Yes |
+| isDisabled | Whether Select is disabled | Boolean | No | All | Yes |
+| isHovered | Whether Select is hovered | Boolean | No | Web | No |
+| isFocused | Whether Select is focused | Boolean | No | All | Yes |
+| isFocusVisible | If true, the focus ring of select will be visible. | Boolean | No | No | No |
+| dropdownIcon | If given, updates the dropdown Icon | React.element | No | All | Yes |
+| dropdownOpenIcon | If given, updates the dropdown Icon when opened | React.element | No | All | Yes |
+| dropdownCloseIcon | If given, updates the dropdown Icon when closed | React.element | No | All | Yes |
+| variant |The variant of the button style to use.This parameter is optional outline，filled，underlined，unstyled，rounded | String | No | All | Yes |
+| onOpen | Callback to be invoked when Select Dropdown or BottomSheet is opened. | () => void | No | All | Yes |
+| onClose | Callback to be invoked when Select Dropdown or BottomSheet is closed. | () => void | No | All | Yes |
+| \_actionSheet | props to be passed to underlying ActionSheet. Select uses ActionSheet underneath. | Object | No | All | Yes |
+| \_actionSheetContent | props to be passed to underlying ActionSheet.Content. Select uses ActionSheet underneath. | Object | No | All | Yes |
+| \_actionSheetBody | props to be passed to underlying Flatlist in ActionSheet.Content. Body 的参数 | Object | No | All | Yes |
+| wrapperRef | Ref to be attached to the Select wrapper | Any | No | No | No |
+| accessibilityLabel | Text read when the user interacts with the element | String | No | No | No |
 
-**Select**: 下拉框
+**Select.Item**: Select.Item
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| placeholder | 提示文本 | String | No | All | Yes |
-| color | 选中颜色 | String | No | All | Yes |
-| placeholderTextColor | 提示文本颜色 | String | No | All | Yes |
-| \_item | 是否悬停 | Boolean | No | No | No |
-| \_selectedItem | 是否按压 | Boolean | No | All | Yes |
-| selectedValue | 选中值 | Boolean | No | All | Yes |
-| defaultValue | 初始值 | Boolean | No | All | Yes |
-| onValueChange | 单选事件 | () => void | No | All | Yes |
-| isDisabled | 是否禁用 | React.element | No | All | Yes |
-| isHovered | 是否悬停 | Any | No | Web | No |
-| isFocused | 是否聚焦 | Object | No | All | Yes |
-| isFocusVisible | 焦点是否可见 | Object | No | All | Yes |
-| dropdownIcon | 原有图标 | React.element | No | All | Yes |
-| dropdownOpenIcon | 打开图标 | React.element | No | All | Yes |
-| dropdownCloseIcon | 关闭图标 | React.element | No | All | Yes |
-| variant | 风格，可选 outline，filled，underlined，unstyled，rounded | String | No | All | Yes |
-| onOpen | 打开下拉事件 | () => void | No | All | Yes |
-| onClose | 关闭下拉事件 | () => void | No | All | Yes |
-| \_actionSheet | 传递给遮罩层的参数样式 | Object | No | All | Yes |
-| \_actionSheetContent | 传递给内容的参数样式 | Object | No | All | Yes |
-| \_actionSheetBody | 传递给内容 Body 的参数 | Object | No | All | Yes |
-| wrapperRef | 获取节点 | Any | No | All | Yes |
-
-**Select.Item**: 下拉框子集
-| Name | Description | Type | Required | Platform | HarmonyOS Support |
-| :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| label | 选择提示文本 | String | No | All | Yes |
-| value | 选中值 | String | No | All | Yes |
+| label | The label which will be displayed. | String | No | All | Yes |
+| value | The value to be used for the item. This is the value that will be returned on form submission. | String | No | All | Yes |
 
 **Switch**: 开关
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| size | 开关尺寸，可选 lg，md，sm | String | No | All | Yes |
-| isDisabled | 是否禁用 | Boolean | No | All | Yes |
-| isHovered | 是否悬停 | Boolean | No | Web | No |
-| name | 表单中使用开关的别名 | String | No | All | Yes |
-| onToggle | 开关事件 | () => void | No | All | Yes |
-| isChecked | 是否开启 | Boolean | No | All | Yes |
-| defaultIsChecked | 是否默认开启 | Boolean | No | All | Yes |
-| isInvalid | 是否失效 | Boolean | No | All | Yes |
-| onTrackColor | 打开时轨道的颜色 | Object | No | All | Yes |
-| offTrackColor | 关闭时轨道的颜色 | Object | No | All | Yes |
-| onThumbColor | 打开时按钮的颜色 | Object | No | All | Yes |
-| offThumbColor | 关闭时按钮的颜色 | Object | No | All | Yes |
-| colorScheme | 主题 | String | No | All | Yes |
-| \_hover | 悬停参数 | String | No | Web | No |
+| size | The size (width and height) of the switch.This parameter is optional lg，md，sm | String | No | All | Yes |
+| isDisabled | If true, set the disabled to the invalid state. | Boolean | No | All | Yes |
+| isHovered | If true, set the hovered state. | Boolean | No | Web | No |
+| name | The input name of the Switch when used in a form. | String | No | All | Yes |
+| onToggle | Function called when the state of the Switch changes. | () => void | No | All | Yes |
+| isChecked | If true, set the Switch to the checked state. | Boolean | No | All | Yes |
+| defaultIsChecked | If true, the checkbox will be initially checked. | Boolean | No | All | Yes |
+| isInvalid | If true, set the switch to the invalid state. | Boolean | No | All | Yes |
+| onTrackColor | The track color of the Switch when on. | Object | No | All | Yes |
+| offTrackColor | The track color of the Switch when off. | Object | No | All | Yes |
+| onThumbColor | The thumb color of the Switch when on. | Object | No | All | Yes |
+| offThumbColor | The thumb color of the Switch when off. | Object | No | All | Yes |
+| colorScheme | Color scheme to be used for the Switch | String | No | All | Yes |
+| \_hover | Props when Switch is hovered. Accepts all the Switch props. | String | No | Web | No |
 
-**Slider**: 滑块
+**Slider**: The Slider allows users to select options from a given range of values.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| value | 值 | Number | No | All | Yes |
-| defaultValue | 默认值 | Number | No | All | Yes |
-| onChange | 滑块事件 | () => void | No | All | Yes |
-| colorScheme | 主题 | String | No | All | Yes |
-| orientation | 展示方向，可选 horizontal，vertical' | String | No | All | Yes |
-| accessibilityLabel | 滑块文本描述 | String | No | All | Yes |
-| isReversed | 是否反转 | Boolean | No | All | Yes |
-| isDisabled | 是否禁用 | Boolean | No | All | Yes |
-| onChangeEnd | 松开停止移动事件 | () => void | No | All | Yes |
-| minValue | 最小值 | Number | No | All | Yes |
-| maxValue | 最大值 | Number | No | All | Yes |
-| step | 每次用移动的步数 | Number | No | All | Yes |
-| isReadOnly | 最大值 | Boolean | No | All | Yes |
-| maxValue | 最大值 | Number | No | All | Yes |
-| \_disabled | 禁用时启用 | Number | No | All | Yes |
-| \_readOnly | 只读时启用 | Number | No | All | Yes |
-| sliderTrackHeight | 轨道高度 | Number | No | All | Yes |
-| thumbSize | 滑块大小 | Number | No | All | Yes |
-| \_interactionBox | 交互样式 | Object | No | All | Yes |
+| value | The current value of the Slider | Number | No | All | Yes |
+| defaultValue | The default value (uncontrolled). | Number | No | All | Yes |
+| onChange | Handler that is called when the value changes. | () => void | No | All | Yes |
+| colorScheme | Color scheme of the slider | String | No | All | Yes |
+| orientation | The orientation of the Slider.This parameter is optional horizontal，vertical' | String | No | All | Yes |
+| accessibilityLabel | Text description of slider. This will be announced by screen reader/ | String | No | No | No |
+| isReversed | If true, the value will be incremented or decremented in reverse. | Boolean | No | All | Yes |
+| isDisabled | Whether the Thumb is disabled | Boolean | No | All | Yes |
+| onChangeEnd | Fired when the slider stops moving, due to being let go. | () => void | No | All | Yes |
+| minValue | The slider's minimum value. | Number | No | All | Yes |
+| maxValue | The slider's maximum value. | Number | No | All | Yes |
+| step | The slider's step value. | Number | No | All | Yes |
+| isReadOnly | Whether the whole Slider is readonly. | Boolean | No | All | Yes |
+| \_disabled | Props applied if isDisabled is true. | Object | No | All | Yes |
+| \_readOnly | Props applied if isReadOnly is true. | Object | No | All | Yes |
+| sliderTrackHeight | Prop applied to change slider track height | Number | No | All | Yes |
+| thumbSize | Prop applied to change size of slider thumb | Number | No | All | Yes |
+| \_interactionBox | You can style interaction box around the checkbox using this. | Object | No | All | Yes |
 
-**Badge**: 小标识小标签
+**Badge**: Badges allow the highlighting of an item’s status. This provides quick recognition.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| variant | 风格 | Number | No | All | Yes |
-| colorScheme | 主题,可选 success，danger，info，coolGray | String | No | All | Yes |
-| rightIcon | 组件右侧图标 | React.element | No | All | Yes |
-| leftIcon | 组件左侧图标 | React.element | No | All | Yes |
-| startIcon | 开始图标 | React.element | No | All | Yes |
-| endIcon | 结束图标 | React.element | No | All | Yes |
-| \_text | 组件内的文本提供参数 | Object | No | All | Yes |
-| \_icon | 组件内的图标提供参数 | Object | No | All | Yes |
+| variant | The style variant of the badge. | String | No | All | Yes |
+| colorScheme | The color scheme to use for the badge. Must be a key in theme.colors.This parameter is optional success，danger，info，coolGray | String | No | All | Yes |
+| rightIcon | The right icon element to use in the button. | React.element | No | All | Yes |
+| leftIcon | The left icon element to use in the button. | React.element | No | All | Yes |
+| startIcon | The start icon element to use in the button. | React.element | No | All | Yes |
+| endIcon | The end icon element to use in the button. | React.element | No | All | Yes |
+| \_text | Props to style the child text | Object | No | All | Yes |
+| \_icon | Props to be passed to the Icon used inside of Button. | Object | No | All | Yes |
 
-**Divider**: 分割线
+**Divider**: Divider can visually separate content in a given list or group.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| orientation | 方向,可选 vertical，horizontal | Number | No | All | Yes |
-| thickness | 分割线宽度 | String | No | All | Yes |
+| orientation | The orientation of the divider.,This parameter is optional vertical，horizontal | Number | No | All | Yes |
+| thickness | The thickness of the divider. | String | No | All | Yes |
 
-**Alert**: 状态提示框
+**Alert**: Alerts convey a state that can influence a system, feature, or page.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| status | 方向,可选 info，warning，success，error | String | No | All | Yes |
-| variant | 风格 | String | No | All | Yes |
-| colorScheme | 主题 | String | No | All | Yes |
+| status | The status of the alert.This parameter is optional info，warning，success，error | String | No | All | Yes |
+| variant | The variant of the alert style to use. | String | No | All | Yes |
+| colorScheme | The color scheme of the Alert. | String | No | All | Yes |
 
-**Progress**: 进度条
+**Progress**: Progress helps show the progress status for a time-consuming task that consists of several steps.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| value | 数值 | Number | No | All | Yes |
-| size | 尺寸 | String | No | All | Yes |
-| colorScheme | 主题 | String | No | All | Yes |
-| \_filledTrack | 填充的轨道提供参数 | Object | No | All | Yes |
-| min | 最小值 | Number | No | All | Yes |
-| max | 最大值 | Number | No | All | Yes |
+| value | Value of Progress. | Number | No | All | Yes |
+| size | Defines height of Progress | String | No | All | Yes |
+| colorScheme | The color scheme of the progress. This should be one of the color keys in the theme (e.g."green", "red"). | String | No | All | Yes |
+| \_filledTrack | Pseudo prop to give Prop to filled track | Object | No | All | Yes |
+| min | Min progress value | Number | No | All | Yes |
+| max | Max progress value | Number | No | All | Yes |
 
-**Skeleton**: 组件的加载状态
+**Skeleton**: Skeleton showcases the loading state of a component.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| fadeDuration | 加载时长 | Number | No | All | Yes |
-| isLoaded | 是否加载中 | Boolean | No | All | Yes |
-| speed | 加载速度 | Number | No | All | Yes |
-| startColor | 开始颜色 | String | No | All | Yes |
-| endColor | 结束颜色 | String | No | All | Yes |
-| size | 尺寸 | String | No | All | Yes |
+| fadeDuration | The fadeIn duration in seconds | Number | No | All | Yes |
+| isLoaded | If true, it will render its children | Boolean | No | All | Yes |
+| speed | The animation speed in seconds | Number | No | All | Yes |
+| startColor | The color at the animation start | String | No | All | Yes |
+| endColor | The color at the animation end | String | No | All | Yes |
+| size | Sizes for Skeleton | String | No | All | Yes |
 
-**Skeleton.Text**: 组件的加载状态文字组件
+**Skeleton.Text**: SkeletonText implements View
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| fadeDuration | 加载时长 | Number | No | All | Yes |
-| isLoaded | 是否加载中 | Boolean | No | All | Yes |
-| speed | 加载速度 | Number | No | All | Yes |
-| startColor | 开始颜色 | String | No | All | Yes |
-| endColor | 结束颜色 | String | No | All | Yes |
-| lines | 文本中的行数 | Number | No | All | Yes |
-| \_line | 文本中的行数样式参数 | String | No | All | Yes |
-| \_stack | 尺寸 | String | No | All | Yes |
+| fadeDuration | The fadeIn duration in seconds | Number | No | All | Yes |
+| isLoaded | If true, it will render its children | Boolean | No | All | Yes |
+| speed | The animation speed in seconds | Number | No | All | Yes |
+| startColor | The color at the animation start | String | No | All | Yes |
+| endColor | The color at the animation end | String | No | All | Yes |
+| lines | Number of Lines in text | Number | No | All | Yes |
+| \_line | Stying for each line | String | No | All | Yes |
+| \_stack | Props to be passed to the Stack used inside. | String | No | No | No |
 
-**Spinner**: 加载等待中
+**Spinner**: Spinners gives visual cues to actions that are processing or awaiting a course change or results.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| color | 颜色 | String | No | All | Yes |
-| size | 尺寸，可选 lg，md，sm | String | No | All | Yes |
+| color | The foreground color of the spinner (default is gray). | String | No | All | Yes |
+| size | Size of the indicator. This parameter is optional lg，md，sm | String | No | All | Yes |
 
-**Toast**: 轻提示
+**Toast**: Toast displays alerts on top of an overlay.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| show | 消息体 | Object | No | All | Yes |
-| close | 关闭单个 | (id: any) => void; | No | All | Yes |
-| closeAll | 关闭所有 | () => void | No | All | Yes |
-| isActive | 防抖设计 | (id: any) => boolean; | No | All | Yes |
+| show | Message body | Object | No | All | Yes |
+| close | Close individual | (id: any) => void; | No | All | Yes |
+| closeAll | Close all | () => void | No | All | Yes |
+| isActive | Anti shake design | (id: any) => boolean; | No | All | Yes |
 
 **Toast.show**: 轻提示消息体
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| title | 标题 | ReactNode | No | All | Yes |
-| description | 内容描述 | ReactNode | No | All | Yes |
-| duration | 显示时长 | Number 或 null | No | All | Yes |
-| id | 唯一标识 | any | No | All | Yes |
-| onCloseComplete | 显示完成关闭回调 | () => void | No | All | Yes |
-| placement | 位置，可选 top，top-right，top-left，bottom，bottom-left，bottom-right | String | No | All | Yes |
-| render | 接收子组件 | (props: any) => ReactNode | No | All | Yes |
-| \_title | 标题样式参数 | () => void | No | All | Yes |
-| \_description | 描述样式参数 | () => void | No | All | Yes |
-| accessibilityAnnouncement | Toast 打开时屏幕阅读器播报的文本 | String | No | Android | No |
-| accessibilityLiveRegion | Toast 打开时屏幕阅读器播报的文本位置 | String | No | Android | No |
-| avoidKeyboard | 键盘打开，则 Toast 将向上移动相当于键盘高度 | Boolean | No | All | Yes |
+| title | The title to be rendered in the Toast | ReactNode | No | All | Yes |
+| description | The description of the toast | ReactNode | No | All | Yes |
+| duration | The delay before the toast hides (in milliseconds). If set to `null`, toast will never dismiss. | Number 或 null | No | All | Yes |
+| id | The `id` of the toast. Mostly used when you need to prevent duplicate. By default, we generate a unique `id` for each toast | any | No | All | Yes |
+| onCloseComplete | Callback function to run side effects after the toast has closed. | () => void | No | All | Yes |
+| placement | The placement of the toast. Defaults to bottom.This parameter is optional top，top-right，top-left，bottom，bottom-left，bottom-right | String | No | All | Yes |
+| render | Render a component toast component. Any component passed will receive 2 props: `id` and `onClose`. | (props: any) => ReactNode | No | All | Yes |
+| \_title | For providing props to Title inside Toast | Object | No | All | Yes |
+| \_description | For providing props to Description inside Toast | Object | No | All | Yes |
+| accessibilityAnnouncement | The text to be announced by a screen reader when the Toast opens. | String | No | Android | No |
+| accessibilityLiveRegion | Determines the [accessibility announcement tone](https://reactnative.dev/docs/accessibility#accessibilityliveregion-android). | String | No | Android | No |
+| avoidKeyboard | If true and the keyboard is opened, the Toast will move up equivalent to the keyboard height. | Boolean | No | iOS | No |
 
-**Text**: 文本
+**Text**: Text
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| children | 子集 | JSX.Element | No | All | Yes |
-| fontSize | 字号 | String | No | All | Yes |
-| letterSpacing | 间距 | String | No | All | Yes |
-| lineHeight | 行高 | String | No | All | Yes |
-| fontWeight | 字宽 | String | No | All | Yes |
-| Fonts | 字型 | String | No | All | Yes |
-| noOfLines | 行数 | Number | No | All | Yes |
-| bold | 加粗 | Number | No | All | Yes |
-| isTruncated | 超出省略 | Boolean | No | All | Yes |
-| italic | 斜体 | Boolean | No | All | Yes |
-| underline | 下横线 | Boolean | No | All | Yes |
-| strikeThrough | 删除线 | Boolean | No | All | Yes |
-| sub | 字体缩小（副标题或者辅助说明的文本） | Boolean | No | All | Yes |
-| highlight | 突出显示 | Boolean | No | All | Yes |
+| children | Renders components as Text children. Accepts a JSX.Element or an array of JSX.Element. | JSX.Element | No | All | Yes |
+| fontSize | The size of font | String | No | All | Yes |
+| letterSpacing | Letter spacing | String | No | All | Yes |
+| lineHeight | Line height | String | No | All | Yes |
+| fontWeight | Font weight | String | No | All | Yes |
+| Fonts | Fonts | String | No | No | No |
+| noOfLines | Used to truncate text at a specific number of lines | Number | No | All | Yes |
+| bold | Used to make the text bold. | Number | No | All | Yes |
+| isTruncated | If true, it will render an ellipsis when the text exceeds the width of the viewport or maxWidth set. | Boolean | No | All | Yes |
+| italic | Used to make the text italic. | Boolean | No | All | Yes |
+| underline | Used to underline the text. | Boolean | No | All | Yes |
+| strikeThrough | A horizontal line through the center of the text. | Boolean | No | All | Yes |
+| sub | Text will have smaller font size. | Boolean | No | All | Yes |
+| highlight | Used to highlight the text with a yellow background. | Boolean | No | All | Yes |
 
-**Heading**: 标题(继承了 Text 属性)
+**Heading**: Heading composes Text so one can use all the style props to render headlines.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| size | 尺寸，可选 lg，md，sm | String | No | All | Yes |
+| size | Sizes for Heading. This parameter is optional lg，md，sm | String | No | All | Yes |
 
-**AlertDialog**: 警告对话框
+**AlertDialog**: AlertDialog is used when a user needs to be interrupted with a mandatory confirmation or call-to-action. AlertDialog composes Modal so you can use all its props.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| isOpen | 是否打开 | Boolean | No | All | Yes |
-| onClose | 关闭事件 | () => void | No | All | Yes |
-| defaultIsOpen | 是否打开 | Boolean | No | All | Yes |
-| size | 尺寸 | Number | No | All | Yes |
-| leastDestructiveRef | 最小元素节点 | Object | No | All | Yes |
-| initialFocusRef | 打开时焦点元素节点 | Object | No | All | Yes |
-| finalFocusRef | 关闭时焦点元素节点 | Boolean | No | All | Yes |
-| avoidKeyboard | 键盘打开，则 AlertDialog 将向上移动相当于键盘高度 | Boolean | No | All | Yes |
-| closeOnOverlayClick | 点击找找关闭 | Boolean | No | All | Yes |
-| isKeyboardDismissable | Esc 关闭 | Boolean | No | No | No |
-| overlayVisible | 背景元素是否可见 | Boolean | No | All | Yes |
-| backdropVisible | 背景元素是否可见 | Boolean | No | All | Yes |
-| \_backdrop | 遮罩参数用样式 | Any | No | All | Yes |
-| \_backdropFade | 遮罩动画的参数样式 | Object | No | All | Yes |
-| \_fade | 子集褪色动画的参数样式 | Object | No | All | Yes |
-| \_slide | 子集幻灯片动画的参数样式 | Object | No | All | Yes |
-| animationPreset | 动画类型 | Object | No | All | Yes |
+| isOpen | If true, the AlertDialog will open. Useful for controllable state behaviour | Boolean | No | All | Yes |
+| onClose | Callback invoked when the AlertDialog is closed | () => void | No | All | Yes |
+| defaultIsOpen | If true, the AlertDialog will be opened by default | Boolean | No | All | Yes |
+| size | The size of the AlertDialog | Number | No | All | Yes |
+| leastDestructiveRef | The ref of element that is least destructive child of the AlertDialog. | Object | No | No | No |
+| initialFocusRef | The ref of element to receive focus when the AlertDialog opens. | Object | No | All | Yes |
+| finalFocusRef | The ref of element to receive focus when the AlertDialog closes. | Object | No | All | Yes |
+| avoidKeyboard | If true and the keyboard is opened, the AlertDialog will move up equivalent to the keyboard height. | Boolean | No | iOS | No |
+| closeOnOverlayClick | If true, the AlertDialog will close when the overlay is clicked | Boolean | No | All | Yes |
+| isKeyboardDismissable | If true, the AlertDialog will close when Escape key is pressed | Boolean | No | No | No |
+| overlayVisible | If true, a backdrop element is visible | Boolean | No | All | Yes |
+| backdropVisible | If true, a backdrop element is visible | Boolean | No | All | Yes |
+| \_backdrop | Props applied on Overlay. | Any | No | All | Yes |
+| \_backdropFade | Props applied on Overlay Animation. | Object | No | All | Yes |
+| \_fade | Props applied on Child Fade Animation. | Object | No | All | Yes |
+| \_slide | Props applied on Child Slide Animation. | Object | No | All | Yes |
+| animationPreset | Sets the animation type | String | No | All | Yes |
 
-**Menu**: 菜单
+**Menu**: Menu generates a dropdown menu along with the menu button design pattern.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| trigger | 手动触发显示的元素 | () => void | No | All | Yes |
-| onOpen | 打开事件 | () => void | No | All | Yes |
-| onClose | 关闭事件 | () => void | No | All | Yes |
-| closeOnSelect | 选择时菜单是否自动关闭 | Boolean | No | All | Yes |
-| defaultIsOpen | 默认打开 | Boolean | No | All | Yes |
-| isOpen | 是否打开 | Boolean | No | All | Yes |
-| crossOffset | 控制菜单相对于触发元素的偏移量 | Number | No | All | Yes |
-| offset | 菜单弹出位置的偏移量 | Number | No | All | Yes |
-| shouldOverlapWithTrigger | 控制菜单是否与触发元素重叠显示。 | boolean | No | All | Yes |
-| placement | 位置，可选 top,bottom,left,right 等 | Boolean | No | All | Yes |
-| \_overlay | 菜单的覆盖层参数 | Boolean | No | All | Yes |
-| \_presenceTransition | 出现和消失过渡效果参数 | Boolean | No | All | Yes |
-| \_backdrop | 背景遮罩参数 | Boolean | No | All | Yes |
+| trigger | Function that returns a React Element. This element will be used as a Trigger for the menu. | () => void | Yes | All | Yes |
+| onOpen | This function will be invoked when the menu is opened. | () => void | No | All | Yes |
+| onClose | This function will be invoked when menu is closed.  It will also be called when the user attempts to close the menu via Escape key or backdrop press. | () => void | No | All | Yes |
+| closeOnSelect | Whether menu should be closed when a menu item is pressed. | Boolean | No | All | Yes |
+| defaultIsOpen | If true, the menu will be opened by default. | Boolean | No | All | Yes |
+| isOpen | Whether the menu is opened. Useful for controlling the open state. | Boolean | No | All | Yes |
+| crossOffset | The additional offset applied along the cross axis between the element and its trigger element. | Number | No | All | Yes |
+| offset | The additional offset applied along the main axis between the element and its trigger element. | Number | No | All | Yes |
+| shouldOverlapWithTrigger | Determines whether menu content should overlap with the trigger. | boolean | No | All | Yes |
+| placement | menu placement.This parameter is optional top,bottom,left,right | String | No | All | Yes |
+| \_overlay | Overlay related props can be passed in _overlay. | Object | No | All | Yes |
+| \_presenceTransition | PresenceTransition related props can be passed in _presenceTransition. | Object | No | All | Yes |
+| \_backdrop | Backdrop related props can be passed in _backdrop. | Object | No | All | Yes |
+| shouldFlip | Whether the element should flip its orientation (e.g. top to bottom or left to right) when there is insufficient room for it to render completely. | Boolean | No | All | Yes |
 
-**Modal**: 弹框
+**Menu.Item**: Menu.Item
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| isOpen | 是否打开 | Boolean | No | All | Yes |
-| onClose | 关闭事件 | () => void | No | All | Yes |
-| defaultIsOpen | 默认打开 | Boolean | No | All | Yes |
-| size | 尺寸 | String | No | All | Yes |
-| initialFocusRef | 模态框打开时最初获得焦点的元素节点 | Any | No | All | Yes |
-| finalFocusRef | 模态框关闭时最终获得焦点的元素节点 | Any | No | All | Yes |
-| avoidKeyboard | 键盘打开，则 Modal 将向上移动相当于键盘高度 | Boolean | No | All | Yes |
-| isKeyboardDismissable | 控制是否可以通过触摸屏幕外部或按下系统返回键来关闭键盘和模态框 | Boolean | No | All | Yes |
-| overlayVisible | 控制模态框的背景覆盖层（overlay）是否可见 | Boolean | No | All | Yes |
-| backdropVisible | 控制模态框的背景遮罩是否可见 | Boolean | No | All | Yes |
-| animationPreset | 动画效果 | String | No | All | Yes |
-| \_fade | 动画参数 | Object | No | All | Yes |
-| \_slide | 幻灯片动画参数 | Object | No | All | Yes |
-| \_overlay | 背景覆盖层参数 | Object | No | All | Yes |
-| useRNModal | 是否使用 React Native 的原生 Modal 组件来实现模态框 | Boolean | No | All | Yes |
-| \_backdropFade | 背景遮罩参数 | Boolean | No | All | Yes |
+| children | Children of Menu Item. | JSX.Element | No | All | Yes |
+| isDisabled | Whether menu item is disabled. | Boolean | No | All | Yes |
+| \_text | Props to be passed to Text. | Object | No | All | Yes |
+| textValue | This value will be available for the typeahead menu feature. | String | No | All | Yes |
 
-**Popover**: 局部弹框
+**Menu.Option**: Menu.Option
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| isOpen | 是否打开 | Boolean | No | All | Yes |
-| onClose | 关闭事件 | () => void | No | All | Yes |
-| onOpen | 打开事件 | () => void | No | All | Yes |
-| defaultIsOpen | 默认打开 | Boolean | No | All | Yes |
-| size | 尺寸 | String | No | All | Yes |
-| initialFocusRef | 模态框打开时最初获得焦点的元素节点 | Any | No | All | Yes |
-| finalFocusRef | 模态框关闭时最终获得焦点的元素节点 | Any | No | All | Yes |
-| avoidKeyboard | 键盘打开，则 Modal 将向上移动相当于键盘高度 | Boolean | No | All | Yes |
-| isKeyboardDismissable | 控制是否可以通过触摸屏幕外部或按下系统返回键来关闭键盘和模态框 | Boolean | No | All | Yes |
-| overlayVisible | 控制模态框的背景覆盖层（overlay）是否可见 | Boolean | No | All | Yes |
-| backdropVisible | 控制模态框的背景遮罩是否可见 | Boolean | No | All | Yes |
-| animationPreset | 动画效果 | String | No | All | Yes |
-| \_fade | 动画参数 | Object | No | All | Yes |
-| \_slide | 幻灯片动画参数 | Object | No | All | Yes |
-| \_overlay | 背景覆盖层参数 | Object | No | All | Yes |
-| useRNModal | 是否使用 React Native 的原生 Modal 组件来实现局部弹框 | Boolean | No | All | Yes |
-| trigger | 手动触发显示的元素 | () => void | No | All | Yes |
-| shouldOverlapWithTrigger | 控制菜单是否与触发元素重叠显示。 | boolean | No | All | Yes |
+| value | Value of the Menu Item option. | String | No | All | Yes |
+| \_stack | Stack related props can be passed in _stack. | Object | No | All | Yes |
+| \_icon | Icon related props can be passed in _icon. | Object | No | All | Yes |
+| \_text | Text related props can be passed in _text. | Object | No | All | Yes |
 
-**Avatar**: 显示用户头像或图像
+**Menu.MenuGroup**: Menu.MenuGroup
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| source | 图片地址参数 | Object | No | All | Yes |
-| size | 尺寸 | String | No | All | Yes |
-| \_image | 图片参数 | Object | No | All | Yes |
-| wrapperRef | 获取节点 | Boolean | No | All | Yes |
+| title | The title of the menu group. | String | No | All | Yes |
+| children | The children of the Menu group. | JSX.Element | No | All | Yes |
+| \_title | Props to pass on to Text. | Object | No | All | Yes |
 
-**Icon**: 展示图标
+**Menu.MenuOptionGroup**: Menu.MenuOptionGroup
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| as | 接收矢量图标 | Any | No | All | Yes |
-| size | 尺寸 | String | No | All | Yes |
-| color | 颜色 | String | No | All | Yes |
-| children | 子元素 | JSX.Element | No | All | Yes |
-| name | 名称 | String | No | All | Yes |
-| viewBox | icon 盒子参数 | String | No | All | Yes |
-| path | icon 地址 | JSX.Element[] | No | All | Yes |
-| d | SVG 图标的路径 | String | No | All | Yes |
+| type | Used to add selection type of menu group. | String | No | All | Yes |
+| defaultValue | The initial value of the option group. | String | No | All | Yes |
+| value | The value of the option group. | String | No | All | Yes |
+| onChange | Function called when selection changes. | () => void | No | All | Yes |
 
-**Image**: 图片
+**Modal**: A Modal is an overlay on the primary window or another dialog window. Content behind the modal dialog remains inert and users cannot interact with it.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| source | 图片地址参数 | Object | No | All | Yes |
-| alt | 未展示文字 | String | No | All | Yes |
-| \_alt | 未展示文字样式参数 | Object | No | All | Yes |
-| size | 尺寸 | String | No | All | Yes |
-| color | 颜色 | String | No | All | Yes |
-| src | 图片地址 | String | No | All | Yes |
-| fallbackSource | 指定当主图像源无法加载时显示的备用图像源 | String | No | All | Yes |
-| ignoreFallback | 是否忽略备用图像源 | Boolean | No | All | Yes |
-| fallbackElement | 指定当主图像源无法加载时显示的备用元素 | JSX.Element | No | All | Yes |
+| isOpen | If true, the modal will open. Useful for controllable state behavior. | Boolean | No | All | Yes |
+| onClose | Callback invoked when the modal is closed. | () => void | No | All | Yes |
+| defaultIsOpen | If true, the modal will be opened by default. | Boolean | No | All | Yes |
+| size | The size of the modal. | String | No | All | Yes |
+| initialFocusRef | The ref of element to receive focus when the modal opens. | Any | No | All | Yes |
+| finalFocusRef | The ref of element to receive focus when the modal closes. | Any | No | All | Yes |
+| avoidKeyboard | If true and the keyboard is opened, the modal will move up equivalent to the keyboard height. | Boolean | No | iOS | No |
+| isKeyboardDismissable | If true, the modal will close when Escape key is pressed. | Boolean | No | All | Yes |
+| overlayVisible | If true, a backdrop element is visible. | Boolean | No | All | Yes |
+| backdropVisible | If true, a backdrop element is visible. | Boolean | No | All | Yes |
+| animationPreset | Sets the animation type. | String | No | All | Yes |
+| \_backdrop | Props applied on Overlay Animation. | Object | No | All | Yes |
+| \_fade | Props applied on Child Fade Animation. | Object | No | All | Yes |
+| \_slide | Props applied on Child Slide Animation. | Object | No | All | Yes |
+| \_overlay | Props to be passed to the Overlay used inside of Modal. | Object | No | All | Yes |
+| useRNModal | If true, renders react-native native modal | Boolean | No | All | Yes |
+| \_backdropFade | Props applied on Overlay Animation. | Object | No | All | Yes |
+| closeOnOverlayClick | If true, the modal will close when the overlay is clicked. | () => void | No | All | Yes |
+
+**Popover**: Popover floats around a trigger. It is a non-modal dialog used to provide contextual information to the user. It should be paired with a pressable trigger element.
+| Name | Description | Type | Required | Platform | HarmonyOS Support |
+| :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
+| isOpen | Whether the popover is opened. Useful for controlling the open state. | Boolean | No | All | Yes |
+| onClose | This function will be invoked when popover is closed. It'll also be called when user attempts to close the popover via Escape key or backdrop press. | () => void | No | All | Yes |
+| onOpen | This function will be invoked when popover is opened. | () => void | No | All | Yes |
+| placement | Popover placement | String | No | All | Yes |
+| defaultIsOpen | If true, the popover will be opened by default. | Boolean | No | All | Yes |
+| initialFocusRef | The ref of element to receive focus when the popover opens. | Any | No | All | Yes |
+| finalFocusRef | The ref of element to receive focus when the modal closes. | Any | No | All | Yes |
+| isKeyboardDismissable | If true, the modal will close when Escape key is pressed. | Boolean | No | All | Yes |
+| useRNModal | If true, renders react-native native modal | Boolean | No | All | Yes |
+| trigger | Function that returns a React Element. This element will be used as a Trigger for the popover. | () => void | No | All | Yes |
+| trapFocus | Whether popover should trap focus. | Boolean | No | No | No |
+| crossOffset | The additional offset applied along the cross axis between the element and its trigger element. | Number | No | All | Yes |
+| offset | The additional offset applied along the main axis between the element and its trigger element. | Number | No | All | Yes |
+| shouldOverlapWithTrigger | Determines whether menu content should overlap with the trigger. | boolean | No | All | Yes |
+| children | Popover children. | JSX.Element | No | All | Yes |
+| shouldFlip | Whether the element should flip its orientation (e.g. top to bottom or left to right) when there is insufficient room for it to render completely. | Boolean | No | All | Yes |
+
+**Avatar**: The Avatar component can display profile pictures, initials, or a fallback image to represent a user.
+| Name | Description | Type | Required | Platform | HarmonyOS Support |
+| :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
+| source | The image source of the avatar. | Object | No | All | Yes |
+| size | The size of the avatar. | String | No | All | Yes |
+| \_image | For providing props to Image component inside the Avatar. | Object | No | All | Yes |
+| wrapperRef | ref to be attached to the Avatar wrapper. | Any | No | All | Yes |
+
+**Icon**: Icon
+| Name | Description | Type | Required | Platform | HarmonyOS Support |
+| :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
+| as | Use <a href='https://github.com/expo/vector-icons'>@expo/vector-icons</a> | Any | No | All | Yes |
+| size | The size of the icon. | String | No | All | Yes |
+| color | The color of the icon. | String | No | All | Yes |
+| name | name | String | No | All | Yes |
+| viewBox | The viewBox of the icon. | String | No | All | Yes |
+| path | icon path | JSX.Element[] | No | All | Yes |
+| d | SVG path of the icon | String | No | All | Yes |
+
+**Image**: The Image component allows one to display images.
+| Name | Description | Type | Required | Platform | HarmonyOS Support |
+| :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
+| source | specify a source for image. | Object | No | All | Yes |
+| alt | The alt text that describes the image. This will be added as accessibilityLabel in android/iOS and alt on web.   | String | No | All | Yes |
+| \_alt | In the event of an error loading the src, specify a fallback source. | Object | No | All | Yes |
+| size | The size of the Image. | String | No | All | Yes |
+| src | specify a source for image. | String | No | All | Yes |
+| fallbackSource | In the event of an error loading the src, specify a fallback source. | String | No | All | Yes |
+| ignoreFallback | Opt out of the fallbackSource logic and show alternative text. | Boolean | No | All | Yes |
+| fallbackElement | In the event of an error loading the src, specify a fallback JSX Element. | JSX.Element | No | All | Yes |
 
 **ActionSheet**: 操作表
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| isOpen | 是否打开 | Boolean | No | All | Yes |
-| onClose | 关闭事件 | () => void | No | All | Yes |
-| disableOverlay | 是否有遮罩 | Boolean | No | All | Yes |
-| hideDragIndicator | 是否有拖动 | Boolean | No | All | Yes |
-| \_backdrop | 遮罩参数用样式 | any | No | All | Yes |
-| useRNModal | 是否使用 React Native 的原生 Modal 组件来实现 ActionSheet | Boolean | No | All | Yes |
+| isOpen | If true, the ActionSheet will open. Useful for controllable state behavior. | Boolean | No | All | Yes |
+| onClose | Callback invoked when the modal is closed. | () => void | No | All | Yes |
+| disableOverlay | If true, disables the overlay. | Boolean | No | All | Yes |
+| hideDragIndicator | If true, hides the drag indicator. | Boolean | No | All | Yes |
+| \_backdrop | Props applied on Overlay. | any | No | All | Yes |
+| useRNModal | If true, renders react-native native modal | Boolean | No | All | Yes |
 
 **Actionsheet.Content**: 操作表内容
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| \_dragIndicatorWrapperOffSet | 在操作表内容上方区域内容参数 | Object | No | All | Yes |
-| \_dragIndicatorWrapper | 在操作表内容周围区域内容参数 | Object | No | All | Yes |
-| \_dragIndicator | 在拖动指示器上施加的推力 | Object | No | All | Yes |
+| \_dragIndicatorWrapperOffSet | Props applied on area above actionsheet content. | Object | No | All | Yes |
+| \_dragIndicatorWrapper | Props applied on area around drag indicator. | Object | No | All | Yes |
+| \_dragIndicator | Props applied on drag indicator. | Object | No | All | Yes |
 
-**PresenceTransition**: 组件的出现和消失添加动画过渡效果
+**PresenceTransition**: PresenceTransition provides a declarative API to add entry and exit transitions.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| onTransitionComplete | 过渡完成事件 | () => void | No | All | Yes |
-| initial | 动画初始状态的属性 | Object | No | All | Yes |
-| animate | 动画最终状态的属性 | Object | No | All | Yes |
-| exit | 组件在隐藏时的状态 | Boolean | No | All | Yes |
-| visible | 是否打开 | Boolean | No | All | Yes |
-| animationExited | 过渡动画已经完全退出 | Boolean | No | All | Yes |
-| children | 子集 | any | No | All | Yes |
-| as | 包裹在过渡效果中的元素的类型 | any | No | All | Yes |
+| onTransitionComplete | Callback invoked when the transition is completed. | () => void | No | All | Yes |
+| initial | Styles before the transition starts. | Object | No | All | Yes |
+| animate | Entry animation styles. | Object | No | All | Yes |
+| exit | Exit animation styles. | Boolean | No | All | Yes |
+| visible | Determines whether to start the animation. | Boolean | No | All | Yes |
+| children | PresenceTransition children. | any | No | All | Yes |
+| as | Accepts a Component to be rendered as Wrapper. Defaults to `View`. | any | No | All | Yes |
 
-**Stagger**: 交错动画效果组件
+**Stagger**: Stagger component provides a declarative API to add staggered transitions.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| initial | 动画初始状态的属性 | Object | No | All | Yes |
-| animate | 动画最终状态的属性 | Object | No | All | Yes |
-| exit | 组件在隐藏时的状态 | Boolean | No | All | Yes |
-| visible | 是否打开 | Boolean | No | All | Yes |
+| initial | Initial styles before the transition starts | Object | No | All | Yes |
+| animate | The styles to which each child should animate to while entering. | Object | No | All | Yes |
+| exit | The styles to which each child should animate to while exiting. | Object | No | All | Yes |
+| visible | Determines whether to start the animation | Boolean | No | All | Yes |
 
-**Slide**: 实现滑动动画
+**Slide**: Slide component provides a declarative API to add sliding transitions.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| in | 显示隐藏 | Boolean | No | All | Yes |
-| duration | 动画事件 | Number | No | All | Yes |
-| placement | 位置 | String | No | All | Yes |
+| in | Show or hidden | Boolean | No | All | Yes |
+| duration | Slide duration  | Number | No | All | Yes |
+| placement | Slide placement | String | No | All | Yes |
 
-**FAB**: 浮动按钮
+**FAB**: A floating action button (FAB) is a circular icon button that hovers over content to execute a primary action in the application.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| placement | 位置 | String | No | All | Yes |
-| label | 文本参数 | String | No | All | Yes |
-| icon | 图标 | React.Element | No | All | Yes |
-| renderInPortal | 是否将 FAB 渲染在一个 Portal(Portal 是一种在 React 中用于将子组件渲染到父组件以外的 DOM 节点中的技术) | Boolean | No | All | Yes |
+| placement | Placement of the Fab. | String | No | All | Yes |
+| label | Text to be displayed in Fab. | String | No | All | Yes |
+| icon | Icon to be displayed in Fab. | React.Element | No | All | Yes |
+| renderInPortal | Determines whether the Fab should be rendered in a Portal. | Boolean | No | All | Yes |
 
-**Hidden**: 根据 colorMode 或平台响应性地切换子组件的可见性值
+**Hidden**: Hidden is used to toggle the visibility value of child components responsively, based on the colorMode or based on the platform. It does not mount the child components in the restricted values of props.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| from | 屏幕尺寸的起点，当屏幕尺寸大于等于这个起点时，组件将被隐藏 | String | No | All | Yes |
-| till | 屏幕尺寸的终点，当屏幕尺寸小于这个终点时，组件将被隐藏 | String | No | All | Yes |
-| only | 指定一个或多个特定的屏幕尺寸，只有在这些尺寸下组件才会显示，其他尺寸下将被隐藏 | String | No | All | Yes |
-| colorMode | 组件在不同颜色模式下的显示状态。NativeBase 通常支持多种颜色模式，如 light（浅色模式）、dark（深色模式）等。 | React.Element | No | All | Yes |
-| platform | 系统平台 | React.Element | No | All | Yes |
-| children | 子元素 | React.Element | No | All | Yes |
-| isSSR | 组件是否在服务器端渲染（SSR）环境中 | Boolean | No | All | Yes |
+| from | The from prop takes breakpoint from which the wrapped component is hidden. | String | No | All | Yes |
+| till | The till prop takes breakpoint till which the wrapped component is hidden. | String | No | All | Yes |
+| only | The only prop takes array of breakpoints on which the wrapped component is hidden. | String | No | All | Yes |
+| colorMode | The colormode takes the mode on which the wrapped component must be hidden. | React.Element | No | No | No |
+| platform | The platform takes the platform as string or array for the multiple on which the wrapped component must be hidden. | React.Element | No | All | Yes |
+| children | Hidden children. | React.Element | No | All | Yes |
+| isSSR | Is the component in the server-side rendering (SSR) environment | Boolean | No | No | No |
 
-**KeyboardAvoidingView**: 拉起键盘视图向上移动的垂直偏移量
+**KeyboardAvoidingView**: Provides a view that moves out of the way of virtual keyboard automatically. It solves the common problem of views needing to move out of the way of the virtual keyboard. It can automatically adjust either its height, position, or bottom padding based on the keyboard height.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
-| behavior | 键盘弹出时的行为 | String 或 Undefined | No | All | Yes |
-| contentContainerStyle | 设置该组件内部内容容器的样式 | Object | No | All | Yes |
-| keyboardVerticalOffset | 当键盘出现时，视图向上移动的垂直偏移量 | Number 或 Undefined | No | All | Yes |
-| enabled | 用于控制 KeyboardAvoidingView 是否生效 | Boolean 或 Undefined | No | All | Yes |
+| children | KeyboardAvoidingView children. | React.element | No | All | Yes |
 
-**Other**: 包含 hooks 和外用组件
+**Scrollview**: Scrollview
+| Name | Description | Type | Required | Platform | HarmonyOS Support |
+| :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
+| children | Scrollview children. | React.element | No | All | Yes |
+| \_contentContainerStyle | Pass props to contentContainerStyle, and this also resolves NB tokens. | Object | No | All | Yes |
+
+**View**: View
+| Name | Description | Type | Required | Platform | HarmonyOS Support |
+| :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
+| children | View children. | React.element | No | All | Yes |
+
+**FlatList**: FlatList
+| Name | Description | Type | Required | Platform | HarmonyOS Support |
+| :------------------: | :----------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
+| \_contentContainerStyle | Pass props to contentContainerStyle, and this also resolves NB tokens. | Object | No | All | Yes |
+| ref | Obtain node data | Object | No | All | Yes |
+
+**Other and hooks**：包含 hooks 和外用组件
 | Name | Description | Required | Platform | HarmonyOS Support |
 | ---------------------- | ----------- | -------- | ----------------- | ----------------- |
-| Scrollview | 导出的是 RN 原生的 Scrollview，可直接用 RN 的 Scrollview | NO | All | YES |
-| View | 导出的是 RN 原生的 View，可直接用 RN 的 View | NO | All | YES |
-| FlatList | 导出的是 RN 原生的 FlatList，可直接用 RN 的 FlatList | NO | All | YES |
-| useDisclose | 处理常见的打开、关闭或切换场景，并可以控制反馈组件，如 Modal、AlertDialog、Drawer 等。 | NO | All | YES |
-| useBreakpointValue | 用于呈现分段列表的高性能接口 | NO | All | YES |
+| useDisclose | useDisclose handles common open, close, or toggle scenarios and can control feedback components such as Modal, AlertDialog, Drawer, etc. | NO | All | YES |
+| useBreakpointValue | useBreakpointValue returns the value for the current breakpoint based on the provided responsive values object. It is also responsive to window resizing and returning the appropriate value according to the new window size. | NO | NO | NO |
 | SectionList | 导出的是 RN 原生的 SectionList，可直接用 RN 的 SectionList | NO | All | YES |
-| useClipboard | 使用剪贴板控件并控制将内容复制到剪贴板 | NO | All | YES |
-| useMediaQuery | 检测单个媒体查询或多个媒体查询之间的匹配。React Native 本身不支持媒体查询，因此 useMediaQuery 仍然有限 | NO | All | YES |
-| useToken | 解析主题中的设计标记. | NO | All | YES |
-| useColorMode |设置或检索颜色模式 | NO | All | YES |
-| useColorModeValue | 基于活动颜色模式值传递的参数中检索值 | NO | All | YES |
-| useContrastText | 提供与作为参数传递的背景颜色的颜色对比文本颜色（lightText 或 darkText） | NO | All | YES |
-| useAccessibleColors | 更新您的颜色配置，以在应用程序中获得更好的颜色和对比度可访问性。默认情况下，可访问的颜色是关闭的如果您想继续使用可访问的文本颜色，可以使用此挂钩。您还可以使用 extendTheme 在 NativeBaseProvider 的配置中传递它 | NO | All | YES |
+| useClipboard | useClipboard controls and regulates the copying of content to the clipboard. | NO | All | YES |
+| useMediaQuery | useMediaQuery is a custom hook that helps detect matches between a single media query or multiple media queries. React Native does not natively support media queries, so useMediaQuery is still limited. | NO | All | YES |
+| useToken | useTheme is a custom hook to call theme object from the context. | NO | All | YES |
+| useColorMode |useToken resolves design tokens from the theme. | NO | NO | NO |
+| useTheme |useToken resolves design tokens from the theme. | NO | All | YES |
+| useColorModeValue | useColorModeValue is a custom hook that can retrieve a value from parameters passed based on active color mode value. | NO | NO | NO |
+| useContrastText | useContrastText is a custom hook that provides color contrast text color (either lightText or darkText) against the background color that is passed as a parameter. | NO | All | YES |
+| useAccessibleColors | useContrastText is a custom hook that provides color contrast text color (either lightText or darkText) against the background color that is passed as a parameter. | NO | All | YES |
 | Todo-List | 用本库的组件写的案例，如有业务需要可自行编写适合的组件 | NO | All | YES |
 | AppBar | 用本库的组件写的案例，如有业务需要可自行编写适合的组件 | NO | All | YES |
 | Card |用本库的组件写的案例，如有业务需要可自行编写适合的组件| NO | All | YES |
@@ -771,10 +801,14 @@ For details, see [NativeBase docs](https://docs.nativebase.io)
 
 ## Known Issues
 
+- [ ] FormControl 组件 isDisabled 属性无效: [issue#1](https://github.com/GeekyAnts/NativeBase/issues/5707)
+- [ ] Select 组件 placeholderTextColor 属性无效: [issue#16](https://github.com/react-native-oh-library/NativeBase/issues/16)
+- [ ] Modal,AlertDialog,组件 avoidKeyboard 属性无效: [issue#17](https://github.com/react-native-oh-library/NativeBase/issues/17)
+
 ## Others
 
 - 网站文档图标要用@expo/vector-icons（需要用到 expo 脚手架才可以），如果没有用到 expo 脚手架的可以用[react-native-vector-icons 文档](/zh-cn/react-native-vector-icons.md)平替
-- Tooltip 当用户与元素交互时，工具提示会提供简短的信息性消息。工具提示的启动方法包括: 通过鼠标悬停手势或键盘悬停手势。这个组件是在 web 端用的
+- Tooltip 当用户与元素交互时，工具提示会提供简短的信息性消息。工具提示的启动方法包括：通过鼠标悬停手势或键盘悬停手势。这个组件是在 web 端用的
 
 ## License
 

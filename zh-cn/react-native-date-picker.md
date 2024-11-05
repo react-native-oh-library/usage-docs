@@ -132,18 +132,18 @@ ohpm install
 
 > [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
-### 3.在 ArkTs 侧引入 NativeDatePickerView 组件
+### 3.在 ArkTs 侧引入 RNDatePicker 组件
 找到 **function buildCustomRNComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
   ...
-+ import { NativeDatePickerView } from "@react-native-oh-tpl/react-native-date-picker"
++ import { RNDatePicker } from "@react-native-oh-tpl/react-native-date-picker"
 
 @Builder
 export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
   ...
-+ if (ctx.componentName === NativeDatePickerView.NAME) {
-+   NativeDatePickerView({
++ if (ctx.componentName === RNDatePicker.NAME) {
++   RNDatePicker({
 +        ctx: ctx.rnComponentContext,
 +        tag: ctx.tag
 +   })
@@ -162,10 +162,26 @@ const arkTsComponentNames: Array<string> = [
   SampleView.NAME,
   GeneratedSampleView.NAME,
   PropsDisplayer.NAME,
-+ NativeDatePickerView.NAME, 
++ RNDatePicker.NAME, 
   ];
 ```
-### 4.运行
+
+### 4. 在 ArkTs 侧引入 RNDatePickerPackage
+
+Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
+
+```diff
+  ...
++ import {RNDatePickerPackage} from '@react-native-oh-tpl/react-native-date-picker/ts';
+
+export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
+  return [
+    new SamplePackage(ctx),
++   new RNDatePickerPackage(ctx)
+  ];
+}
+```
+### 5.运行
 
 点击右上角的 `sync` 按钮
 

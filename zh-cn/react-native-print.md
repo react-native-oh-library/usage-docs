@@ -221,16 +221,6 @@ ohpm install
 +    }
 +  },
 +  {
-+    "name": "fs.OpenMode.READ_ONLY",
-+    "reason": "$string:fs_reason",
-+    "usedScene": {
-+      "abilities": [
-+        "EntryAbility"
-+      ],
-+      "when":"always"
-+    }
-+  },
-+  {
 +    "name": "ohos.permission.INTERNET",
 +    "reason": "$string:internet_reason",
 +    "usedScene": {
@@ -254,10 +244,6 @@ ohpm install
 +    {
 +      "name": "print_reason",
 +      "value": "使用打印机"
-+    },
-+    {
-+      "name": "fs_reason",
-+      "value": "读取数据"
 +    },
 +    {
 +      "name": "internet_reason",

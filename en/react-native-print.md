@@ -218,16 +218,6 @@ Open the `entry/src/main/module.json5` file and add the following code:
 +    }
 +  },
 +  {
-+    "name": "fs.OpenMode.READ_ONLY",
-+    "reason": "$string:fs_reason",
-+    "usedScene": {
-+      "abilities": [
-+        "EntryAbility"
-+      ],
-+      "when":"always"
-+    }
-+  },
-+  {
 +    "name": "ohos.permission.INTERNET",
 +    "reason": "$string:internet_reason",
 +    "usedScene": {
@@ -251,10 +241,6 @@ Open the `entry/src/main/resources/base/element/string.json` file and add the fo
 +    {
 +      "name": "print_reason",
 +      "value": "Using a printer"
-+    },
-+    {
-+      "name": "fs_reason",
-+      "value": "Read data"
 +    },
 +    {
 +      "name": "internet_reason",

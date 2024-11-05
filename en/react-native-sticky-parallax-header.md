@@ -161,7 +161,7 @@ Find the matching version information in the release address of a third-party li
 
 ## Headers
 
-包含 Tabbed Header Pager、Tabbed Header List、Details Header、Avatar Header、Custom Sticky Header 以及 FlashList Headers 几个大类
+It consists of the  Tabbed Header Pager、Tabbed Header List、Details Header、Avatar Header、Custom Sticky Header and FlashList Headers categories.
 
 ### Tabbed Header Pager components
 
@@ -173,55 +173,53 @@ Inherits [ScrollViewProps](https://reactnative.dev/docs/next/scrollview#props)
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                           | Description                             | Type                                                   | Required | Platform    | HarmonyOS Support |
-| ------------------------------ | --------------------------------------- | ------------------------------------------------------ | -------- | ----------- | ----------------- |
-| backgroundColor                | 设置组件的背景色                        | color - ColorValue                                     | no       | iOS/Android | yes               |
-| backgroundImage                | 设置组件的背景图片                      | image source - ImageSourcePropType                     | no       | iOS/Android | no                |
-| containerStyle                 | 设置整个组件容器的样式                  | style - StyleProp<ViewStyle>                           | yes      | iOS/Android | yes               |
-| disableScrollToPosition        | 是否禁用滑动                            | boolean                                                | no       | iOS/Android | no                |
-| enableSafeAreaTopInset         | 是否设置安全区域                        | boolean                                                | yes      | iOS/Android | yes               |
-| foregroundImage                | 设置头像图片资源                        | image source - ImageSourcePropType                     | no       | iOS/Android | yes               |
-| headerHeight                   | 设置组件上部分 header 高度              | number                                                 | no       | iOS/Android | yes               |
-| initialPage                    | 设置组件下部分 page 初始页              | number                                                 | no       | iOS/Android | yes               |
-| headerHeight                   | 设置 header 高度                        | number                                                 | no       | iOS/Android | yes               |
-| logo                           | 设置顶部 Logo 图片资源                  | image source - ImageSourcePropType                     | no       | iOS/Android | yes               |
-| logoContainerStyle             | 设置 logo 容器样式                      | style - StyleProp<ViewStyle>                           | no       | iOS/Android | yes               |
-| logoStyle                      | 设置 logo 样式                          | style - StyleProp<ViewStyle>                           | no       | iOS/Android | yes               |
-| onChangeTab                    | Tab 栏切换回调                          | function - (prevPage: number, newPage: number) => void | no       | iOS/Android | yes               |
-| onHeaderLayout                 | header 布局调整回调                     | function - (e: LayoutChangeEvent) => void              | no       | iOS/Android | yes               |
-| onMomentumScrollBegin          | 滑动开始事件回调                        | worklet function - (e: NativeScrollEvent) => void      | no       | iOS/Android | yes               |
-| onMomentumScrollEnd            | 滑动结束事件回调                        | worklet function - (e: NativeScrollEvent) => void      | no       | iOS/Android | yes               |
-| onScroll                       | 滑动事件回调                            | worklet function - (e: NativeScrollEvent) => void      | no       | iOS/Android | yes               |
-| onScrollBeginDrag              | 滑动开始拖拽事件回调                    | worklet function - (e: NativeScrollEvent) => void      | no       | iOS/Android | yes               |
-| onScrollEndDrag                | 滑动结束拖拽事件回调                    | worklet function - (e: NativeScrollEvent) => void      | no       | iOS/Android | yes               |
-| onTabsLayout                   | Tab 栏布局改变事件回调                  | function - (e: LayoutChangeEvent) => void              | no       | iOS/Android | yes               |
-| onTopReached                   | 触顶事件回调                            | function - () => void                                  | no       | iOS/Android | yes               |
-| parallaxHeight                 | 视差高度值(默认 53% of screen's height) | number                                                 | no       | iOS/Android | yes               |
-| rememberTabScrollPosition      | 是否保留 Tab 面板滑动位置               | boolean                                                | no       | iOS/Android | yes               |
-| renderHeaderBar                | headerBar 渲染方法                      | render function                                        | no       | iOS/Android | yes               |
-| rememberTabScrollPosition      | 是否保留 Tab 面板滑动位置               | boolean                                                | no       | iOS/Android | yes               |
-| snapStartThreshold             | 滑动开始时阻力值                        | number                                                 | no       | iOS/Android | yes               |
-| snapStopThreshold              | 滑动结束时阻力值                        | number                                                 | no       | iOS/Android | no                |
-| snapToEdge                     | 是否可以滑动到 Edge（默认 true）        | number                                                 | no       | iOS/Android | no                |
-| stickyTabs                     | Tab 栏是否可以固定位置（默认 true）     | number                                                 | no       | iOS/Android | yes               |
-| tabTextActiveStyle             | Tab 栏选中文字样式                      | style - StyleProp<TextStyle>                           | no       | iOS/Android | yes               |
-| tabTextContainerStyle          | Tab 栏文字容器样式                      | style - StyleProp<ViewStyle>                           | no       | iOS/Android | yes               |
-| tabTextContainerActiveStyle    | Tab 栏文字容器选中样式                  | style - StyleProp<ViewStyle>                           | no       | iOS/Android | yes               |
-| tabTextStyle                   | Tab 栏文字样式                          | style - StyleProp<TextStyle>                           | no       | iOS/Android | yes               |
-| tabUnderlineColor              | Tab 栏文字底部横线颜色                  | color - ColorValue                                     | no       | iOS/Android | yes               |
-| tabWrapperStyle                | Tab 栏包裹容器样式                      | style - StyleProp<ViewStyle>                           | no       | iOS/Android | yes               |
-| tabs                           | Tab 栏数据源                            | Tabs array - Tab[]                                     | no       | iOS/Android | yes               |
-| tabsContainerBackgroundColor   | Tab 栏容器背景颜色                      | color - ColorValue                                     | no       | iOS/Android | yes               |
-| tabsContainerHorizontalPadding | Tab 栏容器水平内边距（默认 20）         | number                                                 | no       | iOS/Android | yes               |
-| tabsContainerStyle             | Tab 栏容器样式                          | style - StyleProp<ViewStyle>                           | no       | iOS/Android | yes               |
-| title                          | 标题文字                                | string                                                 | no       | iOS/Android | yes               |
-| titleStyle                     | 标题文字样式                            | style = StyleProp<TextStyle>                           | no       | iOS/Android | yes               |
-| titleTestID                    | 标题测试 ID                             | string                                                 | no       | iOS/Android | yes               |
+| Name                           | Description                                                        | Type                                                   | Required | Platform    | HarmonyOS Support |
+|--------------------------------|--------------------------------------------------------------------|--------------------------------------------------------|----------|-------------|-------------------|
+| backgroundColor                | Sets the background color of a component                           | color - ColorValue                                     | no       | iOS/Android | yes               |
+| backgroundImage                | Sets the background image of the widget                            | image source - ImageSourcePropType                     | no       | iOS/Android | no                |
+| containerStyle                 | Style the entire component container                               | style - StyleProp<ViewStyle>                           | yes      | iOS/Android | yes               |
+| disableScrollToPosition        | Whether to disable sliding                                         | boolean                                                | no       | iOS/Android | no                |
+| enableSafeAreaTopInset         | Indicates whether to set a security zone                           | boolean                                                | yes      | iOS/Android | yes               |
+| foregroundImage                | Setting the avatar resource                                        | image source - ImageSourcePropType                     | no       | iOS/Android | yes               |
+| headerHeight                   | Sets the header height on the component                            | number                                                 | no       | iOS/Android | yes               |
+| initialPage                    | Sets the initial page of the lower page of the component           | number                                                 | no       | iOS/Android | yes               |
+| logo                           | Set the logo image resource on the top                             | image source - ImageSourcePropType                     | no       | iOS/Android | yes               |
+| logoContainerStyle             | Sets the logo container style                                      | style - StyleProp<ViewStyle>                           | no       | iOS/Android | yes               |
+| logoStyle                      | Setting the logo style                                             | style - StyleProp<ViewStyle>                           | no       | iOS/Android | yes               |
+| onChangeTab                    | Tab bar switch callback                                            | function - (prevPage: number, newPage: number) => void | no       | iOS/Android | yes               |
+| onHeaderLayout                 | Header layout adjustment callback                                  | function - (e: LayoutChangeEvent) => void              | no       | iOS/Android | yes               |
+| onMomentumScrollBegin          | Sliding start event callback                                       | worklet function - (e: NativeScrollEvent) => void      | no       | iOS/Android | yes               |
+| onMomentumScrollEnd            | Sliding end event callback                                         | worklet function - (e: NativeScrollEvent) => void      | no       | iOS/Android | yes               |
+| onScroll                       | Sliding event callback                                             | worklet function - (e: NativeScrollEvent) => void      | no       | iOS/Android | yes               |
+| onScrollBeginDrag              | Callback of the sliding start drag event                           | worklet function - (e: NativeScrollEvent) => void      | no       | iOS/Android | yes               |
+| onScrollEndDrag                | Sliding end drag event callback                                    | worklet function - (e: NativeScrollEvent) => void      | no       | iOS/Android | yes               |
+| onTabsLayout                   | Tab bar layout change event callback                               | function - (e: LayoutChangeEvent) => void              | no       | iOS/Android | yes               |
+| onTopReached                   | Top event callback                                                 | function - () => void                                  | no       | iOS/Android | yes               |
+| parallaxHeight                 | Parallax height value(default 53% of screen's height)              | number                                                 | no       | iOS/Android | yes               |
+| rememberTabScrollPosition      | Indicates whether to retain the sliding position of the tab panel. | boolean                                                | no       | iOS/Android | yes               |
+| renderHeaderBar                | headerBar Rendering Function                                       | render function                                        | no       | iOS/Android | yes               |
+| snapStartThreshold             | Resistance value at the start of sliding                           | number                                                 | no       | iOS/Android | yes               |
+| snapStopThreshold              | Resistance value at the end of sliding                             | number                                                 | no       | iOS/Android | no                |
+| snapToEdge                     | enabled or not to slide to edge（default true）                      | number                                                 | no       | iOS/Android | no                |
+| stickyTabs                     | Indicates whether the tab bar can be fixed（default true）           | number                                                 | no       | iOS/Android | yes               |
+| tabTextActiveStyle             | Select a text style on the tab bar                                 | style - StyleProp<TextStyle>                           | no       | iOS/Android | yes               |
+| tabTextContainerStyle          | Tab Bar Text Container Style                                       | style - StyleProp<ViewStyle>                           | no       | iOS/Android | yes               |
+| tabTextContainerActiveStyle    | Tab Bar Text Container Selection Style                             | style - StyleProp<ViewStyle>                           | no       | iOS/Android | yes               |
+| tabTextStyle                   | Tab Bar Text Style                                                 | style - StyleProp<TextStyle>                           | no       | iOS/Android | yes               |
+| tabUnderlineColor              | Color of the horizontal line at the bottom of the tab bar text     | color - ColorValue                                     | no       | iOS/Android | yes               |
+| tabWrapperStyle                | Tab Bar Wrap Container Style                                       | style - StyleProp<ViewStyle>                           | no       | iOS/Android | yes               |
+| tabs                           | Tab Bar Data Source                                                | Tabs array - Tab[]                                     | no       | iOS/Android | yes               |
+| tabsContainerBackgroundColor   | Tab Bar Container Background Color                                 | color - ColorValue                                     | no       | iOS/Android | yes               |
+| tabsContainerHorizontalPadding | Tab Bar Container Horizontal Inner Margin（default 20）              | number                                                 | no       | iOS/Android | yes               |
+| tabsContainerStyle             | Tab Bar Container Style                                            | style - StyleProp<ViewStyle>                           | no       | iOS/Android | yes               |
+| title                          | Title Text                                                         | string                                                 | no       | iOS/Android | yes               |
+| titleStyle                     | Title Text Style                                                   | style = StyleProp<TextStyle>                           | no       | iOS/Android | yes               |
+| titleTestID                    | Title Test ID                                                      | string                                                 | no       | iOS/Android | yes               |
 
 ### Static Methods
 
 | Name     | Description                             | Type     | Required | Platform    | HarmonyOS Support |
-| -------- | --------------------------------------- | -------- | -------- | ----------- | ----------------- |
+|----------|-----------------------------------------|----------|----------|-------------|-------------------|
 | goToPage | function - (pageNumber: number) => void | function | no       | iOS/Android | no                |
 
 ### Tabbed Header List components
@@ -234,252 +232,245 @@ Inherits [SectionListProps](https://reactnative.dev/docs/next/sectionlist/#props
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                           | Description                             | Type                                              | Required | Platform    | HarmonyOS Support |
-| ------------------------------ | --------------------------------------- | ------------------------------------------------- | -------- | ----------- | ----------------- |
-| backgroundColor                | 设置组件的背景色                        | color - ColorValue                                | no       | iOS/Android | yes               |
-| backgroundImage                | 设置组件的背景图片                      | image source - ImageSourcePropType                | no       | iOS/Android | no                |
-| containerStyle                 | 设置整个组件容器的样式                  | style - StyleProp<ViewStyle>                      | yes      | iOS/Android | yes               |
-| enableSafeAreaTopInset         | 是否设置安全区域                        | boolean                                           | yes      | iOS/Android | yes               |
-| foregroundImage                | 设置头像图片资源                        | image source - ImageSourcePropType                | no       | iOS/Android | yes               |
-| headerHeight                   | 设置 header 高度                        | number                                            | no       | iOS/Android | yes               |
-| logo                           | 设置顶部 Logo 图片资源                  | image source - ImageSourcePropType                | no       | iOS/Android | yes               |
-| logoContainerStyle             | 设置 logo 容器样式                      | style - StyleProp<ViewStyle>                      | no       | iOS/Android | yes               |
-| logoStyle                      | 设置 logo 样式                          | style - StyleProp<ViewStyle>                      | no       | iOS/Android | yes               |
-| onHeaderLayout                 | header 布局调整回调                     | function - (e: LayoutChangeEvent) => void         | no       | iOS/Android | yes               |
-| onMomentumScrollBegin          | 滑动开始事件回调                        | worklet function - (e: NativeScrollEvent) => void | no       | iOS/Android | yes               |
-| onMomentumScrollEnd            | 滑动结束事件回调                        | worklet function - (e: NativeScrollEvent) => void | no       | iOS/Android | yes               |
-| onScroll                       | 滑动事件回调                            | worklet function - (e: NativeScrollEvent) => void | no       | iOS/Android | yes               |
-| onScrollBeginDrag              | 滑动开始拖拽事件回调                    | worklet function - (e: NativeScrollEvent) => void | no       | iOS/Android | yes               |
-| onScrollEndDrag                | 滑动结束拖拽事件回调                    | worklet function - (e: NativeScrollEvent) => void | no       | iOS/Android | yes               |
-| onTabsLayout                   | Tab 栏布局改变事件回调                  | function - (e: LayoutChangeEvent) => void         | no       | iOS/Android | yes               |
-| onTopReached                   | 触顶事件回调                            | function - () => void                             | no       | iOS/Android | yes               |
-| parallaxHeight                 | 视差高度值(默认 53% of screen's height) | number                                            | no       | iOS/Android | yes               |
-| rememberTabScrollPosition      | 是否保留 Tab 面板滑动位置               | boolean                                           | no       | iOS/Android | yes               |
-| renderHeaderBar                | headerBar 渲染方法                      | render function                                   | no       | iOS/Android | yes               |
-| snapStartThreshold             | 滑动开始时阻力值                        | number                                            | no       | iOS/Android | yes               |
-| snapStopThreshold              | 滑动结束时阻力值                        | number                                            | no       | iOS/Android | no                |
-| snapToEdge                     | 是否可以滑动到 Edge（默认 true）        | number                                            | no       | iOS/Android | no                |
-| stickyTabs                     | Tab 栏是否可以固定位置（默认 true）     | number                                            | no       | iOS/Android | yes               |
-| tabTextActiveStyle             | Tab 栏选中文字样式                      | style - StyleProp<TextStyle>                      | no       | iOS/Android | yes               |
-| tabTextContainerStyle          | Tab 栏文字容器样式                      | style - StyleProp<ViewStyle>                      | no       | iOS/Android | yes               |
-| tabTextContainerActiveStyle    | Tab 栏文字容器选中样式                  | style - StyleProp<ViewStyle>                      | no       | iOS/Android | yes               |
-| tabTextStyle                   | Tab 栏文字样式                          | style - StyleProp<TextStyle>                      | no       | iOS/Android | yes               |
-| tabUnderlineColor              | Tab 栏文字底部横线颜色                  | color - ColorValue                                | no       | iOS/Android | yes               |
-| tabWrapperStyle                | Tab 栏包裹容器样式                      | style - StyleProp<ViewStyle>                      | no       | iOS/Android | yes               |
-| tabs                           | Tab 栏数据源                            | Tabs array - Tab[]                                | no       | iOS/Android | yes               |
-| tabsContainerBackgroundColor   | Tab 栏容器背景颜色                      | color - ColorValue                                | no       | iOS/Android | yes               |
-| tabsContainerHorizontalPadding | Tab 栏容器水平内边距（默认 20）         | number                                            | no       | iOS/Android | yes               |
-| tabsContainerStyle             | Tab 栏容器样式                          | style - StyleProp<ViewStyle>                      | no       | iOS/Android | yes               |
-| title                          | 标题文字                                | string                                            | no       | iOS/Android | yes               |
-| titleStyle                     | 标题文字样式                            | style = StyleProp<TextStyle>                      | no       | iOS/Android | yes               |
-| titleTestID                    | 标题测试 ID                             | string                                            | no       | iOS/Android | yes               |
+| Name                           | Description                                                   | Type                                              | Required | Platform    | HarmonyOS Support |
+|--------------------------------|---------------------------------------------------------------|---------------------------------------------------|----------|-------------|-------------------|
+| backgroundColor                | Sets the background color of a component                      | color - ColorValue                                | no       | iOS/Android | yes               |
+| backgroundImage                | Sets the background image of the widget                       | image source - ImageSourcePropType                | no       | iOS/Android | no                |
+| containerStyle                 | Style the entire component container                          | style - StyleProp<ViewStyle>                      | yes      | iOS/Android | yes               |
+| enableSafeAreaTopInset         | Indicates whether to set a security zone                      | boolean                                           | yes      | iOS/Android | yes               |
+| foregroundImage                | Setting the avatar resource                                   | image source - ImageSourcePropType                | no       | iOS/Android | yes               |
+| headerHeight                   | Sets the header height on the component                       | number                                            | no       | iOS/Android | yes               |
+| logo                           | Set the logo image resource on the top                        | image source - ImageSourcePropType                | no       | iOS/Android | yes               |
+| logoContainerStyle             | Sets the logo container style                                 | style - StyleProp<ViewStyle>                      | no       | iOS/Android | yes               |
+| logoStyle                      | Setting the logo style                                        | style - StyleProp<ViewStyle>                      | no       | iOS/Android | yes               |
+| onMomentumScrollBegin          | Sliding start event callback                                  | worklet function - (e: NativeScrollEvent) => void | no       | iOS/Android | yes               |
+| onMomentumScrollEnd            | Sliding end event callback                                    | worklet function - (e: NativeScrollEvent) => void | no       | iOS/Android | yes               |
+| onScroll                       | Sliding event callback                                        | worklet function - (e: NativeScrollEvent) => void | no       | iOS/Android | yes               |
+| onScrollBeginDrag              | Callback of the sliding start drag event                      | worklet function - (e: NativeScrollEvent) => void | no       | iOS/Android | yes               |
+| onScrollEndDrag                | Sliding end drag event callback                               | worklet function - (e: NativeScrollEvent) => void | no       | iOS/Android | yes               |
+| onTabsLayout                   | Tab bar layout change event callback                          | function - (e: LayoutChangeEvent) => void         | no       | iOS/Android | yes               |
+| onTopReached                   | Top event callback                                            | function - () => void                             | no       | iOS/Android | yes               |
+| parallaxHeight                 | Parallax height value(default 53% of screen's height)         | number                                            | no       | iOS/Android | yes               |
+| renderHeaderBar                | headerBar Rendering Function                                  | render function                                   | no       | iOS/Android | yes               |
+| snapStartThreshold             | Resistance value at the start of sliding                      | number                                            | no       | iOS/Android | yes               |
+| snapStopThreshold              | Resistance value at the end of sliding                        | number                                            | no       | iOS/Android | no                |
+| snapToEdge                     | enabled or not to slide to edge（default true）                 | number                                            | no       | iOS/Android | no                |
+| stickyTabs                     | Indicates whether the tab bar can be fixed（default true）      | number                                            | no       | iOS/Android | yes               |
+| tabTextActiveStyle             | Select a text style on the tab bar                            | style - StyleProp<TextStyle>                      | no       | iOS/Android | yes               |
+| tabTextContainerStyle          | Tab Bar Text Container Style                                  | style - StyleProp<ViewStyle>                      | no       | iOS/Android | yes               |
+| tabTextContainerActiveStyle    | Tab Bar Text Container Selection Style                        | style - StyleProp<ViewStyle>                      | no       | iOS/Android | yes               |
+| tabTextStyle                   | Tab Bar Text Style                                            | style - StyleProp<TextStyle>                      | no       | iOS/Android | yes               |
+| tabUnderlineColor              | Color of the horizontal line at the bottom of the tab bar tex | color - ColorValue                                | no       | iOS/Android | yes               |
+| tabWrapperStyle                | Tab Bar Wrap Container Style                                  | style - StyleProp<ViewStyle>                      | no       | iOS/Android | yes               |
+| tabs                           | Tab Bar Data Source                                           | Tabs array - Tab[]                                | no       | iOS/Android | yes               |
+| tabsContainerBackgroundColor   | Tab Bar Container Background Color                            | color - ColorValue                                | no       | iOS/Android | yes               |
+| tabsContainerHorizontalPadding | Tab Bar Container Horizontal Inner Margin（default 20）         | number                                            | no       | iOS/Android | yes               |
+| tabsContainerStyle             | Tab Bar Container Style                                       | style - StyleProp<ViewStyle>                      | no       | iOS/Android | yes               |
+| title                          | Title Text                                                    | string                                            | no       | iOS/Android | yes               |
+| titleStyle                     | Title Text Style                                              | style = StyleProp<TextStyle>                      | no       | iOS/Android | yes               |
+| titleTestID                    | Title Text Test ID                                            | string                                            | no       | iOS/Android | yes               |
 
 ## Details Header
 
-包含 DetailsHeaderScrollView、DetailsHeaderFlatList 以及 DetailsHeaderSectionList 三个组件。
+It consists of the  DetailsHeaderScrollView、DetailsHeaderFlatList and DetailsHeaderSectionList components.
 
 ### Details Header ScrollView components
 
 Details Header ScrollView Properties
-Inherits [ScrollViewProps](https://reactnative.dev/docs/next/scrollview#props)及 Shared DetailsHeader props Properties。
+Inherits [ScrollViewProps](https://reactnative.dev/docs/next/scrollview#props) and Shared DetailsHeader props Properties。
 
 ### Details Header FlatList components
 
 Details Header FlatList Properties
-Inherits [FlatListProps](https://reactnative.dev/docs/next/flatlist#props)及 Shared DetailsHeader props Properties。
+Inherits [FlatListProps](https://reactnative.dev/docs/next/flatlist#props) and Shared DetailsHeader props Properties。
 
 ### Details Header SectionList components
 
 Details Header SectionList Properties
-Inherits [SectionListProps](https://reactnative.dev/docs/next/sectionlist/#props)及 Shared DetailsHeader props Properties。
+Inherits [SectionListProps](https://reactnative.dev/docs/next/sectionlist/#props) and Shared DetailsHeader props Properties。
 
 ### Shared DetailsHeader props Properties
 
-DetailsHeaderScrollView、DetailsHeaderFlatList 以及 DetailsHeaderSectionList 三个组件共享 Properties。
+The DetailsHeaderScrollView, DetailsHeaderFlatList, and DetailsHeaderSectionList components share Properties.
 
 > [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                           | Description                             | Type                                                  | Required | Platform    | HarmonyOS Support |
-| ------------------------------ | --------------------------------------- | ----------------------------------------------------- | -------- | ----------- | ----------------- |
-| backgroundColor                | 设置组件的背景色                        | color - ColorValue                                    | no       | iOS/Android | yes               |
-| backgroundImage                | 设置组件的背景图片                      | image source - ImageSourcePropType                    | no       | iOS/Android | no                |
-| containerStyle                 | 设置整个组件容器的样式                  | style - StyleProp<ViewStyle>                          | yes      | iOS/Android | yes               |
-| contentIcon                    | 头像左侧卡片的 icon 图标                | image source - ImageSourcePropType                    | no       | iOS/Android | yes               |
-| contentIconNumber              | 头像左侧卡片数字                        | number                                                | no       | iOS/Android | yes               |
-| contentIconNumberStyle         | 头像左侧卡片数字样式                    | style - StyleProp<TextStyle>                          | no       | iOS/Android | yes               |
-| contentIconNumberTestID        | 测试 ID                                 | string                                                | no       | iOS/Android | yes               |
-| enableSafeAreaTopInset         | 是否设置安全区域                        | boolean                                               | yes      | iOS/Android | yes               |
-| leftTopIcon                    | 设置头部左侧 logo                       | render function or image source - ImageSourcePropType | no       | iOS/Android | yes               |
-| leftTopIconAccessibilityLabel  | 设置头部左侧 logo 辅助标签              | string                                                | no       | iOS/Android | no                |
-| leftTopIconOnPress             | 头部左侧 logo 点击事件回调              | function - () => void                                 | no       | iOS/Android | yes               |
-| leftTopIconTestID              | 头部左侧 logo 测试 ID                   | string                                                | no       | iOS/Android | yes               |
-| hasBorderRadius                | 上部分是否是右下角带圆角的布局          | boolean                                               | no       | iOS/Android | yes               |
-| headerHeight                   | 设置 header 高度                        | number                                                | no       | iOS/Android | yes               |
-| image                          | 任务头像图片资源                        | image source - ImageSourcePropType                    | no       | iOS/Android | yes               |
-| onHeaderLayout                 | header 布局调整回调                     | function - (e: LayoutChangeEvent) => void             | no       | iOS/Android | yes               |
-| onMomentumScrollBegin          | 滑动开始事件回调                        | worklet function - (e: NativeScrollEvent) => void     | no       | iOS/Android | yes               |
-| onMomentumScrollEnd            | 滑动结束事件回调                        | worklet function - (e: NativeScrollEvent) => void     | no       | iOS/Android | yes               |
-| onScroll                       | 滑动事件回调                            | worklet function - (e: NativeScrollEvent) => void     | no       | iOS/Android | yes               |
-| onScrollBeginDrag              | 滑动开始拖拽事件回调                    | worklet function - (e: NativeScrollEvent) => void     | no       | iOS/Android | yes               |
-| onScrollEndDrag                | 滑动结束拖拽事件回调                    | worklet function - (e: NativeScrollEvent) => void     | no       | iOS/Android | yes               |
-| onTabsLayout                   | Tab 栏布局改变事件回调                  | function - (e: LayoutChangeEvent) => void             | no       | iOS/Android | yes               |
-| onTopReached                   | 触顶事件回调                            | function - () => void                                 | no       | iOS/Android | yes               |
-| parallaxHeight                 | 视差高度值(默认 53% of screen's height) | number                                                | no       | iOS/Android | yes               |
-| renderHeaderBar                | headerBar 渲染方法                      | render function                                       | no       | iOS/Android | yes               |
-| rightTopIcon                   | 设置头部右侧图标                        | render function or image source - ImageSourcePropType | no       | iOS/Android | yes               |
-| rightTopIconAccessibilityLabel | 设置头部右侧 icon 辅助标签              | string                                                | no       | iOS/Android | no                |
-| rightTopIconOnPress            | 头部右侧 icon 点击事件回调              | function - () => void                                 | no       | iOS/Android | yes               |
-| rightTopIconTestID             | 头部右侧 icon 测试 ID                   | string                                                | no       | iOS/Android | yes               |
-| snapStartThreshold             | 滑动开始时阻力值                        | number                                                | no       | iOS/Android | yes               |
-| snapStopThreshold              | 滑动结束时阻力值                        | number                                                | no       | iOS/Android | no                |
-| snapToEdge                     | 是否可以滑动到 Edge（默认 true）        | number                                                | no       | iOS/Android | no                |
-| stickyTabs                     | Tab 栏是否可以固定位置（默认 true）     | number                                                | no       | iOS/Android | yes               |
-| substitle                      | 子标题                                  | string                                                | no       | iOS/Android | yes               |
-| substitleStyle                 | 子标题样式                              | style - StyleProp<TextStyle>                          | no       | iOS/Android | yes               |
-| substitleTestID                | 子标题测试 ID                           | string                                                | no       | iOS/Android | yes               |
-| tabsContainerBackgroundColor   | Tab 栏容器背景颜色                      | color - ColorValue                                    | no       | iOS/Android | yes               |
-| tag                            | 标签文字                                | string                                                | no       | iOS/Android | yes               |
-| tagStyle                       | 标签文字样式                            | style = StyleProp<TextStyle>                          | no       | iOS/Android | yes               |
-| tagTestID                      | 标签文字测试 ID                         | string                                                | no       | iOS/Android | yes               |
-| title                          | 标题文字                                | string                                                | no       | iOS/Android | yes               |
-| titleStyle                     | 标题文字样式                            | style = StyleProp<TextStyle>                          | no       | iOS/Android | yes               |
-| titleTestID                    | 标题测试 ID                             | string                                                | no       | iOS/Android | yes               |
+| Name                           | Description                                                               | Type                                                  | Required | Platform    | HarmonyOS Support |
+|--------------------------------|---------------------------------------------------------------------------|-------------------------------------------------------|----------|-------------|-------------------|
+| backgroundColor                | Sets the background color of a component                                  | color - ColorValue                                    | no       | iOS/Android | yes               |
+| backgroundImage                | Sets the background image of the widget                                   | image source - ImageSourcePropType                    | no       | iOS/Android | no                |
+| containerStyle                 | Style the entire component container                                      | style - StyleProp<ViewStyle>                          | yes      | iOS/Android | yes               |
+| contentIcon                    | Icon on the card on the left of the profile picture                       | image source - ImageSourcePropType                    | no       | iOS/Android | yes               |
+| contentIconNumber              | Number on the card on the left of the avatar                              | number                                                | no       | iOS/Android | yes               |
+| contentIconNumberStyle         | Number style of the card on the left of the avatar                        | style - StyleProp<TextStyle>                          | no       | iOS/Android | yes               |
+| contentIconNumberTestID        | Test ID                                                                   | string                                                | no       | iOS/Android | yes               |
+| enableSafeAreaTopInset         | Indicates whether to set a security zone                                  | boolean                                               | yes      | iOS/Android | yes               |
+| leftTopIcon                    | Sets the logo on the left of the head                                     | render function or image source - ImageSourcePropType | no       | iOS/Android | yes               |
+| leftTopIconAccessibilityLabel  | Sets the auxiliary logo label on the left of the head                     | string                                                | no       | iOS/Android | no                |
+| leftTopIconOnPress             | Callback of the logo click event on the left of the header                | function - () => void                                 | no       | iOS/Android | yes               |
+| leftTopIconTestID              | Logo test ID on the left of the head                                      | string                                                | no       | iOS/Android | yes               |
+| hasBorderRadius                | Whether the upper part is a layout with fillets in the lower right corner | boolean                                               | no       | iOS/Android | yes               |
+| headerHeight                   | Sets the header height on the component                                   | number                                                | no       | iOS/Android | yes               |
+| image                          | Character avatar image resources                                          | image source - ImageSourcePropType                    | no       | iOS/Android | yes               |
+| onHeaderLayout                 | Header layout adjustment callback                                         | function - (e: LayoutChangeEvent) => void             | no       | iOS/Android | yes               |
+| onMomentumScrollBegin          | Sliding start event callback                                              | worklet function - (e: NativeScrollEvent) => void     | no       | iOS/Android | yes               |
+| onMomentumScrollEnd            | Sliding end event callback                                                | worklet function - (e: NativeScrollEvent) => void     | no       | iOS/Android | yes               |
+| onScroll                       | Sliding event callback                                                    | worklet function - (e: NativeScrollEvent) => void     | no       | iOS/Android | yes               |
+| onScrollBeginDrag              | Callback of the sliding start drag event                                  | worklet function - (e: NativeScrollEvent) => void     | no       | iOS/Android | yes               |
+| onScrollEndDrag                | Sliding end drag event callback                                           | worklet function - (e: NativeScrollEvent) => void     | no       | iOS/Android | yes               |
+| onTopReached                   | Top event callback                                                        | function - () => void                                 | no       | iOS/Android | yes               |
+| parallaxHeight                 | Parallax height value(default 53% of screen's height)                     | number                                                | no       | iOS/Android | yes               |
+| renderHeaderBar                | headerBar Rendering Function                                              | render function                                       | no       | iOS/Android | yes               |
+| rightTopIcon                   | Sets the logo on the right of the head                                    | render function or image source - ImageSourcePropType | no       | iOS/Android | yes               |
+| rightTopIconAccessibilityLabel | Sets the auxiliary logo label on the right of the head                    | string                                                | no       | iOS/Android | no                |
+| rightTopIconOnPress            | Callback of the logo click event on the right of the header               | function - () => void                                 | no       | iOS/Android | yes               |
+| rightTopIconTestID             | Logo test ID on the right of the head                                     | string                                                | no       | iOS/Android | yes               |
+| snapStartThreshold             | Resistance value at the start of sliding                                  | number                                                | no       | iOS/Android | yes               |
+| snapStopThreshold              | Resistance value at the end of sliding                                    | number                                                | no       | iOS/Android | no                |
+| snapToEdge                     | enabled or not to slide to edge（default true）                             | number                                                | no       | iOS/Android | no                |
+| stickyTabs                     | Indicates whether the tab bar can be fixed（default true）                  | number                                                | no       | iOS/Android | yes               |
+| substitle                      | SubTitle Text                                                             | string                                                | no       | iOS/Android | yes               |
+| substitleStyle                 | SubTitle Text Style                                                       | style - StyleProp<TextStyle>                          | no       | iOS/Android | yes               |
+| substitleTestID                | SubTitle Text Test ID                                                     | string                                                | no       | iOS/Android | yes               |
+| tag                            | Tag Text                                                                  | string                                                | no       | iOS/Android | yes               |
+| tagStyle                       | Tag Text Style                                                            | style = StyleProp<TextStyle>                          | no       | iOS/Android | yes               |
+| tagTestID                      | Tag Text Test ID                                                          | string                                                | no       | iOS/Android | yes               |
+| title                          | Title Text                                                                | string                                                | no       | iOS/Android | yes               |
+| titleStyle                     | Title Text Style                                                          | style = StyleProp<TextStyle>                          | no       | iOS/Android | yes               |
+| titleTestID                    | Title Text Test ID                                                        | string                                                | no       | iOS/Android | yes               |
 
 ## Avatar Header
 
-包含 AvatarHeaderScrollView、AvatarHeaderFlatList 以及 AvatarHeaderSectionList 三个组件。
+It consists of the AvatarHeaderScrollView, AvatarHeaderFlatList, and AvatarHeaderSectionList components.
 
 ### Avatar Header ScrollView components
 
 Avatar Header ScrollView Properties
-Inherits [ScrollViewProps](https://reactnative.dev/docs/next/scrollview#props)及 Shared AvatarHeader props Properties。
+Inherits [ScrollViewProps](https://reactnative.dev/docs/next/scrollview#props) and Shared AvatarHeader props Properties。
 
 ### Avatar Header FlatList components
 
 Avatar Header FlatList Properties
-Inherits [FlatListProps](https://reactnative.dev/docs/next/flatlist#props)及 Shared AvatarHeader props Properties。
+Inherits [FlatListProps](https://reactnative.dev/docs/next/flatlist#props)and Shared AvatarHeader props Properties。
 
 ### Avatar Header SectionList components
 
 Avatar Header SectionList Properties
-Inherits [SectionListProps](https://reactnative.dev/docs/next/sectionlist/#props)及 Shared AvatarHeader props Properties。
+Inherits [SectionListProps](https://reactnative.dev/docs/next/sectionlist/#props) and Shared AvatarHeader props Properties。
 
 ### Shared AvatarHeader props Properties
 
-AvatarHeaderScrollView、AvatarHeaderFlatList 以及 AvatarHeaderSectionList 三个组件共享 Properties。
+The AvatarHeaderScrollView, AvatarHeaderFlatList, and AvatarHeaderSectionList components share Properties.
 
 > [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                           | Description                             | Type                                                  | Required | Platform    | HarmonyOS Support |
-| ------------------------------ | --------------------------------------- | ----------------------------------------------------- | -------- | ----------- | ----------------- |
-| backgroundColor                | 设置组件的背景色                        | color - ColorValue                                    | no       | iOS/Android | yes               |
-| backgroundImage                | 设置组件的背景图片                      | image source - ImageSourcePropType                    | no       | iOS/Android | no                |
-| containerStyle                 | 设置整个组件容器的样式                  | style - StyleProp<ViewStyle>                          | yes      | iOS/Android | yes               |
-| enableSafeAreaTopInset         | 是否设置安全区域                        | boolean                                               | yes      | iOS/Android | yes               |
-| leftTopIcon                    | 设置头部左侧 logo                       | render function or image source - ImageSourcePropType | no       | iOS/Android | yes               |
-| leftTopIconAccessibilityLabel  | 设置头部左侧 logo 辅助标签              | string                                                | no       | iOS/Android | no                |
-| leftTopIconOnPress             | 头部左侧 logo 点击事件回调              | function - () => void                                 | no       | iOS/Android | yes               |
-| leftTopIconTestID              | 头部左侧 logo 测试 ID                   | string                                                | no       | iOS/Android | yes               |
-| hasBorderRadius                | 上部分是否是右下角带圆角的布局          | boolean                                               | no       | iOS/Android | yes               |
-| headerHeight                   | 设置 header 高度                        | number                                                | no       | iOS/Android | yes               |
-| image                          | 任务头像图片资源                        | image source - ImageSourcePropType                    | no       | iOS/Android | yes               |
-| onHeaderLayout                 | header 布局调整回调                     | function - (e: LayoutChangeEvent) => void             | no       | iOS/Android | yes               |
-| onMomentumScrollBegin          | 滑动开始事件回调                        | worklet function - (e: NativeScrollEvent) => void     | no       | iOS/Android | yes               |
-| onMomentumScrollEnd            | 滑动结束事件回调                        | worklet function - (e: NativeScrollEvent) => void     | no       | iOS/Android | yes               |
-| onScroll                       | 滑动事件回调                            | worklet function - (e: NativeScrollEvent) => void     | no       | iOS/Android | yes               |
-| onScrollBeginDrag              | 滑动开始拖拽事件回调                    | worklet function - (e: NativeScrollEvent) => void     | no       | iOS/Android | yes               |
-| onScrollEndDrag                | 滑动结束拖拽事件回调                    | worklet function - (e: NativeScrollEvent) => void     | no       | iOS/Android | yes               |
-| onTabsLayout                   | Tab 栏布局改变事件回调                  | function - (e: LayoutChangeEvent) => void             | no       | iOS/Android | yes               |
-| onTopReached                   | 触顶事件回调                            | function - () => void                                 | no       | iOS/Android | yes               |
-| parallaxHeight                 | 视差高度值(默认 53% of screen's height) | number                                                | no       | iOS/Android | yes               |
-| renderHeaderBar                | headerBar 渲染方法                      | render function                                       | no       | iOS/Android | yes               |
-| rightTopIcon                   | 设置头部右侧图标                        | render function or image source - ImageSourcePropType | no       | iOS/Android | yes               |
-| rightTopIconAccessibilityLabel | 设置头部右侧 icon 辅助标签              | string                                                | no       | iOS/Android | no                |
-| rightTopIconOnPress            | 头部右侧 icon 点击事件回调              | function - () => void                                 | no       | iOS/Android | yes               |
-| rightTopIconTestID             | 头部右侧 icon 测试 ID                   | string                                                | no       | iOS/Android | yes               |
-| snapStartThreshold             | 滑动开始时阻力值                        | number                                                | no       | iOS/Android | yes               |
-| snapStopThreshold              | 滑动结束时阻力值                        | number                                                | no       | iOS/Android | no                |
-| snapToEdge                     | 是否可以滑动到 Edge（默认 true）        | number                                                | no       | iOS/Android | no                |
-| stickyTabs                     | Tab 栏是否可以固定位置（默认 true）     | number                                                | no       | iOS/Android | yes               |
-| substitle                      | 子标题                                  | string                                                | no       | iOS/Android | yes               |
-| substitleStyle                 | 子标题样式                              | style - StyleProp<TextStyle>                          | no       | iOS/Android | yes               |
-| substitleTestID                | 子标题测试 ID                           | string                                                | no       | iOS/Android | yes               |
-| tabsContainerBackgroundColor   | Tab 栏容器背景颜色                      | color - ColorValue                                    | no       | iOS/Android | yes               |
-| title                          | 标题文字                                | string                                                | no       | iOS/Android | yes               |
-| titleStyle                     | 标题文字样式                            | style = StyleProp<TextStyle>                          | no       | iOS/Android | yes               |
-| titleTestID                    | 标题测试 ID                             | string                                                | no       | iOS/Android | yes               |
+| Name                           | Description                                                               | Type                                                  | Required | Platform    | HarmonyOS Support |
+|--------------------------------|---------------------------------------------------------------------------|-------------------------------------------------------|----------|-------------|-------------------|
+| backgroundColor                | Sets the background color of a component                                  | color - ColorValue                                    | no       | iOS/Android | yes               |
+| backgroundImage                | Sets the background image of the widget                                   | image source - ImageSourcePropType                    | no       | iOS/Android | no                |
+| containerStyle                 | Style the entire component container                                      | style - StyleProp<ViewStyle>                          | yes      | iOS/Android | yes               |
+| enableSafeAreaTopInset         | Indicates whether to set a security zone                                  | boolean                                               | yes      | iOS/Android | yes               |
+| leftTopIcon                    | Sets the logo on the left of the head                                     | render function or image source - ImageSourcePropType | no       | iOS/Android | yes               |
+| leftTopIconAccessibilityLabel  | Sets the auxiliary logo label on the left of the head                     | string                                                | no       | iOS/Android | no                |
+| leftTopIconOnPress             | Callback of the logo click event on the left of the header                | function - () => void                                 | no       | iOS/Android | yes               |
+| leftTopIconTestID              | Logo test ID on the left of the head                                      | string                                                | no       | iOS/Android | yes               |
+| hasBorderRadius                | Whether the upper part is a layout with fillets in the lower right corner | boolean                                               | no       | iOS/Android | yes               |
+| headerHeight                   | Sets the header height on the component                                   | number                                                | no       | iOS/Android | yes               |
+| image                          | Character avatar image resources                                          | image source - ImageSourcePropType                    | no       | iOS/Android | yes               |
+| onHeaderLayout                 | Header layout adjustment callback                                         | function - (e: LayoutChangeEvent) => void             | no       | iOS/Android | yes               |
+| onMomentumScrollBegin          | Sliding start event callback                                              | worklet function - (e: NativeScrollEvent) => void     | no       | iOS/Android | yes               |
+| onMomentumScrollEnd            | Sliding end event callback                                                | worklet function - (e: NativeScrollEvent) => void     | no       | iOS/Android | yes               |
+| onScroll                       | Sliding event callback                                                    | worklet function - (e: NativeScrollEvent) => void     | no       | iOS/Android | yes               |
+| onScrollBeginDrag              | Callback of the sliding start drag event                                  | worklet function - (e: NativeScrollEvent) => void     | no       | iOS/Android | yes               |
+| onScrollEndDrag                | Sliding end drag event callback                                           | worklet function - (e: NativeScrollEvent) => void     | no       | iOS/Android | yes               |
+| onTopReached                   | Top event callback                                                        | function - () => void                                 | no       | iOS/Android | yes               |
+| parallaxHeight                 | Parallax height value(default 53% of screen's height)                     | number                                                | no       | iOS/Android | yes               |
+| renderHeaderBar                | headerBar Rendering Function                                              | render function                                       | no       | iOS/Android | yes               |
+| rightTopIcon                   | Sets the logo on the right of the head                                    | render function or image source - ImageSourcePropType | no       | iOS/Android | yes               |
+| rightTopIconAccessibilityLabel | Sets the auxiliary logo label on the right of the head                    | string                                                | no       | iOS/Android | no                |
+| rightTopIconOnPress            | Callback of the logo click event on the right of the header               | function - () => void                                 | no       | iOS/Android | yes               |
+| rightTopIconTestID             | Logo test ID on the right of the head                                     | string                                                | no       | iOS/Android | yes               |
+| snapStartThreshold             | Resistance value at the start of sliding                                  | number                                                | no       | iOS/Android | yes               |
+| snapStopThreshold              | Resistance value at the end of sliding                                    | number                                                | no       | iOS/Android | no                |
+| snapToEdge                     | enabled or not to slide to edge（default true）                             | number                                                | no       | iOS/Android | no                |
+| stickyTabs                     | Indicates whether the tab bar can be fixed（default true）                  | number                                                | no       | iOS/Android | yes               |
+| substitle                      | SubTitle Text                                                             | string                                                | no       | iOS/Android | yes               |
+| substitleStyle                 | SubTitle Text Style                                                       | style - StyleProp<TextStyle>                          | no       | iOS/Android | yes               |
+| substitleTestID                | SubTitle Text Test ID                                                     | string                                                | no       | iOS/Android | yes               |
+| title                          | Title Text                                                                | string                                                | no       | iOS/Android | yes               |
+| titleStyle                     | Title Text Style                                                          | style = StyleProp<TextStyle>                          | no       | iOS/Android | yes               |
+| titleTestID                    | Title Text Test ID                                                        | string                                                | no       | iOS/Android | yes               |
 
 ## Custom Sticky Header
 
-包含 StickyHeaderScrollView、StickyHeaderFlatList 以及 StickyHeaderSectionList 三个组件。
+It consists of the StickyHeaderScrollView、StickyHeaderFlatList and StickyHeaderSectionList components.
 
 ### Sticky Header ScrollView components
 
 Sticky Header ScrollView Properties
-Inherits [ScrollViewProps](https://reactnative.dev/docs/next/scrollview#props)及 Shared StickyHeader props Properties。
+Inherits [ScrollViewProps](https://reactnative.dev/docs/next/scrollview#props) and Shared StickyHeader props Properties。
 
 ### Sticky Header FlatList components
 
 Sticky Header FlatList Properties
-Inherits [FlatListProps](https://reactnative.dev/docs/next/flatlist#props)及 Shared StickyHeader props Properties。
+Inherits [FlatListProps](https://reactnative.dev/docs/next/flatlist#props) and Shared StickyHeader props Properties。
 
 ### Sticky Header SectionList components
 
 Avatar Header SectionList Properties
-Inherits [SectionListProps](https://reactnative.dev/docs/next/sectionlist/#props)及 Shared StickyHeader props Properties。
+Inherits [SectionListProps](https://reactnative.dev/docs/next/sectionlist/#props) and Shared StickyHeader props Properties。
 
 ### Shared StickyHeader props Properties
 
-StickyHeaderScrollView、StickyHeaderFlatList 以及 StickyHeaderSectionList 三个组件共享 Properties。
+The StickyHeaderScrollView, StickyHeaderFlatList, and StickyHeaderSectionList components share Properties.
 
 > [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                  | Description                         | Type                                              | Required | Platform    | HarmonyOS Support |
-| --------------------- | ----------------------------------- | ------------------------------------------------- | -------- | ----------- | ----------------- |
-| containerStyle        | 设置整个组件容器的样式              | style - StyleProp<ViewStyle>                      | yes      | iOS/Android | yes               |
-| onHeaderLayout        | header 布局调整回调                 | function - (e: LayoutChangeEvent) => void         | no       | iOS/Android | yes               |
-| onMomentumScrollBegin | 滑动开始事件回调                    | worklet function - (e: NativeScrollEvent) => void | no       | iOS/Android | yes               |
-| onMomentumScrollEnd   | 滑动结束事件回调                    | worklet function - (e: NativeScrollEvent) => void | no       | iOS/Android | yes               |
-| onScroll              | 滑动事件回调                        | worklet function - (e: NativeScrollEvent) => void | no       | iOS/Android | yes               |
-| onScrollBeginDrag     | 滑动开始拖拽事件回调                | worklet function - (e: NativeScrollEvent) => void | no       | iOS/Android | yes               |
-| onScrollEndDrag       | 滑动结束拖拽事件回调                | worklet function - (e: NativeScrollEvent) => void | no       | iOS/Android | yes               |
-| onTabsLayout          | Tab 栏布局改变事件回调              | function - (e: LayoutChangeEvent) => void         | no       | iOS/Android | yes               |
-| renderHeader          | header 渲染方法                     | render function                                   | no       | iOS/Android | yes               |
-| renderTabs            | tab 渲染方法                        | render function                                   | no       | iOS/Android | yes               |
-| stickyTabs            | Tab 栏是否可以固定位置（默认 true） | number                                            | no       | iOS/Android | yes               |
+| Name                  | Description                                              | Type                                              | Required | Platform    | HarmonyOS Support |
+|-----------------------|----------------------------------------------------------|---------------------------------------------------|----------|-------------|-------------------|
+| containerStyle        | Style the entire component container                     | style - StyleProp<ViewStyle>                      | yes      | iOS/Android | yes               |
+| onHeaderLayout        | Header layout adjustment callback                        | function - (e: LayoutChangeEvent) => void         | no       | iOS/Android | yes               |
+| onMomentumScrollBegin | Sliding start event callback                             | worklet function - (e: NativeScrollEvent) => void | no       | iOS/Android | yes               |
+| onMomentumScrollEnd   | Sliding end event callback                               | worklet function - (e: NativeScrollEvent) => void | no       | iOS/Android | yes               |
+| onScroll              | Sliding event callback                                   | worklet function - (e: NativeScrollEvent) => void | no       | iOS/Android | yes               |
+| onScrollBeginDrag     | Callback of the sliding start drag event                 | worklet function - (e: NativeScrollEvent) => void | no       | iOS/Android | yes               |
+| onScrollEndDrag       | Sliding end drag event callback                          | worklet function - (e: NativeScrollEvent) => void | no       | iOS/Android | yes               |
+| renderHeader          | header rendering function                                | render function                                   | no       | iOS/Android | yes               |
+| renderTabs            | tab rendering function                                   | render function                                   | no       | iOS/Android | yes               |
+| stickyTabs            | Indicates whether the tab bar can be fixed（default true） | number                                            | no       | iOS/Android | yes               |
 
 ## FlashList Headers
 
-包含 AvatarHeaderFlashList、DetailsHeaderFlashList 以及 TabbedHeaderFlashList 三个组件。
+It consists of the  AvatarHeaderFlashList、DetailsHeaderFlashList and TabbedHeaderFlashList components.
 
-### Avatar Header FlashList 组件
+### Avatar Header FlashList Components
 
 Avatar Header FlashList Properties
-Inherits [FlashListProps](https://shopify.github.io/flash-list/docs/usage/)及 Shared AvatarHeader props Properties。
+Inherits [FlashListProps](https://shopify.github.io/flash-list/docs/usage/)and Shared AvatarHeader props Properties。
 
-### Details Header FlashList 组件
+### Details Header FlashList Components
 
 Details Header FlashList Properties
-Inherits [FlashListProps](https://shopify.github.io/flash-list/docs/usage/)及 Shared DetailsHeader props Properties。
+Inherits [FlashListProps](https://shopify.github.io/flash-list/docs/usage/)and Shared DetailsHeader props Properties。
 
-### Tabbed Header FlashList 组件
+### Tabbed Header FlashList Components
 
 Tabbed Header FlashList Properties
-Inherits [FlashListProps](https://shopify.github.io/flash-list/docs/usage/)及 Tabbed Header List props Properties。
+Inherits [FlashListProps](https://shopify.github.io/flash-list/docs/usage/)and Tabbed Header List props Properties。
 
 ## Known Issues
 
 ## Others
 
-- [ ] 原库 TabbedHeaderPager 组件部分 Properties 不生效[issue#415](https://github.com/netguru/sticky-parallax-header/issues/415)
-- [ ] 原库 DetailHeader、AvatarHeader 组件部分 Properties 不生效 [issue#416](https://github.com/netguru/sticky-parallax-header/issues/416)
-- [ ] 原库 ref.current.goToPage 方法不存在 [issue#412](https://github.com/netguru/sticky-parallax-header/issues/412)
+- [ ] Some Properties of the TabbedHeaderPager Component in the Original Database Do Not Take Effect[issue#415](https://github.com/netguru/sticky-parallax-header/issues/415)
+- [ ] Some properties of the DetailHeader and AvatarHeader components in the original database do not take effect[issue#416](https://github.com/netguru/sticky-parallax-header/issues/416)
+- [ ] The ref.current.goToPage method in the source database does not exist[issue#412](https://github.com/netguru/sticky-parallax-header/issues/412)
 
 ## License
 

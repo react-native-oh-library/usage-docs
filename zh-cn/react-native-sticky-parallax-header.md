@@ -181,12 +181,10 @@ Inherits [ScrollViewProps](https://reactnative.dev/docs/next/scrollview#props)
 | foregroundImage                | 设置头像图片资源                        | image source - ImageSourcePropType                     | no       | iOS/Android | yes               |
 | headerHeight                   | 设置组件上部分 header 高度              | number                                                 | no       | iOS/Android | yes               |
 | initialPage                    | 设置组件下部分 page 初始页              | number                                                 | no       | iOS/Android | yes               |
-| headerHeight                   | 设置 header 高度                        | number                                                 | no       | iOS/Android | yes               |
 | logo                           | 设置顶部 Logo 图片资源                  | image source - ImageSourcePropType                     | no       | iOS/Android | yes               |
 | logoContainerStyle             | 设置 logo 容器样式                      | style - StyleProp<ViewStyle>                           | no       | iOS/Android | yes               |
 | logoStyle                      | 设置 logo 样式                          | style - StyleProp<ViewStyle>                           | no       | iOS/Android | yes               |
 | onChangeTab                    | Tab 栏切换回调                          | function - (prevPage: number, newPage: number) => void | no       | iOS/Android | yes               |
-| onHeaderLayout                 | header 布局调整回调                     | function - (e: LayoutChangeEvent) => void              | no       | iOS/Android | yes               |
 | onMomentumScrollBegin          | 滑动开始事件回调                        | worklet function - (e: NativeScrollEvent) => void      | no       | iOS/Android | yes               |
 | onMomentumScrollEnd            | 滑动结束事件回调                        | worklet function - (e: NativeScrollEvent) => void      | no       | iOS/Android | yes               |
 | onScroll                       | 滑动事件回调                            | worklet function - (e: NativeScrollEvent) => void      | no       | iOS/Android | yes               |
@@ -197,7 +195,6 @@ Inherits [ScrollViewProps](https://reactnative.dev/docs/next/scrollview#props)
 | parallaxHeight                 | 视差高度值(默认 53% of screen's height) | number                                                 | no       | iOS/Android | yes               |
 | rememberTabScrollPosition      | 是否保留 Tab 面板滑动位置               | boolean                                                | no       | iOS/Android | yes               |
 | renderHeaderBar                | headerBar 渲染方法                      | render function                                        | no       | iOS/Android | yes               |
-| rememberTabScrollPosition      | 是否保留 Tab 面板滑动位置               | boolean                                                | no       | iOS/Android | yes               |
 | snapStartThreshold             | 滑动开始时阻力值                        | number                                                 | no       | iOS/Android | yes               |
 | snapStopThreshold              | 滑动结束时阻力值                        | number                                                 | no       | iOS/Android | no                |
 | snapToEdge                     | 是否可以滑动到 Edge（默认 true）        | number                                                 | no       | iOS/Android | no                |
@@ -243,7 +240,6 @@ Inherits [SectionListProps](https://reactnative.dev/docs/next/sectionlist/#props
 | logo                           | 设置顶部 Logo 图片资源                  | image source - ImageSourcePropType                | no       | iOS/Android | yes               |
 | logoContainerStyle             | 设置 logo 容器样式                      | style - StyleProp<ViewStyle>                      | no       | iOS/Android | yes               |
 | logoStyle                      | 设置 logo 样式                          | style - StyleProp<ViewStyle>                      | no       | iOS/Android | yes               |
-| onHeaderLayout                 | header 布局调整回调                     | function - (e: LayoutChangeEvent) => void         | no       | iOS/Android | yes               |
 | onMomentumScrollBegin          | 滑动开始事件回调                        | worklet function - (e: NativeScrollEvent) => void | no       | iOS/Android | yes               |
 | onMomentumScrollEnd            | 滑动结束事件回调                        | worklet function - (e: NativeScrollEvent) => void | no       | iOS/Android | yes               |
 | onScroll                       | 滑动事件回调                            | worklet function - (e: NativeScrollEvent) => void | no       | iOS/Android | yes               |
@@ -252,7 +248,6 @@ Inherits [SectionListProps](https://reactnative.dev/docs/next/sectionlist/#props
 | onTabsLayout                   | Tab 栏布局改变事件回调                  | function - (e: LayoutChangeEvent) => void         | no       | iOS/Android | yes               |
 | onTopReached                   | 触顶事件回调                            | function - () => void                             | no       | iOS/Android | yes               |
 | parallaxHeight                 | 视差高度值(默认 53% of screen's height) | number                                            | no       | iOS/Android | yes               |
-| rememberTabScrollPosition      | 是否保留 Tab 面板滑动位置               | boolean                                           | no       | iOS/Android | yes               |
 | renderHeaderBar                | headerBar 渲染方法                      | render function                                   | no       | iOS/Android | yes               |
 | snapStartThreshold             | 滑动开始时阻力值                        | number                                            | no       | iOS/Android | yes               |
 | snapStopThreshold              | 滑动结束时阻力值                        | number                                            | no       | iOS/Android | no                |
@@ -322,7 +317,6 @@ DetailsHeaderScrollView、DetailsHeaderFlatList 以及 DetailsHeaderSectionList 
 | onScroll                       | 滑动事件回调                            | worklet function - (e: NativeScrollEvent) => void     | no       | iOS/Android | yes               |
 | onScrollBeginDrag              | 滑动开始拖拽事件回调                    | worklet function - (e: NativeScrollEvent) => void     | no       | iOS/Android | yes               |
 | onScrollEndDrag                | 滑动结束拖拽事件回调                    | worklet function - (e: NativeScrollEvent) => void     | no       | iOS/Android | yes               |
-| onTabsLayout                   | Tab 栏布局改变事件回调                  | function - (e: LayoutChangeEvent) => void             | no       | iOS/Android | yes               |
 | onTopReached                   | 触顶事件回调                            | function - () => void                                 | no       | iOS/Android | yes               |
 | parallaxHeight                 | 视差高度值(默认 53% of screen's height) | number                                                | no       | iOS/Android | yes               |
 | renderHeaderBar                | headerBar 渲染方法                      | render function                                       | no       | iOS/Android | yes               |
@@ -337,7 +331,6 @@ DetailsHeaderScrollView、DetailsHeaderFlatList 以及 DetailsHeaderSectionList 
 | substitle                      | 子标题                                  | string                                                | no       | iOS/Android | yes               |
 | substitleStyle                 | 子标题样式                              | style - StyleProp<TextStyle>                          | no       | iOS/Android | yes               |
 | substitleTestID                | 子标题测试 ID                           | string                                                | no       | iOS/Android | yes               |
-| tabsContainerBackgroundColor   | Tab 栏容器背景颜色                      | color - ColorValue                                    | no       | iOS/Android | yes               |
 | tag                            | 标签文字                                | string                                                | no       | iOS/Android | yes               |
 | tagStyle                       | 标签文字样式                            | style = StyleProp<TextStyle>                          | no       | iOS/Android | yes               |
 | tagTestID                      | 标签文字测试 ID                         | string                                                | no       | iOS/Android | yes               |
@@ -391,7 +384,6 @@ AvatarHeaderScrollView、AvatarHeaderFlatList 以及 AvatarHeaderSectionList 三
 | onScroll                       | 滑动事件回调                            | worklet function - (e: NativeScrollEvent) => void     | no       | iOS/Android | yes               |
 | onScrollBeginDrag              | 滑动开始拖拽事件回调                    | worklet function - (e: NativeScrollEvent) => void     | no       | iOS/Android | yes               |
 | onScrollEndDrag                | 滑动结束拖拽事件回调                    | worklet function - (e: NativeScrollEvent) => void     | no       | iOS/Android | yes               |
-| onTabsLayout                   | Tab 栏布局改变事件回调                  | function - (e: LayoutChangeEvent) => void             | no       | iOS/Android | yes               |
 | onTopReached                   | 触顶事件回调                            | function - () => void                                 | no       | iOS/Android | yes               |
 | parallaxHeight                 | 视差高度值(默认 53% of screen's height) | number                                                | no       | iOS/Android | yes               |
 | renderHeaderBar                | headerBar 渲染方法                      | render function                                       | no       | iOS/Android | yes               |
@@ -406,7 +398,6 @@ AvatarHeaderScrollView、AvatarHeaderFlatList 以及 AvatarHeaderSectionList 三
 | substitle                      | 子标题                                  | string                                                | no       | iOS/Android | yes               |
 | substitleStyle                 | 子标题样式                              | style - StyleProp<TextStyle>                          | no       | iOS/Android | yes               |
 | substitleTestID                | 子标题测试 ID                           | string                                                | no       | iOS/Android | yes               |
-| tabsContainerBackgroundColor   | Tab 栏容器背景颜色                      | color - ColorValue                                    | no       | iOS/Android | yes               |
 | title                          | 标题文字                                | string                                                | no       | iOS/Android | yes               |
 | titleStyle                     | 标题文字样式                            | style = StyleProp<TextStyle>                          | no       | iOS/Android | yes               |
 | titleTestID                    | 标题测试 ID                             | string                                                | no       | iOS/Android | yes               |
@@ -447,7 +438,6 @@ StickyHeaderScrollView、StickyHeaderFlatList 以及 StickyHeaderSectionList 三
 | onScroll              | 滑动事件回调                        | worklet function - (e: NativeScrollEvent) => void | no       | iOS/Android | yes               |
 | onScrollBeginDrag     | 滑动开始拖拽事件回调                | worklet function - (e: NativeScrollEvent) => void | no       | iOS/Android | yes               |
 | onScrollEndDrag       | 滑动结束拖拽事件回调                | worklet function - (e: NativeScrollEvent) => void | no       | iOS/Android | yes               |
-| onTabsLayout          | Tab 栏布局改变事件回调              | function - (e: LayoutChangeEvent) => void         | no       | iOS/Android | yes               |
 | renderHeader          | header 渲染方法                     | render function                                   | no       | iOS/Android | yes               |
 | renderTabs            | tab 渲染方法                        | render function                                   | no       | iOS/Android | yes               |
 | stickyTabs            | Tab 栏是否可以固定位置（默认 true） | number                                            | no       | iOS/Android | yes               |

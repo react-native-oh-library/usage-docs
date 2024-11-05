@@ -17,6 +17,8 @@
 
 ## Installation and Usage
 
+> [!tip] This library depends on react-native-maps，Can be referred to [react-native-maps documentation](./react-native-maps.md) install
+
 Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-maps-directions Releases](https://github.com/react-native-oh-library/react-native-maps-directions/releases).
 
 Go to the project directory and execute the following instruction:
@@ -239,7 +241,7 @@ Check the release version information in the release address of the third-party 
 
 ## Others
 
-华为地图 apikey 申请参见[获取 API key](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/preparations-0000001185174404#section169441820428)
+- 华为地图 apikey 申请参见[获取 API key](https://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/preparations-0000001185174404#section169441820428) ，其中说明的内容请重点关注。
 
 ## License
 

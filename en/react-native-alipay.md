@@ -202,7 +202,7 @@ Callback handle,open `entry\src\main\ets\entryability\EntryAbility.ets`，add on
 
 ```diff
 + import { AbilityConstant, Want } from '@kit.AbilityKit';
-+ import { AFServiceCenter } from '@alipay/AFServiceSDK/Index'
++ import { AFServiceCenter } from '@alipay/afservicesdk/Index'
 
   onNewWant(want: Want, launchParam: AbilityConstant.LaunchParam): void {
 +    let r = AFServiceCenter.handleResponse(want);

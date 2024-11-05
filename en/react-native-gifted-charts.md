@@ -121,7 +121,7 @@ For details, see [react-native-gifted-charts](https://github.com/Abhinandan-Kush
 | negativeStepHeight | Height of 1 step/section in the Y axis for negative values (in the 4th quadrant) | number | no | all | yes
 | spacing | Distance between 2 consecutive bars in the Bar chart | number | no | all | yes
 | backgroundColor | Background color of the Bar chart | ColorValue | no | all | yes
-| sectionColors | Background color of the horizontal sections of the chart | ColorValue | no | all | yes
+| sectionColors | Background color of the horizontal sections of the chart | Array<ColorValue> | no | all | yes
 | scrollref | ref object that can be used to control the horizontal ScrollView inside which the chart is rendered | any | no | all | yes
 | scrollToIndex | scroll to a particular index on chart load | number | no | all | yes
 | disableScroll | To disable horizontal scroll | boolean | no | all | yes
@@ -145,6 +145,7 @@ For details, see [react-native-gifted-charts](https://github.com/Abhinandan-Kush
 | leftShiftForLastIndexTooltip | The distance by which the tooltip component of the last bar should shift towards left | number | no | all | yes
 | adjustToWidth | When set to true, it auto-computes the barWidth and spacing to fit the chart in the available width / parentWidth | boolean | no | all | yes
 | parentWidth | The width of the parent View or the width that the chart should auto-fit into when `adjustToWidth` is true | number | no | all | yes
+| showValuesAsTopLabel | When set to true, shows the value as a label at the top of the bar | boolean | no | all | yes
 
 **Combine Line Chart using showLine**
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
@@ -238,7 +239,7 @@ For details, see [react-native-gifted-charts](https://github.com/Abhinandan-Kush
 | rulesType | solid or dotted/dashed | RuleType | no | all | yes
 | dashWidth | width of each dash | number | no | all | yes
 | dashGap | gap between 2 dashes | number | no | all | yes
-| rulesConfigArray | Array of rulesConfig objects, used to customise the properties (like color, type etc) of specific rules | Array<RulesConfig> | no | all | yes
+| rulesConfigArray | Array of rulesConfig objects, used to customise the properties (like color, type etc) of specific rules | Array<RulesConfig> | no | no | no
 | referenceLine1Config | properties of reference line like thickness, color etc (described below the table) | referenceConfigType | no | all | yes
 | referenceLine1Position | position of reference line | number | no | all | yes
 | showReferenceLine2 | show second reference line | boolean | no | all | yes
@@ -353,11 +354,11 @@ For details, see [react-native-gifted-charts](https://github.com/Abhinandan-Kush
 | pointerLabelHeight | pointer label height | number | no | all | yes
 | pointerVanishDelay | Pointer disappearance delay | number | no | all | yes
 | activatePointersOnLongPress |Long press to activate pointer | boolean | no | all | yes
-| activatePointersDelay | activation pointer delay | number | no | all | yes
+| activatePointersDelay | activation pointer delay | number | no | all | no
 | persistPointer | persistent pointer | boolean | no | all | yes
 | strokeDashArray | Array of 2 numbers denoting the dashWidth and dashGap of the lines. Used to render dashed/dotted pointer | number[] | no | all | yes
 | barTouchable | touchable bar | boolean | no | all | yes
-| pointerEvents | pointer event in Bars | PointerEvents | no | all | yes
+| pointerEvents | pointer event in Bars | PointerEvents | no | no | no
 | stripBehindBars | hide the strip in Bars | boolean | no | all | yes
 
 **Props for horizontal BarChart**
@@ -441,20 +442,16 @@ For details, see [react-native-gifted-charts](https://github.com/Abhinandan-Kush
 | noOfSectionsBelowXAxis | Number of sections in the Y axis below X axis (in case the data set has negative values too)| number | no | all | yes
 | stepValue | Value of 1 step/section in the Y axis | number | no | all | yes
 | stepHeight | Height of 1 step/section in the Y axis| number | no | all | yes
-| negativeStepValue | Value of 1 step/section in the Y axis for negative values (in the 4th quadrant)| number | no | all | yes
-| negativeStepHeight | Height of 1 step/section in the Y axis for negative values (in the 4th quadrant) | number | no | all | yes
 | spacing | Distance between 2 consecutive bars in the Bar chart | number | no | all | yes
 | adjustToWidth | When set to true, it auto computes the spacing value to fit the Line chart in the available width | boolean | no | all | yes
 | backgroundColor | Background color of the Bar chart | ColorValue | no | all | yes
-| sectionColors | Background color of the horizontal sections of the chart | ColorValue | no | all | yes
+| sectionColors | Background color of the horizontal sections of the chart | Array<ColorValue> | no | all | yes
 | scrollref | ref object that can be used to control the horizontal ScrollView inside which the chart is rendered | any | no | all | yes
 | scrollToIndex | scroll to a particular index on chart load | number | no | all | yes
 | disableScroll | To disable horizontal scroll | boolean | no | all | yes
 | showScrollIndicator | To show horizontal scroll indicator | boolean | no | all | yes
 | indicatorColor | (iOS only) The color of the scroll indicators - ('black', 'white' or 'default') | String | no | all | yes
 | isAnimated | To show animated Line or Area Chart. Animation occurs when the chart load for the first time | boolean | no | all | yes
-| animateOnDataChange | To show animation on change in data. A smooth transition takes place between the iold and new line | boolean | no | all | yes
-| onDataChangeAnimationDuration | Duration (milliseconds) in which the transition animation takes place on a change in data | number | no | all | yes
 | onPress | The callback function that handles the press event. `item` and `index` are received as props | Function | no | all | yes
 | scrollToEnd | When set to true, the chart automatically scrolls to the rightmost data point | boolean | no | all | yes
 | scrollAnimation | When set to true, scroll animation is visible when the chart automatically scrolls to the rightmost data point | boolean | no | all | yes
@@ -468,7 +465,7 @@ For details, see [react-native-gifted-charts](https://github.com/Abhinandan-Kush
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
 | value| Value of the item representing representing its position | number | no | all | yes
-| onPress | Function called on pressing the data point | function | no | all | yes
+| onPress | Function called on pressing the data point | function | no | all | no
 | label | Label text appearing under the X axis | string | no | all | yes
 | labelTextStyle | Style object for the label text appearing under the X axis | object | no | all | yes
 | labelComponent | custom label component appearing under the X axis | Function | no | all | yes
@@ -488,11 +485,11 @@ For details, see [react-native-gifted-charts](https://github.com/Abhinandan-Kush
 | verticalLineUptoDataPoint | When set to true, it sets the height of the vertical line upto the corresponding data point | boolean | no | all | yes
 | verticalLineColor | Color of the vertical Line displayed along the data point | ColorValue | no | all | yes
 | verticalLineThickness | Thickness of the vertical Line displayed along the data point | number| no | all | yes
-| dataPointLabelWidth | width of the label shown beside a data point | number | no | all | yes
-| dataPointLabelShiftX | horizontal shift of a label from its corresponding data point | number | no | all | yes
-| dataPointLabelShiftY | vertical shift of a label from its corresponding data point | number | no | all | yes
-| dataPointLabelComponent | custom component rendered above a data point| Function | no | all | yes
-| focusedDataPointLabelComponent | custom component rendered above a data point only when focused/selected (when the user presses) | Function | no | all | yes
+| dataPointLabelWidth | width of the label shown beside a data point | number | no | all | no
+| dataPointLabelShiftX | horizontal shift of a label from its corresponding data point | number | no | all | no
+| dataPointLabelShiftY | vertical shift of a label from its corresponding data point | number | no | all | no
+| dataPointLabelComponent | custom component rendered above a data point| Function | no | all | no
+| focusedDataPointLabelComponent | custom component rendered above a data point only when focused/selected (when the user presses) | Function | no | all | no
 | showStrip | To show a vertical strip along the data point (even if it's not focused/selected) | boolean | no | all | yes
 | stripHeight | Height of the vertical strip that becomes visible on pressing the corresponding area of the chart, or when showStrip is set to true | number| no | all | yes
 | stripWidth | Width of the vertical strip that becomes visible on pressing the corresponding area of the chart, or when showStrip is set to true | number| no | all | yes
@@ -697,9 +694,9 @@ For details, see [react-native-gifted-charts](https://github.com/Abhinandan-Kush
 | textShiftX | To shift the dataPointText text horizontally | number | no | all | yes
 | textShiftY | To shift the dataPointText text vertically | number | no | all | yes
 | customDataPoint | A callback function to render a custom component as the data points | Function | no | all | yes
-| dataPointLabelWidth | width of the label shown beside a data point | number | no | all | yes
-| dataPointLabelShiftX | horizontal shift of a label from its corresponding data point | number | no | all | yes
-| dataPointLabelShiftY | vertical shift of a label from its corresponding data point | number | no | all | yes
+| dataPointLabelWidth | width of the label shown beside a data point | number | no | all | no
+| dataPointLabelShiftX | horizontal shift of a label from its corresponding data point | number | no | all | no
+| dataPointLabelShiftY | vertical shift of a label from its corresponding data point | number | no | all | no
 | showValuesAsDataPointsText | When set to true, the data item value will be shown as a label text near data point | boolean | no | all | yes
 | pointerColorsForDataSet | When using pointers with dataSet, you can set pointer colors on each data line using this array | ColorValue[] | no | all | yes
 
@@ -732,7 +729,7 @@ For details, see [react-native-gifted-charts](https://github.com/Abhinandan-Kush
 | pointerLabelHeight | pointer label height | number | no | all | yes
 | pointerVanishDelay | Pointer disappearance delay | number | no | all | yes
 | activatePointersOnLongPress |Long press to activate pointer | boolean | no | all | yes
-| activatePointersDelay | activation pointer delay | number | no | all | yes
+| activatePointersDelay | activation pointer delay | number | no | all | no
 | persistPointer | persistent pointer | boolean | no | all | yes
 | hidePointer1 | hidden pointer | boolean | no | all | yes
 | hidePointer2 | hidden pointer | boolean | no | all | yes
@@ -751,7 +748,7 @@ For details, see [react-native-gifted-charts](https://github.com/Abhinandan-Kush
 | showDataPointOnFocus | If set true, it shows the data point corresponding to the focused area of the chart | boolean | no | all | yes
 | showStripOnFocus | If set true, it shows a vertical strip corresponding to the focused area of the chart | boolean | no | all | yes
 | showTextOnFocus | If set true, it shows the data point text corresponding to the focused area of the chart | boolean | no | all | yes
-| showDataPointLabelOnFocus | If set true, it shows the data point corresponding to the focused area of the chart | boolea| no | all | yes
+| showDataPointLabelOnFocus | If set true, it shows the data point corresponding to the focused area of the chart | boolea| no | all | no
 | stripHeight | Height of the vertical strip that becomes visible on pressing the corresponding area of the chart | number | no | all | yes
 | stripWidth | Width of the vertical strip that becomes visible on pressing the corresponding area of the chart | number | no | all | yes
 | stripColor | Color of the vertical strip that becomes visible on pressing the corresponding area of the chart | ColorValue| no | all | yes
@@ -769,11 +766,11 @@ For details, see [react-native-gifted-charts](https://github.com/Abhinandan-Kush
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
 | areaChart | If set true, renders area chart instead of line chart | boolean| no | all | yes
-| areaChart1 | If set true, renders area chart for 1st data set instead of line chart | boolean | no | all | yes
-| areaChart2 | If set true, renders area chart for 2nd data set instead of line chartt | boolean | no | all | yes
-| areaChart3 | If set true, renders area chart for 3rd data set instead of line chartt | boolean | no | all | yes
-| areaChart4 | If set true, renders area chart for 4th data set instead of line chartt | boolean | no | all | yes
-| areaChart5 | If set true, renders area chart for 5th data set instead of line chartt | boolean | no | all | yes
+| areaChart1 | If set true, renders area chart for 1st data set instead of line chart | boolean | no | no | no
+| areaChart2 | If set true, renders area chart for 2nd data set instead of line chartt | boolean | no | no | no
+| areaChart3 | If set true, renders area chart for 3rd data set instead of line chartt | boolean | no | no | no
+| areaChart4 | If set true, renders area chart for 4th data set instead of line chartt | boolean | no | no | no
+| areaChart5 | If set true, renders area chart for 5th data set instead of line chartt | boolean | no | no | no
 | startFillColor | Start gradient color for the area chart | ColorValue | no | all | yes
 | endFillColor | End gradient color for the area chart | ColorValue | no | all | yes
 | startOpacity | Start gradient opacity for the area chart | number | no | all | yes
@@ -816,10 +813,9 @@ For details, see [react-native-gifted-charts](https://github.com/Abhinandan-Kush
 | onPress | Callback function called on press of Pie sections (takes item and index as parameter) | Function | no | all | yes
 | focusOnPress | When set to true, the pressed section of the Pie chart will have a bigger radius, hence appear focused | boolean | no | all | yes
 | toggleFocusOnPress | When set to true, if the user presses an already focused pie section, it will be unfocused | boolean | no | all | yes
-| extraRadiusForFocused | Extra radius for the focused Pie section | number | no | all | yes
+| extraRadius | Extra radius for the focused Pie section | number | no | all | yes
 | inwardExtraLengthForFocused | Extra length of focused Pie section towards the center (only for donut charts) | number | no | all | yes
 | sectionAutoFocus | In case you don't want focusOnPress but want a particular section to autofocus, this prop will be needed | boolean | no | all | yes
-| onLabelPress | Callback function called on press of a Label (takes item and index as parameter) | Function | no | all | yes
 | tiltAngle | The angle by which the chart should be tilted | Angle in deg | no | all | yes
 | shadow | Shadow to the Pie chart, when set to true, it enhances the 3D effect | boolean | no | all | yes
 | shadowColor | Color of the shadow | ColorValue | no | all | yes
@@ -832,7 +828,7 @@ For details, see [react-native-gifted-charts](https://github.com/Abhinandan-Kush
 | textSize | Size of the label texts (max allowed: radius / 5) | number | no | all | yes
 | fontStyle | Style of the text - 'normal', 'italic' or 'oblique'| string| no | all | yes
 | fontWeight | Weight of the text - 'bold', 'bolder', 'lighter', '100', '200' etc | string | no | all | yes
-| font | Font family of the text - 'Arial', 'Cursive', 'Comic Sans MS' etc | string | no | all | yes
+| font | Font family of the text - 'Arial', 'Cursive', 'Comic Sans MS' etc | string | no | all | no
 | showTextBackground | When set to true, displays background for text on the Pie sections | boolean | no | all | yes
 | textBackgroundColor | Background color for the label texts | ColorValue | no | all | yes
 | textBackgroundRadius | Radius for the background of the text labels | number | no | all | yes
@@ -848,6 +844,8 @@ For details, see [react-native-gifted-charts](https://github.com/Abhinandan-Kush
 | curvedStartEdges | Bend start edge, only fro PieProChart | boolean | no | all | yes
 | curvedEndEdges | Bend end edge, only fro PieProChart | boolean | no | all | yes
 | edgesRadius | Bend radius, only fro PieProChart | number | no | all | yes
+| strokeDashArray | Array of 2 numbers denoting the dashWidth and dashGap of the lines. Used to render dashed/dotted pointer. only for PieProChart | number[] | no | all | yes
+| ring | Whether the pie chart needs to be filled with fan leaves | boolean | no | all | yes
 
 **Item description (pieDataItem)**
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
@@ -861,16 +859,15 @@ For details, see [react-native-gifted-charts](https://github.com/Abhinandan-Kush
 | shiftTextBackgroundY | Shifts the background of label text vertically (default value is shiftTextY) | number | no | all | yes
 | color | Color (background color) of the section | ColorValue | no | all | yes
 | text | Label text for the sections | string | no | all | yes
-| textColor | Color of the text (label) inside the section | ColorValue | no | all | yes
+| textColor | Color of the text (label) inside the section | ColorValue | no | all | no
 | textSize | Size of the text (label) inside the section | number | no | all | yes
 | fontStyle | Style of the text - 'normal', 'italic' or 'oblique' | string | no | all | yes
 | fontWeight | Weight of the text - 'bold', 'bolder', 'lighter', '100', '200' etc | string | no | all | yes
-| font | Font family of the text - 'Arial', 'Cursive', 'Comic Sans MS' etc | string | no | all | yes
+| font | Font family of the text - 'Arial', 'Cursive', 'Comic Sans MS' etc | string | no | all | no
 | textBackgroundColor | Background color for the label text | ColorValue | no | all | yes
 | textBackgroundRadius | Radius for the background of the text label| number | no | all | yes
 | labelPosition | Tells where inside the Pie sections should the labels be shown- 'onBorder', 'outward', 'inward' or 'mid' | string | no | all | yes
 | onPress | Callback function called on press of Pie sections (takes item and index as parameter) | Function | no | all | yes
-| onLabelPress | Callback function called on press of a Label (takes item and index as parameter) | Function | no | all | yes
 | strokeWidth | Stroke (line) width for the Pie chart and its section | number | no | all | yes
 | strokeColor | Stroke (line) color | ColorValue | no | all | yes
 | focused | When set to true, the section for that item is focused, sectionAutoFocus must be set true in order to use this property | boolean | no | all | yes
@@ -923,7 +920,7 @@ For details, see [react-native-gifted-charts](https://github.com/Abhinandan-Kush
 | xAxisLabelColor              | self explanatory                                                                                                 | ColorValue                 | no       | all      | yes               |
 | xAxisLabelFontStyle          | self explanatory                                                                                                 | FontStyle                  | no       | all      | yes               |
 | xAxisLabelFontWeight         | self explanatory                                                                                                 | FontWeight                 | no       | all      | yes               |
-| xAxisLabelFontFamily         | self explanatory                                                                                                 | string                     | no       | all      | yes               |
+| xAxisLabelFontFamily         | self explanatory                                                                                                 | string                     | no       | all      | no                |
 | xAxisLabelShiftX             | horizontally shifts the x axis labels by given value                                                             | number                     | no       | all      | yes               |
 | xAxisLabelShiftY             | vertically shifts the x axis labels by given value                                                               | number                     | no       | all      | yes               |
 | xAxisRoundToDigits           | number of decimal places upto which x axis labels will be displayed                                              | number                     | no       | all      | yes               |
@@ -946,7 +943,7 @@ For details, see [react-native-gifted-charts](https://github.com/Abhinandan-Kush
 | yAxisLabelTexts              | An array of string labels to be rendered as Y axis labels (top to bottom)                                        | Array<string>              | no       | all      | yes               |
 | yAxisLabelFontStyle          | self explanatory                                                                                                 | FontStyle                  | no       | all      | yes               |
 | yAxisLabelFontWeight         | self explanatory                                                                                                 | FontWeight                 | no       | all      | yes               |
-| yAxisLabelFontFamily         | self explanatory                                                                                                 | string                     | no       | all      | yes               |
+| yAxisLabelFontFamily         | self explanatory                                                                                                 | string                     | no       | all      | no                |
 | showValuesAsBarLabels        | when set to true, displays the left and right values as labels beside the respective bars                        | boolean                    | no       | all      | yes               |
 | showMidAxis                  | when set to true, displays an axis in the mid - between the left and right halves of the pyramid                 | boolean                    | no       | all      | yes               |
 | midAxisThickness             | thickness of the mid axis lines                                                                                  | number                     | no       | all      | yes               |
@@ -959,19 +956,19 @@ For details, see [react-native-gifted-charts](https://github.com/Abhinandan-Kush
 | midAxisLabelColor            | self explanatory                                                                                                 | ColorValue                 | no       | all      | yes               |
 | midAxisLabelFontStyle        | self explanatory                                                                                                 | FontStyle                  | no       | all      | yes               |
 | midAxisLabelFontWeight       | self explanatory                                                                                                 | FontWeight                 | no       | all      | yes               |
-| midAxisLabelFontFamily       | self explanatory                                                                                                 | string                     | no       | all      | yes               |
+| midAxisLabelFontFamily       | self explanatory                                                                                                 | string                     | no       | all      | no                |
 | barLabelWidth                | width of the labels displayed behind the bars (both left and right bars)                                         | number                     | no       | all      | yes               |
 | barLabelFontSize             | font size of the labels displayed behind the bars (both left and right bars)                                     | number                     | no       | all      | yes               |
 | barLabelColor                | color of the of the labels displayed behind the bars (both left and right bars)                                  | ColorValue                 | no       | all      | yes               |
 | barLabelFontStyle            | font style of the labels displayed behind the bars (both left and right bars)                                    | FontStyle                  | no       | all      | yes               |
 | barLabelFontWeight           | font weight of the labels displayed behind the bars (both left and right bars)                                   | FontWeight                 | no       | all      | yes               |
-| barLabelFontFamily           | font family of the labels displayed behind the bars (both left and right bars)                                   | string                     | no       | all      | yes               |
+| barLabelFontFamily           | font family of the labels displayed behind the bars (both left and right bars)                                   | string                     | no       | all      | no                |
 | leftBarLabelWidth            | width of the labels displayed behind the left bars                                                               | number                     | no       | all      | yes               |
 | leftBarLabelFontSize         | font size of the labels displayed behind the left bars                                                           | number                     | no       | all      | yes               |
 | leftBarLabelColor            | color of the labels displayed behind the left bars                                                               | ColorValue                 | no       | all      | yes               |
 | leftBarLabelFontStyle        | font style of the labels displayed behind the left bars                                                          | FontStyle                  | no       | all      | yes               |
 | leftBarLabelFontWeight       | font weight of the labels displayed behind the left bars                                                         | FontWeight                 | no       | all      | yes               |
-| leftBarLabelFontFamily       | font family of the labels displayed behind the left bars                                                         | string                     | no       | all      | yes               |
+| leftBarLabelFontFamily       | font family of the labels displayed behind the left bars                                                         | string                     | no       | all      | no                |
 | leftBarLabelShift            | value by which the left bar labels should be shifted horizontally (kind of margin b/w label and bar)             | number                     | no       | all      | yes               |
 | leftBarLabelPrefix           | The String prepended to the left bar label text (for example- '$')                                               | string                     | no       | all      | yes               |
 | leftBarLabelSuffix           | The String appended to the left bar label text                                                                   | string                     | no       | all      | yes               |
@@ -980,7 +977,7 @@ For details, see [react-native-gifted-charts](https://github.com/Abhinandan-Kush
 | rightBarLabelColor           | color of the labels displayed behind the right bars                                                              | ColorValue                 | no       | all      | yes               |
 | rightBarLabelFontStyle       | font style of the labels displayed behind the right bars                                                         | FontStyle                  | no       | all      | yes               |
 | rightBarLabelFontWeight      | font weight of the labels displayed behind the right bars                                                        | FontWeight                 | no       | all      | yes               |
-| rightBarLabelFontFamily      | font family of the labels displayed behind the right bars                                                        | string                     | no       | all      | yes               |
+| rightBarLabelFontFamily      | font family of the labels displayed behind the right bars                                                        | string                     | no       | all      | no                |
 | rightBarLabelShift           | value by which the right bar labels should be shifted horizontally (kind of margin b/w label and bar)            | number                     | no       | all      | yes               |
 | rightBarLabelPrefix          | The String prepended to the right bar label text (for example- '$')                                              | string                     | no       | all      | yes               |
 | rightBarLabelSuffix          | The String appended to the right bar label text                                                                  | string                     | no       | all      | yes               |
@@ -1012,8 +1009,28 @@ For details, see [react-native-gifted-charts](https://github.com/Abhinandan-Kush
 - [x] BarChart 设置 barBackgroundPattern 显示问题，svg 问题。 [issue#6](https://github.com/react-native-oh-library/react-native-gifted-charts/issues/6)
 - [ ] LineChart 设置 customDataPoint 不显示，svg 问题。 [issue#8](https://github.com/react-native-oh-library/react-native-gifted-charts/issues/8)
 - [ ] PieChartPro 饼图设置 animated 为 true，动画会卡顿，RN 框架问题。 [issue#9](https://github.com/react-native-oh-library/react-native-gifted-charts/issues/9)
+- [ ] LineChart/BarChart dataPointLabelComponent 不生效,svg 问题。[issue#10](https://github.com/react-native-oh-library/react-native-gifted-charts/issues/10)
+- [ ] LineChart/BarChart dataPointLabelWidth 不生效,svg 问题。[issue#11](https://github.com/react-native-oh-library/react-native-gifted-charts/issues/11)
+- [ ] LineChart/BarChart dataPointLabelShiftX 不生效,svg 问题。[issue#12](https://github.com/react-native-oh-library/react-native-gifted-charts/issues/12)
+- [ ] LineChart/BarChart dataPointLabelShiftY 不生效,svg 问题。[issue#13](https://github.com/react-native-oh-library/react-native-gifted-charts/issues/13)
+- [ ] LineChart showDataPointLabelOnFocus 为 true 不生效,svg 问题。[issue#14](https://github.com/react-native-oh-library/react-native-gifted-charts/issues/14)
+- [ ] LineChart data 设置 onPress 方法 不生效,svg 问题。[issue#15](https://github.com/react-native-oh-library/react-native-gifted-charts/issues/15)
+- [ ] LineChart data 设置 focusedDataPointLabelComponent 不生效,svg 问题。[issue#16](https://github.com/react-native-oh-library/react-native-gifted-charts/issues/16)
+- [ ] PopulationPyramid barLabelFontFamily 不生效,svg 问题。[issue#17](https://github.com/react-native-oh-library/react-native-gifted-charts/issues/17)
+- [ ] PopulationPyramid leftBarLabelFontFamily 不生效,svg 问题。[issue#18](https://github.com/react-native-oh-library/react-native-gifted-charts/issues/18)
+- [ ] PopulationPyramid rightBarLabelFontFamily 不生效,svg 问题。[issue#19](https://github.com/react-native-oh-library/react-native-gifted-charts/issues/19)
+- [ ] PopulationPyramid xAxisLabelFontFamily 不生效,svg 问题。[issue#20](https://github.com/react-native-oh-library/react-native-gifted-charts/issues/20)
+- [ ] PopulationPyramid yAxisLabelFontFamily 不生效,svg 问题。[issue#21](https://github.com/react-native-oh-library/react-native-gifted-charts/issues/21)
+- [ ] PopulationPyramid midAxisLabelFontFamily 不生效,svg 问题。[issue#22](https://github.com/react-native-oh-library/react-native-gifted-charts/issues/22)
+- [ ] PieChart/PieChartPro font 不生效,svg 问题。[issue#23](https://github.com/react-native-oh-library/react-native-gifted-charts/issues/23)
 
 ## Others
+
+- BarChart/LineChart rulesConfigArray 属性设置第一条不生效,效果与 iOS/Android 一致。[issue#892](https://github.com/Abhinandan-Kushwaha/react-native-gifted-charts/issues/893)
+- PieChart data 设置 textColor 不生效,效果与 iOS/Android 一致。[issues#886](https://github.com/Abhinandan-Kushwaha/react-native-gifted-charts/issues/886)
+- LineChart areaChart1 areaChart2 areaChart3 areaChart4 areaChart5 不生效,效果与 iOS/Android 一致。[issue#892](https://github.com/Abhinandan-Kushwaha/react-native-gifted-charts/issues/892)
+- BarChart pointerEvents 不生效,效果与 iOS/Android 一致.
+- BarChart/LineChart pointerConfig 的 activatePointersDelay 不生效,效果与 iOS/Android 一致。
 
 ## License
 

@@ -321,7 +321,9 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 +  AIRMapWMSTile,
 +  AIR_WMSTILE_TYPE,
 +  AIR_OVERLAY_TYPE,
-+  AIRMapOverlay
++  AIRMapOverlay,
++  AIR_MAP_CLUSTER_TYPE
++  AIRMapCluster,
 + } from "@react-native-oh-tpl/react-native-maps"
 
 @Builder
@@ -387,7 +389,12 @@ export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
 +      ctx: ctx.rnComponentContext,
 +      tag: ctx.tag,
 +    })
-+  }
++  } else if (ctx.componentName === AIR_MAP_CLUSTER_TYPE) {
++     AIRMapCluster({
++       ctx: ctx.rnComponentContext,
++       tag: ctx.tag,
++     })
++   }
 ...
 }
 ...
@@ -409,7 +416,8 @@ const arkTsComponentNames: Array<string> = [
 + AIR_GEOJSON_TYPE, 
 + AIR_URLTILE_TYPE, 
 + AIR_WMSTILE_TYPE, 
-+ AIR_OVERLAY_TYPE
++ AIR_OVERLAY_TYPE,
++ AIR_MAP_CLUSTER_TYPE,
   ];
 ```
 
@@ -864,6 +872,21 @@ ohpm install
 | colors       | Colors (one or more) to use for gradient.                                                                                             | Array<String> |         | yes      | ios/android | no                |
 | startPoints  | Array of floating point values from 0 to 1 representing where each color starts. Array length must be equal to `colors` array length. | Array<Number> |         | yes      | ios/android | no                |
 | colorMapSize | Resolution of color map -- number corresponding to the number of steps colors are interpolated into.                                  | Number        | 256     | yes      | ios/android | no                |
+
+## Cluster
+
+> [!tip] 点聚合组件是新开发组件，在原库上不存在。
+
+> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+
+> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+
+### 属性
+
+| Name              | Description                       | Type                        | Default  | Required | Platform    | HarmonyOS Support |
+| ----------------- | --------------------------------- | --------------------------- | -------- | -------- | ----------- | ----------------- |
+| distance          | 聚合节点聚合的距离，单位vp        | number                      |          | yes      |             | yes               |
+| clusterItems      | 待聚合节点数组                    | Array<{ position: LatLng }> |          | yes      |             | yes               |
 
 ## 遗留问题
 

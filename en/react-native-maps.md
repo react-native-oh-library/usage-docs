@@ -318,7 +318,9 @@ Find `function buildCustomRNComponent()`, which is usually located in `entry/src
 +  AIRMapWMSTile,
 +  AIR_WMSTILE_TYPE,
 +  AIR_OVERLAY_TYPE,
-+  AIRMapOverlay
++  AIRMapOverlay,
++  AIR_MAP_CLUSTER_TYPE
++  AIRMapCluster,
 + } from "@react-native-oh-tpl/react-native-maps"
 
 @Builder
@@ -384,7 +386,12 @@ export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
 +      ctx: ctx.rnComponentContext,
 +      tag: ctx.tag,
 +    })
-+  }
++  } else if (ctx.componentName === AIR_MAP_CLUSTER_TYPE) {
++     AIRMapCluster({
++       ctx: ctx.rnComponentContext,
++       tag: ctx.tag,
++     })
++   }
 ...
 }
 ...
@@ -407,7 +414,8 @@ const arkTsComponentNames: Array<string> = [
 + AIR_GEOJSON_TYPE, 
 + AIR_URLTILE_TYPE, 
 + AIR_WMSTILE_TYPE, 
-+ AIR_OVERLAY_TYPE
++ AIR_OVERLAY_TYPE,
++ AIR_MAP_CLUSTER_TYPE,
   ];
 ```
 
@@ -862,6 +870,21 @@ Check the release version information in the release address of the third-party 
 | colors       | Colors (one or more) to use for gradient.                                                                                             | Array<String> |         | yes      | ios/android | no                |
 | startPoints  | Array of floating point values from 0 to 1 representing where each color starts. Array length must be equal to `colors` array length. | Array<Number> |         | yes      | ios/android | no                |
 | colorMapSize | Resolution of color map -- number corresponding to the number of steps colors are interpolated into.                                  | Number        | 256     | yes      | ios/android | no                |
+
+## Cluster
+
+> [!tip] 点聚合组件是新开发组件，在原库上不存在。
+
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+
+### Properties
+
+| Name              | Description                       | Type                        | Default  | Required | Platform    | HarmonyOS Support |
+| ----------------- | --------------------------------- | --------------------------- | -------- | -------- | ----------- | ----------------- |
+| distance          | 聚合节点聚合的距离，单位vp        | number                      |          | yes      |             | yes               |
+| clusterItems      | 待聚合节点数组                    | Array<{ position: LatLng }> |          | yes      |             | yes               |
 
 ## Known Issues
 

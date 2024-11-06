@@ -118,37 +118,36 @@ This document is verified based on the following versions:
 
 > [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-|           Name            |                                                             Description                                                             |          Type           | Required |  Platform   | HarmonyOS Support |
-| :-----------------------: | :---------------------------------------------------------------------------------------------------------------------------------: | :---------------------: | :------: | :---------: | :---------------: |
-|       onValueChange       |                                               when to change value(value: `boolean`)                                                |        function         |    No    | Android/IOS |        Yes        |
-|         disabled          |                                                           Display or not                                                            |         boolean         |    No    | Android/IOS |        Yes        |
-|        activeText         |                                                             active text                                                             |         string          |    No    | Android/IOS |        Yes        |
-|       inActiveText        |                                                           in Active Text                                                            |         string          |    No    | Android/IOS |        Yes        |
-|     backgroundActive      |                                                          background active                                                          |         string          |    No    | Android/IOS |        Yes        |
-|    backgroundInactive     |                                                        background in active                                                         |         string          |    No    | Android/IOS |        Yes        |
-|           value           |                                                            swtich value                                                             |         boolean         |    No    | Android/IOS |        Yes        |
-|     circleActiveColor     |                                                         circle active color                                                         |         string          |    No    | Android/IOS |        Yes        |
-|    circleInActiveColor    |                                                       circle in active color                                                        |         string          |    No    | Android/IOS |        Yes        |
-|        circleSize         |                                                             circle Size                                                             |         number          |    No    | Android/IOS |        Yes        |
-|     circleBorderWidth     |                                                         circle Border Width                                                         |        function         |    No    | Android/IOS |        Yes        |
-|  circleBorderactiveColor  |                                                     circle Border Active Color                                                      |        function         |    No    | Android/IOS |        Yes        |
-| circleBorderInactiveColor |                                                    circle Border Inactive Color                                                     |         boolean         |    No    | Android/IOS |        Yes        |
-|      activeTextStyle      |                                                          active Text Style                                                          | StyleProp`<TextStyle> ` |    No    | Android/IOS |        Yes        |
-|     inactiveTextStyle     |                                                        in Active Text Style.                                                        | StyleProp`<TextStyle> ` |    No    | Android/IOS |        Yes        |
-|      containerStyle       |                                                           container Style                                                           | StyleProp`<TextStyle> ` |    No    | Android/IOS |        Yes        |
-|         barHeight         |                                                             Bar Height                                                              |         number          |    No    | Android/IOS |        Yes        |
-|     circleBorderWidth     |                                                         circle Border Width                                                         |         number          |    No    | Android/IOS |        Yes        |
-|    renderInsideCircle     |                               custom component to render inside the Switch circle (Text, Image, etc.)                               |        function         |    No    | Android/IOS |        Yes        |
-|  changeValueImmediately   |                       if rendering inside circle, change state immediately or wait for animation to complete                        |         boolean         |    No    | Android/IOS |        Yes        |
-|     innerCircleStyle      |                          style for inner animated circle for what you (may) be rendering inside the circle                          | StyleProp`<TextStyle> ` |    No    | Android/IOS |        Yes        |
-|     outerCircleStyle      |                                                   style for outer animated circle                                                   | StyleProp`<TextStyle> ` |    No    | Android/IOS |        Yes        |
-|     renderActiveText      |                                                         render Active Text                                                          |         boolean         |    No    | Android/IOS |        Yes        |
-|    renderInActiveText     |                                                        render In Active Text                                                        |         boolean         |    No    | Android/IOS |        Yes        |
-|       switchLeftPx        |    denominator for logic when sliding to TRUE position. Higher number = more space from RIGHT of the circle to END of the slider    |         number          |    No    | Android/IOS |        Yes        |
+|           Name            |                         Description                          |          Type           | Required |  Platform   | HarmonyOS Support |
+| :-----------------------: | :----------------------------------------------------------: | :---------------------: | :------: | :---------: | :---------------: |
+|       onValueChange       |            when to change value(value: `boolean`)            |        function         |    No    | Android/IOS |        Yes        |
+|         disabled          |                        Display or not                        |         boolean         |    No    | Android/IOS |        Yes        |
+|        activeText         |                         active text                          |         string          |    No    | Android/IOS |        Yes        |
+|       inActiveText        |                        in Active Text                        |         string          |    No    | Android/IOS |        Yes        |
+|     backgroundActive      |                      background active                       |         string          |    No    | Android/IOS |        Yes        |
+|    backgroundInactive     |                     background in active                     |         string          |    No    | Android/IOS |        Yes        |
+|           value           |                         swtich value                         |         boolean         |    No    | Android/IOS |        Yes        |
+|     circleActiveColor     |                     circle active color                      |         string          |    No    | Android/IOS |        Yes        |
+|    circleInActiveColor    |                    circle in active color                    |         string          |    No    | Android/IOS |        Yes        |
+|        circleSize         |                         circle Size                          |         number          |    No    | Android/IOS |        Yes        |
+|     circleBorderWidth     |                     circle Border Width                      |         number          |    No    | Android/IOS |        Yes        |
+|  circleBorderActiveColor  |                  circle Border Active Color                  |         string          |    No    | Android/IOS |        Yes        |
+| circleBorderInactiveColor |                 circle Border Inactive Color                 |         string          |    No    | Android/IOS |        Yes        |
+|      activeTextStyle      |                      active Text Style                       | StyleProp`<TextStyle> ` |    No    | Android/IOS |        Yes        |
+|     inactiveTextStyle     |                    in Active Text Style.                     | StyleProp`<TextStyle> ` |    No    | Android/IOS |        Yes        |
+|      containerStyle       |                       container Style                        | StyleProp`<ViewStyle> ` |    No    | Android/IOS |        Yes        |
+|         barHeight         |                          Bar Height                          |         number          |    No    | Android/IOS |        Yes        |
+|    renderInsideCircle     | custom component to render inside the Switch circle (Text, Image, etc.) |        function         |    No    | Android/IOS |        Yes        |
+|  changeValueImmediately   | if rendering inside circle, change state immediately or wait for animation to complete |         boolean         |    No    | Android/IOS |        Yes        |
+|     innerCircleStyle      | style for inner animated circle for what you (may) be rendering inside the circle | StyleProp`<ViewStyle> ` |    No    | Android/IOS |        Yes        |
+|     outerCircleStyle      |               style for outer animated circle                | StyleProp`<ViewStyle> ` |    No    | Android/IOS |        Yes        |
+|     renderActiveText      |                      render Active Text                      |         boolean         |    No    | Android/IOS |        Yes        |
+|    renderInActiveText     |                    render In Active Text                     |         boolean         |    No    | Android/IOS |        Yes        |
+|       switchLeftPx        | denominator for logic when sliding to TRUE position. Higher number = more space from RIGHT of the circle to END of the slider |         number          |    No    | Android/IOS |        Yes        |
 |       switchRightPx       | denominator for logic when sliding to FALSE position. Higher number = more space from LEFT of the circle to BEGINNING of the slider |         number          |    No    | Android/IOS |        Yes        |
-|   switchWidthMultiplier   |                             multiplied by the `circleSize` prop to calculate total width of the Switch                              |         number          |    No    | Android/IOS |        Yes        |
-|    switchBorderRadius     |                          Sets the border Radius of the switch slider. If unset, it remains the circleSize.                          |         number          |    No    | Android/IOS |        Yes        |
-|          testID           |                                                           swtich test ID                                                            |         string          |    No    | Android/IOS |        Yes        |
+|   switchWidthMultiplier   | multiplied by the `circleSize` prop to calculate total width of the Switch |         number          |    No    | Android/IOS |        Yes        |
+|    switchBorderRadius     | Sets the border Radius of the switch slider. If unset, it remains the circleSize. |         number          |    No    | Android/IOS |        Yes        |
+|          testID           |                        swtich test ID                        |         string          |    No    | Android/IOS |        Yes        |
 
 ## Known Issues
 
@@ -157,4 +156,3 @@ This document is verified based on the following versions:
 ## License
 
 This project is licensed under [The MIT License (MIT)](https://github.com/shahen94/react-native-switch/blob/master/LICENSE).
-

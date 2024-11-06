@@ -22,7 +22,7 @@
 #### **npm**
 
 ```bash
-npm install --save react-native-switch@1.5.1
+npm install react-native-switch@1.5.1
 ```
 
 #### **yarn**
@@ -98,7 +98,7 @@ export function SwitchDemo(){
 本文档内容基于以下版本验证通过：
 
 1. RNOH: 0.72.27; SDK: HarmonyOS-NEXT-DB1; IDE: DevEco Studio 5.0.3.400SP7; ROM: 3.0.0.29;
-2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
+2. RNOH: 0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 ## 属性
 
@@ -118,26 +118,24 @@ export function SwitchDemo(){
 |      circleActiveColor       | circle active color |      string       |    No    | Android/IOS |        Yes        |
 |    circleInActiveColor     | circle in active color |      string       |    No    | Android/IOS |        Yes        |
 |       circleSize        | circle Size|  number  |    No    | Android/IOS |        Yes        |
-|     circleBorderWidth     | circle Border Width |      function       |    No    | Android/IOS |        Yes        |
-|     circleBorderactiveColor     | circle Border Active Color|      function       |    No    | Android/IOS |        Yes        |
-|     circleBorderInactiveColor      |circle Border Inactive Color |       boolean       |    No    | Android/IOS |        Yes        |
-|    activeTextStyle     | active Text Style    |    StyleProp`<TextStyle> `  |  No  |         Android/IOS     |Yes
-| inactiveTextStyle | in Active Text Style. |       StyleProp`<TextStyle> `       |    No    | Android/IOS |        Yes        |
-|        containerStyle        |         container Style             |       StyleProp`<TextStyle> `        |   No    | Android/IOS |        Yes        |
-|     barHeight      |      Bar Height        |      number      |    No    | Android/IOS |        Yes        |
-|      circleBorderWidth      | circle Border Width |       number        |    No    | Android/IOS |        Yes        |
-|   renderInsideCircle    | custom component to render inside the Switch circle (Text, Image, etc.)      |    function  | No | Android/IOS |        Yes        |
-|  changeValueImmediately  | if rendering inside circle, change state immediately or wait for animation to complete |       boolean        |    No    | Android/IOS |        Yes        |
-|        innerCircleStyle         | style for inner animated circle for what you (may) be rendering inside the circle|   StyleProp`<TextStyle> `   |    No   | Android/IOS |        Yes        |
-|  outerCircleStyle  | style for outer animated circle |       StyleProp`<TextStyle> `       |    No    | Android/IOS |        Yes        |
-renderActiveText  | render Active Text |       boolean     |    No    | Android/IOS |        Yes        |
-renderInActiveText  | render In Active Text |       boolean     |    No    | Android/IOS |        Yes        |
-switchLeftPx  | denominator for logic when sliding to TRUE position. Higher number = more space from RIGHT of the circle to END of the slider |       number     |    No    | Android/IOS |        Yes        |
-switchRightPx  |  denominator for logic when sliding to FALSE position. Higher number = more space from LEFT of the circle to BEGINNING of the slider |       number     |    No    | Android/IOS |        Yes        |
-switchWidthMultiplier  |  multiplied by the `circleSize` prop to calculate total width of the Switch |       number     |    No    | Android/IOS |        Yes        |
-switchBorderRadius  |  Sets the border Radius of the switch slider. If unset, it remains the circleSize. |       number     |    No    | Android/IOS |        Yes        |
-testID  |  swtich test ID |       string     |    No    | Android/IOS |        Yes        |
-
+|     circleBorderWidth     | circle Border Width |      number |    No    | Android/IOS |        Yes        |
+|     circleBorderActiveColor     | circle Border Active Color|      string |    No    | Android/IOS |        Yes        |
+|     circleBorderInactiveColor      |circle Border Inactive Color |       string       |    No    | Android/IOS |        Yes        |
+| activeTextStyle |active Text Style | StyleProp`<TextStyle> ` | No | Android/IOS | Yes |
+| inactiveTextStyle |in Active Text Style | StyleProp`<TextStyle> ` | No | Android/IOS | Yes |
+| containerStyle |container Styl | StyleProp`<ViewStyle> ` | No | Android/IOS | Yes |
+| barHeight |Bar Height | number | No | Android/IOS | Yes |
+| renderInsideCircle |custom component to render inside the Switch circle | function | No | Android/IOS | Yes |
+| changeValueImmediately |if rendering inside circle, change state immediately or wait for animation to complete | boolean | No | Android/IOS | Yes |
+| innerCircleStyle |style for inner animated circle for what you (may) be rendering inside the circle | StyleProp`<ViewStyle> ` | No | Android/IOS | Yes |
+| outerCircleStyle |style for outer animated circle | StyleProp`<ViewStyle> ` | No | Android/IOS | Yes |
+| renderActiveText |render Active Text | boolean | No | Android/IOS | Yes |
+| renderInActiveText |render In Active Text | boolean | No | Android/IOS | Yes |
+| switchLeftPx |denominator for logic when sliding to TRUE position. Higher number = more space from RIGHT of the circle to END of the slider | number | No | Android/IOS | Yes |
+| switchRightPx |multiplied by the `circleSize` prop to calculate total width of the Switch | number | No | Android/IOS | Yes |
+| switchWidthMultiplier |multiplied by the `circleSize` prop to calculate total width of the Switch | number | No | Android/IOS | Yes |
+| switchBorderRadius |Sets the border Radius of the switch slider. If unset, it remains the circleSize | number | No | Android/IOS | Yes |
+| testID |swtich test ID | string | No | Android/IOS | Yes |
 ## 遗留问题
 
 ## 其他

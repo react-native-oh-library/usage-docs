@@ -733,7 +733,7 @@ export default Avatars;
 | :---: | :--------------: | :-----: | :------: | :------: | :---------------: |
 | right | Add right title. | boolean |    No    |    No    |        No         |
 
-**Overlay**：弹窗组件，接收所有 [Text](https://reactnativeelements.com/docs/components/text#props) 的props
+**Overlay**：弹窗组件
 
 |      Name       |                         Description                          |             Type             | Required | Platform | HarmonyOS Support |
 | :-------------: | :----------------------------------------------------------: | :--------------------------: | :------: | :------: | :---------------: |
@@ -897,7 +897,7 @@ export default Avatars;
 | :------------: | :--------------------: | :-----: | :------: | :------: | :---------------: |
 | labelPressable | onPress on Label Press | boolean |    No    |   All    |        Yes        |
 
-**Switch**：滑动开关组件，接收所有 [View](https://reactnative.dev/docs/view#props) 的props
+**Switch**：滑动开关组件，接收所有[React Native Switch](https://reactnative.dev/docs/switch.html#props), [View](https://reactnative.dev/docs/view#props) 的props
 
 | Name  |            Description             |  Type  | Required | Platform | HarmonyOS Support |
 | :---: | :--------------------------------: | :----: | :------: | :------: | :---------------: |

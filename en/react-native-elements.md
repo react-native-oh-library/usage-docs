@@ -520,7 +520,7 @@ This document is verified based on the following versions:
 | :--: | :--------------------: | :----------------: | :------: | :------: | :---------------: |
 | type | Outer container style. | `solid`，`outline` |    No    |   All    |        Yes        |
 
-**Dialog**: 对话框组件，接收所有 [Overlay](https://reactnativeelements.com/docs/components/overlay#props) 的 props
+**Dialog**: 对话框组件
 
 |      Name      |                        Description                        |             Type             | Required | Platform | HarmonyOS Support |
 | :------------: | :-------------------------------------------------------: | :--------------------------: | :------: | :------: | :---------------: |

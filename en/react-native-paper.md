@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-paper</code> </h1>
@@ -13,10 +13,10 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/callstack/react-native-paper)
+> [!TIP] [GitHub address](https://github.com/callstack/react-native-paper)
 
 
-## 安装与使用
+## Installation and Usage
 
 <!-- tabs:start -->
 
@@ -31,13 +31,14 @@ npm install react-native-paper@^5.12.3
 ```
 <!-- tabs:end -->
 
-**下面的代码展示了这个库的基本使用场景：**
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
-paper使用需要安装react-native-safe-area-context来处理安全区域。另外还需要依赖react-native-vector-icons库，具体来说，MaterialCommunityIcons图标包需要包含在项目中，因为有些组件在内部使用它。
+- From there is a need to install @react-native-oh-tpl/react-native-safe-area-context for handling safe area.
+- If you're on a vanilla React Native project, you also need to install and link @react-native-oh-tpl/react-native-vector-icons.
 
-1.将根组件包装在PaperProvider中。如果您有一个原始的 React Native 项目，最好将其添加到传递给 的组件中AppRegistry.registerComponent。这通常在index.js文件中
+1.Wrap your root component in from . If you have a vanilla React Native project, it's a good idea to add it in the component which is passed to . This will usually be in the file. If you have an Expo project, you can do this inside the exported component in the file.`PaperProvider``react-native-paper``AppRegistry.registerComponent``index.js``App.js`
 
 ```js
 import { PaperProvider } from 'react-native-paper';
@@ -52,7 +53,8 @@ export default function PaperExample() {
 }
 AppRegistry.registerComponent(appName, () => PaperExample);
 ```
-2.包装PaperProvider之后，我们需要将展示的组件传递到 Providers 中。在这一部分，我们使用ActivityIndicator作为示例展示
+2.If you have another provider (such as ), wrap it outside so that the context is available to components rendered inside a from the library:`Redux``PaperProvider``Modal`
+
 ```js
 export default function App() {
   return (
@@ -74,7 +76,8 @@ export default function App() {
   );
 }
 ```
-3.活动指示器用于显示应用中某些活动的进度。它可以作为 React Native 附带的 ActivityIndi​​cator 的插件使用。
+3.Activity indicator is used to present progress of some activity in the app. It can be used as a drop-in for the ActivityIndicator shipped with React Native.
+
 ```js
 import * as React from 'react';
 import { ActivityIndicator, MD2Colors } from 'react-native-paper';
@@ -87,27 +90,27 @@ export default ActivityIndicatorDemo;
 ```
 ## Link
 
-本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-safe-area-context和@react-native-oh-tpl/react-native-vector-icons的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+The HarmonyOS implementation of this library depends on the native code from @react-native-oh-tpl/react-native-safe-area-context and @react-native-oh-tpl/react-native-vector-icons. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly.
 
-如未引入react-native-safe-area-context请参照[@react-native-oh-tpl/react-native-safe-area-context 文档](/zh-cn/react-native-safe-area-context.md)进行引入
+If it is not included, follow the guide provided in [@react-native-oh-tpl/react-native-safe-area-context](/en/react-native-safe-area-context.md) to add it to your project.
 
-如未引入react-native-vector-icons请参照[@react-native-oh-tpl/react-native-vector-icons 文档](/zh-cn/react-native-vector-icons.md)进行引入
+If it is not included, follow the guide provided in [@react-native-oh-tpl/react-native-vector-icons](/en/react-native-vector-icons.md) to add it to your project.
 
-## 约束与限制
-### 兼容性
+## Constraints
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH：0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.18;
 2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
-## 组件
+## Component
 
-详情查看[Paper官方文档](https://callstack.github.io/react-native-paper)
+View details[Paper](https://callstack.github.io/react-native-paper)
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
@@ -146,13 +149,13 @@ export default ActivityIndicatorDemo;
 | Tooltip  | Tooltips display informative text when users hover over, focus on, or tap an element  | component  | No | iOS/Android    | yes |
 | TouchableRipple  | A wrapper for views that should respond to touches  | component  | No | iOS/Android    | yes |
 
-## 属性
+## Properties
 
-详情查看[Paper官方组件介绍文档](https://callstack.github.io/react-native-paper/docs/components/ActivityIndicator#animating)
+View details[Paper](https://callstack.github.io/react-native-paper/docs/components/ActivityIndicator#animating)
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 **ActivityIndicator**：Activity indicator is used to present progress of some activity in the app. It can be used as a drop-in for the ActivityIndicator shipped with React Native
 |  Name   | Description |      Type       | Required | Platform | HarmonyOS Support |
@@ -1208,17 +1211,19 @@ export default ActivityIndicatorDemo;
 |  style    | style | StyleProp<ViewStyle> | Yes      | All      | Yes               |
 |  theme    | theme | string | Yes      | All      | Yes               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 - Icon 组件allowFontScaling不生效, 参看源码传入的此属性并未传入内部icon组件 [源码位置](https://github.com/callstack/react-native-paper/blob/v5.12.3/src/components/Icon.tsx#L153) 
 - Menu组件中的mode属性为[5.12.4版本新增](https://github.com/callstack/react-native-paper/releases/tag/v5.12.4)，当前版本为5.12.3 
 - Menu statusBarHeight 无效果，此属性为Android平台独有 [源码位置](https://github.com/callstack/react-native-paper/blob/v5.12.3/src/components/Menu/Menu.tsx#L447)
 - DataTableRow 组件使用 TouchableRipple 产生的涟漪效果，在Android上生效，iOS无效果 
 - BottomNavigation safeAreaInset top属性无效果，因为在源码中未使用 [源码位置](https://github.com/callstack/react-native-paper/blob/v5.12.3/src/components/BottomNavigation/BottomNavigationBar.tsx#L580) 
 - BottomNavigation.Bar组件 keyboardHidesNavigationBar属性为父组件BottomNavigation传入，请勿单独使用
+- accessibilityState属性鸿蒙RN（5.0.0.700）不支持该属性
+- DataTable组件底层使用的是鸿蒙RN的Text组件，目前Text组件不支持accessibilityLabel属性。所以DataTable涉及无障碍朗读功能在鸿蒙RN的效果和其他平台有差异
 
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/callstack/react-native-paper/blob/main/LICENSE.md) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/callstack/react-native-paper/blob/main/LICENSE.md) .

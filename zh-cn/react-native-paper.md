@@ -1217,6 +1217,8 @@ export default ActivityIndicatorDemo;
 - DataTableRow 组件使用 TouchableRipple 产生的涟漪效果，在Android上生效，iOS无效果 
 - BottomNavigation safeAreaInset top属性无效果，因为在源码中未使用 [源码位置](https://github.com/callstack/react-native-paper/blob/v5.12.3/src/components/BottomNavigation/BottomNavigationBar.tsx#L580) 
 - BottomNavigation.Bar组件 keyboardHidesNavigationBar属性为父组件BottomNavigation传入，请勿单独使用
+- accessibilityState属性鸿蒙RN（5.0.0.700）不支持该属性
+- DataTable组件底层使用的是鸿蒙RN的Text组件，目前Text组件不支持accessibilityLabel属性。所以DataTable涉及无障碍朗读功能在鸿蒙RN的效果和其他平台有差异
 
 
 ## 开源协议

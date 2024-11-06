@@ -1,4 +1,4 @@
-模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> 
@@ -15,18 +15,15 @@
     </a>
 </p>
 
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-incall-manager)
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-incall-manager)
+## Installation and Usage
 
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-incall-manager Releases](https://github.com/react-native-oh-library/react-native-incall-manager/releases).
 
-## 安装与使用
+Go to the project directory and execute the following instruction:
 
-
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-incall-manager Releases](https://github.com/react-native-oh-library/react-native-incall-manager/releases)，并下载适用版本的 tgz 包。
-
-进入到工程目录并输入以下命令：
-
-> [!TIP] # 处替换为 tgz 包的路径
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
@@ -45,16 +42,16 @@ yarn add @react-native-oh-tpl/react-native-incall-manager@file:#
 <!-- tabs:end -->
 
 **关于音频文件放置**
-> [!WARNING] 由于HarmonyOS暂不支持普通应用获取系统铃声，需要手动导入音频文件.
-将音频文件至HarmonyOS 工程 `harmony`，entry/src/main/resources/rawfile文件夹下，音频文件命名如下：
-incallmanager_busytone.mp3  
-incallmanager_ringback.mp3  
-incallmanager_ringtone.mp3 
 
-下面的代码展示了这个库的基本使用场景：
+> [!WARNING] 由于 HarmonyOS 暂不支持普通应用获取系统铃声，需要手动导入音频文件.
+> 将音频文件至 HarmonyOS 工程 `harmony`，entry/src/main/resources/rawfile 文件夹下，音频文件命名如下：
+> incallmanager_busytone.mp3  
+> incallmanager_ringback.mp3  
+> incallmanager_ringtone.mp3
 
-> [!WARNING] 使用时 import 的库名不变。
+The following code shows the basic use scenario of the repository:
 
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 
@@ -263,15 +260,15 @@ export default function InCallManagerExample() {
                 </Text>
 
                 <Text numberOfLines={0} style={{ color: 'blue' }}>
-                    noisyAudioEvent(iOS不支持):{JSON.stringify(noisyAudioEvent)}
+                    noisyAudioEvent(iOS is not supported):{JSON.stringify(noisyAudioEvent)}
                 </Text>
 
                 <Text numberOfLines={0} style={{ color: 'blue' }}>
-                    mediaButtonEvent(iOS不支持):{JSON.stringify(mediaButtonEvent)}
+                    mediaButtonEvent(iOS is not supported):{JSON.stringify(mediaButtonEvent)}
                 </Text>
 
                 <Text numberOfLines={0} style={{ color: 'blue' }}>
-                    onAudioFocusChange(iOS不支持):{JSON.stringify(onAudioFocusChange)}
+                    onAudioFocusChange(iOS is not supported):{JSON.stringify(onAudioFocusChange)}
                 </Text>
 
                 <TouchableOpacity
@@ -281,7 +278,7 @@ export default function InCallManagerExample() {
                         setChangeType(changeType == 'audio' ? 'video' : 'audio');
                     }}>
                     <Text style={{ color: 'red' }}>
-                        切换为{changeType == 'audio' ? 'video' : 'audio'}
+                        Switch to{changeType == 'audio' ? 'video' : 'audio'}
                     </Text>
                 </TouchableOpacity>
             </View>
@@ -458,14 +455,14 @@ export default function InCallManagerExample() {
                     onPress={() => {
                         setFlashOn(true, 100);
                     }}>
-                    <Text style={{ color: '#000' }}>setFlashOn=true(Android不支持)</Text>
+                    <Text style={{ color: '#000' }}>setFlashOn=true(Android is not supported)</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
                     onPress={() => {
                         setFlashOn(false, 50);
                     }}>
-                    <Text style={{ color: '#000' }}>setFlashOn=false(Android不支持)</Text>
+                    <Text style={{ color: '#000' }}>setFlashOn=false(Android is not supported)</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
@@ -489,13 +486,14 @@ export default function InCallManagerExample() {
 
 
 ```
+
 ## Link
 
-目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
 
-首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
+Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 1.在工程根目录的 `oh-package.json5` 添加 overrides 字段
+### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
 
 ```json
 {
@@ -506,18 +504,15 @@ export default function InCallManagerExample() {
 }
 ```
 
-### 2.引入原生端代码
+### 2.Introducing Native Code
 
-目前有两种方法：
+Currently, two methods are available:
 
-1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
-2. 直接链接源码。
+Method 1 (recommended): Use the HAR file.
 
-方法一：通过 har 包引入（推荐）
+> [!TIP] The HAR file is stored in the `harmony` directory in the installation path of the third-party library.
 
-> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
+Open `entry/oh-package.json5` file and add the following dependencies:
 
 ```json
 "dependencies": {
@@ -527,22 +522,22 @@ export default function InCallManagerExample() {
   }
 ```
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-方法二：直接链接源码
+Method 2: Directly link to the source code.
 
-> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
-### 3.配置 CMakeLists 和引入 RNInCallManagerPackage
+### 3. Configuring CMakeLists and Introducing RNInCallManagerPackage
 
-打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
+Open `entry/src/main/cpp/CMakeLists.txt` and add the following code:
 
 ```diff
 project(rnapp)
@@ -580,7 +575,7 @@ target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 # RNOH_END: manual_package_linking_2
 ```
 
-打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
+Open `entry/src/main/cpp/PackageProvider.cpp` and add the following code:
 
 ```diff
 #include "RNOH/PackageProvider.h"
@@ -597,9 +592,9 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 4.在 ArkTs 侧引入 RNInCallManagerPackage
+### 4. Introducing RNInCallManagerPackage to ArkTS
 
-打开 `entry/src/main/ets/RNPackagesFactory.ts`，或者`entry/src/main/ets/rn/RNPackagesFactory.ts`，添加：
+Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
 
 ```diff
 + import { RNInCallManagerPackage } from '@react-native-oh-tpl/react-native-incall-manager/ts';
@@ -612,34 +607,35 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 5.运行
+### 5. Running
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-然后编译、运行即可。
+Then build and run the code.
 
-## 约束与限制
-### 兼容性
+## Constraints
 
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-incall-manager Releases](https://github.com/react-native-oh-library/react-native-incall-manager/releases)
+Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-incall-manager Releases](https://github.com/react-native-oh-library/react-native-incall-manager/releases)
 
+### Permission Requirements
 
-### 应用权限申请
 > [!TIP] "ohos.permission.RUNNING_LOCK"，"ohos.permission.KEEP_BACKGROUND_RUNNING"权限等级为<B>normal</B>,授权方式为<B>system_grant</B>
 > "ohos.permission.MICROPHONE"权限等级为<B>normal</B>，授权方式为<B>user_grant</B>，[使用 ACL 签名的配置指导](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/signing-0000001587684945-V3#section157591551175916)
 
-#### 在 entry 目录下的module.json5中添加权限
-在 `YourProject/entry/src/main/module.json5`补上配置
+#### Include applicable permissions in the module.json5 file within the entry directory.
+
+Add configuration to `YourProject/entry/src/main/module.json5`
 
 ```diff
 {
@@ -656,7 +652,7 @@ ohpm install
 +       "reason": "$string:Access_micphone",
 +       "usedScene": {"when": "inuse"}
 +     },
-+     { "name": "ohos.permission.KEEP_BACKGROUND_RUNNING"，  
++     { "name": "ohos.permission.KEEP_BACKGROUND_RUNNING"，
 +       "usedScene": {
 +          "when": "always"
 +        }
@@ -665,11 +661,12 @@ ohpm install
   }
 }
 ```
-在 `YourProject/entry/src/main/resources/base/element/string.json`补上配置
 
-#### 在 entry 目录下添加申请权限的原因
+Add configuration to `YourProject/entry/src/main/resources/base/element/string.json`
 
-打开 `entry/src/main/resources/base/element/string.json`，添加：
+#### Apply the reasons for applicable permission in the entry directory.
+
+Open `entry/src/main/resources/base/element/string.json` file and add：
 
 ```diff
 ...
@@ -683,13 +680,11 @@ ohpm install
 }
 ```
 
+## Static method
 
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-## 静态方法
-
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
@@ -716,30 +711,29 @@ ohpm install
 | setFlashOn  | set flash light on/off          | (enable: boolean, brightness: number) => void  | no | iOS      | yes |
 | getIsWiredHeadsetPluggedIn  | return wired headset plugged in state          | () => Promise<\{ isWiredHeadsetPluggedIn: boolean \}>  | no | all      | yes |
 
-### Event(事件监听)
+### Event(Event Listening)
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support  |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| Proximity  | proximity sensor detected changes.         | (data: \{'isNear': boolean\}) => void  | no | all      | yes |
-| WiredHeadset  | fire when wired headset plug/unplug         | (data: \{'isPlugged': boolean, 'hasMic': boolean, 'deviceName': string \}) => void  | no | all      | yes |
-| NoisyAudio  | a hint for applications that audio is about to become 'noisy' due to a change in audio outputs.          | () => void  | no | Android      | yes |
-| MediaButton  | when external device controler pressed button         | (data: \{'eventText': string, 'eventCode': number \}) => void  | no | Android      | yes |
-| onAudioFocusChange  | Called on the listener to notify it the audio focus for this listener has been changed.         | (data: \{'eventText': string, 'eventCode': number }) => void  | no | Android      | yes |
+| Name               | Description                                                                                     | Type                                                                               | Required | Platform | HarmonyOS Support |
+| ------------------ | ----------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | -------- | -------- | ----------------- |
+| Proximity          | proximity sensor detected changes.                                                              | (data: \{'isNear': boolean\}) => void                                              | no       | all      | yes               |
+| WiredHeadset       | fire when wired headset plug/unplug                                                             | (data: \{'isPlugged': boolean, 'hasMic': boolean, 'deviceName': string \}) => void | no       | all      | yes               |
+| NoisyAudio         | a hint for applications that audio is about to become 'noisy' due to a change in audio outputs. | () => void                                                                         | no       | Android  | yes               |
+| MediaButton        | when external device controler pressed button                                                   | (data: \{'eventText': string, 'eventCode': number \}) => void                      | no       | Android  | yes               |
+| onAudioFocusChange | Called on the listener to notify it the audio focus for this listener has been changed.         | (data: \{'eventText': string, 'eventCode': number }) => void                       | no       | Android  | yes               |
 
+## Known Issues
 
-## 遗留问题
+- [ ] 打开关闭麦克风静音 setMicrophoneMute，未实现 HarmonyOS 化 问题: [issue#1](https://github.com/react-native-oh-library/react-native-incall-manager/issues/1)
+- [ ] 播放获取系统铃声，未实现 HarmonyOS 化 问题: [issue#2](https://github.com/react-native-oh-library/react-native-incall-manager/issues/2)
+- [ ] 手动切换输出设备扬声器与听筒切换 setSpeakerphoneOn、setForceSpeakerphoneOn，未实现 HarmonyOS 化 问题: [issue#3](https://github.com/react-native-oh-library/react-native-incall-manager/issues/3)
+- [ ] 手动切换音频输入输出设备 chooseAudioRoute，未实现 HarmonyOS 化 问题: [issue#4](https://github.com/react-native-oh-library/react-native-incall-manager/issues/4)
 
-- [ ] 打开关闭麦克风静音setMicrophoneMute，未实现 HarmonyOS化 问题: [issue#1](https://github.com/react-native-oh-library/react-native-incall-manager/issues/1)
-- [ ] 播放获取系统铃声，未实现 HarmonyOS化  问题: [issue#2](https://github.com/react-native-oh-library/react-native-incall-manager/issues/2)
-- [ ] 手动切换输出设备扬声器与听筒切换setSpeakerphoneOn、setForceSpeakerphoneOn，未实现 HarmonyOS化  问题: [issue#3](https://github.com/react-native-oh-library/react-native-incall-manager/issues/3)
-- [ ] 手动切换音频输入输出设备chooseAudioRoute，未实现 HarmonyOS化  问题: [issue#4](https://github.com/react-native-oh-library/react-native-incall-manager/issues/4)
+## Others
 
-## 其他
+## License
 
-## 开源协议
-
-本项目基于 [The ISC License (ISC)](https://github.com/react-native-webrtc/react-native-incall-manager/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The ISC License (ISC)](https://github.com/react-native-webrtc/react-native-incall-manager/blob/master/LICENSE).

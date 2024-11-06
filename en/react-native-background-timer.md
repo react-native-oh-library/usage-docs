@@ -1,4 +1,4 @@
-> 模板版本：v0.2.1
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-background-timer</code> </h1>
@@ -13,16 +13,15 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-background-timer)
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-background-timer)
 
+## Installation and Usage
 
-## 安装与使用
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-background-timer Releases](https://github.com/react-native-oh-library/react-native-background-timer/releases).
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-background-timer Releases](https://github.com/react-native-oh-library/react-native-background-timer/releases)，并下载适用版本的 tgz 包。
+Go to the project directory and execute the following instruction:
 
-进入到工程目录并输入以下命令：
-
-> [!TIP] # 处替换为 tgz 包的路径
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
@@ -40,9 +39,9 @@ yarn add @react-native-oh-tpl/react-native-background-timer@file:#
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import {View, Button, StyleSheet, Text,TextInput} from 'react-native';
@@ -51,37 +50,34 @@ import BackgroundTimer from "react-native-background-timer";
 export function BackgroundTimerExample() {
   let [count, setCount] = useState(0);
   let [text, setText] = useState("");
-  // BackgroundTimer延时
   let [delay, setDelay] = useState("1000");
-  // setTimeout延时
   let [timeoutDelay, setTimeoutDelay] = useState("1000");
-  // setInterval延时
   let [intervalDelay, setIntervalDelay] = useState("1000");
   let timeoutList:number[] = []
   let [intervalList, setIntervalList] = useState<number[]>([]);
- 
+
   // runBackgroundTimer
   function onPressStart(){
-    setText("开启定时器...")
+    setText("Turn on the timer...")
     BackgroundTimer.runBackgroundTimer(()=>{
       setCount(count+=1)
     },parseInt(delay))
   }
   function onPressStop(){
-    setText("结束定时器")
+    setText("Turn off the timer")
     BackgroundTimer.stopBackgroundTimer()
   }
 
   // setTimeout
   function setTimeoutStart(){
-    setText("开启定时器...")
+    setText("Turn on the timer...")
     let timeoutId = BackgroundTimer.setTimeout(()=>{
       setCount(count+=1)
     },parseInt(timeoutDelay))
     timeoutList.push(timeoutId)
   }
   function setTimeoutStop(){
-    setText("结束定时器")
+    setText("Turn off the timer")
     if(timeoutList.length>0){
       BackgroundTimer.clearTimeout(timeoutList[0])
       timeoutList.shift()
@@ -90,14 +86,14 @@ export function BackgroundTimerExample() {
 
   // setInterval
   function setIntervalStart(){
-    setText("开启定时器...")
+    setText("Turn on the timer...")
     let intervalId = BackgroundTimer.setInterval(()=>{
       setCount(count+=1)
     },parseInt(intervalDelay))
     setIntervalList([...intervalList,intervalId])
   }
   function setIntervalStop(){
-    setText("结束定时器")
+    setText("Turn off the timer")
     if(intervalList.length>0){
       BackgroundTimer.clearInterval(intervalList[0])
       intervalList.shift()
@@ -117,7 +113,7 @@ export function BackgroundTimerExample() {
           />
           <TextInput
             style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-            placeholder="BackgroundTimer延时"
+            placeholder="BackgroundTimer delay"
             onChangeText={(value)=>{setDelay(value)}}
             value={delay}
           />
@@ -129,7 +125,7 @@ export function BackgroundTimerExample() {
           />
         </View>
       </View>
-      
+
       <View style={styles.container}>
         <View style={styles.viewStyle}>
           <Button
@@ -138,7 +134,7 @@ export function BackgroundTimerExample() {
           />
           <TextInput
             style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-            placeholder="setTimeout延时"
+            placeholder="setTimeout delay"
             onChangeText={(value)=>{setTimeoutDelay(value)}}
             value={timeoutDelay}
           />
@@ -150,7 +146,7 @@ export function BackgroundTimerExample() {
           />
         </View>
       </View>
-      
+
       <View style={styles.container}>
         <View style={styles.viewStyle}>
           <Button
@@ -171,7 +167,7 @@ export function BackgroundTimerExample() {
           />
         </View>
       </View>
-      
+
       <View style={[styles.viewStyle,styles.resetStyle]}>
         <Button
           onPress={resetNumber}
@@ -209,11 +205,11 @@ const styles = StyleSheet.create({
 
 ## Link
 
-目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
 
-首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
+Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 1.在工程根目录的 `oh-package.json5` 添加 overrides字段
+### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
 
 ```json
 {
@@ -224,18 +220,15 @@ const styles = StyleSheet.create({
 }
 ```
 
-### 2.引入原生端代码
+### 2.Introducing Native Code
 
-目前有两种方法：
+Currently, two methods are available:
 
-1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
-2. 直接链接源码。
+Method 1 (recommended): Use the HAR file.
 
-方法一：通过 har 包引入（推荐）
+> [!TIP] The HAR file is stored in the `harmony` directory in the installation path of the third-party library.
 
-> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
+Open `entry/oh-package.json5` file and add the following dependencies:
 
 ```json
 "dependencies": {
@@ -244,20 +237,20 @@ const styles = StyleSheet.create({
   }
 ```
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-方法二：直接链接源码
+Method 2: Directly link to the source code.
 
-> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
-打开 `entry/oh-package.json5`，添加以下依赖
+Open `entry/oh-package.json5` file and add the following dependencies:
 
 ```json
 "dependencies": {
@@ -266,16 +259,16 @@ ohpm install
   }
 ```
 
-打开终端，执行：
+Opening the terminal and executing:
 
 ```bash
 cd entry
 ohpm install --no-link
 ```
 
-### 3.在 ArkTs 侧引入 BackgroundTimerTurboModulePackage
+### 3. Introducing BackgroundTimerTurboModulePackage to ArkTS
 
-打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
 
 ```diff
   ...
@@ -283,64 +276,60 @@ ohpm install --no-link
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
-    new SamplePackage(ctx), 
+    new SamplePackage(ctx),
 +   new BackgroundTimerTurboModulePackage(ctx)
     ];
 }
 ```
 
-### 4.运行
+### 4. Running
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-然后编译、运行即可。
+Then build and run the code.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-background-timer Releases](https://github.com/react-native-oh-library/react-native-background-timer/releases)
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-background-timer Releases](https://github.com/react-native-oh-library/react-native-background-timer/releases)
-
-
-本文档内容基于以下版本验证通过：
-
+This document is verified based on the following versions:
 
 RNOH: 0.72.20; SDK: HarmonyOS NEXT Developer Beta1 B.0.18; IDE: DevEco Studio 5.0.3.200; ROM: 3.0.0.19;
 
-
 ## API
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name | Description | Required | Platform | HarmonyOS Support  |
-| ---- | ----------- | -------- | -------- | ------------------ |
-| runBackgroundTimer  | 开启定时器，以固定的时间间隔重复执行指定代码     | no | all      | yes |
-| stopBackgroundTimer  | 结束runBackgroundTimer开启的定时器     | no | all      | yes |
-| start  | 后台开启新任务     | no | all     | no |
-| stop  | 结束后台任务    | no | all      | no |
-| setTimeout  | 开启定时器，定时器到期会执行指定代码，只会执行一次     | no | Android      | yes |
-| clearTimeout  | 结束setTimeout开启的定时器          | no | Android      | yes |
-| setInterval  | 开启定时器，以固定的时间间隔重复执行指定代码         | no | Android      | yes |
-| clearInterval  | 结束setInterval开启的定时器           | no | Android      | yes |
+| Name                | Description                                        | Required | Platform | HarmonyOS Support |
+| ------------------- | -------------------------------------------------- | -------- | -------- | ----------------- |
+| runBackgroundTimer  | 开启定时器，以固定的时间间隔重复执行指定代码       | no       | all      | yes               |
+| stopBackgroundTimer | 结束 runBackgroundTimer 开启的定时器               | no       | all      | yes               |
+| start               | 后台开启新任务                                     | no       | all      | no                |
+| stop                | 结束后台任务                                       | no       | all      | no                |
+| setTimeout          | 开启定时器，定时器到期会执行指定代码，只会执行一次 | no       | Android  | yes               |
+| clearTimeout        | 结束 setTimeout 开启的定时器                       | no       | Android  | yes               |
+| setInterval         | 开启定时器，以固定的时间间隔重复执行指定代码       | no       | Android  | yes               |
+| clearInterval       | 结束 setInterval 开启的定时器                      | no       | Android  | yes               |
 
-## 遗留问题
+## Known Issues
 
-- [ ] 使用worker开的新线程中不支持RNOHContext序列化传参，底层OS暂不支持，导致无法在新线程中发送事件，需要底层OS框架实现相关业务功能。不开线程的情况下，因setTimeout属于异步方法，定时器效果不受影响。[worker线程遗留问题:start和stop接口， HarmonyOS RN框架暂不支持](https://github.com/react-native-oh-library/react-native-background-timer/issues/3)
+- [ ] 使用 worker 开的新线程中不支持 RNOHContext 序列化传参，底层 OS 暂不支持，导致无法在新线程中发送事件，需要底层 OS 框架实现相关业务功能。不开线程的情况下，因 setTimeout 属于异步方法，定时器效果不受影响。[worker 线程 Known Issues:start 和 stop 接口， HarmonyOS RN 框架暂不支持](https://github.com/react-native-oh-library/react-native-background-timer/issues/3)
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/ocetnik/react-native-background-timer/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/ocetnik/react-native-background-timer/blob/master/LICENSE).

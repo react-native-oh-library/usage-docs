@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-root-toast</code> </h1>
@@ -13,11 +13,11 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/magicismight/react-native-root-toast)
+> [!TIP] [GitHub address](https://github.com/magicismight/react-native-root-toast)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -35,7 +35,7 @@ yarn add react-native-root-toast@3.5.1
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
 ```js
 import React, { useState } from "react";
@@ -55,7 +55,7 @@ import Toast from "react-native-root-toast";
 export function ReactNativeRootToastExample() {
   let PToast: any = null;
   function startPToast() {
-    PToast = Toast.show("超长待机弹窗实例", {
+    PToast = Toast.show("Ultra Long standby pop-up instance", {
       duration: 99999999,
       position: 20,
       shadow: true,
@@ -74,27 +74,27 @@ export function ReactNativeRootToastExample() {
   }
   return (
     <RootSiblingParent>
-      <Button title="开一个弹窗" onPress={startPToast} />
-      <Button title="关掉这个弹窗" onPress={hidePToast} />
+      <Button title="Open a pop-up window" onPress={startPToast} />
+      <Button title="Close this pop-up window" onPress={hidePToast} />
     </RootSiblingParent>
   );
 }
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH: 0.72.20-CAPI; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.18;
 2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
-## 属性
+## Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name            | Description                                                                           | Type     | Required | Platform | HarmonyOS Support |
 | --------------- | ------------------------------------------------------------------------------------- | -------- | -------- | -------- | ----------------- |
@@ -114,10 +114,10 @@ export function ReactNativeRootToastExample() {
 | onHide          | Callback for toast`s hide animation start                                             | function | no       | All      | yes               |
 | onHidden        | Callback for toast`s hide animation end                                               | function | no       | All      | yes               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/magicismight/react-native-root-toast/blob/master/LICENSE.txt) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/magicismight/react-native-root-toast/blob/master/LICENSE.txt).

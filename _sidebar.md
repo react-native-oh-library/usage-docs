@@ -53,7 +53,6 @@
     - [lottie-react-native](/zh-cn/lottie-react-native.md)
     - [react-native-image-sequence-2](/zh-cn/react-native-image-sequence-2.md)
     - [react-native-clippath](/zh-cn/react-native-clippathview.md)
-    - [react-native-image-base64](/zh-cn/react-native-image-base64.md)
     - [react-native-image-capinsets-next](/zh-cn/react-native-image-capinsets-next.md)
     - [@react-native-oh-tpl/react-native-code-push](/zh-cn/react-native-code-push.md)
   - RN JS 库

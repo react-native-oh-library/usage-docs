@@ -1,5 +1,4 @@
-
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-code-push</code> </h1>
@@ -14,44 +13,44 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-code-push)
+> [!TIP] [Github address](https://github.com/react-native-oh-library/react-native-code-push)
 
-## 前期准备
+## Pre-preparation
 
 ### code-push-cli
 
-1. 克隆 [code-push-cli](https://github.com/react-native-oh-library/code-push-cli) 到本地
-2. 在 code-push-cli 目录下执行 `npm install`
-3. 在 code-push-cli 目录下执行 `npm run start`，用于生成 `bin` 目录
-4. npm install -g <code-push-cli文件夹目录>
-5. 重开一个终端，执行 `code-push -v`，如正常输出版本号即安装成功
+1. Clone the [code-push-cli](https://github.com/react-native-oh-library/code-push-cli) to the local host.
+2. Run the `npm install` command in the code-push-cli directory.
+3. Run the `npm run start` command in the code-push-cli directory to generate the `bin` directory.
+4. npm install -g <code-push-cli directory>
+5. Restart a terminal and run the `code-push -v` command. If the version number is displayed, the installation is successful.
 
-code-push-cli常用命令：
+Common commands for code-push-cli are as follows:
 
 ```
 code-push -v
-code-push login <服务器地址>
-code-push app list //列出账号下面的所有app
-code-push app add <apppname> harmony react-native //创建应用
-code-push release <AppName> <bundle.harmony.js> "<版本号>" --description "<v1.0.0 测试更新>" -m //发包命令，加-m是强制更新, * 代表所有版本，例如：code-push release CodePush_Local ./bundle.harmony.js "*" --description "v1.0.0 测试更新"
+code-push login
+code-push app list //List all apps under the account.
+code-push app add <apppname> harmony react-native // Creating an Application
+code-push release <AppName> <bundle.harmony.js> "< version number > "--description "<v1.0.0 test update >" -m //Packet sending command. Add -m to forcibly update the version. The asterisk (*) indicates all versions, for example, code-push release CodePush_Local ./bundle.harmony.js "*" --description "v1.0.0 Test Update"
 ```
 
 ### code-push-server
 
-1. 克隆 [code-push-server](https://github.com/react-native-oh-library/code-push-server) 到本地
-2. 在 code-push-server 目录下执行 `npm install`
-4. 安装 mysql、redis
-5. 修改 `code-push-server/src/core/config.ts` 配置文件
-3. 在 code-push-server 目录下执行 `npm run dev`，用于生成 `bin` 目录
-6. 在 code-push-server 目录下执行 `npm run start` 启动服务
+1. Clone the [code-push-server](https://github.com/react-native-oh-library/code-push-server) to the local host.
+2. Run the `npm install` command in the code-push-server directory.
+3. Install the MySQL and Redis.
+4. Modifying the `code-push-server/src/core/config.ts` Configuration File
+5. Run the `npm run dev` command in the code-push-server directory to generate the `bin` directory.
+6. Run the `npm run start` command in the code-push-server directory to start the service.
 
-## 安装与使用
+## Installation and Usage
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-code-push Releases](https://github.com/react-native-oh-library/react-native-code-push/releases)，并下载适用版本的 tgz 包。
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-code-push Releases](https://github.com/react-native-oh-library/react-native-code-push/releases).
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
-> [!TIP] # 处替换为 tgz 包的路径
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
@@ -69,129 +68,141 @@ yarn add @react-native-oh-tpl/react-native-code-push@file:#
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
-```tsx
+```js
+import React, { Component } from "react";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import CodePush from "react-native-code-push";
+class App extends Component<any, any> {
+  constructor(props: any) {
+    super(props);
+    this.state = {
+      syncMessage: "",
+      progress: {},
+    };
+  }
+  componentDidMount() {
+    console.log("开始检查更新");
+    this.syncImmediate(); //开始检查更新
+  }
+  syncImmediate() {
+    CodePush.sync(
+      {
+        updateDialog: {
+          appendReleaseDescription: true, //是否显示更新description，默认为false
+          descriptionPrefix: "更新内容：", //更新说明的前缀。 默认是” Description:
+          mandatoryContinueButtonLabel: "立即更新", //强制更新的按钮文字，默认为continue
+          mandatoryUpdateMessage: "", //- 强制更新时，更新通知. Defaults to “An update is available that must be installed.”.
+          optionalIgnoreButtonLabel: "稍后", //非强制更新时，取消按钮文字,默认是ignore
+          optionalInstallButtonLabel: "后台更新", //非强制更新时，确认文字. Defaults to “Install”
+          optionalUpdateMessage: "有新版本了，是否更新？", //非强制更新时，更新通知. Defaults to “An update is available. Would you like to install it?”.
+          title: "更新提示", //要显示的更新通知的标题. Defaults to “Update available”.
+        },
+      },
+      this.codePushStatusDidChange.bind(this),
+      this.codePushDownloadDidProgress.bind(this)
+    );
+  }
 
-import React, {Component} from 'react'
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native'
-import CodePush from 'react-native-code-push';
-class App extends Component<any,any>{
-    constructor(props:any) {
-        super(props);
-        this.state={
-            syncMessage:'',
-            progress:{}
-        }
+  codePushStatusDidChange(syncStatus: string | number) {
+    switch (syncStatus) {
+      case CodePush.SyncStatus.CHECKING_FOR_UPDATE:
+        this.setState({ syncMessage: "Checking for update." });
+        break;
+      case CodePush.SyncStatus.DOWNLOADING_PACKAGE:
+        this.setState({
+          syncMessage: "Downloading package.",
+          progressModalVisible: true,
+        });
+        break;
+      case CodePush.SyncStatus.AWAITING_USER_ACTION:
+        this.setState({ syncMessage: "Awaiting user action." });
+        break;
+      case CodePush.SyncStatus.INSTALLING_UPDATE:
+        this.setState({
+          syncMessage: "Installing update.",
+          progressModalVisible: true,
+        });
+        break;
+      case CodePush.SyncStatus.UP_TO_DATE:
+        this.setState({ syncMessage: "App up to date.", progress: false });
+        break;
+      case CodePush.SyncStatus.UPDATE_IGNORED:
+        this.setState({
+          syncMessage: "Update cancelled by user.",
+          progress: false,
+        });
+        break;
+      case CodePush.SyncStatus.UPDATE_INSTALLED:
+        this.setState({
+          syncMessage: "Update installed and will be applied on restart.",
+          progress: false,
+        });
+        break;
+      case CodePush.SyncStatus.UNKNOWN_ERROR:
+        this.setState({
+          syncMessage: "An unknown error occurred.",
+          progress: false,
+        });
+        break;
     }
-    componentDidMount() {
-        console.log('开始检查更新')
-        this.syncImmediate(); //开始检查更新
-    }
-    syncImmediate() {
-        CodePush.sync(
-            {
-                updateDialog: {
-                    appendReleaseDescription: true, //是否显示更新description，默认为false
-                    descriptionPrefix: '更新内容：', //更新说明的前缀。 默认是” Description:
-                    mandatoryContinueButtonLabel: '立即更新', //强制更新的按钮文字，默认为continue
-                    mandatoryUpdateMessage: '', //- 强制更新时，更新通知. Defaults to “An update is available that must be installed.”.
-                    optionalIgnoreButtonLabel: '稍后', //非强制更新时，取消按钮文字,默认是ignore
-                    optionalInstallButtonLabel: '后台更新', //非强制更新时，确认文字. Defaults to “Install”
-                    optionalUpdateMessage: '有新版本了，是否更新？', //非强制更新时，更新通知. Defaults to “An update is available. Would you like to install it?”.
-                    title: '更新提示', //要显示的更新通知的标题. Defaults to “Update available”.
-                },
-            },
-            this.codePushStatusDidChange.bind(this),
-            this.codePushDownloadDidProgress.bind(this),
-        );
-    }
+  }
 
-    codePushStatusDidChange(syncStatus:string|number) {
-        switch (syncStatus) {
-            case CodePush.SyncStatus.CHECKING_FOR_UPDATE:
-                this.setState({syncMessage: 'Checking for update.'});
-                break;
-            case CodePush.SyncStatus.DOWNLOADING_PACKAGE:
-                this.setState({syncMessage: 'Downloading package.',progressModalVisible:true});
-                break;
-            case CodePush.SyncStatus.AWAITING_USER_ACTION:
-                this.setState({syncMessage: 'Awaiting user action.'});
-                break;
-            case CodePush.SyncStatus.INSTALLING_UPDATE:
-                this.setState({syncMessage: 'Installing update.',progressModalVisible:true});
-                break;
-            case CodePush.SyncStatus.UP_TO_DATE:
-                this.setState({syncMessage: 'App up to date.', progress: false});
-                break;
-            case CodePush.SyncStatus.UPDATE_IGNORED:
-                this.setState({syncMessage: 'Update cancelled by user.', progress: false,});
-                break;
-            case CodePush.SyncStatus.UPDATE_INSTALLED:
-                this.setState({syncMessage: 'Update installed and will be applied on restart.', progress: false,});
-                break;
-            case CodePush.SyncStatus.UNKNOWN_ERROR:
-                this.setState({syncMessage: 'An unknown error occurred.', progress: false,});
-                break;
-        }
-    }
+  codePushDownloadDidProgress(progress: any) {
+    this.setState({ progress });
+  }
 
-    codePushDownloadDidProgress(progress:any) {
-        this.setState({progress});
-    }
-
-    render(){
-        return(
-            <View style={styles.container}>
-                <Text style={styles.welcome}>欢迎使用热更新--test!</Text>
-                <Text>SyncStatus: { this.state.syncMessage}</Text>
-                <Text>{this.state.progressModalVisible.toString()}</Text>
-                <TouchableOpacity onPress={this.syncImmediate.bind(this)}>
-                    <Text style={styles.syncButton}>Press for dialog-driven sync</Text>
-                </TouchableOpacity>
-            </View>
-        )
-    }
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.welcome}>欢迎使用热更新--test!</Text>
+        <Text>SyncStatus: {this.state.syncMessage}</Text>
+        <Text>{this.state.progressModalVisible.toString()}</Text>
+        <TouchableOpacity onPress={this.syncImmediate.bind(this)}>
+          <Text style={styles.syncButton}>Press for dialog-driven sync</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
-    container:{
-        flex: 1,
-        alignItems: 'center',
-        backgroundColor: '#F5FCFF',
-        paddingTop: 10,
-    },
-    welcome:{
-        fontSize: 20,
-        textAlign: 'center',
-        margin: 10,
-    },
-    syncButton: {
-        color: 'green',
-        fontSize: 17,
-    },
-})
+  container: {
+    flex: 1,
+    alignItems: "center",
+    backgroundColor: "#F5FCFF",
+    paddingTop: 10,
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: "center",
+    margin: 10,
+  },
+  syncButton: {
+    color: "green",
+    fontSize: 17,
+  },
+});
 
-let codePushOptions = {checkFrequency: CodePush.CheckFrequency.MANUAL};
-
+let codePushOptions = { checkFrequency: CodePush.CheckFrequency.MANUAL };
 
 export default CodePush(codePushOptions)(App);
-
 ```
 
-## 使用 Codegen
+## Use Codegen
 
-本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/zh-cn/codegen.md)。
+If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/en/codegen.md).
 
 ## Link
 
-目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
 
-首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
+Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 1.在工程根目录的 `oh-package.json5` 添加 overrides 字段
+### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
 
 ```json
 {
@@ -202,18 +213,15 @@ export default CodePush(codePushOptions)(App);
 }
 ```
 
-### 2.引入原生端代码
+### 2. Introducing Native Code
 
-目前有两种方法：
+Currently, two methods are available:
 
-1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
-2. 直接链接源码。
+Method 1 (recommended): Use the HAR file.
 
-方法一：通过 har 包引入（推荐）
+> [!TIP] The HAR file is stored in the `harmony` directory in the installation path of the third-party library.
 
-> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
+Open `entry/oh-package.json5` file and add the following dependencies:
 
 ```json
 "dependencies": {
@@ -222,22 +230,22 @@ export default CodePush(codePushOptions)(App);
   }
 ```
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-方法二：直接链接源码
+Method 2: Directly link to the source code.
 
-> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
-### 3.在 ArkTs 侧引入 CodePushPackage
+### 3. Introducing CodePushPackage to ArkTS
 
-打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
 
 ```diff
   ...
@@ -251,9 +259,9 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 4.在 ArkTs 侧引入 comparingVersion 方法
+### 4. Introduce the comparingVersion method on the ArkTs side
 
-打开 `entry/src/main/ets/pages/index.ets`，调用 comparingVersion 方法比对code-push版本号，用于覆盖安装时清除沙箱历史资源
+Open `entry/src/main/ets/pages/index.ets` and invoke the comparingVersion method to compare the code-push version number to clear historical sandbox resources during installation.
 
 ```diff
 + import { comparingVersion } from "@react-native-oh-tpl/react-native-code-push";
@@ -261,26 +269,25 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 @Entry
 @Component
 struct Index {
-  
+
   aboutToAppear() {
 +     comparingVersion(context);
   }
 }
 ```
 
+### 5. Running
 
-### 5.运行
+Click the `sync` button in the upper right corner.
 
-点击右上角的 `sync` 按钮
-
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-修改`tester\harmony\entry\src\main\ets\pages\Index.ets`文件
+Modifying the `tester\harmony\entry\src\main\ets\pages\Index.ets` file.
 
 ```diff
 ...
@@ -336,7 +343,7 @@ build() {
 }
 ```
 
-打开`tester/harmony/entry/build-profile.json5`，添加配置
+Open `tester/harmony/entry/build-profile.json5` and add configuration
 
 ```diff
 {
@@ -349,9 +356,9 @@ build() {
     },
 +    "arkOptions": {
 +      "buildProfileFields": {
-+        "Staging": "", //测试环境Key
-+        "Production": "",//生产环境Key
-+        "ServerUrl": "",//服务端地址
++        "Staging": "", //Test Environment Key
++        "Production": "",//Production Environment Key
++        "ServerUrl": "",//Server address
 +        "PublicKey": "PublicKey"
       }
     }
@@ -368,61 +375,70 @@ build() {
 }
 ```
 
-然后编译、运行即可。
+Then build and run the code.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-code-push Releases](https://github.com/react-native-oh-library/react-native-code-push/releases)
+Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-code-push Releases](https://github.com/react-native-oh-library/react-native-code-push/releases)
 
 ## API
 
-| Name              | Description                                                                                                                  | Type     | Required | Platform                                | HarmonyOS Support |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | --------------------------------------- | ----------------- |
-| sync              | sync方法，自动模式更新                                                                                                                | function | yes      | Android IOS | yes               |
-| getUpdateMetadata | 获取当前已安装更新的元数据(RemotePackage),当使用sync方法时，不需要调用本方法，因为sync会自动调用                                                                 | function | no       | Android iOS                             | yes               |
-| restartApp        | 重启App，当使用sync方法时，不需要调用本方法，因为sync会自动调用                                                                                        | function | no       | Android iOS                             | yes               |
-| getCurrentPackage | 获取应用版本信息，当使用sync方法时，不需要调用本方法，因为sync会自动调用                                                                                     | function | no       | Android iOS                             | yes               |
-| getConfiguration  | 获取应用配置信息，appVersion（版本号），deploymentKey（deploymentKey），serverUrl（服务器地址），clientUniqueId（唯一标识码）,当使用sync方法时，不需要调用本方法，因为sync会自动调用 | function | no       | Android iOS                             | yes               |
+| Name              | Description                                                                                                                                                                                                                                                                               | Type     | Required | Platform    | HarmonyOS Support |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------- | ----------------- |
+| sync              | Sync method, automatic mode update                                                                                                                                                                                                                                                        | function | yes      | Android IOS | yes               |
+| getUpdateMetadata | Retrieve the metadata of the currently installed updates (RemotePackage). When using the sync method, there is no need to call this method as sync will automatically call it                                                                                                             | function | no       | Android iOS | yes               |
+| restartApp        | Restart the app. When using the sync method, there is no need to call this method because sync will automatically call it                                                                                                                                                                 | function | no       | Android iOS | yes               |
+| getCurrentPackage | Get application version information. When using the sync method, there is no need to call this method because sync will automatically call it                                                                                                                                             | function | no       | Android iOS | yes               |
+| getConfiguration  | Get application configuration information, appVersion (version number), deploymentKey (deploymentKey), serverless URL (server address), and client UniqueId (unique identifier). When using the sync method, there is no need to call this method because sync will automatically call it | function | no       | Android iOS | yes               |
 
 **updateDialog**
 
-当使用**CodePush.updateDialog**方法时，updateDialog以下参数都是可选的，代表更新的对话框，默认是null, 
+When using the **CodePush.updateDialog** method, the following parameters are optional, representing the updated dialog box and default to null
 
-| Name                         | Description                                                                      | Type    | Required | Platform    | HarmonyOS Support |
-| ---------------------------- | -------------------------------------------------------------------------------- | ------- | -------- | ----------- | ----------------- |
-| appendReleaseDescription     | 是否显示更新description，默认为false                                                       | boolean | no       | Android iOS | yes               |
-| descriptionPrefix            | 更新说明的前缀。 默认是” Description:                                                       | string  | no       | Android iOS | yes               |
-| mandatoryContinueButtonLabel | 强制更新的按钮文字，默认为continue                                                            | string  | no       | Android iOS | yes               |
-| mandatoryUpdateMessage       | 强制更新时，更新通知. Defaults to “An update is available that must be installed.”         | string  | no       | Android iOS | yes               |
-| optionalIgnoreButtonLabel    | updateDialog非强制更新时，取消按钮文字,默认是ignore                                              | string  | no       | Android iOS | yes               |
-| optionalInstallButtonLabel   | 非强制更新时，确认文字. Defaults to “Install”                                               | string  | no       | Android iOS | yes               |
-| optionalUpdateMessage        | 非强制更新时，更新通知. Defaults to “An update is available. Would you like to install it?” | string  | no       | Android iOS | yes               |
-| title                        | 要显示的更新通知的标题. Defaults to “Update available”.                                     | string  | no       | Android iOS | yes               |
+| Name                         | Description                                                                                                 | Type    | Required | Platform    | HarmonyOS Support |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------------- | ------- | -------- | ----------- | ----------------- |
+| appendReleaseDescription     | Whether to display update description, default is false                                                     | boolean | no       | Android iOS | yes               |
+| descriptionPrefix            | Update the prefix of the description. The default is "Description:                                          | string  | no       | Android iOS | yes               |
+| mandatoryContinueButtonLabel | The button text for forced updates defaults to continue                                                     | string  | no       | Android iOS | yes               |
+| mandatoryUpdateMessage       | Update notifications when forced to update Defaults to “An update is available that must be installed.”     | string  | no       | Android iOS | yes               |
+| optionalIgnoreButtonLabel    | When updateDialog is not forced to update, the cancel button text defaults to ignore                        | string  | no       | Android iOS | yes               |
+| optionalInstallButtonLabel   | When non mandatory updates occur, confirm the text Defaults to “Install”                                    | string  | no       | Android iOS | yes               |
+| optionalUpdateMessage        | Update notifications when not mandatory Defaults to “An update is available. Would you like to install it?” | string  | no       | Android iOS | yes               |
+| title                        | The title of the update notification to be displayed Defaults to “Update available”.                        | string  | no       | Android iOS | yes               |
 
 **SyncStatus**
 
-当使用**CodePush.SyncStatus**时，codePushStatusDidChange回调函数中获取应用状态
+When using **CodePush.SyncStatus**, the codePushStatus DidChange callback function retrieves the application status
 
-| Name                 | Description                                                         | Type   | Required | Platform    | HarmonyOS Support |
-| -------------------- | ------------------------------------------------------------------- | ------ | -------- | ----------- | ----------------- |
-| UP_TO_DATE           | 值为0，代表应用程序已完全更新到配置的部署,                                              | number | no       | Android iOS | yes               |
-| UPDATE_INSTALLED     | 值为1，已安装可用更新，并将在syncStatusChangedCallback函数返回后立即运行或在下次应用程序恢复/重新启动时运行 | number | no       | Android iOS | yes               |
-| UNKNOWN_ERROR        | 值为3，同步操作发现未知错误                                                      | number | no       | Android iOS | yes               |
-| CHECKING_FOR_UPDATE  | 值为5，正在查询 CodePush 服务器是否有更新                                          | number | no       | Android iOS | yes               |
-| AWAITING_USER_ACTION | 值为6，有更新可用，并向最终用户显示确认对话框。（仅在updateDialog使用时适用）                       | number | no       | Android iOS | yes               |
-| DOWNLOADING_PACKAGE  | 值为7，在从 CodePush 服务器下载可用更新                                           | number | no       | Android iOS | yes               |
-| INSTALLING_UPDATE    | 值为8，已下载可用更新并将安装                                                     | number | no       | Android iOS | yes               |
+| Name                 | Description                                                                                                                                                                                       | Type   | Required | Platform    | HarmonyOS Support |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | -------- | ----------- | ----------------- |
+| UP_TO_DATE           | A value of 0 indicates that the application has been fully updated to the configured deployment,                                                                                                  | number | no       | Android iOS | yes               |
+| UPDATE_INSTALLED     | A value of 1 indicates that an available update has been installed and will run immediately after the syncStatus ChangedCallback function returns or during the next application recovery/restart | number | no       | Android iOS | yes               |
+| UNKNOWN_ERROR        | Value 3, unknown error detected during synchronization operation                                                                                                                                  | number | no       | Android iOS | yes               |
+| CHECKING_FOR_UPDATE  | Value is 5, checking if there are any updates to the CodePush server                                                                                                                              | number | no       | Android iOS | yes               |
+| AWAITING_USER_ACTION | The value is 6, there are updates available, and a confirmation dialog box is displayed to the end user. (Applicable only when used with updateDialog)                                            | number | no       | Android iOS | yes               |
+| DOWNLOADING_PACKAGE  | A value of 7, available updates downloaded from CodePush server                                                                                                                                   | number | no       | Android iOS | yes               |
+| INSTALLING_UPDATE    | Value is 8, available updates have been downloaded and will be installed                                                                                                                          | number | no       | Android iOS | yes               |
 
+**installMode**
 
+When using **CodePush.InstallMode**, the following parameters are optional: installMode
 
-## 遗留问题
+| Name            | Description        | Type   | Required | Platform    | HarmonyOS Support |
+| --------------- | ------------------ | ------ | -------- | ----------- | ----------------- |
+| IMMEDIATE       | Directly update    | number | no       | Android iOS | yes               |
+| ON_NEXT_RESTART | Next update launch | number | no       | Android iOS | yes               |
+| ON_NEXT_RESUME  | Next update launch | number | no       | Android iOS | yes               |
+| ON_NEXT_SUSPEND | Next update launch | number | no       | Android iOS | yes               |
 
-## 其他
+## Known Issues
 
-## 开源协议
+## Others
 
-本项目基于 [The MIT License (MIT)](https://github.com/microsoft/react-native-code-push/blob/master/LICENSE.md) ，请自由地享受和参与开源。
+## License
+
+This project is licensed under [The MIT License (MIT)](https://github.com/microsoft/react-native-code-push/blob/master/LICENSE.md).

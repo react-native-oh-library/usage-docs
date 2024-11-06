@@ -73,7 +73,7 @@ yarn add @react-native-oh-tpl/react-native-code-push@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-```tsx
+```js
 
 import React, {Component} from 'react'
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native'
@@ -417,7 +417,16 @@ build() {
 | DOWNLOADING_PACKAGE  | 值为7，在从 CodePush 服务器下载可用更新                                           | number | no       | Android iOS | yes               |
 | INSTALLING_UPDATE    | 值为8，已下载可用更新并将安装                                                     | number | no       | Android iOS | yes               |
 
+**installMode**
 
+当使用**CodePush.InstallMode**时，installMode 以下参数都是可选的
+
+| Name            | Description  | Type   | Required | Platform    | HarmonyOS Support |
+| --------------- | ------------ | ------ | -------- | ----------- | ----------------- |
+| IMMEDIATE       | 直接更新     | number | no       | Android iOS | yes               |
+| ON_NEXT_RESTART | 下次启动更新 | number | no       | Android iOS | yes               |
+| ON_NEXT_RESUME  | 下次启动更新 | number | no       | Android iOS | yes               |
+| ON_NEXT_SUSPEND | 下次启动更新 | number | no       | Android iOS | yes               |
 
 ## 遗留问题
 

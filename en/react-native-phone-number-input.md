@@ -21,7 +21,7 @@
 #### **npm**
 
 ```bash
-npm npm i react-native-phone-number-input@2.1.0 --save
+npm i react-native-phone-number-input@2.1.0 --save
 ```
 
 #### **yarn**
@@ -151,6 +151,12 @@ const styles = StyleSheet.create({
   },
 });
 ```
+
+## Link
+
+The HarmonyOS implementation of this library depends on the native code from react-native-country-picker-modal. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly.
+
+If it is not included, follow the guide provided in [react-native-country-picker-modal](/en/react-native-country-picker-modal.md) to add it to your project.
 
 ## Constraints
 

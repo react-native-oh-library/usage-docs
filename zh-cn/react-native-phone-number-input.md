@@ -21,7 +21,7 @@
 #### **npm**
 
 ```bash
-npm npm i react-native-phone-number-input@2.1.0 --save
+npm i react-native-phone-number-input@2.1.0 --save
 ```
 
 #### **yarn**
@@ -151,6 +151,11 @@ const styles = StyleSheet.create({
   },
 });
 ```
+## Link
+
+本库依赖react-native-country-picker-modal，如已在鸿蒙工程中引入过该库，则无需再次引入。
+
+如未引入请参照[react-native-country-picker-modal 文档](/zh-cn/react-native-country-picker-modal.md)进行引入
 
 ## 约束与限制
 

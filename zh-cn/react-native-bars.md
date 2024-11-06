@@ -176,7 +176,7 @@ ohpm install
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | ---- | ------------ |
 | barStyle | Status Bar Style     | string  | yes |     all  |       yes|
-| animated | Should transition between status bar property changes be animated? (has no effect on Android)     | boolean  | no |     all  |       yes|
+| animated | Should transition between status bar property changes be animated? (has no effect on Android)     | boolean  | no |     all  |       no|
 
 ### NavigationBar
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
@@ -212,6 +212,7 @@ ohpm install
 ## 遗留问题
 
 - [ ] react-native-bars不支持NavigationBar问题: [issue#16](https://github.com/react-native-oh-library/react-native-bars/issues/16)
+- [ ] StatusBar不支持属性animated: [issue#21](https://github.com/react-native-oh-library/react-native-bars/issues/21)
 
 ## 其他
 

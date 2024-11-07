@@ -7,16 +7,22 @@
     <a href="https://github.com/react-native-linear-gradient/react-native-linear-gradient">
         <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20windows%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
     </a>
-        <a href="https://github.com/react-native-oh-library/react-native-linear-gradient/blob/harmony/LICENSE">
+        <a href="https://gitee.com/openharmony-sig/rntpc_react-native-linear-gradient/blob/master/LICENSE">
         <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
     </a>
 </p>
 
-> [!tip] [Github address](https://github.com/react-native-oh-library/react-native-linear-gradient)
+> [Gitee Repository](https://gitee.com/openharmony-sig/rntpc_react-native-linear-gradient)
+
+> [Gitee Releases: @react-native-ohos/react-native-linear-gradient](https://github.com/react-native-oh-library/react-native-linear-gradient/releases)
+
+> [Github Repository(deprecated)](https://github.com/react-native-oh-library/react-native-linear-gradient)
+
+> [Github Releases(<= 3.0.0-0.5.0): @react-native-ohos/react-native-linear-gradient](https://github.com/react-native-oh-library/react-native-linear-gradient/releases)
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-linear-gradient Releases](https://github.com/react-native-oh-library/react-native-linear-gradient/releases).
+`This third-party library has been migrated to Gitee and is now available for direct download from npm.`
 
 Go to the project directory and execute the following instruction:
 
@@ -27,13 +33,13 @@ Go to the project directory and execute the following instruction:
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-linear-gradient@file:#
+npm install @react-native-ohos/react-native-linear-gradient
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-linear-gradient@file:#
+yarn add @react-native-ohos/react-native-linear-gradient
 ```
 
 <!-- tabs:end -->
@@ -43,52 +49,53 @@ The following code shows the basic use scenario of the repository:
 > [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
-import React, { ReactNode } from 'react';
+import React, { ReactNode } from "react";
 import {
-    SafeAreaView,
-    ScrollView,
-    StatusBar,
-    StyleSheet,
-    Text,
-    View,
-} from 'react-native';
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import LinearGradient from "react-native-linear-gradient";
 
 // Within your render function
 function LinearGradientDemo() {
-    return (
-        <View style={styles.container}>
-            <LinearGradient
-                colors={["#4c669f", "#3b5998", "#192f6a"]}
-                style={styles.linearGradient}
-            >
-            <Text style={styles.buttonText}>Sign in with Facebook</Text>
-            </LinearGradient>;
-        </View>
-    );
-};
+  return (
+    <View style={styles.container}>
+      <LinearGradient
+        colors={["#4c669f", "#3b5998", "#192f6a"]}
+        style={styles.linearGradient}
+      >
+        <Text style={styles.buttonText}>Sign in with Facebook</Text>
+      </LinearGradient>
+      ;
+    </View>
+  );
+}
 export default LinearGradientDemo;
 // Later on in your styles..
 var styles = StyleSheet.create({
-    container: {
-        backgroundColor: '#fff',
-        flex: 1,
-        paddingTop: 24,
-    },
-    linearGradient: {
-        flex: 1,
-        paddingLeft: 15,
-        paddingRight: 15,
-        borderRadius: 5,
-    },
-    buttonText: {
-        fontSize: 18,
-        fontFamily: "Gill Sans",
-        textAlign: "center",
-        margin: 10,
-        color: "#ffffff",
-        backgroundColor: "transparent",
-    },
+  container: {
+    backgroundColor: "#fff",
+    flex: 1,
+    paddingTop: 24,
+  },
+  linearGradient: {
+    flex: 1,
+    paddingLeft: 15,
+    paddingRight: 15,
+    borderRadius: 5,
+  },
+  buttonText: {
+    fontSize: 18,
+    fontFamily: "Gill Sans",
+    textAlign: "center",
+    margin: 10,
+    color: "#ffffff",
+    backgroundColor: "transparent",
+  },
 });
 ```
 
@@ -121,9 +128,7 @@ Open entry/oh-package.json5 file and add the following dependencies:
 
 ```json
 "dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "@react-native-oh-tpl/react-native-linear-gradient": "file:../../node_modules/@react-native-oh-tpl/react-native-linear-gradient/harmony/linear_gradient.har"
+    "@react-native-ohos/react-native-linear-gradient": "file:../../node_modules/@react-native-ohos/react-native-linear-gradient/harmony/linear_gradient.har"
   }
 ```
 
@@ -145,37 +150,13 @@ Method 2: Directly link to the source code.
 Open entry/src/main/cpp/CMakeLists.txt and add the following code:
 
 ```diff
-project(rnapp)
-cmake_minimum_required(VERSION 3.4.1)
-set(CMAKE_SKIP_BUILD_RPATH TRUE)
-set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
 + set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
-set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
-set(LOG_VERBOSITY_LEVEL 1)
-set(CMAKE_ASM_FLAGS "-Wno-error=unused-command-line-argument -Qunused-arguments")
-set(CMAKE_CXX_FLAGS "-fstack-protector-strong -Wl,-z,relro,-z,now,-z,noexecstack -s -fPIE -pie")
-set(WITH_HITRACE_SYSTRACE 1) # for other CMakeLists.txt files to use
-add_compile_definitions(WITH_HITRACE_SYSTRACE)
-
-add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
 # RNOH_BEGIN: manual_package_linking_1
-add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/react-native-linear-gradient/src/main/cpp" ./linear-gradient)
++ add_subdirectory("${OH_MODULES}/@react-native-ohos/react-native-linear-gradient/src/main/cpp" ./linear-gradient)
 # RNOH_END: manual_package_linking_1
 
-file(GLOB GENERATED_CPP_FILES "./generated/*.cpp")
-
-add_library(rnoh_app SHARED
-    ${GENERATED_CPP_FILES}
-    "./PackageProvider.cpp"
-    "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
-)
-target_link_libraries(rnoh_app PUBLIC rnoh)
-
 # RNOH_BEGIN: manual_package_linking_2
-target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 + target_link_libraries(rnoh_app PUBLIC rnoh_linear_gradient)
 # RNOH_END: manual_package_linking_2
 ```
@@ -185,7 +166,6 @@ Open entry/src/main/cpp/PackageProvider.cpp and add the following code:
 ```diff
 #include "RNOH/PackageProvider.h"
 #include "generated/RNOHGeneratedPackage.h"
-#include "SamplePackage.h"
 + #include "LinearGradientPackage.h"
 
 using namespace rnoh;
@@ -193,7 +173,6 @@ using namespace rnoh;
 std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
     return {
       std::make_shared<RNOHGeneratedPackage>(ctx),
-      std::make_shared<SamplePackage>(ctx),
 +     std::make_shared<LinearGradientPackage>(ctx)
     };
 }
@@ -218,31 +197,30 @@ Then build and run the code.
 
 To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-linear-gradient Releases](https://github.com/react-native-oh-library/react-native-linear-gradient/releases)
-
-This document is verified based on the following versions:
-1. RNOH: 0.72.20-CAPI; SDK: HarmonyOS NEXT Developer Preview2; IDE: DevEco Studio 5.0.3.228; ROM: 3.0.0.23;
+Check the release version information in the release address of the third-party library: [@react-native-ohos/react-native-linear-gradient Releases](https://gitee.com/openharmony-sig/rntpc_react-native-linear-gradient/releases)
 
 ## Properties
 
-> [!tip] The Platform column indicates the platform where the properties are supported in the original third-party library.
+> [!TIP] The Platform column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] If the value of HarmonyOS Support is yes, it means that the HarmonyOS platform supports this property; no means the opposite; partially means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!TIP] If the value of HarmonyOS Support is yes, it means that the HarmonyOS platform supports this property; no means the opposite; partially means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name        | Description                                              | Type                   | Required | Platform | HarmonyOS Support (ArkTS) | HarmonyOS Support (CAPI) |
-| ----------- | -------------------------------------------------------- | ---------------------- | -------- | -------- |---------------------------|--------------------------|
-| colors      | Color Array                                              | (string\|number)[]     | NO       | All      | yes                       | yes                      |
-| locations   | Color for unknown array (length 0 or the same as colors) | number[]               | NO       | All      | yes                       | yes                      |
-| useAngle    | Use angle (default false)                                | boolean                | NO       | All      | yes                       | yes                      |
-| angle       | Angle (useAngle=true valid)                              | number                 | NO       | All      | yes                       | yes                      |
-| angleCenter | Middle angle coordinate                                  | { x: number,y: number} | NO       | All      | no                        | yes                      |
-| start       | Starting point coordinates (default value: {x: 0.5,1})   | { x: number,y: number} | NO       | All      | partial                   | yes                      |
-| end         | End point coordinates (default value: {x: 0.5,1})        | { x: number,y: number} | NO       | All      | partial                   | yes                      |
+| Name        | Description                                              | Type                   | Required | Platform | HarmonyOS Support |
+| ----------- | -------------------------------------------------------- | ---------------------- | -------- | -------- | ----------------- |
+| colors      | Color Array                                              | (string\|number)[]     | NO       | All      | yes               |
+| locations   | Color for unknown array (length 0 or the same as colors) | number[]               | NO       | All      | yes               |
+| useAngle    | Use angle (default false)                                | boolean                | NO       | All      | yes               |
+| angle       | Angle (useAngle=true valid)                              | number                 | NO       | All      | yes               |
+| angleCenter | Middle angle coordinate                                  | { x: number,y: number} | NO       | All      | no                |
+| start       | Starting point coordinates (default value: {x: 0.5,1})   | { x: number,y: number} | NO       | All      | yes               |
+| end         | End point coordinates (default value: {x: 0.5,1})        | { x: number,y: number} | NO       | All      | yes               |
 
 ## Known Issues
+
+- The current version of HarmonyOS does not support angleCenter.
 
 ## Others
 
 ## License
 
-This project is licensed under [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-linear-gradient/blob/harmony/LICENSE).
+This project is licensed under [The MIT License (MIT)](https://gitee.com/openharmony-sig/rntpc_react-native-linear-gradient/blob/master/LICENSE).

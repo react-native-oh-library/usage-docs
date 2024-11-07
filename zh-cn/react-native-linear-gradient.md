@@ -18,11 +18,11 @@
 
 > [Github 仓库(已废弃)](https://github.com/react-native-oh-library/react-native-linear-gradient)
 
-> [Github Releases(<= 3.0.0-0.5.0): @react-native-ohos/react-native-linear-gradient](https://github.com/react-native-oh-library/react-native-linear-gradient/releases)
+> [Github Releases(<= 3.0.0-0.5.0): @react-native-oh-tpl/react-native-linear-gradient](https://github.com/react-native-oh-library/react-native-linear-gradient/releases)
 
 ## 安装与使用
 
-`该第三方库已迁移至 Gitee，且支持直接从 npm 下载。`
+`该第三方库已迁移至 Gitee，且支持直接从 npm 下载，新的包名为：@react-native-ohos/react-native-linear-gradient`
 
 进入到工程目录并输入以下命令：
 

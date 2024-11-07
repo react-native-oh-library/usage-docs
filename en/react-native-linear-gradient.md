@@ -14,19 +14,17 @@
 
 > [Gitee Repository](https://gitee.com/openharmony-sig/rntpc_react-native-linear-gradient)
 
-> [Gitee Releases: @react-native-ohos/react-native-linear-gradient](https://github.com/react-native-oh-library/react-native-linear-gradient/releases)
+> [Gitee Releases: @react-native-ohos/react-native-linear-gradient](https://gitee.com/openharmony-sig/rntpc_react-native-linear-gradient/releases)
 
 > [Github Repository(deprecated)](https://github.com/react-native-oh-library/react-native-linear-gradient)
 
-> [Github Releases(<= 3.0.0-0.5.0): @react-native-ohos/react-native-linear-gradient](https://github.com/react-native-oh-library/react-native-linear-gradient/releases)
+> [Github Releases(<= 3.0.0-0.5.0): @react-native-oh-tpl/react-native-linear-gradient](https://github.com/react-native-oh-library/react-native-linear-gradient/releases)
 
 ## Installation and Usage
 
-`This third-party library has been migrated to Gitee and is now available for direct download from npm.`
+`This third-party library has been migrated to Gitee and is now available for direct download from npm, the new package name is: @react-native-ohos/react-native-linear-gradient`
 
 Go to the project directory and execute the following instruction:
-
-> [!TIP] # Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 

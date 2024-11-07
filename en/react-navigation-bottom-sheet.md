@@ -238,7 +238,7 @@ This document is verified based on the following versions:
 | style                       | View style to be applied at the sheet container, it also could be an AnimatedStyle. This is helpful to add shadow to the sheet.                                                                              | ViewStyle                                 | NO       | ALL      | YES               |
 | handleStyle                 | View style to be applied to the handle component.                                                                                                                                                            | ViewStyle                                 | NO       | ALL      | YES               |
 | handleIndicatorStyle        | View style to be applied to the handle indicator component.                                                                                                                                                  | ViewStyle                                 | NO       | ALL      | YES               |
-| handleHeight                | Handle height helps to calculate the internal container and sheet layouts. If handleComponent is provided, the library internally will calculate its layout, unless handleHeight is provided too.            | number                                    | NO       | ALL      | YES               |
+| handleHeight                | Handle height helps to calculate the internal container and sheet layouts. If handleComponent is provided, the library internally will calculate its layout, unless handleHeight is provided too.            | number                                    | NO       | ALL      | NO |
 | contentHeight               | Content height helps dynamic snap points calculation.                                                                                                                                                        | number                                    | NO       | ALL      | YES               |
 | topInset                    | Top inset to be added to the bottom sheet container, usually it comes from @react-navigation/stack hook useHeaderHeight or from react-native-safe-area-context hook useSafeArea.                             | number                                    | NO       | ALL      | YES               |
 | bottomInset                 | Bottom inset to be added to the bottom sheet container.                                                                                                                                                      | number                                    | NO       | ALL      | YES               |
@@ -263,6 +263,7 @@ This document is verified based on the following versions:
 
 - keyboardBehaviorProperties 暂不支持，与 iOS 表现一致。[issue#24](https://github.com/th3rdwave/react-navigation-bottom-sheet/issues/24)
 - keyboardBlurBehaviorProperties 暂不支持，与 iOS 表现一致。[issue#25](https://github.com/th3rdwave/react-navigation-bottom-sheet/issues/25)
+- handleHeight属性暂不支持，与iOS表现一致。[issue#30](https://github.com/th3rdwave/react-navigation-bottom-sheet/issues/30)
 
 ## License
 

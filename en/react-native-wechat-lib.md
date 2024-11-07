@@ -213,7 +213,29 @@ export default class EntryAbility extends RNAbility {
 
 ```
 
-### 4. Configuring CMakeLists and Introducing BaseReactNativeWechatLibPackage
+### 4. Configuring module.json5 
+
+open `entry/src/main/module.json5` and add the following code:
+
+```diff
+{
+  "module": {
+    "name": "entry",
+    "type": "entry",
+    "description": "$string:module_desc",
+    "mainElement": "EntryAbility",
+    "deviceTypes": [
+      "default"
+    ],
++   "querySchemes": [
++     "weixin",
++   ],
+    ...
+  }
+}
+```
+
+### 5. Configuring CMakeLists and Introducing RNWechatLibPackage
 
 open `entry/src/main/cpp/CMakeLists.txt` and add the following code:
 
@@ -259,7 +281,7 @@ Open `entry/src/main/cpp/PackageProvider.cpp` and add the following code:
 #include "RNOH/PackageProvider.h"
 #include "generated/RNOHGeneratedPackage.h"
 #include "SamplePackage.h"
-+ #include "BaseReactNativeWechatLibPackage.h"
++ #include "RNWechatLibPackage.h"
 
 using namespace rnoh;
 
@@ -267,12 +289,12 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
     return {
         std::make_shared<RNOHGeneratedPackage>(ctx),
         std::make_shared<SamplePackage>(ctx),
-+       std::make_shared<BaseReactNativeWechatLibPackage>(ctx),
++       std::make_shared<RNWechatLibPackage>(ctx),
     };
 }
 ```
 
-### 5. Introducing WechatLibPackage to ArkTS
+### 6. Introducing WechatLibPackage to ArkTS
 
 Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
 
@@ -288,7 +310,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 6. Running
+### 7. Running
 
 Click the `sync` button in the upper right corner.
 
@@ -315,10 +337,12 @@ Check the release version information in the release address of the third-party 
 
 > [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
+> [!TIP] The rules for mobile applications to jump to Mini Program, [please refer to the feature introduction for launching Mini Program in the app](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Launching_a_Mini_Program/Launching_a_Mini_Program.html)
+
 | Name                                          | Description        | Type     | Required | Platform    | HarmonyOS Support |
 | --------------------------------------------- | ------------------ | -------- | -------- | ----------- | ----------------- |
 | registerApp(appid)                            | register               | Function | no       | Android/iOS | yes               |
-| isWXAppInstalled()                            | Determine whether WeChat is installed | Function | no       | Android/iOS | no                |
+| isWXAppInstalled()                            | Determine whether WeChat is installed | Function | no       | Android/iOS | yes               |
 | isWXAppSupportApi()                           | Check support       | Function | no       | Android/iOS | no                |
 | getApiVersion()                               | Get API version number    | Function | no       | Android/iOS | no                |
 | openWXApp()                                   | Open WeChat           | Function | no       | Android/iOS | yes               |
@@ -332,7 +356,7 @@ Check the release version information in the release address of the third-party 
 | shareVideo(ShareVideoMetadata)                | Share Video           | Function | no       | Android/iOS | no                |
 | shareWebpage (ShareWebpageMetadata)           | Share Webpage           | Function | no       | Android/iOS | no                |
 | shareMiniProgram(ShareMiniProgramMetadata)    | Share MiniProgram         | Function | no       | Android/iOS | no                |
-| launchMiniProgram (LaunchMiniProgramMetadata) | Launch MiniProgram         | Function | no       | Android/iOS | no                |
+| launchMiniProgram (LaunchMiniProgramMetadata) | Launch MiniProgram         | Function | no       | Android/iOS | yes               |
 | chooseInvoice (ChooseInvoice)                 | Select invoice           | Function | no       | Android/iOS | no                |
 | pay(payload)                                  | pay               | Function | no       | Android/iOS | yes               |
 | subscribeMessage(SubscribeMessageMetadata)    | 
@@ -343,8 +367,7 @@ One-time subscription to messages     | Function | no       | Android/iOS | no  
 ## Others
 
 - ShareText、ShareImage、ShareLocalImage: Only sharing is supported, collection is not supported, because the WeChat Open SDK currently does not support collection on the HarmonyOS platform.
-- isWXAppInstalled: The reason why it is not supported is that HarmonyOS does not support obtaining the application list data installed on the device.
-- isWXAppSupportApi、getApiVersion、ShareFile、ShareMusic、ShareVideo、ShareWebpage 、ShareMiniProgram、LaunchMiniProgram、ChooseInvoice、subscribeMessage. These interfaces are currently not supported by HarmonyOS WeChat Open SDK.
+- isWXAppSupportApi、getApiVersion、ShareFile、ShareMusic、ShareVideo、ShareWebpage 、ShareMiniProgram、ChooseInvoice、subscribeMessage. These interfaces are currently not supported by HarmonyOS WeChat Open SDK.
 
 ## License
 

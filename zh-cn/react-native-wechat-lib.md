@@ -216,7 +216,29 @@ export default class EntryAbility extends RNAbility {
 
 ```
 
-### 4.配置 CMakeLists 和引入 BaseReactNativeWechatLibPackage
+### 4.配置 module.json5
+
+打开 `entry/src/main/module.json5`，添加：
+
+```diff
+{
+  "module": {
+    "name": "entry",
+    "type": "entry",
+    "description": "$string:module_desc",
+    "mainElement": "EntryAbility",
+    "deviceTypes": [
+      "default"
+    ],
++   "querySchemes": [
++     "weixin",
++   ],
+    ...
+  }
+}
+```
+
+### 5.配置 CMakeLists 和引入 RNWechatLibPackage
 
 打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
 
@@ -262,7 +284,7 @@ target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 #include "RNOH/PackageProvider.h"
 #include "generated/RNOHGeneratedPackage.h"
 #include "SamplePackage.h"
-+ #include "BaseReactNativeWechatLibPackage.h"
++ #include "RNWechatLibPackage.h"
 
 using namespace rnoh;
 
@@ -270,12 +292,12 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
     return {
         std::make_shared<RNOHGeneratedPackage>(ctx),
         std::make_shared<SamplePackage>(ctx),
-+       std::make_shared<BaseReactNativeWechatLibPackage>(ctx),
++       std::make_shared<RNWechatLibPackage>(ctx),
     };
 }
 ```
 
-### 5.在 ArkTs 侧引入 WechatLibPackage
+### 6.在 ArkTs 侧引入 WechatLibPackage
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
@@ -291,7 +313,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 6.运行
+### 7.运行
 
 点击右上角的 `sync` 按钮
 
@@ -318,10 +340,12 @@ ohpm install
 
 > [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
+> [!TIP] 移动应用跳转至小程序的规则，[请见APP拉起小程序的功能介绍](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/Launching_a_Mini_Program/Launching_a_Mini_Program.html)
+
 | Name                                          | Description        | Type     | Required | Platform    | HarmonyOS Support |
 | --------------------------------------------- | ------------------ | -------- | -------- | ----------- | ----------------- |
 | registerApp(appid)                            | 注册               | Function | no       | Android/iOS | yes               |
-| isWXAppInstalled()                            | 判断微信是否已安装 | Function | no       | Android/iOS | no                |
+| isWXAppInstalled()                            | 判断微信是否已安装 | Function | no       | Android/iOS | yes                |
 | isWXAppSupportApi()                           | 检查支持情况       | Function | no       | Android/iOS | no                |
 | getApiVersion()                               | 获取 API 版本号    | Function | no       | Android/iOS | no                |
 | openWXApp()                                   | 打开微信           | Function | no       | Android/iOS | yes               |
@@ -335,7 +359,7 @@ ohpm install
 | shareVideo(ShareVideoMetadata)                | 分享视频           | Function | no       | Android/iOS | no                |
 | shareWebpage (ShareWebpageMetadata)           | 分享网页           | Function | no       | Android/iOS | no                |
 | shareMiniProgram(ShareMiniProgramMetadata)    | 分享小程序         | Function | no       | Android/iOS | no                |
-| launchMiniProgram (LaunchMiniProgramMetadata) | 跳到小程序         | Function | no       | Android/iOS | no                |
+| launchMiniProgram (LaunchMiniProgramMetadata) | 跳到小程序         | Function | no       | Android/iOS | yes               |
 | chooseInvoice (ChooseInvoice)                 | 选择发票           | Function | no       | Android/iOS | no                |
 | pay(payload)                                  | 支付               | Function | no       | Android/iOS | yes               |
 | subscribeMessage(SubscribeMessageMetadata)    | 一次性订阅消息     | Function | no       | Android/iOS | no                |
@@ -345,8 +369,7 @@ ohpm install
 ## 其他
 
 - ShareText、ShareImage、ShareLocalImage 只支持分享，不支持收藏，原因为目前微信 Open SDK 还不支持 HarmonyOS 平台的收藏
-- isWXAppInstalled 不支持原因是 HarmonyOS 不支持获取设备上安装的应用列表数据
-- isWXAppSupportApi、getApiVersion、ShareFile、ShareMusic、ShareVideo、ShareWebpage 、ShareMiniProgram、LaunchMiniProgram、ChooseInvoice、subscribeMessage 这些接口目前在 HarmonyOS 微信 Open SDK 还不支持
+- isWXAppSupportApi、getApiVersion、ShareFile、ShareMusic、ShareVideo、ShareWebpage 、ShareMiniProgram、ChooseInvoice、subscribeMessage 这些接口目前在 HarmonyOS 微信 Open SDK 还不支持
 
 ## 开源协议
 

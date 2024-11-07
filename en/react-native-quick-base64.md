@@ -421,10 +421,6 @@ const styles = StyleSheet.create({
 });
 ```
 
-## Use Codegen
-
-本库未带 rc.x 的版本号是已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/en/codegen.md)。
-
 ## Link
 
 Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.

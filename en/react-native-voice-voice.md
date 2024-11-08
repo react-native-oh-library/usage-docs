@@ -509,11 +509,11 @@ open `string.json`，Reason for adding permission request：
 | stop()：Promise<unknown>    | Stops listening for speech. Returns null if no error occurs.                                                                                                          | function  | no       | Android, iOS | yes               |
 | cancel()：Promise<unknown>    | Cancels the speech recognition. Returns null if no error occurs.                                                                                                      | function  | no       | Android, iOS | yes               |
 | destroy()：Promise<unknown>     | Destroys the current SpeechRecognizer instance. Returns null if no error occurs.                                                                                      | function  | no       | Android, iOS | yes               |
-| removeAllListeners()| Cleans/nullifies overridden Voice static methods.                                                                                                                     | void              | no       | Android, iOS | yes               |
+| removeAllListeners()| Cleans/nullifies overridden Voice static methods.                                                                                                                     | void              | no       | Android, iOS | no               |
 | isRecognizing()：Promise<isRecognizing:<0 \| 1 > | Return if the SpeechRecognizer is recognizing.                                                                                                                        |function   | no       | Android, iOS | yes               |
 | getSpeechRecognitionServices() | Returns a list of the speech recognition engines available on the device. (Example: ['com.google.android.googlequicksearchbox'] if Google is the only one available.) | function | no       | Android      | no                |
 
-## 事件回调
+## Event Callbacks 
 
 > [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
@@ -534,8 +534,9 @@ open `string.json`，Reason for adding permission request：
 - [ ] 原库支持在线和离线模式，HarmonyOS 侧暂只支持离线 问题: [issue#2](https://github.com/react-native-oh-library/voice/issues/2)
 - [ ] 原库支持多种区域和语言，HarmonyOS 侧暂只支持中文 问题: [issue#3](https://github.com/react-native-oh-library/voice/issues/3)
 
-## Others
 
+## Others
+- removeAllListeners方法未生效，与iOS效果一致。 问题: [issue#491](https://github.com/react-native-voice/voice/issues/491)
 ## License
 
 This project is licensed under [The MIT License (MIT)](https://github.com/react-native-voice/voice/blob/master/LICENSE).

@@ -503,7 +503,7 @@ ohpm install
 | stop()：Promise<unknown>  | Stops listening for speech. Returns null if no error occurs.   | function  | no      | Android, iOS | yes               |
 | cancel()：Promise<unknown>  | Cancels the speech recognition. Returns null if no error occurs.    | function | no       | Android, iOS     | yes               |
 | destroy()：Promise<unknown>  | Destroys the current SpeechRecognizer instance. Returns null if no error occurs. | function  | no      | Android, iOS | yes               |
-| removeAllListeners()：Promise<unknown>  | Cleans/nullifies overridden Voice static methods.   | void              | no       | Android, iOS  | yes               |
+| removeAllListeners()：Promise<unknown>  | Cleans/nullifies overridden Voice static methods.   | void              | no       | Android, iOS  | no               |
 | isRecognizing()：Promise<isRecognizing:<0 \| 1 > | Return if the SpeechRecognizer is recognizing.  | function  | no      | Android, iOS  | yes               |
 | getSpeechRecognitionServices() | Returns a list of the speech recognition engines available on the device. (Example: ['com.google.android.googlequicksearchbox'] if Google is the only one available.) | function| no   | Android  | no  |
 
@@ -527,8 +527,9 @@ ohpm install
 
 - [ ] 原库支持在线和离线模式，HarmonyOS侧暂只支持离线 问题: [issue#2](https://github.com/react-native-oh-library/voice/issues/2)
 - [ ] 原库支持多种区域和语言，HarmonyOS侧暂只支持中文 问题: [issue#3](https://github.com/react-native-oh-library/voice/issues/3)
-## 其他
 
+## 其他
+- removeAllListeners方法未生效，与iOS效果一致。问题:  [issue#491]((https://github.com/react-native-voice/voice/issues/491)
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/react-native-voice/voice/blob/master/LICENSE) ，请自由地享受和参与开源。

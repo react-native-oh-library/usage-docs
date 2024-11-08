@@ -211,7 +211,7 @@ file(GLOB GENERATED_CPP_FILES "./generated/*.cpp")
 
 add_library(rnoh_app SHARED
     ${GENERATED_CPP_FILES}
-+  ${IMAGE_CROP_PICKER_CPP_FILES }
++  ${IMAGE_CROP_PICKER_CPP_FILES}
     "./PackageProvider.cpp"
     "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
 )

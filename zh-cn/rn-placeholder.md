@@ -12,11 +12,9 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/react-native-oh-library/rn-placeholder)
+> [!TIP] [Github 地址](https://github.com/react-native-oh-library/rn-placeholder)
 
 ## 安装与使用
-
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/rn-placeholder Releases](https://github.com/react-native-oh-library/rn-placeholder/releases)，并下载适用版本的 tgz 包。
 
 进入到工程目录并输入以下命令：
 
@@ -25,13 +23,13 @@
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/rn-placeholder@file:#
+npm install rn-placeholder@3.0.3 --legacy-peer-deps
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/rn-placeholder@file:#
+yarn add  rn-placeholder@3.0.3 --legacy-peer-deps
 ```
 
 <!-- tabs:end -->
@@ -44,7 +42,7 @@ import {
   PlaceholderMedia,
   PlaceholderLine,
   Fade,
-} from "@react-native-oh-tpl/rn-placeholder";
+} from "rn-placeholder";
 
 const App = () => (
   <Placeholder
@@ -66,7 +64,7 @@ export default App;
 
 本文档内容基于以下版本验证通过：
 
-RNOH：0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.29(SP1) ; IDE：DevEco Studio 5.0.3.400; ROM：3.0.0.25;
+1. RNOH：0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.29(SP1) ; IDE：DevEco Studio 5.0.3.400; ROM：3.0.0.25;
 
 ## 属性
 
@@ -87,6 +85,7 @@ It's the wrapper around all of the other components. Using alone will not produc
 | Right     | An optional component to display on the right       | ComponentType | no       | All      | Yes               |
 
 **_Animations_**
+
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | --------- | -------------------------------------------------- | ------------- | -------- | -------- | -------- |
 | Fade | This is the base animation that makes the placeholder become clearer on a specified interval| ComponentType | no | All | Yes |
@@ -120,9 +119,6 @@ A PlaceholderMedia is the second of the two basic and visual components of a pla
 | style   | Customize the style of the underlying View component     | object  | no       | All      | Yes               |
 
 ## 遗留问题
-
-- [ ] package.json 中 peerDependencies 依赖 react 版本与项目 react 版本不一致会产生依赖冲突，此问题只会导致 npm 安装依赖报错，不对组件功能造成影响。源库此问题 issues: [issue#226](https://github.com/mfrachet/rn-placeholder/issues/226)
-
 ## 其他
 
 ## 开源协议

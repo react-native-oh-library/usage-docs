@@ -345,6 +345,7 @@ Check the release version information in the release address of the third-party 
 | onFocusedInputLayoutChanged?: DirectEventHandler < FocusedInputLayoutChangedEvent >     | Listening event of the coordinate change of the focus text box position | function    | no       | iOS,Android | no                |
 | onFocusedInputTextChanged?: DirectEventHandler< FocusedInputTextChangedEvent>           | Listening event that focuses on text changes in Input    | function    | no       | iOS,Android | yes               |
 | onFocusedInputSelectionChanged?: DirectEventHandler< FocusedInputSelectionChangedEvent> | Listening event of focusing on text selection in Input     | function    | no       | iOS,Android | no                |
+|  style  | Style of the KeyboardControllerView | [ ViewStyle ](https://reactnative.dev/docs/view#props)   | no | iOS,Android      | yes |
 | children                                                                                |   children of the KeyboardControllerView              | JSX.Element | no       | iOS,Android | yes               |
 
 **KeyboardGestureArea**:Gesture Control Keyboard Assembly

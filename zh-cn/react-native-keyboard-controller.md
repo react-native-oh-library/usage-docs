@@ -340,6 +340,7 @@ ohpm install
 | onFocusedInputLayoutChanged?: DirectEventHandler < FocusedInputLayoutChangedEvent >  | 聚焦输入框位置坐标变化的监听事件   |  function  | no | iOS,Android      | no |
 |   onFocusedInputTextChanged?: DirectEventHandler< FocusedInputTextChangedEvent> | 聚焦输入框文本变化的监听事件   |  function  | no | iOS,Android      | yes |
 |   onFocusedInputSelectionChanged?: DirectEventHandler< FocusedInputSelectionChangedEvent> | 聚焦输入框文本选择的监听事件   |  function  | no | iOS,Android      | no |
+|  style  | `KeyboardControllerView`的CSS属性    | [ ViewStyle ](https://reactnative.dev/docs/view#props)   | no | iOS,Android      | yes |
 |  children  |  JSX element 子组件   | JSX.Element   | no | iOS,Android      | yes |
 
 

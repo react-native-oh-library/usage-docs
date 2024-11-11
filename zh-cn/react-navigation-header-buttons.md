@@ -152,24 +152,18 @@ export function UsageWithIcons({ navigation }) {
 
 > [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-
-
 | Name            | Description     | Type                                                                                                                     | Required | Platform | HarmonyOS Support    |
 | --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------- | ------- | -------- | ----------- |
 | HeaderButtonComponent            | component that renders the buttons, HeaderButton by default  |`ComponentType`| no   | iOS/Android       | yes |
 | children            | 	whatever you want to render inside  |`ReactNode`| yes   | iOS/Android       | yes |
-| left            | 	whether the HeaderButtons are on the left from header title  |boolean| no   | iOS/Android       | yes |
+| left            | 	Whether to add margin distance  |boolean| no   | iOS/Android       | yes |
 | preset            | headers are typically rendered in Stack Navigator, however, you can also render them in a Tab Navigator header. Pass 'tabHeader' if button margins are missing.  |`’tabHeader’/‘stackHeader’`| no   | iOS/Android       | yes |
-
-
 
 ### Item
 
 > [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
 > [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-
 
 | Name            | Description     | Type                                                                                                                     | Required | Platform | HarmonyOS Support    |
 | --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------- | ------- | -------- | ----------- |
@@ -185,14 +179,12 @@ export function UsageWithIcons({ navigation }) {
 
 > [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-
-
 | Name            | Description     | Type                                                                                                                     | Required | Platform | HarmonyOS Support    |
 | --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------- | ------- | -------- | ----------- |
 | OverflowIcon            | React element or component for the overflow icon  |` ReactElement / ComponentType`| no   | iOS/Android       | yes |
 | style            | 	optional styles for overflow button|`ViewStyle`| no   | iOS/Android       | yes |
 | onPress            | 	function that is called when overflow menu is pressed.  |function| no   | iOS/Android       | yes |
-| left              | whether the OverflowMenu is on the left from header title |boolean| no   | iOS/Android       | yes |
+| left              | Whether to add margin distance |boolean| no   | iOS/Android       | yes |
 | children              | the overflow items|`ReactNode`| yes   | iOS/Android       | yes |
 | preset              |	headers are typically rendered in Stack Navigator, however, you can also render them in a Tab Navigator header. Pass 'tabHeader' if button margins are missing. |` 'tabHeader' / 'stackHeader'`| no   | iOS/Android       | yes |
 
@@ -201,8 +193,6 @@ export function UsageWithIcons({ navigation }) {
 > [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
 > [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-
 
 | Name            | Description     | Type                                                                                                                     | Required | Platform | HarmonyOS Support    |
 | --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------- | ------- | -------- | ----------- |
@@ -230,6 +220,8 @@ export function UsageWithIcons({ navigation }) {
 ## 遗留问题
 
 ## 其他
+
+- left属性描述错误 [issue#248](https://github.com/vonovak/react-navigation-header-buttons/issues/248)
 
 ## 开源协议
 

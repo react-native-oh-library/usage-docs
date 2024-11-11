@@ -155,11 +155,11 @@ This document is verified based on the following versions:
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                  | Description                                                                                                                                                     | Type                        | Required | Platform    | HarmonyOS Support |
-| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------- | -------- | ----------- | ----------------- |
-| HeaderButtonComponent | component that renders the buttons, HeaderButton by default                                                                                                     | `ComponentType`             | no       | iOS/Android | yes               |
-| children              | whatever you want to render inside                                                                                                                              | `ReactNode`                 | yes      | iOS/Android | yes               |
-| left                  | whether the HeaderButtons are on the left from header title                                                                                                     | boolean                     | no       | iOS/Android | yes               |
+| Name                  | Description                                                  | Type                        | Required | Platform    | HarmonyOS Support |
+| --------------------- | ------------------------------------------------------------ | --------------------------- | -------- | ----------- | ----------------- |
+| HeaderButtonComponent | component that renders the buttons, HeaderButton by default  | `ComponentType`             | no       | iOS/Android | yes               |
+| children              | whatever you want to render inside                           | `ReactNode`                 | yes      | iOS/Android | yes               |
+| left                  | Whether to add margin distance                               | boolean                     | no       | iOS/Android | yes               |
 | preset                | headers are typically rendered in Stack Navigator, however, you can also render them in a Tab Navigator header. Pass 'tabHeader' if button margins are missing. | `’tabHeader’/‘stackHeader’` | no       | iOS/Android | yes               |
 
 ### Item
@@ -182,13 +182,13 @@ This document is verified based on the following versions:
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name         | Description                                                                                                                                                     | Type                            | Required | Platform    | HarmonyOS Support |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- | -------- | ----------- | ----------------- |
-| OverflowIcon | React element or component for the overflow icon                                                                                                                | ` ReactElement / ComponentType` | no       | iOS/Android | yes               |
-| style        | optional styles for overflow button                                                                                                                             | `ViewStyle`                     | no       | iOS/Android | yes               |
-| onPress      | function that is called when overflow menu is pressed.                                                                                                          | function                        | no       | iOS/Android | yes               |
-| left         | whether the OverflowMenu is on the left from header title                                                                                                       | boolean                         | no       | iOS/Android | yes               |
-| children     | the overflow items                                                                                                                                              | `ReactNode`                     | yes      | iOS/Android | yes               |
+| Name         | Description                                                  | Type                            | Required | Platform    | HarmonyOS Support |
+| ------------ | ------------------------------------------------------------ | ------------------------------- | -------- | ----------- | ----------------- |
+| OverflowIcon | React element or component for the overflow icon             | ` ReactElement / ComponentType` | no       | iOS/Android | yes               |
+| style        | optional styles for overflow button                          | `ViewStyle`                     | no       | iOS/Android | yes               |
+| onPress      | function that is called when overflow menu is pressed.       | function                        | no       | iOS/Android | yes               |
+| left         | Whether to add margin distance                               | boolean                         | no       | iOS/Android | yes               |
+| children     | the overflow items                                           | `ReactNode`                     | yes      | iOS/Android | yes               |
 | preset       | headers are typically rendered in Stack Navigator, however, you can also render them in a Tab Navigator header. Pass 'tabHeader' if button margins are missing. | ` 'tabHeader' / 'stackHeader'`  | no       | iOS/Android | yes               |
 
 ### HiddenItem
@@ -221,6 +221,8 @@ This document is verified based on the following versions:
 ## Known Issues
 
 ## Others
+
+- The description of the left attribute is incorrect [issue#248](https://github.com/vonovak/react-navigation-header-buttons/issues/248)
 
 ## License
 

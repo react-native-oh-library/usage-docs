@@ -266,7 +266,6 @@ export default Avatars;
     打开 `entry/src/main/ets/pages/Index.ets`，添加以下代码
 
 ```ts
-  //特别注意：FontAwesome 系列中字体的 familyName 需要通过代码逻辑自行理解
   build() {
     Column() {
       if (this.rnohCoreContext && this.shouldShow) {
@@ -275,14 +274,27 @@ export default Avatars;
         }
         RNApp({
           rnInstanceConfig: {
-            fontResourceByFontFamily:{
-              "FontAwesome": $rawfile("fonts/FontAwesome.ttf"),
-              "FontAwesome5_Brands": $rawfile("fonts/FontAwesome5_Brands.ttf"),
-              "FontAwesome5_Regular": $rawfile("fonts/FontAwesome5_Regular.ttf"),
-              "FontAwesome5_Solid": $rawfile("fonts/FontAwesome5_Solid.ttf"),
-              "Pacifico-Regular": $rawfile("fonts/Pacifico-Regular.ttf"),
-              "StintUltraCondensed-Regular": $rawfile("fonts/StintUltraCondensed-Regular.ttf") }
-          },
+              fontResourceByFontFamily: {
+              'anticon': $rawfile('fonts/AntDesign.ttf'),
+              'Entypo': $rawfile('fonts/Entypo.ttf'),
+              'EvilIcons': $rawfile('fonts/EvilIcons.ttf'),
+              'Feather': $rawfile('fonts/Feather.ttf'),
+              'FontAwesome': $rawfile('fonts/FontAwesome.ttf'),
+              'FontAwesome5Brands-Regular': $rawfile('fonts/FontAwesome5_Brands.ttf'),
+              'FontAwesome5Free-Regular': $rawfile('fonts/FontAwesome5_Regular.ttf'),
+              'FontAwesome5Free-Solid': $rawfile('fonts/FontAwesome5_Solid.ttf'),
+              'FontAwesome6Brands-Regular': $rawfile('fonts/FontAwesome6_Brands.ttf'),
+              'FontAwesome6Free-Regular': $rawfile('fonts/FontAwesome6_Regular.ttf'),
+              'FontAwesome6Free-Solid': $rawfile('fonts/FontAwesome6_Solid.ttf'),
+              'Fontisto': $rawfile('fonts/Fontisto.ttf'),
+              'fontcustom': $rawfile('fonts/Foundation.ttf'),
+              'Ionicons': $rawfile('fonts/Ionicons.ttf'),
+              'Material Design Icons': $rawfile('fonts/MaterialCommunityIcons.ttf'),
+              'Material Icons': $rawfile('fonts/MaterialIcons.ttf'),
+              'Octicons': $rawfile('fonts/Octicons.ttf'),
+              'simple-line-icons': $rawfile('fonts/SimpleLineIcons.ttf'),
+              'zocial': $rawfile('fonts/Zocial.ttf'),
+            }
         })
       }
     }
@@ -559,7 +571,7 @@ export default Avatars;
 | upperCase |         Transform Extended Label text to uppercase.          |      boolean      |    No    |   All    |        Yes        |
 |  visible  |              Decide the visibility of the FAB.               |      boolean      |    No    |   All    |        Yes        |
 
-**Header**：浮动操作按钮组件，接收所有 [View](https://reactnative.dev/docs/view#props) 的props
+**Header**：头部组件，接收所有 [View](https://reactnative.dev/docs/view#props) 的props
 
 |                       Name                        |                         Description                          |                 Type                 | Required | Platform | HarmonyOS Support |
 | :-----------------------------------------------: | :----------------------------------------------------------: | :----------------------------------: | :------: | :------: | :---------------: |
@@ -733,7 +745,7 @@ export default Avatars;
 | :---: | :--------------: | :-----: | :------: | :------: | :---------------: |
 | right | Add right title. | boolean |    No    |    No    |        No         |
 
-**Overlay**：弹窗组件
+**Overlay**：弹窗组件，接收所有 [View](https://reactnative.dev/docs/view#props) 的props
 
 |      Name       |                         Description                          |             Type             | Required | Platform | HarmonyOS Support |
 | :-------------: | :----------------------------------------------------------: | :--------------------------: | :------: | :------: | :---------------: |
@@ -819,7 +831,7 @@ export default Avatars;
 |    animationConfig    | Used to configure the animation parameters. These are the same parameters in the [Animated library](https://reactnative.dev/docs/animations.html). | `TimingAnimationConfig`，`SpringAnimationConfig` |    No    |   All    |        Yes        |
 |     animationType     | Set to 'spring' or 'timing' to use one of those two types of animations with the default [animation properties](https://reactnative.dev/docs/animations.html). |                `spring`，`timing`                |    No    |   All    |        Yes        |
 |    containerStyle     |         Apply style to the container of the slider.          |                      Style                       |    No    |   All    |        Yes        |
-|    debugTouchArea     | Set this to true to visually see the thumb touch rect in green. |                     boolean                      |    No    |   All    |        Yes        |
+|    debugTouchArea     | Set this to true to visually see the thumb touch rect in orange. |                     boolean                      |    No    |   All    |        Yes        |
 |       disabled        |      If true the user won't be able to move the slider.      |                     boolean                      |    No    |   All    |        Yes        |
 | maximumTrackTintColor |   The color used for the track to the right of the button.   |                      string                      |    No    |   All    |        Yes        |
 |     maximumValue      |             Initial maximum value of the slider.             |                      number                      |    No    |   All    |        Yes        |
@@ -1013,6 +1025,7 @@ export default Avatars;
 
 ## 遗留问题
 ## 其他
+
 -  Rating组件的readonly、onFinishRating等属性无法生效，与Android/iOS一致：[issue#1](https://github.com/react-native-elements/react-native-elements/issues/3736)、[issue#2](https://github.com/react-native-elements/react-native-elements/issues/3718)。
 -  AirbnbRatings组件的startImage属性无法生效，与Android/iOS一致：[issue#3](https://github.com/react-native-elements/react-native-elements/issues/3718)。
 -  ButtonGroups组件的activeOpacity、button等属性无法生效，与Android/iOS一致：[issue#4](https://github.com/react-native-elements/react-native-elements/issues/3938)。
@@ -1028,6 +1041,10 @@ export default Avatars;
 -  Tab.Item组件的active、dense等属性无法生效，与Android、iOS一致：[issue#14](https://github.com/react-native-elements/react-native-elements/issues/3936)。
 -  Tile组件的activeOpacity等属性无法生效，与Android、iOS一致：[issue#15](https://github.com/react-native-elements/react-native-elements/issues/3932)。
 -  Tooltip组件的closeOnlyOnBackdropPress属性无法生效，与Android、iOS一致：[issue#16](https://github.com/react-native-elements/react-native-elements/issues/3811)。
+-  Overlay组件接收View的所有属性无效，与Android/iOS一致：[issue#17](https://github.com/react-native-elements/react-native-elements/issues/3950)。
+-  Slider组件的属性animateTransitions单独设置为true报错：[issue#18](https://github.com/react-native-elements/react-native-elements/issues/3928)。
+-  ListItem.Subtitle组件的right属性设置无效，与Android、iOS一致：[issue#19](https://github.com/react-native-elements/react-native-elements/issues/3951)。
+-  Icon组件的brand属性设置无效，与Android、iOS一致：[issue#20](https://github.com/react-native-elements/react-native-elements/issues/3952)。
 
 ## 开源协议
 

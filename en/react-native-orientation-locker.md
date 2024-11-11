@@ -238,7 +238,7 @@ Open `entry/oh-package.json5` file and add the following dependencies:
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/react-native-orientation-locker":"file: ../../node_modules/@react-native-oh-tpl/react-native-orientation-locker/harmony/orientation_locker.har"
+    "@react-native-oh-tpl/react-native-orientation-locker":"file:../../node_modules/@react-native-oh-tpl/react-native-orientation-locker/harmony/orientation_locker.har"
   }
 ```
 
@@ -310,6 +310,7 @@ Check the release version information in the release address of the third-party 
 This document is verified based on the following versions:
 
 1. RNOH: 0.72.20; SDK: HarmonyOS NEXT Developer Beta1; IDE: DevEco Studio 5.0.3.200; ROM: 3.0.0.18;
+2. RNOH: 0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 ## API
 

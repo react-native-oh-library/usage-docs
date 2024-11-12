@@ -526,13 +526,7 @@ export default Avatars;
 
 **Dialog.Button**：定义对话框按钮组件，接收所有 [Button](https://reactnativeelements.com/docs/components/button#props) 的props
 
-**Dialog.Actions**：对话框加载组件
-
-|   Name   |                     Description                     |   Type    | Required | Platform | HarmonyOS Support |
-| :------: | :-------------------------------------------------: | :-------: | :------: | :------: | :---------------: |
-| children | Add Enclosed components as an action to the dialog. | ReactNode |    No    |   All    |        Yes        |
-
-**Dialog.Loading**：定义对话框操作组件
+**Dialog.Loading**：定义对话框加载组件
 
 |     Name     |                     Description                      |          Type          | Required | Platform | HarmonyOS Support |
 | :----------: | :--------------------------------------------------: | :--------------------: | :------: | :------: | :---------------: |
@@ -1045,6 +1039,8 @@ export default Avatars;
 -  Slider组件的属性animateTransitions单独设置为true报错：[issue#18](https://github.com/react-native-elements/react-native-elements/issues/3928)。
 -  ListItem.Subtitle组件的right属性设置无效，与Android、iOS一致：[issue#19](https://github.com/react-native-elements/react-native-elements/issues/3951)。
 -  Icon组件的brand属性设置无效，与Android、iOS一致：[issue#20](https://github.com/react-native-elements/react-native-elements/issues/3952)。
+-  Header组件的centerComponent属性设置上下无法居中：[issue#21](https://github.com/react-native-elements/react-native-elements/issues/3953)。
+-  ToolTip组件的skipAndroidStatusBar属性设置无效，与Android、iOS一致：[issue#22](https://github.com/react-native-elements/react-native-elements/issues/3954)。
 
 ## 开源协议
 

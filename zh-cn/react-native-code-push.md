@@ -280,13 +280,13 @@ cd entry
 ohpm install
 ```
 
-修改`tester\harmony\entry\src\main\ets\pages\Index.ets`文件
+修改`entry\src\main\ets\pages\Index.ets`文件
 
 ```diff
 ...
 + import common from '@ohos.app.ability.common';
-+ let context = getContext(this) as common.UIAbilityContext;
 + import BuildProfile from 'BuildProfile';
++ let context = getContext(this) as common.UIAbilityContext;
 + interface CodePushConfig{
 +  Staging:String;
 +  Production:String;
@@ -336,7 +336,7 @@ build() {
 }
 ```
 
-打开`tester/harmony/entry/build-profile.json5`，添加配置
+打开`entry/build-profile.json5`，添加配置
 
 ```diff
 {

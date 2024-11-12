@@ -287,13 +287,13 @@ cd entry
 ohpm install
 ```
 
-Modifying the `tester\harmony\entry\src\main\ets\pages\Index.ets` file.
+Modifying the `entry\src\main\ets\pages\Index.ets` file.
 
 ```diff
 ...
 + import common from '@ohos.app.ability.common';
-+ let context = getContext(this) as common.UIAbilityContext;
 + import BuildProfile from 'BuildProfile';
++ let context = getContext(this) as common.UIAbilityContext;
 + interface CodePushConfig{
 +  Staging:String;
 +  Production:String;
@@ -343,7 +343,7 @@ build() {
 }
 ```
 
-Open `tester/harmony/entry/build-profile.json5` and add configuration
+Open `entry/build-profile.json5` and add configuration
 
 ```diff
 {

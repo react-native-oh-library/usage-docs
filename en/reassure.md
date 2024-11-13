@@ -37,7 +37,7 @@ The following code shows the basic use scenario of the repository:
 
 > [!WARNING] The name of the imported repository remains unchanged.
 
-文件名称结尾必须包含`.perf-test.`，比如：MeasureFunction.perf-test.tsx
+The file name must end with`.perf-test.`,For example:MeasureFunction.perf-test.tsx
 
 ```js
 import { measureFunction } from "reassure";
@@ -76,9 +76,9 @@ test("MeasureFunction writeFile true", async () => {
 });
 ```
 
-## 基础配置
+## Basic Configuration
 
-### 配置 jest.config.js
+### configure jest.config.js
 
 ```js
 /** @type {import('ts-jest').JestConfigWithTsJest} */
@@ -88,7 +88,7 @@ module.exports = {
 };
 ```
 
-### 配置 jest-setup.js
+### configure jest-setup.js
 
 ```js
 /* eslint-disable no-undef */
@@ -97,35 +97,35 @@ import { configure } from "reassure";
 configure({ testingLibrary: "react-native" });
 ```
 
-### 安装 jest
+### install jest
 
-如已安装 jest，可忽略
+If jest has been installed, ignore it.
 
 ```shell
 npm install --save-dev jest@29.2.1
 ```
 
-### 安装 babel-jest
+### install babel-jest
 
-如已安装 babel-jest，可忽略
+If babel-jest has been installed, ignore it.
 
 ```shell
 npm instal --save-dev babel-jest@29.2.1
 ```
 
-### 安装 @testing-library/react-native
+### install @testing-library/react-native
 
 ```shell
 npm install --save-dev @testing-library/react-native@12.5.2
 ```
 
-## 生成性能报告
+## Generating a Performance Report
 
 ```shell
 npx reassure
 ```
 
-性能报告默认在当前工程根目录的`.reassure`文件夹中
+By default, the performance report is stored in the `.reassure` folder in the root directory of the current project.
 
 ## Constraints
 
@@ -134,6 +134,7 @@ npx reassure
 This document is verified based on the following versions:
 
 1. RNOH：0.72.27; SDK：HarmonyOS NEXT Developer Beta1 5.0.0.25 (API Version 12 Canary4); IDE：DevEco Studio 5.0.3.400SP7; ROM：3.0.0.25;
+2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 ## API
 
@@ -172,7 +173,6 @@ This document is verified based on the following versions:
 | runs           | number of runs per series for the particular test                                       | number         | no       | all      | yes               |
 | warmupRuns     | number of additional warmup runs that will be done and discarded before the actual runs | number         | no       | all      | yes               |
 | outputFile     | should write output to file                                                             | boolean        | no       | all      | yes               |
-| verbose        | make Reassure log more, e.g. for debugging purposes                                     | boolean        | no       | all      | yes               |
 | testingLibrary | where to look for `render` and `cleanup` functions                                      | TestingLibrary | no       | all      | yes               |
 
 **dangerReassure**

@@ -177,7 +177,6 @@ npx reassure
 | runs           | number of runs per series for the particular test            | number         | no       | all      | yes               |
 | warmupRuns     | number of additional warmup runs that will be done and discarded before the actual runs | number         | no       | all      | yes               |
 | outputFile     | should write output to file                                  | boolean        | no       | all      | yes               |
-| verbose | make Reassure log more, e.g. for debugging purposes | boolean | no | all | yes   |
 | testingLibrary | where to look for `render` and `cleanup` functions           | TestingLibrary | no       | all      | yes               |
 
 **dangerReassure**

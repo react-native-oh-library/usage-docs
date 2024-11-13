@@ -187,7 +187,7 @@ All possible modes:
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-### `NotifierComponents.Notifications`
+### `NotifierComponents.Notification`
 
 Currently, there are 2 components out of the box. If none of them fits your needs, then you can easily create your [Custom Component].
 

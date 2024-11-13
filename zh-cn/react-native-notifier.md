@@ -182,7 +182,7 @@ All possible modes:
 
 > [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-### `NotifierComponents.Notifications`
+### `NotifierComponents.Notification`
 Currently, there are 2 components out of the box. If none of them fits your needs, then you can easily create your [Custom Component].
 
 | Name | Type | Default |  Description |  Platform | HarmonyOS Support  |

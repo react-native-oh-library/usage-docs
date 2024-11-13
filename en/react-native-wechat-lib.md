@@ -347,7 +347,6 @@ Check the release version information in the release address of the third-party 
 | getApiVersion()                               | Get API version number    | Function | no       | Android/iOS | no                |
 | openWXApp()                                   | Open WeChat           | Function | no       | Android/iOS | yes               |
 | sendAuthRequest([scope[, state]])             | WeChat authorized login       | Function | no       | Android/iOS | yes               |
-| authByScan([scope, nonceStr, onQRGet])        | WeChat scan code to authorize login   | Function | no       | Android/iOS | yes               |
 | shareText(ShareTextMetadata)                  | Share/Collect Text     | Function | no       | Android/iOS | partially         |
 | shareImage(ShareImageMetadata)                | Share Image     | Function | no       | Android/iOS | partially         |
 | shareLocalImage(ShareImageMetadata)           | Share LocalImage | Function | no       | Android/iOS | partially         |

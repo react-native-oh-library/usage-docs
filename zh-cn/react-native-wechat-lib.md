@@ -350,7 +350,6 @@ ohpm install
 | getApiVersion()                               | 获取 API 版本号    | Function | no       | Android/iOS | no                |
 | openWXApp()                                   | 打开微信           | Function | no       | Android/iOS | yes               |
 | sendAuthRequest([scope[, state]])             | 微信授权登录       | Function | no       | Android/iOS | yes               |
-| authByScan([scope, nonceStr, onQRGet])        | 微信扫码授权登录   | Function | no       | Android/iOS | yes               |
 | shareText(ShareTextMetadata)                  | 分享/收藏 文本     | Function | no       | Android/iOS | partially         |
 | shareImage(ShareImageMetadata)                | 分享/收藏 图片     | Function | no       | Android/iOS | partially         |
 | shareLocalImage(ShareImageMetadata)           | 分享/收藏 本地图片 | Function | no       | Android/iOS | partially         |

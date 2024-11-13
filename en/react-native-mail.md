@@ -215,7 +215,7 @@ Check the release version information in the release address of the third-party 
 | bccRecipients      | 密件抄送收件人      | string[] | no       | all      | yes               |
 | body               | 邮件内容            | string   | no       | all      | yes               |
 | customChooserTitle | 自定义选择器标题    | string   | no       | android  | no                |
-| isHTML             | 邮件内容是否为 html | boolean  | no       | all      | yes               |
+| isHTML             | 邮件内容是否为 html | boolean  | no       | all      | no               |
 | attachments        | 附件信息            | object[] | no       | all      | no                |
 
 ## Known Issues
@@ -223,6 +223,7 @@ Check the release version information in the release address of the third-party 
 - [ ] 不支持 attachments 附件传递: [issue#1](https://github.com/react-native-oh-library/react-native-mail/issues/1)
 - [ ] 不支持 customChooserTitle: [issue#4](https://github.com/react-native-oh-library/react-native-mail/issues/4)
 - [x] 邮箱应用上 body 显示异常: [issue#2](https://github.com/react-native-oh-library/react-native-mail/issues/2)
+- [ ] 不支持 isHTML: [issue#7](https://github.com/react-native-oh-library/react-native-mail/issues/7)
 
 ## Others
 

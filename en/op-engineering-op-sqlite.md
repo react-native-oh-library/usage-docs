@@ -92,18 +92,7 @@ export default function OpSqliteExample() {
 
 ```
 
-#### **Change and set plugin package.json of root project dir**
 
-```json
-{
-...
-  "op-sqlite": {
-    ...
-    "sqlcipher": false,
-    "libsql": false,
-  },
-}
-```
 For details, see [Source Repository Document Address](https://ospfranco.notion.site/OP-SQLite-Documentation-a279a52102464d0cb13c3fa230d2f2dc?pvs=4)
 
 
@@ -162,7 +151,7 @@ project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
 set(CMAKE_SKIP_BUILD_RPATH TRUE)
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
++ set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
 + set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
 set(LOG_VERBOSITY_LEVEL 1)
@@ -224,6 +213,18 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   ];
 }
 ```
+### 5. Create a `package.json` file in the root directory of your IDE project and configure the parameters.
+
+```json
+{
+...
+  "op-sqlite": {
+    ...
+    "sqlcipher": false,
+    "libsql": false, //Here, if it is set to "true", it represents the remote database mode.
+  },
+}
+```
 
 ### 5. Introducing opSqlitePlugin to ArkTS
 
@@ -234,9 +235,12 @@ Open the `entry/hvigorfile.ts` file and add the following code:
 + import { HvigorPlugin, HvigorNode, getNode } from '@ohos/hvigor';
 + import { opSqlitePlugin } from './oh_modules/@react-native-oh-tpl/op-sqlite/hvigorfile.ts';
 
++const path = require('path');
++const rootRNPackagePath = path.join(__dirname, '../package.json'); //The configuration is based on the actual package path
+
 export default {
     system: hapTasks,
-+   plugins: [opSqlitePlugin()]
++   plugins: [opSqlitePlugin(rootRNPackagePath)]
 }
 ```
 

@@ -92,18 +92,6 @@ export default function OpSqliteExample() {
 
 ```
 
-#### **在项目根目录package.json,设置插件**
-
-```json
-{
-...
-  "op-sqlite": {
-    ...
-    "sqlcipher": false,
-    "libsql": false,
-  },
-}
-```
 详细参考[源库文档地址](https://ospfranco.notion.site/OP-SQLite-Documentation-a279a52102464d0cb13c3fa230d2f2dc?pvs=4)
 
 
@@ -167,7 +155,7 @@ project(rnapp)
 cmake_minimum_required(VERSION 3.4.1)
 set(CMAKE_SKIP_BUILD_RPATH TRUE)
 set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
++ set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
 + set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
 set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
 set(LOG_VERBOSITY_LEVEL 1)
@@ -229,8 +217,20 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   ];
 }
 ```
+### 5.在ide的工程根目录创建package.json文件,并配置参数
 
-### 5. 在 ArkTs 侧引入 opSqlitePlugin
+```diff
+{
+...
+  "op-sqlite": {
+    ...
+    "sqlcipher": false,
+    "libsql": false, //此处设置为ture即为远程数据库模式
+  },
+}
+```
+
+### 6. 在 ArkTs 侧引入 opSqlitePlugin
 
 打开 `entry/hvigorfile.ts`，添加：
 
@@ -239,9 +239,12 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 + import { HvigorPlugin, HvigorNode, getNode } from '@ohos/hvigor';
 + import { opSqlitePlugin } from './oh_modules/@react-native-oh-tpl/op-sqlite/hvigorfile.ts';
 
++const path = require('path');
++const rootRNPackagePath = path.join(__dirname, '../package.json'); //此处根据实际package路径来进行配置
+
 export default {
     system: hapTasks,
-+   plugins: [opSqlitePlugin()]
++   plugins: [opSqlitePlugin(rootRNPackagePath)]
 }
 ```
 

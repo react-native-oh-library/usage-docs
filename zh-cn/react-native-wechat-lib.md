@@ -354,7 +354,7 @@ ohpm install
 | shareImage(ShareImageMetadata)                | 分享/收藏 图片     | Function | no       | Android/iOS | partially         |
 | shareLocalImage(ShareImageMetadata)           | 分享/收藏 本地图片 | Function | no       | Android/iOS | partially         |
 | shareFile(ShareFileMetadata)                  | 分享文件           | Function | no       | Android/iOS | no                |
-| shareMusic(ShareMusicMetadata)                | 分享视频           | Function | no       | Android/iOS | no                |
+| shareMusic(ShareMusicMetadata)                | 分享音频           | Function | no       | Android/iOS | no                |
 | shareVideo(ShareVideoMetadata)                | 分享视频           | Function | no       | Android/iOS | no                |
 | shareWebpage (ShareWebpageMetadata)           | 分享网页           | Function | no       | Android/iOS | no                |
 | shareMiniProgram(ShareMiniProgramMetadata)    | 分享小程序         | Function | no       | Android/iOS | no                |

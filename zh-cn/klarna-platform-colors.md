@@ -74,7 +74,9 @@ module.exports = {
 
 现在检查你的 android, ios 和 harmony 文件夹。您应该在每个平台上都有您的颜色定义。
 
-当您需要修改颜色资源时，只需更改`colors`配置，然后再次执行以下命令即可生成最新的颜色资源
+当您需要修改颜色资源时，只需更改`colors`配置，然后再次执行以下命令即可生成最新的颜色资源。
+
+资源文件生成后需要将harmony/AppScope/resources/内的生成的2个color文件复制到harmony工程的对应目录下。
 
 ```bash
 npx @react-native-oh-tpl/platform-colors

@@ -78,6 +78,8 @@ Now go ahead and inspect your android, ios and web folders. You should have your
 
 You need to re-run the command after each change to the config to update the generated files.
 
+After generating the resource files, it is necessary to copy the two color files generated in Harmony/AppScope/resources/to the corresponding directory of the Harmony project.
+
 ```bash
 npx @react-native-oh-tpl/platform-colors
 ```

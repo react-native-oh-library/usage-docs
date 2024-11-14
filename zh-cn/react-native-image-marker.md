@@ -292,8 +292,11 @@ ohpm install
     }
 ]
 ```
+### 字体使用
+如果需要使用字体，需要在entry的resources目录下的rawfile/assets/assets/fonts目录下存放使用的字体文件，
+如下图：
 
-
+![alt text](../img/react-natvie-image-marker/fonts.PNG)
 
 
 ##  API

@@ -21,24 +21,23 @@
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-keep-awake Releases](https://github.com/react-native-oh-library/react-native-keep-awake/releases)，并下载适用版本的 tgz 包。
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-keep-awake Releases](https://github.com/react-native-oh-library/react-native-keep-awake/releases) 。对于未发布到npm的旧版本，请参考[安装指南](/zh-cn/tgz-usage.md)安装tgz包。
 
 进入到工程目录并输入以下命令：
 
->[!TIP] # 处替换为 tgz 包的路径
 
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-keep-awake@file:#
+npm install @react-native-oh-tpl/react-native-keep-awake
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-keep-awake@file:#
+yarn add @react-native-oh-tpl/react-native-keep-awake
 ```
 
 <!-- tabs:end -->

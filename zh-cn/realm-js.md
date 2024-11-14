@@ -19,24 +19,22 @@
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/realm-js Releases](https://github.com/react-native-oh-library/realm-js/releases)，并下载适用版本的 tgz 包。
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/realm-js Releases](https://github.com/react-native-oh-library/realm-js/releases) 。对于未发布到npm的旧版本，请参考[安装指南](/zh-cn/tgz-usage.md)安装tgz包。
 
 进入到工程目录并输入以下命令：
-
-> [!TIP] # 处替换为 tgz 包的路径
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/realm@file:#
-npm install @react-native-oh-tpl/realm-react@file:#
+npm install @react-native-oh-tpl/realm
+npm install @react-native-oh-tpl/realm-react
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/realm@file:#
-yarn add @react-native-oh-tpl/realm-react@file:#
+yarn add @react-native-oh-tpl/realm
+yarn add @react-native-oh-tpl/realm-react
 ```
 
 下面的代码展示了这个库的基本使用场景：

@@ -16,20 +16,20 @@
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-library/bottom-sheet Releases](https://github.com/react-native-oh-library/react-native-bottom-sheet/releases)，并下载适用版本的 tgz 包。
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-library/bottom-sheet Releases](https://github.com/react-native-oh-library/react-native-bottom-sheet/releases) 。对于未发布到npm的旧版本，请参考[安装指南](/zh-cn/tgz-usage.md)安装tgz包。
 
 <!-- tabs:start -->
 
 ####  npm
 
 ```bash
-npm install @react-native-oh-tpl/bottom-sheet@file:#
+npm install @react-native-oh-tpl/bottom-sheet
 ```
 
 #### yarn
 
 ```bash
-yarn add @react-native-oh-tpl/bottom-sheet@file:#
+yarn add @react-native-oh-tpl/bottom-sheet
 ```
 
 <!-- tabs:end -->

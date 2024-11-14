@@ -16,24 +16,22 @@
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-worklets-core Releases](https://github.com/react-native-oh-library/react-native-worklets-core/releases)，并下载适用版本的 tgz 包
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-worklets-core Releases](https://github.com/react-native-oh-library/react-native-worklets-core/releases) 。对于未发布到npm的旧版本，请参考[安装指南](/zh-cn/tgz-usage.md)安装tgz包。
 
 进入到工程目录并输入以下命令：
-
-> [!TIP] # 处替换为 tgz 包的路径
 
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm i @react-native-oh-tpl/react-native-worklets-core@file:#
+npm i @react-native-oh-tpl/react-native-worklets-core
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-worklets-core@file:#
+yarn add @react-native-oh-tpl/react-native-worklets-core
 ```
 
 在项目根目录下的 `babel.config.js` 中添加 `babel` 插件

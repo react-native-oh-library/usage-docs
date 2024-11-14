@@ -22,19 +22,17 @@ auto-fill 基于 HarmonyOS [autoFillManager](https://developer.huawei.com/consum
 
 ## 安装
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-ohos-community/auto-fill Releases](https://github.com/react-native-oh-library/auto-fill/releases)，并下载适用版本的 tgz 包。
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-ohos-community/auto-fill Releases](https://github.com/react-native-oh-library/auto-fill/releases) 。对于未发布到npm的旧版本，请参考[安装指南](/zh-cn/tgz-usage.md)安装tgz包。
 
 进入到工程目录并输入以下命令：
 
-> [!TIP] # 处替换为 tgz 包的路径
-
 - **npm**
   ```bash
-  npm install @react-native-ohos-community/auto-fill@file:#
+  npm install @react-native-ohos-community/auto-fill
   ```
 - **yarn**
   ```bash
-  yarn add @react-native-ohos-community/auto-fill@file:#
+  yarn add @react-native-ohos-community/auto-fill
   ```
 
 ## 使用说明

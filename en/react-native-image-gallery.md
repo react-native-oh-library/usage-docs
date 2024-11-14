@@ -18,7 +18,7 @@
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-image-gallery Releases](https://github.com/react-native-oh-library/react-native-image-gallery/releases)，并下载适用版本的 tgz 包
+Find the matching version information in the release address of a third-party library：[@react-native-oh-tpl/react-native-image-gallery Releases](https://github.com/react-native-oh-library/react-native-image-gallery/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 进入到工程目录并输入以下命令：
 
@@ -31,13 +31,13 @@
 #### **npm**
 
 ```bash
-npm i @react-native-oh-tpl/react-native-image-gallery@file:#
+npm i @react-native-oh-tpl/react-native-image-gallery
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-image-gallery@file:#
+yarn add @react-native-oh-tpl/react-native-image-gallery
 ```
 
 <!-- tabs:end -->

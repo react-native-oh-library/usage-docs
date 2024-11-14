@@ -16,20 +16,20 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-library/bottom-sheet Releases](https://github.com/react-native-oh-library/react-native-bottom-sheet/releases).
+Find the matching version information in the release address of a third-party library: [@react-native-oh-library/bottom-sheet Releases](https://github.com/react-native-oh-library/react-native-bottom-sheet/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 <!-- tabs:start -->
 
 #### npm
 
 ```bash
-npm install @react-native-oh-tpl/bottom-sheet@file:#
+npm install @react-native-oh-tpl/bottom-sheet
 ```
 
 #### yarn
 
 ```bash
-yarn add @react-native-oh-tpl/bottom-sheet@file:#
+yarn add @react-native-oh-tpl/bottom-sheet
 ```
 
 <!-- tabs:end -->

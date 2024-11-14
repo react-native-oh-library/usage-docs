@@ -16,20 +16,20 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-library/react-native-theme-switch-animation Releases](https://github.com/react-native-oh-library/react-native-theme-switch-animation/releases).
+Find the matching version information in the release address of a third-party library: [@react-native-oh-library/react-native-theme-switch-animation Releases](https://github.com/react-native-oh-library/react-native-theme-switch-animation/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-theme-switch-animation@file:#
+npm install @react-native-oh-tpl/react-native-theme-switch-animation
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-theme-switch-animation@file:#
+yarn add @react-native-oh-tpl/react-native-theme-switch-animation
 ```
 
 <!-- tabs:end -->

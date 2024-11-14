@@ -16,22 +16,20 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-exit-app Releases](https://github.com/react-native-oh-library/react-native-exit-app/releases).
+Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-exit-app Releases](https://github.com/react-native-oh-library/react-native-exit-app/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 Go to the project directory and execute the following instruction:
-
-> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-exit-app@file:#
+npm install @react-native-oh-tpl/react-native-exit-app
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-exit-app@file:#
+yarn add @react-native-oh-tpl/react-native-exit-app
 ```
 
 The following code shows the basic use scenario of the repository:

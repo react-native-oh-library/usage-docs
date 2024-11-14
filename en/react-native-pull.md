@@ -18,24 +18,23 @@
 
 ## Installation and Usage
 
-Please visit the address of the third-party library to view the supporting version information:[@react-native-oh-tpl/react-native-pull/releases](https://github.com/react-native-oh-library/react-native-pull/releases)，And download the applicable version of the TGZ package.
+Find the matching version information in the release address of a third-party library:[@react-native-oh-tpl/react-native-pull/releases](https://github.com/react-native-oh-library/react-native-pull/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 Go to the project directory and execute the following instruction:
 
-> [!TIP] # Replace with the path of the tgz package
 
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-pull@file:#
+npm install @react-native-oh-tpl/react-native-pull
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-pull@file:#
+yarn add @react-native-oh-tpl/react-native-pull
 ```
 
 <!-- tabs:end -->

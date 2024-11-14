@@ -16,7 +16,7 @@ Template version: v0.2.2
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-ui-lib Releases](https://github.com/react-native-oh-library/react-native-ui-lib/releases).
+Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-ui-lib Releases](https://github.com/react-native-oh-library/react-native-ui-lib/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 The HarmonyOS implementation of this library depends on the native code from @react-native-oh-tpl/react-native-reanimated、@react-native-oh-tpl/react-native-gesture-handler. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly.
 
@@ -31,20 +31,18 @@ If it is not included, follow the guide provided in [@react-native-oh-tpl/react-
 
 Go to the project directory and execute the following instruction:
 
-> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
-
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-ui-lib@file:#
+npm install @react-native-oh-tpl/react-native-ui-lib
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-ui-lib@file:#
+yarn add @react-native-oh-tpl/react-native-ui-lib
 ```
 
 <!-- tabs:end -->

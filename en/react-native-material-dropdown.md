@@ -20,7 +20,7 @@
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-material-dropdown Releases](https://github.com/react-native-oh-library/react-native-material-dropdown/releases)，并下载适用版本的 tgz 包。
+Find the matching version information in the release address of a third-party library：[@react-native-oh-tpl/react-native-material-dropdown Releases](https://github.com/react-native-oh-library/react-native-material-dropdown/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 > [!TIP] 本库依赖[@react-native-oh-tpl/react-native-material-textfield 文档](/zh-cn/react-native-material-textfield.md) 
 
@@ -36,13 +36,13 @@
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-material-dropdown@file:#
+npm install @react-native-oh-tpl/react-native-material-dropdown
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-material-dropdown@file:#
+yarn add @react-native-oh-tpl/react-native-material-dropdown
 ```
 
 <!-- tabs:end -->

@@ -18,23 +18,22 @@
 
 ## Installation and Usage
 
-Please visit the Release release address of the third-party library to view the corresponding version information：[@react-native-oh-tpl/react-native-scrollable-tab-view Releases](https://github.com/react-native-oh-library/react-native-scrollable-tab-view/releases)，And download the applicable version of the TGZ package.
-Go to the project directory and execute the following instruction:
+Find the matching version information in the release address of a third-party library：[@react-native-oh-tpl/react-native-scrollable-tab-view Releases](https://github.com/react-native-oh-library/react-native-scrollable-tab-view/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
-> [!TIP] # Replace with the path of the tgz package
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-scrollable-tab-view@file:#
+npm install @react-native-oh-tpl/react-native-scrollable-tab-view
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-scrollable-tab-view@file:#
+yarn add @react-native-oh-tpl/react-native-scrollable-tab-view
 ```
 
 <!-- tabs:end -->

@@ -16,7 +16,7 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/native-base Releases](https://github.com/react-native-oh-library/NativeBase/releases).
+Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/native-base Releases](https://github.com/react-native-oh-library/NativeBase/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 Go to the project directory and execute the following instruction：
 
@@ -25,13 +25,13 @@ Go to the project directory and execute the following instruction：
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/native-base@file:#
+npm install @react-native-oh-tpl/native-base
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/native-base@file:#
+yarn add @react-native-oh-tpl/native-base
 ```
 
 <!-- tabs:end -->

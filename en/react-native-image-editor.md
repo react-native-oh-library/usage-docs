@@ -17,18 +17,18 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library and download an applicable .tgz package:[@react-native-oh-tpl/image-editor Releases](https://github.com/react-native-oh-library/react-native-image-editor/releases).
+Find the matching version information in the release address of a third-party library:[@react-native-oh-tpl/image-editor Releases](https://github.com/react-native-oh-library/react-native-image-editor/releases). For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/image-editor@file:#
+npm install @react-native-oh-tpl/image-editor
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/image-editor@file:#
+yarn add @react-native-oh-tpl/image-editor
 ```
 
 @react-native-community/image-editor is used as an example.

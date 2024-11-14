@@ -18,7 +18,7 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-library/react-native-reanimated-bottom-sheet Releases](https://github.com/react-native-oh-library/react-native-reanimated-bottom-sheet/releases).
+Find the matching version information in the release address of a third-party library: [@react-native-oh-library/react-native-reanimated-bottom-sheet Releases](https://github.com/react-native-oh-library/react-native-reanimated-bottom-sheet/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 Go to the project directory and execute the following instruction:
 
@@ -27,13 +27,13 @@ Go to the project directory and execute the following instruction:
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/reanimated-bottom-sheet@file:#
+npm install @react-native-oh-tpl/reanimated-bottom-sheet
 ```
 
 #### **yarn**
 
 ```bash
-yarn add  @react-native-oh-tpl/reanimated-bottom-sheet@file:#
+yarn add  @react-native-oh-tpl/reanimated-bottom-sheet
 ```
 
 <!-- tabs:end -->

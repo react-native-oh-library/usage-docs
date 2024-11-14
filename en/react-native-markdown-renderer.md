@@ -16,24 +16,24 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-markdown-renderer Releases](https://github.com/react-native-oh-library/react-native-markdown-renderer/releases).
+Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-markdown-renderer Releases](https://github.com/react-native-oh-library/react-native-markdown-renderer/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 Go to the project directory and execute the following instruction:
 
-> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
+
 
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-markdown-renderer@file:#
+npm install @react-native-oh-tpl/react-native-markdown-renderer
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-markdown-renderer@file:#
+yarn add @react-native-oh-tpl/react-native-markdown-renderer
 ```
 
 <!-- tabs:end -->
@@ -72,7 +72,7 @@ export default class Page extends PureComponent {
 
 To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-markdown-renderer Releases](https://github.com/react-native-oh-library/react-native-markdown-renderer/releases).
+Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-markdown-renderer Releases](https://github.com/react-native-oh-library/react-native-markdown-renderer/releases).
 
 ## Markdown components
 

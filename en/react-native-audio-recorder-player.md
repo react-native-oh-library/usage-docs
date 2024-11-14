@@ -16,22 +16,22 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-audio-recorder-player Releases](https://github.com/react-native-oh-library/react-native-audio-recorder-player/releases).
+Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-audio-recorder-player Releases](https://github.com/react-native-oh-library/react-native-audio-recorder-player/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 Go to the project directory and execute the following instruction:
 
-> [!tip] Replace the content with the path of the .tgz package at the comment sign (#).
+
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-audio-recorder-player@file:#
+npm install @react-native-oh-tpl/react-native-audio-recorder-player
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-audio-recorder-player@file:#
+yarn add @react-native-oh-tpl/react-native-audio-recorder-player
 ```
 
 The following code shows the basic use scenario of the repository:

@@ -17,7 +17,7 @@
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/nativewind Releases](https://github.com/react-native-oh-library/nativewind/releases)，并下载适用版本的 tgz 包。
+Find the matching version information in the release address of a third-party library：[@react-native-oh-tpl/nativewind Releases](https://github.com/react-native-oh-library/nativewind/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 进入到工程目录并输入以下命令：
 
@@ -28,13 +28,13 @@
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/nativewind@file:#
+npm install @react-native-oh-tpl/nativewind
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/nativewind@file:#
+yarn add @react-native-oh-tpl/nativewind
 ```
 
 #### **tailwind.config.js**

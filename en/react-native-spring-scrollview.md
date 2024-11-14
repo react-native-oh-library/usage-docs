@@ -102,9 +102,9 @@ Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually 
 
 Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-The implementation of this library depends on the native code of @react-native-oh-tpl/lottie-react-native. If you have already included this library in your HarmonyOS project, you do not need to include it again. You can skip this section and  use the library directly.
+The implementation of this library depends on the native code of @react-native-oh-tpl/lottie-react-native, @react-native-oh-tpl/async-storage. If you have already included this library in your HarmonyOS project, you do not need to include it again. You can skip this section and  use the library directly.
 
-If you have not included it, please refer to the [Linking section of the @react-native-oh-tpl/lottie-react-native](/zh-cn/lottie-react-native.md#link)
+If you have not included it, please refer to the [Linking section of the @react-native-oh-tpl/lottie-react-native](/zh-cn/lottie-react-native.md#link), [Linking section of the @react-native-oh-tpl/async-storage](/zh-cn/react-native-async-storage-async-storage.md#link)
 
 ### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
 
@@ -221,12 +221,6 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 +   new SpringScrollViewPackage(ctx),
   ];
 }
-```
-
-Open `entry/src/main/ets/pages/Index.ets` file and add the following code:
-```diff
-...
-+ const arkTsComponentNames: Array<string> =["SampleView","GeneratedSampleView","PropsDisplayer","LottieAnimationView"];
 ```
 
 ### 5. Running

@@ -100,9 +100,9 @@ export default class ScrollToAndOnScrollExample extends React.Component {
 
 首先需要使用 DevEco Studio 打开项目里的HarmonyOS工程 `harmony`
 
-本库HarmonyOS侧实现依赖@react-native-oh-tpl/lottie-react-native的原生端代码，如已在HarmonyOS工程中引入过该库，则无需再次引入，可跳过本章步骤，直接使用。
+本库HarmonyOS侧实现依赖@react-native-oh-tpl/lottie-react-native、@react-native-oh-tpl/async-storage的原生端代码，如已在HarmonyOS工程中引入过该库，则无需再次引入，可跳过本章步骤，直接使用。
 
-如未引入请参考[@react-native-oh-tpl/lottie-react-native文档的link章节](/zh-cn/lottie-react-native.md#link)进行引入
+如未引入请参考[@react-native-oh-tpl/lottie-react-native文档的link章节](/zh-cn/lottie-react-native.md#link)、[@react-native-oh-tpl/async-storage文档的link章节](/zh-cn/react-native-async-storage-async-storage.md#link)进行引入
 
 ### 1.在工程根目录的 `oh-package.json5` 添加 overrides 字段
 
@@ -221,12 +221,6 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 +   new SpringScrollViewPackage(ctx),
   ];
 }
-```
-
-打开 `entry/src/main/ets/pages/Index.ets`，添加：
-```diff
-...
-+ const arkTsComponentNames: Array<string> =["SampleView","GeneratedSampleView","PropsDisplayer","LottieAnimationView"];
 ```
 
 ### 5.运行

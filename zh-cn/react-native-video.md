@@ -601,7 +601,7 @@ ohpm install
 | `onPlaybackResume` | The callback when the buffer ends caching, controlling the hiding of the loading view  | boolean   | No  | Android | No |
 | `automaticallyWaitsToMinimizeStalling` | A Boolean value that indicates whether the player should automatically delay playback in order to minimize stalling. For clients linked against iOS 10.0 and later  | boolean   | No  | iOS | No |
 | `bufferConfig` | Adjust the buffer settings. This prop takes an object with one or more of the properties listed below.  | object   | No  | Android | No |
-| `controls` |Determines whether to show player controls.  | boolean   | No  | All | No |
+| `controls` |Determines whether to show player controls.  | boolean   | No  | All | Yes |
 | `currentPlaybackTime` |When playing an HLS live stream with a EXT-X-PROGRAM-DATE-TIME tag configured, then this property will contain the epoch value in msec.| string | No  | All | No |
 | `filter` |Add video filter| string | No  | iOS | No |
 | `filterEnabled` |Enable video filter.| string | No  | iOS | No |

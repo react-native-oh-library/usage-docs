@@ -59,6 +59,7 @@ function RNCVideoDemo() {
   const [resizeMode, setResizeMode] = useState("none");
   const [posterResizeMode, setPosterResizeMode] = useState("cover");
   const [seekSec, setSeekSec] = useState(5000);
+  const [controls, setControls] = useState(false);
 
   const [onVideoLoad, setOnVideoLoad] = useState("onVideoLoad");
   const [onVideoLoadStart, setOnVideoLoadStart] = useState("onVideoLoadStart");
@@ -85,6 +86,10 @@ function RNCVideoDemo() {
 
   const toggleDisableFocus = () => {
     setDisableFocus((prevDisableFocus) => !prevDisableFocus);
+  };
+
+   const toggleControls = () => {
+    setControls((prevControls) => !prevControls);
   };
 
   const firstVideo = () => {
@@ -237,6 +242,7 @@ function RNCVideoDemo() {
           >
             muted:{muted.toString()}
           </Text>
+          <Text style={styles.button_b} onPress={() => { toggleControls() }} >controls:{controls.toString()}</Text>
           <Text
             style={styles.button_b}
             onPress={() => {
@@ -262,6 +268,7 @@ function RNCVideoDemo() {
           ref={videoRef}
           source={{ uri: uri, isNetwork: true }}
           paused={paused}
+          controls={controls}
           muted={muted}
           resizeMode={resizeMode}
           repeat={repeat}

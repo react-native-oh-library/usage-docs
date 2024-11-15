@@ -49,6 +49,7 @@ function RNCVideoDemo() {
   const [muted, setMuted] = useState(true);
   const [paused, setPaused] = useState(false);
   const [repeat, setRepeat] = useState(true);
+  const [controls, setControls] = useState(false);
   const [disableFocus, setDisableFocus] = useState(false);
   const [uri, setUri] = useState(
     "https://res.vmallres.com//uomcdn/CN/cms/202210/C75C7E20060F3E909F2998E13C3ABC03.mp4"
@@ -71,6 +72,10 @@ function RNCVideoDemo() {
 
   const toggleMuted = () => {
     setMuted((prevMuted) => !prevMuted);
+  };
+
+  const toggleControls = () => {
+    setControls((prevControls) => !prevControls);
   };
 
   const togglePaused = () => {
@@ -235,6 +240,7 @@ function RNCVideoDemo() {
           >
             muted:{muted.toString()}
           </Text>
+         <Text style={styles.button_b} onPress={() => { toggleControls() }} >controls:{controls.toString()}</Text>
           <Text
             style={styles.button_b}
             onPress={() => {
@@ -262,6 +268,7 @@ function RNCVideoDemo() {
           paused={paused}
           muted={muted}
           resizeMode={resizeMode}
+          controls={controls}
           repeat={repeat}
           volume={1}
           disableFocus={disableFocus}

@@ -116,6 +116,12 @@ const App = () => {
 };
 ```
 
+## Link
+
+The HarmonyOS implementation of this library depends on the native code from @react-native-oh-tpl/react-native-webview. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly.
+
+If it is not included, follow the guide provided in [@react-native-oh-tpl/react-native-webview](/en/react-native-webview.md) to add it to your project.
+
 ## Constraints
 
 ### Compatibility

@@ -432,8 +432,18 @@ When using **CodePush.InstallMode**, the following parameters are optional: inst
 | --------------- | ------------------ | ------ | -------- | ----------- | ----------------- |
 | IMMEDIATE       | Directly update    | number | no       | Android iOS | yes               |
 | ON_NEXT_RESTART | Next update launch | number | no       | Android iOS | yes               |
-| ON_NEXT_RESUME  | Next update launch | number | no       | Android iOS | yes               |
-| ON_NEXT_SUSPEND | Next update launch | number | no       | Android iOS | yes               |
+| ON_NEXT_RESUME  | Switch to the front-end to initiate updates | number | no       | Android iOS | yes               |
+| ON_NEXT_SUSPEND | Switch to the backend to initiate updates | number | no       | Android iOS | yes               |
+
+**checkFrequency**
+
+When using **CodePush.CheckFrequency**, the following parameters are optional: checkFrequency
+
+| Name          | Description         | Type   | Required | Platform    | HarmonyOS Support |
+| ------------- | ------------------- | ------ | -------- | ----------- | ----------------- |
+| ON_APP_START  | Automatic update    | number | no       | Android iOS | yes               |
+| ON_APP_RESUME | Automatic update    | number | no       | Android iOS | yes               |
+| MANUAL        | Manual update       | number | no       | Android iOS | yes               |
 
 ## Known Issues
 

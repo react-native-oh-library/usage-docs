@@ -419,12 +419,22 @@ build() {
 
 当使用**CodePush.InstallMode**时，installMode 以下参数都是可选的
 
-| Name            | Description  | Type   | Required | Platform    | HarmonyOS Support |
-| --------------- | ------------ | ------ | -------- | ----------- | ----------------- |
-| IMMEDIATE       | 直接更新     | number | no       | Android iOS | yes               |
-| ON_NEXT_RESTART | 下次启动更新 | number | no       | Android iOS | yes               |
-| ON_NEXT_RESUME  | 下次启动更新 | number | no       | Android iOS | yes               |
-| ON_NEXT_SUSPEND | 下次启动更新 | number | no       | Android iOS | yes               |
+| Name            | Description        | Type   | Required | Platform    | HarmonyOS Support |
+| --------------- | ------------------ | ------ | -------- | ----------- | ----------------- |
+| IMMEDIATE       | 直接更新           | number | no       | Android iOS | yes               |
+| ON_NEXT_RESTART | 下次启动更新       | number | no       | Android iOS | yes               |
+| ON_NEXT_RESUME  | 切换到前台启动更新 | number | no       | Android iOS | yes               |
+| ON_NEXT_SUSPEND | 切换到后台启动更新 | number | no       | Android iOS | yes               |
+
+**checkFrequency**
+
+当使用**CodePush.CheckFrequency**时，checkFrequency 以下参数都是可选的
+
+| Name          | Description | Type   | Required | Platform    | HarmonyOS Support |
+| ------------- | ----------- | ------ | -------- | ----------- | ----------------- |
+| ON_APP_START  | 自动更新    | number | no       | Android iOS | yes               |
+| ON_APP_RESUME | 自动更新    | number | no       | Android iOS | yes               |
+| MANUAL        | 手动更新    | number | no       | Android iOS | yes               |
 
 ## 遗留问题
 

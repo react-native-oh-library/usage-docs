@@ -328,9 +328,9 @@ DetailsHeaderScrollView、DetailsHeaderFlatList 以及 DetailsHeaderSectionList 
 | snapStopThreshold              | 滑动结束时阻力值                        | number                                                | no       | iOS/Android | no                |
 | snapToEdge                     | 是否可以滑动到 Edge（默认 true）        | number                                                | no       | iOS/Android | no                |
 | stickyTabs                     | Tab 栏是否可以固定位置（默认 true）     | number                                                | no       | iOS/Android | yes               |
-| substitle                      | 子标题                                  | string                                                | no       | iOS/Android | yes               |
-| substitleStyle                 | 子标题样式                              | style - StyleProp<TextStyle>                          | no       | iOS/Android | yes               |
-| substitleTestID                | 子标题测试 ID                           | string                                                | no       | iOS/Android | yes               |
+| subtitle                      | 子标题                                  | string                                                | no       | iOS/Android | yes               |
+| subtitleStyle                 | 子标题样式                              | style - StyleProp<TextStyle>                          | no       | iOS/Android | yes               |
+| subtitleTestID                | 子标题测试 ID                           | string                                                | no       | iOS/Android | yes               |
 | tag                            | 标签文字                                | string                                                | no       | iOS/Android | yes               |
 | tagStyle                       | 标签文字样式                            | style = StyleProp<TextStyle>                          | no       | iOS/Android | yes               |
 | tagTestID                      | 标签文字测试 ID                         | string                                                | no       | iOS/Android | yes               |
@@ -394,10 +394,9 @@ AvatarHeaderScrollView、AvatarHeaderFlatList 以及 AvatarHeaderSectionList 三
 | snapStartThreshold             | 滑动开始时阻力值                        | number                                                | no       | iOS/Android | yes               |
 | snapStopThreshold              | 滑动结束时阻力值                        | number                                                | no       | iOS/Android | no                |
 | snapToEdge                     | 是否可以滑动到 Edge（默认 true）        | number                                                | no       | iOS/Android | no                |
-| stickyTabs                     | Tab 栏是否可以固定位置（默认 true）     | number                                                | no       | iOS/Android | yes               |
-| substitle                      | 子标题                                  | string                                                | no       | iOS/Android | yes               |
-| substitleStyle                 | 子标题样式                              | style - StyleProp<TextStyle>                          | no       | iOS/Android | yes               |
-| substitleTestID                | 子标题测试 ID                           | string                                                | no       | iOS/Android | yes               |
+| subtitle                      | 子标题                                  | string                                                | no       | iOS/Android | yes               |
+| subtitleStyle                 | 子标题样式                              | style - StyleProp<TextStyle>                          | no       | iOS/Android | yes               |
+| subtitleTestID                | 子标题测试 ID                           | string                                                | no       | iOS/Android | yes               |
 | title                          | 标题文字                                | string                                                | no       | iOS/Android | yes               |
 | titleStyle                     | 标题文字样式                            | style = StyleProp<TextStyle>                          | no       | iOS/Android | yes               |
 | titleTestID                    | 标题测试 ID                             | string                                                | no       | iOS/Android | yes               |

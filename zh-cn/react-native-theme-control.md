@@ -14,11 +14,9 @@
 
 > [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-theme-control)
 
-
 ## 安装与使用
 
 请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-theme-control/Releases](https://github.com/react-native-oh-library/react-native-theme-control/releases)，并下载适用版本的 tgz 包。
-
 
 进入到工程目录并输入以下命令：
 
@@ -44,7 +42,7 @@ yarn add @react-native-oh-tpl/react-native-theme-control@file:#
 
 > [!WARNING] 使用时 import 的库名不变。
 
-```js   
+```js
 import * as React from 'react';
 import { Text, useColorScheme, View } from 'react-native';
 import {
@@ -135,7 +133,7 @@ useThemePreference(): {themePreference}
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
     "@react-native-oh-tpl/react-native-theme-control": "file:../../node_modules/@react-native-oh-tpl/react-native-theme-control/harmony/themecontrol.har",
-        
+
   }
 ```
 
@@ -151,7 +149,6 @@ ohpm install
 方法二：直接链接源码
 
 > [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
-
 
 ### 3.在 ArkTs 侧引入 RNThemeControlPackage
 
@@ -169,9 +166,10 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 4.在 entry/src/main/ets/abilityStage   新建MyAbilityStage.ets
+### 4.在 entry/src/main/ets/abilityStage 新建 MyAbilityStage.ets
 
 打开 `entry/src/main/ets/abilityStage/MyAbilityStage.ets`，添加：
+
 ```diff
 import appRecovery from '@ohos.app.ability.appRecovery';
 import AbilityStage from '@ohos.app.ability.AbilityStage';
@@ -194,9 +192,11 @@ export default class MyAbilityStage extends AbilityStage {
   }
 }
 ```
-### 5.在 entry/src/main/ets/entryability/EntryAbility.ets  配置生命周期调用 
+
+### 5.在 entry/src/main/ets/entryability/EntryAbility.ets 配置生命周期调用
 
 打开 `entry/src/main/ets/entryability/EntryAbility.ets`，添加：
+
 ```diff
 + import {RNAbility} from 'rnoh';
 + import Want from '@ohos.app.ability.Want';
@@ -212,14 +212,16 @@ export default class MyAbilityStage extends AbilityStage {
   }
 }
 ```
+
 打开 `entry/src/main/module.json5`，添加：
+
 ```diff
 "module": {
     "name": "entry",
 +   "srcEntry": "./ets/abilityStage/MyAbilityStage.ets",
     "type": "entry",
     .....
-    
+
 "abilities": [
   {
     "name": "EntryAbility",
@@ -246,13 +248,9 @@ ohpm install
 
 ### 兼容性
 
-
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-theme-control Releases](https://github.com/react-native-oh-library/react-native-theme-control/releases)
-
-
-
 
 ## API
 
@@ -260,16 +258,16 @@ ohpm install
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-| Name                | Description                                                                                                                                                | Type       | Required | Platform     | HarmonyOS Support |
-|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|----------|--------------|-------------------|
-| SystemBars          | Setting the System Status Bar                                                                                                                              | Components | No       | IOS/Android  | Yes               |
-| NavigationBar       | Setting the Navigation Bar                                                                                                                                 | Components | No       | Android      | No                |
-| AppBackground       | Sets the background color of the UIApplication window (iOS) or the current Activity (Android).                                                             | Components | No       | IOS/Android  | Yes               |
-| setNavbarAppearance | Set the appearance of the navigation bar imperatively                                                                                                      | Function   | No       | IOS/Android  | Yes               |
-| setAppBackground    | Set background color                                                                                                                                       | Function   | No       | IOS/Android  | Yes               |
-| setThemePreference  | Set the theme                                                                                                                                              | Function   | No       | IOS/Android  | Yes               |
-| getThemePreference  | Get Subject                                                                                                                                                | Function   | No       | IOS/Android  | Yes               |
-| useThemePreference  | A React hook that returns the current theme preference, which might be dark, light (if you have set the theme before by calling setAppearance) or system.  | Function   | No       | IOS/Android  | Yes               |
+| Name                | Description                                                                                                                                               | Type       | Required | Platform    | HarmonyOS Support |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | -------- | ----------- | ----------------- |
+| SystemBars          | Setting the System Status Bar                                                                                                                             | Components | No       | IOS/Android | Yes               |
+| NavigationBar       | Setting the Navigation Bar                                                                                                                                | Components | No       | Android     | No                |
+| AppBackground       | Sets the background color of the UIApplication window (iOS) or the current Activity (Android).                                                            | Components | No       | IOS/Android | Yes               |
+| setNavbarAppearance | Set the appearance of the navigation bar imperatively                                                                                                     | Function   | No       | Android     | No                |
+| setAppBackground    | Set background color                                                                                                                                      | Function   | No       | IOS/Android | Yes               |
+| setThemePreference  | Set the theme                                                                                                                                             | Function   | No       | IOS/Android | Yes               |
+| getThemePreference  | Get Subject                                                                                                                                               | Function   | No       | IOS/Android | Yes               |
+| useThemePreference  | A React hook that returns the current theme preference, which might be dark, light (if you have set the theme before by calling setAppearance) or system. | Function   | No       | IOS/Android | Yes               |
 
 ## 遗留问题
 
@@ -278,4 +276,3 @@ ohpm install
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/vonovak/react-native-theme-control/blob/main/LICENSE) ，请自由地享受和参与开源。
-

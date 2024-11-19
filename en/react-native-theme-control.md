@@ -163,7 +163,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 4. Add the `MyAbilityStage.ets` in `entry/src/main/ets/abilityStage` 
+### 4. Add the `MyAbilityStage.ets` in `entry/src/main/ets/abilityStage`
 
 Open the `entry/src/main/ets/abilityStage/MyAbilityStage.ets` file and add the following code:
 
@@ -209,14 +209,16 @@ Open the `entry/src/main/ets/abilityStage/MyAbilityStage.ets` file and add the f
   }
 }
 ```
+
 Open the `entry/src/main/module.json5` file and add the following code：
+
 ```diff
 "module": {
     "name": "entry",
 +   "srcEntry": "./ets/abilityStage/MyAbilityStage.ets",
     "type": "entry",
     .....
-    
+
 "abilities": [
   {
     "name": "EntryAbility",
@@ -253,16 +255,16 @@ Check the release version information in the release address of the third-party 
 
 > [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                | Description                                                                                                                                                | Type       | Required | Platform     | HarmonyOS Support |
-|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|----------|--------------|-------------------|
-| SystemBars          | Setting the System Status Bar                                                                                                                              | Components | No       | IOS/Android  | Yes               |
-| NavigationBar       | Setting the Navigation Bar                                                                                                                                 | Components | No       | Android      | No                |
-| AppBackground       | Sets the background color of the UIApplication window (iOS) or the current Activity (Android).                                                             | Components | No       | IOS/Android  | Yes               |
-| setNavbarAppearance | Set the appearance of the navigation bar imperatively                                                                                                      | Function   | No       | IOS/Android  | Yes               |
-| setAppBackground    | Set background color                                                                                                                                       | Function   | No       | IOS/Android  | Yes               |
-| setThemePreference  | Set the theme                                                                                                                                              | Function   | No       | IOS/Android  | Yes               |
-| getThemePreference  | Get Subject                                                                                                                                                | Function   | No       | IOS/Android  | Yes               |
-| useThemePreference  | A React hook that returns the current theme preference, which might be dark, light (if you have set the theme before by calling setAppearance) or system.  | Function   | No       | IOS/Android  | Yes               |
+| Name                | Description                                                                                                                                               | Type       | Required | Platform    | HarmonyOS Support |
+| ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- | -------- | ----------- | ----------------- |
+| SystemBars          | Setting the System Status Bar                                                                                                                             | Components | No       | IOS/Android | Yes               |
+| NavigationBar       | Setting the Navigation Bar                                                                                                                                | Components | No       | Android     | No                |
+| AppBackground       | Sets the background color of the UIApplication window (iOS) or the current Activity (Android).                                                            | Components | No       | IOS/Android | Yes               |
+| setNavbarAppearance | Set the appearance of the navigation bar imperatively                                                                                                     | Function   | No       | Android     | No                |
+| setAppBackground    | Set background color                                                                                                                                      | Function   | No       | IOS/Android | Yes               |
+| setThemePreference  | Set the theme                                                                                                                                             | Function   | No       | IOS/Android | Yes               |
+| getThemePreference  | Get Subject                                                                                                                                               | Function   | No       | IOS/Android | Yes               |
+| useThemePreference  | A React hook that returns the current theme preference, which might be dark, light (if you have set the theme before by calling setAppearance) or system. | Function   | No       | IOS/Android | Yes               |
 
 ## Known Issues
 

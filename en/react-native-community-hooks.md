@@ -155,10 +155,10 @@ useAccessibilityInfo 方法返回值
 |----------------|-------------------------------| -------- | ----------------- |
 | isBoldTextEnabled  | whether bold text is enabled | iOS | Yes        |
 | isScreenReaderEnabled    | Whether the Screen Reading Function Is Enabled | Android / iOS | Yes   |
-| isGrayscaleEnabled  | Whether grayscale mode is enabled | iOS | Yes        |
-| isInvertColorsEnabled  | Whether color inversion is enabled | iOS | Yes        |
-| isReduceMotionEnabled  | Whether reduction animation is enabled | Android / iOS | Yes        |
-| isReduceTransparencyEnabled  | Whether reduce transparency is enabled | iOS | Yes        |
+| isGrayscaleEnabled  | Whether grayscale mode is enabled | iOS | No        |
+| isInvertColorsEnabled  | Whether color inversion is enabled | iOS | No        |
+| isReduceMotionEnabled  | Whether reduction animation is enabled | Android / iOS | No        |
+| isReduceTransparencyEnabled  | Whether reduce transparency is enabled | iOS | No        |
 
 ## 遗留问题
 

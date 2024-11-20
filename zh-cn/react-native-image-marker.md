@@ -310,20 +310,6 @@ ohpm install
 | markImage   | mark icons on background image  | string | no  | Android/iOS | yes               |
 | markText | mark texts on background image | string | no   | Android/iOS | yes               |
 
-#### markImage
-```js
-markImage(options: ImageMarkOptions): Promise<string>;
-```
-##### ImageMarkOptions
-
-| Name        | Description             | Type   | Required | Platform    | HarmonyOS Support |
-| ----------- | ----------------------- | ------ | -------- | ----------- | ----------------- |
-| backgroundImage  | background image options | ImageOptions | yes      | iOS/Android | yes               |
-| quality | image quality `0-100`, `100` is best quality. defaultValue 100 | number | no      | iOS/Android | yes               |
-| filename | save image name | string | no      | iOS/Android | yes               |
-| saveFormat | save image format 'png','jpg','base64',default 'png' | ImageFormat | no      | iOS/Android | yes               |
-| watermarkImages | watermark images | Array\<WatermarkImageOptions> | yes      | iOS/Android | yes  |
-
 ##### ImageOptions
 
 | Name        | Description             | Type   | Required | Platform    | HarmonyOS Support |
@@ -340,25 +326,13 @@ markImage(options: ImageMarkOptions): Promise<string>;
 | png  | iamge type png | string | no      | iOS/Android | yes               |
 | jpg | iamge type jpg | string | no      | iOS/Android | yes               |
 | base64 | iamge type base64 | string | no      | iOS/Android | yes               |
-
-
-##### WatermarkImageOptions 
-
-| Name        | Description             | Type   | Required | Platform    | HarmonyOS Support |
-| ----------- | ----------------------- | ------ | -------- | ----------- | ----------------- |
-| src  | image src, local image | string | yes      | iOS/Android | yes               |
-| scale | image scale `>0`.defaultValue 1 | number | no      | iOS/Android | yes               |
-| rotate | rotate image rotate `0-360`.defaultValue 0 | number | no      | iOS/Android | yes               |
-| alpha | transparent of image `0 - 1`.defaultValue 1 | number | no      | iOS/Android | yes |
-| position  | the position of icon on background image | PositionOptions | no      | iOS/Android | yes               |
-
 ##### PositionOptions 
 
 | Name        | Description             | Type   | Required | Platform    | HarmonyOS Support |
 | ----------- | ----------------------- | ------ | -------- | ----------- | ----------------- |
 | X  | horizontal coordinate on background image | number / string | no      | iOS/Android | yes |
 | Y  | vertical coordinate on background image | number / string | no      | iOS/Android | yes |
-| position  | position enum | Position | no | iOS/Android | yes |
+| position  | position enum | [Position](#position) | no | iOS/Android | yes |
 
 ##### Position 
 
@@ -371,6 +345,33 @@ markImage(options: ImageMarkOptions): Promise<string>;
 | bottomCenter  | bottom center on background image | string | no | iOS/Android | yes |
 | bottomRight  | bottom right on background image| string | no | iOS/Android | yes |
 | center  | center on background image | string | no | iOS/Android | yes |
+#### markImage
+```js
+markImage(options: ImageMarkOptions): Promise<string>;
+```
+##### ImageMarkOptions
+
+| Name        | Description             | Type   | Required | Platform    | HarmonyOS Support |
+| ----------- | ----------------------- | ------ | -------- | ----------- | ----------------- |
+| backgroundImage  | background image options | [ImageOptions](#imageoptions) | yes      | iOS/Android | yes               |
+| quality | image quality `0-100`, `100` is best quality. defaultValue 100 | number | no      | iOS/Android | yes               |
+| filename | save image name | string | no      | iOS/Android | yes               |
+| saveFormat | save image format 'png','jpg','base64',default 'png' | [ImageFormat](#imageformat) | no      | iOS/Android | yes               |
+| watermarkImages | watermark images | Array\<[WatermarkImageOptions](#watermarkimageoptions)> | yes      | iOS/Android | yes  |
+
+
+
+##### WatermarkImageOptions 
+
+| Name        | Description             | Type   | Required | Platform    | HarmonyOS Support |
+| ----------- | ----------------------- | ------ | -------- | ----------- | ----------------- |
+| src  | image src, local image | string | yes      | iOS/Android | yes               |
+| scale | image scale `>0`.defaultValue 1 | number | no      | iOS/Android | yes               |
+| rotate | rotate image rotate `0-360`.defaultValue 0 | number | no      | iOS/Android | yes               |
+| alpha | transparent of image `0 - 1`.defaultValue 1 | number | no      | iOS/Android | yes |
+| position  | the position of icon on background image | [PositionOptions](#positionoptions) | no      | iOS/Android | yes               |
+
+
 
 #### markText
 
@@ -380,18 +381,18 @@ markText(options: TextMarkOptions): Promise<string>;
 ##### TextMarkOptions
 | Name      | Description                                    | Type   | Required | Platform    | HarmonyOS Support |
 | --------- | ---------------------------------------------- | ------ | -------- | ----------- | ----------------- |
-| backgroundImage | background image options | ImageOptions | yes      | iOS/Android | yes               |
-| watermarkTexts      | text options      | Array\<TextOptions> | yes      | iOS/Android | yes               |
+| backgroundImage | background image options | [ImageOptions](#imageoptions) | yes      | iOS/Android | yes               |
+| watermarkTexts      | text options      | Array\<[TextOptions](#textoptions)> | yes      | iOS/Android | yes               |
 | quality      | image quality 0-100, 100 is best quality. defaultValue 100 | number | no      | iOS/Android | yes               |
 | filename      | save image name          | string | no      | iOS/Android | yes               |
-| saveFormat      | save image format 'png','jpg','base64',default 'png'           | ImageFormat | no      | iOS/Android | yes               |
+| saveFormat      | save image format 'png','jpg','base64',default 'png'           | [ImageFormat](#imageformat) | no      | iOS/Android | yes               |
 
 ##### TextOptions
 | Name      | Description                                    | Type   | Required | Platform    | HarmonyOS Support |
 | --------- | ---------------------------------------------- | ------ | -------- | ----------- | ----------------- |
 | text | text content | string | yes      | iOS/Android | yes               |
-| position      | text position options | PositionOptions | no      | iOS/Android | yes               |
-| style      | text style         | TextStyle | no      | iOS/Android | yes               |
+| position      | text position options | [PositionOptions](#positionoptions) | no      | iOS/Android | yes               |
+| style      | text style         | [TextStyle](#textstyle) | no      | iOS/Android | yes               |
 
 ##### TextStyle
 
@@ -400,8 +401,8 @@ markText(options: TextMarkOptions): Promise<string>;
 | color | font color | string | yes      | iOS/Android | yes               |
 | fontName      | font name | string | no      | iOS/Android | yes            |
 | fontSize      | font size        | number | no      | iOS/Android | yes               |
-| shadowStyle | text shadow style | ShadowLayerStyle | no      | iOS/Android | yes               |
-| textBackgroundStyle      | text background style | TextBackgroundStyle  | no      | iOS/Android | yes               |
+| shadowStyle | text shadow style | [ShadowLayerStyle](#shadowlayerstyle) | no      | iOS/Android | yes               |
+| textBackgroundStyle      | text background style | [TextBackgroundStyle](#textbackgroundstyle)  | no      | iOS/Android | yes               |
 | underline      | text underline style        | boolean | no      | iOS/Android | yes               |
 | skewX | css italic with degree, you can use italic instead | number | no      | iOS/Android | yes         |
 | strikeThrough      | text stroke | boolean | no      | iOS/Android | yes               |
@@ -423,9 +424,9 @@ markText(options: TextMarkOptions): Promise<string>;
 extends Padding
 | Name      | Description                                    | Type   | Required | Platform    | HarmonyOS Support |
 | --------- | ---------------------------------------------- | ------ | -------- | ----------- | ----------------- |
-| type      | background type .TextBackgroundType enum      | TextBackgroundType | no      | iOS/Android | yes               |
+| type      | background type .TextBackgroundType enum      | [TextBackgroundType](#textbackgroundtype) | no      | iOS/Android | yes               |
 | color      | background color    | string | yes      | iOS/Android | yes               |
-| cornerRadius      |background corner radius     | CornerRadius | no      | iOS/Android | yes               |
+| cornerRadius      |background corner radius     | [CornerRadius](#cornerradius) | no      | iOS/Android | yes               |
 | padding      | padding for text background，Up to four values, separated by spaces   | number / string | no      | iOS/Android | yes               |
 | paddingLeft      |  padding left for text background  | number / string | no      | iOS/Android | yes               |
 | paddingRight      | padding right for text background    | number / string | no      | iOS/Android | yes               |
@@ -449,11 +450,11 @@ extends Padding
 
 | Name      | Description                                    | Type   | Required | Platform    | HarmonyOS Support |
 | --------- | ---------------------------------------------- | ------ | -------- | ----------- | ----------------- |
-| topLeft      | topLeft Radius     | RadiusValue | no      | iOS/Android | yes               |
-| topRight      | topRight Radius   | RadiusValue | no      | iOS/Android | yes               |
-| bottomLeft      |bottomLeft Radius  | RadiusValue | no      | iOS/Android | yes               |
-| bottomRight      |bottomRight Radius   | RadiusValue | no      | iOS/Android | yes               |
-| all      | all Radius    | RadiusValue | no      | iOS/Android | yes               |
+| topLeft      | topLeft Radius     | [RadiusValue](#radiusvalue) | no      | iOS/Android | yes               |
+| topRight      | topRight Radius   | [RadiusValue](#radiusvalue) | no      | iOS/Android | yes               |
+| bottomLeft      |bottomLeft Radius  | [RadiusValue](#radiusvalue) | no      | iOS/Android | yes               |
+| bottomRight      |bottomRight Radius   | [RadiusValue](#radiusvalue) | no      | iOS/Android | yes               |
+| all      | all Radius    | [RadiusValue](#radiusvalue) | no      | iOS/Android | yes               |
 
 ##### RadiusValue
 

@@ -727,7 +727,7 @@ ohpm install
 | Proximity  | proximity sensor detected changes.         | (data: \{'isNear': boolean\}) => void  | no | all      | yes |
 | WiredHeadset  | fire when wired headset plug/unplug         | (data: \{'isPlugged': boolean, 'hasMic': boolean, 'deviceName': string \}) => void  | no | all      | yes |
 | NoisyAudio  | a hint for applications that audio is about to become 'noisy' due to a change in audio outputs.          | () => void  | no | Android      | yes |
-| MediaButton  | when external device controler pressed button         | (data: \{'eventText': string, 'eventCode': number \}) => void  | no | Android      | yes |
+| MediaButton  | when external device controler pressed button         | (data: \{'eventText': string, 'eventCode': number \}) => void  | no | Android      | no |
 | onAudioFocusChange  | Called on the listener to notify it the audio focus for this listener has been changed.         | (data: \{'eventText': string, 'eventCode': number }) => void  | no | Android      | yes |
 
 
@@ -737,6 +737,7 @@ ohpm install
 - [ ] 播放获取系统铃声，未实现 HarmonyOS化  问题: [issue#2](https://github.com/react-native-oh-library/react-native-incall-manager/issues/2)
 - [ ] 手动切换输出设备扬声器与听筒切换setSpeakerphoneOn、setForceSpeakerphoneOn，未实现 HarmonyOS化  问题: [issue#3](https://github.com/react-native-oh-library/react-native-incall-manager/issues/3)
 - [ ] 手动切换音频输入输出设备chooseAudioRoute，未实现 HarmonyOS化  问题: [issue#4](https://github.com/react-native-oh-library/react-native-incall-manager/issues/4)
+- [ ] 监听MediaButton事件，未实现 HarmonyOS化  问题: [issue#18](https://github.com/react-native-oh-library/react-native-incall-manager/issues/18)
 
 ## 其他
 

@@ -244,9 +244,9 @@ Check the release version information in the release address of the third-party 
 | Name                          | Description                                                  | Type   | Required | Platform | HarmonyOS Support |
 | ----------------------------- | ------------------------------------------------------------ | ------ | -------- | -------- | ----------------- |
 | `renderHeader` | Function which return the component to use as header. It can return background image for example.           | function | No       | All      | Yes               |
-| `headerImage`               | Function which return the component to use as fixed foreground. The component is displayed with the header but not affected by the overlay.}                            | Image source Props (object or number) | No       | All      | Yes               |
-| `maxHeight`                | Min height for the header (in navbar mode)     | number | No       | All      | Yes               |
-| `minHeight`                | Sends a ping frame to the server.                            | number | No       | All      | Yes               |
+| `headerImage`               | Shortcut for renderHeader={() => <Image source={this.props.headerImage} style={{ height: this.props.maxHeight, width: Dimensions.get('window').width }}                          | Image source Props (object or number) | No       | All      | Yes               |
+| `maxHeight`                | Max height for the header    | number | No       | All      | Yes               |
+| `minHeight`                | Min height for the header (in navbar mode)                                 | number | No       | All      | Yes               |
 | `minOverlayOpacity`           | Opacity of a black overlay on the header before any scroll | number | No       | All      | Yes               |
 | `maxOverlayOpacity`           | Opacity of a black overlay on the header when in navbar mode | number | No       | All      | Yes               |
 | `overlayColor`           | Color of the overlay on the header | string | No       | All      | Yes               |
@@ -260,7 +260,7 @@ Check the release version information in the release address of the third-party 
 | Name                          | Description                                                  | Type   | Required | Platform | HarmonyOS Support |
 | ----------------------------- | ------------------------------------------------------------ | ------ | -------- | -------- | ----------------- |
 | `renderForeground` | Function which return the component to use at foreground. The component is render in front of the header and scroll with the ScrollView. It can return a title for example.           | function | No       | All      | Yes               |
-| `renderFixedForeground`               | Function which return the component to use as fixed foreground. The component is displayed with the header but not affected by the overlay.}                            | Image source Props (object or number) | No       | All      | Yes               |
+| `renderFixedForeground`               | Function which return the component to use as fixed foreground. The component is displayed with the header but not affected by the overlay.                           | Image source Props (object or number) | No       | All      | Yes               |
 | `foregroundExtrapolate`                | Optional prop that allows override extrapolate mode for foreground. Use null to allow extrapolation, which is usefull for using foreground as bottom title   | string | No       | All      | Yes               |
 | `foregroundParallaxRatio`                | Ration for parallax effect of foreground when scrolling. If 2, the header goes up two times faster than the scroll                          | number | No       | All      | Yes               |
 | `fadeOutForeground`           | If set, add a fade out effect on the foreground when scroll up | boolean | No       | All      | Yes               |

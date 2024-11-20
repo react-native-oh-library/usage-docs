@@ -276,6 +276,8 @@ const styles = StyleSheet.create({
 
 ## 遗留问题
 
+- [ ] overlay 属性效果不明显 [issue#1](https://github.com/mohebifar/react-native-copilot/issues/333) 
+
 ## 其他
 
 - androidStatusBarVisible 属性在 harmonyOS 上无效，该属性是在 Android 上隐藏 StatusBar 后，StatusBar还是有高度，用来计算模态框的位置，但是 harmonyOS 隐藏 StatusBar 后，StatusBar 的高度为 0，所以该属性在 harmonyOS 上无效。

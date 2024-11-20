@@ -276,6 +276,8 @@ For details, see [react-native-copilot](https://github.com/mohebifar/react-nativ
 
 ## Known Issues
 
+- [ ] "overlay" property effect is not obvious [issue#1](https://github.com/mohebifar/react-native-copilot/issues/333) 
+
 ## Others
 - The androidStatusBarVisible property is invalid on HarmonyOS. This property is used to calculate the position of the modal box even after hiding the Status Bar on Android. However, when HarmonyOS hides the Status Bar, its height is 0, so this property is invalid on HarmonyOS.
 

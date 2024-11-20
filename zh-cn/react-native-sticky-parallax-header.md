@@ -327,7 +327,6 @@ DetailsHeaderScrollView、DetailsHeaderFlatList 以及 DetailsHeaderSectionList 
 | snapStartThreshold             | 滑动开始时阻力值                        | number                                                | no       | iOS/Android | yes               |
 | snapStopThreshold              | 滑动结束时阻力值                        | number                                                | no       | iOS/Android | no                |
 | snapToEdge                     | 是否可以滑动到 Edge（默认 true）        | number                                                | no       | iOS/Android | no                |
-| stickyTabs                     | Tab 栏是否可以固定位置（默认 true）     | number                                                | no       | iOS/Android | yes               |
 | subtitle                      | 子标题                                  | string                                                | no       | iOS/Android | yes               |
 | subtitleStyle                 | 子标题样式                              | style - StyleProp<TextStyle>                          | no       | iOS/Android | yes               |
 | subtitleTestID                | 子标题测试 ID                           | string                                                | no       | iOS/Android | yes               |

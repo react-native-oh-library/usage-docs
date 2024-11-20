@@ -330,7 +330,6 @@ The DetailsHeaderScrollView, DetailsHeaderFlatList, and DetailsHeaderSectionList
 | snapStartThreshold             | Resistance value at the start of sliding                                  | number                                                | no       | iOS/Android | yes               |
 | snapStopThreshold              | Resistance value at the end of sliding                                    | number                                                | no       | iOS/Android | no                |
 | snapToEdge                     | enabled or not to slide to edge（default true）                             | number                                                | no       | iOS/Android | no                |
-| stickyTabs                     | Indicates whether the tab bar can be fixed（default true）                  | number                                                | no       | iOS/Android | yes               |
 | subtitle                      | SubTitle Text                                                             | string                                                | no       | iOS/Android | yes               |
 | subtitleStyle                 | SubTitle Text Style                                                       | style - StyleProp<TextStyle>                          | no       | iOS/Android | yes               |
 | subtitleTestID                | SubTitle Text Test ID                                                     | string                                                | no       | iOS/Android | yes               |

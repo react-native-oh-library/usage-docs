@@ -1,5 +1,3 @@
-> 模板版本：v0.2.2
-
 <p align="center">
   <h1 align="center"> <code>react-countdown-circle-timer</code> </h1>
 </p>
@@ -125,6 +123,8 @@ const styles = StyleSheet.create({
 ## 遗留问题
 
 ## 其他
+
+- 此库倒计时在完成时是会有重合效果显示，不贴边的效果是设置strokeWidth和strokeLinecap='square'属性的时候会出现，与ios保持一致。
 
 ## 开源协议
 

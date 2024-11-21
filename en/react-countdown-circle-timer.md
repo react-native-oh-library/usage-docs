@@ -1,5 +1,3 @@
-> Template version: v0.2.2
-
 <p align="center">
   <h1 align="center"> <code>react-countdown-circle-timer</code> </h1>
 </p>
@@ -125,6 +123,8 @@ This document is verified based on the following versions:
 ## Known Issues
 
 ## Others
+
+- When the countdown of this library is complete, the overlap effect is displayed. When the strokeWidth and strokeLinecap='square' attributes are set, which is consistent with the iOS。
 
 ## License
 

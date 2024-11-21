@@ -430,7 +430,7 @@ ohpm install
 | ------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | -------- | -------- | ----------------- |
 | encode()           | Encodes the given image URI to a blurhash string             | (imageUri: string, componentsX: number, componentsY: number)=> Promise\<string>; | no       | All      | yes               |
 | clearCosineCache() | Clears the cosine cache and frees up memory.                 | ()=> void                                                    | no       | All      | yes               |
-| getAverageColor)   | Gets the average color in a given blurhash string.           | (blurhash: string)=> RGB \|undefined;                        | no       | All      | yes               |
+| getAverageColor()   | Gets the average color in a given blurhash string.           | (blurhash: string)=> RGB \|undefined;                        | no       | All      | yes               |
 | isBlurhashValid()  | Verifies if the given blurhash is valid by checking it's type, length and size flag. | (blurhash: string)=> ReturnType\<typeof isBlurhashValid>;    | no       | All      | yes               |
 
 ## 遗留问题

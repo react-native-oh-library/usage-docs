@@ -1,4 +1,4 @@
-> 模板版本：v0.2.0
+> Template version: v0.2.0
 
 <p align="center">
   <h1 align="center"> <code>react-native-action-sheet</code> </h1>
@@ -12,12 +12,12 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/expo/react-native-action-sheet)
+> [!TIP] [GitHub address](https://github.com/expo/react-native-action-sheet)
 
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 
 <!-- tabs:start -->
@@ -36,9 +36,9 @@ yarn add @expo/react-native-action-sheet@4.0.1
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
->[!WARNING] 使用时 import 的库名不变。
+>[!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import { ActionSheetProvider, connectActionSheet, ActionSheetProps } from '@expo/react-native-action-sheet';
@@ -187,22 +187,22 @@ const styles = StyleSheet.create({
   },
 });
 ```
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.18;
 2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
-## 属性
+## Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 **showActionSheetWithOptions**
 
@@ -234,9 +234,9 @@ const styles = StyleSheet.create({
 | ------------------ | ----------------------------------------------- | --------------- | -------- | -------- | ----------------- |
 | `useCustomActionSheet` | iOS only prop that uses the custom pure JS action sheet (Android/Web version) instead of the native ActionSheetIOS component. Defaults to false. |boolean   | no     | ios  | yes      |
 | `useNativeDriver` | Windows only option that provides the option to disable the native animation driver for React Native Windows projects targeting Windows 10 Version-1809 ; Build-10.0.17763.0 and earlier. useNativeDriver is supported in Version-1903 and later so if your project is targeting that, you don't need to set this prop. |boolean   | no     | Web  | yes      |
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
-本项目基于 [The MIT License (MIT)](https://github.com/expo/react-native-action-sheet/blob/master/LICENSE) ，请自由地享受和参与开源。
+## License
+This project is licensed under [The MIT License (MIT)](https://github.com/expo/react-native-action-sheet/blob/master/LICENSE).

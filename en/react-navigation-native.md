@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 <p align="center">
   <h1 align="center"> <code>@react-navigation/native</code> </h1>
 </p>
@@ -11,12 +11,12 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-navigation/react-navigation/tree/6.x/packages/native)
+> [!TIP] [GitHub address](https://github.com/react-navigation/react-navigation/tree/6.x/packages/native)
 
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 <!-- tabs:start -->
 
 #### **npm**
@@ -33,9 +33,9 @@ yarn add @react-navigation/native@6.1.17
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 ```js
 import * as React from 'react';
 import { Text, View } from 'react-native';
@@ -74,21 +74,21 @@ export default function App() {
 export {App}
 ```
 
-## 约束与限制
-### 兼容性
+## Constraints
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH: 0.72.11; SDK: OpenHarmony(api11) 4.1.0.53; IDE: DevEco Studio 4.1.3.412; ROM: 2.0.0.52;
 2. RNOH: 0.72.13; SDK: HarmonyOS NEXT Developer Preview1; IDE: DevEco Studio 4.1.3.500; ROM: 2.0.0.58;
 3. RNOH: 0.72.20-CAPI; SDK: HarmonyOS NEXT Developer Beta1 B.0.18; IDE: DevEco Studio 5.0.3.200; ROM: 3.0.0.18;
 4. RNOH: 0.72.27; SDK: HarmonyOS-Next-DB1 5.0.0.25; IDE: DevEco Studio 5.0.3.400SP7; ROM: 3.0.0.25;
 
-## 属性
+## Properties
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 **NavigationContainer**：
 
@@ -103,16 +103,16 @@ export {App}
 | -------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | ----------------- |
 | useScrollToTop | The expected native behavior of scrollable components is to respond to events from navigation that will scroll to top when tapping on the active tab as you would expect from native tab bars. | function | no       | all      | yes               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-示例代码依赖以下三方库，请查看对应文档：
+This repository depends on the following libraries, please refer to the corresponding documentation:
 + [@react-navigation/bottom-tabs](/zh-cn/react-navigation-bottom-tabs.md)
 + [@react-native-oh-tpl/react-native-gesture-handler](/zh-cn/react-native-gesture-handler.md)
 + [@react-native-oh-library/react-native-safe-area-context](/zh-cn/react-native-safe-area-context.md)
 
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/react-navigation/react-navigation/blob/6.x/packages/native/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/react-navigation/react-navigation/blob/6.x/packages/native/LICENSE).

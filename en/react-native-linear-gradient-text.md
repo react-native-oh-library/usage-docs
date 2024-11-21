@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-linear-gradient-text </code> </h1>
@@ -12,11 +12,11 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/HMDarkFir3/react-native-linear-gradient-text)
+> [!TIP] [GitHub address](https://github.com/HMDarkFir3/react-native-linear-gradient-text)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -34,7 +34,7 @@ yarn add react-native-linear-gradient-text@1.2.8
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
 ```js
 import React from "react";
@@ -66,25 +66,26 @@ const styles = StyleSheet.create({
 ```
 ## Link
 
-本库 HarmonyOS 侧实现依赖 @react-native-oh-tpl/masked-view 和 @react-native-oh-tpl/react-native-linear-gradient 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+The HarmonyOS implementation of this library depends on the native code from @react-native-oh-tpl/masked-view and @react-native-oh-tpl/react-native-linear-gradient. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly. 
 
-如未引入请参照[@react-native-oh-tpl/masked-view 文档的 Link 章节 ](/zh-cn/react-native-masked-view-masked-view.md#link) 和 [@react-native-oh-tpl/react-native-linear-gradient 文档的 Link 章节 ](/zh-cn/react-native-linear-gradient.md#link)进行引入。
+If it is not included, follow the guide provided in @react-native-oh-tpl/masked-view and @react-native-oh-tpl/react-native-linear-gradient to add it to your project.
 
-## 约束与限制
 
-### 兼容性
+## Constraints
 
-本文档内容基于以下版本验证通过：
+### Compatibility
+
+This document is verified based on the following versions:
 
 1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.21;
 
-## 属性
+## Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-详情见[react-native-linear-gradient-text ReadMe](https://github.com/HMDarkFir3/react-native-linear-gradient-text/tree/main)
+For details, see [react-native-linear-gradient-text ReadMe](https://github.com/HMDarkFir3/react-native-linear-gradient-text/tree/main)
 
 ### Props:
 
@@ -97,10 +98,10 @@ const styles = StyleSheet.create({
 | textStyle | A property to change all styles that a text has.                                                              | [TextStyle](https://reactnative.dev/docs/text-style-props)       | All      | N        | Yes               |
 | textProps | A property to apply native props to text.                                                                     | [TextProps](https://reactnative.dev/docs/text-style-props#props) | All      | N        | Yes               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [MIT License](https://github.com/HMDarkFir3/react-native-linear-gradient-text/blob/main/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [MIT License](https://github.com/HMDarkFir3/react-native-linear-gradient-text/blob/main/LICENSE).

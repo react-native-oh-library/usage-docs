@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-offline</code> </h1>
@@ -12,11 +12,11 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/rgommezz/react-native-offline)
+> [!TIP] [GitHub address](https://github.com/rgommezz/react-native-offline)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -34,9 +34,9 @@ yarn add react-native-offline@6.0.2
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React from 'react';
@@ -102,24 +102,24 @@ export const offlineDemoTest = () => {
 
 ## Link
 
-本库 HarmonyOS 侧实现依赖@react-native-community/netinfo 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+The HarmonyOS implementation of this library depends on the native code from @react-native-community/netinfo. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly. 
 
-如未引入请参照[@react-native-community/netinfo文档的 Link 章节](/zh-cn/react-native-community-netinfo.md#link)进行引入
+If it is not included, follow the guide provided in @react-native-community/netinfo to add it to your project.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH: 0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.25; IDE：DevEco Studio 5.0.3.400; ROM：3.0.0.25;
 2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
-## 属性
+## Properties
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                  | Description                                                  | Type        | Required | Platform              | HarmonyOS Support |
 | --------------------- | ------------------------------------------------------------ | ----------- | -------- | --------------------- | ----------------- |
@@ -139,11 +139,11 @@ export const offlineDemoTest = () => {
 | url                   | remote server to ping to. Defaults to https://www.google.com/ since it's probably one the most stable servers out there, but you can provide your own if needed. Warning: www.google.com is a blocked domain in China, so if you need your app to be accessible from there, you MUST use another domain. | string      | no       | Android、iOS、Windows | yes               |
 | method                | http method used to ping the server. Supports HEAD or OPTIONS. Defaults to HEAD. | HTTPMethod  | no       | Android、iOS、Windows | yes               |
 
-## 静态方法
+## Static Methods 
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                    | Description                                                  | Type | Required | Platform              | HarmonyOS Support |
 | ----------------------- | ------------------------------------------------------------ | ---- | -------- | --------------------- | ----------------- |
@@ -155,10 +155,10 @@ export const offlineDemoTest = () => {
 | createNetworkMiddleware | Function that returns a Redux middleware which listens to specific actions targeting API calls in online/offline mode. | func | no       | Android、iOS、Windows | yes               |
 | OfflineQueue            | A queue system to store actions that failed due to lack of connectivity. It works for both plain object actions and thunks. | func | no       | Android、iOS、Windows | yes               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/rgommezz/react-native-offline/blob/master/LICENSE) ，请自由地享受和参与开源
+This project is licensed under [The MIT License (MIT)](https://github.com/rgommezz/react-native-offline/blob/master/LICENSE) ，请自由地享受和参与开源

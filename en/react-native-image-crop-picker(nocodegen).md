@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-image-crop-picker（nocodegen）</code> </h1>
@@ -12,15 +12,15 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-image-crop-picker)
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-image-crop-picker)
 
-## 安装与使用
+## Installation and Usage
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-image-crop-picker Releases ](https://github.com/react-native-oh-library/react-native-image-crop-picker/releases)，并下载带有 `nc` 标识的 tgz 包，如 `0.40.3-nc.0.0.9`。
+Please visit the Releases page of the third-party library to check the compatible version information: [@react-native-oh-tpl/react-native-image-crop-picker Releases ](https://github.com/react-native-oh-library/react-native-image-crop-picker/releases),and download the tgz package marked with nc, such as 0.40.3-nc.0.0.9.
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
-> [!TIP] #处替换为 tgz 包的路径
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 #### **npm**
 
@@ -34,16 +34,16 @@ npm install @react-native-oh-tpl/react-native-image-crop-picker@file:#
 yarn add @react-native-oh-tpl/react-native-image-crop-picker@file:#
 ```
 
-使用场景同[react-native-image-crop-picker](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-image-crop-picker.md#yarn)
+The usage scenario is the same [react-native-image-crop-picker](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-image-crop-picker.md#yarn)
 
 ## Link
 
-目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
 
-首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 harmony
+Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
 ```
-在工程根目录的 oh-package.json5 添加 overrides字段
+Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
 {
   ...
   "overrides": {
@@ -52,9 +52,9 @@ yarn add @react-native-oh-tpl/react-native-image-crop-picker@file:#
 }
 ```
 
-### 1.配置 Entry
-
-**(1)在 entry/src/main/ets/entryability 下创建 ImageEditAbility.ets**
+### 1. Configuration Entry
+ 
+**(1) Create ImageEditAbility.ets under entry/src/main/ets/entryability**
 
 ```ts
 import UIAbility from '@ohos.app.ability.UIAbility'
@@ -103,7 +103,7 @@ export default class ImageEditAbility extends UIAbility {
 }
 ```
 
-**(2)在 entry/src/main/module.json5 注册 ImageEditAbility 并添加 requestPermissions**
+**(2) Register ImageEditAbility in entry/src/main/module.json5 and add requestPermissions**
 
 ```json
 "abilities":[{
@@ -121,7 +121,7 @@ export default class ImageEditAbility extends UIAbility {
 
 ```
 
-**(3)在 entry/src/main/ets/pages 下创建 ImageEdit.ets**
+**(3) Create ImageEdit.ets under entry/src/main/ets/pages**
 
 ```ts
 import { ImageEditInfo } from '@react-native-oh-tpl/react-native-image-crop-picker';
@@ -142,7 +142,7 @@ struct ImageEdit {
 }
 ```
 
-**(4)在 entry/src/main/resources/base/profile/main_pages.json 添加配置**
+**(4) Add configuration in entry/src/main/resources/base/profile/main_pages.json**
 
 ```json
 {
@@ -153,18 +153,15 @@ struct ImageEdit {
 }
 ```
 
-### 2.引入原生端代码
+### 2. Introducing Native Code
 
-目前有两种方法：
+Currently, two methods are available:
 
-1. 通过 har 包引入。
-2. 直接链接源码。
+Method 1 (recommended): Use the HAR file.
 
-方法一：通过 har 包引入
+> [!TIP] The HAR file is stored in the `harmony` directory in the installation path of the third-party library.
 
-> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
+Open `entry/oh-package.json5` file and add the following dependencies:
 
 ```
 "dependencies": {
@@ -173,22 +170,22 @@ struct ImageEdit {
   }
 ```
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```
 cd entry
 ohpm install
 ```
 
-方法二：直接链接源码
+Method 2: Directly link to the source code.
 
-> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/link-source-code.md)
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
-### 3.配置 CMakeLists 和引入 ImageCropPickerPackage
+### 3. Configuring CMakeLists and Introducing ImageCropPickerPackage
 
-打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
+Open `entry/src/main/cpp/CMakeLists.txt` and add the following code:
 
 ```diff
 project(rnapp)
@@ -222,7 +219,7 @@ target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 # RNOH_END: manual_package_linking_2
 ```
 
-打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
+Open `entry/src/main/cpp/PackageProvider.cpp` and add the following code:
 
 ```diff
 #include "RNOH/PackageProvider.h"
@@ -242,7 +239,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ```
 
-打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
 
 ```diff
   ...
@@ -256,42 +253,42 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 4.运行
+### 4. Running
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```
 cd entry
 ohpm install
 ```
 
-然后编译、运行即可。
+Then build and run the code.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-image-crop-picker Releases ](https://github.com/react-native-oh-library/react-native-image-crop-picker/releases)
+Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-image-crop-picker Releases ](https://github.com/react-native-oh-library/react-native-image-crop-picker/releases)
 
 ## API
 
-同[react-native-image-crop-picker](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-image-crop-picker.md#api)
+[react-native-image-crop-picker](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-image-crop-picker.md#api)
 
-## 属性
+## Properties
 
-同[react-native-image-crop-picker](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-image-crop-picker.md#%E5%B1%9E%E6%80%A7)
+[react-native-image-crop-picker](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-image-crop-picker.md#%E5%B1%9E%E6%80%A7)
 
-## 遗留问题
+## Known Issues
 
-同[react-native-image-crop-picker](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-image-crop-picker.md#%E9%81%97%E7%95%99%E9%97%AE%E9%A2%98)
+[react-native-image-crop-picker](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-image-crop-picker.md#%E9%81%97%E7%95%99%E9%97%AE%E9%A2%98)
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/ivpusic/react-native-image-crop-picker/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/ivpusic/react-native-image-crop-picker/blob/master/LICENSE).
 

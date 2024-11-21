@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-image-crop-picker</code> </h1>
@@ -12,13 +12,13 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-image-crop-picker)
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-image-crop-picker)
 
-## 安装与使用
+## Installation and Usage
 
 Find the matching version information in the release address of a third-party library：[@react-native-oh-tpl/react-native-image-crop-picker Releases ](https://github.com/react-native-oh-library/react-native-image-crop-picker/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 
 #### **npm**
@@ -33,9 +33,9 @@ npm install @react-native-oh-tpl/react-native-image-crop-picker
 yarn add @react-native-oh-tpl/react-native-image-crop-picker
 ```
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!TIP] 使用时 import 的库名不变。
+> [!TIP] The name of the imported repository remains unchanged.
 
 ```
 import ImagePicker from 'react-native-image-crop-picker';
@@ -102,7 +102,7 @@ const ImageCropPickDemo = () => {
 
     return (
         <ScrollView style={styles.container}>
-            <Text style={styles.title}>相机、图库、裁剪功能：</Text>
+            <Text style={styles.title}>Camera, Gallery, Cropping Functionality</Text>
             <View style={styles.container}>
 
                 <View style={styles.TextInputBox}>
@@ -225,7 +225,7 @@ const ImageCropPickDemo = () => {
                 <View >
                     <View style={styles.buttonSty}>
                         <Button
-                            title='openPicker（打开图库）'
+                            title='openPicker'
                             onPress={() => {
                                 openPicker({
                                     multiple: multiple,
@@ -343,7 +343,7 @@ const ImageCropPickDemo = () => {
                             onChangeText={setImageQualityCamera}
                             value={imageQualityCamera}
                         />
-                        <Text style={styles.lableType}>(0.1 到 1)</Text>
+                        <Text style={styles.lableType}>(0.1 to 1)</Text>
                     </View>
 
                     <View style={styles.TextInputBox}>
@@ -375,7 +375,7 @@ const ImageCropPickDemo = () => {
                     </View>
 
                     <View style={styles.TextInputBox}>
-                        <Text style={styles.textLable}>cropperChooseColor:例如 #FF0000</Text>
+                        <Text style={styles.textLable}>cropperChooseColor:#FF0000</Text>
                     </View>
 
                     <View style={styles.TextInputBox}>
@@ -403,7 +403,7 @@ const ImageCropPickDemo = () => {
                     </View>
 
                     <View style={styles.TextInputBox}>
-                        <Text style={styles.textLable}>cropperCancelColor:例如 #FF0000</Text>
+                        <Text style={styles.textLable}>cropperCancelColor: #FF0000</Text>
                     </View>
 
                     <View style={styles.TextInputBox}>
@@ -445,7 +445,7 @@ const ImageCropPickDemo = () => {
 
                     <View style={styles.buttonSty}>
                         <Button
-                            title="openCamera （打开相机）"
+                            title="openCamera"
                             onPress={() => {
                                 ImagePicker.openCamera({
                                     cropping: croppingCamera,
@@ -474,7 +474,7 @@ const ImageCropPickDemo = () => {
                     </View>
 
                     <View style={styles.TextInputBox}>
-                        <Text style={styles.textLable}>请输入需要裁剪的图片地址:</Text>
+                        <Text style={styles.textLable}>Please enter the address of the image that needs to be cropped:</Text>
                     </View>
 
                     <View style={styles.TextInputBox}>
@@ -545,7 +545,7 @@ const ImageCropPickDemo = () => {
                             onChangeText={setimageQualityCropper}
                             value={imageQualityCropper}
                         />
-                        <Text style={styles.lableType}>(0.1 到 1)</Text>
+                        <Text style={styles.lableType}>(0.1 to 1)</Text>
                     </View>
 
 
@@ -578,7 +578,7 @@ const ImageCropPickDemo = () => {
                     </View>
 
                     <View style={styles.TextInputBox}>
-                        <Text style={styles.textLable}>cropperChooseColor:例如 #FF0000</Text>
+                        <Text style={styles.textLable}>cropperChooseColor:#FF0000</Text>
                     </View>
 
                     <View style={styles.TextInputBox}>
@@ -606,7 +606,7 @@ const ImageCropPickDemo = () => {
                     </View>
 
                     <View style={styles.TextInputBox}>
-                        <Text style={styles.textLable}>cropperCancelColor:例如 #FF0000</Text>
+                        <Text style={styles.textLable}>cropperCancelColor:#FF0000</Text>
                     </View>
 
                     <View style={styles.TextInputBox}>
@@ -650,7 +650,7 @@ const ImageCropPickDemo = () => {
 
                     <View style={styles.buttonSty}>
                         <Button
-                            title='openCropper（打开裁剪）'
+                            title='openCropper'
                             onPress={() => {
 
                                 ImagePicker.openCropper({
@@ -682,12 +682,12 @@ const ImageCropPickDemo = () => {
                 </View>
             </View>
 
-                <Text style={styles.title}>清除文件：</Text>
+                <Text style={styles.title}> Delete File</Text>
 
                 <View style={styles.buttonBox}>
                     <View style={styles.buttonSty}>
                         <Button
-                            title='clean （清除所有文件）'
+                            title='clean'
                             onPress={() => {
                                 ImagePicker.clean({}).then(image => {
                                     console.log(TAG + ' clean result ' + JSON.stringify(image))
@@ -697,7 +697,7 @@ const ImageCropPickDemo = () => {
                     </View>
 
                     <View style={styles.TextInputBox}>
-                        <Text style={styles.textLable}>请输入需要清除图片地址：</Text>
+                        <Text style={styles.textLable}>Please enter the address of the image that needs to be cleared:</Text>
                     </View>
 
                     <View style={styles.TextInputBox}>
@@ -711,7 +711,7 @@ const ImageCropPickDemo = () => {
 
                     <View style={styles.buttonSty}>
                         <Button
-                            title='cleanSingle (清除单个文件)'
+                            title='cleanSingle'
                             onPress={() => {
                                 console.log(TAG + " cleanSingle path " + clearImagePath)
                                 ImagePicker.cleanSingle('/data/storage/el2/base/haps/entry/temp/rn_image_crop_picker_lib_temp_' + clearImagePath).then(image => {
@@ -786,18 +786,18 @@ const styles = StyleSheet.create({
 export default ImageCropPickDemo;
 ```
 
-## 使用 Codegen
+## Use Codegen
 
-本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/zh-cn/codegen.md)。
+If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/en/codegen.md).
 
 ## Link
 
-目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
 
-首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 harmony
+Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
 ```
-在工程根目录的 oh-package.json5 添加 overrides字段
+Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
 {
   ...
   "overrides": {
@@ -806,9 +806,9 @@ export default ImageCropPickDemo;
 }
 ```
 
-### 1.配置Entry
+### 1. Configuration Entry
 
-**(1)在 entry/src/main/ets/entryability 下创建 ImageEditAbility.ets**
+**(1)Create ImageEditAbility.ets under entry/src/main/ets/entryability**
 
 ```
 import UIAbility from '@ohos.app.ability.UIAbility'
@@ -857,7 +857,7 @@ export default class ImageEditAbility extends UIAbility {
 }
 ```
 
-**(2)在 entry/src/main/module.json5 注册 ImageEditAbility**
+**(2)Register ImageEditAbility in entry/src/main/module.json5.**
 
 ```
 "abilities":[{
@@ -875,7 +875,7 @@ export default class ImageEditAbility extends UIAbility {
 
 ```
 
-**(3)在 entry/src/main/ets/pages 下创建 ImageEdit.ets**
+**(3)Create entry/src/main/ets/pages under ImageEdit.ets**
 
 ```
 import { ImageEditInfo } from '@react-native-oh-tpl/react-native-image-crop-picker';
@@ -896,7 +896,7 @@ struct ImageEdit {
 }
 ```
 
-**(4)在 entry/src/main/resources/base/profile/main_pages.json 添加配置**
+**(4)Add configuration in entry/src/main/resources/base/profile/main_pages.json**
 
 ```
 {
@@ -907,18 +907,15 @@ struct ImageEdit {
 }
 ```
 
-### 2.引入原生端代码
+### 2. Introducing Native Code
 
-目前有两种方法：
+Currently, two methods are available:
 
-1. 通过 har 包引入。
-2. 直接链接源码。
+Method 1 (recommended): Use the HAR file.
 
-方法一：通过 har 包引入
+> [!TIP] The HAR file is stored in the `harmony` directory in the installation path of the third-party library.
 
-> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
-
-打开 `entry/oh-package.json5`，添加以下依赖
+Open `entry/oh-package.json5` file and add the following dependencies:
 
 ```
 "dependencies": {
@@ -927,22 +924,22 @@ struct ImageEdit {
   }
 ```
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```
 cd entry
 ohpm install
 ```
 
-方法二：直接链接源码
+Method 2: Directly link to the source code.
 
-> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/link-source-code.md)
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
-### 3.在 ArkTs 侧引入 ImageCropPickerPackage
+### 3. Introducing ImageCropPickerPackage to ArkTS
 
-打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
 
 ```diff
   ...
@@ -956,32 +953,32 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 4.运行
+### 4. Running
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```
 cd entry
 ohpm install
 ```
 
-然后编译、运行即可。
+Then build and run the code.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-image-crop-picker Releases ](https://github.com/react-native-oh-library/react-native-image-crop-picker/releases)
+Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-image-crop-picker Releases ](https://github.com/react-native-oh-library/react-native-image-crop-picker/releases)
 
 ## API
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name        | Description                                                  | Type     | Required | Platform    | HarmonyOS Support |
 | ----------- | ------------------------------------------------------------ | -------- | -------- | ----------- | ----------------- |
@@ -991,11 +988,11 @@ ohpm install
 | cleanSingle | Delete a single cache file                                   | function | no       | iOS/Android | yes               |
 | openCamera  | Select from camera                                           | function | no       | iOS/Android | yes               |
 
-## 属性
+## Properties
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 **cropData**
 
@@ -1041,27 +1038,27 @@ ohpm install
 | cropperCancelColor (iOS only)          | string (default tint `iOS` color )                           | HEX format color for the Cancel button. Default value is the default tint iOS color [controlled by TOCropViewController](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2FTimOliver%2FTOCropViewController%2Fblob%2Fa942414508012b13102f776eb65dac655f31cabb%2FObjective-C%2FTOCropViewController%2FViews%2FTOCropToolbar.m%23L433) | no       | iOS   | yes      |
 | cropperRotateButtonsHidden (iOS only)  | bool (default false)                                         | Enable or disable cropper rotate buttons                     | no       | iOS   | yes      |
 
-## 遗留问题
+## Known Issues
 
-- [ ] react-native-image-crop-picker 图像将始终填充蒙版空间 [#4](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/4)
-- [ ] Android Demo中 ActiveWidget 改变颜色 [#5](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/5)
-- [ ] Android Demo中 改变状态栏颜色 [#6](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/6)
-- [ ] Android Demo中 改变工具栏颜色 [#7](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/7)
-- [ ] 裁剪图像时，禁用裁剪库的颜色设置器 [#8](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/8)
-- [ ] 裁剪图像时，确定工具栏文本和按钮的颜色 [#9](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/9)
-- [ ] 调用ViewController“completion”块，Promise将解析/拒绝， HarmonyOS 不支持 [#10](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/10)
-- [ ] iOS支持智能相册列表  [#11](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/11)
-- [ ] iOS视频压缩的预设 [#12](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/12)
-- [ ] iOS智能相册排序  [#13](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/13)
-- [ ] Android Demo 设置是否显示底部控件 [#14](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/14)
-- [ ] 使用multiple选项时无法设置最小文件数 [#39](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/39)
-- [ ] 使用multiple选项时无法设置是否显示选中的资产数量 [#40](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/40)
-- [ ] photoAccessHelper选取完成之后没有loading过渡动画效果 [#45](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/45)
-- [ ] @ohos.multimedia.image无法进行圆形效果裁切 [#46](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/46)
-- [ ] @ohos.multimedia.image中PackingOption无法设置宽高属性 [#47](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/47)
+- [ ] Images in react-native-image-crop-picker will always fill the mask space [#4](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/4)
+- [ ] Change the color of ActiveWidget in Android Demo [#5](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/5)
+- [ ] Change the status bar color in Android Demo [#6](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/6)
+- [ ] Change the toolbar color in Android Demo [#7](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/7)
+- [ ] Disable the color picker in the cropping library when cropping images [#8](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/8)
+- [ ] Determine the colors of toolbar text and buttons when cropping images [#9](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/9)
+- [ ] Call the ViewController "completion" block, where the Promise will be resolved/rejected; HarmonyOS is not supported [#10](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/10)
+- [ ] iOS support for smart album lists  [#11](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/11)
+- [ ] Presets for video compression on iOS [#12](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/12)
+- [ ] Sorting of smart albums on iOS  [#13](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/13)
+- [ ] Set whether to show bottom controls in Android Demo [#14](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/14)
+- [ ] Cannot set a minimum number of files when using the multiple option  [#39](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/39)
+- [ ] Cannot set whether to display the number of selected assets when using the multiple option [#40](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/40)
+- [ ] photoAccessHelper lacks a loading transition animation effect after selection [#45](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/45)
+- [ ] @ohos.multimedia.image cannot perform circular cropping [#46](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/46)
+- [ ] The PackingOption in @ohos.multimedia.image cannot set width and height properties [#47](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/47)
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/ivpusic/react-native-image-crop-picker/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/ivpusic/react-native-image-crop-picker/blob/master/LICENSE).

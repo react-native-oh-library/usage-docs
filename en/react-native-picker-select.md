@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-picker-select</code> </h1>
@@ -12,13 +12,13 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-picker-select)
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-picker-select)
 
-## 安装与使用
+## Installation and Usage
 
 Find the matching version information in the release address of a third-party library：[@react-native-oh-tpl/react-native-picker-select Releases](https://github.com/react-native-oh-library/react-native-picker-select/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -36,9 +36,9 @@ yarn add @react-native-oh-tpl/react-native-picker-select
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React, { useRef, useState } from 'react';
@@ -181,23 +181,24 @@ const styles = StyleSheet.create({
 
 ## Link
 
-本库依赖@react-native-oh-tpl/@react-native-picker/picker，如已在鸿蒙工程中引入过该库，则无需再次引入。
+The HarmonyOS implementation of this library depends on the native code from@react-native-oh-tpl/@react-native-picker/picker. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly. 
 
-如未引入请参照[@react-native-oh-tpl/@react-native-picker/picker 文档](<https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-picker-picker(nocodegen).md>)进行引入。
+If it is not included, follow the guide provided in @react-native-oh-tpl/@react-native-picker/picker to add it to your project.
 
-## 约束与限制
 
-### 兼容性
+## Constraints
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+### Compatibility
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-picker-select Releases](https://github.com/react-native-oh-library/react-native-picker-select/releases)
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-## 属性
+Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-picker-select Releases](https://github.com/react-native-oh-library/react-native-picker-select/releases)
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+## Properties
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name | Description | Type | Default | Required | Platform | HarmonyOS Support |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -224,13 +225,13 @@ const styles = StyleSheet.create({
 | modalProps | Additional props to pass to the Modal (some props are used in core functionality so use this carefully). | function | null | no | iOS | yes |
 | touchableDoneProps | Additional props to pass to the Done touchable (some props are used in core functionality so use this carefully). | function | null | no | iOS | yes |
 
-## 遗留问题
+## Known Issues
 
-- [ ] 属性useNativeAndroidPickerStyle在HarmonyOS中暂不支持 [issue#3](https://github.com/react-native-oh-library/react-native-picker-select/issues/3)
-- [ ] 属性fixAndroidTouchableBug在HarmonyOS中暂不支持 [issue#4](https://github.com/react-native-oh-library/react-native-picker-select/issues/4)
+- [ ] The property useNativeAndroidPickerStyle is currently not supported in HarmonyOS. [issue#3](https://github.com/react-native-oh-library/react-native-picker-select/issues/3)
+- [ ] The property fixAndroidTouchableBug is currently not supported in HarmonyOS. [issue#4](https://github.com/react-native-oh-library/react-native-picker-select/issues/4)
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/lawnstarter/react-native-picker-select/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/lawnstarter/react-native-picker-select/blob/master/LICENSE).

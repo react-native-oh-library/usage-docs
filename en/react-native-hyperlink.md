@@ -33,7 +33,7 @@ npm install react-native-hyperlink@0.0.22
 yarn add react-native-hyperlink@0.0.22
 ```
 
-使用时,还需在项目下的 module.json5 处配置 querySchemes
+When using it, you also need to configure querySchemes in the module.json5 under the project.
 
 ```diff
 {

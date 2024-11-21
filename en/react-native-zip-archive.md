@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-zip-archive</code> </h1>
@@ -13,13 +13,13 @@
 </p>
 
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-zip-archive)
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-zip-archive)
 
-## 安装与使用
+## Installation and Usage
 
 Find the matching version information in the release address of a third-party library：[@react-native-oh-tpl/react-native-zip-archive Releases](https://github.com/react-native-oh-library/react-native-zip-archive/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 
 <!-- tabs:start -->
@@ -38,9 +38,9 @@ yarn add @react-native-oh-tpl/react-native-zip-archive
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React, { useState, useEffect } from 'react';
@@ -68,31 +68,29 @@ export default function ZipArchiveDemo() {
     let unzipPassword: string = '';
     let needPassword: boolean = false;
 
-    // 存储设置的密码
     const setUnzipPassword = (value: string) => {
         console.log(`setUnzipPassword: ${value}`);
         unzipPassword = value;
     }
 
     useEffect(() => {
-        let filesDir = pathParameters(); // 获取 HarmonyOS 应用文件路径
+        let filesDir = pathParameters(); 
         let newZipPath: any = filesDir + '.zip';
         let newSourcePath: any = filesDir;
-        let newFolder: any = filesDir + 'Out';//解压时新建个文件夹
+        let newFolder: any = filesDir + 'Out';
 
-        setNewZipPath(newZipPath);//存储压缩包
-        setNewSourcePath(newSourcePath);//原文件路径
-        setNewFolder(newFolder);//解压时新建个文件夹
+        setNewZipPath(newZipPath);
+        setNewSourcePath(newSourcePath);
+        setNewFolder(newFolder);
 
         if (!showInput) {
-            setPassword(''); // 隐藏输入框时清空密码
+            setPassword(''); 
         }
     }, [showInput]);
 
-    // 创建文件
     const createFile = () => {
         if (!fileName || !fileContent) {
-            Alert.alert('文件名和内容不能为空');
+            Alert.alert('The file name and content cannot be empty.');
             return;
         }
         const filePath = `${newSourcePath}/${fileName}.txt`;
@@ -101,72 +99,69 @@ export default function ZipArchiveDemo() {
             creteFile(filePath, fileContent)
                 .then(() => {
                     setCreatedFilePath(filePath);
-                    Alert.alert('文件创建成功')
+                    Alert.alert('File created successfully')
                     setTimeout(() => {
                         setFileName('');
                         setFileContent('');
                     }, 100);
                 })
                 .catch((error) => {
-                    console.log('文件创建失败:', error);
+                    console.log('File creation failed:', error);
                 });
         } else {
-            Alert.alert('请输入文件名和内容');
+            Alert.alert('Please enter the file name and content');
         }
     };
 
-    // 密码压缩
     const handleZipPress = () => {
         if (password === '') {
-            Alert.alert('错误', '请输入密码');
+            Alert.alert('error', 'Please input a password');
             return;
         }
        
         if (createdFilePath) {
-            handleProgress();//进度条
+            handleProgress();
             zipWithPassword(newSourcePath, newZipPath, password)
                 .then(() => {
                     console.log(`password--11:${password}`)
                     setZipPassword(password);
                     setCompressedFilePath(newZipPath)
-                    Alert.alert('成功', '已使用密码创建压缩');
+                    Alert.alert('successful', 'Created compression using password');
                 })
                 .catch(error => {
-                    Alert.alert('错误', `创建压缩文件失败: ${error}`);
+                    Alert.alert('error', `Failed to create compressed file: ${error}`);
                 });
         } else {
-            Alert.alert('无文件可供压缩');
+            Alert.alert('No files available for compression');
         }
     };
 
-    // 解压时是否需要密码
     const isUnzipWithPassword = () => {
         if (unzipPassword) {
             if (zipPassword === '') {
-                Alert.alert('错误', '请先进行压缩并设置密码');
+                Alert.alert('error', 'Please compress and set a password first');
                 return;
             }
 
             if (unzipPassword === zipPassword) {
                 handleGetUncompressedSize();
-                handleProgress();//进度条
+                handleProgress();
                 unzipWithPassword(newZipPath,newFolder, unzipPassword)
                     .then(() => {
-                        Alert.alert('成功', '已使用密码解压文件');
+                        Alert.alert('success', 'The password has been used to decompress the file');
                     })
                     .catch(error => {
-                        Alert.alert('错误', `解压文件失败: ${error}`);
+                        Alert.alert('error', `Failed to decompress file: ${error}`);
                     });
 
             } else {
-                Alert.alert('密码输入错误');
+                Alert.alert('Password input error');
             }
         } else {
-            Alert.alert('错误', '请先输入密码');
+            Alert.alert('error', 'Please enter your password first');
         }
     }
 
-    // 密码解压&解压
     const handleUnzipPress = () => {
         if (this.needPassword) {
             isUnzipWithPassword();
@@ -182,19 +177,19 @@ export default function ZipArchiveDemo() {
                     if (compressedFilePath) {
                         if (needPassword === false) {
                             handleGetUncompressedSize();
-                            handleProgress();//进度条
+                            handleProgress();
                             unzip(newZipPath, newFolder,'UTF-8')
                                 .then(() => {
                                     console.log(`unzip success`)
-                                    Alert.alert('成功', '已解压');
+                                    Alert.alert('success', 'Decompressed');
                                 })
                                 .catch(error => {
-                                    Alert.alert('错误', '解压失败');
+                                    Alert.alert('error', 'Decompression failed');
                                     console.log(`unzip error: ${error}`);
                                 })
                         }
                     } else {
-                        Alert.alert('无压缩文件可供解压');
+                        Alert.alert('No compressed files available for decompression');
                     }
                 }
             })
@@ -203,10 +198,9 @@ export default function ZipArchiveDemo() {
             })
     }
 
-    // 进度条
     const handleProgress = () => {
         setIsProgressPing(true);
-        setProgress(0); //重置进度条
+        setProgress(0); 
         interface data {
             progress: number,
             filePath: string
@@ -219,7 +213,7 @@ export default function ZipArchiveDemo() {
                 setProgress(currentProgress);
                 console.log(`current progress: ${currentProgress}%`);
             } else {
-                clearInterval(interval); // 达到最大值后清除 interval
+                clearInterval(interval);
                 setIsProgressPing(false);
             }
         }, 1000);
@@ -243,26 +237,24 @@ export default function ZipArchiveDemo() {
         })
     }
 
-    // unzipAssets
     const handleUnzipAssets = async () => {
         setLoading(true);
         let filesDir = pathParameters();
-        //解压files.zip文件到系统中的 destinationFolder 目录中
         let assetPath = filesDir + '.zip';
         let targetPath = filesDir + 'destinationFolder';
         if (compressedFilePath) {
             try {
                 await unzipAssets(assetPath, targetPath);
-                setUnzipStatus('解压完成');
+                setUnzipStatus('Decompression completed');
                 console.log(`unzipAssets success`);
             } catch (err) {
-                setUnzipStatus(`解压失败：${err}`);
+                setUnzipStatus(`Decompression failed：${err}`);
                 console.log(`unzipAssets err: ${err}`);
             } finally {
                 setLoading(false);
             }
         } else {
-            Alert.alert('无压缩文件可供解压');
+            Alert.alert('No compressed files available for decompression');
         }
     }
 
@@ -282,7 +274,7 @@ export default function ZipArchiveDemo() {
         <View style={styles.content}>
             <View style={styles.buttonSix}>
                 <View>
-                    <Text>解压缩后的大小:{uncompressSize ? uncompressSize : '0'}字节</Text>
+                    <Text>Size after decompression:{uncompressSize ? uncompressSize : '0'}byte</Text>
                     <View style={styles.progressBar}>
                         <View style={{ width: `${progress}%`, backgroundColor: '#00AEEF', height: '100%' }}></View>
                     </View>
@@ -293,7 +285,7 @@ export default function ZipArchiveDemo() {
             <View >
                 <View >
                     <TextInput
-                        placeholder="请输入文件名"
+                        placeholder="Please enter a file name"
                         value={fileName}
                         onChangeText={setFileName}
                         style={{ borderWidth: 1, padding: 10, width: '70%' }}
@@ -310,27 +302,27 @@ export default function ZipArchiveDemo() {
                         }}
                         onChangeText={text => setFileContent(text)}
                         value={fileContent}
-                        placeholder="文件内容"
+                        placeholder="file content"
                         multiline={true}
                     />
-                    <Button title="创建文件" onPress={createFile} />
+                    <Button title="create a file" onPress={createFile} />
                 </View>
             </View>
 
             <View style={styles.buttonSix}>
-                <Button title='压缩' disabled={!createdFilePath} onPress={() => {
+                <Button title='compress' disabled={!createdFilePath} onPress={() => {
                     if (createdFilePath) {
-                        handleProgress();//进度条
+                        handleProgress();
                         zip(newSourcePath, newZipPath)
                             .then(() => {
                                 setCompressedFilePath(newZipPath)
-                                Alert.alert('成功', '已压缩');
+                                Alert.alert('success', 'compressed');
                             })
                             .catch(error => {
-                                Alert.alert('错误', `压缩失败: ${error}`);
+                                Alert.alert('error', `compressed failed: ${error}`);
                             })
                     } else {
-                        Alert.alert('无文件可供压缩');
+                        Alert.alert('No files available for compression');
                     }
                 }} />
             </View>
@@ -338,27 +330,27 @@ export default function ZipArchiveDemo() {
             <View>
                 <TextInput
                     style={styles.input}
-                    placeholder="设置压缩密码"
+                    placeholder="Set compression password"
                     onChangeText={text => setPassword(text)}
                     value={password}
                 />
             </View>
             <View style={styles.buttonSix}>
-                <Button title='密码压缩' disabled={!createdFilePath} onPress={handleZipPress} />
+                <Button title='password compression' disabled={!createdFilePath} onPress={handleZipPress} />
             </View>
 
             {showInput && (
                 <View>
                     <TextInput
                         style={styles.input}
-                        placeholder="输入解压密码"
+                        placeholder="Enter decompression password"
                         onChangeText={text => setUnzipPassword(text)}
                     />
                 </View>
             )}
 
             <View style={styles.buttonSix}>
-                <Button title="解压" disabled={!createdFilePath} onPress={handleUnzipPress} />
+                <Button title="extract" disabled={!createdFilePath} onPress={handleUnzipPress} />
             </View>
         </View>
     )
@@ -401,17 +393,17 @@ const styles = StyleSheet.create({
 })
 ```
 
-## 使用 Codegen
+## Use Codegen
 
-本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/zh-cn/codegen.md)。
+If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/en/codegen.md).
 
 ## Link
 
-目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
 
-首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
+Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 1.在工程根目录的 `oh-package.json5` 添加 overrides 字段
+### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
 
 ```json
 {
@@ -422,18 +414,17 @@ const styles = StyleSheet.create({
 }
 ```
 
-### 2.引入原生端代码
+### 2. Introducing Native Code
 
-目前有两种方法：
+Currently, two methods are available:
 
-1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
-2. 直接链接源码。
+ 
 
-方法一：通过 har 包引入（推荐）
+Method 1 (recommended): Use the HAR file.
 
-> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
+> [!TIP] The HAR file is stored in the `harmony` directory in the installation path of the third-party library.
 
-打开 `entry/oh-package.json5`，添加以下依赖
+Open `entry/oh-package.json5` file and add the following dependencies:
 
 ```json
 "dependencies": {
@@ -442,22 +433,22 @@ const styles = StyleSheet.create({
   }
 ```
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-方法二：直接链接源码
+Method 2: Directly link to the source code.
 
-> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
-### 3.配置 CMakeLists 和引入zipArchive
+### 3. CMakeLists and Introducing zipArchive Package
 
-打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
+Open `entry/src/main/cpp/CMakeLists.txt` and add the following code:
 
 ```diff
 project(rnapp)
@@ -495,9 +486,9 @@ target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 # RNOH_END: manual_package_linking_2
 ```
 
-### 4.在 ArkTs 侧引入 ZipArchivePackage
+### 4. Introducing ZipArchivePackage to ArkTS
 
-打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
 
 ```diff
 + import {ZipArchivePackage} from '@react-native-oh-tpl/react-native-zip-archive/ts';
@@ -510,32 +501,32 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 5.运行
+### 5. Running
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-然后编译、运行即可。
+Then build and run the code.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-library/react-native-zip-archive Releases](https://github.com/react-native-oh-library/react-native-zip-archive/releases)
+Check the release version information in the release address of the third-party library: [@react-native-oh-library/react-native-zip-archive Releases](https://github.com/react-native-oh-library/react-native-zip-archive/releases)
 
 ## API
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                | Description                                                  | Type    | Required | Platform | HarmonyOS Support |
 | ------------------- | ------------------------------------------------------------ | ------- | -------- | -------- | ----------------- |
@@ -548,10 +539,10 @@ ohpm install
 | getUncompressedSize | File size after decompression                                | number  | no       | All      | yes               |
 | subscribe           | Display progress bar during compression and password decompression | void    | no       | All      | yes               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/mockingbot/react-native-zip-archive/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/mockingbot/react-native-zip-archive/blob/master/LICENSE).

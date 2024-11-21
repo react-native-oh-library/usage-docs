@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>@shopify/restyle</code> </h1>
@@ -12,11 +12,11 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/Shopify/restyle)
+> [!TIP] [GitHub address](https://github.com/Shopify/restyle)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -34,9 +34,9 @@ yarn add @shopify/restyle@2.4.4
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import { createTheme } from "@shopify/restyle";
@@ -96,28 +96,28 @@ export const App = () => (
 
 ## Link
 
-目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
 
-首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
+Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH：0.72.27; SDK：HarmonyOS NEXT Developer Beta1 5.0.0.25; IDE：DevEco Studio 5.0.3.400; ROM：3.0.0.25
 2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 ## Hooks
 
-详细请查看 [restyle 的文档介绍](https://shopify.github.io/restyle/)
+For details, see [restyle](https://shopify.github.io/restyle/)
 
-以下为目前已支持的 Hooks：
+Here are the currently supported Hooks:
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 |       Name        |                                           Description                                           |   Type   | Required | Platform | HarmonyOS Support |
 |:-----------------:|:-----------------------------------------------------------------------------------------------:|:--------:|:--------:|:--------:|:-----------------:|
@@ -125,15 +125,15 @@ export const App = () => (
 |    useRestyle     | Dynamically styles reaction components based on a theme and a set of rules for resetting styles | function |    No    |   All    |        Yes        |
 | useResponsiveProp |                  Fetching the value of a responsive prop in a custom component                  | function |    No    |   All    |        Yes        |
 
-## 方法
+## Methods
 
-详细请查看 [restyle 的文档介绍](https://shopify.github.io/restyle/)
+For details, see [restyle](https://shopify.github.io/restyle/)
 
-以下为目前已支持的方法：
+Here are the currently supported methods:
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 |          Name          |                                  Description                                   |   Type   | Required | Platform | HarmonyOS Support |
 |:----------------------:|:------------------------------------------------------------------------------:|:--------:|:--------:|:--------:|:-----------------:|
@@ -142,15 +142,15 @@ export const App = () => (
 | createRestyleFunction  |                         Creating a Predefined Restyle                          | function |    No    |   All    |        Yes        |
 | createRestyleComponent | To create a custom component, you need to set the predefined Restyle function. | function |    No    |   All    |        Yes        |
 
-## 预定义组件
+## Predefined components
 
-详细请查看 [restyle 的文档介绍](https://shopify.github.io/restyle/)
+For details, see [restyle](https://shopify.github.io/restyle/)
 
-以下为目前已支持的预定义组件：
+Here are the currently supported predefined components:
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 |     Name      |                  Description                   |   Type   | Required | Platform | HarmonyOS Support |
 |:-------------:|:----------------------------------------------:|:--------:|:--------:|:--------:|:-----------------:|
@@ -158,15 +158,15 @@ export const App = () => (
 |   createBox   |            Predefined Box component            | function |    No    |   All    |        Yes        |
 | ThemeProvider | Set the theme to the outermost React component | function |    No    |   All    |        Yes        |
 
-## 预定义 Restyle 函数
+## Predefined Restyle Functions
 
-详细请查看 [restyle 的文档介绍](https://shopify.github.io/restyle/fundamentals/restyle-functions)
+For details, see [restyle](https://shopify.github.io/restyle/fundamentals/restyle-functions)
 
-以下为目前已支持的预定义 Restyle 函数：
+Here are the currently supported predefined Restyle functions:
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 |              Name              |                                                                                                                                                                                    Props                                                                                                                                                                                     |   Type   | Required | Platform | HarmonyOS Support |
 |:------------------------------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:--------:|:--------:|:--------:|:-----------------:|
@@ -186,12 +186,12 @@ export const App = () => (
 |           textShadow           |                                                                                                                                                                      textShadowOffset, textShadowRadius                                                                                                                                                                      | function |    No    |   All    |        NO         |
 |           textShadow           |                                                                                                                                                                               textShadowColor                                                                                                                                                                                | function |    No    |   All    |        NO         |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
- - 预函数textShadow在Android和iOS不生效， HarmonyOS与Android,iOS表现一致 [原库 issue](https://github.com/Shopify/restyle/issues/307)
+ - The pre-defined function textShadow does not take effect on Android and iOS, but HarmonyOS exhibits consistent behavior with Android and iOS in this regard. [issue](https://github.com/Shopify/restyle/issues/307)
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/Shopify/restyle/blob/master/LICENSE.md)，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/Shopify/restyle/blob/master/LICENSE.md)，请自由地享受和参与开源。

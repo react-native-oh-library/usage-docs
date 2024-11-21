@@ -130,7 +130,7 @@ Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 }
 ```
 
-### 2. Introducing Native Code
+### 2.  Introducing Native Code
 
 Currently, two methods are available:
 

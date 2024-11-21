@@ -1,4 +1,4 @@
-> 模板版本：v0.2.1
+> Template version: v0.2.1
 
 <p align="center">
   <h1 align="center"> <code>react-native-get-random-values</code> </h1>
@@ -13,13 +13,13 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-get-random-values)
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-get-random-values)
 
-## 安装与使用
+## Installation and Usage
 
 Find the matching version information in the release address of a third-party library：[@react-native-oh-tpl/react-native-get-random-values](https://github.com/react-native-oh-library/react-native-get-random-values/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 
 <!-- tabs:start -->
@@ -38,9 +38,9 @@ yarn add @react-native-oh-tpl/react-native-get-random-values
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React, { useState } from "react";
@@ -69,7 +69,7 @@ export const GetRandomValues = () => {
   };
   return (
     <View style={styles.container}>
-      <Text style={{ fontSize: 20 }}> 点击获取随机数 </Text>
+      <Text style={{ fontSize: 20 }}> click to get random number </Text>
       <Button onPress={clickBtn} title="click" />
       {randomValue?.map((item: any, index: number) => {
         return <Text key={index}>{item}</Text>;
@@ -81,11 +81,11 @@ export const GetRandomValues = () => {
 
 ## Link
 
-目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
 
-首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
+Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 1.在工程根目录的 `oh-package.json5` 添加 overrides 字段
+### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
 
 ```json
 {
@@ -96,18 +96,17 @@ export const GetRandomValues = () => {
 }
 ```
 
-### 2.引入原生端代码
+### 2. Introducing Native Code
 
-目前有两种方法：
+Currently, two methods are available:
 
-1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
-2. 直接链接源码。
+ 
 
-方法一：通过 har 包引入
+Method 1 (recommended): Use the HAR file.
 
-> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
+> [!TIP] The HAR file is stored in the `harmony` directory in the installation path of the third-party library.
 
-打开 `entry/oh-package.json5`，添加以下依赖
+Open `entry/oh-package.json5` file and add the following dependencies:
 
 ```json
 "dependencies": {
@@ -116,22 +115,22 @@ export const GetRandomValues = () => {
   }
 ```
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-方法二：直接链接源码
+Method 2: Directly link to the source code.
 
-> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
-### 3.在 ArkTs 侧引入 RNGetRandomValuesPackage
+### 3. Introducing RNGetRandomValuesPackage to ArkTS
 
-打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
 
 ```diff
   ...
@@ -145,37 +144,37 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 4.运行
+### 4. Running
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-然后编译、运行即可。
+Then build and run the code.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH: 0.72.20-CAPI; SDK: HarmonyOS NEXT Developer Preview2; IDE: DevEco Studio 4.1.3.700; ROM: 3.0.0.19;
 
-## 静态方法
+## Static Methods
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 >
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 >
 > | Name                          | Description                                          | Type    | Required | Platform    | HarmonyOS Support |
 > | ----------------------------- | ---------------------------------------------------- | ------- | -------- | ----------- | ----------------- |
 > | global.crypto.getRandomValues | lets you get cryptographically strong random values. | funtion | no       | IOS/Android | yes               |
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/LinusU/react-native-get-random-values/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/LinusU/react-native-get-random-values/blob/master/LICENSE).

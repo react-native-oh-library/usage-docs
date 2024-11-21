@@ -85,21 +85,21 @@ class App extends Component<any, any> {
     };
   }
   componentDidMount() {
-    console.log("开始检查更新");
-    this.syncImmediate(); //开始检查更新
+    console.log("Begin checking for updates.");
+    this.syncImmediate(); 
   }
   syncImmediate() {
     CodePush.sync(
       {
         updateDialog: {
-          appendReleaseDescription: true, //是否显示更新description，默认为false
-          descriptionPrefix: "更新内容：", //更新说明的前缀。 默认是” Description:
-          mandatoryContinueButtonLabel: "立即更新", //强制更新的按钮文字，默认为continue
-          mandatoryUpdateMessage: "", //- 强制更新时，更新通知. Defaults to “An update is available that must be installed.”.
-          optionalIgnoreButtonLabel: "稍后", //非强制更新时，取消按钮文字,默认是ignore
-          optionalInstallButtonLabel: "后台更新", //非强制更新时，确认文字. Defaults to “Install”
-          optionalUpdateMessage: "有新版本了，是否更新？", //非强制更新时，更新通知. Defaults to “An update is available. Would you like to install it?”.
-          title: "更新提示", //要显示的更新通知的标题. Defaults to “Update available”.
+          appendReleaseDescription: true, 
+          descriptionPrefix: "Update content:", 
+          mandatoryContinueButtonLabel: "Update immediately.", 
+          mandatoryUpdateMessage: "", 
+          optionalIgnoreButtonLabel: "later", 
+          optionalInstallButtonLabel: "Background update.",
+          optionalUpdateMessage: "There's a new version available. Would you like to update?", 
+          title: "Update notification.",
         },
       },
       this.codePushStatusDidChange.bind(this),
@@ -158,7 +158,7 @@ class App extends Component<any, any> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>欢迎使用热更新--test!</Text>
+        <Text style={styles.welcome}>Welcome to the hot update--test!</Text>
         <Text>SyncStatus: {this.state.syncMessage}</Text>
         <Text>{this.state.progressModalVisible.toString()}</Text>
         <TouchableOpacity onPress={this.syncImmediate.bind(this)}>
@@ -432,18 +432,8 @@ When using **CodePush.InstallMode**, the following parameters are optional: inst
 | --------------- | ------------------ | ------ | -------- | ----------- | ----------------- |
 | IMMEDIATE       | Directly update    | number | no       | Android iOS | yes               |
 | ON_NEXT_RESTART | Next update launch | number | no       | Android iOS | yes               |
-| ON_NEXT_RESUME  | Switch to the front-end to initiate updates | number | no       | Android iOS | yes               |
-| ON_NEXT_SUSPEND | Switch to the backend to initiate updates | number | no       | Android iOS | yes               |
-
-**checkFrequency**
-
-When using **CodePush.CheckFrequency**, the following parameters are optional: checkFrequency
-
-| Name          | Description         | Type   | Required | Platform    | HarmonyOS Support |
-| ------------- | ------------------- | ------ | -------- | ----------- | ----------------- |
-| ON_APP_START  | Automatic update    | number | no       | Android iOS | yes               |
-| ON_APP_RESUME | Automatic update    | number | no       | Android iOS | yes               |
-| MANUAL        | Manual update       | number | no       | Android iOS | yes               |
+| ON_NEXT_RESUME  | Next update launch | number | no       | Android iOS | yes               |
+| ON_NEXT_SUSPEND | Next update launch | number | no       | Android iOS | yes               |
 
 ## Known Issues
 

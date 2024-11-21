@@ -173,7 +173,7 @@ Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 }
 ```
 
-### 2. Introducing Native Code
+### 2.  Introducing Native Code
 
 Currently, two methods are available:
 
@@ -243,7 +243,7 @@ Check the release version information in the release address of the third-party 
 
 ### Permission Requirements
 
-在 entry 目录下的 module.json5 中添加 wifi 和网络信息权限
+Add permissions for WiFi and network information in the module.json5 file under the entry directory.
 
 Open the `entry/src/main/module.json5` file and add the following code:
 

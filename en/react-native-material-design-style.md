@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-material-design-style</code> </h1>
@@ -13,11 +13,11 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/binggg/react-native-material-design-styles)
+> [!TIP] [GitHub address](https://github.com/binggg/react-native-material-design-styles)
 
 
 
-## 安装与使用
+## Installation and Usage
 
 
 
@@ -36,7 +36,7 @@ yarn add react-native-material-design-styles@0.2.7
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
 
 
@@ -109,12 +109,12 @@ const styles = StyleSheet.create({
 ```
 
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 
 1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.18;
@@ -124,23 +124,23 @@ const styles = StyleSheet.create({
 
 ## API
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
 | typography  | use StyleSheet.create(typography)        | function  | yes | iOS/android      | yes |
 | color  | use color.paperBlue500.color        | function  | yes | iOS/android      | yes |
 | defaultTheme  | use StyleSheet.create(defaultTheme)         | function  | yes | iOS/android      | yes |
-## 遗留问题
+## Known Issues
 
 
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [MIT License (MIT)](https://www.mit-license.org/) ，请自由地享受和参与开源。
+This project is licensed under [MIT License (MIT)](https://www.mit-license.org/).
 
 

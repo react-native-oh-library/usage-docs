@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-vision-camera</code> </h1>
@@ -15,13 +15,13 @@
 
 
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-vision-camera)
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-vision-camera)
 
-## 安装与使用
+## Installation and Usage
 
 Find the matching version information in the release address of a third-party library：[@react-native-oh-tpl/react-native-vision-camera Releases](https://github.com/react-native-oh-library/react-native-vision-camera/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 
 <!-- tabs:start -->
@@ -40,9 +40,9 @@ yarn add @react-native-oh-tpl/react-native-vision-camera
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```jsx
 import { Button, Text, View } from 'react-native';
@@ -83,7 +83,7 @@ export default function VisionCameraDemo() {
                 photo={true}
             />
             <View style={{ width: '100%', position: 'absolute', bottom: 0, left: 0, zIndex: 999 }}>
-                <Button title="拍照" onPress={onTakePhoto}></Button>
+                <Button title="photograph" onPress={onTakePhoto}></Button>
             </View>
         </View>
     );
@@ -93,11 +93,11 @@ export default function VisionCameraDemo() {
 
 ## Link
 
-目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
 
-首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
+Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 1.在工程根目录的 `oh-package.json5` 添加 overrides 字段
+### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
 
 ```json
 {
@@ -108,18 +108,17 @@ export default function VisionCameraDemo() {
 }
 ```
 
-### 2.引入原生端代码
+### 2. Introducing Native Code
 
-目前有两种方法：
+Currently, two methods are available:
 
-1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
-2. 直接链接源码。
+ 
 
-方法一：通过 har 包引入（推荐）
+Method 1 (recommended): Use the HAR file.
 
-> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
+> [!TIP] The HAR file is stored in the `harmony` directory in the installation path of the third-party library.
 
-打开 `entry/oh-package.json5`，添加以下依赖
+Open `entry/oh-package.json5` file and add the following dependencies:
 
 ```json
 "dependencies": {
@@ -128,22 +127,22 @@ export default function VisionCameraDemo() {
   }
 ```
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-方法二：直接链接源码
+Method 2: Directly link to the source code.
 
-> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
-### 3.配置 CMakeLists 和引入 xxxPackge
+### 3. Configuring CMakeLists and Introducing VisionCameraPackage
 
-打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
+Open `entry/src/main/cpp/CMakeLists.txt` and add the following code:
 
 ```diff
 project(rnapp)
@@ -183,7 +182,7 @@ target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 # RNOH_END: manual_package_linking_2
 ```
 
-打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
+Open `entry/src/main/cpp/PackageProvider.cpp` and add the following code:
 
 ```diff
 #include "RNOH/PackageProvider.h"
@@ -202,9 +201,9 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 4.在 ArkTs 侧引入 VisionCameraView 组件
+### 4. Introducing VisionCameraView Component to ArkTS
 
-找到 `function buildCustomRNComponent()`，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
+Find `function buildCustomRNComponent()`, which is usually located in `entry/src/main/ets/pages/index.ets` or `entry/src/main/ets/rn/LoadBundle.ets`, and add the following code:
 
 ```diff
   ...
@@ -223,7 +222,7 @@ export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
 }
 ...
 ```
-在`entry/src/main/ets/pages/index.ets`中，如果当前文件中存在`arkTsComponentNames`数组(后续版本新增内容)，则需要在其中追加：`VisionCameraView.NAME`;
+In `entry/src/main/ets/pages/index. ets`, if there is an `arkTsWidgetNames` array in the current file (which will be added in later versions), it is necessary to append `VisionCameraView` to it NAME`;
 
 ```ts
   ...
@@ -231,11 +230,9 @@ export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
   ...
 ```
 
+### 5. Introducing VisionCameraModulePackage to ArkTS
 
-
-### 5.在 ArkTs 侧引入 VisionCameraModulePackage
-
-打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
 
 ```diff
   ...
@@ -249,34 +246,34 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 6.运行
+### 6. Running
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-然后编译、运行即可。
+Then build and run the code.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-vision-camera Releases](https://github.com/react-native-oh-library/react-native-vision-camera/releases)
+Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-vision-camera Releases](https://github.com/react-native-oh-library/react-native-vision-camera/releases)
 
-### 权限要求
+### Permission Requirements
 
-以下权限中有`system_basic` 权限，而默认的应用权限是 `normal` ，只能使用 `normal` 等级的权限，所以可能会在安装hap包时报错**9568289**，请参考 [文档](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/bm-tool-V5#ZH-CN_TOPIC_0000001884757326__%E5%AE%89%E8%A3%85hap%E6%97%B6%E6%8F%90%E7%A4%BAcode9568289-error-install-failed-due-to-grant-request-permissions-failed) 修改应用等级为 `system_basic`
+Among the following permissions, there is the system_basic permission, while the default application permission is normal. Only normal level permissions can be used, so you may encounter an error 9568289 when installing the hap package. Please refer to the [document](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/bm-tool-V5#ZH-CN_TOPIC_0000001884757326__%E5%AE%89%E8%A3%85hap%E6%97%B6%E6%8F%90%E7%A4%BAcode9568289-error-install-failed-due-to-grant-request-permissions-failed) to modify the application level to system_basic.
 
-####  在 entry 目录下的module.json5中添加权限
+####  Include applicable permissions in the module.json5 file within the entry directory.
 
-打开 `entry/src/main/module.json5`，添加：
+Open `entry/src/main/module.json5` and add the following code:
 
 ```diff
 ...
@@ -314,9 +311,9 @@ ohpm install
 ]
 ```
 
-#### 在 entry 目录下添加申请以上权限的原因
+#### Apply the reasons for applicable permission in the entry directory.
 
-打开 `entry/src/main/resources/base/element/string.json`，添加：
+Open `entry/src/main/resources/base/element/string.json` and add the following code:
 
 ```diff
 ...
@@ -324,25 +321,25 @@ ohpm install
   "string": [
 +    {
 +      "name": "camera_reason",
-+      "value": "使用相机"
++      "value": "use camera"
 +    },
 +    {
 +      "name": "location_reason",
-+      "value": "获取当前位置"
++      "value": "Get current location"
 +    },
 +    {
 +      "name": "microphone_reason",
-+      "value": "使用麦克风"
++      "value": "Use microphone"
 +    },
   ]
 }
 ```
 
-## 属性
+## Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                               | Description                                                  | Type     | Required | Platform          | HarmonyOS  Support |
 | ---------------------------------- | ------------------------------------------------------------ | -------- | -------- | ----------------- | ------------------ |
@@ -377,11 +374,11 @@ ohpm install
 | onShutter                          | Called just before a photo or snapshot is captured.          | function | no       | All               | yes                |
 | codeScanner                        | A CodeScanner that can detect QR-Codes or Barcodes using platform-native  APIs | object   | no       | All               | yes                |
 
-## 静态方法
+## Static Methods
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                            | Description                                                  | Type     | Required | Platform    | HarmonyOS Support |
 | ------------------------------- | ------------------------------------------------------------ | -------- | -------- | ----------- | ----------------- |
@@ -404,9 +401,9 @@ ohpm install
 
 ## API
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                    | Description                                                  | Type | Required | Platform | HarmonyOS Support |
 | ----------------------- | ------------------------------------------------------------ | ---- | -------- | -------- | ----------------- |
@@ -419,32 +416,32 @@ ohpm install
 | useCodeScanner          | create a `CodeScanner` instance and pass it to the  `<Camera>` | hook | no       | All      | yes               |
 | useFrameProcessor       | Returns a memoized Frame Processor function wich you can pass  to the `<Camera>`. | hook | no       | All      | no                |
 
-## 遗留问题
+## Known Issues
 
-- [ ] 不支持拍照HDR [issue#1](https://github.com/react-native-oh-library/react-native-vision-camera/issues/1) 
-- [ ] 不支持有损缓冲压缩 [issue#2](https://github.com/react-native-oh-library/react-native-vision-camera/issues/2) 
-- [ ] 没有夜景模式 [issue#3](https://github.com/react-native-oh-library/react-native-vision-camera/issues/3) 
-- [ ] 没有实现深度数据能力 [issue#4](https://github.com/react-native-oh-library/react-native-vision-camera/issues/4) 
-- [ ] 依赖三方库skia未 HarmonyOS 化 [issue#5](https://github.com/react-native-oh-library/react-native-vision-camera/issues/5) 
-- [ ] 不支持内容失真校正 [issue#6](https://github.com/react-native-oh-library/react-native-vision-camera/issues/6) 
-- [ ] 不支持消除红眼 [issue#7](https://github.com/react-native-oh-library/react-native-vision-camera/issues/7) 
-- [ ] 快门声音无法独立控制 [issue#8](https://github.com/react-native-oh-library/react-native-vision-camera/issues/8) 
-- [ ] 不支持查询传感器旋转角度 [issue#9](https://github.com/react-native-oh-library/react-native-vision-camera/issues/9) 
-- [ ] 不支持查询硬件级别 [issue#10](https://github.com/react-native-oh-library/react-native-vision-camera/issues/10) 
-- [ ] 不支持查询设备正确对焦的最小距离 [issue#11](https://github.com/react-native-oh-library/react-native-vision-camera/issues/11) 
-- [ ] 不支持查询设备名称 [issue#12](https://github.com/react-native-oh-library/react-native-vision-camera/issues/12) 
-- [ ] 查询的CameraType一直是相机类型未指定 [issue#13](https://github.com/react-native-oh-library/react-native-vision-camera/issues/13) 
-- [ ] 不支持查询传感器旋转角度 [issue#14](https://github.com/react-native-oh-library/react-native-vision-camera/issues/14) 
-- [ ] 不支持查询是否支持弱光增强 [issue#15](https://github.com/react-native-oh-library/react-native-vision-camera/issues/15) 
-- [ ]  HarmonyOS 侧相机无法获取视频视野 [issue#16](https://github.com/react-native-oh-library/react-native-vision-camera/issues/16) 
-- [ ] 不支持查询maxISO和minISO [issue#17](https://github.com/react-native-oh-library/react-native-vision-camera/issues/17) 
-- [ ] 不支持保存快照 [issue#18](https://github.com/react-native-oh-library/react-native-vision-camera/issues/18) 
-- [ ] 视频录制取消时无法删除临时文件 [issue#19](https://github.com/react-native-oh-library/react-native-vision-camera/issues/19) 
-- [ ] 无法监听相机设备变更 [issue#20](https://github.com/react-native-oh-library/react-native-vision-camera/issues/20) 
+- [ ] HDR photography not supported [issue#1](https://github.com/react-native-oh-library/react-native-vision-camera/issues/1) 
+- [ ] Lossy buffer compression not supported [issue#2](https://github.com/react-native-oh-library/react-native-vision-camera/issues/2) 
+- [ ] Night mode not available [issue#3](https://github.com/react-native-oh-library/react-native-vision-camera/issues/3) 
+- [ ] Depth data capabilities not implemented [issue#4](https://github.com/react-native-oh-library/react-native-vision-camera/issues/4) 
+- [ ] Third-party library skia is not HarmonyOS-compatible [issue#5](https://github.com/react-native-oh-library/react-native-vision-camera/issues/5) 
+- [ ] Content distortion correction not supported [issue#6](https://github.com/react-native-oh-library/react-native-vision-camera/issues/6) 
+- [ ] Red-eye removal not supported [issue#7](https://github.com/react-native-oh-library/react-native-vision-camera/issues/7) 
+- [ ] Shutter sound cannot be independently controlled [issue#8](https://github.com/react-native-oh-library/react-native-vision-camera/issues/8) 
+- [ ] Querying sensor rotation angle not supported [issue#9](https://github.com/react-native-oh-library/react-native-vision-camera/issues/9) 
+- [ ] Querying hardware level not supported [issue#10](https://github.com/react-native-oh-library/react-native-vision-camera/issues/10) 
+- [ ] Querying the minimum distance for proper device focusing not supported [issue#11](https://github.com/react-native-oh-library/react-native-vision-camera/issues/11) 
+- [ ] Querying device name not supported [issue#12](https://github.com/react-native-oh-library/react-native-vision-camera/issues/12) 
+- [ ] Queried CameraType always shows as unspecified camera type [issue#13](https://github.com/react-native-oh-library/react-native-vision-camera/issues/13) 
+- [ ] Querying sensor rotation angle not supported (Duplicate) [issue#14](https://github.com/react-native-oh-library/react-native-vision-camera/issues/14) 
+- [ ] Querying support for low-light enhancement not supported [issue#15](https://github.com/react-native-oh-library/react-native-vision-camera/issues/15) 
+- [ ] Camera on HarmonyOS side cannot obtain video field of view [issue#16](https://github.com/react-native-oh-library/react-native-vision-camera/issues/16) 
+- [ ] Querying maxISO and minISO not supported [issue#17](https://github.com/react-native-oh-library/react-native-vision-camera/issues/17) 
+- [ ] Saving snapshots not supported [issue#18](https://github.com/react-native-oh-library/react-native-vision-camera/issues/18) 
+- [ ] Temporary files cannot be deleted when video recording is canceled [issue#19](https://github.com/react-native-oh-library/react-native-vision-camera/issues/19) 
+- [ ] Camera device changes cannot be monitored [issue#20](https://github.com/react-native-oh-library/react-native-vision-camera/issues/20) 
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/mrousavy/react-native-vision-camera/blob/main/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/mrousavy/react-native-vision-camera/blob/main/LICENSE).
 

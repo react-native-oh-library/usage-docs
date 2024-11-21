@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>@react-navigation/bottom-tabs</code> </h1>
@@ -12,11 +12,11 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-navigation/react-navigation/tree/6.x/packages/bottom-tabs)
+> [!TIP] [GitHub address](https://github.com/react-navigation/react-navigation/tree/6.x/packages/bottom-tabs)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 
 <!-- tabs:start -->
@@ -35,9 +35,9 @@ yarn add @react-navigation/bottom-tabs@6.5.20
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import * as React from 'react';
@@ -77,34 +77,33 @@ export function NavigationBottomTabs() {
 
 ## Link
 
-本库依赖以下三方库，请查看对应文档：
+This repository depends on the following libraries, please refer to the corresponding documentation:
 + [@react-navigation/native](/zh-cn/react-navigation-native.md)
 + [@react-native-oh-tpl/elements](/zh-cn/react-navigation-elements.md)
 + [@react-native-oh-library/react-native-safe-area-context](/zh-cn/react-native-safe-area-context.md)
 
-本库 HarmonyOS 侧实现依赖@react-native-oh-library/react-native-safe-area-context 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+The HarmonyOS implementation of this library depends on the native code from @react-native-oh-library/react-native-safe-area-context. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly. 
 
-如未引入请参照[@react-native-oh-library/react-native-safe-area-context 文档的 Link 章节](/zh-cn/react-native-safe-area-context.md#link)进行引入
+If it is not included, follow the guide provided in @react-native-oh-library/react-native-safe-area-context to add it to your project.
 
+## Constraints
 
-## 约束与限制
+### Compatibility
 
-### 兼容性
-
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH: 0.72.11; SDK: OpenHarmony(api11) 4.1.0.53; IDE: DevEco Studio 4.1.3.412; ROM: 2.0.0.52;
 2. RNOH: 0.72.13; SDK: HarmonyOS NEXT Developer Preview1; IDE: DevEco Studio 4.1.3.500; ROM: 2.0.0.58;
 3. RNOH: 0.72.20-CAPI; SDK: HarmonyOS NEXT Developer Beta1 B.0.18; IDE: DevEco Studio 5.0.3.200; ROM: 3.0.0.18;
 4. RNOH: 0.72.27; SDK: HarmonyOS-Next-DB1 5.0.0.25; IDE: DevEco Studio 5.0.3.400SP7; ROM: 3.0.0.25;
 
-## 属性
+## Properties
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-以下属性已验证，更多属性详情请查看 [react-navigation/bottom-tabs 的文档介绍](https://reactnavigation.org/docs/bottom-tab-navigator)
+For details, see [react-navigation/bottom-tabs](https://reactnavigation.org/docs/bottom-tab-navigator)
 
 **Props**
 | Name                  | Description                                                                                                                                                                        | Type                                                                     | Required | Platform    | HarmonyOS Support |
@@ -156,10 +155,10 @@ export function NavigationBottomTabs() {
 | tabPress     | This event is fired when the user presses the tab button for the current screen in the tab bar.                        | function | no       | all      | yes               |
 | tabLongPress | This event is fired when the user presses the tab button for the current screen in the tab bar for an extended period. | function | no       | all      | yes               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/react-navigation/react-navigation/blob/6.x/packages/bottom-tabs/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/react-navigation/react-navigation/blob/6.x/packages/bottom-tabs/LICENSE).

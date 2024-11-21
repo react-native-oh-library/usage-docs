@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-navigation-shared-element</code> </h1>
@@ -12,12 +12,12 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/IjzerenHein/react-navigation-shared-element)
+> [!TIP] [GitHub address](https://github.com/IjzerenHein/react-navigation-shared-element)
 
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -37,9 +37,9 @@ yarn add react-native-shared-element@0.8.9
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
->[!WARNING] 使用时 import 的库名不变。
+>[!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import  React, { Component } from "react";
@@ -121,7 +121,7 @@ export class Rativesharedelement extends Component {
               <SharedElement
                 onNode={(node) => this.setState({ scene1Node: node })}
               >
-                <Button title="页面1" color="#39b362" />
+                <Button title="page1" color="#39b362" />
               </SharedElement>
             </View>
           </Animated.View>
@@ -144,7 +144,7 @@ export class Rativesharedelement extends Component {
                 <SharedElement
                   onNode={(node) => this.setState({ scene2Node: node })}
                 >
-                  <Button title="页面2" color="#841584" />
+                  <Button title="page2" color="#841584" />
                 </SharedElement>
               </View>
             </Animated.View>
@@ -208,25 +208,25 @@ const styles = StyleSheet.create({
 });
 
 ```
-## 约束与限制
+## Constraints
 
 ### Link
 
-本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-safe-area-context的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+The HarmonyOS implementation of this library depends on the native code from @react-native-oh-tpl/react-native-safe-area-context. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly. 
 
-如未引入react-native-safe-area-context请参照[@react-native-oh-tpl/react-native-safe-area-context 文档](/zh-cn/react-native-safe-area-context.md)进行引入
+If it is not included, follow the guide provided in @react-native-oh-tpl/react-native-safe-area-context to add it to your project.
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH：0.72.26; SDK：HarmonyOS-NEXT-Developer-Beta1 5.0.0.22；IDE：DevEco Studio 5.0.3.300; ROM：3.0.0.25;
 
-## 属性
+## Properties
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 **SharedElement**
 
@@ -248,9 +248,9 @@ const styles = StyleSheet.create({
 | `onMeasure`  | Event handler that is called when nodes have been measured and snapshotted.| function |  no     | All   | yes      |
 
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
-本项目基于 [The MIT License (MIT)](https://github.com/IjzerenHein/react-navigation-shared-element/blob/main/LICENSE.md) ，请自由地享受和参与开源。
+## License
+This project is licensed under [The MIT License (MIT)](https://github.com/IjzerenHein/react-navigation-shared-element/blob/main/LICENSE.md).

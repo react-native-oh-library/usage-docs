@@ -430,7 +430,7 @@ This document is verified based on the following versions:
 
 ## Properties
 
-SwipeableFlatList 组件接收所有[React Native FlatList](https://facebook.github.io/react-native/docs/flatlist)组件的 Props.
+The SwipeableFlatList component accepts all the props of the [React Native FlatList](https://facebook.github.io/react-native/docs/flatlist)component.
 
 > [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 

@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>rn-tourguide</code> </h1>
@@ -14,13 +14,13 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/rn-tourguide)
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/rn-tourguide)
 
-## 安装与使用
+## Installation and Usage
 
 Find the matching version information in the release address of a third-party library：[https://github.com/react-native-oh-library/rn-tourguide Releases](https://github.com/react-native-oh-library/rn-tourguide/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 
 
@@ -40,9 +40,9 @@ yarn add @react-native-oh-tpl/rn-tourguide
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```jsx
 import * as React from 'react'
@@ -200,25 +200,25 @@ const styles = StyleSheet.create({
 
 ## Link
 
-本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-svg 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+The HarmonyOS implementation of this library depends on the native code from @react-native-oh-tpl/react-native-svg. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly. 
 
-如未引入请参照[@react-native-oh-tpl/react-native-svg 文档的 Link 章节](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-svg-capi.md#link)进行引入
+If it is not included, follow the guide provided in @react-native-oh-tpl/react-native-svg to add it to your project.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/rn-tourguide Releases](https://github.com/react-native-oh-library/rn-tourguide/releases)
+Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/rn-tourguide Releases](https://github.com/react-native-oh-library/rn-tourguide/releases)
 
-## 属性
+## Properties
 
 详情见[rn-tourguide](https://github.com/xcarpentier/rn-tourguide)
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 ### TourGuideProvider
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
@@ -295,10 +295,10 @@ const styles = StyleSheet.create({
 | TourGuideZone  | boot area         | Funtion  | YES | ALL      | YES |
 | TourGuideZoneByPosition  | tourGuide area location | Funtion  | YES | ALL      | YES |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/xcarpentier/rn-tourguide/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/xcarpentier/rn-tourguide/blob/master/LICENSE).

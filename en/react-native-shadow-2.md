@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-shadow-2</code> </h1>
@@ -13,11 +13,11 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/SrBrahma/react-native-shadow-2)
+> [!TIP] [GitHub address](https://github.com/SrBrahma/react-native-shadow-2)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -35,9 +35,9 @@ yarn add react-native-shadow-2@7.0.8
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```tsx
 import {Text, ScrollView, View, StyleSheet} from 'react-native';
@@ -47,7 +47,7 @@ export function Shadow2Demo() {
   return (
     <ScrollView>
       <View style={styles.container}>
-        <Text style={styles.title}>shadow2测试</Text>
+        <Text style={styles.title}>shadow2</Text>
         <View style={styles.sliders}>
           <Text style={styles.title}>base</Text>
           <Shadow>
@@ -172,23 +172,23 @@ const styles = StyleSheet.create({
 
 ## Link
 
-本库HarmonyOS侧实现依赖@react-native-oh-tpl/react-native-svg 的原生端代码，如已在HarmonyOS工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+The HarmonyOS implementation of this library depends on the native code from @react-native-oh-tpl/react-native-svg. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly. 
 
-如未引入请参照[@react-native-oh-tpl/react-native-svg 文档](/zh-cn/react-native-svg-capi.md#link)进行引入
+If it is not included, follow the guide provided in @react-native-oh-tpl/react-native-svg to add it to your project.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH：0.72.27; SDK：HarmonyOS NEXT Developer Beta1 5.0.0.25 (API Version 12 Canary4); IDE：DevEco Studio 5.0.3.400SP7; ROM：3.0.0.25;
 
-## 属性
+## Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name           | Description                                                  | Type                                                         | Required | Platform | HarmonyOS Support |
 | -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | -------- | -------- | ----------------- |
@@ -205,14 +205,14 @@ const styles = StyleSheet.create({
 | safeRender     | Won't use the relative sizing and positioning on the 1st render but on the following renders with the exact onLayout sizes. Useful if dealing with radii greater than the sides sizes (like a circle) to avoid visual artifacts on the 1st render. | boolean                                                      | no       | All      | yes               |
 | disabled       | Disables the Shadow. Useful for easily reusing components as sometimes shadows are not desired. containerStyle and style are still applied. | boolean                                                      | no       | All      | yes               |
 
-## 遗留问题
+## Known Issues
 
-目前可使用的属性，具体见上面已列出。
+The currently available properties are specifically listed above.
 
-- [x] 由于react-native-shadow-2强依赖[`react-native-svg`](https://react-native-oh-library.gitee.io/usage-docs/#/zh-cn/react-native-svg)库，但react-native-svg目前仅实现少部分属性，其余还未实现HarmonyOS化， 导致属性offset、paintInside、corners不可用问题: [issue#5](https://github.com/react-native-oh-library/react-native-svg/issues/5)
+- [x] Due to the strong dependency of react-native-shadow-2 on the [`react-native-svg`](https://react-native-oh-library.gitee.io/usage-docs/#/zh-cn/react-native-svg)library，and the current limited implementation of react-native-svg on HarmonyOS, only a small number of properties are available， Consequently, properties such as offset, paintInside, and corners are not yet supported, leading to issues as documented in: [issue#5](https://github.com/react-native-oh-library/react-native-svg/issues/5)
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/SrBrahma/react-native-shadow-2/blob/main/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/SrBrahma/react-native-shadow-2/blob/main/LICENSE).

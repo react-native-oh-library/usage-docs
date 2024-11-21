@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>@react-navigation/stack</code> </h1>
@@ -12,14 +12,14 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-navigation/tree/sig/packages/stack)
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-navigation/tree/sig/packages/stack)
 
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
-> [!TIP] stack的tgz包在react-navigation Releases。
+> [!TIP] The .tgz package of stack is available in the Releases section of react-navigation.
 
 Find the matching version information in the release address of a third-party library：[@react-native-oh-library/react-navigation Releases](https://github.com/react-native-oh-library/react-navigation/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
@@ -40,9 +40,9 @@ yarn add @react-native-oh-tpl/stack
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 ```js
 import * as React from 'react';
 import { Button, Text, View } from 'react-native';
@@ -92,33 +92,32 @@ export default function App() {
 ```
 
 ## Link
-本库依赖以下三方库，请查看对应文档：
+This repository depends on the following libraries, please refer to the corresponding documentation:
 + [@react-navigation/native](/zh-cn/react-navigation-native.md)
 + [@react-native-oh-tpl/react-native-gesture-handler](/zh-cn/react-native-gesture-handler.md)
 + [@react-native-oh-library/react-native-safe-area-context](/zh-cn/react-native-safe-area-context.md)
 + [react-native-screens](/zh-cn/react-native-screens.md)
 
-本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-gesture-handler、@react-native-oh-library/react-native-safe-area-context 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+The HarmonyOS implementation of this library depends on the native code from @react-native-oh-tpl/react-native-gesture-handler、@react-native-oh-library/react-native-safe-area-context. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly. 
 
-如未引入请参照[@react-native-oh-tpl/react-native-gesture-handler 文档](/zh-cn/react-native-gesture-handler.md)、[@react-native-oh-library/react-native-safe-area-context 文档](/zh-cn/react-native-safe-area-context.md)进行引入
+If it is not included, follow the guide provided in @react-native-oh-tpl/react-native-gesture-handler、@react-native-oh-library/react-native-safe-area-context to add it to your project.
+
+## Constraints
+
+### Compatibility
+
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
+
+Check the release version information in the release address of the third-party library: [@react-native-oh-library/react-navigation Releases](https://github.com/react-native-oh-library/react-navigation/releases)
 
 
+## Properties
 
-## 约束与限制
-### 兼容性
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-library/react-navigation Releases](https://github.com/react-native-oh-library/react-navigation/releases)
-
-
-## 属性
-
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
-
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-
-以下属性已验证，更多属性详情请查看 [react-navigation/stack 的文档介绍](https://reactnavigation.org/docs/stack-navigator)
+For details, see [react-navigation/stack](https://reactnavigation.org/docs/stack-navigator)
 
 
 **Props**
@@ -172,12 +171,12 @@ export default function App() {
 | gestureStart    | This event is fired when the swipe gesture starts for the current screen.                                                      | function | no       | all      | yes               |
 | gestureEnd      | This event is fired when the swipe gesture ends for the current screen. e.g. a screen was successfully dismissed.              | function | no       | all      | yes               |
 | gestureCancel   | This event is fired when the swipe gesture is cancelled for the current screen. e.g. a screen wasn't dismissed by the gesture. | function | no       | all      | yes               |
-## 遗留问题
+## Known Issues
 
-- [ ] TextInput组件可以穿透下个页面点击。[issues#37](https://github.com/react-native-oh-library/react-navigation/issues/37)
+- [ ] The TextInput component can allow click events to pass through to the underlying elements.[issues#37](https://github.com/react-native-oh-library/react-navigation/issues/37)
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/react-navigation/react-navigation/blob/6.x/packages/stack/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/react-navigation/react-navigation/blob/6.x/packages/stack/LICENSE).

@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-signature-capture</code> </h1>
@@ -15,13 +15,13 @@
 
 
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-signature-capture)
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-signature-capture)
 
-## 安装与使用
+## Installation and Usage
 
 Find the matching version information in the release address of a third-party library：[@react-native-oh-library/react-native-signature-capture Releases](https://github.com/react-native-oh-library/react-native-signature-capture/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 
 
@@ -41,9 +41,9 @@ yarn add @react-native-oh-tpl/react-native-signature-capture
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
->[!WARNING] 使用时 import 的库名不变。
+>[!WARNING] The name of the imported repository remains unchanged.
 
 ```tsx
 var React = require('react');
@@ -133,17 +133,17 @@ AppRegistry.registerComponent('RNSignatureExample', () => RNSignatureExample);
 
 ```
 
-## 使用 Codegen
+## Use Codegen
 
-本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/zh-cn/codegen.md)。
+If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/en/codegen.md).
 
 ## Link
 
-目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
 
-首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
+Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 1.在工程根目录的 `oh-package.json5` 添加 overrides字段
+### 1.Open `entry/oh-package.json5` file and add the following dependencies:
 
 ```json
 {
@@ -154,18 +154,17 @@ AppRegistry.registerComponent('RNSignatureExample', () => RNSignatureExample);
 }
 ```
 
-### 2.引入原生端代码
+### 2. Introducing Native Code
 
-目前有两种方法：
+Currently, two methods are available:
 
-1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
-2. 直接链接源码。
+ 
 
-方法一：通过 har 包引入 (推荐)
+Method 1 (recommended): Use the HAR file.
 
-> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
+> [!TIP] The HAR file is stored in the `harmony` directory in the installation path of the third-party library.
 
-打开 `entry/oh-package.json5`，添加以下依赖
+Open `entry/oh-package.json5` file and add the following dependencies:
 
 ```json
 "dependencies": {
@@ -174,22 +173,22 @@ AppRegistry.registerComponent('RNSignatureExample', () => RNSignatureExample);
   }
 ```
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-方法二：直接链接源码
+Method 2: Directly link to the source code.
 
-> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
-### 3.在 ArkTs 侧引入 SignatureCaptureArkView 组件
+### 3. Introducing SignatureCaptureArkView Component to ArkTS
 
-找到 `function buildCustomRNComponent()`，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
+Find `function buildCustomRNComponent()`, which is usually located in `entry/src/main/ets/pages/index.ets` or `entry/src/main/ets/rn/LoadBundle.ets`, and add the following code:
 
 ```diff
   ...
@@ -209,9 +208,9 @@ export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
 ...
 ```
 
-> [!TIP] 本库使用了混合方案，需要添加组件名。
+> [!TIP] If the repository uses a mixed solution, the component name needs to be added.  
 
-在`entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets` 找到常量 `arkTsComponentNames` 在其数组里添加组件名
+Find the constant `arkTsComponentNames` in `entry/src/main/ets/pages/index.ets` or `entry/src/main/ets/rn/LoadBundle.ets` and add the component name to the array.
 
 ```diff
 const arkTsComponentNames: Array<string> = [
@@ -222,9 +221,9 @@ const arkTsComponentNames: Array<string> = [
   ];
 ```
 
-### 4.在 ArkTs 侧引入 SignatureCapturePackage
+### 4. Introducing SignatureCapturePackage to ArkTS
 
-打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
 
 ```diff
   ...
@@ -238,33 +237,33 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 5.运行
+### 5. Running
 
-点击右上角的 `sync` 按钮
+Click the `sync` button in the upper right corner.
 
-或者在终端执行：
+Alternatively, run the following instruction on the terminal:
 
 ```bash
 cd entry
 ohpm install
 ```
 
-然后编译、运行即可。
+Then build and run the code.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-library/react-native-signature-capture Releases](https://github.com/react-native-oh-library/react-native-signature-capture/releases)
+Check the release version information in the release address of the third-party library: [@react-native-oh-library/react-native-signature-capture Releases](https://github.com/react-native-oh-library/react-native-signature-capture/releases)
 
    
-## 属性
+## Properties
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 
 | Name                                                              | Description                                                                                                                                                                     | Type                      | Required | Platform    | HarmonyOS Support |
@@ -282,11 +281,11 @@ ohpm install
 | onSaveEvent: (event: {pathName: string, encoded: string}) => void | Triggered when saveImage() is called, which return Base64 Encoded String and image file path.                                                                                   | function                  | no       | iOS/Android | yes               |
 | onDragEvent: (event: boolean) => void                             | Triggered when user marks his signature on the canvas. This will not be called when the user does not perform any action on canvas.                                             | function                  | no       | iOS/Android | yes               |
 
-## 静态方法
+## Static Methods
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 
 | Name       | Description                                                                                         | Type     | Required | Platform    | HarmonyOS Support |
@@ -295,11 +294,11 @@ ohpm install
 | resetImage | when called it will clear the image on the canvas                                                   | function | no       | iOS/Android | yes               |
 
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/RepairShopr/react-native-signature-capture/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/RepairShopr/react-native-signature-capture/blob/master/LICENSE).
 

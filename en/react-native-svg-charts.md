@@ -540,7 +540,7 @@ details[react-native-svg-charts](https://github.com/JesperLekland/react-native-s
 | data   | the same data array provided to the chart, use this to map over your data points if you want decorators on each point | array          | YES      | ALL      | YES               |
 | ticks  | if numberOfTicks has been provided to the chart this array will include the calculated tick values (useful for grids) | array          | YES      | ALL      | YES               |
 
-### 组件特有 Properties
+### Unique Properties of the Component
 
 #### Area
 

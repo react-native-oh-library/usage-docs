@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-material-buttons</code> </h1>
@@ -13,13 +13,13 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-material-buttons)
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-material-buttons)
 
-## 安装与使用
+## Installation and Usage
 
 Find the matching version information in the release address of a third-party library：[@react-native-oh-tpl/react-native-material-buttons Releases](https://github.com/react-native-oh-library/react-native-material-buttons/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 
 <!-- tabs:start -->
@@ -38,7 +38,7 @@ yarn add @react-native-oh-tpl/react-native-material-buttons
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
 ```tsx
 import React, { Component } from 'react';
@@ -200,21 +200,21 @@ export default MaterialButtons;
 
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-material-buttons Releases](https://github.com/react-native-oh-library/react-native-material-buttons/releases)
+Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-material-buttons Releases](https://github.com/react-native-oh-library/react-native-material-buttons/releases)
 
-## 属性
+## Properties
 
-### 此组件有以下属性:
+### This component has the following properties:
 ## **API（TextButton ）**
->[!tip] "Platform"列表示该属性在原三方库上支持的平台。
+>[!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
->[!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+>[!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 |          Name           |                    Description                    |                           Type                           | Required |  Platform   | HarmonyOS Support |
 |:-----------------------:| :-----------------------------------------------: | :------------------------------------------------------: | :------: | :---------: | :---------------: |
@@ -224,9 +224,9 @@ export default MaterialButtons;
 | **disabledTitleColor**  |       Button title color for disabled state       |                         String                           |    No    | iOS/Android |        Yes        |
 
 ## **API（RaisedTextButton）**
->[!tip] "Platform"列表示该属性在原三方库上支持的平台。
+>[!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
->[!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+>[!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 |          Name           |                    Description                    |                           Type                           | Required |  Platform   | HarmonyOS Support |
 |:-----------------------:| :-----------------------------------------------: | :------------------------------------------------------: | :------: | :---------: | :---------------: |
@@ -234,9 +234,9 @@ export default MaterialButtons;
 |   **rippleDuration**    |   Duration of the ripple effect in milliseconds   |                         Number                           |    No    | iOS/Android |        Yes        |
 
 ## **API（Common）**
->[!tip] "Platform"列表示该属性在原三方库上支持的平台。
+>[!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
->[!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+>[!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 |          Name           |                    Description                    |                           Type                           | Required |  Platform   | HarmonyOS Support |
 |:-----------------------:| :-----------------------------------------------: | :------------------------------------------------------: | :------: | :---------: | :---------------: |
@@ -253,10 +253,10 @@ export default MaterialButtons;
 |   **onPress**    |   Touch up callback   |                         Function                           |    No    | iOS/Android |        Yes        |
 |   **payload**    |   Payload object for onPress callback   |                         Any                           |    No    | iOS/Android |        Yes        |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [MIT License](https://github.com/n4kz/react-native-material-buttons/blob/master/license.txt) ，请自由地享受和参与开源。 
+This project is licensed under [MIT License](https://github.com/n4kz/react-native-material-buttons/blob/master/license.txt). 

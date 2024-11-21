@@ -128,11 +128,11 @@ export {MultiSelectExample}
 
 ## Constraints
 
-### 注意事项
+### Precautions
 
-本库 HarmonyOS 侧需要引入字体包，如下所示。如已引用，则无需再次引入，可跳过本章节步骤，直接使用。
+On the HarmonyOS side of this library, a font package needs to be introduced as shown below. If it has already been referenced, there is no need to introduce it again. You can skip the steps in this section and use it directly.
 
-在 HarmonyOS 工程中的 entry/src/main/ets/pages/index.ets 中添加如下代码：
+Open `entry/src/main/ets/pages/index.ets` and add the following code:
 
 ```diff
   ...

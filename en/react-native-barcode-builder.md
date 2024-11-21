@@ -96,7 +96,7 @@ Check the release version information in the release address of the third-party 
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-该库为 UI 组件库，通过配置 Properties 标签，实现对应的功能。
+This library is a UI component library that achieves corresponding functions by configuring the Properties tag.
 
 | Name       | Type     | Description                                                                                      | Required | Platform    | HarmonyOS Support |
 | ---------- | -------- | ------------------------------------------------------------------------------------------------ | -------- | ----------- | ----------------- |

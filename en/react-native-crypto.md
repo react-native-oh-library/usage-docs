@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-crypto</code> </h1>
@@ -12,12 +12,11 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/tradle/react-native-crypto)
+> [!TIP] [GitHub address](https://github.com/tradle/react-native-crypto)
 
+## Installation and Usage
 
-## 安装与使用
-
-[!TIP]本库依赖[@react-native-oh-tpl/react-native-randombytes](./zh-cn/react-native-randombytes)
+[!TIP]This repository depends on [@react-native-oh-tpl/react-native-randombytes](./zh-cn/react-native-randombytes)
 
 <!-- tabs:start -->
 
@@ -32,11 +31,13 @@ npm install react-native-crypto@2.2.0
 ```bash
 yarn add react-native-crypto@2.2.0
 ```
+
 <!-- tabs:end -->
 
-#### 安装适配 Node.js 核心模块的模拟库
+#### Install a mock library that adapts to Node.js core modules.
 
 1. Install
+
 ```bash
 # install latest rn-nodeify
 npm i --save-dev rn-nodeify
@@ -44,17 +45,19 @@ npm i --save-dev rn-nodeify
 # in ./node_modules to add/update the "browser"/"react-native" field with relevant mappings
 ./node_modules/.bin/rn-nodeify --hack --install
 ```
+
 2. `rn-nodeify` will create a `shim.js` in the project root directory
+
 ```js
-// make sure you use `import` and not require!  
-import './shim.js'
-import crypto from 'react-native-crypto'
+// make sure you use `import` and not require!
+import "./shim.js";
+import crypto from "react-native-crypto";
 // ...the rest of your code
 ```
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import './shim.js'
@@ -73,7 +76,7 @@ const TestCrypto = () => {
           setRandomBytesResult(bytes.toJSON().data.join('-'));
       });
   }
-  
+
   function handleInputChange(text: any) {
       const intValue = parseInt(text);
       if (!isNaN(text)) {
@@ -84,7 +87,7 @@ const TestCrypto = () => {
           setIntValue(0);
       }
   };
-  
+
   function handleButtonPress() {
       handleRandom(intValue);
   };
@@ -92,12 +95,12 @@ const TestCrypto = () => {
   return (
     <View style={styles.buttonContainer}>
         <Button
-            title="提交"
+            title="submit"
             onPress={handleButtonPress}
         />
         <TextInput
             style={{ height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 10, padding: 5, marginTop: 5 }}
-            placeholder="输入数字"
+            placeholder="input number"
             onChangeText={handleInputChange}
             value={inputValue}
             keyboardType="numeric"
@@ -116,71 +119,71 @@ const styles = StyleSheet.create({
         marginTop: 5,
         marginLeft: 6,
         marginBottom: 12
-    }    
+    }
 })
 
 export default TestCrypto;
 ```
+
 ## Link
 
-本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-randombytes 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+The HarmonyOS implementation of this library depends on the native code from @react-native-oh-tpl/react-native-randombytes. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly.
 
-如未引入请参照[@react-native-oh-tpl/react-native-randombytes 文档](/zh-cn/react-native-randombytes.md)进行引入
+If it is not included, follow the guide provided in @react-native-oh-tpl/react-native-randombytes to add it to your project.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH: 0.72.27; SDK：HarmonyOS NEXT Developer Beta1 5.0.0.25; IDE：DevEco Studio 5.0.3.400SP7; ROM：3.0.0.25;
 
 ## API
 
-> [!Tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!Tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!Tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
-> 
+> [!Tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                            | Description              | Type      | Required | Platform | HarmonyOS Support |
-| ----                            | -----------              | ----      | -------- | -------- | ----------------- |
-| createHash                      | 创建哈希对象                                                          | function  | yes      | iOS/Android      | yes               |
-| createHmac                      | 创建 HMAC（Hash-based Message Authentication Code）对象                | function  | yes      | iOS/Android      | yes               |
-| pbkdf2                          |是一种用于密码加密的密钥派生函数（PBKDF2)                                      | function  | yes      | iOS/Android      | yes               |
-| pbkdf2Sync                      |是一种用于密码加密的密钥派生函数（PBKDF2），但它是同步执行的                      | function  | yes      | iOS/Android      | yes               |
-| randomBytes                     | 生成指定大小的随机字节序列                                               | function  | yes      | iOS/Android      | yes               |
-| getHashes                       | 提供支持的特定哈希算法列表                                               | function  | no       | iOS/Android      | yes               |
-| createCipher                    | 创建加密算法的加密对象                                                  | function  | yes      | iOS/Android      | yes               |
-| Cipher                    | 创建加密算法的加密对象                                                  | function  | yes      | iOS/Android      | yes               |
-| createDecipher                  | 创建解密算法的解密对象                                                  | function  | yes      | iOS/Android      | yes               |
-| Decipher                  | 创建解密算法的解密对象                                                  | function  | yes      | iOS/Android      | yes               |
-| createCipheriv                  | 创建加密算法的加密对象，并指定初始化向量（IV）来增强加密的安全性            | function  | yes      | iOS/Android      | yes               |
-| Cipheriv                  | 创建加密算法的加密对象，并指定初始化向量（IV）来增强加密的安全性            | function  | yes      | iOS/Android      | yes               |
-| createDecipheriv                | 创建解密算法的解密对象，并指定与加密时使用相同的初始化向量（IV）来正确解密数据 | function  | yes      | iOS/Android      | yes               |
-| Decipheriv                | 创建解密算法的解密对象，并指定与加密时使用相同的初始化向量（IV）来正确解密数据 | function  | yes      | iOS/Android      | yes               |
-| getCiphers                      | 获取当前支持的加密算法列表                                               | function  | no       | iOS/Android      | yes               |
-| listCiphers                      | 获取当前支持的加密算法列表                                               | function  | no       | iOS/Android      | yes               |
-| DiffieHellmanGroup              | 实现 Diffie-Hellman 密钥交换协议的模块                                     | function  | yes      | iOS/Android      | yes               |
-| createDiffieHellmanGroup        | 创建一个 Diffie-Hellman 密钥协商算法中的“群”，即 Diffie-Hellman 的参数         | function  | yes      | iOS/Android      | yes               |
-| getDiffieHellman                | 获取 Diffie-Hellman 密钥交换算法的实现                                     | function  | yes      | iOS/Android      | yes               |
-| createDiffieHellman             | 创建 Diffie-Hellman 实例                                                | function  | yes      | iOS/Android      | yes               |
-| DiffieHellman                   | 是一个用于实现 Diffie-Hellman 密钥交换协议的类或方法集合，主要用于安全通信中的密钥生成和共享密钥计算。 | function  | yes      | iOS/Android      | yes               |
-| createSign                      | 创建一个用于生成签名的对象实例                                            | function  | yes      | iOS/Android      | yes               |
-| Sign                            | 创建一个用于生成签名的对象实例                                                          | function  | yes      | iOS/Android      | yes               |
-| createVerify                    | 创建一个用于验证签名的对象实例                                            | function  | yes      | iOS/Android      | yes               |
-| Verify                          | 创建一个用于验证签名的对象实例                                                        | function  | yes      | iOS/Android      | yes               |
-| createECDH                      | 创建椭圆曲线 Diffie-Hellman 密钥交换对象的方法                              | function  | yes      | iOS/Android      | yes               |
-| publicEncrypt                   | 使用公钥对 buffer 的内容进行加密，并返回一个包含加密内容的新 Buffer                                                                    | function  | yes      | iOS/Android      | yes               |
-| privateEncrypt                  | 使用私钥对 buffer 的内容进行加密，并返回一个包含加密内容的新 Buffer                                                                    | function  | yes      | iOS/Android      | yes               |
-| publicDecrypt                   | 使用公钥对加密的 buffer 进行解密，并返回一个包含解密内容的新 Buffer                                                                    | function  | yes      | iOS/Android      | yes                |
-| privateDecrypt                  |  使用私钥对加密的 buffer 进行解密，并返回一个包含解密内容的新 Buffer                                                                    | function  | yes      | iOS/Android      | yes                |
-| randomFill                      | 使用加密安全的伪随机数据填充一个给定的 Buffer，异步操作                                                                    | function  | yes      | iOS/Android      | yes               |
-| randomFillSync                  | 使用加密安全的伪随机数据同步填充一个给定的 Buffer                                                                    | function  | yes      | iOS/Android      | yes               |
+| Name                     | Description                                                                                                                                                                                                                                                                                                         | Type     | Required | Platform    | HarmonyOS Support |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------- | ----------------- |
+| createHash               | Create a hash object                                                                                                                                                                                                                                                                                                | function | yes      | iOS/Android | yes               |
+| createHmac               | Create an HMAC (Hash-based Message Authentication Code) object                                                                                                                                                                                                                                                      | function | yes      | iOS/Android | yes               |
+| pbkdf2                   | It is a key derivation function (PBKDF2) used for password encryption                                                                                                                                                                                                                                               | function | yes      | iOS/Android | yes               |
+| pbkdf2Sync               | It is a key derivation function (PBKDF2) used for password encryption,But it is executed synchronously                                                                                                                                                                                                              | function | yes      | iOS/Android | yes               |
+| randomBytes              | Generate a random byte sequence of a specified size                                                                                                                                                                                                                                                                 | function | yes      | iOS/Android | yes               |
+| getHashes                | Provide a list of supported specific hash algorithms                                                                                                                                                                                                                                                                | function | no       | iOS/Android | yes               |
+| createCipher             | Create an encryption object for an encryption algorithm                                                                                                                                                                                                                                                             | function | yes      | iOS/Android | yes               |
+| Cipher                   | Create an encryption object for an encryption algorithm                                                                                                                                                                                                                                                             | function | yes      | iOS/Android | yes               |
+| createDecipher           | Create a decryption object for a decryption algorithm                                                                                                                                                                                                                                                               | function | yes      | iOS/Android | yes               |
+| Decipher                 | Create a decryption object for a decryption algorithm                                                                                                                                                                                                                                                               | function | yes      | iOS/Android | yes               |
+| createCipheriv           | Create an encryption object for an encryption algorithm and specify an initialization vector (IV) to enhance encryption security                                                                                                                                                                                    | function | yes      | iOS/Android | yes               |
+| Cipheriv                 | Create an encryption object for an encryption algorithm and specify an initialization vector (IV) to enhance encryption security                                                                                                                                                                                    | function | yes      | iOS/Android | yes               |
+| createDecipheriv         | Create a decryption object for a decryption algorithm and specify the same initialization vector (IV) used during encryption to correctly decrypt the data                                                                                                                                                          | function | yes      | iOS/Android | yes               |
+| Decipheriv               | Create a decryption object for a decryption algorithm and specify the same initialization vector (IV) used during encryption to correctly decrypt the data                                                                                                                                                          | function | yes      | iOS/Android | yes               |
+| getCiphers               | Get a list of currently supported encryption algorithms                                                                                                                                                                                                                                                             | function | no       | iOS/Android | yes               |
+| listCiphers              | Get a list of currently supported encryption algorithms                                                                                                                                                                                                                                                             | function | no       | iOS/Android | yes               |
+| DiffieHellmanGroup       | Module that implements the Diffie-Hellman key exchange protocol                                                                                                                                                                                                                                                     | function | yes      | iOS/Android | yes               |
+| createDiffieHellmanGroup | Create a "group" in the Diffie-Hellman key negotiation algorithm, i.e., Diffie-Hellman parameters                                                                                                                                                                                                                   | function | yes      | iOS/Android | yes               |
+| getDiffieHellman         | Get an implementation of the Diffie-Hellman key exchange algorithm                                                                                                                                                                                                                                                  | function | yes      | iOS/Android | yes               |
+| createDiffieHellman      | Create a Diffie-Hellman instance                                                                                                                                                                                                                                                                                    | function | yes      | iOS/Android | yes               |
+| DiffieHellman            | It is a class or set of methods for implementing the Diffie-Hellman key exchange protocol, mainly used for key generation and shared key calculation in secure communications.                                                                                                                                      | function | yes      | iOS/Android | yes               |
+| createSign               | Create an object instance for generating signatures                                                                                                                                                                                                                                                                 | function | yes      | iOS/Android | yes               |
+| Sign                     | Create an object instance for generating signatures                                                                                                                                                                                                                                                                 | function | yes      | iOS/Android | yes               |
+| createVerify             | Create an object instance for verifying signatures                                                                                                                                                                                                                                                                  | function | yes      | iOS/Android | yes               |
+| Verify                   | Create an object instance for verifying signatures                                                                                                                                                                                                                                                                  | function | yes      | iOS/Android | yes               |
+| createECDH               | Method to create an elliptic curve Diffie-Hellman key exchange object                                                                                                                                                                                                                                               | function | yes      | iOS/Android | yes               |
+| publicEncrypt            | Method to create an elliptic curve Diffie-Hellman key exchange object                                                                                                                                                                                                                                               | function | yes      | iOS/Android | yes               |
+| privateEncrypt           | Encrypt the content of a buffer using a private key and return a new Buffer containing the encrypted content (Note: Typically, private keys are used for decryption and public keys for encryption in asymmetric encryption, but this could refer to a specific use case or library behavior.)                      | function | yes      | iOS/Android | yes               |
+| publicDecrypt            | Decrypt the encrypted content of a buffer using a public key and return a new Buffer containing the decrypted content (Note: This is incorrect in the context of standard asymmetric encryption; public keys are used for encryption, not decryption. This may refer to a specific scenario or a misunderstanding.) | function | yes      | iOS/Android | yes               |
+| privateDecrypt           | Decrypt the encrypted content of a buffer using a private key and return a new Buffer containing the decrypted content                                                                                                                                                                                              | function | yes      | iOS/Android | yes               |
+| randomFill               | Fill a given Buffer with cryptographically secure pseudorandom data asynchronously                                                                                                                                                                                                                                  | function | yes      | iOS/Android | yes               |
+| randomFillSync           | Fill a given Buffer with cryptographically secure pseudorandom data synchronously                                                                                                                                                                                                                                   | function | yes      | iOS/Android | yes               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/tradle/react-native-crypto/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/tradle/react-native-crypto/blob/master/LICENSE).

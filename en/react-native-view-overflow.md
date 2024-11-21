@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-view-overflow</code> </h1>
@@ -13,13 +13,13 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-view-overflow)
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-view-overflow)
 
-## 安装与使用
+## Installation and Usage
 
 Find the matching version information in the release address of a third-party library：[@react-native-oh-tpl/react-native-view-overflow Releases](https://github.com/react-native-oh-library/react-native-view-overflow/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 
 <!-- tabs:start -->
@@ -38,9 +38,9 @@ yarn add @react-native-oh-tpl/react-native-view-overflow
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import React from 'react';
@@ -65,21 +65,21 @@ export function ViewOverflowDemo() {
 }
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[react-native-view-overflow Releases](https://github.com/react-native-oh-library/react-native-view-overflow/releases)
+Check the release version information in the release address of the third-party library: [react-native-view-overflow Releases](https://github.com/react-native-oh-library/react-native-view-overflow/releases)
 
-## 属性
-[!tip] 该库作为容器组件使用同View组件，可以让子控件溢出到父布局之外展示的效果；使用公共属性即可，不涉及私有属性及api方法。
+## Properties
+[!tip] This library can be used as a container component similar to the View component, allowing child controls to overflow and be displayed outside the parent layout. It can be used with public properties only and does not involve private properties or API methods.
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/entria/react-native-view-overflow/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/entria/react-native-view-overflow/blob/master/LICENSE).

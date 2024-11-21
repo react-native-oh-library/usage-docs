@@ -50,19 +50,12 @@ import {
   TouchableOpacity,
   View,
   Platform,
-  Animated,
-  ScrollView,
+  Animated
 } from 'react-native';
 import {SpringScrollView} from 'react-native-spring-scrollview';
-
-const AnimatedSpringScrollView = Animated.createAnimatedComponent(SpringScrollView);
 export default class ScrollToAndOnScrollExample extends React.Component {
   _contentCount = 20;
   _scrollView;
-  _nativeOffset = {
-    y: new Animated.Value(0),
-  };
-
   render() {
     const arr = [];
     for (let i = 0; i < this._contentCount; ++i) arr.push(i);
@@ -71,14 +64,26 @@ export default class ScrollToAndOnScrollExample extends React.Component {
         <TouchableOpacity style={styles.scrollTo} onPress={this._scrollTo}>
           <Text>Tap to ScrollTo y=200</Text>
         </TouchableOpacity>
+        <TouchableOpacity style={styles.scrollTo} onPress={this._scroll}>
+          <Text>scroll</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.scrollTo} onPress={this._scrollToBegin}>
+          <Text>scrollToBegin</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.scrollTo} onPress={this._scrollToEnd}>
+          <Text>scrollToEnd</Text>
+        </TouchableOpacity>
         <SpringScrollView
           style={styles.container}
           ref={(ref) => (this._scrollView = ref)}
           onTouchBegin={this._onTouchBegin}
-          onTouchFinish={this._onTouchEnd}
+          onTouchEnd={this._onTouchEnd}
           onMomentumScrollBegin={this.onMomentumScrollBegin}
           onMomentumScrollEnd={this._onMomentumScrollEnd}
-          onNativeContentOffsetExtract={this._nativeOffset}
+          onScrollBeginDrag={this._onScrollBeginDrag}
+          onSizeChange={this._onSizeChange}
+          onContentSizeChange={this._onContentSizeChange}
+          onScroll={this._onScroll}
           >
           {arr.map((i, index) => (
             <Text key={index} style={styles.text}>
@@ -87,13 +92,83 @@ export default class ScrollToAndOnScrollExample extends React.Component {
               'onMomentumScrollEnd' work well!
             </Text>
           ))}
-          <Animated.View style={this._stickyHeaderStyle}>
-            <Text>Test `onNativeContentOffsetExtract`</Text>
-          </Animated.View>
         </SpringScrollView>
       </View>
     );
   }
+  _onScroll = offset => {
+    console.log("onScroll", offset.nativeEvent);
+  };
+  _onSizeChange= (wh) => {
+    console.log('onSizeChange:'+JSON.stringify(wh));
+  };
+  _onContentSizeChange= (wh) => {
+    console.log('onContentSizeChange:'+JSON.stringify(wh));
+  };
+  _onNativeContentOffsetExtract = () => {
+    console.log('onNativeContentOffsetExtract');
+  };
+  _onScrollBeginDrag = () => {
+    console.log('onScrollBeginDrag');
+  };
+  _scroll = () => {
+    console.log('scroll');
+    if (this._scrollView) {
+      this._scrollView
+        .scroll({x: 0, y: 200});
+    }
+  };
+  _scrollTo = () => {
+    console.log('scrollTo');
+    if (this._scrollView) {
+      this._scrollView
+        .scrollTo({x: 0, y: 200})
+        .then(() => console.log('ScrollTo has finished'));
+    }
+  };
+  _scrollToBegin = () => {
+    console.log('scrollToBegin');
+    if (this._scrollView) {
+      this._scrollView.scrollToBegin(true);
+    }
+  };
+  _scrollToEnd = () => {
+    console.log('scrollToEnd');
+    if (this._scrollView) {
+      this._scrollView.scrollToEnd(true);
+    }
+  };
+  _onTouchBegin = () => {
+    console.log('onTouchBegin');
+  };
+  _onTouchEnd = () => {
+    console.log('onTouchEnd');
+  };
+  onMomentumScrollBegin = () => {
+    console.log('onMomentumScrollBegin');
+  };
+  _onMomentumScrollEnd = () => {
+    console.log('onMomentumScrollEnd');
+  };
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  scrollTo: {
+    marginTop: Platform.OS === 'ios' ? 20 : 0,
+    backgroundColor: 'gray',
+    zIndex: 100,
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: {
+    fontSize: 16,
+    margin: 20,
+  },
+});
 ```
 
 ## Link
@@ -268,9 +343,9 @@ Check the release version information in the release address of the third-party 
 | textInputRefs  |  text input      |  any[]  | yes | iOS/Android      | yes |
 | inverted  | inverted. It is a service for LargeList.         |  boolean  | yes | iOS/Android      | yes |
 | inputToolBarHeight  | set height of the input toolbar        |  number  | yes | iOS/Android      | yes |
-| tapToHideKeyboard  | hide the currently displayed keyboard        |  boolean  | yes | iOS/Android      | yes |
+| dragToHideKeyboard  | hide the currently displayed keyboard        |  boolean  | yes | iOS/Android      | yes |
 | onTouchBegin()  | begin touch         | ()=>any  | yes | iOS/Android      | yes|
-| onTouchFinish()   | touch finished         | ()=>any | yes | iOS/Android      | yes|
+| onTouchEnd()   | touch finished         | ()=>any | yes | iOS/Android      | yes|
 | beginRefresh()  | If you want to begin refreshing programally without finger draging, call this method after initialized.         | Promise<any>  | yes | iOS/Android      | yes|
 | endRefresh()  | End the refreshing status.        | void  | yes | iOS/Android      | yes|
 | endLoading()  | End the loading status.        | void  | yes | iOS/Android      | yes|

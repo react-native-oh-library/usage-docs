@@ -128,7 +128,7 @@ Notifier.showNotification(params: object);
 | description |Description of notification. Passed to Component. | String | Yes | All    | Yes    |
 | duration |Time after notification will disappear. Set to 0 to not hide notification automatically  | Number | No |All    | Yes   
 | Component |Component of the notification body. You can use one of the [bin components](https://github.com/seniv/react-native-notifier/tree/main?tab=readme-ov-file#components), or your [custom component](https://github.com/seniv/react-native-notifier/tree/main?tab=readme-ov-file#custom-component).  | Component | No |All    | Yes   
-| componentProps | Additional props that are passed to Component. See all available props of built-in components in the [components section](https://github.com/seniv/react-native-notifier/tree/main?tab=readme-ov-file#components).  | Object | No |All    | Yes   
+| componentProps | Additional props that are passed to Component. See all available props of built-in components in the [components section](https://github.com/seniv/react-native-notifier/tree/main?tab=readme-ov-file#components).  | Object | No |All    | No   
 | containerStyle |tyles Object or a Function that will receive translateY: Animated.Value as first parameter and should return Styles that will be used in container. Using this parameter it is possible to create[ your own animations of the notification](https://github.com/seniv/react-native-notifier/tree/main?tab=readme-ov-file#custom-animations).   | bool |No | All    | Yes   
 | containerProps | 	Props of Animated Container  | Object |No | All    | Yes  
 | queueMode | Determines the order in which notifications are shown. Read more in the [Queue Mode](https://github.com/seniv/react-native-notifier/tree/main?tab=readme-ov-file#queue-mode) section.  | String |No | All    | Yes  
@@ -216,7 +216,7 @@ Currently, there are 2 components out of the box. If none of them fits your need
 ## 遗留问题
 
 - [ ] translucentStatusBar状态栏透明在HarmonyOS不支持,useRNScreensOverlay,rnScreensOverlayViewStyle两个属性依赖于react-native-screens，暂未适配harmonyOS  
-
+- [ ] componentProps{needsOffscreenAlphaCompositing}, 在harmonyOS不支持
 ## 其他
 
 - omitGlobalMethodsHookup源库属性未生效 问题：[issues#102](https://github.com/seniv/react-native-notifier/issues/102) 

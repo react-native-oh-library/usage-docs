@@ -69,7 +69,7 @@ export const TestTooltip = ({ text, style }) => {
 [!TIP]"HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果
 | Name                | Description                                                  | Type     | Required | Platform    | HarmonyOS Support |
 | ------------------- | ------------------------------------------------------------ | -------- | -------- | ----------- | ----------------- |
-| accessible  | Set this to false if you do not want the root touchable element to be accessible. [See docs on accessible here](https://reactnative.dev/docs/accessibility#accessibility-properties) | bool| No | All  |Yes  |
+| accessible  | Set this to false if you do not want the root touchable element to be accessible. [See docs on accessible here](https://reactnative.dev/docs/accessibility#accessibility-properties) | bool| No | All  |No  |
 | allowChildInteraction |By default, the user can touch and interact with the child element. When this prop is false, the user cannot interact with the child element while the tooltip is visible.  | bool | No | All    | Yes    |
 | arrowSize |The dimensions of the arrow on the bubble pointing to the highlighted element   | Size | No |All    | Yes   
 | backgroundColor |Color of the fullscreen background beneath the tooltip. Overrides the backgroundStyle prop   | string | No |All    | Yes   
@@ -91,7 +91,7 @@ export const TestTooltip = ({ text, style }) => {
 ## 遗留问题
 
 - [ ]  supportedOrientations在HarmonyOS不支持
-
+- [ ]  accessible在HarmonyOS不支持
 ## 其他
 
 ## 开源协议

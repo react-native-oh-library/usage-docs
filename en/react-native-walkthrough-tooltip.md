@@ -72,7 +72,7 @@ This document is verified based on the following versions:
 
 | Name                      | Description                                                                                                                                                                                                                                                                                                                        | Type             | Required | Platform | HarmonyOS Support |
 | ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | -------- | -------- | ----------------- |
-| accessible                | Set this to false if you do not want the root touchable element to be accessible. [See docs on accessible here](https://reactnative.dev/docs/accessibility#accessibility-properties)                                                                                                                                               | bool             | No       | All      | Yes               |
+| accessible                | Set this to false if you do not want the root touchable element to be accessible. [See docs on accessible here](https://reactnative.dev/docs/accessibility#accessibility-properties)                                                                                                                                               | bool             | No       | All      | No               |
 | allowChildInteraction     | By default, the user can touch and interact with the child element. When this prop is false, the user cannot interact with the child element while the tooltip is visible.                                                                                                                                                         | bool             | No       | All      | Yes               |
 | arrowSize                 | The dimensions of the arrow on the bubble pointing to the highlighted element                                                                                                                                                                                                                                                      | Size             | No       | All      | Yes               |
 | backgroundColor           | Color of the fullscreen background beneath the tooltip. Overrides the backgroundStyle prop                                                                                                                                                                                                                                         | string           | No       | All      | Yes               |
@@ -95,7 +95,7 @@ This document is verified based on the following versions:
 ## Known Issues
 
 - [ ] supportedOrientations 在 HarmonyOS 不支持
-
+- [ ] accessible 在 HarmonyOS 不支持
 ## Others
 
 ## License

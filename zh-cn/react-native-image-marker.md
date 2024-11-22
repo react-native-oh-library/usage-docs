@@ -353,7 +353,7 @@ markImage(options: ImageMarkOptions): Promise<string>;
 
 | Name        | Description             | Type   | Required | Platform    | HarmonyOS Support |
 | ----------- | ----------------------- | ------ | -------- | ----------- | ----------------- |
-| backgroundImage  | background image options | [ImageOptions](#imageoptions) | yes      | iOS/Android | yes               |
+| backgroundImage  | background image options | [ImageOptions](#imageoptions) | yes      | iOS/Android | partially               |
 | quality | image quality `0-100`, `100` is best quality. defaultValue 100 | number | no      | iOS/Android | yes               |
 | filename | save image name | string | no      | iOS/Android | yes               |
 | saveFormat | save image format 'png','jpg','base64',default 'png' | [ImageFormat](#imageformat) | no      | iOS/Android | yes               |
@@ -381,7 +381,7 @@ markText(options: TextMarkOptions): Promise<string>;
 ##### TextMarkOptions
 | Name      | Description                                    | Type   | Required | Platform    | HarmonyOS Support |
 | --------- | ---------------------------------------------- | ------ | -------- | ----------- | ----------------- |
-| backgroundImage | background image options | [ImageOptions](#imageoptions) | yes      | iOS/Android | yes               |
+| backgroundImage | background image options | [ImageOptions](#imageoptions) | yes      | iOS/Android | partially                |
 | watermarkTexts      | text options      | Array\<[TextOptions](#textoptions)> | yes      | iOS/Android | yes               |
 | quality      | image quality 0-100, 100 is best quality. defaultValue 100 | number | no      | iOS/Android | yes               |
 | filename      | save image name          | string | no      | iOS/Android | yes               |
@@ -464,10 +464,10 @@ extends Padding
 | y      | radius value for y  | number / string  | no      | iOS/Android | yes               |
 
 ## 遗留问题
-
-- [x]  Harmony OS is not support font name feature now: [issue#7](https://github.com/react-native-oh-library/react-native-image-marker/issues/7) 
+- [ ] Harmony OS is not support backgroundImage-ImageOptions-alpha feature now: [issue#30](https://github.com/react-native-oh-library/react-native-image-marker/issues/30)
+- [x] Harmony OS is not support font name feature now: [issue#7](https://github.com/react-native-oh-library/react-native-image-marker/issues/7) 
 - [x] Harmony OS is not support font skewX feature  now: [issue#8](https://github.com/react-native-oh-library/react-native-image-marker/issues/8)
-- [x] Harmony OS is not support font italic feature now:[issue#9](https://github.com/react-native-oh-library/react-native-image-marker/issues/9)
+- [x] Harmony OS is not support font italic feature now: [issue#9](https://github.com/react-native-oh-library/react-native-image-marker/issues/9)
 
 ## 其他
 

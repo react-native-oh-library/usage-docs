@@ -441,6 +441,7 @@ DropdownAlert 是 DropdownAlert 库导出的核心组件，定义了弹框所有
 - DropdownAlert 组件的 zindex 属性不生效，层级关系并未体现，与 iOS/Android 一致 [issue#315](https://github.com/testshallpass/react-native-dropdownalert/issues/315)
 - DropdownAlert 组件的 translucent 属性不生效，没有显示出状态栏半透明的效果，与 Android 一致 [issue#316](https://github.com/testshallpass/react-native-dropdownalert/issues/316)
 - DropdownAlert 组件绑定的 onDismissProgrammatic 函数无法触发，与 iOS/Android 一致 [issue#317](https://github.com/testshallpass/react-native-dropdownalert/issues/317)
+- DropdownAlertData 组件的 resolve 属性不生效，将弹窗关闭之后，所设置的函数并未被触发，与 iOS/Android 一致 [issue#318](https://github.com/testshallpass/react-native-dropdownalert/issues/318)
 
 ## 开源协议
 

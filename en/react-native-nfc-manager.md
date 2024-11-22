@@ -370,9 +370,9 @@ Open the `entry/src/main/module.json5` file and add the following code:
 | getLaunchTagEvent | Retrieve events or data when an application is launched (or reactivated) due to NFC tag scanning | function | NO | Android | yes |
 | transceive | Send instructions to Tag | function | NO | Android | yes |
 | getMaxTransceiveLength | Query the maximum data length that can be sent to a label | function | NO | Android | yes |
-| setTimeout | Set the timeout for sending data to Tag | function | NO | Android | yes |
-| connect | Establish a connection with the tag | function | NO | Android | yes |
-| close | Close tag connection | function | NO | Android | yes |
+| setTimeout | Set the timeout for sending data to Tag | function | NO | Android | NO |
+| connect | Establish a connection with the tag | function | NO | Android | NO |
+| close | Close tag connection | function | NO | Android | NO |
 
 **NfcVHandler**
 | Name | Description | Type | Required | Platform | HarmonyOS Support |

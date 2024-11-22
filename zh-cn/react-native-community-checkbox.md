@@ -165,7 +165,23 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 4.在 ArkTs 侧引入 Checkbox 组件
+### 4.在 ArkTs 侧引入 RNCCheckBoxPackage
+> [!TIP] 版本v0.5.16-0.0.8及以上需要
+
+打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+
+```diff
+  ...
++ import { RNCCheckBoxPackage } from '@react-native-oh-tpl/checkbox/ts';
+
+export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
+  return [
++   new RNCCheckBoxPackage(ctx)
+  ];
+}
+```
+
+### 5.在 ArkTs 侧引入 Checkbox 组件
 
 找到 `function buildCustomComponent()`，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
@@ -227,19 +243,23 @@ ohpm install
 
 > [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
+> [!tip] `shape` 即将被废弃，请使用 `boxType` 替代  
+> [!tip] `strokeWidth` 即将被废弃，请使用 `lineWidth` 替代
+
 | Name                | Description                                                                                                                                                                                   | Type     | Required | Platform    | HarmonyOS Support |
 |---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| -------- | -------- |-------------|------------------|
 | `value`             | The value of the checkbox. If true the checkbox will be turned on. Default value is false.                                                                                                    | boolean  | No       | Android、iOS | yes              |
 | `testID`            | Used to locate this view in end-to-end tests.                                                                                                                                                 | string   | No       | Android、iOS | yes              |
 | `disabled`          | If true the user won't be able to toggle the checkbox. Default value is false.                                                                                                                | bool     | No       | Android、iOS | yes              |
-| `onCheckColor`      | Color of the check box when it is selected.                                                                                                                                                   | Color    | No       | iOS         | yes              |
-| `tintColor`         | Border color of the check box when it is not selected.                                                                                                                                        | Color    | No       | iOS         | yes              |
-| `shape`             | Sets component shapes, including circles and rounded squares. Default value is 0.                                                                                                             | int      | No       | harmony     | yes              |
+| `onCheckColor`      | Color of the check box when it is selected.Defaults to '#007aff'                                                                                                                                                   | Color    | No       | iOS         | yes              |
+| `tintColor`         | Border color of the check box when it is not selected. Defaults to '#aaaaaa'                                                                                                                                        | Color    | No       | iOS         | yes              |
+| `shape` @deprecated             | Sets component shapes, including circles and rounded squares. Default value is 0.                                                                                                             | int      | No       | harmony     | yes              |
 | `markSize`          | Size of the internal mark. The default size is the same as the width of the check box.This parameter cannot be set in percentage. If it is set to an invalid value, the default value is used. | number   | No       | harmony     | yes              |
-| `strokeWidth`       | Stroke width of the internal mark. This parameter cannot be set in percentage. If it is set to an invalid value, the default value is used.                                                   | number   | No       | harmony     | yes              |
-| `strokeColor`       | Color of the internal mark.                                                                                                                                                                   | Color    | No       | harmony     | yes              |
-| `lineWidth`         | The width of the lines of the check mark and box. Defaults to 2.0.                                                                                                                            | number    | No       | iOS         | No               |
+| `strokeWidth` @deprecated       | Stroke width of the internal mark. This parameter cannot be set in percentage. If it is set to an invalid value, the default value is used.                                                   | number   | No       | harmony     | yes              |
+| `strokeColor`       | Color of the internal mark.Defaults to '#ffffff'                                                                                                                                                                   | Color    | No       | harmony     | yes              |
+| `lineWidth`         | The width of the lines of the check mark and box. Defaults to 2.0.                                                                                                                            | number    | No       | iOS         | yes               |
 | `hideBox`           | Control if the box should be hidden or not. Defaults to false.                                                                                                                                | boolean    | No       | iOS         | No              |
+| `boxType`              | The type of box to use. Defaults to 'circle'      | 'circle' or 'square'      | No       | iOS     | yes              |
 | `onFillColor`       | The color of the inside of the box when it is On. Defaults to transparent.                                                                                                                    | string      | No       | iOS      | No              |
 | `onTintColor`       | The color of the line around the box when it is On. Defaults to '#007aff'.                                                                                                                    | string   | No       | iOS      | No              |
 | `animationDuration` | The duration in seconds of the animations. Defaults to 0.5.                                                                                                                                   | number   | No       | iOS     | No              |
@@ -257,7 +277,7 @@ ohpm install
 | `onValueChange` | Invoked with the new boolean value when it changes.                                                                                                                                            | function | No       | Android、iOS   | yes               |
 
 ## 遗留问题
-- [ ] 设置lineWidth属性，该属性用来控制复选框的线条宽度，未实现HarmonyOS化: [issue#3](https://github.com/react-native-oh-library/react-native-checkbox/issues/3)
+- [X] 设置lineWidth属性，该属性用来控制复选框的线条宽度，未实现HarmonyOS化: [issue#3](https://github.com/react-native-oh-library/react-native-checkbox/issues/3)
 - [ ] 设置hideBox属性，该属性用来控制复选框的显示与隐藏，未实现HarmonyOS化: [issue#4](https://github.com/react-native-oh-library/react-native-checkbox/issues/4)
 - [ ] 设置onTintColor属性，该属性用来控制复选框的选中时边框的颜色，未实现HarmonyOS化: [issue#5](https://github.com/react-native-oh-library/react-native-checkbox/issues/5)
 - [ ] 设置onFillColor属性，该属性用来控制复选框未选中时框内部的颜色，未实现HarmonyOS化: [issue#9](https://github.com/react-native-oh-library/react-native-checkbox/issues/9)

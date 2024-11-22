@@ -165,7 +165,22 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 4.Introducing Checkbox Component to ArkTS
+### 4.Introducing RNCCheckBoxPackage Component to ArkTS
+> [!TIP] Required for version `v0.5.16-0.1.0` and above
+
+Open `entry/src/main/ets/RNPackagesFactory.ts` and add:
+
+```diff
+  ...
++ import { RNCCheckBoxPackage } from '@react-native-oh-tpl/checkbox/ts';
+
+export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
+  return [
++   new RNCCheckBoxPackage(ctx)
+  ];
+}
+
+### 5.Introducing Checkbox Component to ArkTS
 
 Find `function buildCustomRNComponent()`, which is usually located in `entry/src/main/ets/pages/index.ets` or `entry/src/main/ets/rn/LoadBundle.ets`, and add the following code:
 
@@ -227,19 +242,24 @@ Check the release version information in the release address of the third-party 
 
 > [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
+> [!tip] `shape` is about to be deprecated, please use `boxType` instead 
+> [!tip] `strokeWidth` is about to be deprecated, please use `lineWidth` instead
+
+
 | Name                | Description                                                                                                                                                                                   | Type     | Required | Platform    | HarmonyOS Support |
 |---------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| -------- | -------- |-------------|------------------|
 | `value`             | The value of the checkbox. If true the checkbox will be turned on. Default value is false.                                                                                                    | boolean  | No       | Android、iOS | yes              |
 | `testID`            | Used to locate this view in end-to-end tests.                                                                                                                                                 | string   | No       | Android、iOS | yes              |
 | `disabled`          | If true the user won't be able to toggle the checkbox. Default value is false.                                                                                                                | bool     | No       | Android、iOS | yes              |
-| `onCheckColor`      | Color of the check box when it is selected.                                                                                                                                                   | Color    | No       | iOS         | yes              |
-| `tintColor`         | Border color of the check box when it is not selected.                                                                                                                                        | Color    | No       | iOS         | yes              |
-| `shape`             | Sets component shapes, including circles and rounded squares. Default value is 0.                                                                                                             | int      | No       | harmony     | yes              |
+| `onCheckColor`      | Color of the check box when it is selected.Defaults to '#007aff'                                                                                                                                                   | Color    | No       | iOS         | yes              |
+| `tintColor`         | Border color of the check box when it is not selected. Defaults to '#aaaaaa'                                                                                                                                        | Color    | No       | iOS         | yes              |
+| `shape` @deprecated             | Sets component shapes, including circles and rounded squares. Default value is 0.                                                                                                             | int      | No       | harmony     | yes              |
 | `markSize`          | Size of the internal mark. The default size is the same as the width of the check box.This parameter cannot be set in percentage. If it is set to an invalid value, the default value is used. | number   | No       | harmony     | yes              |
-| `strokeWidth`       | Stroke width of the internal mark. This parameter cannot be set in percentage. If it is set to an invalid value, the default value is used.                                                   | number   | No       | harmony     | yes              |
-| `strokeColor`       | Color of the internal mark.                                                                                                                                                                   | Color    | No       | harmony     | yes              |
-| `lineWidth`         | The width of the lines of the check mark and box. Defaults to 2.0.                                                                                                                            | number    | No       | iOS         | No               |
+| `strokeWidth` @deprecated       | Stroke width of the internal mark. This parameter cannot be set in percentage. If it is set to an invalid value, the default value is used.                                                   | number   | No       | harmony     | yes              |
+| `strokeColor`       | Color of the internal mark.Defaults to '#ffffff'                                                                                                                                                                   | Color    | No       | harmony     | yes              |
+| `lineWidth`         | The width of the lines of the check mark and box. Defaults to 2.0.                                                                                                                            | number    | No       | iOS         | yes               |
 | `hideBox`           | Control if the box should be hidden or not. Defaults to false.                                                                                                                                | boolean    | No       | iOS         | No              |
+| `boxType`              | The type of box to use. Defaults to 'circle'      | 'circle' or 'square'      | No       | iOS     | yes              |
 | `onFillColor`       | The color of the inside of the box when it is On. Defaults to transparent.                                                                                                                    | string      | No       | iOS      | No              |
 | `onTintColor`       | The color of the line around the box when it is On. Defaults to '#007aff'.                                                                                                                    | string   | No       | iOS      | No              |
 | `animationDuration` | The duration in seconds of the animations. Defaults to 0.5.                                                                                                                                   | number   | No       | iOS     | No              |
@@ -259,13 +279,13 @@ Check the release version information in the release address of the third-party 
 
 ## Known Issues
 
-- [ ] 设置lineWidth属性，该属性用来控制复选框的线条宽度，未实现HarmonyOS化: [issue#3](https://github.com/react-native-oh-library/react-native-checkbox/issues/3)
-- [ ] 设置hideBox属性，该属性用来控制复选框的显示与隐藏，未实现HarmonyOS化: [issue#4](https://github.com/react-native-oh-library/react-native-checkbox/issues/4)
-- [ ] 设置onTintColor属性，该属性用来控制复选框的选中时边框的颜色，未实现HarmonyOS化: [issue#5](https://github.com/react-native-oh-library/react-native-checkbox/issues/5)
-- [ ] 设置onFillColor属性，该属性用来控制复选框未选中时框内部的颜色，未实现HarmonyOS化: [issue#9](https://github.com/react-native-oh-library/react-native-checkbox/issues/9)
-- [ ] 设置animationDuration属性，该属性用来控制选中和取消选中的动画持续时间，未实现HarmonyOS化: [issue#6](https://github.com/react-native-oh-library/react-native-checkbox/issues/6)
-- [ ] 设置onAnimationType属性，该属性用来控制选中时的动画类型，未实现 HarmonyOS化: [issue#7](https://github.com/react-native-oh-library/react-native-checkbox/issues/7)
-- [ ] 设置offAnimationType属性，该属性用来控制取消选中时的动画类型，未实现 HarmonyOS化: [issue#8](https://github.com/react-native-oh-library/react-native-checkbox/issues/8)
+- [x] Set the lineWidth attribute, which is used to control the line width of the check box. It is not implemented in HarmonyOS. [issue#3](https://github.com/react-native-oh-library/react-native-checkbox/issues/3)
+- [ ] Set the hideBox attribute, which is used to control the display and hiding of the check box. It is not implemented in HarmonyOS. [issue#4](https://github.com/react-native-oh-library/react-native-checkbox/issues/4)
+- [ ] Set the onTintColor attribute, which is used to control the color of the border when the check box is selected. HarmonyOS is not implemented. [issue#5](https://github.com/react-native-oh-library/react-native-checkbox/issues/5)
+- [ ] Set the onFillColor attribute, which is used to control the color inside the box when the check box is not selected. HarmonyOS is not implemented. [issue#9](https://github.com/react-native-oh-library/react-native-checkbox/issues/9)
+- [ ] Set the animationDuration attribute, which is used to control the animation duration of selection and deselection. HarmonyOS is not implemented. [issue#6](https://github.com/react-native-oh-library/react-native-checkbox/issues/6)
+- [ ] Set the onAnimationType attribute, which is used to control the animation type when selected. HarmonyOS is not implemented. [issue#7](https://github.com/react-native-oh-library/react-native-checkbox/issues/7)
+- [ ] Set the offAnimationType attribute. This attribute is used to control the animation type when deselecting. It is not implemented in HarmonyOS. [issue#8](https://github.com/react-native-oh-library/react-native-checkbox/issues/8)
 
 ## Others
 

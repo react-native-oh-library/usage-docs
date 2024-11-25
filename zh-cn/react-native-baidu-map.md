@@ -477,7 +477,7 @@ ohpm install
 | perspective  | 远大近小的效果                   | Boolean  | no       | Android  | no               |
 | flat         | 是否使标记扁平化                     | Boolean  | no       | Android  | yes               |
 | rotate       | 旋转角度                         | Number   | no       | Android  | yes               |
-| icon         | icon图片，同  的 source 属性                    | Object   | no       | All      | yes               |
+| icon         | 图片，同Image组件的 source 属性             | Object   | no       | All      | yes               |
 | alpha        | 透明度                         | Number   | no       | Android  | yes               |
 | animateType  | 动画效果：drop/grow/jump       | String   | no       | All      | yes               |
 | pinColor     | red/green/purple，大头针颜色             | String   | no       | IOS      | no                |
@@ -490,7 +490,7 @@ ohpm install
 | Name   | Description    | Type    | Required | Platform | HarmonyOS Support |
 |--------|----------------|---------|----------|----------|-------------------|
 | stroke | 当标记被点击时触发的回调函数 | Object  | yes      | All      | no                |
-| points | 数值长度必须为        | Object  | yes      | All      | no                |
+| points | 数值长度必须为3       | Object  | yes      | All      | no                |
 | dash   | 是否为虚线    | Boolean | yes      | iOS      | no                |
 
 #### Circle Props 属性
@@ -532,7 +532,7 @@ ohpm install
 
 #### InfoWindow Props 属性
 
-#### 必须作为 Marker 的子组件
+> [!TIP]InfoWindow必须作为 Marker 的子组件使用
 
 | Name    | Description                    | Type   | Required | Platform | HarmonyOS Support |
 |---------|--------------------------------|--------|----------|----------|-------------------|

@@ -17,7 +17,7 @@
 
 ## 安装与使用
 
-> [!tip] 该库依赖react-native-maps，可参考[react-native-maps文档](./react-native-maps.md)安装
+> [!TIP] 该库依赖react-native-maps，可参考[react-native-maps文档](./react-native-maps.md)安装
 
 请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-maps-directions Releases](https://github.com/react-native-oh-library/react-native-maps-directions/releases)，并下载适用版本的 tgz 包。
 

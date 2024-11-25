@@ -12,7 +12,7 @@
     </a>
 </p>
 
-> [!tip] [GitHub address](https://github.com/react-native-oh-library/react-native-fingerprint-scanner)
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-fingerprint-scanner)
 
 ## Installation and Usage
 
@@ -165,7 +165,7 @@ Check the release version information in the release address of the third-party 
 
 ### Permission Requirements
 
-> [!tip] "ohos.permission.ACCESS_BIOMETRIC"权限等级为<B>system_basic</B>
+> [!TIP] "ohos.permission.ACCESS_BIOMETRIC"权限等级为<B>system_basic</B>
 > 在 `YourProject/entry/src/main/module.json5`补上配置
 
 ```diff
@@ -185,9 +185,9 @@ Check the release version information in the release address of the third-party 
 
 ## Static Methods
 
-> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                                                    | Description                                                                         | Type     | Required | Platform  | HarmonyOS Support |
 | ------------------------------------------------------- | ----------------------------------------------------------------------------------- | -------- | -------- | --------- | ----------------- |

@@ -9,7 +9,7 @@
     </a>
 </p>
 
-> [!tip] [Github address](https://github.com/lodash/lodash/tree/4.17.21)
+> [!TIP] [Github address](https://github.com/lodash/lodash/tree/4.17.21)
 
 ## Installation and Usage
 

@@ -74,7 +74,7 @@ To use this repository, you need to use the correct React-Native and RNOH versio
 Check the release version information in the release address of the third-party library: [react-native-view-overflow Releases](https://github.com/react-native-oh-library/react-native-view-overflow/releases)
 
 ## Properties
-[!tip] This library can be used as a container component similar to the View component, allowing child controls to overflow and be displayed outside the parent layout. It can be used with public properties only and does not involve private properties or API methods.
+[!TIP] This library can be used as a container component similar to the View component, allowing child controls to overflow and be displayed outside the parent layout. It can be used with public properties only and does not involve private properties or API methods.
 
 ## Known Issues
 

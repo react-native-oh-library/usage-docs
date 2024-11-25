@@ -9,7 +9,7 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/brix/crypto-js/tree/4.2.0)
+> [!TIP] [Github 地址](https://github.com/brix/crypto-js/tree/4.2.0)
 
 ## 安装与使用
 
@@ -131,7 +131,7 @@ import C from "crypto-js";
 
 **静态方法**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name              | Description                      | Type     | Required | HarmonyOS Support |
 | ----------------- | -------------------------------- | -------- | -------- | ----------------- |
@@ -139,7 +139,7 @@ import C from "crypto-js";
 
 **API**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name   | Description                    | Type     | Required | HarmonyOS Support |
 | ------ | ------------------------------ | -------- | -------- | ----------------- |
@@ -151,7 +151,7 @@ import C from "crypto-js";
 
 **属性**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name     | Description              | Type     | Required | HarmonyOS Support |
 | -------- | ------------------------ | -------- | -------- | ----------------- |
@@ -160,7 +160,7 @@ import C from "crypto-js";
 
 **静态方法**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name                   | Description                        | Type     | Required | HarmonyOS Support               |
 | ---------------------- | ---------------------------------- | -------- | -------- | ------------------------------- |
@@ -169,7 +169,7 @@ import C from "crypto-js";
 
 **API**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name     | Description                        | Type     | Required | HarmonyOS Support |
 | -------- | ---------------------------------- | -------- | -------- | ----------------- |
@@ -182,7 +182,7 @@ import C from "crypto-js";
 
 **属性**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name       | Description                                         | Type         | Required | HarmonyOS Support |
 | ---------- | --------------------------------------------------- | ------------ | -------- | ----------------- |
@@ -198,7 +198,7 @@ import C from "crypto-js";
 
 **静态方法**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name                      | Description                       | Type     | Required | HarmonyOS Support |
 | ------------------------- | --------------------------------- | -------- | -------- | ----------------- |
@@ -206,7 +206,7 @@ import C from "crypto-js";
 
 **API**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name     | Description                         | Type     | Required | HarmonyOS Support |
 | -------- | ----------------------------------- | -------- | -------- | ----------------- |
@@ -216,7 +216,7 @@ import C from "crypto-js";
 
 **静态方法**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name              | Description            | Type     | Required | HarmonyOS Support |
 | ----------------- | ---------------------- | -------- | -------- | ----------------- |
@@ -226,7 +226,7 @@ import C from "crypto-js";
 
 **属性**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name     | Description                   | Type     | Required | HarmonyOS Support |
 | -------- | ----------------------------- | -------- | -------- | ----------------- |
@@ -235,7 +235,7 @@ import C from "crypto-js";
 
 **静态方法**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name                   | Description              | Type     | Required | HarmonyOS Support |
 | ---------------------- | ------------------------ | -------- | -------- | ----------------- |
@@ -243,7 +243,7 @@ import C from "crypto-js";
 
 **API**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name  | Description                      | Type     | Required | HarmonyOS Support |
 | ----- | -------------------------------- | -------- | -------- | ----------------- |
@@ -254,7 +254,7 @@ import C from "crypto-js";
 
 **属性**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name       | Description      | Type | Required | HarmonyOS Support |
 | ---------- | ---------------- | ---- | -------- | ----------------- |
@@ -268,7 +268,7 @@ import C from "crypto-js";
 
 **静态方法**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name              | Description                                   | Type     | Required | HarmonyOS Support |
 | ----------------- | --------------------------------------------- | -------- | -------- | ----------------- |
@@ -279,7 +279,7 @@ import C from "crypto-js";
 
 **静态方法**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name                 | Description                                  | Type     | Required | HarmonyOS Support |
 | -------------------- | -------------------------------------------- | -------- | -------- | ----------------- |
@@ -290,7 +290,7 @@ import C from "crypto-js";
 
 **静态方法**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name                 | Description                                  | Type     | Required | HarmonyOS Support               |
 | -------------------- | -------------------------------------------- | -------- | -------- | ------------------------------- |
@@ -301,7 +301,7 @@ import C from "crypto-js";
 
 **静态方法**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name                    | Description                                     | Type     | Required | HarmonyOS Support |
 | ----------------------- | ----------------------------------------------- | -------- | -------- | ----------------- |
@@ -312,7 +312,7 @@ import C from "crypto-js";
 
 **属性**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name            | Description      | Type | Required | HarmonyOS Support |
 | --------------- | ---------------- | ---- | -------- | ----------------- |
@@ -322,7 +322,7 @@ import C from "crypto-js";
 
 **静态方法**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name                    | Description                         | Type     | Required | HarmonyOS Support |
 | ----------------------- | ----------------------------------- | -------- | -------- | ----------------- |
@@ -347,7 +347,7 @@ import C from "crypto-js";
 
 **属性**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name      | Description                                            | Type   | Required | HarmonyOS Support |
 | --------- | ------------------------------------------------------ | ------ | -------- | ----------------- |
@@ -355,7 +355,7 @@ import C from "crypto-js";
 
 **API**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name     | Description            | Type     | Required | HarmonyOS Support |
 | -------- | ---------------------- | -------- | -------- | ----------------- |
@@ -367,7 +367,7 @@ import C from "crypto-js";
 
 **静态方法**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name               | Description          | Type     | Required | HarmonyOS Support |
 | :----------------- | -------------------- | -------- | -------- | ----------------- |
@@ -383,7 +383,7 @@ import C from "crypto-js";
 
 **API**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name     | Description                                                                | Type     | Required | HarmonyOS Support |
 | :------- | -------------------------------------------------------------------------- | -------- | -------- | ----------------- |
@@ -395,7 +395,7 @@ import C from "crypto-js";
 
 **静态方法**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name                       | Description                 | Type     | Required | HarmonyOS Support | Notes                                                                          |
 | :------------------------- | --------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------------------------ |
@@ -407,7 +407,7 @@ import C from "crypto-js";
 
 **静态方法**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name                       | Description                 | Type     | Required | HarmonyOS Support | Notes                                                                          |
 | :------------------------- | --------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------------------------ |
@@ -419,7 +419,7 @@ import C from "crypto-js";
 
 **静态方法**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name                             | Description                       | Type     | Required | HarmonyOS Support | Notes                                                                          |
 | :------------------------------- | --------------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------------------------ |
@@ -431,7 +431,7 @@ import C from "crypto-js";
 
 **静态方法**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name                       | Description                 | Type     | Required | HarmonyOS Support | Notes                                                                          |
 | :------------------------- | --------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------------------------ |
@@ -443,7 +443,7 @@ import C from "crypto-js";
 
 **静态方法**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name                          | Description                     | Type     | Required | HarmonyOS Support | Notes                                                                          |
 | :---------------------------- | ------------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------------------------ |
@@ -455,7 +455,7 @@ import C from "crypto-js";
 
 **静态方法**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name                          | Description                    | Type     | Required | HarmonyOS Support | Notes                                                                          |
 | :---------------------------- | ------------------------------ | -------- | -------- | ----------------- | ------------------------------------------------------------------------------ |
@@ -467,7 +467,7 @@ import C from "crypto-js";
 
 **静态方法**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name                                | Description                          | Type     | Required | HarmonyOS Support | Notes                                                                          |
 | :---------------------------------- | ------------------------------------ | -------- | -------- | ----------------- | ------------------------------------------------------------------------------ |
@@ -479,7 +479,7 @@ import C from "crypto-js";
 
 **属性**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name    | Description                          | Type   | Required | HarmonyOS Support |
 | :------ | ------------------------------------ | ------ | -------- | ----------------- |
@@ -488,7 +488,7 @@ import C from "crypto-js";
 
 **API**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name     | Description                                                                    | Type     | Required | HarmonyOS Support |
 | :------- | ------------------------------------------------------------------------------ | -------- | -------- | ----------------- |
@@ -500,7 +500,7 @@ import C from "crypto-js";
 
 **静态方法**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name               | Description    | Type     | Required | HarmonyOS Support |
 | :----------------- | -------------- | -------- | -------- | ----------------- |
@@ -511,7 +511,7 @@ import C from "crypto-js";
 
 **静态方法**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name                             | Description          | Type     | Required | HarmonyOS Support |
 | :------------------------------- | -------------------- | -------- | -------- | ----------------- |
@@ -522,7 +522,7 @@ import C from "crypto-js";
 
 **静态方法**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name                              | Description          | Type     | Required | HarmonyOS Support | Notes                                                                   |
 | :-------------------------------- | -------------------- | -------- | -------- | ----------------- | ----------------------------------------------------------------------- |
@@ -533,7 +533,7 @@ import C from "crypto-js";
 
 **静态方法**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name                  | Description          | Type     | Required | HarmonyOS Support | Notes                                                                   |
 | :-------------------- | -------------------- | -------- | -------- | ----------------- | ----------------------------------------------------------------------- |
@@ -543,7 +543,7 @@ import C from "crypto-js";
 
 **静态方法**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name                 | Description                        | Type     | Required | HarmonyOS Support |
 | :------------------- | ---------------------------------- | -------- | -------- | ----------------- |
@@ -552,7 +552,7 @@ import C from "crypto-js";
 
 **API**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name    | Description                        | Type     | Required | HarmonyOS Support |
 | :------ | ---------------------------------- | -------- | -------- | ----------------- |
@@ -562,7 +562,7 @@ import C from "crypto-js";
 
 **静态方法**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name                 | Description                        | Type     | Required | HarmonyOS Support |
 | :------------------- | ---------------------------------- | -------- | -------- | ----------------- |
@@ -571,7 +571,7 @@ import C from "crypto-js";
 
 **API**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name    | Description                        | Type     | Required | HarmonyOS Support |
 | :------ | ---------------------------------- | -------- | -------- | ----------------- |
@@ -581,7 +581,7 @@ import C from "crypto-js";
 
 **静态方法**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name                       | Description                                 | Type     | Required | HarmonyOS Support |
 | :------------------------- | ------------------------------------------- | -------- | -------- | ----------------- |
@@ -594,7 +594,7 @@ import C from "crypto-js";
 
 **静态方法**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name                      | Description                           | Type     | Required | HarmonyOS Support |
 | :------------------------ | ------------------------------------- | -------- | -------- | ----------------- |

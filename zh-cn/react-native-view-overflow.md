@@ -73,7 +73,7 @@ export function ViewOverflowDemo() {
 请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[react-native-view-overflow Releases](https://github.com/react-native-oh-library/react-native-view-overflow/releases)
 
 ## 属性
-[!tip] 该库作为容器组件使用同View组件，可以让子控件溢出到父布局之外展示的效果；使用公共属性即可，不涉及私有属性及api方法。
+[!TIP] 该库作为容器组件使用同View组件，可以让子控件溢出到父布局之外展示的效果；使用公共属性即可，不涉及私有属性及api方法。
 
 ## 遗留问题
 

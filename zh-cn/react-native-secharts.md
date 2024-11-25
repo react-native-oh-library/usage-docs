@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
 
 ## Link
 
-> [!tip] 本库依赖的@react-native-oh-tpl/react-native-webview 使用的版本为 13.10.2-0.2.0
+> [!TIP] 本库依赖的@react-native-oh-tpl/react-native-webview 使用的版本为 13.10.2-0.2.0
 
 本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-webview 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
 
@@ -133,9 +133,9 @@ const styles = StyleSheet.create({
 
 ## 属性
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name              | Description                                                                                                                            | Type     | Required | Platform | HarmonyOS Support |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | ----------------- |
@@ -148,9 +148,9 @@ const styles = StyleSheet.create({
 
 ## 实例方法
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Prop        | Description                                                                                                                                                                   | Type     | Required | Platform | HarmonyOS Support |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | ----------------- |

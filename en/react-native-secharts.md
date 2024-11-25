@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
 
 ## Link
 
-> [!tip] This library depends on @react-native-oh-tpl/react-native-webview 13.10.2-0.2.0
+> [!TIP] This library depends on @react-native-oh-tpl/react-native-webview 13.10.2-0.2.0
 
 The HarmonyOS implementation of this library depends on the native code from @react-native-oh-tpl/react-native-webview. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly.
 
@@ -133,9 +133,9 @@ This document is verified based on the following versions:
 
 ## Properties
 
-> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name              | Description                                                                                                                            | Type     | Required | Platform | HarmonyOS Support |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | ----------------- |
@@ -148,9 +148,9 @@ This document is verified based on the following versions:
 
 ## Static Methods
 
-> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Prop        | Description                                                                                                                                                                   | Type     | Required | Platform | HarmonyOS Support |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | ----------------- |

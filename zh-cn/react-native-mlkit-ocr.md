@@ -261,7 +261,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 
 ### 5.应用权限申请
 
-> [!tip] "ohos.permission.INTERNET"权限等级为<B>normal</B>，授权方式为<B>system_grant</B>，[使用 ACL 签名的配置指导](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/signing-0000001587684945-V3#section157591551175916)
+> [!TIP] "ohos.permission.INTERNET"权限等级为<B>normal</B>，授权方式为<B>system_grant</B>，[使用 ACL 签名的配置指导](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/signing-0000001587684945-V3#section157591551175916)
 
 在 `YourProject/entry/src/main/module.json5`补上配置
 
@@ -309,9 +309,9 @@ ohpm install
 
 ## API
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | NAME         | Description                                                             | TYPE | Required | Platform | HarmonyOS Support |
 | ---------------- | ------------------------------------------ |--------------------------------- | ------ | -------- | -------- |

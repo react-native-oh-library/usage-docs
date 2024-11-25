@@ -458,9 +458,9 @@ Check the release version information in the release address of the third-party 
 
 ### Permission Requirements
 
-> [!tip] 如需自建项目使用华为地图可以跳过以下第一步，并前往[华为开发者联盟](https://developer.huawei.com/consumer/cn/wiki/index.php)平台申请对应项目和应用程序
+> [!TIP] 如需自建项目使用华为地图可以跳过以下第一步，并前往[华为开发者联盟](https://developer.huawei.com/consumer/cn/wiki/index.php)平台申请对应项目和应用程序
 
-> [!tip] 详细配置参考华为开发者官网[地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appgallery-connect-0000001751989088)
+> [!TIP] 详细配置参考华为开发者官网[地图服务](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/appgallery-connect-0000001751989088)
 
 以下是示例项目配置
 
@@ -545,9 +545,9 @@ Check the release version information in the release address of the third-party 
 
 ## MapView
 
-> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 ### Properties
 
@@ -635,9 +635,9 @@ Check the release version information in the release address of the third-party 
 
 ## Marker
 
-> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 ### Properties
 
@@ -683,9 +683,9 @@ Check the release version information in the release address of the third-party 
 
 ## Polyline
 
-> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 ### Properties
 
@@ -709,9 +709,9 @@ Check the release version information in the release address of the third-party 
 
 ## Polygon
 
-> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 ### Properties
 
@@ -737,9 +737,9 @@ Check the release version information in the release address of the third-party 
 
 ## Circle
 
-> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 ### Properties
 
@@ -759,9 +759,9 @@ Check the release version information in the release address of the third-party 
 
 ## Overlay
 
-> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 ### Properties
 
@@ -781,9 +781,9 @@ Check the release version information in the release address of the third-party 
 
 ## UrlTile & WMSTile
 
-> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 ### Properties
 
@@ -805,9 +805,9 @@ Check the release version information in the release address of the third-party 
 
 ## Callout
 
-> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 ### Properties
 
@@ -818,9 +818,9 @@ Check the release version information in the release address of the third-party 
 
 ## Geojson
 
-> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 ### Properties
 
@@ -848,9 +848,9 @@ Check the release version information in the release address of the third-party 
 
 > **Note**: Supported on Google Maps only.
 
-> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 ### Properties
 
@@ -873,11 +873,11 @@ Check the release version information in the release address of the third-party 
 
 ## Cluster
 
-> [!tip] 点聚合组件是新开发组件，在原库上不存在。
+> [!TIP] 点聚合组件是新开发组件，在原库上不存在。
 
-> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 ### Properties
 

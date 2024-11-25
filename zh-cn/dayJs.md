@@ -9,7 +9,7 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/iamkun/dayjs?tab=readme-ov-file)
+> [!TIP] [Github 地址](https://github.com/iamkun/dayjs?tab=readme-ov-file)
 
 ## 安装与使用
 
@@ -168,7 +168,7 @@ export default DayJsDemo;
 
 如下是已验证接口展示:
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 #### **Get + Set**
 

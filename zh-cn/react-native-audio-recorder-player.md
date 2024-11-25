@@ -12,7 +12,7 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-audio-recorder-player)
+> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-audio-recorder-player)
 
 ## 安装与使用
 
@@ -533,7 +533,7 @@ export default Page;
 
 方法一：通过 har 包引入（推荐）
 
-> [!tip] har 包位于三方库安装路径的 `harmony` 文件夹下。
+> [!TIP] har 包位于三方库安装路径的 `harmony` 文件夹下。
 
 打开 `entry/oh-package.json5`，添加以下依赖
 
@@ -554,7 +554,7 @@ ohpm install
 ```
 方法二：直接链接源码
 
-> [!tip] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
+> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
 ### 配置 CMakeLists 和引入 RNAudioRecorderPlayerPackage
 
@@ -687,9 +687,9 @@ ohpm install
 ```
 ## API
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name              | Description                                                                                                                                              | Type                                                                                                                | Required | Platform | HarmonyOS Support |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------------- |

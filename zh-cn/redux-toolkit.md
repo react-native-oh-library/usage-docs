@@ -12,11 +12,11 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/reduxjs/redux-toolkit)
+> [!TIP] [Github 地址](https://github.com/reduxjs/redux-toolkit)
 
 ## 安装与使用
 
-> [!tip] 该库依赖react-redux，可参考[react-redux文档](./react-redux.md)安装
+> [!TIP] 该库依赖react-redux，可参考[react-redux文档](./react-redux.md)安装
 
 请到三方库的 Releases 发布地址查看配套的版本信息：[redux-toolkit Releases](https://github.com/reduxjs/redux-toolkit/releases)，并下载适用版本的 tgz 包。
 进入到工程目录并输入以下命令：
@@ -158,9 +158,9 @@ export function Counter() {
 
 ## 方法和属性
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 >
 > 详情见 [redux-toolkit 源库地址](https://github.com/reduxjs/redux-toolkit)
 

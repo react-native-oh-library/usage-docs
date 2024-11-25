@@ -13,7 +13,7 @@
 </p>
 
 
-> [!tip] [Github 地址](https://github.com/xotahal/react-native-material-ui)
+> [!TIP] [Github 地址](https://github.com/xotahal/react-native-material-ui)
 
 ## 安装与使用
 

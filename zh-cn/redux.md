@@ -9,7 +9,7 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/reduxjs/redux)
+> [!TIP] [Github 地址](https://github.com/reduxjs/redux)
 
 ## 安装与使用
 

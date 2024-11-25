@@ -260,7 +260,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 
 ### 5. Permission Requirements
 
-> [!tip] "ohos.permission.INTERNET"权限等级为<B>normal</B>，授权方式为<B>system_grant</B>，[使用 ACL 签名的配置指导](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/signing-0000001587684945-V3#section157591551175916)
+> [!TIP] "ohos.permission.INTERNET"权限等级为<B>normal</B>，授权方式为<B>system_grant</B>，[使用 ACL 签名的配置指导](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/signing-0000001587684945-V3#section157591551175916)
 
 Add configuration to `YourProject/entry/src/main/module.json5`
 
@@ -304,9 +304,9 @@ Check the release version information in the release address of the third-party 
 
 ## API
 
-> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | NAME                 | Description      | TYPE     | Required | Platform | HarmonyOS Support |
 | -------------------- | ---------------- | -------- | -------- | -------- | ----------------- |

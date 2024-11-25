@@ -9,7 +9,7 @@
     </a>
 </p>
 
-> [!tip] [GitHub address](https://github.com/reduxjs/redux)
+> [!TIP] [GitHub address](https://github.com/reduxjs/redux)
 
 ## Installation and Usage
 

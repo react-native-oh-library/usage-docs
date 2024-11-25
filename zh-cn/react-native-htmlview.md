@@ -96,11 +96,11 @@ export default HtmlViewExample;
 
 ## 属性
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-> [!tip] 该库为UI组件库，可以在该库的标签下，使原本无法在RN框架生效的Html写法，可以实现对应的功能。
+> [!TIP] 该库为UI组件库，可以在该库的标签下，使原本无法在RN框架生效的Html写法，可以实现对应的功能。
 
 | Name            | Description                                                  | Type   | Required | Platform | HarmonyOS Support |
 | --------------- | ------------------------------------------------------------ | ------ | -------- | -------- | ----------------- |

@@ -22,11 +22,11 @@ You can evaluate existing documentation, make simple changes, report quality iss
 
 ## Overview of RNOH Third-Party Libraries
 
-> [!tip] NPM Public Repository Coordinates: @react-native-oh-tpl
+> [!TIP] NPM Public Repository Coordinates: @react-native-oh-tpl
 
-> [!tip] If the "Supports New Architecture" column is marked with "-", it indicates that the library does not involve the new architecture or old architecture.
+> [!TIP] If the "Supports New Architecture" column is marked with "-", it indicates that the library does not involve the new architecture or old architecture.
 
-> [!tip] f the "HarmonyOS Releases" column is marked with "-", it indicates that the library did not require code modification during adaptation to the HarmonyOS platform and can directly use the source library code.
+> [!TIP] f the "HarmonyOS Releases" column is marked with "-", it indicates that the library did not require code modification during adaptation to the HarmonyOS platform and can directly use the source library code.
 
 | NO. | Source Library Name                                                                                                                        | Original Library Baseline Version   | New Architecture Supported in Source Library | HarmonyOS Releases                                                                                                                                           | Documentation Link                                           |
 | ---- | ----------------------------------------------------------------------------------------------------------------------------- | -------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |

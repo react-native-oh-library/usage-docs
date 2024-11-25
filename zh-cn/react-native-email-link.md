@@ -12,7 +12,7 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-email-link)
+> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-email-link)
 
 ## 安装与使用
 

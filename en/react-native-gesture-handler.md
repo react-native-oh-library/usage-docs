@@ -12,7 +12,7 @@
     </a>
 </p>
 
-> [!tip] [Github address](https://github.com/react-native-oh-library/react-native-harmony-gesture-handler)
+> [!TIP] [Github address](https://github.com/react-native-oh-library/react-native-harmony-gesture-handler)
 
 ## Installation and Usage
 
@@ -251,7 +251,7 @@ To use this repository, you need to use the correct React-Native and RNOH versio
 
 Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-gesture-handler Releases](https://github.com/react-native-oh-library/react-native-harmony-gesture-handler/releases)
 
-> [!tip] [Official Documentation](https://docs.swmansion.com/react-native-gesture-handler/docs/)
+> [!TIP] [Official Documentation](https://docs.swmansion.com/react-native-gesture-handler/docs/)
 
 ## Gestures
 
@@ -261,18 +261,18 @@ GestureDetector is a major component of the Gesture Handler library version 2.x.
 
 #### Gesture detector Properties
 
-> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name   | Description                                                                                  | Type                             | Required | Platform | HarmonyOS Support |
 | ---------- | ------------------------------------------------------------------------------------------------ | ------------------------------------ | -------- | -------- | -------- |
 | gesture    | A gesture object containing the configuration and callbacks.                                     | base gestures or any ComposedGesture | yes      | All      | yes      |
 
 #### Gesture Method
-> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | method | Description                                                                                  | Type                             | Platform | HarmonyOS Support |
 | ---------- | ------------------------------------------------------------------------------------------------ | ------------------------------------ | -------- | -------- |
@@ -356,9 +356,9 @@ Properties
 > [!WARNING] Consider using the new [gestures API](https://docs.swmansion.com/react-native-gesture-handler/docs/gestures/gesture) instead. The old API is not actively supported and is not receiving the new features. Check out [RNGH 2.0 section in Introduction](https://docs.swmansion.com/react-native-gesture-handler/docs/#rngh-20) for more information.
 
 ### Gesture handlers General Properties
-> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | NAME                | Description                                                                                                                                   | TYPE                     | Required | Platform | HarmonyOS Support |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | -------- | -------- | -------- |
@@ -370,9 +370,9 @@ Properties
 ### Gesture handlers common event data
 
 The following is the common event data for the `onGestureEvent` and `onHandlerStateChange` callbacks.
-> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | NAME         | Description                                                             | TYPE | Platform | HarmonyOS Support |
 | ---------------- | --------------------------------------------------------------------------- | ------ | -------- | -------- |
@@ -382,9 +382,9 @@ The following is the common event data for the `onGestureEvent` and `onHandlerSt
 ### PanGestureHandler
 
 #### PanGestureHandler Properties
-> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | NAME                       | Description                                                                                                                                                                             | TYPE | Required | Platform | HarmonyOS Support |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------- | -------- | -------- |
@@ -425,9 +425,9 @@ Y coordinate of the current position of the pointer (finger or a leading pointer
 ### TapGestureHandler
 
 #### TapGestureHandler Properties
-> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | NAME      | Description                                                                                                                    | TYPE | Required | Platform | HarmonyOS Support |
 | ------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ------ | -------- | -------- | -------- |

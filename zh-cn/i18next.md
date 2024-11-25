@@ -9,7 +9,7 @@
     </a>
 </p>
 
->[!tip] [Github 地址](https://github.com/i18next/i18next)
+>[!TIP] [Github 地址](https://github.com/i18next/i18next)
 
 
 ## 安装与使用
@@ -34,7 +34,7 @@ yarn add i18next@23.7.16
 
 下面的代码展示了这个库的基本使用场景：
 
-> [!tip] 在下面的 demo 中，本库需要与 react-i18next 一起使用，react-i18next 的使用方式请见[react-i18next 文档](/zh-cn/react-i18next.md)
+> [!TIP] 在下面的 demo 中，本库需要与 react-i18next 一起使用，react-i18next 的使用方式请见[react-i18next 文档](/zh-cn/react-i18next.md)
 
 ```js
 import React from 'react';  
@@ -118,9 +118,9 @@ export default I18NextDemo;
 
 ## API
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 详情见 [i18next源库地址](https://github.com/i18next/i18next)
 

@@ -9,7 +9,7 @@
     </a>
 </p>
 
-> [!tip] [GitHub address](https://github.com/styled-components/styled-components)
+> [!TIP] [GitHub address](https://github.com/styled-components/styled-components)
 
 ## Installation and Usage
 

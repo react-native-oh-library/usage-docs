@@ -12,11 +12,11 @@
     </a>
 </p>
 
-> [!tip] [Github address](https://github.com/reduxjs/redux-toolkit)
+> [!TIP] [Github address](https://github.com/reduxjs/redux-toolkit)
 
 ## Installation and Usage
 
-> [!tip] This library depends on react-redux，Can be referred to[react-redux documentation](./react-redux.md)install
+> [!TIP] This library depends on react-redux，Can be referred to[react-redux documentation](./react-redux.md)install
 
 Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [redux-toolkit Releases](redux-toolkit Releases](https://github.com/reduxjs/redux-toolkit/releases).
 
@@ -156,9 +156,9 @@ This document is verified based on the following versions:
 
 ## Properties And Methods
 
-> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 >
 > See details [redux-toolkit Source library address](https://github.com/reduxjs/redux-toolkit)
 

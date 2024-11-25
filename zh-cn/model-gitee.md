@@ -2,49 +2,40 @@
 
 > [!ATTENTION] 使用模板时请将后面带有 (删除) 的语句删除。<>内是需要修改的内容。(删除)
 
-> 模板版本：v0.2.2
+> 模板版本：v0.3.0
 
 <p align="center">
   <h1 align="center"> <code><原库 npm 包名></code> </h1>
 </p>
-<p align="center">
-    <a href="https://github.com/<原库源码仓地址>">
-        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|<如原库还支持其他平台，添加在此处>|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
-    </a>
-    <a href="https://github.com/<原库源码仓LICENSE的路径（如有）>">
-        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
-        <!-- <img src="https://img.shields.io/badge/license-Apache-blue.svg" alt="License" /> -->
-    </a>
-</p>
 
-> [!TIP] [Github 地址](https://github.com/< HarmonyOS 化源码仓地址>)
+本项目基于 [原库 npm 名称@x.x.x](原库仓库连接)
 
-如：
+> [Gitee 仓库](https://gitee.com/openharmony-sig/rntpc_react-native-linear-gradient)
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-safe-area-context)（删除）
+> [Gitee Releases: @react-native-ohos/react-native-linear-gradient](https://gitee.com/openharmony-sig/rntpc_react-native-linear-gradient/releases)
+
+> [Github 仓库(已废弃)](https://github.com/react-native-oh-library/react-native-linear-gradient)
+
+> [Github Releases(<= 3.0.0-0.5.0): @react-native-oh-tpl/react-native-linear-gradient](https://github.com/react-native-oh-library/react-native-linear-gradient/releases)
 
 ## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/<库名> Releases](https://github.com/<仓库地址>/releases)，并下载适用版本的 tgz 包。
-
-如：请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-safe-area-context Releases](https://github.com/react-native-oh-library/react-native-safe-area-context/releases)，并下载适用版本的 tgz 包。（删除）
+`该第三方库已迁移至 Gitee，且支持直接从 npm 下载，新的包名为：@react-native-ohos/库名`
 
 进入到工程目录并输入以下命令：
-
-> [!TIP] # 处替换为 tgz 包的路径
 
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/<库名>@file:#
+npm install @react-native-ohos/库名
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/<库名>@file:#
+yarn add @react-native-ohos/库名
 ```
 
 <!-- tabs:end -->
@@ -78,33 +69,34 @@ const App = () => {
 export default App;
 ```
 
-## 使用 Codegen（如本库已适配了 Codegen ）
+## Manual Link
 
-本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/zh-cn/codegen.md)。
+此步骤为手动配置原生依赖项的指导。
 
-## Link
+首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`。
 
-目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+### 1. Overrides RN SDK
 
-首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
+为了让工程依赖同一个版本的 RN SDK，需要在工程根目录的 `oh-package.json5` 添加 overrides 字段，指向工程需要使用的 RN SDK 版本。替换的版本既可以是一个具体的版本号，也可以是一个模糊版本，还可以是本地存在的 HAR 包或源码目录。
 
-### 1.在工程根目录的 `oh-package.json5` 添加 overrides 字段
+关于该字段的作用请阅读[官方说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/ide-oh-package-json5-V5#zh-cn_topic_0000001792256137_overrides)
 
 ```json
 {
-  ...
   "overrides": {
-    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+    "@rnoh/react-native-openharmony": "^0.72.38" // ohpm 在线版本
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony.har" // 指向本地 har 包的路径
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony" // 指向源码路径
   }
 }
 ```
 
-### 2.引入原生端代码
+### 2. 引入原生端代码
 
 目前有两种方法：
 
-1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
-2. 直接链接源码。
+- 通过 har 包引入；
+- 直接链接源码。
 
 方法一：通过 har 包引入（推荐）
 
@@ -114,15 +106,14 @@ export default App;
 
 ```json
 "dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/<Package_Name>": "file:../../node_modules/@react-native-oh-tpl/<Package_Name>/harmony/<xxx>.har"
-    // 提示: "@react-native-oh-tpl/react-native-safe-area-context": "file:../../node_modules/@react-native-oh-tpl/react-native-safe-area-context/harmony/safe_area.har"（删除）
+    "@react-native-ohos/<Package_Name>": "file:../../node_modules/@react-native-ohos/<Package_Name>/harmony/<xxx>.har"
+    // 提示: "@react-native-ohos/react-native-safe-area-context": "file:../../node_modules/@react-native-ohos/react-native-safe-area-context/harmony/safe_area.har"（删除）
   }
 ```
 
 点击右上角的 `sync` 按钮
 
-或者在终端执行：
+或者在命令行终端执行：
 
 ```bash
 cd entry
@@ -135,40 +126,18 @@ ohpm install
 
 ### 3.配置 CMakeLists 和引入 xxxPackge
 
+**若涉及接入 codegen-lib 导致的配置项新增，需要在配置项前明确声明：> [!TIP] 版本 vx.x.x 及以上需要**（删除）
+
 打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
 
 ```diff
-project(rnapp)
-cmake_minimum_required(VERSION 3.4.1)
-set(CMAKE_SKIP_BUILD_RPATH TRUE)
-set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
 + set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
-set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
-set(LOG_VERBOSITY_LEVEL 1)
-set(CMAKE_ASM_FLAGS "-Wno-error=unused-command-line-argument -Qunused-arguments")
-set(CMAKE_CXX_FLAGS "-fstack-protector-strong -Wl,-z,relro,-z,now,-z,noexecstack -s -fPIE -pie")
-set(WITH_HITRACE_SYSTRACE 1) # for other CMakeLists.txt files to use
-add_compile_definitions(WITH_HITRACE_SYSTRACE)
-
-add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
 # RNOH_BEGIN: manual_package_linking_1
-add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/react-native-safe-area-context/src/main/cpp" ./safe-area)
++ add_subdirectory("${OH_MODULES}/@react-native-ohos/react-native-safe-area-context/src/main/cpp" ./safe-area)
 # RNOH_END: manual_package_linking_1
 
-file(GLOB GENERATED_CPP_FILES "./generated/*.cpp")
-
-add_library(rnoh_app SHARED
-    ${GENERATED_CPP_FILES}
-    "./PackageProvider.cpp"
-    "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
-)
-target_link_libraries(rnoh_app PUBLIC rnoh)
-
 # RNOH_BEGIN: manual_package_linking_2
-target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 + target_link_libraries(rnoh_app PUBLIC rnoh_safe_area)
 # RNOH_END: manual_package_linking_2
 ```
@@ -178,7 +147,6 @@ target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 ```diff
 #include "RNOH/PackageProvider.h"
 #include "generated/RNOHGeneratedPackage.h"
-#include "SamplePackage.h"
 + #include "SafeAreaViewPackage.h"
 
 using namespace rnoh;
@@ -186,7 +154,6 @@ using namespace rnoh;
 std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
     return {
         std::make_shared<RNOHGeneratedPackage>(ctx),
-        std::make_shared<SamplePackage>(ctx),
 +       std::make_shared<SafeAreaViewPackage>(ctx),
     };
 }
@@ -200,7 +167,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ```diff
   ...
-+ import { SAFE_AREA_VIEW_TYPE, SafeAreaView, SAFE_AREA_PROVIDER_TYPE, SafeAreaProvider } from "@react-native-oh-tpl/react-native-safe-area-context"
++ import { SAFE_AREA_VIEW_TYPE, SafeAreaView, SAFE_AREA_PROVIDER_TYPE, SafeAreaProvider } from "@react-native-ohos/react-native-safe-area-context"
 
 @Builder
 export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
@@ -216,42 +183,37 @@ export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
 ...
 ```
 
-> [!TIP] 本库使用了混合方案，需要添加组件名。（如使用混合方案）
-
 在`entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets` 找到常量 `arkTsComponentNames` 在其数组里添加组件名
 
 ```diff
 const arkTsComponentNames: Array<string> = [
   SampleView.NAME,
-  GeneratedSampleView.NAME,
-  PropsDisplayer.NAME,
 + RNC_VIDEO_TYPE
   ];
 ```
 
 **提示：TurboModule**（删除）
 
-### 5.在 ArkTs 侧引入 xxx Package
+### 5. 在 ArkTs 侧引入 xxx Package
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
   ...
-+ import {SafeAreaViewPackage} from '@react-native-oh-tpl/react-native-safe-area-context/ts';
++ import {SafeAreaViewPackage} from '@react-native-ohos/react-native-safe-area-context/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
-    new SamplePackage(ctx),
 +   new SafeAreaViewPackage(ctx)
   ];
 }
 ```
 
-### 6.运行
+### 6. 运行
 
 点击右上角的 `sync` 按钮
 
-或者在终端执行：
+或者在命令行终端执行：
 
 ```bash
 cd entry
@@ -264,21 +226,19 @@ ohpm install
 
 ### 兼容性
 
-**已发 Releases 的库**（删除）
+**修改了原库代码的库使用下述描述**（删除）
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[<HarmonyOS npm 包名> Releases](https://gitee.com/openharmony-sig/仓库名/releases)
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[<HarmonyOS npm 包名> Releases](https://github.com/<仓库地址>/releases)
+提示：[@react-native-ohos/react-native-linear-gradient Releases](https://gitee.com/openharmony-sig/rntpc_react-native-linear-gradient/releases)（删除）
 
-提示：[@react-native-oh-tpl/react-native-safe-area-context Releases](https://github.com/react-native-oh-library/react-native-safe-area-context/releases)（删除）
-
-**未发 Releases 使用原库的库**（删除）
+**未修改原库代码的库使用下述描述**（删除）
 
 本文档内容基于以下版本验证通过：
 
 (示例)
 
-1. RNOH: 0.72.27; SDK: HarmonyOS-Next-DB1 5.0.0.29(SP1); IDE: DevEco Studio 5.0.3.403; ROM: 3.0.0.25;
+1. RNOH: 0.72.38; SDK: HarmonyOS-5.0.0(API12); IDE: DevEco Studio 5.0.3.906; ROM: NEXT.0.0.71;
 
 ### 权限要求（如有）
 
@@ -334,6 +294,6 @@ Needed for Android and harmony to work properly with assets, iOS will ignore it.
 
 ## 开源协议
 
-本项目基于 [XXX License (XXX)](https://github.com/xxx/xxx/blob/main/LICENSE.md) ，请自由地享受和参与开源。
+本项目基于 [XXX License (XXX)](gitee仓库的LICENSE链接) ，请自由地享受和参与开源。
 
-例子：本项目基于 [The MIT License (MIT)](https://github.com/callstack/react-native-slider/blob/main/LICENSE.md) ，请自由地享受和参与开源。(删除)
+例子：本项目基于 [The MIT License (MIT)](https://gitee.com/openharmony-sig/rntpc_react-native-linear-gradient/blob/master/LICENSE) ，请自由地享受和参与开源。(删除)

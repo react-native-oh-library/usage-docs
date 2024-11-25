@@ -9,7 +9,7 @@
     </a>
 </p>
 
->[!tip] [Github address](https://github.com/i18next/i18next)
+>[!TIP] [Github address](https://github.com/i18next/i18next)
 
 
 ## Installation and Usage
@@ -34,7 +34,7 @@ yarn add i18next@23.7.16
 
 The following code shows the basic use scenario of the repository:
 
-> [!tip] In the following demo, this library needs to be used together with react-i18next，Please refer to the [react-i18next documentation] for instructions on how to use react-i18next(/zh-cn/react-i18next.md)
+> [!TIP] In the following demo, this library needs to be used together with react-i18next，Please refer to the [react-i18next documentation] for instructions on how to use react-i18next(/zh-cn/react-i18next.md)
 
 ```js
 import React from 'react';  
@@ -118,9 +118,9 @@ This document is verified based on the following versions:
 
 ## API
 
-> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 details [i18next address](https://github.com/i18next/i18next)
 

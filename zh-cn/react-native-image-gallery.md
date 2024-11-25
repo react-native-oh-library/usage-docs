@@ -12,7 +12,7 @@
     </a>
 </p>
 
->   [!tip]  
+>   [!TIP]  
 >
 > [Github 地址](https://github.com/react-native-oh-library/react-native-image-gallery/tree/sig)
 

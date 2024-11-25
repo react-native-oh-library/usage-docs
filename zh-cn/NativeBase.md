@@ -123,9 +123,9 @@ const styles = StyleSheet.create({
 
 以下为目前已支持的组件属性：
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 Yes 表示 HarmonyOS 平台支持该属性；No 则表示不支持；Web 表示仅Web支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 Yes 表示 HarmonyOS 平台支持该属性；No 则表示不支持；Web 表示仅Web支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 **AspectRatio**: AspectRatio 控制节点或子组件未定义维度的大小
 |         Name         |                         Description                          |         Type          | Required | Platform | HarmonyOS Support |

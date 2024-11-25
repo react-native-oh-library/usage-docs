@@ -11,7 +11,7 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/alibaba/hooks)
+> [!TIP] [Github 地址](https://github.com/alibaba/hooks)
 
 ## 📚 文档
 
@@ -115,9 +115,9 @@ export function WhyDidYouUpdate() {
 
 ## 属性
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 以下属性已验证，详情见 [ahooks官方文档](https://ahooks.js.org/zh-CN/)
 

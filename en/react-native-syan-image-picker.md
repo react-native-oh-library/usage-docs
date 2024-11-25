@@ -352,9 +352,9 @@ This document is verified based on the following versions:
 
 
 ## ImagePickerOption(选择图片或数据的配置项)
-> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                            | Description                                                  | Type    | Required |  Platform   | HarmonyOS Support |
 | ------------------------------- | ------------------------------------------------------------ | ------- | :------: | :---------: | :---------------: |
@@ -388,9 +388,9 @@ This document is verified based on the following versions:
 | showSelectedIndex               | 是否显示序号， 默认不显示                                    | boolean |   yes    | iOS/Android |        no         |
 
 ## SelectedPhoto（选择的图片或视频的返回结果）
-> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name         | Description                                                  | Type   | Required | Platform    | HarmonyOS Support |
 | ------------ | ------------------------------------------------------------ | ------ | -------- | ----------- | ----------------- |
@@ -403,9 +403,9 @@ This document is verified based on the following versions:
 | base64       | 图片的 base64 编码，如果 enableBase64 设置 false，则不返回该属性 | string | yes      | iOS/Android | yes               |
 
 ## API
-> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                 | Description                        | Type                                                     | Required | Platform    | HarmonyOS Support |
 | -------------------- | ---------------------------------- | -------------------------------------------------------- | -------- | ----------- | ----------------- |

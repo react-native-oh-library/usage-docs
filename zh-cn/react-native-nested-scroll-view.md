@@ -121,9 +121,9 @@ ohpm install
 
 Android的ScrollView并不支持像iOS的ScrollView那样的嵌套滚动，在React Native中直接使用原生的ScrollView实现嵌套滚动时，会出现一些滚动上的问题，例如嵌套滚动不流畅或无法正确响应滚动事件等，因此Android使用react-native-nested-scroll-view来解决嵌套滚动的问题；而iOS使用的是React Native中的ScrollView来实现嵌套滚动，HarmonyOS与iOS保持一致，接受所有[React Native ScrollView](https://reactnative.dev/docs/scrollview#props) 组件的Props
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 常用属性如下：
 
@@ -158,9 +158,9 @@ Android的ScrollView并不支持像iOS的ScrollView那样的嵌套滚动，在Re
 
 Android的ScrollView并不支持像iOS的ScrollView那样的嵌套滚动，在React Native中直接使用原生的ScrollView实现嵌套滚动时，会出现一些滚动上的问题，例如嵌套滚动不流畅或无法正确响应滚动事件等，因此Android使用react-native-nested-scroll-view来解决嵌套滚动的问题；而iOS使用的是React Native中的ScrollView来实现嵌套滚动，HarmonyOS与iOS保持一致，接受所有[React Native ScrollView](https://reactnative.dev/docs/scrollview#methods) 组件的Methods
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |

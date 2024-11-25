@@ -17,7 +17,7 @@
 
 ## Installation and Usage
 
-> [!tip] This library depends on react-native-maps，Can be referred to [react-native-maps documentation](./react-native-maps.md) install
+> [!TIP] This library depends on react-native-maps，Can be referred to [react-native-maps documentation](./react-native-maps.md) install
 
 Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-maps-directions Releases](https://github.com/react-native-oh-library/react-native-maps-directions/releases).
 

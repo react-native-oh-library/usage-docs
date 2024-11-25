@@ -9,7 +9,7 @@
     </a>
 </p>
 
-> [!tip] [Github address](https://github.com/lindell/JsBarcode)
+> [!TIP] [Github address](https://github.com/lindell/JsBarcode)
 
 ## Installation and Usage
 
@@ -43,7 +43,7 @@ The following code shows the basic use scenario of the repository:
 
 ### **With svg:**
 
-> [!tip] [jsbarcode库依赖react-native-svg库进行条形码展示, svg 当前仅实现部分属性，其余还未实现 HarmonyOS 化] > [!tip] [详见react-native-svg](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-svg.md)
+> [!TIP] [jsbarcode库依赖react-native-svg库进行条形码展示, svg 当前仅实现部分属性，其余还未实现 HarmonyOS 化] > [!TIP] [详见react-native-svg](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-svg.md)
 
 ```tsx
 import {ScrollView, StyleSheet, View, Text} from 'react-native';
@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
 
 ### **With canvas:**
 
-> [!tip] [react-native-canvas库暂未 HarmonyOS 化，当前无法使用canvas渲染，下面用法仅供参考]
+> [!TIP] [react-native-canvas库暂未 HarmonyOS 化，当前无法使用canvas渲染，下面用法仅供参考]
 
 ```js
 var JsBarcode = require("jsbarcode");
@@ -288,7 +288,7 @@ This document is verified based on the following versions:
 
 ## **All Options**
 
-> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name         | Description       | Type               | Required | HarmonyOS Support | Remark                                                                |
 | ------------ | ----------------- | ------------------ | -------- | ----------------- | --------------------------------------------------------------------- |

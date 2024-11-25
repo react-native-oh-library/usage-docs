@@ -12,13 +12,13 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/react-native-oh-library/react-native-svg)
+> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-svg)
 
 ## 安装与使用
 
-> [!tip] 本项目为 react-native-svg 的ArkTs版本，现已停止维护。
+> [!TIP] 本项目为 react-native-svg 的ArkTs版本，现已停止维护。
 
-> [!tip] 如需继续使用请移步至[react-native-svg-capi](/zh-cn/react-native-svg-capi.md) 使用CAPI版本的 react-native-svg。
+> [!TIP] 如需继续使用请移步至[react-native-svg-capi](/zh-cn/react-native-svg-capi.md) 使用CAPI版本的 react-native-svg。
 
 请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-svg Releases](https://github.com/react-native-oh-library/react-native-svg/releases) 。对于未发布到npm的旧版本，请参考[安装指南](/zh-cn/tgz-usage.md)安装tgz包。
 
@@ -229,9 +229,9 @@ ohpm install
 
 以下为目前已支持的组件属性：
 
-> [!tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 **Svg**：绘制组件的父组件
 
@@ -292,7 +292,7 @@ ohpm install
 
 **LinearGradient**：用于定义线性渐变
 
-> [!tip] 注： LinearGradient 目前仅支持 Path、Rect、Circle 组件，只支持在 fill 上使用，不支持 stroke
+> [!TIP] 注： LinearGradient 目前仅支持 Path、Rect、Circle 组件，只支持在 fill 上使用，不支持 stroke
 
 | Name |    Description    |      Type       | Required | Platform | HarmonyOS Support |
 | :--: | :---------------: | :-------------: | -------- | -------- | ----------------- |
@@ -311,11 +311,11 @@ ohpm install
 
 **Mask**：定义 alpha 蒙版，用于将当前对象合成到背景中
 
-> [!tip] 注： Mask 目前自有属性均不支持，仅支持 Path、Rect、Circle 组件的单一组件嵌套，不支持多组件嵌套
+> [!TIP] 注： Mask 目前自有属性均不支持，仅支持 Path、Rect、Circle 组件的单一组件嵌套，不支持多组件嵌套
 
 **Use**：该元素可以重复使用 SVG 元素
 
-> [!tip] 注： Use 目前仅支持 Path、Rect、Circle 组件
+> [!TIP] 注： Use 目前仅支持 Path、Rect、Circle 组件
 
 |  Name  |    Description    |      Type       | Required | Platform | HarmonyOS Support |
 | :----: | :---------------: | :-------------: | -------- | -------- | ----------------- |

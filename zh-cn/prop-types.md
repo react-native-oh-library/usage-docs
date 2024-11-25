@@ -9,7 +9,7 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/facebook/prop-types/tree/v15.8.1)
+> [!TIP] [Github 地址](https://github.com/facebook/prop-types/tree/v15.8.1)
 
 ## 安装与使用
 

@@ -9,7 +9,7 @@
     </a>
 </p>
 
-> [!tip] [Github 地址](https://github.com/lindell/JsBarcode)
+> [!TIP] [Github 地址](https://github.com/lindell/JsBarcode)
 
 ## 安装与使用
 
@@ -43,7 +43,7 @@ import JsBarCode from 'jsbarcode';
 
 ### **With svg:**
 
-> [!tip] [jsbarcode库依赖react-native-svg库进行条形码展示, svg 当前仅实现部分属性，其余还未实现 HarmonyOS 化] > [!tip] [详见react-native-svg](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-svg.md)
+> [!TIP] [jsbarcode库依赖react-native-svg库进行条形码展示, svg 当前仅实现部分属性，其余还未实现 HarmonyOS 化] > [!TIP] [详见react-native-svg](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-svg.md)
 
 ```tsx
 import {ScrollView, StyleSheet, View, Text} from 'react-native';
@@ -171,7 +171,7 @@ const styles = StyleSheet.create({
 
 ### **With canvas:**
 
-> [!tip] [react-native-canvas库暂未 HarmonyOS 化，当前无法使用canvas渲染，下面用法仅供参考]
+> [!TIP] [react-native-canvas库暂未 HarmonyOS 化，当前无法使用canvas渲染，下面用法仅供参考]
 
 ```js
 var JsBarcode = require("jsbarcode");
@@ -289,7 +289,7 @@ JsBarcode("#barcode", "29012343", {
 
 ## **All Options**
 
-> [!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 | Name         | Description       | Type               | Required | HarmonyOS Support | Remark                                                                |
 | ------------ | ----------------- | ------------------ | -------- | ----------------- | --------------------------------------------------------------------- |

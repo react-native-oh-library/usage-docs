@@ -211,9 +211,9 @@ export default MaterialButtons;
 
 ### 此组件有以下属性:
 ## **API（TextButton ）**
->[!tip] "Platform"列表示该属性在原三方库上支持的平台。
+>[!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
->[!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+>[!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 |          Name           |                    Description                    |                           Type                           | Required |  Platform   | HarmonyOS Support |
 |:-----------------------:| :-----------------------------------------------: | :------------------------------------------------------: | :------: | :---------: | :---------------: |
@@ -223,9 +223,9 @@ export default MaterialButtons;
 | **disabledTitleColor**  |       Button title color for disabled state       |                         String                           |    No    | iOS/Android |        Yes        |
 
 ## **API（RaisedTextButton）**
->[!tip] "Platform"列表示该属性在原三方库上支持的平台。
+>[!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
->[!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+>[!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 |          Name           |                    Description                    |                           Type                           | Required |  Platform   | HarmonyOS Support |
 |:-----------------------:| :-----------------------------------------------: | :------------------------------------------------------: | :------: | :---------: | :---------------: |
@@ -233,9 +233,9 @@ export default MaterialButtons;
 |   **rippleDuration**    |   Duration of the ripple effect in milliseconds   |                         Number                           |    No    | iOS/Android |        Yes        |
 
 ## **API（Common）**
->[!tip] "Platform"列表示该属性在原三方库上支持的平台。
+>[!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
->[!tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+>[!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
 |          Name           |                    Description                    |                           Type                           | Required |  Platform   | HarmonyOS Support |
 |:-----------------------:| :-----------------------------------------------: | :------------------------------------------------------: | :------: | :---------: | :---------------: |

@@ -1,6 +1,6 @@
 # 文档模板(删除)
 
-> [!ATTENTION] 使用模板时请将后面带有 (删除) 的语句删除。<>内是需要修改的内容。(删除)
+> [!ATTENTION] 使用模板时请将后面带有 (删除) 的语句删除。(删除)
 
 > 模板版本：v0.3.0
 
@@ -8,19 +8,16 @@
   <h1 align="center"> <code><原库 npm 包名></code> </h1>
 </p>
 
-本项目基于 [原库 npm 名称@x.x.x](原库仓库连接)
+本项目基于 [原库 npm 名称@x.x.x](原库仓库连接) 开发。
 
-> [Gitee 仓库](https://gitee.com/openharmony-sig/rntpc_react-native-linear-gradient)
+`该第三方库的仓库已迁移至 Gitee，且支持直接从 npm 下载，新的包名为：@react-native-ohos/react-native-linear-gradient，具体版本所属关系如下`
 
-> [Gitee Releases: @react-native-ohos/react-native-linear-gradient](https://gitee.com/openharmony-sig/rntpc_react-native-linear-gradient/releases)
+| Version                   | Package Name                                      | Repository         | Release                    |
+| ------------------------- | ------------------------------------------------- | ------------------ | -------------------------- |
+| <= 3.0.0-0.5.0@deprecated | @react-native-oh-tpl/react-native-linear-gradient | [Github(deprecated)](https://github.com/react-native-oh-library/react-native-linear-gradient) | [Github Releases(deprecated)](https://github.com/react-native-oh-library/react-native-linear-gradient/releases) |
+| > 3.0.0                   | @react-native-ohos/react-native-linear-gradient   | [Gitee](https://gitee.com/openharmony-sig/rntpc_react-native-linear-gradient) | [Gitee Releases](https://gitee.com/openharmony-sig/rntpc_react-native-linear-gradient/releases) |
 
-> [Github 仓库(已废弃)](https://github.com/react-native-oh-library/react-native-linear-gradient)
-
-> [Github Releases(<= 3.0.0-0.5.0): @react-native-oh-tpl/react-native-linear-gradient](https://github.com/react-native-oh-library/react-native-linear-gradient/releases)
-
-## 安装与使用
-
-`该第三方库已迁移至 Gitee，且支持直接从 npm 下载，新的包名为：@react-native-ohos/库名`
+## 1. 安装与使用
 
 进入到工程目录并输入以下命令：
 
@@ -69,13 +66,13 @@ const App = () => {
 export default App;
 ```
 
-## Manual Link
+## 2. Manual Link
 
 此步骤为手动配置原生依赖项的指导。
 
 首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`。
 
-### 1. Overrides RN SDK
+### 2.1 Overrides RN SDK
 
 为了让工程依赖同一个版本的 RN SDK，需要在工程根目录的 `oh-package.json5` 添加 overrides 字段，指向工程需要使用的 RN SDK 版本。替换的版本既可以是一个具体的版本号，也可以是一个模糊版本，还可以是本地存在的 HAR 包或源码目录。
 
@@ -91,7 +88,7 @@ export default App;
 }
 ```
 
-### 2. 引入原生端代码
+### 2.2 引入原生端代码
 
 目前有两种方法：
 
@@ -106,7 +103,7 @@ export default App;
 
 ```json
 "dependencies": {
-    "@react-native-ohos/<Package_Name>": "file:../../node_modules/@react-native-ohos/<Package_Name>/harmony/<xxx>.har"
+    "@react-native-ohos/Package_Name": "file:../../node_modules/@react-native-ohos/Package_Name/harmony/xxx.har"
     // 提示: "@react-native-ohos/react-native-safe-area-context": "file:../../node_modules/@react-native-ohos/react-native-safe-area-context/harmony/safe_area.har"（删除）
   }
 ```
@@ -124,7 +121,7 @@ ohpm install
 
 > [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
-### 3.配置 CMakeLists 和引入 xxxPackge
+### 2.3 配置 CMakeLists 和引入 xxxPackge
 
 **若涉及接入 codegen-lib 导致的配置项新增，需要在配置项前明确声明：> [!TIP] 版本 vx.x.x 及以上需要**（删除）
 
@@ -161,7 +158,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 **提示：ArkTs 侧引入 Fabric 组件**（删除）
 
-### 4.在 ArkTs 侧引入 xxx 组件（若本库已 CAPI 化则需要删除本段）
+### 2.4 在 ArkTs 侧引入 xxx 组件（若本库已 CAPI 化则需要删除本段）
 
 找到 `function buildCustomRNComponent()`，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
@@ -194,7 +191,7 @@ const arkTsComponentNames: Array<string> = [
 
 **提示：TurboModule**（删除）
 
-### 5. 在 ArkTs 侧引入 xxx Package
+### 2.5 在 ArkTs 侧引入 xxx Package
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
@@ -209,7 +206,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 6. 运行
+### 2.6 运行
 
 点击右上角的 `sync` 按钮
 
@@ -222,9 +219,9 @@ ohpm install
 
 然后编译、运行即可。
 
-## 约束与限制
+## 3. 约束与限制
 
-### 兼容性
+### 3.1 兼容性
 
 **修改了原库代码的库使用下述描述**（删除）
 
@@ -240,7 +237,7 @@ ohpm install
 
 1. RNOH: 0.72.38; SDK: HarmonyOS-5.0.0(API12); IDE: DevEco Studio 5.0.3.906; ROM: NEXT.0.0.71;
 
-### 权限要求（如有）
+### 3.2 权限要求（如有）
 
 （填入相关权限配置）
 
@@ -255,7 +252,7 @@ Needed for Android and harmony to work properly with assets, iOS will ignore it.
 
 （删除）
 
-## 属性（如有）
+## 4. 属性（如有）
 
 > [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
@@ -265,7 +262,7 @@ Needed for Android and harmony to work properly with assets, iOS will ignore it.
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
 | XXX  | XXX         | XXX  | (yes/no) | xxx      | (yes/no/partially) |
 
-## 静态方法（如有）
+## 5. 静态方法（如有）
 
 > [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
@@ -275,7 +272,7 @@ Needed for Android and harmony to work properly with assets, iOS will ignore it.
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
 | XXX  | XXX         | XXX  | (yes/no) | xxx      | (yes/no/partially) |
 
-## API（如有，一般是 TurboModules）
+## 6. API（如有，一般是 TurboModules）
 
 > [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
@@ -285,14 +282,16 @@ Needed for Android and harmony to work properly with assets, iOS will ignore it.
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
 | XXX  | XXX         | XXX  | (yes/no) | xxx      | (yes/no/partially) |
 
-## 遗留问题
+## 7. 遗留问题
 
 - [ ] xxx 问题: [issue#\*\*\*](https://github.com/issue地址1)
 - [ ] yyy 问题: [issue#\*\*\*](https://github.com/issue地址2)
 
-## 其他
+## 8. 其他
 
-## 开源协议
+**其他补充说明（删除）**
+
+## 9. 开源协议
 
 本项目基于 [XXX License (XXX)](gitee仓库的LICENSE链接) ，请自由地享受和参与开源。
 

@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-material-ui</code> </h1>
@@ -13,13 +13,13 @@
 </p>
 
 
-> [!TIP] [Github 地址](https://github.com/xotahal/react-native-material-ui)
+> [!tip] [GitHub address](https://github.com/xotahal/react-native-material-ui)
 
-## 安装与使用
+## Installation and Usage
 
 Find the matching version information in the release address of a third-party library：[@react-native-oh-tpl/react-material-ui Releases](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Freact-native-oh-library%2Freact-native-material-ui%2Freleases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -37,9 +37,9 @@ yarn add react-native-material-ui
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 
@@ -135,11 +135,11 @@ const styles = StyleSheet.create({
 
 export default ActionButtonDemo
 ```
-### 在 ArkTs 侧引入和注册字体文件
+### Introducing and Registering Font Files on the ArkTS Side
 
-步骤一： 复制字体文件到 `entry/src/main/resources/rawfile/assets/assets/fonts` 目录下(如使用了外部字体文件，需要将*.ttf 文件复制过来)
+Step 1: Copy the font files to the entry/src/main/resources/rawfile/assets/assets/fonts directory (if using external font files, you need to copy the *.ttf files over).
 
-步骤二： 打开 `entry/src/main/ets/pages/Index.ets`，添加以下代码
+Step 2: Open `entry/src/main/ets/pages/Index.ets` and add the following code:
 
 ```
  const fonts: Record<string, Resource> = {
@@ -171,8 +171,6 @@ struct Index {
   build() {
     Column(){
       //...
-
-      //注册字体文件
       RNApp({
         rnInstanceConfig: {
           //...
@@ -187,19 +185,19 @@ struct Index {
 }
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-material-ui Releases](https://github.com/react-native-oh-library/react-native-material-ui/releases)
+Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-material-ui Releases](https://github.com/react-native-oh-library/react-native-material-ui/releases)
 
-## 组件
+## Components
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 ### ActionButton
 
@@ -499,11 +497,11 @@ struct Index {
 | rightElementContainer  | View.propTypes.style          | no       | iOS/Android | yes               |
 | rightElement           | Text.propTypes.style          | no       | iOS/Android | yes               |
 
-## 主题
+## Theme
 
-**如果您想使用默认主题，可以跳过此步骤**
+**If you want to use the default theme, you can skip this step**
 
-如果您想更改应用程序的主色，只需将自己的设置传递给 ThemeContext.Provider 对象即可。这些设置将与默认主题合并。
+If you want to change the main color of the application, simply pass your settings to ThemeContext The Provider object is sufficient. These settings will be merged with the default theme.
 
 ```jsx
 import React, { Component } from 'react';
@@ -535,19 +533,19 @@ class Main extends Component {
 
 ```
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-- RadioButton组件功能在Android和iOS不生效， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/xotahal/react-native-material-ui/issues/25)
--  BottomNavigation和Toolbar组件hidden属性功能在Android和iOS不生效， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/xotahal/react-native-material-ui/issues/357)
--  Toolbar组件autoCapitalize属性和autoCorrect功能在Android和iOS不生效， HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/xotahal/react-native-material-ui/issues/520)
--  Drawer:Section组件中的style属性设置样式在Android和iOS不生效，HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/xotahal/react-native-material-ui/issues/160)
--  Drawer:Section组件中itmes属性对象中的onLongPress属性和disabled属性在Android和iOS不生效，HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/xotahal/react-native-material-ui/issues/521)
--  ListItem组件中onLeftElementPress属性在Android和iOS不生效，HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/xotahal/react-native-material-ui/issues/522)
--  Drawer:Header组件中backgroundColor属性与子元素中的Style属性冲突在Android和iOS不生效，HarmonyOS与Android,iOS表现一致。[原库 issue](https://github.com/xotahal/react-native-material-ui/issues/523)
+- The RadioButton component's functionality does not work on Android and iOS, and HarmonyOS exhibits the same behavior as Android and iOS.[issue#1](https://github.com/xotahal/react-native-material-ui/issues/25)
+-  The hidden attribute functionality of the BottomNavigation and Toolbar components does not work on Android and iOS, and HarmonyOS exhibits the same behavior as Android and iOS.[issue#2](https://github.com/xotahal/react-native-material-ui/issues/357)
+-  The autoCapitalize and autoCorrect functionalities of the Toolbar component do not work on Android and iOS, and HarmonyOS exhibits the same behavior as Android and iOS.[issue#3](https://github.com/xotahal/react-native-material-ui/issues/520)
+-  The style attribute for setting styles in the Drawer:Section component does not work on Android and iOS, and HarmonyOS exhibits the same behavior as Android and iOS.[issue#4](https://github.com/xotahal/react-native-material-ui/issues/160)
+-  The onLongPress and disabled attributes within the items attribute object of the Drawer:Section component do not work on Android and iOS, and HarmonyOS exhibits the same behavior as Android and iOS.[issue#5](https://github.com/xotahal/react-native-material-ui/issues/521)
+-  The onLeftElementPress attribute in the ListItem component does not work on Android and iOS, and HarmonyOS exhibits the same behavior as Android and iOS.[issue#6](https://github.com/xotahal/react-native-material-ui/issues/522)
+-  The conflict between the backgroundColor attribute in the Drawer:Header component and the Style attribute in its child elements does not manifest on Android and iOS, and HarmonyOS exhibits the same behavior as Android and iOS.[issue#7](https://github.com/xotahal/react-native-material-ui/issues/523)
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/xotahal/react-native-material-ui/blob/master/LICENSE)，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/xotahal/react-native-material-ui/blob/master/LICENSE).
 

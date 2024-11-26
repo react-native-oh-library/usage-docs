@@ -216,15 +216,15 @@ const styles = StyleSheet.create({
 });
 ```
 
-### 在 ArkTs 侧引入和注册字体文件(非必选配置项)
+### On the ArkTs side, importing and registering font files is an optional configuration step.
 
-> [!TIP] 本项非必配项，当使用 customStyles 自定义Properties中的 labelFontFamily Properties指定字体时才需配置
+> [!TIP] This item is not mandatory. It only needs to be configured when using the labelFontFamily property in the customStyles to specify a custom font.
 
-步骤一：
-复制字体文件到 `entry/src/main/resources/rawfile/assets/assets/fonts` 目录下(如使用了外部字体文件，需要将\*.ttf 文件复制过来)
+Step 1:
+Copy the font files to the entry/src/main/resources/rawfile/assets/assets/fonts directory (if external font files are used, you need to copy the *.ttf files over).
 
-步骤二：
-打开 `entry/src/main/ets/pages/Index.ets`，添加以下代码
+Step 2：
+Open `entry/src/main/ets/pages/Index.ets` and add the following code:
 
     const fonts: Record<string, Resource> = {
       "Pacifico-Regular": $rawfile("assets/assets/fonts/Pacifico-Regular.ttf")
@@ -237,8 +237,6 @@ const styles = StyleSheet.create({
       build() {
         Column(){
           //...
-
-          //注册字体文件
           RNApp({
             rnInstanceConfig: {
               //...

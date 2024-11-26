@@ -23,8 +23,6 @@ Find the matching version information in the release address of a third-party li
 
 Go to the project directory and execute the following instruction:
 
-
-
 <!-- tabs:start -->
 
 #### **npm**
@@ -242,7 +240,7 @@ Method 2: Directly link to the source code.
 
 > [!TIP] For details, see [Directly Linking Source Code](/zh-cn/link-source-code.md).
 
-### 3. Configuring CMakeLists and Introducing xxx Package
+### 3. Configuring CMakeLists and Introducing MMKVNativePackage
 
 Open `entry/src/main/cpp/CMakeLists.txt` and add the following code:
 

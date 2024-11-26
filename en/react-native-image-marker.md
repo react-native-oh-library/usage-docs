@@ -299,180 +299,179 @@ Open the `entry/src/main/module.json5` file and add the following code:
     }
 ]
 ```
-### Font usage
-If you need to use fonts, you need to store the font files in the rawfile/assets/assets/fonts directory under the resources directory of entry,
-As shown in the following figure:
 
-![alt text](../img/react-natvie-image-marker/fonts.PNG)
 ## API
 
-> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name      | Description                    | Type   | Required | Platform    | HarmonyOS Support |
 | --------- | ------------------------------ | ------ | -------- | ----------- | ----------------- |
 | markImage | mark icons on background image | string | no       | Android/iOS | yes               |
 | markText  | mark texts on background image | string | no       | Android/iOS | yes               |
 
-##### ImageOptions
-
-| Name        | Description             | Type   | Required | Platform    | HarmonyOS Support |
-| ----------- | ----------------------- | ------ | -------- | ----------- | ----------------- |
-| src  | image src, local image | string | yes      | iOS/Android | yes               |
-| scale | image scale `>0`.defaultValue 1 | number | no      | iOS/Android | yes               |
-| rotate | rotate image rotate `0-360`.defaultValue 0 | number | no      | iOS/Android | yes               |
-| alpha | transparent of image `0 - 1`.defaultValue 1 | number | no      | iOS/Android | yes |
-
-##### ImageFormat
-
-| Name        | Description             | Type   | Required | Platform    | HarmonyOS Support |
-| ----------- | ----------------------- | ------ | -------- | ----------- | ----------------- |
-| png  | iamge type png | string | no      | iOS/Android | yes               |
-| jpg | iamge type jpg | string | no      | iOS/Android | yes               |
-| base64 | iamge type base64 | string | no      | iOS/Android | yes               |
-##### PositionOptions 
-
-| Name        | Description             | Type   | Required | Platform    | HarmonyOS Support |
-| ----------- | ----------------------- | ------ | -------- | ----------- | ----------------- |
-| X  | horizontal coordinate on background image | number / string | no      | iOS/Android | yes |
-| Y  | vertical coordinate on background image | number / string | no      | iOS/Android | yes |
-| position  | position enum | [Position](#position) | no | iOS/Android | yes |
-
-##### Position 
-
-| Name        | Description             | Type   | Required | Platform    | HarmonyOS Support |
-| ----------- | ----------------------- | ------ | -------- | ----------- | ----------------- |
-| topLeft  | top left on background image |  string | no      | iOS/Android | yes |
-| topCenter  | top center on background image | string | no      | iOS/Android | yes |
-| topRight  |top right on background image | string | no | iOS/Android | yes |
-| bottomLeft  | bottom left on background image | string | no | iOS/Android | yes |
-| bottomCenter  | bottom center on background image | string | no | iOS/Android | yes |
-| bottomRight  | bottom right on background image| string | no | iOS/Android | yes |
-| center  | center on background image | string | no | iOS/Android | yes |
 #### markImage
+
 ```js
 markImage(options: ImageMarkOptions): Promise<string>;
 ```
+
 ##### ImageMarkOptions
 
-| Name        | Description             | Type   | Required | Platform    | HarmonyOS Support |
-| ----------- | ----------------------- | ------ | -------- | ----------- | ----------------- |
-| backgroundImage  | background image options | [ImageOptions](#imageoptions) | yes      | iOS/Android | partially                |
-| quality | image quality `0-100`, `100` is best quality. defaultValue 100 | number | no      | iOS/Android | yes               |
-| filename | save image name | string | no      | iOS/Android | yes               |
-| saveFormat | save image format 'png','jpg','base64',default 'png' | [ImageFormat](#imageformat) | no      | iOS/Android | yes               |
-| watermarkImages | watermark images | Array\<[WatermarkImageOptions](#watermarkimageoptions)> | yes      | iOS/Android | yes  |
+| Name            | Description                                                    | Type                          | Required | Platform    | HarmonyOS Support |
+| --------------- | -------------------------------------------------------------- | ----------------------------- | -------- | ----------- | ----------------- |
+| backgroundImage | background image options                                       | ImageOptions                  | yes      | iOS/Android | yes               |
+| quality         | image quality `0-100`, `100` is best quality. defaultValue 100 | number                        | no       | iOS/Android | yes               |
+| filename        | save image name                                                | string                        | no       | iOS/Android | yes               |
+| saveFormat      | save image format 'png','jpg','base64',default 'png'           | ImageFormat                   | no       | iOS/Android | yes               |
+| watermarkImages | watermark images                                               | Array\<WatermarkImageOptions> | yes      | iOS/Android | yes               |
 
+##### ImageOptions
 
+| Name   | Description                                 | Type   | Required | Platform    | HarmonyOS Support |
+| ------ | ------------------------------------------- | ------ | -------- | ----------- | ----------------- |
+| src    | image src, local image                      | string | yes      | iOS/Android | yes               |
+| scale  | image scale `>0`.defaultValue 1             | number | no       | iOS/Android | yes               |
+| rotate | rotate image rotate `0-360`.defaultValue 0  | number | no       | iOS/Android | yes               |
+| alpha  | transparent of image `0 - 1`.defaultValue 1 | number | no       | iOS/Android | yes               |
 
-##### WatermarkImageOptions 
+##### ImageFormat
 
-| Name        | Description             | Type   | Required | Platform    | HarmonyOS Support |
-| ----------- | ----------------------- | ------ | -------- | ----------- | ----------------- |
-| src  | image src, local image | string | yes      | iOS/Android | yes               |
-| scale | image scale `>0`.defaultValue 1 | number | no      | iOS/Android | yes               |
-| rotate | rotate image rotate `0-360`.defaultValue 0 | number | no      | iOS/Android | yes               |
-| alpha | transparent of image `0 - 1`.defaultValue 1 | number | no      | iOS/Android | yes |
-| position  | the position of icon on background image | [PositionOptions](#positionoptions) | no      | iOS/Android | yes               |
+| Name   | Description       | Type   | Required | Platform    | HarmonyOS Support |
+| ------ | ----------------- | ------ | -------- | ----------- | ----------------- |
+| png    | iamge type png    | string | no       | iOS/Android | yes               |
+| jpg    | iamge type jpg    | string | no       | iOS/Android | yes               |
+| base64 | iamge type base64 | string | no       | iOS/Android | yes               |
 
+##### WatermarkImageOptions
 
+| Name     | Description                                 | Type            | Required | Platform    | HarmonyOS Support |
+| -------- | ------------------------------------------- | --------------- | -------- | ----------- | ----------------- |
+| src      | image src, local image                      | string          | yes      | iOS/Android | yes               |
+| scale    | image scale `>0`.defaultValue 1             | number          | no       | iOS/Android | yes               |
+| rotate   | rotate image rotate `0-360`.defaultValue 0  | number          | no       | iOS/Android | yes               |
+| alpha    | transparent of image `0 - 1`.defaultValue 1 | number          | no       | iOS/Android | yes               |
+| position | the position of icon on background image    | PositionOptions | no       | iOS/Android | yes               |
+
+##### PositionOptions
+
+| Name     | Description                               | Type            | Required | Platform    | HarmonyOS Support |
+| -------- | ----------------------------------------- | --------------- | -------- | ----------- | ----------------- |
+| X        | horizontal coordinate on background image | number / string | no       | iOS/Android | yes               |
+| Y        | vertical coordinate on background image   | number / string | no       | iOS/Android | yes               |
+| position | position enum                             | Position        | no       | iOS/Android | yes               |
+
+##### Position
+
+| Name         | Description                       | Type   | Required | Platform    | HarmonyOS Support |
+| ------------ | --------------------------------- | ------ | -------- | ----------- | ----------------- |
+| topLeft      | top left on background image      | string | no       | iOS/Android | yes               |
+| topCenter    | top center on background image    | string | no       | iOS/Android | yes               |
+| topRight     | top right on background image     | string | no       | iOS/Android | yes               |
+| bottomLeft   | bottom left on background image   | string | no       | iOS/Android | yes               |
+| bottomCenter | bottom center on background image | string | no       | iOS/Android | yes               |
+| bottomRight  | bottom right on background image  | string | no       | iOS/Android | yes               |
+| center       | center on background image        | string | no       | iOS/Android | yes               |
 
 #### markText
 
 ```json
 markText(options: TextMarkOptions): Promise<string>;
 ```
+
 ##### TextMarkOptions
-| Name      | Description                                    | Type   | Required | Platform    | HarmonyOS Support |
-| --------- | ---------------------------------------------- | ------ | -------- | ----------- | ----------------- |
-| backgroundImage | background image options | [ImageOptions](#imageoptions) | yes      | iOS/Android | partially                |
-| watermarkTexts      | text options      | Array\<[TextOptions](#textoptions)> | yes      | iOS/Android | yes               |
-| quality      | image quality 0-100, 100 is best quality. defaultValue 100 | number | no      | iOS/Android | yes               |
-| filename      | save image name          | string | no      | iOS/Android | yes               |
-| saveFormat      | save image format 'png','jpg','base64',default 'png'           | [ImageFormat](#imageformat) | no      | iOS/Android | yes               |
+
+| Name            | Description                                                | Type                | Required | Platform    | HarmonyOS Support |
+| --------------- | ---------------------------------------------------------- | ------------------- | -------- | ----------- | ----------------- |
+| backgroundImage | background image options                                   | ImageOptions        | yes      | iOS/Android | yes               |
+| watermarkTexts  | text options                                               | Array\<TextOptions> | yes      | iOS/Android | yes               |
+| quality         | image quality 0-100, 100 is best quality. defaultValue 100 | number              | no       | iOS/Android | yes               |
+| filename        | save image name                                            | string              | no       | iOS/Android | yes               |
+| saveFormat      | save image format 'png','jpg','base64',default 'png'       | ImageFormat         | no       | iOS/Android | yes               |
 
 ##### TextOptions
-| Name      | Description                                    | Type   | Required | Platform    | HarmonyOS Support |
-| --------- | ---------------------------------------------- | ------ | -------- | ----------- | ----------------- |
-| text | text content | string | yes      | iOS/Android | yes               |
-| position      | text position options | [PositionOptions](#positionoptions) | no      | iOS/Android | yes               |
-| style      | text style         | [TextStyle](#textstyle) | no      | iOS/Android | yes               |
+
+| Name     | Description           | Type            | Required | Platform    | HarmonyOS Support |
+| -------- | --------------------- | --------------- | -------- | ----------- | ----------------- |
+| text     | text content          | string          | yes      | iOS/Android | yes               |
+| position | text position options | PositionOptions | no       | iOS/Android | yes               |
+| style    | text style            | TextStyle       | no       | iOS/Android | yes               |
 
 ##### TextStyle
 
-| Name      | Description                                    | Type   | Required | Platform    | HarmonyOS Support |
-| --------- | ---------------------------------------------- | ------ | -------- | ----------- | ----------------- |
-| color | font color | string | yes      | iOS/Android | yes               |
-| fontName      | font name | string | no      | iOS/Android | yes            |
-| fontSize      | font size        | number | no      | iOS/Android | yes               |
-| shadowStyle | text shadow style | [ShadowLayerStyle](#shadowlayerstyle) | no      | iOS/Android | yes               |
-| textBackgroundStyle      | text background style | [TextBackgroundStyle](#textbackgroundstyle)  | no      | iOS/Android | yes               |
-| underline      | text underline style        | boolean | no      | iOS/Android | yes               |
-| skewX | css italic with degree, you can use italic instead | number | no      | iOS/Android | yes         |
-| strikeThrough      | text stroke | boolean | no      | iOS/Android | yes               |
-| textAlign      | text align . 'left' / 'center' / 'right'       | string | no      | iOS/Android | yes               |
-| italic | text italic | boolean | no      | iOS/Android | yes            |
-| bold      | text bold | boolean | no      | iOS/Android | yes               |
-| rotate      | rotate text       | number | no      | iOS/Android | yes               |
+| Name                | Description                                        | Type                | Required | Platform    | HarmonyOS Support |
+| ------------------- | -------------------------------------------------- | ------------------- | -------- | ----------- | ----------------- |
+| color               | font color                                         | string              | yes      | iOS/Android | yes               |
+| fontName            | font name                                          | string              | no       | iOS/Android | yes               |
+| fontSize            | font size                                          | number              | no       | iOS/Android | yes               |
+| shadowStyle         | text shadow style                                  | ShadowLayerStyle    | no       | iOS/Android | yes               |
+| textBackgroundStyle | text background style                              | TextBackgroundStyle | no       | iOS/Android | yes               |
+| underline           | text underline style                               | boolean             | no       | iOS/Android | yes               |
+| skewX               | css italic with degree, you can use italic instead | number              | no       | iOS/Android | yes               |
+| strikeThrough       | text stroke                                        | boolean             | no       | iOS/Android | yes               |
+| textAlign           | text align . 'left' / 'center' / 'right'           | string              | no       | iOS/Android | yes               |
+| italic              | text italic                                        | boolean             | no       | iOS/Android | yes               |
+| bold                | text bold                                          | boolean             | no       | iOS/Android | yes               |
+| rotate              | rotate text                                        | number              | no       | iOS/Android | yes               |
 
 ##### ShadowLayerStyle
 
-| Name      | Description                                    | Type   | Required | Platform    | HarmonyOS Support |
-| --------- | ---------------------------------------------- | ------ | -------- | ----------- | ----------------- |
-| dx      | shadow offset x       | number | yes      | iOS/Android | yes               |
-| dy      | shadow offset y     | number | yes      | iOS/Android | yes               |
-| radius      |shadow radius      | number | yes      | iOS/Android | yes               |
-| color      | shadow color       | string | yes      | iOS/Android | yes               |
+| Name   | Description     | Type   | Required | Platform    | HarmonyOS Support |
+| ------ | --------------- | ------ | -------- | ----------- | ----------------- |
+| dx     | shadow offset x | number | yes      | iOS/Android | yes               |
+| dy     | shadow offset y | number | yes      | iOS/Android | yes               |
+| radius | shadow radius   | number | yes      | iOS/Android | yes               |
+| color  | shadow color    | string | yes      | iOS/Android | yes               |
 
 ##### TextBackgroundStyle
+
 extends Padding
-| Name      | Description                                    | Type   | Required | Platform    | HarmonyOS Support |
+| Name | Description | Type | Required | Platform | HarmonyOS Support |
 | --------- | ---------------------------------------------- | ------ | -------- | ----------- | ----------------- |
-| type      | background type .TextBackgroundType enum      | [TextBackgroundType](#textbackgroundtype) | no      | iOS/Android | yes               |
-| color      | background color    | string | yes      | iOS/Android | yes               |
-| cornerRadius      |background corner radius     | [CornerRadius](#cornerradius) | no      | iOS/Android | yes               |
-| padding      | padding for text background，Up to four values, separated by spaces   | number / string | no      | iOS/Android | yes               |
-| paddingLeft      |  padding left for text background  | number / string | no      | iOS/Android | yes               |
-| paddingRight      | padding right for text background    | number / string | no      | iOS/Android | yes               |
-| paddingTop      | padding top for text background    | number / string | no      | iOS/Android | yes               |
-| paddingBottom      | padding bottom for text background   | number / string  | no      | iOS/Android | yes               |
-| paddingHorizontal      | padding left and right (horizontal) for text background    | number / string | no      | iOS/Android | yes               |
-| paddingVertical      | padding top and bottom (vertical) for text background    | number / string | no      | iOS/Android | yes               |
-| paddingX      |padding x, alias of paddingHorizontal    | number / string | no      | iOS/Android | yes               |
-| paddingY      | padding y, alias of paddingVertical  | number / string | no      | iOS/Android | yes               |
+| type | background type .TextBackgroundType enum | TextBackgroundType | no | iOS/Android | yes |
+| color | background color | string | yes | iOS/Android | yes |
+| cornerRadius |background corner radius | CornerRadius | no | iOS/Android | yes |
+| padding | padding for text background，Up to four values, separated by spaces | number / string | no | iOS/Android | yes |
+| paddingLeft | padding left for text background | number / string | no | iOS/Android | yes |
+| paddingRight | padding right for text background | number / string | no | iOS/Android | yes |
+| paddingTop | padding top for text background | number / string | no | iOS/Android | yes |
+| paddingBottom | padding bottom for text background | number / string | no | iOS/Android | yes |
+| paddingHorizontal | padding left and right (horizontal) for text background | number / string | no | iOS/Android | yes |
+| paddingVertical | padding top and bottom (vertical) for text background | number / string | no | iOS/Android | yes |
+| paddingX |padding x, alias of paddingHorizontal | number / string | no | iOS/Android | yes |
+| paddingY | padding y, alias of paddingVertical | number / string | no | iOS/Android | yes |
 
 ##### TextBackgroundType
 
-| Name      | Description                                    | Type   | Required | Platform    | HarmonyOS Support |
-| --------- | ---------------------------------------------- | ------ | -------- | ----------- | ----------------- |
-| stretchX      | background type stretchX     | string | no      | iOS/Android | yes               |
-| stretchY      |  background type  stretchY   | string | no      | iOS/Android | yes               |
-| none      | background type fit    | string | no      | iOS/Android | yes               |
-
+| Name     | Description              | Type   | Required | Platform    | HarmonyOS Support |
+| -------- | ------------------------ | ------ | -------- | ----------- | ----------------- |
+| stretchX | background type stretchX | string | no       | iOS/Android | yes               |
+| stretchY | background type stretchY | string | no       | iOS/Android | yes               |
+| none     | background type fit      | string | no       | iOS/Android | yes               |
 
 ##### CornerRadius
 
-| Name      | Description                                    | Type   | Required | Platform    | HarmonyOS Support |
-| --------- | ---------------------------------------------- | ------ | -------- | ----------- | ----------------- |
-| topLeft      | topLeft Radius     | [RadiusValue](#radiusvalue) | no      | iOS/Android | yes               |
-| topRight      | topRight Radius   | [RadiusValue](#radiusvalue) | no      | iOS/Android | yes               |
-| bottomLeft      |bottomLeft Radius  | [RadiusValue](#radiusvalue) | no      | iOS/Android | yes               |
-| bottomRight      |bottomRight Radius   | [RadiusValue](#radiusvalue) | no      | iOS/Android | yes               |
-| all      | all Radius    | [RadiusValue](#radiusvalue) | no      | iOS/Android | yes               |
+| Name        | Description        | Type        | Required | Platform    | HarmonyOS Support |
+| ----------- | ------------------ | ----------- | -------- | ----------- | ----------------- |
+| topLeft     | topLeft Radius     | RadiusValue | no       | iOS/Android | yes               |
+| topRight    | topRight Radius    | RadiusValue | no       | iOS/Android | yes               |
+| bottomLeft  | bottomLeft Radius  | RadiusValue | no       | iOS/Android | yes               |
+| bottomRight | bottomRight Radius | RadiusValue | no       | iOS/Android | yes               |
+| all         | all Radius         | RadiusValue | no       | iOS/Android | yes               |
 
 ##### RadiusValue
 
-| Name      | Description                                    | Type   | Required | Platform    | HarmonyOS Support |
-| --------- | ---------------------------------------------- | ------ | -------- | ----------- | ----------------- |
-| x      | radius value for x     | number / string | no      | iOS/Android | yes               |
-| y      | radius value for y  | number / string  | no      | iOS/Android | yes               |
+| Name | Description        | Type            | Required | Platform    | HarmonyOS Support |
+| ---- | ------------------ | --------------- | -------- | ----------- | ----------------- |
+| x    | radius value for x | number / string | no       | iOS/Android | yes               |
+| y    | radius value for y | number / string | no       | iOS/Android | yes               |
 
 ## Known Issues
-- [ ] Harmony OS is not support backgroundImage-ImageOptions-alpha feature now: [issue#30](https://github.com/react-native-oh-library/react-native-image-marker/issues/30)
+
 - [x] Harmony OS is not support font name feature now: [issue#7](https://github.com/react-native-oh-library/react-native-image-marker/issues/7)
 - [x] Harmony OS is not support font skewX feature now: [issue#8](https://github.com/react-native-oh-library/react-native-image-marker/issues/8)
-- [x] Harmony OS is not support font italic feature now: [issue#9](https://github.com/react-native-oh-library/react-native-image-marker/issues/9)
+- [x] Harmony OS is not support font italic feature now:[issue#9](https://github.com/react-native-oh-library/react-native-image-marker/issues/9)
 
 ## Others
 

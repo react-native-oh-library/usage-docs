@@ -148,19 +148,19 @@ Check the release version information in the release address of the third-party 
 
 ## Known Issues
 
-- [ ] 不支持属性clusterColor [issue#1](https://github.com/react-native-oh-library/react-native-map-clustering/issues/1)
-- [ ] 不支持属性clusterTextColor [issue#2](https://github.com/react-native-oh-library/react-native-map-clustering/issues/2)
-- [ ] 不支持属性clusterFontFamily [issue#3](https://github.com/react-native-oh-library/react-native-map-clustering/issues/3)
-- [ ] 不支持属性tracksViewChanges [issue#4](https://github.com/react-native-oh-library/react-native-map-clustering/issues/4)
-- [ ] 不支持属性renderCluster [issue#5](https://github.com/react-native-oh-library/react-native-map-clustering/issues/5)
+- [ ] Unsupported property clusterColor [issue#1](https://github.com/react-native-oh-library/react-native-map-clustering/issues/1)
+- [ ] Unsupported property clusterTextColor [issue#2](https://github.com/react-native-oh-library/react-native-map-clustering/issues/2)
+- [ ] Unsupported property clusterFontFamily [issue#3](https://github.com/react-native-oh-library/react-native-map-clustering/issues/3)
+- [ ] Unsupported property tracksViewChanges [issue#4](https://github.com/react-native-oh-library/react-native-map-clustering/issues/4)
+- [ ] Unsupported property renderCluster [issue#5](https://github.com/react-native-oh-library/react-native-map-clustering/issues/5)
 
 ## Others
 
-- height属性暂不支持，与iOS表现一致。[issue#273](https://github.com/venits/react-native-map-clustering/issues/273)
-- maxZoom属性暂不支持，与iOS表现一致。[issue#274](https://github.com/venits/react-native-map-clustering/issues/274)
-- edgePadding属性暂不支持，与iOS表现一致。[issue#221](https://github.com/venits/react-native-map-clustering/issues/221)
-- spiralEnabled属性暂不支持，与iOS表现一致。[issue#275](https://github.com/venits/react-native-map-clustering/issues/275)
-- spiderLineColor属性暂不支持，与iOS表现一致。[issue#276](https://github.com/venits/react-native-map-clustering/issues/276)
+- The height property is currently unsupported, consistent with iOS behavior. [issue#273](https://github.com/venits/react-native-map-clustering/issues/273)
+- The maxZoom property is currently unsupported, consistent with iOS behavior.[issue#274](https://github.com/venits/react-native-map-clustering/issues/274)
+- The edgePadding property is currently unsupported, consistent with iOS behavior.[issue#221](https://github.com/venits/react-native-map-clustering/issues/221)
+- The spiralEnabled property is currently unsupported, consistent with iOS behavior.[issue#275](https://github.com/venits/react-native-map-clustering/issues/275)
+- The spiderLineColor property is currently unsupported, consistent with iOS behavior.[issue#276](https://github.com/venits/react-native-map-clustering/issues/276)
 
 ## License
 

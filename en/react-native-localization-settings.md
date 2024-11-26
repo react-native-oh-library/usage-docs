@@ -21,8 +21,6 @@ Find the matching version information in the release address of a third-party li
 
 Go to the project directory and execute the following instruction:
 
-
-
 <!-- tabs:start -->
 
 #### **npm**
@@ -43,7 +41,7 @@ The following code shows the basic use scenario of the repository:
 
 > [!WARNING] The name of the imported repository remains unchanged.
 
-> [!TIP] 本示例依赖 i18next react-i18next 库，参照[react-i18next](https://react.i18next.com/guides/quick-start)进行引入
+> [!TIP] This means to support the i18next and react-i18next libraries by following the introduction guide on react-i18next.
 
 ```js
 import * as React from "react";
@@ -210,7 +208,7 @@ Check the release version information in the release address of the third-party 
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-> [!TIP] 在设置改变语言之前，确保手机系统添加相应语言
+> [!TIP] Before changing the language settings, ensure that the phone system adds the corresponding language
 
 | Name                       | Description                           | Type     | Required | Platform    | HarmonyOS Support |
 | -------------------------- | ------------------------------------- | -------- | -------- | ----------- | ----------------- |

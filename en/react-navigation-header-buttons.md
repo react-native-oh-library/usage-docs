@@ -33,7 +33,7 @@ npm i react-navigation-header-buttons@12.0.0
 yarn add react-navigation-header-buttons@12.0.0
 ```
 
-在 tsconfig.json 文件中添加如下代码:
+Add the following code to the tsconfig. json file:
 
 ```json
 "compilerOptions": {
@@ -48,7 +48,7 @@ yarn add react-navigation-header-buttons@12.0.0
 
 ```
 
-在 metro.config.js 文件中添加如下代码:
+Add the following code to the metro.config.js file:
 
 ```js
 const config = {

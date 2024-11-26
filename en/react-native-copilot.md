@@ -249,36 +249,38 @@ For details, see [react-native-copilot](https://github.com/mohebifar/react-nativ
 
 ### CopilotProps
 
-| Name                    | Description                   | Type                                                                    | Required | Platform    | HarmonyOS Support |
-| ----------------------- | ----------------------------- | ----------------------------------------------------------------------- | -------- | ----------- | ----------------- |
-| easing                  | The animation display will be smoother            | ((value: number) => number) \| undefined                                | no       | Android/iOS | yes               |
-| overlay                 | Use SVG or View to execute animations | "svg" \| "view"                                                         | no       | Android/iOS | yes               |
-| animationDuration       | Animation execution time                  | number                                                                  | no       | Android/iOS | yes               |
-| tooltipComponent        | 可自定义 tooltip 组件         | React.ComponentType\<TooltipProps\>                                     | no       | Android/iOS | yes               |
-| tooltipStyle            | Customizable tooltip components                | ViewStyle                                                               | no       | Android/iOS | yes               |
-| stepNumberComponent     | Customizable step component            | React.ComponentType\<any\>                                              | no       | Android/iOS | yes               |
-| animated                | Do you want to enable animation                  | boolean                                                                 | no       | Android/iOS | yes               |
-| labels                  | Text of step button                | Partial\<Record\<"skip" \| "previous" \| "next" \| "finish", string\>\> | no       | Android/iOS | yes               |
-| androidStatusBarVisible | Show or hide the StatusBar          | boolean                                                                 | no       | Android     | no                |
-| svgMaskPath             | Custom Modal Box                  | Function                                                                | no       | Android/iOS | yes               |
-| verticalOffset          | The offset of the modal box distance element        | number                                                                  | no       | Android/iOS | yes               |
-| arrowColor              | The color of the arrow                    | string                                                                  | no       | Android/iOS | yes               |
-| arrowSize               | The position of the arrow                    | number                                                                  | no       | Android/iOS | yes               |
-| margin                  | The distance between two modal boxes            | number                                                                  | no       | Android/iOS | yes               |
-| stopOnOutsideClick      | Call stop when clicking on the mask           | boolean                                                                 | no       | Android/iOS | yes               |
-| backdropColor           | The color of the external background                    | string                                                                  | no       | Android/iOS | yes               |
+| Name                                | Description                                  | Type                                                                    | Required | Platform    | HarmonyOS Support |
+| ----------------------------------- | -------------------------------------------- | ----------------------------------------------------------------------- | -------- | ----------- | ----------------- |
+| easing                              | The animation display will be smoother       | ((value: number) => number) \| undefined                                | no       | Android/iOS | yes               |
+| overlay                             | Use SVG or View to execute animations        | "svg" \| "view"                                                         | no       | Android/iOS | yes               |
+| animationDuration                   | Animation execution time                     | number                                                                  | no       | Android/iOS | yes               |
+| tooltipComponent                    | Customizable tooltip components              |
+| React.ComponentType\<TooltipProps\> | no                                           | Android/iOS                                                             | yes      |
+| tooltipStyle                        | Customizable tooltip components              | ViewStyle                                                               | no       | Android/iOS | yes               |
+| stepNumberComponent                 | Customizable step component                  | React.ComponentType\<any\>                                              | no       | Android/iOS | yes               |
+| animated                            | Do you want to enable animation              | boolean                                                                 | no       | Android/iOS | yes               |
+| labels                              | Text of step button                          | Partial\<Record\<"skip" \| "previous" \| "next" \| "finish", string\>\> | no       | Android/iOS | yes               |
+| androidStatusBarVisible             | Show or hide the StatusBar                   | boolean                                                                 | no       | Android     | no                |
+| svgMaskPath                         | Custom Modal Box                             | Function                                                                | no       | Android/iOS | yes               |
+| verticalOffset                      | The offset of the modal box distance element | number                                                                  | no       | Android/iOS | yes               |
+| arrowColor                          | The color of the arrow                       | string                                                                  | no       | Android/iOS | yes               |
+| arrowSize                           | The position of the arrow                    | number                                                                  | no       | Android/iOS | yes               |
+| margin                              | The distance between two modal boxes         | number                                                                  | no       | Android/iOS | yes               |
+| stopOnOutsideClick                  | Call stop when clicking on the mask          | boolean                                                                 | no       | Android/iOS | yes               |
+| backdropColor                       | The color of the external background         | string                                                                  | no       | Android/iOS | yes               |
 
 ### TooltipProps
 
-| Name         | Description    | Type                                                                    | Required | Platform    | HarmonyOS Support |
-| ------------ | -------------- | ----------------------------------------------------------------------- | -------- | ----------- | ----------------- |
+| Name         | Description         | Type                                                                    | Required | Platform    | HarmonyOS Support |
+| ------------ | ------------------- | ----------------------------------------------------------------------- | -------- | ----------- | ----------------- |
 | TooltipProps | Text of step button | Partial\<Record\<"skip" \| "previous" \| "next" \| "finish", string\>\> | no       | Android/iOS | yes               |
 
 ## Known Issues
 
-- [ ] "overlay" property effect is not obvious [issue#1](https://github.com/mohebifar/react-native-copilot/issues/333) 
+- [ ] "overlay" property effect is not obvious [issue#1](https://github.com/mohebifar/react-native-copilot/issues/333)
 
 ## Others
+
 - The androidStatusBarVisible property is invalid on HarmonyOS. This property is used to calculate the position of the modal box even after hiding the Status Bar on Android. However, when HarmonyOS hides the Status Bar, its height is 0, so this property is invalid on HarmonyOS.
 
 ## License

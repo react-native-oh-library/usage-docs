@@ -142,7 +142,7 @@ Method 2: Directly link to the source code.
 
 > [!TIP] For details, see [Directly Linking Source Code](/zh-cn/link-source-code.md).
 
-### 3. Configuring CMakeLists and Introducing xxx Package
+### 3. Configuring CMakeLists and Introducing RNOpSqlitePackage
 
 Open `entry/src/main/cpp/CMakeLists.txt` and add the following code:
 
@@ -293,9 +293,9 @@ Open the `YourProject/entry/src/main/module.json5` file and add the following co
 
 ## Static Methods
 
-> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
@@ -310,9 +310,9 @@ Open the `YourProject/entry/src/main/module.json5` file and add the following co
 
 ### DB
 
-> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |

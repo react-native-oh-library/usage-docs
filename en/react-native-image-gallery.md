@@ -1,4 +1,4 @@
-> 模板版本：v0.2.0
+> Template version: v0.2.0
 
 <p align="center">
   <h1 align="center"> <code>react-native-image-gallery</code> </h1>
@@ -12,21 +12,19 @@
     </a>
 </p>
 
->   [!TIP]  
+>   [!tip]  
 >
-> [Github 地址](https://github.com/react-native-oh-library/react-native-image-gallery/tree/sig)
+> [GitHub address](https://github.com/react-native-oh-library/react-native-image-gallery/tree/sig)
 
-## 安装与使用
+## Installation and Usage
 
 Find the matching version information in the release address of a third-party library：[@react-native-oh-tpl/react-native-image-gallery Releases](https://github.com/react-native-oh-library/react-native-image-gallery/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
->  [!TIP] 
->
-> 处替换为 tgz 包的路径
+>  [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 #### **npm**
 
@@ -42,9 +40,9 @@ yarn add @react-native-oh-tpl/react-native-image-gallery
 
 <!-- tabs:end -->
 
-快速使用：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import Gallery from 'react-native-image-gallery';
@@ -65,13 +63,13 @@ import Gallery from 'react-native-image-gallery';
   }
 ```
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-image-gallery Releases](https://github.com/react-native-oh-library/react-native-image-gallery/releases)
+Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-image-gallery Releases](https://github.com/react-native-oh-library/react-native-image-gallery/releases)
 
-#### 属性
+#### Properties
 
 | Prop   | Description | Type  | Default | Platform | HarmonyOS Support |
 | --------------------- | --------------------- | -------- | -------- |----------|-------------------|
@@ -88,10 +86,10 @@ import Gallery from 'react-native-image-gallery';
 `onSingleTapConfirmed` | Fired after a single tap | `function`|   |      all    | yes               |
 `onLongPress` | Fired after a long press | `function`|     |      all    | yes               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The ISC License (ISC)](https://choosealicense.com/licenses/isc) ，请自由地享受和参与开源。
+This project is licensed under [The ISC License (ISC)](https://choosealicense.com/licenses/isc).

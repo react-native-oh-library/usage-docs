@@ -108,9 +108,9 @@ This document is verified based on the following versions:
 
 View details[Paper](https://callstack.github.io/react-native-paper)
 
-> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
@@ -153,9 +153,9 @@ View details[Paper](https://callstack.github.io/react-native-paper)
 
 View details[Paper](https://callstack.github.io/react-native-paper/docs/components/ActivityIndicator#animating)
 
-> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 **ActivityIndicator**：Activity indicator is used to present progress of some activity in the app. It can be used as a drop-in for the ActivityIndicator shipped with React Native
 |  Name   | Description |      Type       | Required | Platform | HarmonyOS Support |
@@ -1214,14 +1214,14 @@ View details[Paper](https://callstack.github.io/react-native-paper/docs/componen
 ## Known Issues
 
 ## Others
-- Icon 组件allowFontScaling不生效, 参看源码传入的此属性并未传入内部icon组件 [源码位置](https://github.com/callstack/react-native-paper/blob/v5.12.3/src/components/Icon.tsx#L153) 
-- Menu组件中的mode属性为[5.12.4版本新增](https://github.com/callstack/react-native-paper/releases/tag/v5.12.4)，当前版本为5.12.3 
-- Menu statusBarHeight 无效果，此属性为Android平台独有 [源码位置](https://github.com/callstack/react-native-paper/blob/v5.12.3/src/components/Menu/Menu.tsx#L447)
-- DataTableRow 组件使用 TouchableRipple 产生的涟漪效果，在Android上生效，iOS无效果 
-- BottomNavigation safeAreaInset top属性无效果，因为在源码中未使用 [源码位置](https://github.com/callstack/react-native-paper/blob/v5.12.3/src/components/BottomNavigation/BottomNavigationBar.tsx#L580) 
-- BottomNavigation.Bar组件 keyboardHidesNavigationBar属性为父组件BottomNavigation传入，请勿单独使用
-- accessibilityState属性鸿蒙RN（5.0.0.700）不支持该属性
-- DataTable组件底层使用的是鸿蒙RN的Text组件，目前Text组件不支持accessibilityLabel属性。所以DataTable涉及无障碍朗读功能在鸿蒙RN的效果和其他平台有差异
+- The allowFontScaling property on the Icon component does not take effect. Upon reviewing the source code, this property is not passed to the internal icon component. [Source code location](https://github.com/callstack/react-native-paper/blob/v5.12.3/src/components/Icon.tsx#L153) 
+- The mode property in the Menu component is a new addition in version[5.12.4 Version added](https://github.com/callstack/react-native-paper/releases/tag/v5.12.4),and the current version is 5.12.3.
+- The statusBarHeight property in the Menu component has no effect, as this property is exclusive to the Android platform. [Source code location](https://github.com/callstack/react-native-paper/blob/v5.12.3/src/components/Menu/Menu.tsx#L447)
+- The ripple effect produced by the DataTableRow component using TouchableRipple works on Android but not on iOS.
+- The safeAreaInset top property in BottomNavigation has no effect because it is not used in the source code. [Source code location](https://github.com/callstack/react-native-paper/blob/v5.12.3/src/components/BottomNavigation/BottomNavigationBar.tsx#L580) 
+- The keyboardHidesNavigationBar property in the BottomNavigation.Bar component is passed from the parent component BottomNavigation and should not be used standalone.
+- The accessibilityState property is not supported in HarmonyOS RN (5.0.0.700).
+- The DataTable component uses the HarmonyOS RN Text component underneath, and currently, the Text component does not support the accessibilityLabel property. Therefore, the accessibility read-out functionality of DataTable on HarmonyOS RN differs from other platforms.
 
 
 ## License

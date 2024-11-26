@@ -20,8 +20,6 @@ Find the matching version information in the release address of a third-party li
 
 Go to the project directory and execute the following instruction:
 
-
-
 <!-- tabs:start -->
 
 #### **npm**
@@ -68,7 +66,6 @@ const PALETTE = {
 };
 
 export function QuickBase64Test() {
-  // 测试字符串转base64
   const [textTobase64, onChangeTextToBase64] = useState('');
 
   const [base64ToTextLength, onChangeBase64TextLength] = useState(0);
@@ -83,9 +80,9 @@ export function QuickBase64Test() {
 
   const [fbArrayBase64StrUrlSafe, onChangeFbArrayBase64StrUrlSafe] = useState('');
 
-  const [testShimBtoA, onChangeTestShimBtoA] = useState(''); // 字符串转base64
+  const [testShimBtoA, onChangeTestShimBtoA] = useState(''); 
 
-  const [testShimAtoB, onChangeTestShimAtoB] = useState(''); // base64转字符串
+  const [testShimAtoB, onChangeTestShimAtoB] = useState(''); 
 
   const [nativeModule, onChangeNativeModule] = useState<NativeModule>({
     base64FromArrayBuffer: undefined,
@@ -103,43 +100,37 @@ export function QuickBase64Test() {
   const [trimBase64PaddingText, onChangeTrimBase64PaddingText] = useState('');
 
   const byArray = new Uint8Array([72, 101, 108, 108, 111, 32, 87, 111, 114, 108, 100, 33]);
-  // 点击事件 字符串转base64
   const onPressBtoA = (text: string) => {
     let b64 = btoa(text);
-    console.log(`字符串转base64 ${b64}`);
+    console.log(`Convert string to base64 ${b64}`);
     onChangeTextToBase64(b64)
   }
 
   const [testText, onChangeTestText] = React.useState('');
 
-  // 点击事件 base64转字符串
   const onPressAtoB = (text: string) => {
     let textA = atob(text);
-    console.log(`base64转字符串 ${textA}`);
+    console.log(`Base64 to string conversion ${textA}`);
     onChangeBase64Text(textA)
   }
 
-  // 打印base64转为Unit8Array字节数组的长度
   const onPressBase64Length = (text: string) => {
-    console.log(`打印base64长度1 ${text}`);
+    console.log(`Print base64 length 1 ${text}`);
     onChangeBase64TextLength(byteLength(text))
   }
 
-  /* toByteArray 把base64字符串解码为Uint8Array */
   const onPressToByteArray = (text: string) => {
     let btArray = toByteArray(text);
     console.log(`toByteArray ${btArray}`);
     onChangeByteArray(btArray)
   }
 
-  /* toByteArray 把base64字符串解码为Uint8Array  removeLinebreaks */
   const onPressToByteArrayRemove = (text: string, removeLinebreaks: boolean = false) => {
     let btArray = toByteArray(text, removeLinebreaks);
     console.log(`toByteArray ${btArray}`);
     onChangeByteArrayRemove(btArray)
   }
 
-  /* fromByteArray 把Uint8Array编码为Base64字符串 */
   const onPressFromByteArray = (
     uint8: Uint8Array,
     urlSafe: boolean = false) => {
@@ -148,7 +139,6 @@ export function QuickBase64Test() {
     onChangeFbArrayBase64Str(b64)
   }
 
-  /* fromByteArray 把Uint8Array编码为Base64字符串  */
   const onPressFromByteArrayUrlSafe = (
     uint8: Uint8Array,
     urlSafe: boolean = false) => {
@@ -157,11 +147,10 @@ export function QuickBase64Test() {
     onChangeFbArrayBase64StrUrlSafe(b64)
   }
 
-  /* shim 给全局对象添加btoa和atob函数的shim实现 */
   const handleAddShimToGlobal = () => {
     shim();
-    console.log(typeof global.btoa); // 应该输出 "function"
-    console.log(typeof global.atob); // 同样应该输出 "function"
+    console.log(typeof global.btoa); 
+    console.log(typeof global.atob);
   }
 
   const onPressTestShimBtoA = (text: string) => {
@@ -176,25 +165,17 @@ export function QuickBase64Test() {
     onChangeTestShimAtoB(decodeBase64)
   }
 
-  /* trimBase64Padding 清除Base64字符串的填充字符 */
   const onPressTrimBase64Padding = (text: string) => {
     let trimBase64 = trimBase64Padding(text);
     console.log(`shim global atob ${trimBase64}`);
     onChangeTrimBase64PaddingText(trimBase64)
   }
 
-  /* getNative 返回包含base64FromArrayBuffer和base64ToArrayBuffer函数的对象 */
   const onPressGetNative = () => {
     const native = getNative() as NativeModule;
     onChangeNativeModule(native)
   }
 
-  /**
-   * @param text
-   * base64FromArrayBuffer方法接受一个Base64编码的字符串或ArrayBuffer，
-   * 以及一个可选的布尔值参数，该参数决定是否生成的Base64字符串是URL安全的。
-   * 这个方法将ArrayBuffer对象转换为Base64编码的字符串。
-   */
   const onPressNBFAB = (text: string | ArrayBuffer) => {
     if (nativeModule?.base64FromArrayBuffer) {
       let base64FromArrayBuffer = nativeModule.base64FromArrayBuffer(text);
@@ -202,12 +183,6 @@ export function QuickBase64Test() {
     }
   }
 
-  /**
-  * @description base64转换Unit8Array 去除换行符
-  * @param text
-  * @param removeLinebreaks true
-  *
-  */
   const onPressNBFABUrlSafe = (text: string | ArrayBuffer, urlSafe: boolean = false) => {
     if (nativeModule?.base64FromArrayBuffer) {
       let base64FromArrayBuffer = nativeModule.base64FromArrayBuffer(text, urlSafe);
@@ -215,14 +190,6 @@ export function QuickBase64Test() {
     }
   }
 
-  /**
-   * @description base64转换Unit8Array
-   * base64ToArrayBuffer方法接受一个Base64编码的字符串和一个可选的布尔值参数，
-   * 该参数决定是否在转换过程中删除换行符。这个方法将Base64编码的字符串转换为ArrayBuffer对象。
-   * @param text
-   * @param removeLinebreaks 默认值 false
-   *
-   */
   const onPressNBTAB = (text: string) => {
     if (nativeModule?.base64ToArrayBuffer) {
       let base64ToArrayBuffer = new Uint8Array(nativeModule.base64ToArrayBuffer(text));
@@ -230,12 +197,6 @@ export function QuickBase64Test() {
     }
   }
 
-  /**
-   * @description base64转换Unit8Array 去除换行符
-   * @param text
-   * @param removeLinebreaks true
-   *
-   */
   const onPressNBTABRemoveLinebreaks = (text: string, removeLinebreaks: boolean = false) => {
     if (nativeModule?.base64ToArrayBuffer) {
       let base64ToArrayBuffer = new Uint8Array(nativeModule.base64ToArrayBuffer(text, removeLinebreaks));
@@ -338,8 +299,6 @@ export function QuickBase64Test() {
           <Button title="shim set global" onPress={() => handleAddShimToGlobal()} />
         </View>
 
-
-        {/* 测试shim 设置 btoa和atob函数 成功与否 */}
         <View>Test whether the shim sets the btoa function successfully.</View>
 
         <View style={{ marginTop: 20, display: 'flex', flexDirection: 'column', marginBottom: 10 }}>
@@ -348,8 +307,6 @@ export function QuickBase64Test() {
           <Text style={{ color: 'green' }}>{testShimBtoA}</Text>
         </View>
 
-
-        {/* 测试shim 设置 btoa和atob函数 成功与否 */}
         <View>Test whether the shim sets the atob function successfully.</View>
 
         <View style={{ display: 'flex', flexDirection: 'column', marginBottom: 10 }}>
@@ -358,8 +315,6 @@ export function QuickBase64Test() {
           <Text style={{ color: 'green' }}>{testShimAtoB}</Text>
         </View>
 
-
-        {/* trimBase64Padding 清除Base64字符串的填充字符 */}
         <View>trimBase64Padding.</View>
 
         <View style={{ display: 'flex', flexDirection: 'column', marginBottom: 10 }}>
@@ -566,9 +521,9 @@ Check the release version information in the release address of the third-party 
 
 ## Static Methods
 
-> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | NAME              | Description                                                                                                                                                                                                                               | TYPE     | Required | Platform | HarmonyOS Support |
 | ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | ----------------- |

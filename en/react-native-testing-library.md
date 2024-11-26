@@ -1,5 +1,5 @@
 
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-testing-library</code> </h1>
@@ -13,14 +13,14 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/callstack/react-native-testing-library)
+> [!TIP] [GitHub address](https://github.com/callstack/react-native-testing-library)
 
 
-## 安装与使用
+## Installation and Usage
 
-本库需要和测试运行器一起使用，本文档以Jest测试框架作为示例演示。
+This library needs to be used in conjunction with a test runner, and this documentation demonstrates the use of the Jest testing framework as an example.
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -40,15 +40,15 @@ yarn add -D @testing-library/react-native@12.5.1
 
 <!-- tabs:end -->
 
-配置Jest匹配器，目前有两种配置方法：
+There are currently two methods for configuring Jest matchers:
 
-方法一：在jest-setup.ts中引入：
+Method One: Introduce them in jest-setup.ts:
 
 ```js
 import '@testing-library/react-native/extend-expect';
 ```
 
-方法二：在jest.config.js中配置：
+Method Two: Configure in jest.config.js:
 
 ```json
 {
@@ -57,9 +57,9 @@ import '@testing-library/react-native/extend-expect';
 }
 ```
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```js
 import * as React from 'react';
@@ -120,22 +120,22 @@ test('form submits two answers', async () => {
   });
 });
 ```
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH: 0.72.27; SDK: HarmonyOS-Next-DB1 5.0.0.29(SP1); IDE: DevEco Studio 5.0.3.403; ROM: 3.0.0.25;
 2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
 ## API
 
-详细请查看 [react-native-testing-library 的文档介绍](https://callstack.github.io/react-native-testing-library/docs/api)
+For details, see [react-native-testing-library](https://callstack.github.io/react-native-testing-library/docs/api)
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
@@ -154,8 +154,7 @@ test('form submits two answers', async () => {
 
  ### screen
 
-> [!TIP] "\*"号表示省略了变体或者谓词部；查询接口由两部分组成：变体和谓词，它们之间由单词by分隔，例如: getBy\*是查询变体，\*ByRole是谓词；变体和谓词之间可以任意组合。
-
+> [!TIP] The "" symbol indicates the omission of either the variant or the predicate part; the query interface consists of two components: the variant and the predicate, separated by the word "by". For example, "getBy" represents a query variant, while "*ByRole" represents a predicate. The variant and predicate can be combined in any manner.
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
@@ -209,10 +208,10 @@ test('form submits two answers', async () => {
 | toHaveAccessibleName | This allows you to assert whether the given element has a specified accessible name. It accepts either `string` or `RegExp` matchers, as well as [text match options](https://callstack.github.io/react-native-testing-library/docs/api/queries#text-match-options) of `exact` and normalizer | function | no | All | yes |
 | toHaveProp | This allows you to assert whether the given element has a given prop. When the `value` parameter is `undefined` it will only check for existence of the prop, and when `value` is defined it will check if the actual value matches passed value. | function | no | All | yes |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/callstack/react-native-testing-library/blob/main/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/callstack/react-native-testing-library/blob/main/LICENSE).

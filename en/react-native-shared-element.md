@@ -20,8 +20,6 @@ Find the matching version information in the release address of a third-party li
 
 Go to the project directory and execute the following instruction:
 
-
-
 <!-- tabs:start -->
 
 #### **npm**
@@ -256,7 +254,7 @@ Method 2: Directly link to the source code.
 
 > [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
-### 3. Configuring CMakeLists and Introducing xxx Package
+### 3. Configuring CMakeLists and Introducing SharedElementPackage
 
 Open `entry/src/main/cpp/CMakeLists.txt` and add the following code:
 
@@ -338,9 +336,9 @@ Check the release version information in the release address of the third-party 
 
 ## Components
 
-> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 ### SharedElement
 
@@ -366,9 +364,9 @@ Check the release version information in the release address of the third-party 
 
 ## Properties
 
-> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 #### SharedElementAnimation
 

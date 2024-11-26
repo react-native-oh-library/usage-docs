@@ -154,11 +154,11 @@ This document is verified based on the following versions:
 
 ## Known Issues
 
-- [ ] 依赖手势库的三方库，单击图表后会出现手势指示点出现 BUG 的情况，会页面卡住无法点击组件中按钮再次点击回归正常，需要等待手势库更新后正常 [issues#38](https://github.com/react-native-oh-library/react-native-harmony-gesture-handler/issues/38)
+- [ ] A third-party library that relies on gesture libraries may encounter bugs in gesture indicator points when clicking on charts, causing the page to freeze and making it impossible to click on the buttons in the component. Clicking again will return to normal, and we need to wait for the gesture library to update before it returns to normal [issues#38](https://github.com/react-native-oh-library/react-native-harmony-gesture-handler/issues/38)
 
 ## Others
 
-- react-native-graph 的 animated 属性 原库代码现在有问题 无论是 false 还是 true，数据变化都是静态变化，没有动画效果，原库中有使用者提 issue 和 PR，添加合入相应 PR 代码后才能动画正常[issue#111](https://github.com/margelo/react-native-graph/pull/111)
+- The original library code for the animated attribute of react native graph is currently problematic. Whether it is false or true, data changes are static and do not have animation effects. There are user issues and PRs in the original library, and the animation can only function properly after adding and merging the corresponding PR code [issue#111](https://github.com/margelo/react-native-graph/pull/111)
 
 ## License
 

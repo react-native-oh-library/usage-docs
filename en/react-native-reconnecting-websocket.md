@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-reconnecting-websocket</code> </h1>
@@ -12,15 +12,11 @@
     </a>
 </p>
 
+> [!TIP] [GitHub address](https://github.com/React-Sextant/react-native-reconnecting-websocket)
 
+## Installation and Usage
 
-
-
-> [!TIP] [Github 地址](https://github.com/React-Sextant/react-native-reconnecting-websocket)
-
-## 安装与使用
-
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -38,7 +34,7 @@ yarn add react-native-reconnecting-websocket@^2.0.0
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
 ```tsx
 import React, { useEffect, useState } from 'react';
@@ -81,23 +77,23 @@ const ReconnectingWebsocketDemo = () => {
     return (
         <>
             <View style={{ height: '100%' }}>
-                <Text style={{ lineHeight: 30, textAlign: 'center' }}>进入页面自动连通服务器</Text>
+                <Text style={{ lineHeight: 30, textAlign: 'center' }}>Automatically connect to the server upon entering the page</Text>
                 <Button
-                    title='ws.close( )-----关闭连接'
+                    title='ws.close( )-----Close connection'
                     onPress={() => {
                         ws.close()
                     }}
                 />
                 <View style={{ height: 30 }} />
                 <Button
-                    title='ws.send(可口可乐)-----发送信息'
+                    title='ws.send(可口可乐)-----Send a message'
                     onPress={() => {
                         ws.send('可口可乐')
                     }}
                 />
                 <View style={{ height: 30 }} />
                 <Button
-                    title='ws.reconnect( )-----刷新连接'
+                    title='ws.reconnect( )-----Refresh Connection'
                     onPress={() => {
                         ws.reconnect()
                     }}
@@ -113,11 +109,11 @@ const ReconnectingWebsocketDemo = () => {
 export default ReconnectingWebsocketDemo;
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.18;
 2. RNOH：0.72.29; SDK：HarmonyOS NEXT Developer Beta6; IDE：DevEco Studio 5.0.3.706; ROM：3.0.0.60;
@@ -125,9 +121,9 @@ export default ReconnectingWebsocketDemo;
 
 ## API
 
-> [!Tip] "Platform"列表示该属性在原三方库上支持的平台。
+> [!Tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!Tip] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!Tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                          | Description                                                  | Type   | Required | Platform | HarmonyOS Support |
 | ----------------------------- | ------------------------------------------------------------ | ------ | -------- | -------- | ----------------- |
@@ -137,8 +133,8 @@ export default ReconnectingWebsocketDemo;
 | `ping(): void`                | Sends a ping frame to the server.                            | Method | No       | All      | Yes               |
 | `reconnect(): void`           | Closes the current WebSocket connection and attempts to reconnect using the initial parameters. | Method | No       | All      | Yes               |
 
-## 遗留问题
-## 其他
-## 开源协议
+## Known Issues
+## Others
+## License
 
-本项目基于 [The MIT License (MIT)](https://mitlicense.org/)，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://mitlicense.org/).

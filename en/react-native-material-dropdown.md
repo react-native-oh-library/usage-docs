@@ -156,6 +156,7 @@ class Example extends Component {
 ## 遗留问题
 
 ## 其他
+- renderAccessory属性：需要指定renderRightAccessory或者renderLeftAccessory
 
 ## 开源协议
 

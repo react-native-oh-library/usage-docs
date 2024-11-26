@@ -6,7 +6,7 @@
 
 本项目基于 [react-native-linear-gradient@3.0.0-alpha.1](https://github.com/react-native-linear-gradient/react-native-linear-gradient) 开发。
 
-`该第三方库的仓库已迁移至 Gitee，且支持直接从 npm 下载，新的包名为：@react-native-ohos/react-native-linear-gradient，具体版本所属关系如下`
+该第三方库的仓库已迁移至 Gitee，且支持直接从 npm 下载，新的包名为：`@react-native-ohos/react-native-linear-gradient`，具体版本所属关系如下：
 
 | Version                   | Package Name                                      | Repository         | Release                    |
 | ------------------------- | ------------------------------------------------- | ------------------ | -------------------------- |
@@ -216,4 +216,4 @@ ohpm install
 
 ## 6. 开源协议
 
-本项目基于 [The MIT License (MIT)](https://gitee.com/openharmony-sig/rntpc_react-native-linear-gradient/blob/master/LICENSE) ，请自由地享受和参与开源。
+本项目基于 [The MIT License (MIT)](https://gitee.com/openharmony-sig/rntpc_react-native-linear-gradient/blob/master/LICENSE)，请自由地享受和参与开源。

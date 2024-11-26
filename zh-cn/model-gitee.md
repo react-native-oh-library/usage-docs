@@ -5,12 +5,12 @@
 > 模板版本：v0.3.0
 
 <p align="center">
-  <h1 align="center"> <code><原库 npm 包名></code> </h1>
+  <h1 align="center"> <code>原库 npm 包名</code> </h1>
 </p>
 
 本项目基于 [原库 npm 名称@x.x.x](原库仓库连接) 开发。
 
-`该第三方库的仓库已迁移至 Gitee，且支持直接从 npm 下载，新的包名为：@react-native-ohos/react-native-linear-gradient，具体版本所属关系如下`
+该第三方库的仓库已迁移至 Gitee，且支持直接从 npm 下载，新的包名为：`@react-native-ohos/react-native-linear-gradient`，具体版本所属关系如下：
 
 | Version                   | Package Name                                      | Repository         | Release                    |
 | ------------------------- | ------------------------------------------------- | ------------------ | -------------------------- |
@@ -241,13 +241,13 @@ ohpm install
 
 （填入相关权限配置）
 
-**以下属性、静态方法、API 需要检查说明中手机平台描述，例如已支持 HarmonyOS 的接口并且说明中提到 ios 和 android，那么需要检查是否补充 harmony 进到描述中。示例如下（删除）**
+**以下属性、静态方法、API 需要检查说明中手机平台描述，例如已支持 HarmonyOS 的接口并且说明中提到 iOS 和 Android，那么需要检查是否补充 HarmonyOS 进到描述中。示例如下（删除）**
 
 ```
 // 原描述
 Needed for Android to work properly with assets, iOS will ignore it.
 // 修改后
-Needed for Android and harmony to work properly with assets, iOS will ignore it.
+Needed for Android and HarmonyOS to work properly with assets, iOS will ignore it.
 ```
 
 （删除）
@@ -284,8 +284,8 @@ Needed for Android and harmony to work properly with assets, iOS will ignore it.
 
 ## 7. 遗留问题
 
-- [ ] xxx 问题: [issue#\*\*\*](https://github.com/issue地址1)
-- [ ] yyy 问题: [issue#\*\*\*](https://github.com/issue地址2)
+- [ ] xxx 问题: [issue#\*\*\*](issue地址1)
+- [ ] yyy 问题: [issue#\*\*\*](issue地址2)
 
 ## 8. 其他
 

@@ -1,28 +1,19 @@
-> Template version: v0.2.1
+> Template version: v0.3.0
 
 <p align="center">
   <h1 align="center"> <code>react-native-linear-gradient</code> </h1>
 </p>
-<p align="center">
-    <a href="https://github.com/react-native-linear-gradient/react-native-linear-gradient">
-        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20windows%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
-    </a>
-        <a href="https://gitee.com/openharmony-sig/rntpc_react-native-linear-gradient/blob/master/LICENSE">
-        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
-    </a>
-</p>
 
-> [Gitee Repository](https://gitee.com/openharmony-sig/rntpc_react-native-linear-gradient)
+This project is based on [react-native-linear-gradient@3.0.0-alpha.1](https://github.com/react-native-linear-gradient/react-native-linear-gradient)。
 
-> [Gitee Releases: @react-native-ohos/react-native-linear-gradient](https://gitee.com/openharmony-sig/rntpc_react-native-linear-gradient/releases)
+This third-party library has been migrated to Gitee and is now available for direct download from npm, the new package name is: `@react-native-ohos/react-native-linear-gradient`, The version correspondence details are as follows:
 
-> [Github Repository(deprecated)](https://github.com/react-native-oh-library/react-native-linear-gradient)
+| Version                   | Package Name                                      | Repository         | Release                    |
+| ------------------------- | ------------------------------------------------- | ------------------ | -------------------------- |
+| <= 3.0.0-0.5.0@deprecated | @react-native-oh-tpl/react-native-linear-gradient | [Github(deprecated)](https://github.com/react-native-oh-library/react-native-linear-gradient) | [Github Releases(deprecated)](https://github.com/react-native-oh-library/react-native-linear-gradient/releases) |
+| > 3.0.0                   | @react-native-ohos/react-native-linear-gradient   | [Gitee](https://gitee.com/openharmony-sig/rntpc_react-native-linear-gradient) | [Gitee Releases](https://gitee.com/openharmony-sig/rntpc_react-native-linear-gradient/releases) |
 
-> [Github Releases(<= 3.0.0-0.5.0): @react-native-oh-tpl/react-native-linear-gradient](https://github.com/react-native-oh-library/react-native-linear-gradient/releases)
-
-## Installation and Usage
-
-`This third-party library has been migrated to Gitee and is now available for direct download from npm, the new package name is: @react-native-ohos/react-native-linear-gradient`
+## 1. Installation and Usage
 
 Go to the project directory and execute the following instruction:
 
@@ -97,28 +88,36 @@ var styles = StyleSheet.create({
 });
 ```
 
-## Link
+## 2. Manual Link
 
-Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
+This step provides guidance for manually configuring native dependencies.
 
-Open the harmony directory of the HarmonyOS project in DevEco Studio.
+Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
+### 2.1 Overrides RN SDK
+
+To ensure the project relies on the same version of the RN SDK, you need to add an `overrides` field in the project's root `oh-package.json5` file, specifying the RN SDK version to be used. The replacement version can be a specific version number, a semver range, or a locally available HAR package or source directory.
+
+For more information about the purpose of this field, please refer to the [official documentation](https://developer.huawei.com/consumer/en/doc/harmonyos-guides-V5/ide-oh-package-json5-V5#en-us_topic_0000001792256137_overrides).
 
 ```json
 {
-  ...
   "overrides": {
-    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+    "@rnoh/react-native-openharmony": "^0.72.38" // ohpm version
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony.har" // a locally available HAR package
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony" // source code directory
   }
 }
 ```
 
-### 2. Introducing Native Code
+### 2.2 Introducing Native Code
 
 Currently, two methods are available:
 
-1. Method 1 (recommended): Use the HAR file.
+- Use the HAR file.
+- Directly link to the source code。
+
+Method 1 (recommended): Use the HAR file.
 
 > [!TIP] The HAR file is stored in the harmony directory in the installation path of the third-party library.
 
@@ -143,7 +142,7 @@ Method 2: Directly link to the source code.
 
 > [!TIP] For details, see [Directly Linking Source Code.](/en/link-source-code.md)
 
-### 3. Configuring CMakeLists and Introducing LinearGradientPackage Package
+### 2.3 Configuring CMakeLists and Introducing LinearGradientPackage Package
 
 Open entry/src/main/cpp/CMakeLists.txt and add the following code:
 
@@ -176,7 +175,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 4. Running
+### 2.4 Running
 
 Click the sync button in the upper right corner.
 
@@ -189,11 +188,9 @@ ohpm install
 
 Then build and run the code.
 
-## Constraints
+## 3. Constraints
 
-## Compatibility
-
-To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
+## 3.1 Compatibility
 
 Check the release version information in the release address of the third-party library: [@react-native-ohos/react-native-linear-gradient Releases](https://gitee.com/openharmony-sig/rntpc_react-native-linear-gradient/releases)
 
@@ -213,12 +210,10 @@ Check the release version information in the release address of the third-party 
 | start       | Starting point coordinates (default value: {x: 0.5,1})   | { x: number,y: number} | NO       | All      | yes               |
 | end         | End point coordinates (default value: {x: 0.5,1})        | { x: number,y: number} | NO       | All      | yes               |
 
-## Known Issues
+## 5. Known Issues
 
 - The current version of HarmonyOS does not support angleCenter.
 
-## Others
-
-## License
+## 6. License
 
 This project is licensed under [The MIT License (MIT)](https://gitee.com/openharmony-sig/rntpc_react-native-linear-gradient/blob/master/LICENSE).

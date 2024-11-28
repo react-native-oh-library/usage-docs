@@ -454,96 +454,97 @@ Open the `entry/src/main/module.json5` file and add the following code:
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                                                                         | Description                                                                                                                                        | Type     | Required | Platform    | HarmonyOS Support |
-| ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------- | ----------------- |
-| getAll: Promise<Contact[]>                                                   | returns all contacts as an array of objects                                                                                                        | function | no       | android,ios | yes               |
-| getAllWithoutPhotos:Promise<Contact[]>                                       | same as `getAll` on Android, but on iOS it will not return uris for contact photos (because there's a significant overhead in creating the images) | function | no       | android,ios | yes               |
-| getContactById(contactId): Promise<Contact>                                  | returns contact with defined contactId (or null if it doesn't exist)人                                                                             | function | no       | android,ios | yes               |
-| getCount(): Promise<number>                                                  | returns the number of contacts                                                                                                                     | function | no       | android,ios | yes               |
-| getPhotoForId(contactId: string): Promise<string>                            | Promise - returns a URI (or null) for a contacts photoURL                                                                                          | function | no       | android,ios | yes               |
-| addContact(contact: Partial<Contact>): Promise<Contact>                      | adds a contact to the AddressBook                                                                                                                  | function | no       | android,ios | yes               |
-| openContactForm(contact: Partial<Contact>): Promise<Contact \| null>         | create a new contact and display in contactsUI 面                                                                                                  | function | no       | android,ios | partially         |
-| openExistingContact(contact: Contact): Promise<Contact>                      | open existing contact (edit mode), where contact is an object with a valid recordID                                                                | function | no       | android,ios | partially         |
-| viewExistingContact(contact: { recordID: string })                           | open existing contact (view mode), where contact is an object with a valid recordID 面                                                             | function | no       | android,ios | partially         |
-| editExistingContact(contact: Contact): Promise<Contact>                      | add numbers to the contact, where the contact is an object with a valid recordID and an array of phoneNumbers 面                                   | function | no       | android,ios | no                |
-| updateContact(contact: Partial<Contact> & {recordID: string}): Promise<void> | where contact is an object with a valid recordID                                                                                                   | function | no       | android,ios | yes               |
-| deleteContact(contact: Contact): Promise<void>                               | where contact is an object with a valid recordID                                                                                                   | function | no       | android,ios | yes               |
-| getContactsMatchingString(str: string): Promise<Contact[]>                   | where string is any string to match a name (first, middle, family) to                                                                              | function | no       | android,ios | yes               |
-| getContactsByPhoneNumber(phoneNumber: string): Promise<Contact[]>            | where string is a phone number to match to.                                                                                                        | function | no       | android,ios | yes               |
-| getContactsByEmailAddress(emailAddress: string): Promise<Contact[]>          | where string is an email address to match to.                                                                                                      | function | no       | android,ios | yes               |
-| checkPermission(): Promise<'authorized' \| 'denied' \| 'undefined'>;         | checks permission to access Contacts ios only                                                                                                      | function | no       | ios         | yes               |
-| requestPermission(): Promise<'authorized' \| 'denied' \| 'undefined'>        | request permission to access Contacts ios only                                                                                                     | function | no       | ios         | yes               |
-| writePhotoToPath(contactId: string, file: string): Promise<boolean>          | writes the contact photo to a given path android only                                                                                              | function | no       | android     | no                |
+| Name                                                         | Description                                                  | Type     | Required | Platform    | HarmonyOS Support |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | -------- | -------- | ----------- | ----------------- |
+| getAll: Promise<Contact[]>                                   | returns all contacts as an array of objects                  | function | no       | Android,iOS | yes               |
+| getAllWithoutPhotos:Promise<Contact[]>                       | same as `getAll` on Android, but on iOS it will not return uris for contact photos (because there's a significant overhead in creating the images) | function | no       | Android,iOS | yes               |
+| getContactById(contactId): Promise<Contact>                  | returns contact with defined contactId (or null if it doesn't exist) | function | no       | Android,iOS | yes               |
+| getCount(): Promise<number>                                  | returns the number of contacts                               | function | no       | Android,iOS | yes               |
+| getPhotoForId(contactId: string): Promise<string>            | Promise - returns a URI (or null) for a contacts photoURL    | function | no       | Android,iOS | yes               |
+| addContact(contact: Partial<Contact>): Promise<Contact>      | adds a contact to the AddressBook                            | function | no       | Android,iOS | yes               |
+| openContactForm(contact: Partial<Contact>): Promise<Contact \| null> | create a new contact and display in contactsUI               | function | no       | Android,iOS | partially         |
+| openExistingContact(contact: Contact): Promise<Contact>      | open existing contact (edit mode), where contact is an object with a valid recordID | function | no       | Android,iOS | partially         |
+| viewExistingContact(contact: { recordID: string })           | open existing contact (view mode), where contact is an object with a valid recordID | function | no       | Android,iOS | partially         |
+| editExistingContact(contact: Contact): Promise<Contact>      | add numbers to the contact, where the contact is an object with a valid recordID and an array of phoneNumbers | function | no       | Android,iOS | no                |
+| updateContact(contact: Partial<Contact> & {recordID: string}): Promise<void> | where contact is an object with a valid recordID             | function | no       | Android,iOS | yes               |
+| deleteContact(contact: Contact): Promise<void>               | where contact is an object with a valid recordID             | function | no       | Android,iOS | yes               |
+| getContactsMatchingString(str: string): Promise<Contact[]>   | where string is any string to match a name (first, middle, family) to | function | no       | Android,iOS | yes               |
+| getContactsByPhoneNumber(phoneNumber: string): Promise<Contact[]> | where string is a phone number to match to.                  | function | no       | Android,iOS | yes               |
+| getContactsByEmailAddress(emailAddress: string): Promise<Contact[]> | where string is an email address to match to.                | function | no       | Android,iOS | yes               |
+| checkPermission(): Promise<'authorized' \| 'denied' \| 'undefined'>; | checks permission to access Contacts ios only                | function | no       | iOS         | yes               |
+| requestPermission(): Promise<'authorized' \| 'denied' \| 'undefined'> | request permission to access Contacts ios only               | function | no       | iOS         | yes               |
+| writePhotoToPath(contactId: string, file: string): Promise<boolean> | writes the contact photo to a given path android only        | function | no       | Android     | no                |
 
 **Contacts**
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| recordID | 联系人 id | string | no | android,ios | yes |
-| backTitle | 返回键标题 | string | no | android,ios | no |
-| company | 公司 | string|null | no | android,ios | yes |
-| emailAddresses | 电子邮箱地址 | EmailAddress[] | no | android,ios | yes |
-| displayName | 展示名 | string | no | android,ios | yes |
-| familyName | 姓氏 | string | no | android,ios | yes |
-| givenName | 名字 | string | no | android,ios | yes |
-| middleName | 中间名 | string | no | android,ios | yes |
-| jobTitle | 职位名称 | string | no | android,ios | yes |
-| phoneNumbers | 电话号码 | PhoneNumber[] | no | android,ios | yes |
-| hasThumbnail | 有头像 | boolean | no | android,ios | np |
-| thumbnailPath | 头像地址 | string | no | android,ios | no |
-| isStarred | 是否标记 | boolean | no | android,ios | yes |
-| postalAddresses | 邮件地址 | PostalAddress[] | no | android,ios | yes |
-| prefix | 前缀 | string | no | android,ios | yes |
-| suffix | 后缀 | string | no | android,ios | yes |
-| department | 部门 | string | no | android,ios | yes |
-| birthday | 生日 | Birthday | no | android,ios | yes |
-| imAddresses | 即时消息地址 | InstantMessageAddress[] | no | android,ios | yes |
-| urlAddresses | 图片地址 | UrlAddress[] | no | android,ios | no |
-| note | 备注 | string | no | android,ios | yes |
+| recordID | 联系人 id | string | no | Android,iOS | yes |
+| backTitle | 返回键标题 | string | no | Android,iOS | no |
+| company | 公司 | string|no | Android,iOS | yes |
+| emailAddresses | 电子邮箱地址 | EmailAddress[] | no | Android,iOS | yes |
+| displayName | 展示名 | string | no | Android,iOS | yes |
+| familyName | 姓氏 | string | no | Android,iOS | yes |
+| givenName | 名字 | string | no | Android,iOS | yes |
+| middleName | 中间名 | string | no | Android,iOS | yes |
+| jobTitle | 职位名称 | string | no | Android,iOS | yes |
+| phoneNumbers | 电话号码 | PhoneNumber[] | no | Android,iOS | yes |
+| hasThumbnail | 有头像 | boolean | no | Android,iOS | no |
+| thumbnailPath | 头像地址 | string | no | Android,iOS | no |
+| isStarred | 是否标记 | boolean | no | Android,iOS | yes |
+| postalAddresses | 邮件地址 | PostalAddress[] | no | Android,iOS | yes |
+| prefix | 前缀 | string | no | Android,iOS | yes |
+| suffix | 后缀 | string | no | Android,iOS | yes |
+| department | 部门 | string | no | Android,iOS | yes |
+| birthday | 生日 | Birthday | no | Android,iOS | yes |
+| imAddresses | 即时消息地址 | InstantMessageAddress[] | no | Android,iOS | yes |
+| urlAddresses | 图片地址 | UrlAddress[] | no | Android,iOS | no |
+| note | 备注 | string | no | Android,iOS | yes |
 
 **EmailAddress**
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| label | 标题 | string | no | android,ios | yes |
-| email | 地址 | string | no | android,ios | yes |
+| label | 标题 | string | no | Android,iOS | yes |
+| email | 地址 | string | no | Android,iOS | yes |
 
 **PhoneNumber**
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| label | 标题 | string | no | android,ios | yes |
-| number | 号码 | string | no | android,ios | yes |
+| label | 标题 | string | no | Android,iOS | yes |
+| number | 号码 | string | no | Android,iOS | yes |
 
 **PostalAddress**
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| label | 标题 | string | no | android,ios | yes |
-| formattedAddress | 格式化地址 | string | no | android,ios | yes |
-| street | 街道 | string | no | android,ios | yes |
-| pobox | 信箱 | string | no | android,ios | yes |
-| neighborhood | 邻域 | string | no | android,ios | yes |
-| city | 城市 | string | no | android,ios | yes |
-| region | 区域 | string | no | android,ios | yes |
-| state | 州 | string | no | android,ios | yes |
-| postCode | 邮政编码 | string | no | android,ios | yes |
-| country | 国家/地区 | string | no | android,ios | yes |
+| label | 标题 | string | no | Android,iOS | yes |
+| formattedAddress | 格式化地址 | string | no | Android,iOS | yes |
+| street | 街道 | string | no | Android,iOS | yes |
+| pobox | 信箱 | string | no | Android,iOS | yes |
+| neighborhood | 邻域 | string | no | Android,iOS | yes |
+| city | 城市 | string | no | Android,iOS | yes |
+| region | 区域 | string | no | Android,iOS | yes |
+| state | 州 | string | no | Android,iOS | yes |
+| postCode | 邮政编码 | string | no | Android,iOS | yes |
+| country | 国家/地区 | string | no | Android,iOS | yes |
 
 **InstantMessageAddress**
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| username | 用户名 | string | no | android,ios | no |
-| service | 服务地址 | string | no | android,ios | no |
+| username | 用户名 | string | no | Android,iOS | no |
+| service | 服务地址 | string | no | Android,iOS | no |
 
 **Birthday**
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| day | 年 | number | no | android,ios | yes |
-| month | 月 | number | no | android,ios | yes |
-| year | 日 | number | no | android,ios | yes |
+| day | 日 | number | no | Android,iOS | yes |
+| month | 月 | number | no | Android,iOS | yes |
+| year | 年 | number | no | Android,iOS | yes |
 
 **UrlAddress**
+
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| url | 路径 | string | no | android,ios | yes |
-| label | 标题 | string | no | android,ios | yes |
+| url | 路径 | string | no | Android,iOS | yes |
+| label | 标题 | string | no | Android,iOS | yes |
 
 ## Known Issues
 

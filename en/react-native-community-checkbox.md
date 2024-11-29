@@ -1,39 +1,35 @@
-> Template version: v0.2.2
+> Template version: v0.3.0
 
 <p align="center">
   <h1 align="center"> <code>@react-native-community/checkbox</code> </h1>
 </p>
-<p align="center">
-    <a href="https://github.com/react-native-checkbox/react-native-checkbox">
-        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20windows%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
-    </a>
-    <a href="https://github.com/react-native-checkbox/react-native-checkbox/blob/develop/LICENSE">
-        <img src="https://img.shields.io/npm/l/@react-native-community/checkbox.svg" alt="License" />
-    </a>
-</p>
 
-> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-checkbox)
+This project is based on [@react-native-community/checkbox](https://github.com/react-native-checkbox/react-native-checkbox).
 
-## Installation and Usage
 
-Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/checkbox Releases](https://github.com/react-native-oh-library/react-native-checkbox/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+This third-party library has been migrated to Gitee and is now available for direct download from npm, the new package name is:`@react-native-ohos/checkbox`, The version correspondence details are as follows:
+
+| Version                   | Package Name                                      | Repository         | Release                    |
+| ------------------------- | ------------------------------------------------- | ------------------ | -------------------------- |
+| <= 0.5.16-0.1.0@deprecated | @react-native-oh-tpl/checkbox | [Github(deprecated)](https://github.com/react-native-oh-library/react-native-checkbox) | [Github Releases(deprecated)](https://github.com/react-native-oh-library/react-native-checkbox/releases) |
+| >= 0.5.17                   | @react-native-ohos/checkbox   | [Gitee](https://gitee.com/openharmony-sig/rntpc_react-native-checkbox) | [Gitee Releases](https://gitee.com/openharmony-sig/rntpc_react-native-checkbox/releases) |
+
+## 1. Installation and Usage
 
 Go to the project directory and execute the following instruction:
-
-
 
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/checkbox
+npm install @react-native-ohos/checkbox
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/checkbox
+yarn add @react-native-ohos/checkbox
 ```
 
 <!-- tabs:end -->
@@ -67,27 +63,34 @@ export default function CheckBoxExample() {
 }
 ```
 
-## Link
+## 2. Manual Link
 
-Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
+This step provides guidance for manually configuring native dependencies.
 
 Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
+### 2.1. Overrides RN SDK
+
+To ensure the project relies on the same version of the RN SDK, you need to add an `overrides` field in the project's root `oh-package.json5` file, specifying the RN SDK version to be used. The replacement version can be a specific version number, a semver range, or a locally available HAR package or source directory.
+
+For more information about the purpose of this field, please refer to the [official documentation](https://developer.huawei.com/consumer/en/doc/harmonyos-guides-V5/ide-oh-package-json5-V5#en-us_topic_0000001792256137_overrides).
 
 ```json
 {
-  ...
   "overrides": {
-    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+    "@rnoh/react-native-openharmony": "^0.72.38" // ohpm version
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony.har" // a locally available HAR package
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony" // source code directory
   }
 }
 ```
 
-### 2. Introducing Native Code
+### 2.2. Introducing Native Code
 
 Currently, two methods are available:
 
+- Use the HAR file.
+- Directly link to the source code。
 
 Method 1 (recommended): Use the HAR file.
 
@@ -98,8 +101,7 @@ Open `entry/oh-package.json5` file and add the following dependencies:
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "@react-native-oh-tpl/checkbox": "file:../../node_modules/@react-native-oh-tpl/checkbox/harmony/checkbox.har",
+    "@react-native-ohos/checkbox": "file:../../node_modules/@react-native-ohos/checkbox/harmony/checkbox.har",
   }
 ```
 
@@ -116,7 +118,7 @@ Method 2: Directly link to the source code.
 
 > [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
-### 3. Configuring CMakeLists and Introducing CheckboxPackge
+### 2.3. Configuring CMakeLists and Introducing CheckboxPackge
 
 Open `entry/src/main/cpp/CMakeLists.txt` and add the following code:
 
@@ -131,7 +133,7 @@ add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
 # RNOH_BEGIN: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/checkbox/src/main/cpp" ./checkbox)
++ add_subdirectory("${OH_MODULES}/@react-native-ohos/checkbox/src/main/cpp" ./checkbox)
 # RNOH_END: manual_package_linking_1
 
 add_library(rnoh_app SHARED
@@ -165,28 +167,30 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 4.Introducing RNCCheckBoxPackage Component to ArkTS
-> [!TIP] Required for version `v0.5.16-0.1.0` and above
+### 2.4. Introducing RNCCheckBoxPackage to ArkTS
+
+> [!TIP] Required for version `v0.5.17` and above
 
 Open `entry/src/main/ets/RNPackagesFactory.ts` and add:
 
 ```diff
   ...
-+ import { RNCCheckBoxPackage } from '@react-native-oh-tpl/checkbox/ts';
++ import { RNCCheckBoxPackage } from '@react-native-ohos/checkbox/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
 +   new RNCCheckBoxPackage(ctx)
   ];
 }
+```
 
-### 5.Introducing Checkbox Component to ArkTS
+### 2.5. Introducing RNCCheckbox Component to ArkTS
 
 Find `function buildCustomRNComponent()`, which is usually located in `entry/src/main/ets/pages/index.ets` or `entry/src/main/ets/rn/LoadBundle.ets`, and add the following code:
 
 ```diff
     ...
-+ import { RNCCheckbox, CHECKBOX_TYPE } from "@react-native-oh-tpl/checkbox"
++ import { RNCCheckbox, CHECKBOX_TYPE } from "@react-native-ohos/checkbox"
 
 @Builder
 export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
@@ -215,7 +219,7 @@ const arkTsComponentNames: Array<string> = [
   ];
 ```
 
-### 5.Running
+### 2.6. Running
 
 Click the `sync` button in the upper right corner.
 
@@ -228,17 +232,13 @@ ohpm install
 
 Then build and run the code.
 
-## Constraints
+## 3. Constraints
 
-### Compatibility
+### 3.1. Compatibility
 
-To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
+Check the release version information in the release address of the third-party library: [@react-native-ohos/checkbox Releases](https://gitee.com/openharmony-sig/rntpc_react-native-checkbox/releases)
 
-Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/checkbox Releases](https://github.com/react-native-oh-library/react-native-checkbox/releases)
-
-## Properties
-
-> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+## 4. Properties
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
@@ -266,7 +266,7 @@ Check the release version information in the release address of the third-party 
 | `onAnimationType`   | The type of animation to use when the checkbox gets checked. Default to 'stroke'.                                                                                                             | 'stroke' or 'fill' or 'bounce' or 'flat' or 'one-stroke' or 'fade'   | No       | iOS     | No              |
 | `offAnimationType`   | The type of animation to use when the checkbox gets unchecked. 'stroke'.                                                                                                                      | 'stroke' or 'fill' or 'bounce' or 'flat' or 'one-stroke' or 'fade'   | No       | iOS     | No              |
 
-## Static Methods
+## 5. Static Methods
 
 > [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
@@ -277,7 +277,7 @@ Check the release version information in the release address of the third-party 
 | `onChange`      | Invoked on change with the native event.                                                                                                                                                       | function | No       | Android、iOS   | yes               |
 | `onValueChange` | Invoked with the new boolean value when it changes.                                                                                                                                            | function | No       | Android、iOS   | yes               |
 
-## Known Issues
+## 6. Known Issues
 
 - [x] Set the lineWidth attribute, which is used to control the line width of the check box. It is not implemented in HarmonyOS. [issue#3](https://github.com/react-native-oh-library/react-native-checkbox/issues/3)
 - [ ] Set the hideBox attribute, which is used to control the display and hiding of the check box. It is not implemented in HarmonyOS. [issue#4](https://github.com/react-native-oh-library/react-native-checkbox/issues/4)
@@ -287,9 +287,8 @@ Check the release version information in the release address of the third-party 
 - [ ] Set the onAnimationType attribute, which is used to control the animation type when selected. HarmonyOS is not implemented. [issue#7](https://github.com/react-native-oh-library/react-native-checkbox/issues/7)
 - [ ] Set the offAnimationType attribute. This attribute is used to control the animation type when deselecting. It is not implemented in HarmonyOS. [issue#8](https://github.com/react-native-oh-library/react-native-checkbox/issues/8)
 
-## Others
+## 7. Others
 
-## License
+## 8. License
 
-
-This project is licensed under [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-checkbox/blob/harmony/LICENSE).
+This project is licensed under [The MIT License (MIT)](https://gitee.com/openharmony-sig/rntpc_react-native-checkbox/blob/master/LICENSE).

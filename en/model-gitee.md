@@ -156,7 +156,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 4. Introducing xxx Component to ArkTS
+### 2.4. Introducing xxx Component to ArkTS
 
 Find `function buildCustomRNComponent()`, which is usually located in `entry/src/main/ets/pages/index.ets` or `entry/src/main/ets/rn/LoadBundle.ets`, and add the following code:
 
@@ -225,7 +225,7 @@ Then build and run the code.
 
 Check the release version information in the release address of the third-party library: [\<HarmonyOS npm package name> Releases](https://github.com/<repository address>/releases)
 
-Example: [@react-native-oh-tpl/react-native-safe-area-context Releases](https://github.com/react-native-oh-library/react-native-safe-area-context/releases) (Delete)
+Example: [@react-native-ohos/react-native-safe-area-context Releases](https://github.com/react-native-oh-library/react-native-safe-area-context/releases) (Delete)
 
 **未修改原库代码的库使用下述描述**(Delete)
 

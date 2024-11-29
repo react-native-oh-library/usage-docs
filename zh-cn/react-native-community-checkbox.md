@@ -1,22 +1,20 @@
-> 模板版本：v0.2.2
+> 模板版本：v0.3.0
 
 <p align="center">
   <h1 align="center"> <code>@react-native-community/checkbox</code> </h1>
 </p>
-<p align="center">
-    <a href="https://github.com/react-native-checkbox/react-native-checkbox">
-        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20windows%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
-    </a>
-    <a href="https://github.com/react-native-checkbox/react-native-checkbox/blob/develop/LICENSE">
-        <img src="https://img.shields.io/npm/l/@react-native-community/checkbox.svg" alt="License" />
-    </a>
-</p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-checkbox)
+本项目基于 [@react-native-community/checkbox](https://github.com/react-native-checkbox/react-native-checkbox) 开发。
 
-## 安装与使用
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/checkbox Releases](https://github.com/react-native-oh-library/react-native-checkbox/releases) 。对于未发布到npm的旧版本，请参考[安装指南](/zh-cn/tgz-usage.md)安装tgz包。
+该第三方库的仓库已迁移至 Gitee，且支持直接从 npm 下载，新的包名为：`@react-native-ohos/checkbox`，具体版本所属关系如下：
+
+| Version                   | Package Name                                      | Repository         | Release                    |
+| ------------------------- | ------------------------------------------------- | ------------------ | -------------------------- |
+| <= 0.5.16-0.1.0@deprecated | @react-native-oh-tpl/checkbox | [Github(deprecated)](https://github.com/react-native-oh-library/react-native-checkbox) | [Github Releases(deprecated)](https://github.com/react-native-oh-library/react-native-checkbox/releases) |
+| >= 0.5.17                   | @react-native-ohos/checkbox   | [Gitee](https://gitee.com/openharmony-sig/rntpc_react-native-checkbox) | [Gitee Releases](https://gitee.com/openharmony-sig/rntpc_react-native-checkbox/releases) |
+
+## 1. 安装与使用
 
 进入到工程目录并输入以下命令：
 
@@ -25,13 +23,13 @@
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/checkbox
+npm install @react-native-ohos/checkbox
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/checkbox
+yarn add @react-native-ohos/checkbox
 ```
 
 <!-- tabs:end -->
@@ -65,29 +63,34 @@ export default function CheckBoxExample() {
 }
 ```
 
-## Link
+## 2. Manual Link
 
-目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+此步骤为手动配置原生依赖项的指导。
 
-首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
+首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`。
 
-### 1.在工程根目录的 `oh-package.json5` 添加 overrides 字段
+### 2.1. Overrides RN SDK
+
+为了让工程依赖同一个版本的 RN SDK，需要在工程根目录的 `oh-package.json5` 添加 overrides 字段，指向工程需要使用的 RN SDK 版本。替换的版本既可以是一个具体的版本号，也可以是一个模糊版本，还可以是本地存在的 HAR 包或源码目录。
+
+关于该字段的作用请阅读[官方说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/ide-oh-package-json5-V5#zh-cn_topic_0000001792256137_overrides)
 
 ```json
 {
-  ...
   "overrides": {
-    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+    "@rnoh/react-native-openharmony": "^0.72.38" // ohpm 在线版本
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony.har" // 指向本地 har 包的路径
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony" // 指向源码路径
   }
 }
 ```
 
-### 2.引入原生端代码
+### 2.2. 引入原生端代码
 
 目前有两种方法：
 
-1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
-2. 直接链接源码。
+- 通过 har 包引入；
+- 直接链接源码。
 
 方法一：通过 har 包引入（推荐）
 
@@ -98,14 +101,13 @@ export default function CheckBoxExample() {
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "@react-native-oh-tpl/checkbox": "file:../../node_modules/@react-native-oh-tpl/checkbox/harmony/checkbox.har",
+    "@react-native-ohos/checkbox": "file:../../node_modules/@react-native-ohos/checkbox/harmony/checkbox.har",
   }
 ```
 
 点击右上角的 `sync` 按钮
 
-或者在终端执行：
+或者在命令行终端执行：
 
 ```bash
 cd entry
@@ -116,7 +118,7 @@ ohpm install
 
 > [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
-### 3.配置 CMakeLists 和引入 CheckboxPackge
+### 2.3. 配置 CMakeLists 和引入 CheckboxPackge
 
 打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
 
@@ -131,7 +133,7 @@ add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
 # RNOH_BEGIN: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/checkbox/src/main/cpp" ./checkbox)
++ add_subdirectory("${OH_MODULES}/@react-native-ohos/checkbox/src/main/cpp" ./checkbox)
 # RNOH_END: manual_package_linking_1
 
 add_library(rnoh_app SHARED
@@ -165,14 +167,14 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 4.在 ArkTs 侧引入 RNCCheckBoxPackage
-> [!TIP] 版本v0.5.16-0.0.8及以上需要
+### 2.4. 在 ArkTs 侧引入 RNCCheckBoxPackage
+> [!TIP] 版本 v0.5.17 及以上需要
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
   ...
-+ import { RNCCheckBoxPackage } from '@react-native-oh-tpl/checkbox/ts';
++ import { RNCCheckBoxPackage } from '@react-native-ohos/checkbox/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
@@ -181,13 +183,13 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 5.在 ArkTs 侧引入 Checkbox 组件
+### 2.5. 在 ArkTs 侧引入 RNCCheckbox 组件
 
 找到 `function buildCustomComponent()`，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
     ...
-+ import { RNCCheckbox, CHECKBOX_TYPE } from "@react-native-oh-tpl/checkbox"
++ import { RNCCheckbox, CHECKBOX_TYPE } from "@react-native-ohos/checkbox"
 
 @Builder
 export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
@@ -216,7 +218,7 @@ const arkTsComponentNames: Array<string> = [
   ];
 ```
 
-### 5.运行
+### 2.6. 运行
 
 点击右上角的 `sync` 按钮
 
@@ -229,15 +231,15 @@ ohpm install
 
 然后编译、运行即可。
 
-## 约束与限制
+## 3. 约束与限制
 
-### 兼容性
+### 3.1. 兼容性
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/checkbox Releases](https://github.com/react-native-oh-library/react-native-checkbox/releases)
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-ohos/checkbox Releases](https://gitee.com/openharmony-sig/rntpc_react-native-checkbox/releases)
 
-## 属性
+## 4. 属性
 
 > [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
@@ -265,7 +267,7 @@ ohpm install
 | `animationDuration` | The duration in seconds of the animations. Defaults to 0.5.                                                                                                                                   | number   | No       | iOS     | No              |
 | `onAnimationType`   | The type of animation to use when the checkbox gets checked. Default to 'stroke'.                                                                                                             | 'stroke' or 'fill' or 'bounce' or 'flat' or 'one-stroke' or 'fade'   | No       | iOS     | No              |
 | `offAnimationType`   | The type of animation to use when the checkbox gets unchecked. 'stroke'.                                                                                                                      | 'stroke' or 'fill' or 'bounce' or 'flat' or 'one-stroke' or 'fade'   | No       | iOS     | No              |
-## 静态方法
+## 5. 静态方法
 
 > [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
@@ -276,7 +278,7 @@ ohpm install
 | `onChange`      | Invoked on change with the native event.                                                                                                                                                       | function | No       | Android、iOS   | yes               |
 | `onValueChange` | Invoked with the new boolean value when it changes.                                                                                                                                            | function | No       | Android、iOS   | yes               |
 
-## 遗留问题
+## 6. 遗留问题
 - [X] 设置lineWidth属性，该属性用来控制复选框的线条宽度，未实现HarmonyOS化: [issue#3](https://github.com/react-native-oh-library/react-native-checkbox/issues/3)
 - [ ] 设置hideBox属性，该属性用来控制复选框的显示与隐藏，未实现HarmonyOS化: [issue#4](https://github.com/react-native-oh-library/react-native-checkbox/issues/4)
 - [ ] 设置onTintColor属性，该属性用来控制复选框的选中时边框的颜色，未实现HarmonyOS化: [issue#5](https://github.com/react-native-oh-library/react-native-checkbox/issues/5)
@@ -284,8 +286,8 @@ ohpm install
 - [ ] 设置animationDuration属性，该属性用来控制选中和取消选中的动画持续时间，未实现HarmonyOS化: [issue#6](https://github.com/react-native-oh-library/react-native-checkbox/issues/6)
 - [ ] 设置onAnimationType属性，该属性用来控制选中时的动画类型，未实现 HarmonyOS化: [issue#7](https://github.com/react-native-oh-library/react-native-checkbox/issues/7)
 - [ ] 设置offAnimationType属性，该属性用来控制取消选中时的动画类型，未实现 HarmonyOS化: [issue#8](https://github.com/react-native-oh-library/react-native-checkbox/issues/8)
-## 其他
+## 7. 其他
 
-## 开源协议
+## 8. 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-checkbox/blob/harmony/LICENSE) ，请自由地享受和参与开源。
+本项目基于 [The MIT License (MIT)](https://gitee.com/openharmony-sig/rntpc_react-native-checkbox/blob/master/LICENSE) ，请自由地享受和参与开源。

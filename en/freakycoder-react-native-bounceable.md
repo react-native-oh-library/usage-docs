@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 
 
@@ -16,11 +16,11 @@
 
 
 
-> [!TIP] [Github 地址](https://github.com/WrathChaos/react-native-bounceable)
+> [!TIP] [GitHub address](https://github.com/WrathChaos/react-native-bounceable)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 ###  npm
 
@@ -34,7 +34,7 @@ npm i @freakycoder/react-native-bounceable@1.0.3
 yarn add @freakycoder/react-native-bounceable@1.0.3
 ```
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
 1、引入库文件
 
@@ -103,19 +103,19 @@ const styles = StyleSheet.create({
 
 
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证：
+This document is verified based on the following versions:
 
 1. RNOH: 0.72.28; SDK：HarmonyOS-Next-DB1 5.0.0.25; IDE：DevEco Studio 5.0.3.500; ROM：5.0.0.31;
 
-## 属性和方法
+## Properties And Static Methods (If Any)
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Property          | Description                                                  |   Type   | Required | Platform    | HarmonyOS Support |
 | ----------------- | ------------------------------------------------------------ | :------: | :------: | ----------- | ----------------- |
@@ -128,10 +128,10 @@ const styles = StyleSheet.create({
 | onPress           | set your own logic for the onPress functionality             | function |    no    | iOS/Android | yes               |
 | style             | set the style like any other View container                  |  style   |    no    | iOS/Android | yes               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://opensource.org/license/MIT) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://opensource.org/license/MIT).

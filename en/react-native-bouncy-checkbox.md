@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-bouncy-checkbox</code> </h1>
@@ -12,17 +12,17 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/WrathChaos/react-native-bouncy-checkbox)
+> [!TIP] [GitHub address](https://github.com/WrathChaos/react-native-bouncy-checkbox)
 
-## 安装与使用
+## Installation and Usage
 
-> [!TIP] 需要配套的服务和三方依赖
+> [!TIP] This repository depends on the following libraries, please refer to the corresponding documentation:
 
 | Dependencies                         | Version |
 | ------------------------------------ | ------- |
 | @freakycoder/react-native-bounceable | 1.0.3   |
 
-本库依赖[@freakycoder/react-native-bounceable文档](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/freakycoder-react-native-bounceable.md)
+This repository depends on the following libraries[@freakycoder/react-native-bounceable documentation](https://gitee.com/react-native-oh-library/usage-docs/blob/master/en/freakycoder-react-native-bounceable.md)
 
 #### **npm**
 
@@ -36,7 +36,8 @@ npm install --save react-native-bouncy-checkbox@4.0.1
 yarn install --save react-native-bouncy-checkbox@4.0.1
 ```
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
+
 ```js
 import React, { useState } from "react";
 import { StyleSheet,View,Image } from 'react-native';
@@ -94,19 +95,19 @@ const styles = StyleSheet.create({
 }); 
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证：
+This document is verified based on the following versions:
 
 1. RNOH: 0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.25; IDE：DevEco Studio  5.0.3.404; ROM：5.0.0.31;
 
-## 属性
+## Properties (If Any)
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 
 | Name                 | Description                                                  | Type      | Required | Platform | HarmonyOS Support |
@@ -136,12 +137,10 @@ const styles = StyleSheet.create({
 | bouncinessIn         | change the bounciness when press in                          | number    | no       | All      | yes               |
 | bouncinessOut        | change the bounciness when press out                         | number    | no       | All      | yes               |
 
-### 
+## Known Issues
 
-## 遗留问题
+## Others
 
-## 其他
+## License
 
-## 开源协议
-
-本项目基于 [The MIT License (MIT)](https://github.com/WrathChaos/react-native-bouncy-checkbox/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/WrathChaos/react-native-bouncy-checkbox/blob/master/LICENSE).

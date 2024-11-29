@@ -1,4 +1,4 @@
-> 模板版本：v0.2.1  
+> Template version: v0.2.1  
 
   <p align="center">  
   <h1 align="center"> <code>react-native-chart-kit</code> </h1>  
@@ -19,11 +19,11 @@
 
 > [!TIP] 
 >
-> [Github 地址](https://github.com/indiespirit/react-native-chart-kit)
+> [GitHub address](https://github.com/indiespirit/react-native-chart-kit)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -43,9 +43,9 @@ yarn add react-native-chart-kit@^6.12.0
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 
 ```js
@@ -112,23 +112,23 @@ export default MyChart;
 
 ## Link
 
-本库 HarmonyOS 侧实现依赖@react-native-oh-tpl/react-native-svg 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。
+The HarmonyOS implementation of this library depends on the native code from @react-native-oh-tpl/react-native-svg. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly. 
 
-如未引入请参照[@react-native-oh-tpl/react-native-svg文档的 Link 章节](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-svg-capi.md#link)进行引入
+If it is not included, follow the guide provided in [@react-native-oh-tpl/react-native-svg documentation Link chapter](https://gitee.com/react-native-oh-library/usage-docs/blob/master/en/react-native-svg-capi.md#link) to add it to your project.
 
-## 约束与限制
+## Constraints
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH: 0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.300SP1; ROM：3.0.0.18;
 
-## 属性
+## Properties (If Any)
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 ### Chart style 
 
@@ -273,8 +273,8 @@ export default MyChart;
 | getMonthLabel      | function | Function which returns the label for each month, taking month index (0 - 11) as argument | No       | ALL      | YES               |
 | onDayPress         | function | Callback invoked when the user clicks a day square on the chart; takes a value-item object | No       | ALL      | YES               |
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/indiespirit/react-native-chart-kit/blob/master/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/indiespirit/react-native-chart-kit/blob/master/LICENSE).

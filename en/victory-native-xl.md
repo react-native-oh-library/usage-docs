@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>victory-native-xl</code> </h1>
@@ -13,13 +13,13 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/victory-native-xl)
+> [!TIP] [GitHub address](https://github.com/react-native-oh-library/victory-native-xl)
 
-## 安装与使用
+## Installation and Usage
 
-Find the matching version information in the release address of a third-party library：[@react-native-oh-tpl/victory-native-xl Releases](https://github.com/react-native-oh-library/victory-native-xl/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package:[@react-native-oh-tpl/victory-native-xl Releases](https://github.com/react-native-oh-library/victory-native-xl/releases) 。对于未发布到npm的旧版本，请参考[安装指南](/en/tgz-usage-en.md)安装tgz包。
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 #### **npm**
 
@@ -33,9 +33,9 @@ npm install @react-native-oh-tpl/victory-native-xl
 yarn add @react-native-oh-tpl/victory-native-xl
 ```
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-> [!WARNING] 使用时 import 的库名不变。
+> [!WARNING] The name of the imported repository remains unchanged.
 
 ```jsx
 import * as React from "react";
@@ -85,25 +85,25 @@ export default function LineChartExample() {
 
 ## Link
 
-本库鸿蒙侧实现依赖@react-native-oh-tpl/react-native-gesture-handler、@react-native-oh-tpl/react-native-reanimated、 @react-native-oh-tpl/react-native-skia的原生端代码，如已在鸿蒙工程中引入过这两个库，则无需再次引入，可跳过本章节步骤，直接使用。
+The HarmonyOS implementation of this library depends on the native code from @react-native-oh-tpl/react-native-gesture-handler、@react-native-oh-tpl/react-native-reanimated、 @react-native-oh-tpl/react-native-skia. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly. 
 
-如未引入请参照[@react-native-oh-tpl/react-native-gesture-handler 文档](/zh-cn/react-native-gesture-handler.md)、[@react-native-oh-tpl/react-native-reanimated](/zh-cn/react-native-reanimated.md)、[@react-native-oh-tpl/react-native-skia](/zh-cn/react-native-skia.md)进行引入
+If it is not included, follow the guide provided in [@react-native-oh-tpl/react-native-gesture-handler document](/en/react-native-gesture-handler.md)、[@react-native-oh-tpl/react-native-reanimated](/en/react-native-reanimated.md)、[@react-native-oh-tpl/react-native-skia](/en/react-native-skia.md) to add it to your project.
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/victory-native-xl Releases](https://github.com/react-native-oh-library/victory-native-xl/releases)
+Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/victory-native-xl Releases](https://github.com/react-native-oh-library/victory-native-xl/releases)
 
-## 属性
+## Properties (If Any)
 
-详情见 [victory-native-xl](https://github.com/FormidableLabs/victory-native-xl) Props tables
+See details [victory-native-xl](https://github.com/FormidableLabs/victory-native-xl) Props tables
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 ### Cartesian Chart
 
@@ -216,10 +216,10 @@ export default function LineChartExample() {
 | angularStrokeWidth | A number which turns width of the Pie chart slice    | number  | no  | all | yes
 | angularStrokeColor |  A string which turns color of the Pie chart slice    | string  | no  | all | yes
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)]( https://www.mit-license.org/) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)]( https://www.mit-license.org/).

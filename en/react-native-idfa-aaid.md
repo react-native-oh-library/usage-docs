@@ -263,7 +263,7 @@ Check the release version information in the release address of the third-party 
 
 [!TIP] "ohos.permission.APP_TRACKING_CONSENT"，"ohos.permission.APP_TRACKING_CONSENT"权限等级为<B>normal</B>，授权方式为<B>user_grant</B>[使用 ACL 签名的配置指导](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/signing-0000001587684945-V3#section157591551175916)
 
-#### 在 entry 目录下的module.json5中添加权限
+#### Include applicable permissions in the module.json5 file within the entry directory.
 在 `YourProject/entry/src/main/module.json5`补上配置
 
 ```diff
@@ -291,7 +291,7 @@ Check the release version information in the release address of the third-party 
 ```
 在 `YourProject/entry/src/main/resources/base/element/string.json`补上配置
 
-#### 在 entry 目录下添加申请权限的原因
+#### Apply the reasons for applicable permission in the entry directory.
 
 打开 `entry/src/main/resources/base/element/string.json`，添加：
 

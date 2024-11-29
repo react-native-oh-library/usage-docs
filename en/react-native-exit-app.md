@@ -73,7 +73,7 @@ export default App;
 
 ## Use Codegen
 
-If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/zh-cn/codegen.md).
+If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/en/codegen.md).
 
 ## Link
 
@@ -120,7 +120,7 @@ ohpm install
 
 Method 2: Directly link to the source code.
 
-> [!TIP] For details, see [Directly Linking Source Code](/zh-cn/link-source-code.md).
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
 ### 3. Introducing ExitAppPackage to ArkTS
 
@@ -168,7 +168,7 @@ Check the release version information in the release address of the third-party 
 
 | Name    | Description   | Type     | Required | Platform    | HarmonyOS Support |
 | ------- | ------------- | -------- | -------- | ----------- | ----------------- |
-| exitApp | 关闭/退出 APP | Function | no       | iOS/Android | yes               |
+| exitApp | close/exit APP | Function | no       | iOS/Android | yes               |
 
 ## Known Issues
 

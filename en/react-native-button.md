@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-button</code> </h1>
@@ -13,11 +13,11 @@
 </p>
 
 
-> [!TIP] [Github 地址](https://github.com/ide/react-native-button)
+> [!TIP] [GitHub address](https://github.com/ide/react-native-button)
 
-## 安装与使用
+## Installation and Usage
 
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -35,7 +35,7 @@ yarn add react-native-button@3.1.0 --save
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
 ```js
 /**
@@ -84,21 +84,19 @@ export default class ExampleComponent extends Component {
 };
 ```
 
+## Constraints
 
+## Compatibility
 
-## 约束与限制
-
-## 兼容性
-
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 react-native-harmony：0.72.20; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.18;
 
-## 属性
+## Properties (If Any)
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                  | Description                                                                                            | Type     | default | Required | Platform | HarmonyOS Support |
 | --------------------- | ------------------------------------------------------------------------------------------------------ | -------- | -------- | -------- | ----------------- | ----------------- |
@@ -114,13 +112,10 @@ react-native-harmony：0.72.20; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevE
 | `onPress`   | Handler to be called when the user taps the button.   | Function |         | No       | All      | yes              |
 
 
+## Known Issues
 
-## 遗留问题
+## Others
 
- 无
+## License
 
-## 其他
-
-## 开源协议
-
-本项目基于 [The MIT License (MIT)](https://github.com/ide/react-native-button/blob/main/LICENSE) ，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://github.com/ide/react-native-button/blob/main/LICENSE).

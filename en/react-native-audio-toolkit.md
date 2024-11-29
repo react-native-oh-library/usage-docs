@@ -42,9 +42,9 @@ The following code shows the basic use scenario of the repository:
 
 > [!WARNING] The name of the imported repository remains unchanged.
 
-> [!TIP] # demo 使用了三方库[@react-native-oh-tpl/react-native-slider](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-slider.md)
+> [!TIP] # demo used third party library [@react-native-oh-tpl/react-native-slider](https://gitee.com/react-native-oh-library/usage-docs/blob/master/en/react-native-slider.md)
 
-> [!TIP] # demo 使用了权限三方库[@react-native-oh-tpl/react-native-permissions](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-permissions.md)
+> [!TIP] # demo used third party library permission [@react-native-oh-tpl/react-native-permissions](https://gitee.com/react-native-oh-library/usage-docs/blob/master/en/react-native-permissions.md)
 
 ```tsx
 import React, { Component } from "react";

@@ -10,7 +10,6 @@
     <a href="https://github.com/react-native-orientation/blob/sig/LICENSE.md">
         <img src="https://img.shields.io/badge/license-ISC-green.svg" alt="License" />
     </a>
-   
 </p>
 
 > [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-orientation)
@@ -210,7 +209,7 @@ const styles = StyleSheet.create({
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/rnoh-orientation": "file:../../node_modules/@react-native-oh-tpl/react-native-orientation/harmony/rn_orientation.har"
+    "@react-native-oh-tpl/react-native-orientation": "file:../../node_modules/@react-native-oh-tpl/react-native-orientation/harmony/rn_orientation.har"
   }
 ```
 
@@ -240,7 +239,7 @@ ohpm install --no-link
 
 ```diff
   ...
-+ import { RNOrientationPackage } from '@react-native-oh-tpl/rnoh-orientation/ts';
++ import { RNOrientationPackage } from '@react-native-oh-tpl/react-native-orientation/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [

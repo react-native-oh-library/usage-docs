@@ -203,7 +203,6 @@ export function Counter() {
 | getInitialState          | createEntityAdapter属性，默认状态                 | Object   | yes      | All      | yes               |
 | combineSlices            | 结合两个Slice切片                                 | Function | yes      | All      | yes               |
 | createSelector           | 创建select选择器                                  | Function | yes      | All      | yes               |
-| combineSlices            | 结合两个Slice切片                                 | Function | yes      | All      | yes               |
 
 ## 工具方法
 
@@ -213,8 +212,8 @@ export function Counter() {
 | isAnyOf             | 判断action是否有一个通过       | Function | yes      | All      | yes               |
 | isAsyncThunkAction  | 判断action是否是异步           | Function | yes      | All      | yes               |
 | isPending           | 判断action是否在执行中         | Function | yes      | All      | yes               |
-| isRejected          | 判断action是否执行完成         | Function | yes      | All      | yes               |
-| isFulfilled         | 判断action是否执行失败         | Function | yes      | All      | yes               |
+| isRejected          | 判断action是否执行失败         | Function | yes      | All      | yes               |
+| isFulfilled         | 判断action是否执行完成         | Function | yes      | All      | yes               |
 | isRejectedWithValue | 判断action是否执行失败并返回值 | Function | yes      | All      | yes               |
 | nanoid              | 生成随机字符串                 | Function | yes      | All      | yes               |
 | miniSerializeError  | 打印错误信息                   | Function | yes      | All      | yes               |

@@ -169,6 +169,20 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
+打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
+> [!TIP] 版本 6.4.1-0.1.13 及以上需要
+
+```diff
+  ...
++ import {LottieAnimationViewPackage} from '@react-native-oh-tpl/lottie-react-native/ts';
+
+export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
+  return [
++    new LottieAnimationViewPackage(ctx)
+  ];
+}
+```
+
 ### 4.在 ArkTs 侧引入 Lottie 组件
 
 找到 **function buildCustomComponent()**，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：

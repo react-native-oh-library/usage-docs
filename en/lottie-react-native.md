@@ -168,6 +168,20 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
+Open `entry/src/main/ets/RNPackagesFactory.ts` and add:
+> [!TIP] Required for version `6.4.1-0.1.13` and above
+
+```diff
+  ...
++ import {LottieAnimationViewPackage} from '@react-native-oh-tpl/lottie-react-native/ts';
+
+export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
+  return [
++   new LottieAnimationViewPackage(ctx)
+  ];
+}
+```
+
 ### 4.Introducing Lottie Component to ArkTS
 
 Find `function buildCustomRNComponent()`, which is usually located in `entry/src/main/ets/pages/index.ets` or `entry/src/main/ets/rn/LoadBundle.ets`, and add the following code:

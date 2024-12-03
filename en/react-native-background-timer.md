@@ -1,40 +1,34 @@
-> Template version: v0.2.2
+> Template version: v0.3.0
 
 <p align="center">
   <h1 align="center"> <code>react-native-background-timer</code> </h1>
 </p>
-<p align="center">
-    <a href="https://github.com/ocetnik/react-native-background-timer">
-        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
-    </a>
-    <a href="https://github.com/ocetnik/react-native-background-timer/blob/master/LICENSE">
-        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
-        <!-- <img src="https://img.shields.io/badge/license-Apache-blue.svg" alt="License" /> -->
-    </a>
-</p>
 
-> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-background-timer)
+This project is based on [react-native-background-timer@2.4.1](https://github.com/ocetnik/react-native-background-timer)。
 
-## Installation and Usage
+This third-party library has been migrated to Gitee and is now available for direct download from npm, the new package name is: `@react-native-ohos/react-native-linear-gradient`, The version correspondence details are as follows:
 
-Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-background-timer Releases](https://github.com/react-native-oh-library/react-native-background-timer/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+| Version                   | Package Name                                      | Repository         | Release                    |
+| ------------------------- | ------------------------------------------------- | ------------------ | -------------------------- |
+| <= 2.4.1-0.0.2@deprecated | @react-native-oh-tpl/react-native-background-timer | [Github(deprecated)](https://github.com/react-native-oh-library/react-native-background-timer) | [Github Releases(deprecated)](https://github.com/react-native-oh-library/react-native-background-timer/releases) |
+| > 2.4.2                   | @react-native-ohos/react-native-background-timer   | [Gitee](https://gitee.com/openharmony-sig/rntpc_react-native-background-timer) | [Gitee Releases](https://gitee.com/openharmony-sig/rntpc_react-native-background-timer/releases) |
+
+## 1. Installation and Usage
 
 Go to the project directory and execute the following instruction:
-
-
 
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-background-timer
+npm install @react-native-ohos/react-native-background-timer
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-background-timer
+yarn add @react-native-ohos/react-native-background-timer
 ```
 
 <!-- tabs:end -->
@@ -50,34 +44,37 @@ import BackgroundTimer from "react-native-background-timer";
 export function BackgroundTimerExample() {
   let [count, setCount] = useState(0);
   let [text, setText] = useState("");
+  // BackgroundTimer延时
   let [delay, setDelay] = useState("1000");
+  // setTimeout延时
   let [timeoutDelay, setTimeoutDelay] = useState("1000");
+  // setInterval延时
   let [intervalDelay, setIntervalDelay] = useState("1000");
   let timeoutList:number[] = []
   let [intervalList, setIntervalList] = useState<number[]>([]);
-
+ 
   // runBackgroundTimer
   function onPressStart(){
-    setText("Turn on the timer...")
+    setText("开启定时器...")
     BackgroundTimer.runBackgroundTimer(()=>{
       setCount(count+=1)
     },parseInt(delay))
   }
   function onPressStop(){
-    setText("Turn off the timer")
+    setText("结束定时器")
     BackgroundTimer.stopBackgroundTimer()
   }
 
   // setTimeout
   function setTimeoutStart(){
-    setText("Turn on the timer...")
+    setText("开启定时器...")
     let timeoutId = BackgroundTimer.setTimeout(()=>{
       setCount(count+=1)
     },parseInt(timeoutDelay))
     timeoutList.push(timeoutId)
   }
   function setTimeoutStop(){
-    setText("Turn off the timer")
+    setText("结束定时器")
     if(timeoutList.length>0){
       BackgroundTimer.clearTimeout(timeoutList[0])
       timeoutList.shift()
@@ -86,14 +83,14 @@ export function BackgroundTimerExample() {
 
   // setInterval
   function setIntervalStart(){
-    setText("Turn on the timer...")
+    setText("开启定时器...")
     let intervalId = BackgroundTimer.setInterval(()=>{
       setCount(count+=1)
     },parseInt(intervalDelay))
     setIntervalList([...intervalList,intervalId])
   }
   function setIntervalStop(){
-    setText("Turn off the timer")
+    setText("结束定时器")
     if(intervalList.length>0){
       BackgroundTimer.clearInterval(intervalList[0])
       intervalList.shift()
@@ -113,7 +110,7 @@ export function BackgroundTimerExample() {
           />
           <TextInput
             style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-            placeholder="BackgroundTimer delay"
+            placeholder="BackgroundTimer延时"
             onChangeText={(value)=>{setDelay(value)}}
             value={delay}
           />
@@ -125,7 +122,7 @@ export function BackgroundTimerExample() {
           />
         </View>
       </View>
-
+      
       <View style={styles.container}>
         <View style={styles.viewStyle}>
           <Button
@@ -134,7 +131,7 @@ export function BackgroundTimerExample() {
           />
           <TextInput
             style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-            placeholder="setTimeout delay"
+            placeholder="setTimeout延时"
             onChangeText={(value)=>{setTimeoutDelay(value)}}
             value={timeoutDelay}
           />
@@ -146,7 +143,7 @@ export function BackgroundTimerExample() {
           />
         </View>
       </View>
-
+      
       <View style={styles.container}>
         <View style={styles.viewStyle}>
           <Button
@@ -167,7 +164,7 @@ export function BackgroundTimerExample() {
           />
         </View>
       </View>
-
+      
       <View style={[styles.viewStyle,styles.resetStyle]}>
         <Button
           onPress={resetNumber}
@@ -203,26 +200,34 @@ const styles = StyleSheet.create({
 
 ```
 
-## Link
+## 2. Manual Link
 
-Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
+This step provides guidance for manually configuring native dependencies.
 
 Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
+### 2.1 Overrides RN SDK
+
+To ensure the project relies on the same version of the RN SDK, you need to add an `overrides` field in the project's root `oh-package.json5` file, specifying the RN SDK version to be used. The replacement version can be a specific version number, a semver range, or a locally available HAR package or source directory.
+
+For more information about the purpose of this field, please refer to the [official documentation](https://developer.huawei.com/consumer/en/doc/harmonyos-guides-V5/ide-oh-package-json5-V5#en-us_topic_0000001792256137_overrides).
 
 ```json
 {
-  ...
   "overrides": {
-    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+    "@rnoh/react-native-openharmony": "^0.72.38" // ohpm version
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony.har" // a locally available HAR package
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony" // source code directory
   }
 }
 ```
 
-### 2.Introducing Native Code
+### 2.2 Introducing Native Code
 
 Currently, two methods are available:
+
+- Use the HAR file.
+- Directly link to the source code。
 
 Method 1 (recommended): Use the HAR file.
 
@@ -232,8 +237,7 @@ Open `entry/oh-package.json5` file and add the following dependencies:
 
 ```json
 "dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/react-native-background-timer": "file:../../node_modules/@react-native-oh-tpl/react-native-background-timer/harmony/background_timer.har"
+    "@react-native-ohos/react-native-background-timer": "file:../../node_modules/@react-native-ohos/react-native-background-timer/harmony/background_timer.har"
   }
 ```
 
@@ -250,39 +254,57 @@ Method 2: Directly link to the source code.
 
 > [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
-Open `entry/oh-package.json5` file and add the following dependencies:
+### 2.3 Configuring CMakeLists and Introducing BackgroundTimerPackage
 
-```json
-"dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/react-native-background-timer": "file:../../node_modules/@react-native-oh-tpl/react-native-background-timer/harmony/background_timer"
-  }
+> [!TIP] Version v2.4.2 and above requires.
+
+Open `entry/src/main/cpp/CMakeLists.txt` and add the following code:
+
+```diff
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+
+# RNOH_BEGIN: manual_package_linking_1
++ add_subdirectory("${OH_MODULES}/@react-native-ohos/react-native-background-timer/src/main/cpp" ./background_timer)
+# RNOH_END: manual_package_linking_1
+
+# RNOH_BEGIN: manual_package_linking_2
++ target_link_libraries(rnoh_app PUBLIC rnoh_background_timer)
+# RNOH_END: manual_package_linking_2
 ```
 
-Opening the terminal and executing:
+Open `entry/src/main/cpp/PackageProvider.cpp` and add the following code:
 
-```bash
-cd entry
-ohpm install --no-link
+```diff
+#include "RNOH/PackageProvider.h"
+#include "generated/RNOHGeneratedPackage.h"
++ #include "BackgroundTimerPackage.h"
+
+using namespace rnoh;
+
+std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
+    return {
+        std::make_shared<RNOHGeneratedPackage>(ctx),
++       std::make_shared<BackgroundTimerPackage>(ctx),
+    };
+}
 ```
 
-### 3. Introducing BackgroundTimerTurboModulePackage to ArkTS
+### 2.4. Introducing BackgroundTimerPackage to ArkTS
 
 Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
 
 ```diff
   ...
-+ import { BackgroundTimerTurboModulePackage } from '@react-native-oh-tpl/react-native-background-timer/ts';
++ import { BackgroundTimerTurboModulePackage } from '@react-native-ohos/react-native-background-timer/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
-    new SamplePackage(ctx),
 +   new BackgroundTimerTurboModulePackage(ctx)
-    ];
+  ];
 }
 ```
 
-### 4. Running
+### 2.5 Running
 
 Click the `sync` button in the upper right corner.
 
@@ -295,19 +317,19 @@ ohpm install
 
 Then build and run the code.
 
-## Constraints
+## 3. Constraints
 
-### Compatibility
+### 3.1 Compatibility
 
 To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-background-timer Releases](https://github.com/react-native-oh-library/react-native-background-timer/releases)
+Check the release version information in the release address of the third-party library: [@react-native-ohos/react-native-background-timer Releases](https://gitee.com/openharmony-sig/rntpc_react-native-background-timer/releases)
 
 This document is verified based on the following versions:
 
-RNOH: 0.72.20; SDK: HarmonyOS NEXT Developer Beta1 B.0.18; IDE: DevEco Studio 5.0.3.200; ROM: 3.0.0.19;
+RNOH: 0.72.38; SDK: HarmonyOS-5.0.0(API12); ROM: 5.0.0.107;
 
-## API
+## 4. APIs 
 
 > [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
@@ -324,12 +346,14 @@ RNOH: 0.72.20; SDK: HarmonyOS NEXT Developer Beta1 B.0.18; IDE: DevEco Studio 5.
 | setInterval         | 开启定时器，以固定的时间间隔重复执行指定代码       | no       | Android  | yes               |
 | clearInterval       | 结束 setInterval 开启的定时器                      | no       | Android  | yes               |
 
-## Known Issues
+## 5. Known Issues
 
-- [ ] 使用 worker 开的新线程中不支持 RNOHContext 序列化传参，底层 OS 暂不支持，导致无法在新线程中发送事件，需要底层 OS 框架实现相关业务功能。不开线程的情况下，因 setTimeout 属于异步方法，定时器效果不受影响。[worker 线程 Known Issues:start 和 stop 接口， HarmonyOS RN 框架暂不支持](https://github.com/react-native-oh-library/react-native-background-timer/issues/3)
+- [ ] 使用 worker 开的新线程中不支持 RNOHContext 序列化传参，底层 OS 暂不支持，导致无法在新线程中发送事件，需要底层 OS 框架实现相关业务功能。不开线程的情况下，因 setTimeout 属于异步方法，定时器效果不受影响。[worker 线程 Known Issues:start 和 stop 接口， HarmonyOS RN 框架暂不支持](https://gitee.com/openharmony-sig/rntpc_react-native-background-timer/issues/IB8QGJ)
 
-## Others
+## 6. Others
 
-## License
 
-This project is licensed under [The MIT License (MIT)](https://github.com/ocetnik/react-native-background-timer/blob/master/LICENSE).
+## 7. License
+
+This project is licensed under (https://gitee.com/openharmony-sig/rntpc_react-native-background-timer/blob/master/LICENSE).
+

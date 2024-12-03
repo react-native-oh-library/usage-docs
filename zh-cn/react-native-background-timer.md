@@ -1,24 +1,19 @@
-> 模板版本：v0.2.1
+> 模板版本：v0.3.0
 
 <p align="center">
   <h1 align="center"> <code>react-native-background-timer</code> </h1>
 </p>
-<p align="center">
-    <a href="https://github.com/ocetnik/react-native-background-timer">
-        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
-    </a>
-    <a href="https://github.com/ocetnik/react-native-background-timer/blob/master/LICENSE">
-        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
-        <!-- <img src="https://img.shields.io/badge/license-Apache-blue.svg" alt="License" /> -->
-    </a>
-</p>
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-background-timer)
+本项目基于 [react-native-background-timer@2.4.1](https://github.com/ocetnik/react-native-background-timer) 开发。
 
+该第三方库的仓库已迁移至 Gitee，且支持直接从 npm 下载，新的包名为：`@react-native-ohos/react-native-background-timer`，具体版本所属关系如下：
 
-## 安装与使用
+| Version                   | Package Name                                      | Repository         | Release                    |
+| ------------------------- | ------------------------------------------------- | ------------------ | -------------------------- |
+| <= 2.4.1-0.0.2@deprecated | @react-native-oh-tpl/react-native-background-timer | [Github(deprecated)](https://github.com/react-native-oh-library/react-native-background-timer) | [Github Releases(deprecated)](https://github.com/react-native-oh-library/react-native-background-timer/releases) |
+| > 2.4.2                   | @react-native-ohos/react-native-background-timer   | [Gitee](https://gitee.com/openharmony-sig/rntpc_react-native-background-timer) | [Gitee Releases](https://gitee.com/openharmony-sig/rntpc_react-native-background-timer/releases) |
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-background-timer Releases](https://github.com/react-native-oh-library/react-native-background-timer/releases) 。对于未发布到npm的旧版本，请参考[安装指南](/zh-cn/tgz-usage.md)安装tgz包。
+## 1. 安装与使用
 
 进入到工程目录并输入以下命令：
 
@@ -27,13 +22,13 @@
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-background-timer
+npm install @react-native-ohos/react-native-background-timer
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-background-timer
+yarn add @react-native-ohos/react-native-background-timer
 ```
 
 <!-- tabs:end -->
@@ -205,29 +200,34 @@ const styles = StyleSheet.create({
 
 ```
 
-## Link
+## 2. Manual Link
 
-目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+此步骤为手动配置原生依赖项的指导。
 
-首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
+首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`。
 
-### 1.在工程根目录的 `oh-package.json5` 添加 overrides字段
+### 2.1 Overrides RN SDK
+
+为了让工程依赖同一个版本的 RN SDK，需要在工程根目录的 `oh-package.json5` 添加 overrides 字段，指向工程需要使用的 RN SDK 版本。替换的版本既可以是一个具体的版本号，也可以是一个模糊版本，还可以是本地存在的 HAR 包或源码目录。
+
+关于该字段的作用请阅读[官方说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/ide-oh-package-json5-V5#zh-cn_topic_0000001792256137_overrides)
 
 ```json
 {
-  ...
   "overrides": {
-    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+    "@rnoh/react-native-openharmony": "^0.72.38" // ohpm 在线版本
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony.har" // 指向本地 har 包的路径
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony" // 指向源码路径
   }
 }
 ```
 
-### 2.引入原生端代码
+### 2.2 引入原生端代码
 
 目前有两种方法：
 
-1. 通过 har 包引入（在 IDE 完善相关功能后该方法会被遗弃，目前首选此方法）；
-2. 直接链接源码。
+- 通过 har 包引入；
+- 直接链接源码。
 
 方法一：通过 har 包引入（推荐）
 
@@ -237,14 +237,13 @@ const styles = StyleSheet.create({
 
 ```json
 "dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/react-native-background-timer": "file:../../node_modules/@react-native-oh-tpl/react-native-background-timer/harmony/background_timer.har"
+    "@react-native-ohos/react-native-background-timer": "file:../../node_modules/@react-native-ohos/react-native-background-timer/harmony/background_timer.har"
   }
 ```
 
 点击右上角的 `sync` 按钮
 
-或者在终端执行：
+或者在命令行终端执行：
 
 ```bash
 cd entry
@@ -253,45 +252,63 @@ ohpm install
 
 方法二：直接链接源码
 
-> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
+> [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
-打开 `entry/oh-package.json5`，添加以下依赖
+### 2.3 配置 CMakeLists 和引入 BackgroundTimerPackage
 
-```json
-"dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/react-native-background-timer": "file:../../node_modules/@react-native-oh-tpl/react-native-background-timer/harmony/background_timer"
-  }
+> [!TIP] 版本 v2.4.2 及以上需要.
+
+打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
+
+```diff
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+
+# RNOH_BEGIN: manual_package_linking_1
++ add_subdirectory("${OH_MODULES}/@react-native-ohos/react-native-background-timer/src/main/cpp" ./background_timer)
+# RNOH_END: manual_package_linking_1
+
+# RNOH_BEGIN: manual_package_linking_2
++ target_link_libraries(rnoh_app PUBLIC rnoh_background_timer)
+# RNOH_END: manual_package_linking_2
 ```
 
-打开终端，执行：
+打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
 
-```bash
-cd entry
-ohpm install --no-link
+```diff
+#include "RNOH/PackageProvider.h"
+#include "generated/RNOHGeneratedPackage.h"
++ #include "BackgroundTimerPackage.h"
+
+using namespace rnoh;
+
+std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
+    return {
+        std::make_shared<RNOHGeneratedPackage>(ctx),
++       std::make_shared<BackgroundTimerPackage>(ctx),
+    };
+}
 ```
 
-### 3.在 ArkTs 侧引入 BackgroundTimerTurboModulePackage
+### 2.4 在 ArkTs 侧引入 BackgroundTimerPackage
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
   ...
-+ import { BackgroundTimerTurboModulePackage } from '@react-native-oh-tpl/react-native-background-timer/ts';
++ import { BackgroundTimerTurboModulePackage } from '@react-native-ohos/react-native-background-timer/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
-    new SamplePackage(ctx), 
 +   new BackgroundTimerTurboModulePackage(ctx)
-    ];
+  ];
 }
 ```
 
-### 4.运行
+### 2.5 运行
 
 点击右上角的 `sync` 按钮
 
-或者在终端执行：
+或者在命令行终端执行：
 
 ```bash
 cd entry
@@ -300,23 +317,23 @@ ohpm install
 
 然后编译、运行即可。
 
-## 约束与限制
+## 3. 约束与限制
 
-### 兼容性
+### 3.1 兼容性
 
 
 要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-background-timer Releases](https://github.com/react-native-oh-library/react-native-background-timer/releases)
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-ohos/react-native-background-timer Releases](https://gitee.com/openharmony-sig/rntpc_react-native-background-timer/releases)
 
 
 本文档内容基于以下版本验证通过：
 
 
-RNOH: 0.72.20; SDK: HarmonyOS NEXT Developer Beta1 B.0.18; IDE: DevEco Studio 5.0.3.200; ROM: 3.0.0.19;
+RNOH: 0.72.38; SDK: HarmonyOS-5.0.0(API12); ROM: 5.0.0.107;
 
 
-## API
+## 4. API
 
 > [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
@@ -333,12 +350,14 @@ RNOH: 0.72.20; SDK: HarmonyOS NEXT Developer Beta1 B.0.18; IDE: DevEco Studio 5.
 | setInterval  | 开启定时器，以固定的时间间隔重复执行指定代码         | no | Android      | yes |
 | clearInterval  | 结束setInterval开启的定时器           | no | Android      | yes |
 
-## 遗留问题
+## 5. 遗留问题
 
-- [ ] 使用worker开的新线程中不支持RNOHContext序列化传参，底层OS暂不支持，导致无法在新线程中发送事件，需要底层OS框架实现相关业务功能。不开线程的情况下，因setTimeout属于异步方法，定时器效果不受影响。[worker线程遗留问题:start和stop接口， HarmonyOS RN框架暂不支持](https://github.com/react-native-oh-library/react-native-background-timer/issues/3)
+- [ ] 使用worker开的新线程中不支持RNOHContext序列化传参，底层OS暂不支持，导致无法在新线程中发送事件，需要底层OS框架实现相关业务功能。不开线程的情况下，因setTimeout属于异步方法，定时器效果不受影响。[worker线程遗留问题:start和stop接口， HarmonyOS RN框架暂不支持](https://gitee.com/openharmony-sig/rntpc_react-native-background-timer/issues/IB8QGJ)
 
-## 其他
+## 6. 其他
 
-## 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/ocetnik/react-native-background-timer/blob/master/LICENSE) ，请自由地享受和参与开源。
+## 7. 开源协议
+
+本项目基于 [The MIT License (MIT)](https://gitee.com/openharmony-sig/rntpc_react-native-background-timer/blob/master/LICENSE) ，请自由地享受和参与开源。
+

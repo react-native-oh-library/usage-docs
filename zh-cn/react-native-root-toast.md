@@ -37,10 +37,13 @@ yarn add react-native-root-toast@3.5.1
 
 下面的代码展示了这个库的基本使用场景：
 
+> [!TIP] 在react native >= 0.62中，新的LogBox组件会影响Toast组件的初始化。要使其工作，我们必须在应用程序中显式插入一个挂载点，挂载点推荐使用 [`react-native-root-siblings`](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-root-siblings.md) 如下所示：
+
 ```js
 import React, { useState } from "react";
 import { View,Button } from "react-native";
 import Toast from "react-native-root-toast";
+import { RootSiblingParent } from 'react-native-root-siblings';
 
 export function ReactNativeRootToastExample() {
   let PToast: any = null;
@@ -63,10 +66,10 @@ export function ReactNativeRootToastExample() {
     Toast.hide(PToast);
   }
   return (
-    <View>
+    <RootSiblingParent> // <- use RootSiblingParent to wrap your root component
       <Button title="开一个弹窗" onPress={startPToast} />
       <Button title="关掉这个弹窗" onPress={hidePToast} />
-    </View>
+    </RootSiblingParent>
   );
 }
 ```

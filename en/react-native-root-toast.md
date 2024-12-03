@@ -36,11 +36,13 @@ yarn add react-native-root-toast@3.5.1
 <!-- tabs:end -->
 
 The following code shows the basic use scenario of the repository:
+> [!TIP] In react native >= 0.62, the new LogBox component would impact this component's initialization. To make it work we have to explicitly insert a mount point in your app, this mount point implementation is recommended [`react-native-root-siblings`](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-root-siblings.md), like this:
 
 ```js
 import React, { useState } from "react";
 import { View, Button } from "react-native";
 import Toast from "react-native-root-toast";
+import { RootSiblingParent } from 'react-native-root-siblings';
 
 export function ReactNativeRootToastExample() {
   let PToast: any = null;
@@ -63,10 +65,10 @@ export function ReactNativeRootToastExample() {
     Toast.hide(PToast);
   }
   return (
-    <View>
+    <RootSiblingParent>
       <Button title="Open a pop-up window" onPress={startPToast} />
       <Button title="Close this pop-up window" onPress={hidePToast} />
-    </View>
+    </RootSiblingParent>
   );
 }
 ```

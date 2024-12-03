@@ -39,17 +39,7 @@ yarn add react-native-root-toast@3.5.1
 
 ```js
 import React, { useState } from "react";
-import {
-  ScrollView,
-  StyleSheet,
-  View,
-  Text,
-  TouchableHighlight,
-  TextInput,
-  Switch,
-  Button,
-  Alert,
-} from "react-native";
+import { View,Button } from "react-native";
 import Toast from "react-native-root-toast";
 
 export function ReactNativeRootToastExample() {
@@ -73,10 +63,10 @@ export function ReactNativeRootToastExample() {
     Toast.hide(PToast);
   }
   return (
-    <RootSiblingParent>
+    <View>
       <Button title="开一个弹窗" onPress={startPToast} />
       <Button title="关掉这个弹窗" onPress={hidePToast} />
-    </RootSiblingParent>
+    </View>
   );
 }
 ```

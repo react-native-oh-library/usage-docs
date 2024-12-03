@@ -39,17 +39,7 @@ The following code shows the basic use scenario of the repository:
 
 ```js
 import React, { useState } from "react";
-import {
-  ScrollView,
-  StyleSheet,
-  View,
-  Text,
-  TouchableHighlight,
-  TextInput,
-  Switch,
-  Button,
-  Alert,
-} from "react-native";
+import { View, Button } from "react-native";
 import Toast from "react-native-root-toast";
 
 export function ReactNativeRootToastExample() {
@@ -73,10 +63,10 @@ export function ReactNativeRootToastExample() {
     Toast.hide(PToast);
   }
   return (
-    <RootSiblingParent>
+    <View>
       <Button title="Open a pop-up window" onPress={startPToast} />
       <Button title="Close this pop-up window" onPress={hidePToast} />
-    </RootSiblingParent>
+    </View>
   );
 }
 ```

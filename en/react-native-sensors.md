@@ -3,20 +3,18 @@
 <p align="center">
   <h1 align="center"> <code>react-native-sensors</code> </h1>
 </p>
-<p align="center">
-    <a href="https://github.com/react-native-sensors/react-native-sensors">
-        <img src="https://img.shields.io/badge/platforms-android%20%7C%20ios%20%7C%20harmony%20-lightgrey.svg" alt="Supported platforms" />
-    </a>
-    <a href="https://github.com/react-native-sensors/react-native-sensors/blob/master/LICENSE">
-        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
-    </a>
-</p>
 
-> [!TIP] [Github address](https://github.com/react-native-oh-library/react-native-sensors)
+This project is based on [react-native-sensors@7.2.1-rc.2](https://github.com/react-native-sensors/react-native-sensors).
+
+This third-party library has been migrated to Gitee and is now available for direct download from npm, the new package name is: `@react-native-ohos/react-native-sensors`, The version correspondence details are as follows:
+
+| Version                        | Package Name                             | Repository                                                   | Release                                                      |
+| ------------------------------ | ---------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| <= 7.2.1-rc.2-0.0.1@deprecated | @react-native-oh-library/react-native-sensors  | [Github(deprecated)](https://github.com/react-native-oh-library/react-native-sensors) | [Github Releases(deprecated)](https://github.com/react-native-oh-library/react-native-sensors/releases) |
+| > 7.2.1                        | @react-native-ohos/react-native-sensors | [Gitee](https://gitee.com/openharmony-sig/rntpc_react-native-sensors) | [Gitee Releases](https://gitee.com/openharmony-sig/rntpc_react-native-sensors/releases) |
+
 
 ## Installation and Usage
-
-Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-sensors Releases](https://github.com/react-native-oh-library/react-native-sensors/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 Go to the project directory and execute the following instruction:
 
@@ -25,13 +23,13 @@ Go to the project directory and execute the following instruction:
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-sensors
+npm install @react-native-ohos/react-native-sensors
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-sensors
+yarn add @react-native-ohos/react-native-sensors
 ```
 
 <!-- tabs:end -->
@@ -84,30 +82,34 @@ gravity.subscribe(({ x, y, z, timestamp }) =>
 setUpdateIntervalForType(SensorTypes.accelerometer, 100);
 ```
 
-## Use Codegen
+## 2. Manual Link
 
-If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/zh-cn/codegen.md).
-
-## Link
-
-Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
+This step provides guidance for manually configuring native dependencies.
 
 Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
+### 2.1 Overrides RN SDK
+
+To ensure the project relies on the same version of the RN SDK, you need to add an `overrides` field in the project's root `oh-package.json5` file, specifying the RN SDK version to be used. The replacement version can be a specific version number, a semver range, or a locally available HAR package or source directory.
+
+For more information about the purpose of this field, please refer to the [official documentation](https://developer.huawei.com/consumer/en/doc/harmonyos-guides-V5/ide-oh-package-json5-V5#en-us_topic_0000001792256137_overrides).
 
 ```json
 {
-  ...
   "overrides": {
-    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+    "@rnoh/react-native-openharmony": "^0.72.38" // ohpm version
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony.har" // a locally available HAR package
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony" // source code directory
   }
 }
 ```
 
-### 2. Introducing Native Code
+### 2.2 Introducing Native Code
 
 Currently, two methods are available:
+
+- Use the HAR file.
+- Directly link to the source code。
 
 Method 1 (recommended): Use the HAR file.
 
@@ -118,7 +120,7 @@ Open `entry/oh-package.json5` file and add the following dependencies:
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/react-native-sensors": "file:../../node_modules/@react-native-oh-tpl/react-native-sensors/harmony/sensors.har"
+    "@react-native-ohos/react-native-sensors": "file:../../node_modules/@react-native-ohos/react-native-sensors/harmony/sensors.har"
   }
 ```
 
@@ -135,8 +137,40 @@ Method 2: Directly link to the source code.
 
 > [!TIP] For details, see [Directly Linking Source Code](/zh-cn/link-source-code.md).
 
-### 3. Introducing SensorsPackage Component to ArkTS
+### 2.3 Configuring CMakeLists and Introducing SensorsPackage Package
 
+> **[!TIP] Version 7.2.2 and above requires.**
+
+Open entry/src/main/cpp/CMakeLists.txt and add the following code:
+
+```diff
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+
+# RNOH_BEGIN: manual_package_linking_1
++ add_subdirectory("${OH_MODULES}/@react-native-ohos/react-native-sensors/src/main/cpp" ./sensors)
+# RNOH_END: manual_package_linking_1
+
+# RNOH_BEGIN: manual_package_linking_2
++ target_link_libraries(rnoh_app PUBLIC rnoh_sensors)
+# RNOH_END: manual_package_linking_2
+```
+
+Open entry/src/main/cpp/PackageProvider.cpp and add the following code:
+
+```diff
+#include "RNOH/PackageProvider.h"
+#include "generated/RNOHGeneratedPackage.h"
++ #include "SensorsPackage.h"
+
+using namespace rnoh;
+
+std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
+    return {
+      std::make_shared<RNOHGeneratedPackage>(ctx),
++     std::make_shared<SensorsPackage>(ctx)
+    };
+}
+```
 
 Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
 
@@ -152,7 +186,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 4. Running
+### 2.4 Running
 
 Click the `sync` button in the upper right corner.
 
@@ -165,20 +199,13 @@ ohpm install
 
 Then build and run the code.
 
-## Constraints
+## 3. Constraints
 
-### Compatibility
+### 3.1 Compatibility
 
-To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
+Check the release version information in the release address of the third-party library:[@react-native-ohos/react-native-sensors Releases](https://gitee.com/openharmony-sig/rntpc_react-native-sensors/releases)
 
-Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-sensors Releases](https://github.com/react-native-oh-library/react-native-sensors/releases)
-
-
-This document is verified based on the following versions:
-
-1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：205.0.0.18;
-
-### Permission Requirements (If Any)
+### 3.2 Permission Requirements (If Any)
 
 Configure the required permissions in module. json 5
 
@@ -186,7 +213,7 @@ accelerometer Required permissions: ohos.permission.ACCELEROMETER
 
 gyroscope Required permissions: ohos.permission.GYROSCOPE
 
-## API
+## 4. API
 
 > [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
@@ -203,10 +230,9 @@ gyroscope Required permissions: ohos.permission.GYROSCOPE
 | setUpdateIntervalForType | setUpdateIntervalForType     | function   | no       | ios/Android | yes               |
 | setLogLevelForType       | setLogLevelForType | function   | no       | ios/Android | yes               |
 
-## Known Issues
+## 5. Known Issues
 
-## Others
 
-## License
+## 6. License
 
-This project is licensed under [The MIT License (MIT)](https://github.com/react-native-sensors/react-native-sensors/blob/master/LICENSE), Please enjoy and participate freely in open source.
+This project is licensed under [The MIT License (MIT)](https://gitee.com/openharmony-sig/rntpc_react-native-sensors/blob/master/LICENSE), Please enjoy and participate freely in open source.

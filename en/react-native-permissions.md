@@ -266,48 +266,44 @@ Check the release version information in the release address of the third-party 
 当用户授予应用所需权限后，应用可成功访问目标数据或执行目标操作。
 
 ```
-   ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-   ┃ check(ohos.permission.CAMERA)    ┃
-   ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-                   │
-       Is the feature available
-           on this device ?
-                   │           ╔════╗
-                   ├───────────║ NO ║──────────────┐
-                   │           ╚════╝              │
-                ╔═════╗                            ▼
-                ║ YES ║                 ┌─────────────────────┐
-                ╚═════╝                 │ RESULTS.UNAVAILABLE │
-                   │                    └─────────────────────┘
-           Is the permission
-             requestable ?
-                   │           ╔════╗
-                   ├───────────║ NO ║──────────────┐
-                   │           ╚════╝              │
-                ╔═════╗                            ▼
-                ║ YES ║                  ┌───────────────────┐
-                ╚═════╝                  │ RESULTS.BLOCKED / │
-                   │                     │  RESULTS.GRANTED  │
-                   │                     └───────────────────┘
-  				   │
-                   ▼
-  	┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-  	┃ request(ohos.permission.CAMERA)    ┃
-  	┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
-                   │
-         Does the user accept
-            the request ?
-                   │           ╔════╗
-                   ├───────────║ NO ║──────────────┐
-                   │           ╚════╝              │
-                ╔═════╗                            ▼
-                ║ YES ║                   ┌─────────────────┐
-                ╚═════╝                   │ RESULTS.BLOCKED │
-                   │                      └─────────────────┘
-                   ▼
-          ┌─────────────────┐
-          │ RESULTS.GRANTED │
-          └─────────────────┘
+ ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+ ┃ check(ohos.permission.CAMERA) ┃
+ ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+                │                                ┌─────────────────────┐
+     Is the feature available ──────── NO ─────▶ │ RESULTS.UNAVAILABLE │
+        on this device ?                         └─────────────────────┘
+                │
+               YES
+                │                                ┌─────────────────┐
+        Is the permission ─────────── YES ─────▶ │ RESULTS.GRANTED │
+        already granted ?                        └─────────────────┘
+                │
+                NO
+                │
+  Is the permission requestable ?
+                │
+               YES
+                │
+                ▼
+       ┌────────────────┐
+       │ RESULTS.DENIED │
+       └────────────────┘
+                │
+                ▼
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ request(ohos.permission.CAMERA) ┃◀—————————————————————┐
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛                      │
+                │                                       YES
+                │                                        │
+      Did the user see and ──────── NO ──────── Is the permission
+      accept the request ?                      still requestable ?
+                │                                        │
+               YES                                       NO
+                │                                        │
+                ▼                                        ▼
+        ┌─────────────────┐                     ┌─────────────────┐
+        │ RESULTS.GRANTED │                     │ RESULTS.BLOCKED │
+        └─────────────────┘                     └─────────────────┘
 ```
 
 ### 权限要求
@@ -317,7 +313,7 @@ Check the release version information in the release address of the third-party 
 ```
 "requestPermissions": [
       {
-        "name" : "ohos.permission.PERMISSION1",
+        "name" : "ohos.permission.CAMERA",
         "reason": "$string:reason",
         "usedScene": {
           "abilities": [
@@ -327,7 +323,7 @@ Check the release version information in the release address of the third-party 
         }
       },
       {
-        "name" : "ohos.permission.PERMISSION2",
+        "name" : "ohos.permission.ACCESS_BLUETOOTH",
         "reason": "$string:reason",
         "usedScene": {
           "abilities": [

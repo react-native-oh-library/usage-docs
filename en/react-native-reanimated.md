@@ -27,12 +27,14 @@ Go to the project directory and execute the following instruction:
 #### **npm**
 
 ```bash
+npm install react-native-reanimated@3.6.0
 npm install @react-native-oh-tpl/react-native-reanimated
 ```
 
 #### **yarn**
 
 ```bash
+yarn add react-native-reanimated@3.6.0
 yarn add @react-native-oh-tpl/react-native-reanimated
 ```
 

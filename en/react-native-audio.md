@@ -1,41 +1,34 @@
-> Template version: v0.2.2
+> Template version: v0.3.0
 
 <p align="center">
   <h1 align="center"> <code>react-native-audio</code> </h1>
 </p>
-<p align="center">
-    <a href="https://github.com/jsierles/react-native-audio">
-        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
-    </a>
-    <a href="https://github.com/jsierles/react-native-audio/blob/master/LICENSE">
-        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
-        <!-- <img src="https://img.shields.io/badge/license-Apache-blue.svg" alt="License" /> -->
-    </a>
-</p>
 
-> [!TIP] [Github address](https://github.com/react-native-oh-library/react-native-audio/)
+This project is based on [react-native-audio@4.2.2](https://github.com/jsierles/react-native-audio).
 
+This third-party library has been migrated to Gitee and is now available for direct download from npm, the new package name is: `@react-native-ohos/react-native-audio`, The version correspondence details are as follows:
+
+| Version                        | Package Name                             | Repository                                                   | Release                                                      |
+| ------------------------------ | ---------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| <= 4.2.2@deprecated | @react-native-oh-library/react-native-audio  | [Github(deprecated)](https://github.com/react-native-oh-library/react-native-audio) | [Github Releases(deprecated)](https://github.com/react-native-oh-library/react-native-audio/releases) |
+| > 4.2.2                        | @react-native-ohos/react-native-audio | [Gitee](https://gitee.com/openharmony-sig/rntpc_react-native-audio) | [Gitee Releases](https://gitee.com/openharmony-sig/rntpc_react-native-audio/releases) |
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-audio Releases](https://github.com/react-native-oh-library/react-native-audio/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
-
 Go to the project directory and execute the following instruction:
-
-
 
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-audio
+npm install @react-native-ohos/react-native-audio
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-audio
+yarn add @react-native-ohos/react-native-audio
 ```
 
 <!-- tabs:end -->
@@ -45,7 +38,7 @@ The following code shows the basic use scenario of the repository:
 >[!WARNING] The name of the imported repository remains unchanged.
 
 ```js
-import { AudioRecorder, AudioUtils } from "@react-native-oh-tpl/react-native-audio";
+import { AudioRecorder, AudioUtils } from "@react-native-ohos/react-native-audio";
 
 // request microphone premission
 AudioRecorder.requestAuthorization().then((isAuthorised)=>{
@@ -99,30 +92,34 @@ AudioRecorder.onFinished = (data) => {
 }
 ```
 
-## Use Codegen
+## 2. Manual Link
 
-If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/zh-cn/codegen.md).
-
-## Link
-
-Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
+This step provides guidance for manually configuring native dependencies.
 
 Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 1.Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
+### 2.1 Overrides RN SDK
+
+To ensure the project relies on the same version of the RN SDK, you need to add an `overrides` field in the project's root `oh-package.json5` file, specifying the RN SDK version to be used. The replacement version can be a specific version number, a semver range, or a locally available HAR package or source directory.
+
+For more information about the purpose of this field, please refer to the [official documentation](https://developer.huawei.com/consumer/en/doc/harmonyos-guides-V5/ide-oh-package-json5-V5#en-us_topic_0000001792256137_overrides).
 
 ```json
 {
-  ...
   "overrides": {
-    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+    "@rnoh/react-native-openharmony": "^0.72.38" // ohpm version
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony.har" // a locally available HAR package
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony" // source code directory
   }
 }
 ```
 
-### 2.Introducing Native Code
+### 2.2 Introducing Native Code
 
 Currently, two methods are available:
+
+- Use the HAR file.
+- Directly link to the source code.
 
 Method 1 (recommended): Use the HAR file.
 
@@ -133,7 +130,7 @@ Open `entry/oh-package.json5` file and add the following dependencies:
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/react-native-audio": "file:../../node_modules/@react-native-oh-tpl/react-native-audio/harmony/audio.har"
+    "@react-native-ohos/react-native-audio": "file:../../node_modules/@react-native-ohos/react-native-audio/harmony/audio.har"
   }
 ```
 
@@ -151,8 +148,40 @@ Method 2: Directly link to the source code.
 > [!TIP] For details, see [Directly Linking Source Code](/zh-cn/link-source-code.md).
 
 
-### 3. Introducing AudioPackage Component to ArkTS
+### 2.3 Configuring CMakeLists and Introducing AudioPackage Package
 
+> **[!TIP] Version 4.2.3 and above requires.**
+
+Open entry/src/main/cpp/CMakeLists.txt and add the following code:
+
+```diff
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+
+# RNOH_BEGIN: manual_package_linking_1
++ add_subdirectory("${OH_MODULES}/@react-native-ohos/react-native-audio/src/main/cpp" ./audio)
+# RNOH_END: manual_package_linking_1
+
+# RNOH_BEGIN: manual_package_linking_2
++ target_link_libraries(rnoh_app PUBLIC rnoh_audio)
+# RNOH_END: manual_package_linking_2
+```
+
+Open entry/src/main/cpp/PackageProvider.cpp and add the following code:
+
+```diff
+#include "RNOH/PackageProvider.h"
+#include "generated/RNOHGeneratedPackage.h"
++ #include "AudioPackage.h"
+
+using namespace rnoh;
+
+std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
+    return {
+      std::make_shared<RNOHGeneratedPackage>(ctx),
++     std::make_shared<AudioPackage>(ctx)
+    };
+}
+```
 
 Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
 
@@ -168,7 +197,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 4.Running
+### 2.4 Running
 
 Click the `sync` button in the upper right corner.
 
@@ -181,17 +210,13 @@ ohpm install
 
 Then build and run the code.
 
-## Constraints
+## 3. Constraints
 
-### Compatibility
+### 3.1 Compatibility
 
-This document is verified based on the following versions:
+Check the release version information in the release address of the third-party library:[@react-native-ohos/react-native-audio Releases](https://gitee.com/openharmony-sig/rntpc_react-native-audio/releases)
 
-react-native-harmony：0.72.20; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.18;
-
-Check the release version information in the release address of the third-party library: [react-native-audio Releases](https://github.com/react-native-oh-library/react-native-audio/releases)
-
-## API
+## 4. API
 
 > [!TIP]  The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
@@ -207,10 +232,10 @@ Check the release version information in the release address of the third-party 
 | resumeRecording  | Resume recording  | function  | no | Android/IOS | yes |
 | stopRecording  | stop recording   | function  | no | Android/IOS | yes |
 
-## Known Issues
+## 5. Known Issues
 
-## Others
-### Encoding formats supported by different systems
+## 6. Others
+### 6.1 Encoding formats supported by different systems
 
 Encodings supported on iOS: lpcm, ima4, aac, MAC3, MAC6, ulaw, alaw, mp1, mp2, alac, amr.
 
@@ -220,6 +245,6 @@ Encodings supported on Harmony: aac.
 
 AudioQuality、MeteringEnabled、MeasurementMode is only for ios now.
 
-## License
+## 7. License
 
-This project is licensed under [The MIT License (MIT)](https://github.com/jsierles/react-native-audio/blob/master/LICENSE), Please enjoy and participate freely in open source.
+This project is licensed under [The MIT License (MIT)](https://gitee.com/openharmony-sig/rntpc_react-native-audio/blob/master/LICENSE), Please enjoy and participate freely in open source.

@@ -1,38 +1,34 @@
-> 模板版本：v0.2.2
+> 模板版本：v0.3.0
 
 <p align="center">
   <h1 align="center"> <code>react-native-marquee</code> </h1>
 </p>
-<p align="center">
-    <a href="https://github.com/kyo504/react-native-marquee/blob/master">
-        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
-    </a>
-    <a href="https://github.com/kyo504/react-native-marquee/blob/master/LICENSE">
-        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
-    </a>
-</p>
 
+本项目基于 [react-native-marquee@0.5.0](https://github.com/kyo504/react-native-marquee) 开发。
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-marquee)
+该第三方库的仓库已迁移至 Gitee，且支持直接从 npm 下载，新的包名为：`@react-native-ohos/react-native-marquee`，具体版本所属关系如下：
 
-## 安装与使用
+| Version                   | Package Name                                      | Repository         | Release                    |
+| ------------------------- | ------------------------------------------------- | ------------------ | -------------------------- |
+| <= 0.5.0-0.0.1@deprecated | @react-native-oh-tpl/react-native-marquee | [Github(deprecated)](https://github.com/react-native-oh-library/react-native-marquee) | [Github Releases(deprecated)](https://github.com/react-native-oh-library/react-native-marquee/releases) |
+| > 0.5.1                  | @react-native-ohos/react-native-marquee   | [Gitee](https://gitee.com/openharmony-sig/rntpc_react-native-marquee) | [Gitee Releases](https://gitee.com/openharmony-sig/rntpc_react-native-marquee/releases) |
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-marquee Releases](https://github.com/react-native-oh-library/react-native-marquee/releases) 。对于未发布到npm的旧版本，请参考[安装指南](/zh-cn/tgz-usage.md)安装tgz包。
+## 1. 安装与使用
 
 进入到工程目录并输入以下命令：
 
-进入到工程目录并输入以下命令：
+<!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-marquee
+npm install @react-native-ohos/react-native-marquee
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-marquee
+yarn add @react-native-ohos/react-native-marquee
 ```
 
 <!-- tabs:end -->
@@ -73,35 +69,33 @@ const styles = StyleSheet.create({
 });
 ```
 
-## 约束与限制
+## 2. 约束与限制
 
-### 兼容性
+### 2.1 兼容性
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-ohos/react-native-marquee Releases](https://gitee.com/openharmony-sig/rntpc_react-native-marquee/releases)
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-marquee Releases](https://github.com/react-native-oh-library/react-native-marquee/releases)
 
-## 属性
+## 3. 属性
 
 > [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
 > [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-MarqueText组件基本上继承了[TextProps](https://reactnative.dev/docs/text)，以下是附加组件：
+| Name | Description | Type | Required | Platform | HarmonyOS Support  |
+| ----------------- | -------- | -------- | ------- | ------------------------------------------------------------ | -------- 
+| marqueeOnStart    | 是否在渲染后立即启动字幕动画的标志                           | boolean  | no | All      | yes               |
+| speed             | 以像素/秒计算的速度                                          | number   | no | All      | yes               |
+| loop              | 是否循环字幕动画的标志                                       | boolean  | no | All      | yes               |
+| delay             | 渲染后延迟动画的持续时间，以毫秒为单位                       | number   | no | All      | yes               |
+| onMarqueeComplete | 字幕完成动画并停止时的回调                                   | function | no | All      | yes               |
+| consecutive       | 一个标志，用于启用模仿HTML字幕元素默认行为的连续模式。如果循环为false，则不生效 | boolean  | no | All      | yes               |
 
-| Name              | Type     | Optional | Default | Description                                                  | Platform | HarmonyOS Support |
-| ----------------- | -------- | -------- | ------- | ------------------------------------------------------------ | -------- | ----------------- |
-| marqueeOnStart    | boolean  | true     | true    | 是否在渲染后立即启动字幕动画的标志                           | All      | yes               |
-| speed             | number   | true     | 1       | 以像素/秒计算的速度                                          | All      | yes               |
-| loop              | boolean  | true     | true    | 是否循环字幕动画的标志                                       | All      | yes               |
-| delay             | number   | true     | 0       | 渲染后延迟动画的持续时间，以毫秒为单位                       | All      | yes               |
-| onMarqueeComplete | function | true     | void    | 字幕完成动画并停止时的回调                                   | All      | yes               |
-| consecutive       | boolean  | true     | false   | 一个标志，用于启用模仿HTML字幕元素默认行为的连续模式。如果循环为false，则不生效 | All      | yes               |
+## 4. 遗留问题
 
-## 遗留问题
+## 5. 其他
 
-## 其他
+## 6. 开源协议
 
-## 开源协议
+本项目基于 [The MIT License (MIT)](https://gitee.com/openharmony-sig/rntpc_react-native-marquee/blob/master/LICENSE) ，请自由地享受和参与开源。
 
-本项目基于 [The MIT License (MIT)](https://github.com/kyo504/react-native-marquee/blob/master/LICENSE) ，请自由地享受和参与开源。

@@ -1,39 +1,35 @@
-> Template version: v0.2.2
+> Template version: v0.3.0
 
 <p align="center">
   <h1 align="center"> <code>react-native-marquee</code> </h1>
 </p>
-<p align="center">
-    <a href="https://github.com/kyo504/react-native-marquee/blob/master">
-        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
-    </a>
-    <a href="https://github.com/kyo504/react-native-marquee/blob/master/LICENSE">
-        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
-    </a>
-</p>
+
+This project is based on [react-native-marquee@0.5.0](https://github.com/kyo504/react-native-marquee)。
+
+This third-party library has been migrated to Gitee and is now available for direct download from npm, the new package name is: `@react-native-ohos/react-native-marquee`, The version correspondence details are as follows:
+
+| Version                   | Package Name                                      | Repository         | Release                    |
+| ------------------------- | ------------------------------------------------- | ------------------ | -------------------------- |
+| <= 0.5.0-0.0.1@deprecated | @react-native-oh-tpl/react-native-marquee | [Github(deprecated)](https://github.com/react-native-oh-library/react-native-marquee) | [Github Releases(deprecated)](https://github.com/react-native-oh-library/react-native-marquee/releases) |
+| > 0.5.1                  | @react-native-ohos/react-native-marquee   | [Gitee](https://gitee.com/openharmony-sig/rntpc_react-native-marquee) | [Gitee Releases](https://gitee.com/openharmony-sig/rntpc_react-native-marquee/releases) |
 
 
-> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-marquee)
-
-## Installation and Usage
-
-Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-marquee Releases](https://github.com/react-native-oh-library/react-native-marquee/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+## 1. Installation and Usage
 
 Go to the project directory and execute the following instruction:
 
-
-
+<!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-marquee
+npm install @react-native-ohos/react-native-marquee
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-marquee
+yarn add @react-native-ohos/react-native-marquee
 ```
 
 <!-- tabs:end -->
@@ -74,35 +70,34 @@ const styles = StyleSheet.create({
 });
 ```
 
-## Constraints
+## 2. Constraints
 
-### Compatibility
+### 2.1 Compatibility
 
-To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
+Check the release version information in the release address of the third-party library: [@react-native-ohos/react-native-marquee Releases](https://gitee.com/openharmony-sig/rntpc_react-native-marquee/releases)
 
-Check the release version information in the release address of the third-party library:[@react-native-oh-tpl/react-native-marquee Releases](https://github.com/react-native-oh-library/react-native-marquee/releases)
-
-## Properties
+## 3. Properties
 
 > [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-MarqueText组件基本上继承了[TextProps](https://reactnative.dev/docs/text)，以下是附加组件：
+MarqueeText component basically inherits [TextProps](https://reactnative.dev/docs/text) and the followings are additional ones:
 
-| Name              | Type     | Optional | Default | Description                                                  | Platform | HarmonyOS Support |
-| ----------------- | -------- | -------- | ------- | ------------------------------------------------------------ | -------- | ----------------- |
-| marqueeOnStart    | boolean  | true     | true    | 是否在渲染后立即启动字幕动画的标志                           | All      | yes               |
-| speed             | number   | true     | 1       | 以像素/秒计算的速度                                          | All      | yes               |
-| loop              | boolean  | true     | true    | 是否循环字幕动画的标志                                       | All      | yes               |
-| delay             | number   | true     | 0       | 渲染后延迟动画的持续时间，以毫秒为单位                       | All      | yes               |
-| onMarqueeComplete | function | true     | void    | 字幕完成动画并停止时的回调                                   | All      | yes               |
-| consecutive       | boolean  | true     | false   | 一个标志，用于启用模仿HTML字幕元素默认行为的连续模式。如果循环为false，则不生效 | All      | yes               |
+| Name              | Description                                                               | Type     | Required | Platform | HarmonyOS Support |
+| ----------------- | ------------------------------------------------------------------------- | -------- | -------- | -------- | ----------------- |
+| marqueeOnStart    | A flag whether to start marquee animation right after render              | boolean  | no     | All      | yes               |
+| speed             | Speed calculated as pixels/second                                         | number   | no      | All      | yes               |
+| loop              | 	A flag whether to loop marquee animation or not                         | boolean  | no     | All      | yes               |
+| delay             | Duration to delay the animation after render, in milliseconds             | number   | no      | All      | yes               |
+| onMarqueeComplete | A callback for when the marquee finishes animation and stops              | function | no      | All      | yes               |
+| consecutive       | A flag to enable consecutive mode that imitates the default behavior of HTML marquee element. Does not take effect if loop is false | boolean  | no      | All      | yes               |
 
-## Known Issues
+## 4. Known Issues
 
-## Others
+## 5. Others
 
-## License
+## 6. License
 
-This project is licensed under [The MIT License (MIT)](https://github.com/kyo504/react-native-marquee/blob/master/LICENSE).
+This project is licensed under [The MIT License (MIT)](https://gitee.com/openharmony-sig/rntpc_react-native-marquee/blob/master/LICENSE).
+

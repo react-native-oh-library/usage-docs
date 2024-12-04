@@ -126,7 +126,7 @@ export default function App() {
 本库依赖以下三方库，请查看对应文档：
 + [react-native-screens](/zh-cn/react-native-screens.md)
 + [@react-navigation/native](/zh-cn/react-navigation-native.md)
-+ [@react-native-oh-library/elements](/zh-cn/react-native-elements.md)
++ [@react-navigation/elements](/zh-cn/react-navigation-elements.md)
 + [@react-native-oh-library/react-native-safe-area-context](/zh-cn/react-native-safe-area-context.md)
 
 本库 HarmonyOS 侧实现依赖@react-native-oh-library/react-native-safe-area-context 的原生端代码，如已在 HarmonyOS 工程中引入过该库，则无需再次引入，可跳过本章节步骤，直接使用。

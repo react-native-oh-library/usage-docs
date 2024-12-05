@@ -1,40 +1,35 @@
-> Template version: v0.2.2
+> Template version: v0.3.0
 
 <p align="center">
   <h1 align="center"> <code>react-native-image-sequence</code> </h1>
 </p>
-<p align="center">
-    <a href="https://github.com/bwindsor/react-native-image-sequence">
-        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
-    </a>
-    <a href="https://github.com/bwindsor/react-native-image-sequence/blob/master/LICENSE">
-        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
-    </a>
-</p>
 
+This project is based on [react-native-image-sequence@0.9.1](https://github.com/bwindsor/react-native-image-sequence).
 
-> [!TIP] [Github address](https://github.com/react-native-oh-library/react-native-image-sequence)
+This third-party library has been migrated to Gitee and is now available for direct download from npm, the new package name is: `@react-native-ohos/react-native-image-sequence`, The version correspondence details are as follows:
+
+| Version                        | Package Name                             | Repository                                                   | Release                                                      |
+| ------------------------------ | ---------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| <= 0.9.1@deprecated | @react-native-oh-library/react-native-image-sequence  | [Github(deprecated)](https://github.com/react-native-oh-library/react-native-image-sequence) | [Github Releases(deprecated)](https://github.com/react-native-oh-library/react-native-image-sequence/releases) |
+| > 0.9.1                        | @react-native-ohos/react-native-image-sequence | [Gitee](https://gitee.com/openharmony-sig/rntpc_react-native-image-sequence) | [Gitee Releases](https://gitee.com/openharmony-sig/rntpc_react-native-image-sequence/releases) |
+
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-image-sequence Releases](https://github.com/react-native-oh-library/react-native-image-sequence/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
-
 Go to the project directory and execute the following instruction:
-
-
 
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-image-sequence-2
+npm install @react-native-ohos/react-native-image-sequence-2
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-image-sequence-2
+yarn add @react-native-ohos/react-native-image-sequence-2
 ```
 
 <!-- tabs:end -->
@@ -279,25 +274,34 @@ const styles = StyleSheet.create({
 export default TestDemo2
 ```
 
-## Link
+## 2. Manual Link
 
-Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
+This step provides guidance for manually configuring native dependencies.
 
 Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
+### 2.1 Overrides RN SDK
+
+To ensure the project relies on the same version of the RN SDK, you need to add an `overrides` field in the project's root `oh-package.json5` file, specifying the RN SDK version to be used. The replacement version can be a specific version number, a semver range, or a locally available HAR package or source directory.
+
+For more information about the purpose of this field, please refer to the [official documentation](https://developer.huawei.com/consumer/en/doc/harmonyos-guides-V5/ide-oh-package-json5-V5#en-us_topic_0000001792256137_overrides).
+
 ```json
 {
-  ...
   "overrides": {
-    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+    "@rnoh/react-native-openharmony": "^0.72.38" // ohpm version
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony.har" // a locally available HAR package
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony" // source code directory
   }
 }
 ```
 
-### 2. Introducing Native Code
+### 2.2 Introducing Native Code
 
 Currently, two methods are available:
+
+- Use the HAR file.
+- Directly link to the source code.
 
 1. Method 1 (recommended): Use the HAR file.
 
@@ -309,7 +313,7 @@ Open `entry/oh-package.json5` file and add the following dependencies:
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/react-native-image-sequence-2":"file:../../node_modules/@react-native-oh-tpl/react-native-image-sequence-2/harmony/image_sequence.har"
+    "@react-native-ohos/react-native-image-sequence-2":"file:../../node_modules/@react-native-ohos/react-native-image-sequence-2/harmony/image_sequence.har"
   }
 ```
 
@@ -326,8 +330,40 @@ Method 2: Directly link to the source code.
 
 > [!TIP]For details, see [Directly Linking Source Code](/zh-cn/link-source-code.md).
 
-### 3. Introducing RNImageSequence Component to ArkTS
+### 2.3 Configuring CMakeLists and Introducing ImageSequence2Package Package
 
+> **[!TIP] Version 4.2.3 and above requires.**
+
+Open entry/src/main/cpp/CMakeLists.txt and add the following code:
+
+```diff
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+
+# RNOH_BEGIN: manual_package_linking_1
++ add_subdirectory("${OH_MODULES}/@react-native-ohos/react-native-image-sequence-2/src/main/cpp" ./image_sequence_2)
+# RNOH_END: manual_package_linking_1
+
+# RNOH_BEGIN: manual_package_linking_2
++ target_link_libraries(rnoh_app PUBLIC rnoh_image_sequence_2)
+# RNOH_END: manual_package_linking_2
+```
+
+Open entry/src/main/cpp/PackageProvider.cpp and add the following code:
+
+```diff
+#include "RNOH/PackageProvider.h"
+#include "generated/RNOHGeneratedPackage.h"
++ #include "ImageSequence2Package.h"
+
+using namespace rnoh;
+
+std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
+    return {
+      std::make_shared<RNOHGeneratedPackage>(ctx),
++     std::make_shared<ImageSequence2Package>(ctx)
+    };
+}
+```
 
 (If the code of the repository is written through CAPI, delete this section.)<br>Find `function buildCustomRNComponent()`, which is usually located in `entry/src/main/ets/pages/index.ets` or `entry/src/main/ets/rn/LoadBundle.ets`, and add the following code:
 
@@ -355,9 +391,6 @@ export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
 ...
 ```
 
-### 4. Introducing ImageSequencePackage Package to ArkTS
-
-
 Open the `entry/src/main/ets/RNPackagesFactory.ts`，file and add the following code:
 
 ```diff
@@ -372,7 +405,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 5. Running
+### 2.4 Running
 
 Click the `sync` button in the upper right corner.
 
@@ -385,20 +418,13 @@ ohpm install
 
 Then build and run the code.
 
-## Constraints
+## 3. Constraints
 
-### Compatibility
+### 3.1 Compatibility
 
-To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
+Check the release version information in the release address of the third-party library:[@react-native-ohos/react-native-image-sequence Releases](https://gitee.com/openharmony-sig/rntpc_react-native-image-sequence/releases)
 
-Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-image-sequence Releases](https://github.com/react-native-oh-library/react-native-image-sequence/releases)
-
-
-This document is verified based on the following versions:
-
-1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.200; ROM：205.0.0.18;
-
-## Properties
+## 4. Properties
 
 > [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
@@ -413,10 +439,10 @@ This document is verified based on the following versions:
 | downsampleWidth  | The width to use for optional downsampling. Both `downsampleWidth` and `downsampleHeight` must be set to a positive number to enable downsampling. Default: -1 | number  | No       | All      | Yes               |
 | downsampleHeight | The height to use for optional downsampling. Both `downsampleWidth` and `downsampleHeight` must be set to a positive number to enable downsampling. Default: -1 | number  | No       | All      | Yes               |
 
-## Known Issues
+## 5. Known Issues
 
-## Others
+## 6. Others
 
-## License
+## 7. License
 
-This project is licensed under [The MIT License (MIT)](https://github.com/bwindsor/react-native-image-sequence/blob/master/LICENSE), Please enjoy and participate freely in open source.
+This project is licensed under [The MIT License (MIT)](https://gitee.com/openharmony-sig/rntpc_react-native-image-sequence/blob/master/LICENSE), Please enjoy and participate freely in open source.

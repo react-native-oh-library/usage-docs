@@ -1,23 +1,20 @@
-> 模板版本：v0.2.2
+> 模板版本：v0.3.0
 
 <p align="center">
   <h1 align="center"> <code>react-native-image-sequence</code> </h1>
 </p>
-<p align="center">
-    <a href="https://github.com/bwindsor/react-native-image-sequence">
-        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
-    </a>
-    <a href="https://github.com/bwindsor/react-native-image-sequence/blob/master/LICENSE">
-        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
-    </a>
-</p>
 
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/react-native-image-sequence)
+本项目基于 [react-native-image-sequence@0.9.1](https://github.com/bwindsor/react-native-image-sequence) 开发。
+
+该第三方库的仓库已迁移至 Gitee，且支持直接从 npm 下载，新的包名为：`@react-native-ohos/react-native-image-sequence`，具体版本所属关系如下：
+
+| Version                        | Package Name                             | Repository                                                   | Release                                                      |
+| ------------------------------ | ---------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| <= 0.9.1@deprecated | @react-native-oh-library/react-native-image-sequence  | [Github(deprecated)](https://github.com/react-native-oh-library/react-native-image-sequence) | [Github Releases(deprecated)](https://github.com/react-native-oh-library/react-native-image-sequence/releases) |
+| > 0.9.1                        | @react-native-ohos/react-native-image-sequence | [Gitee](https://gitee.com/openharmony-sig/rntpc_react-native-image-sequence) | [Gitee Releases](https://gitee.com/openharmony-sig/rntpc_react-native-image-sequence/releases) |
 
 ## 安装与使用
-
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-image-sequence Releases](https://github.com/react-native-oh-library/react-native-image-sequence/releases) 。对于未发布到npm的旧版本，请参考[安装指南](/zh-cn/tgz-usage.md)安装tgz包。
 
 进入到工程目录并输入以下命令：
 
@@ -26,13 +23,13 @@
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-image-sequence-2
+npm install @react-native-ohos/react-native-image-sequence-2
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-image-sequence-2
+yarn add @react-native-ohos/react-native-image-sequence-2
 ```
 
 <!-- tabs:end -->
@@ -277,24 +274,29 @@ const styles = StyleSheet.create({
 export default TestDemo2
 ```
 
-## Link
+## 2. Manual Link
 
-目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+此步骤为手动配置原生依赖项的指导。
 
-首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
+首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`。
 
-### 1.在工程根目录的 `oh-package.json5` 添加 overrides 字段
+### 2.1 Overrides RN SDK
+
+为了让工程依赖同一个版本的 RN SDK，需要在工程根目录的 `harmony/oh-package.json5` 添加 overrides 字段，指向工程需要使用的 RN SDK 版本。替换的版本既可以是一个具体的版本号，也可以是一个模糊版本，还可以是本地存在的 HAR 包或源码目录。
+
+关于该字段的作用请阅读[官方说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/ide-oh-package-json5-V5#zh-cn_topic_0000001792256137_overrides)
 
 ```json
 {
-  ...
   "overrides": {
-    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+    "@rnoh/react-native-openharmony": "^0.72.38" // ohpm 在线版本
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony.har" // 指向本地 har 包的路径
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony" // 指向源码路径
   }
 }
 ```
 
-### 2.引入原生端代码
+### 2.2 引入原生端代码
 
 目前有两种方法：
 
@@ -310,7 +312,7 @@ export default TestDemo2
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/react-native-image-sequence-2":"file:../../node_modules/@react-native-oh-tpl/react-native-image-sequence-2/harmony/image_sequence.har"
+    "@react-native-ohos/react-native-image-sequence-2":"file:../../node_modules/@react-native-ohos/react-native-image-sequence-2/harmony/image_sequence.har"
   }
 ```
 
@@ -327,13 +329,46 @@ ohpm install
 
 > [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
-### 3.在 ArkTs 侧引入  RNImageSequence组件
+### 2.3 配置 CMakeLists 和引入 ImageSequence2Package
+
+ > **[!TIP] 版本 0.9.2 及以上需要.**
+
+ 打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
+
+```diff
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+
+# RNOH_BEGIN: manual_package_linking_1
++ add_subdirectory("${OH_MODULES}/@react-native-ohos/react-native-image-sequence-2/src/main/cpp" ./image_sequence_2)
+# RNOH_END: manual_package_linking_1
+
+# RNOH_BEGIN: manual_package_linking_2
++ target_link_libraries(rnoh_app PUBLIC rnoh_image_sequence_2)
+# RNOH_END: manual_package_linking_2
+```
+
+打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
+
+```diff
+#include "RNOH/PackageProvider.h"
+#include "generated/RNOHGeneratedPackage.h"
++ #include "ImageSequence2Package.h"
+
+using namespace rnoh;
+
+std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
+    return {
+      std::make_shared<RNOHGeneratedPackage>(ctx),
++     std::make_shared<ImageSequence2Package>(ctx)
+    };
+}
+```
 
 找到 `function buildCustomRNComponent()`，一般位于 `entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets`，添加：
 
 ```diff
   ...
-+ import { RNImageSequence } from "@react-native-oh-tpl/react-native-image-sequence-2"
++ import { RNImageSequence } from "@react-native-ohos/react-native-image-sequence-2"
 
 const arkTsComponentNames: Array<string> = ["SampleView", 
 "Generated",
@@ -355,8 +390,6 @@ export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
 ...
 ```
 
-### 4.在 ArkTs 侧引入 ImageSequencePackage
-
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
@@ -371,7 +404,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 5.运行
+### 2.4 运行
 
 点击右上角的 `sync` 按钮
 
@@ -384,19 +417,13 @@ ohpm install
 
 然后编译、运行即可。
 
-## 约束与限制
+## 3. 约束与限制
 
-### 兼容性
+### 3.1 兼容性
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-ohos/react-native-image-sequence Releases](https://gitee.com/openharmony-sig/rntpc_react-native-image-sequence/releases)
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-tpl/react-native-image-sequence Releases](https://github.com/react-native-oh-library/react-native-image-sequence/releases)
-
-本文档内容基于以下版本验证通过：
-
-1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.200; ROM：205.0.0.18;
-
-## 属性
+## 4. 属性
 
 > [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
@@ -411,10 +438,10 @@ ohpm install
 | downsampleWidth  | The width to use for optional downsampling. Both `downsampleWidth` and `downsampleHeight` must be set to a positive number to enable downsampling. Default: -1 | number  | No       | All      | Yes               |
 | downsampleHeight | The height to use for optional downsampling. Both `downsampleWidth` and `downsampleHeight` must be set to a positive number to enable downsampling. Default: -1 | number  | No       | All      | Yes               |
 
-## 遗留问题
+## 5. 遗留问题
 
-## 其他
+## 6. 其他
 
-## 开源协议
+## 7. 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/bwindsor/react-native-image-sequence/blob/master/LICENSE) ，请自由地享受和参与开源。
+本项目基于 [The MIT License (MIT)](https://gitee.com/openharmony-sig/rntpc_react-native-image-sequence/blob/master/LICENSE) ，请自由地享受和参与开源。

@@ -1,4 +1,4 @@
-> Template version: v0.2.2
+> Template version: v0.3.0
 
 <p align="center">
   <h1 align="center"> <code>react-native-sensors</code> </h1>
@@ -109,7 +109,7 @@ For more information about the purpose of this field, please refer to the [offic
 Currently, two methods are available:
 
 - Use the HAR file.
-- Directly link to the source code。
+- Directly link to the source code.
 
 Method 1 (recommended): Use the HAR file.
 

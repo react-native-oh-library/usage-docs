@@ -556,7 +556,7 @@ The following component attributes are currently supported:
 | leastDestructiveRef | The ref of element that is least destructive child of the AlertDialog. | Object | No | No | No |
 | initialFocusRef | The ref of element to receive focus when the AlertDialog opens. | Object | No | All | Yes |
 | finalFocusRef | The ref of element to receive focus when the AlertDialog closes. | Object | No | All | Yes |
-| avoidKeyboard | If true and the keyboard is opened, the AlertDialog will move up equivalent to the keyboard height. | Boolean | No | iOS | No |
+| avoidKeyboard | If true and the keyboard is opened, the AlertDialog will move up equivalent to the keyboard height. | Boolean | No | iOS | Yes |
 | closeOnOverlayClick | If true, the AlertDialog will close when the overlay is clicked | Boolean | No | All | Yes |
 | isKeyboardDismissable | If true, the AlertDialog will close when Escape key is pressed | Boolean | No | No | No |
 | overlayVisible | If true, a backdrop element is visible | Boolean | No | All | Yes |
@@ -625,7 +625,7 @@ The following component attributes are currently supported:
 | size | The size of the modal. | String | No | All | Yes |
 | initialFocusRef | The ref of element to receive focus when the modal opens. | Any | No | All | Yes |
 | finalFocusRef | The ref of element to receive focus when the modal closes. | Any | No | All | Yes |
-| avoidKeyboard | If true and the keyboard is opened, the modal will move up equivalent to the keyboard height. | Boolean | No | iOS | No |
+| avoidKeyboard | If true and the keyboard is opened, the modal will move up equivalent to the keyboard height. | Boolean | No | iOS | Yes |
 | isKeyboardDismissable | If true, the modal will close when Escape key is pressed. | Boolean | No | All | Yes |
 | overlayVisible | If true, a backdrop element is visible. | Boolean | No | All | Yes |
 | backdropVisible | If true, a backdrop element is visible. | Boolean | No | All | Yes |
@@ -803,7 +803,7 @@ The following component attributes are currently supported:
 
 - [ ] FormControl 组件 isDisabled 属性无效: [issue#1](https://github.com/GeekyAnts/NativeBase/issues/5707)
 - [ ] Select 组件 placeholderTextColor 属性无效: [issue#16](https://github.com/react-native-oh-library/NativeBase/issues/16)
-- [ ] Modal,AlertDialog,组件 avoidKeyboard 属性无效: [issue#17](https://github.com/react-native-oh-library/NativeBase/issues/17)
+- [X] Modal,AlertDialog,组件avoidKeyboard属性无效: [issue#17](https://github.com/react-native-oh-library/NativeBase/issues/17)
 
 ## Others
 

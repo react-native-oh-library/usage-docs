@@ -570,7 +570,7 @@ const styles = StyleSheet.create({
 |        leastDestructiveRef         |           最小元素节点    |       Object        |    No    |   No    |        No        |
 |        initialFocusRef         |           打开时焦点元素节点    |       Object        |    No    |   All    |        Yes        |
 |        finalFocusRef         |           关闭时焦点元素节点    |       Object        |    No    |   All    |        Yes        |
-|        avoidKeyboard         |           键盘打开，则 AlertDialog 将向上移动相当于键盘高度     |       Boolean        |    No    |   iOS    |        No        |
+|        avoidKeyboard         |           键盘打开，则 AlertDialog 将向上移动相当于键盘高度     |       Boolean        |    No    |   iOS    |        Yes        |
 |        closeOnOverlayClick         |           点击关闭    |       Boolean        |    No    |   All    |        Yes        |
 |        isKeyboardDismissable         |           Esc关闭    |       Boolean        |    No    |   No    |        No        |
 |        overlayVisible         |           背景元素是否可见    |       Boolean        |    No    |   All    |        Yes        |
@@ -639,7 +639,7 @@ const styles = StyleSheet.create({
 |        size         |            尺寸   |        String        |    No    |   All    |        Yes        |
 |        initialFocusRef         |            模态框打开时最初获得焦点的元素节点    |        Any       |    No    |   All    |        Yes        |
 |        finalFocusRef         |            模态框关闭时最终获得焦点的元素节点    |        Any       |    No    |   All    |        Yes        |
-|        avoidKeyboard         |            键盘打开，则 Modal 将向上移动相当于键盘高度      |        Boolean       |    No    |   iOS    |        No        |
+|        avoidKeyboard         |            键盘打开，则 Modal 将向上移动相当于键盘高度      |        Boolean       |    No    |   iOS    |        Yes        |
 |        isKeyboardDismissable         |            控制是否可以通过触摸屏幕外部或按下系统返回键来关闭键盘和模态框    |        Boolean       |    No    |   All    |        Yes        |
 |        overlayVisible         |            控制模态框的背景覆盖层（overlay）是否可见    |        Boolean       |    No    |   All    |        Yes        |
 |        backdropVisible         |            控制模态框的背景遮罩是否可见    |        Boolean       |    No    |   All    |        Yes        |
@@ -817,7 +817,7 @@ const styles = StyleSheet.create({
 ## 遗留问题
 - [ ] FormControl组件isDisabled属性无效: [issue#1](https://github.com/GeekyAnts/NativeBase/issues/5707)
 - [ ] Select组件placeholderTextColor属性无效: [issue#16](https://github.com/react-native-oh-library/NativeBase/issues/16)
-- [ ] Modal,AlertDialog,组件avoidKeyboard属性无效: [issue#17](https://github.com/react-native-oh-library/NativeBase/issues/17)
+- [X] Modal,AlertDialog,组件 avoidKeyboard 属性无效: [issue#17](https://github.com/react-native-oh-library/NativeBase/issues/17)
 
 ## 其他
 

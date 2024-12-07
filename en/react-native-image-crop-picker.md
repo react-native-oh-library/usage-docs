@@ -1,37 +1,38 @@
-> Template version: v0.2.2
+> Template version: v0.3.0
 
 <p align="center">
   <h1 align="center"> <code>react-native-image-crop-picker</code> </h1>
 </p>
-<p align="center">
-    <a href="https://github.com/ivpusic/react-native-image-crop-picker">
-        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
-    </a>
-        <a href="https://github.com/ivpusic/react-native-image-crop-picker/blob/master/LICENSE">
-        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
-    </a>
-</p>
+
+This project is based on [react-native-image-crop-picker@0.40.3](https://github.com/ivpusic/react-native-image-crop-picker)。
+
+| Version                     | Package Name                         | Repository                                                                       | Release                                                                                            |
+| --------------------------- | ------------------------------------ | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| <= 0.40.3-0.0.14@deprecated | @react-native-oh-tpl/react-native-image-crop-picker | [Github(deprecated)](https://github.com/react-native-oh-library/react-native-image-crop-picker) | [Github Releases(deprecated)](https://github.com/react-native-oh-library/react-native-image-crop-picker/releases) |
+| >= 0.40.4                   | @react-native-ohos/react-native-image-crop-picker   | [Gitee](https://gitee.com/openharmony-sig/rntpc_react-native-image-crop-picker)                 | [Gitee Releases](https://gitee.com/openharmony-sig/rntpc_react-native-image-crop-picker/releases)                 |
+
 
 > [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-image-crop-picker)
 
-## Installation and Usage
-
-Find the matching version information in the release address of a third-party library：[@react-native-oh-tpl/react-native-image-crop-picker Releases ](https://github.com/react-native-oh-library/react-native-image-crop-picker/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+## 1. Installation and Usage
 
 Go to the project directory and execute the following instruction:
 
+<!-- tabs:start -->
 
 #### **npm**
 
-```
-npm install @react-native-oh-tpl/react-native-image-crop-picker
+```bash
+npm install @react-native-ohos/react-native-image-crop-picker
 ```
 
 #### **yarn**
 
+```bash
+yarn add @react-native-ohos/react-native-image-crop-picker
 ```
-yarn add @react-native-oh-tpl/react-native-image-crop-picker
-```
+
+<!-- tabs:end -->
 
 The following code shows the basic use scenario of the repository:
 
@@ -786,27 +787,128 @@ const styles = StyleSheet.create({
 export default ImageCropPickDemo;
 ```
 
-## Use Codegen
+## 2. Manual Link
 
-If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/en/codegen.md).
-
-## Link
-
-Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
+This step provides guidance for manually configuring native dependencies.
 
 Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-```
-Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
+### 2.1 Overrides RN SDK
+
+To ensure the project relies on the same version of the RN SDK, you need to add an `overrides` field in the project's root `oh-package.json5` file, specifying the RN SDK version to be used. The replacement version can be a specific version number, a semver range, or a locally available HAR package or source directory.
+
+For more information about the purpose of this field, please refer to the [official documentation](https://developer.huawei.com/consumer/en/doc/harmonyos-guides-V5/ide-oh-package-json5-V5#en-us_topic_0000001792256137_overrides).
+
+```json
 {
-  ...
   "overrides": {
-    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+    "@rnoh/react-native-openharmony": "^0.72.38" // ohpm 在线版本
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony.har" // 指向本地 har 包的路径
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony" // 指向源码路径
   }
 }
 ```
 
-### 1. Configuration Entry
+### 2.2 Introducing Native Code
+
+- Use the HAR file.
+- Directly link to the source code。
+
+Method 1 (recommended): Use the HAR file.
+
+> [!TIP] The HAR file is stored in the `harmony` directory in the installation path of the third-party library.
+
+Open `entry/oh-package.json5` file and add the following dependencies:
+
+```json
+"dependencies": {
+    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
+    "@react-native-ohos/react-native-image-crop-picker": "file:../../node_modules/@react-native-ohos/react-native-image-crop-picker/harmony/image_crop_picker.har"
+  }
+```
+
+Click the `sync` button in the upper right corner.
+
+Alternatively, run the following instruction on the terminal:
+
+```
+cd entry
+ohpm install
+```
+
+Method 2: Directly link to the source code.
+
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
+
+### 2.3 Configuring CMakeLists and Introducing RNFSPackage
+
+> [!TIP] Required for version `0.40.4` and above
+
+Open `entry/src/main/cpp/CMakeLists.txt` and add the following code:
+
+```diff
+project(rnapp)
+cmake_minimum_required(VERSION 3.4.1)
+set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
+
+add_subdirectory("${RNOH_CPP_DIR}" ./rn)
+
+# RNOH_BEGIN: manual_package_linking_1
+add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
++ add_subdirectory("${OH_MODULES}/@react-native-ohos/react-native-image-crop-picker/src/main/cpp" ./image-crop-picker)
+# RNOH_END: manual_package_linking_1
+
+add_library(rnoh_app SHARED
+    ${GENERATED_CPP_FILES}
++  ${IMAGE_CROP_PICKER_CPP_FILES}
+    "./PackageProvider.cpp"
+    "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
+)
+
+target_link_libraries(rnoh_app PUBLIC rnoh)
+
+# RNOH_BEGIN: manual_package_linking_2
+target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
++ target_link_libraries(rnoh_app PUBLIC rnoh_image_crop_picker)
+# RNOH_END: manual_package_linking_2
+```
+
+Open `entry/src/main/cpp/PackageProvider.cpp` and add the following code:
+
+```diff
+#include "RNOH/PackageProvider.h"
+#include "SamplePackage.h"
++ #include "ImageCropPickerPackage.h"
+
+using namespace rnoh;
+
+std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
+    return {
+      std::make_shared<SamplePackage>(ctx),
++     std::make_shared<ImageCropPickerPackage>(ctx),
+    };
+}
+```
+
+### 2.4. Introducing FsPackage to ArkTS
+
+Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
+
+```diff
+  ...
++ import { ImageCropPickerPackage } from '@react-native-ohos/react-native-image-crop-picker/ts';
+
+export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
+  return [
+    new SamplePackage(ctx),
++   new ImageCropPickerPackage(ctx),
+  ];
+}
+```
+
+### 2.5. Configuration Entry
 
 **(1)Create ImageEditAbility.ets under entry/src/main/ets/entryability**
 
@@ -878,7 +980,7 @@ export default class ImageEditAbility extends UIAbility {
 **(3)Create entry/src/main/ets/pages under ImageEdit.ets**
 
 ```
-import { ImageEditInfo } from '@react-native-oh-tpl/react-native-image-crop-picker';
+import { ImageEditInfo } from '@react-native-ohos/react-native-image-crop-picker';
 
 @Entry
 @Component
@@ -907,53 +1009,7 @@ struct ImageEdit {
 }
 ```
 
-### 2. Introducing Native Code
-
-Currently, two methods are available:
-
-Method 1 (recommended): Use the HAR file.
-
-> [!TIP] The HAR file is stored in the `harmony` directory in the installation path of the third-party library.
-
-Open `entry/oh-package.json5` file and add the following dependencies:
-
-```
-"dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/react-native-image-crop-picker": "file:../../node_modules/@react-native-oh-tpl/react-native-image-crop-picker/harmony/image_crop_picker.har"
-  }
-```
-
-Click the `sync` button in the upper right corner.
-
-Alternatively, run the following instruction on the terminal:
-
-```
-cd entry
-ohpm install
-```
-
-Method 2: Directly link to the source code.
-
-> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
-
-### 3. Introducing ImageCropPickerPackage to ArkTS
-
-Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
-
-```diff
-  ...
-+ import { ImageCropPickerPackage } from '@react-native-oh-tpl/react-native-image-crop-picker/ts';
-
-export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
-  return [
-    new SamplePackage(ctx),
-+   new ImageCropPickerPackage(ctx),
-  ];
-}
-```
-
-### 4. Running
+### 2.6. Running
 
 Click the `sync` button in the upper right corner.
 
@@ -966,15 +1022,15 @@ ohpm install
 
 Then build and run the code.
 
-## Constraints
+## 3. Constraints
 
-### Compatibility
+### 3.1. Compatibility
 
 To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-image-crop-picker Releases ](https://github.com/react-native-oh-library/react-native-image-crop-picker/releases)
+Check the release version information in the release address of the third-party library: [@react-native-ohos/react-native-image-crop-picker Releases ](https://gitee.com/openharmony-sig/rntpc_react-native-image-crop-picker/releases)
 
-## API
+## 4. API
 
 > [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
@@ -988,7 +1044,7 @@ Check the release version information in the release address of the third-party 
 | cleanSingle | Delete a single cache file                                   | function | no       | iOS/Android | yes               |
 | openCamera  | Select from camera                                           | function | no       | iOS/Android | yes               |
 
-## Properties
+## 5. Properties
 
 > [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
@@ -1038,7 +1094,7 @@ Check the release version information in the release address of the third-party 
 | cropperCancelColor (iOS only)          | string (default tint `iOS` color )                           | HEX format color for the Cancel button. Default value is the default tint iOS color [controlled by TOCropViewController](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2FTimOliver%2FTOCropViewController%2Fblob%2Fa942414508012b13102f776eb65dac655f31cabb%2FObjective-C%2FTOCropViewController%2FViews%2FTOCropToolbar.m%23L433) | no       | iOS   | yes      |
 | cropperRotateButtonsHidden (iOS only)  | bool (default false)                                         | Enable or disable cropper rotate buttons                     | no       | iOS   | yes      |
 
-## Known Issues
+## 6. Known Issues
 
 - [ ] Images in react-native-image-crop-picker will always fill the mask space [#4](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/4)
 - [ ] Change the color of ActiveWidget in Android Demo [#5](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/5)
@@ -1057,8 +1113,8 @@ Check the release version information in the release address of the third-party 
 - [ ] @ohos.multimedia.image cannot perform circular cropping [#46](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/46)
 - [ ] The PackingOption in @ohos.multimedia.image cannot set width and height properties [#47](https://github.com/react-native-oh-library/react-native-image-crop-picker/issues/47)
 
-## Others
+## 7. Others
 
-## License
+## 8. License
 
-This project is licensed under [The MIT License (MIT)](https://github.com/ivpusic/react-native-image-crop-picker/blob/master/LICENSE).
+This project is licensed under [The MIT License (MIT)](https://gitee.com/openharmony-sig/rntpc_react-native-image-crop-picker/blob/master/LICENSE).

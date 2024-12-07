@@ -1,39 +1,34 @@
-> Template version: v0.2.2
+> Template version: v0.2.2-rc.1
 
 <p align="center">
   <h1 align="center"> <code>@react-native-community/toolbar-android</code> </h1>
 </p>
-<p align="center">
-    <a href="https://github.com/react-native-toolbar-android/toolbar-android">
-        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
-    </a>
-    <a href="https://github.com/react-native-toolbar-android/toolbar-android/blob/master/LICENSE">
-        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
-    </a>
-</p>
 
-> [!TIP] [GitHub address](https://github.com/react-native-oh-library/toolbar-android/tree/sig)
+This project is based on [@react-native-toolbar-android/toolbar-android@v0.2.1](https://github.com/react-native-toolbar-android/toolbar-android).
 
-## Installation and Usage
+This third-party library has been migrated to Gitee and is now available for direct download from npm, the new package name is: `@react-native-ohos/toolbar-android`, The version correspondence details are as follows:
 
-Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/toolbar-android Releases](https://github.com/react-native-oh-library/toolbar-android/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+| Version         | Package Name                                      | Repository         | Release                    |
+|-----------------| ------------------------------------------------- | ------------------ | -------------------------- |
+| <= 0.2.1-0.0.4  | @react-native-oh-tpl/toolbar-android | [Github(deprecated)](https://github.com/react-native-oh-library/toolbar-android) | [Github Releases(deprecated)](https://github.com/react-native-oh-library/toolbar-android/releases) |
+| >= 0.2.2        | @react-native-ohos/toolbar-android   | [Gitee](https://gitee.com/openharmony-sig/rntpc_toolbar-android) | [Gitee Releases](https://gitee.com/openharmony-sig/rntpc_toolbar-android/releases) |
+
+## 1.Installation and Usage
 
 Go to the project directory and execute the following instruction:
-
-
 
 <!-- tabs:start -->
 
 #### npm
 
 ```bash
-npm install @react-native-oh-tpl/toolbar-android
+npm install @react-native-ohos/toolbar-android
 ```
 
 #### yarn
 
 ```bash
-yarn add @react-native-oh-tpl/toolbar-android
+yarn add @react-native-ohos/toolbar-android
 ```
 
 <!-- tabs:end -->
@@ -119,26 +114,35 @@ const styles = StyleSheet.create({
 export default App;
 ```
 
-## Link
+## 2.Manual Link
 
-Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
+This step provides guidance for manually configuring native dependencies.
 
 Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
+### 2.1.Overrides RN SDK
+
+To ensure the project relies on the same version of the RN SDK, you need to add an `overrides` field in the project's root `oh-package.json5` file, specifying the RN SDK version to be used. The replacement version can be a specific version number, a semver range, or a locally available HAR package or source directory.
+
+For more information about the purpose of this field, please refer to the [official documentation](https://developer.huawei.com/consumer/en/doc/harmonyos-guides-V5/ide-oh-package-json5-V5#en-us_topic_0000001792256137_overrides).
 
 ```json
 {
   ...
   "overrides": {
-    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+    "@rnoh/react-native-openharmony": "^0.72.38" // ohpm version
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony.har" // a locally available HAR package
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony" // source code directory
   }
 }
 ```
 
-### 2. Introducing Native Code
+### 2.2.Introducing Native Code
 
 Currently, two methods are available:
+
+- Use the HAR file.
+- Directly link to the source code。
 
 Method 1 (recommended): Use the HAR file.
 
@@ -148,8 +152,7 @@ Open `entry/oh-package.json5` file and add the following dependencies:
 
 ```json
 "dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/toolbar-android": "file:../../node_modules/@react-native-oh-tpl/toolbar-android/harmony/toolbar_android.har"
+    "@react-native-ohos/toolbar-android": "file:../../node_modules/@react-native-ohos/toolbar-android/harmony/toolbar_android.har"
   }
 ```
 
@@ -166,7 +169,7 @@ Method 2: Directly link to the source code.
 
 > [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
-### 3. Configuring CMakeLists and Introducing ToolbarAndroidPackage
+### 2.3.Configuring CMakeLists and Introducing ToolbarAndroidPackage
 
 Open `entry/src/main/cpp/CMakeLists.txt` and add the following code:
 
@@ -186,7 +189,7 @@ add_compile_definitions(WITH_HITRACE_SYSTRACE)
 
 # RNOH_BEGIN: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/toolbar-android/src/main/cpp" ./toolbar-android)
++ add_subdirectory("${OH_MODULES}/@react-native-ohos/toolbar-android/src/main/cpp" ./toolbar-android)
 # RNOH_END: manual_package_linking_1
 
 add_library(rnoh_app SHARED
@@ -218,18 +221,36 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 4. Introducing RNCToolbarAndroid Component to ArkTS
+### 2.4.Introducing RNCCheckBoxPackage to ArkTS
+
+> [!TIP] Required for version `v0.2.22` and above
+
+Open `entry/src/main/ets/RNPackagesFactory.ts` and add:
+
+```diff
+  ...
++ import {ToolbarAndroidPackage} from '@react-native-ohos/toolbar-android/src/main/ets/ToolbarAndroidPackage';
+
+export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
+  return [
++   return [new ToolbarAndroidPackage(ctx)];
+  ];
+}
+
+```
+
+### 2.5.Introducing RNCToolbarAndroid Component to ArkTS
 
 Find `function buildCustomRNComponent()`, which is usually located in `entry/src/main/ets/pages/index.ets` or `entry/src/main/ets/rn/LoadBundle.ets`, and add the following code:
 
 ```diff
   ...
-+ import { RNCToolbarAndroid, RNC_TOOLBAR_ANDROID_TYPE } from '@react-native-oh-tpl/toolbar-android/src/main/ets/RNCToolbarAndroid'
++ import { RNCToolbarAndroid} from '@react-native-ohos/toolbar-android/src/main/ets/RNCToolbarAndroid'
 
   @Builder
   function buildCustomRNComponent(ctx: ComponentBuilderContext) {
     ...
-+   if (ctx.componentName === RNC_TOOLBAR_ANDROID_TYPE) {
++   if (ctx.componentName === RNCToolbarAndroid.NAME) {
 +     RNCToolbarAndroid({
 +      ctx: ctx.rnComponentContext,
 +      tag: ctx.tag
@@ -247,11 +268,11 @@ Find the constant `arkTsComponentNames` in `entry/src/main/ets/pages/index.ets` 
 ```diff
 const arkTsComponentNames: Array<string> = [
   ...
-+ RNC_TOOLBAR_ANDROID_TYPE
++ RNCToolbarAndroid.NAME
 ];
 ```
 
-### 5. Running
+### 2.6.Running
 
 Click the `sync` button in the upper right corner.
 
@@ -264,15 +285,15 @@ ohpm install
 
 Then build and run the code.
 
-## Constraints
+## 3.Constraints
 
-### Compatibility
+### 3.1Compatibility
 
 To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/toolbar-android Releases](https://github.com/react-native-oh-library/toolbar-android/releases)
+Check the release version information in the release address of the third-party library: [@react-native-ohos/toolbar-android Releases](https://gitee.com/openharmony-sig/rntpc_toolbar-android/releases)
 
-## Properties
+## 4.Properties
 
 > [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
@@ -280,23 +301,23 @@ Check the release version information in the release address of the third-party 
 
 Inherits [View Props](https://reactnative.dev/docs/view#props).
 
-| Name              | Description                                                                                                                                                                                     | Type                                                                                                          | Required | Platform | HarmonyOS Support |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------------- |
-| actions           | Sets possible actions on the toolbar as part of the action menu. These are displayed as icons or text on the right side of the widget. If they don't fit they are placed in an 'overflow' menu. | array of object: {title: string,icon: ImageSource,show: enum('always', 'ifRoom', 'never'),showWithText: bool} | No       | Android  | yes               |
-| contentInsetStart | Sets the content inset for the toolbar starting edge.                                                                                                                                           | number                                                                                                        | No       | Android  | yes               |
-| contentInsetEnd   | Sets the content inset for the toolbar ending edge.                                                                                                                                             | number                                                                                                        | No       | Android  | yes               |
-| logo              | Sets the toolbar logo.                                                                                                                                                                          | ImageSource                                                                                                   | No       | Android  | yes               |
-| navIcon           | Sets the navigation icon.                                                                                                                                                                       | ImageSource                                                                                                   | No       | Android  | yes               |
-| onActionSelected  | Callback that is called when an action is selected. The only argument that is passed to the callback is the position of the action in the actions array.                                        | function                                                                                                      | No       | Android  | yes               |
-| onIconClicked     | Callback called when the icon is selected.                                                                                                                                                      | function                                                                                                      | No       | Android  | yes               |
-| overflowIcon      | Sets the overflow icon.                                                                                                                                                                         | ImageSource                                                                                                   | No       | Android  | yes               |
-| rtl               | Used to set the toolbar direction to RTL.                                                                                                                                                       | bool                                                                                                          | No       | Android  | yes               |
-| subtitle          | Sets the toolbar subtitle.                                                                                                                                                                      | string                                                                                                        | No       | Android  | yes               |
-| subtitleColor     | Sets the toolbar subtitle color.                                                                                                                                                                | string                                                                                                        | No       | Android  | yes               |
-| title             | Sets the toolbar title.                                                                                                                                                                         | string                                                                                                        | Yes      | Android  | yes               |
-| titleColor        | Sets the toolbar title color.                                                                                                                                                                   | string                                                                                                        | No       | Android  | yes               |
+| Name              | Description                                                                                                                                                                                     | Type                                                                                                          | Required  | Platform | HarmonyOS Support |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |-----------| -------- | ----------------- |
+| actions           | Sets possible actions on the toolbar as part of the action menu. These are displayed as icons or text on the right side of the widget. If they don't fit they are placed in an 'overflow' menu. | array of object: {title: string,icon: ImageSource,show: enum('always', 'ifRoom', 'never'),showWithText: bool} | No        | Android  | yes               |
+| contentInsetStart | Sets the content inset for the toolbar starting edge.                                                                                                                                           | number                                                                                                        | No        | Android  | yes               |
+| contentInsetEnd   | Sets the content inset for the toolbar ending edge.                                                                                                                                             | number                                                                                                        | No        | Android  | yes               |
+| logo              | Sets the toolbar logo.                                                                                                                                                                          | ImageSource                                                                                                   | No        | Android  | yes               |
+| navIcon           | Sets the navigation icon.                                                                                                                                                                       | ImageSource                                                                                                   | No        | Android  | yes               |
+| onActionSelected  | Callback that is called when an action is selected. The only argument that is passed to the callback is the position of the action in the actions array.                                        | function                                                                                                      | No        | Android  | yes               |
+| onIconClicked     | Callback called when the icon is selected.                                                                                                                                                      | function                                                                                                      | No        | Android  | yes               |
+| overflowIcon      | Sets the overflow icon.                                                                                                                                                                         | ImageSource                                                                                                   | No        | Android  | yes               |
+| rtl               | Used to set the toolbar direction to RTL.                                                                                                                                                       | bool                                                                                                          | No        | Android  | yes               |
+| subtitle          | Sets the toolbar subtitle.                                                                                                                                                                      | string                                                                                                        | No        | Android  | yes               |
+| subtitleColor     | Sets the toolbar subtitle color.                                                                                                                                                                | string                                                                                                        | No        | Android  | yes               |
+| title             | Sets the toolbar title.                                                                                                                                                                         | string                                                                                                        | No        | Android  | yes               |
+| titleColor        | Sets the toolbar title color.                                                                                                                                                                   | string                                                                                                        | No        | Android  | yes               |
 
-#### Props of ImageSource
+#### 4.1.Props of ImageSource
 
 | Name   | Description                                            | Type   | Required | Platform | HarmonyOS Support |
 | ------ | ------------------------------------------------------ | ------ | -------- | -------- | ----------------- |
@@ -304,10 +325,10 @@ Inherits [View Props](https://reactnative.dev/docs/view#props).
 | width  | the width of the image                                 | number | No       | android  | yes               |
 | height | the height of the image                                | number | No       | android  | yes               |
 
-## Known Issues
+## 5.Known Issues
 
-## Others
+## 6.Others
 
-## License
+## 7.License
 
-This project is licensed under [The MIT License (MIT)](https://github.com/react-native-toolbar-android/toolbar-android/blob/master/LICENSE).
+This project is licensed under [The MIT License (MIT)](https://gitee.com/openharmony-sig/rntpc_toolbar-android/blob/master/LICENSE).

@@ -235,7 +235,7 @@ export default ParseExample;
 | -------------------- | ---------------------------------------------- | ------------------------------------------ | -------- | ----------- | ----------------- |
 | setPublicReadAccess  | 设置是否允许公共（未认证用户）读取对象。       | (allowed: boolean) => void                 | no       | iOS/Android | yes               |
 | setPublicWriteAccess | 设置是否允许公共（未认证用户）写入对象。       | (allowed: boolean) => void                 | no       | iOS/Android | yes               |
-| getPublicReadAccess  | 设置是否允许公共（未认证用户）写入对象。       | () => boolean                              | no       | iOS/Android | yes               |
+| getPublicReadAccess  | 获取是否允许公共（未认证用户）读取对象。       | () => boolean                              | no       | iOS/Android | yes               |
 | getPublicWriteAccess | 获取是否允许公共（未认证用户）写入对象的权限。 | () => boolean                              | no       | iOS/Android | yes               |
 | setReadAccess        | 设置特定用户是否有读取对象的权限。             | (userId: string, allowed: boolean) => void | no       | iOS/Android | yes               |
 | setWriteAccess       | 设置特定用户是否有写入对象的权限。             | (userId: string, allowed: boolean) => void | no       | iOS/Android | yes               |
@@ -307,7 +307,7 @@ export default ParseExample;
 | Name    | Description                                               | Type                                                         | Required | Platform    | HarmonyOS Support |
 | ------- | --------------------------------------------------------- | ------------------------------------------------------------ | -------- | ----------- | ----------------- |
 | signUp  | 注册新用户到 Parse 服务器。                               | ({username: string, password: string, email: string}) => Promise<Parse.User> | no       | iOS/Android | yes               |
-| logIn   | 注册新用户到 Parse 服务器。                               | (username: string, password: string) => Promise<Parse.User>  | no       | iOS/Android | yes               |
+| logIn   | 登录用户。                                                | (username: string, password: string) => Promise<Parse.User>  | no       | iOS/Android | yes               |
 | current | 获取当前已登录的用户对象，如果没有用户登录则返回 `null`。 | () => Parse.User                                             | no       | iOS/Android | yes               |
 | logOut  | 登出当前用户。                                            | () => Promise<void>                                          | no       | iOS/Android | yes               |
 | become  | 通过会话令牌sessionToken来认证用户。                      | (sessionToken: string) => Promise<Parse.User>                | no       | iOS/Android | yes               |

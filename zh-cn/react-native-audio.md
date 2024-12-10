@@ -37,59 +37,142 @@ yarn add @react-native-ohos/react-native-audio
 
 >[!WARNING] 使用时 import 的库名不变。
 
-```js
-import { AudioRecorder, AudioUtils } from "@react-native-ohos/react-native-audio";
+```tsx
+import React, { useState, useEffect } from 'react';
+import { SafeAreaView, StatusBar, Text, Button, TextInput, View, Switch, StyleSheet, TouchableOpacity } from 'react-native';
+import { AudioRecorder, AudioUtils } from 'react-native-audio';
 
-// request microphone premission
-AudioRecorder.requestAuthorization().then((isAuthorised)=>{
-  console.log(`isAuthorised: ${isAuthorised}`)
-})
-
-// you check premission any time
-AudioRecorder.checkAuthorizationStatus().then((hasPermission)=>{
-   console.log(`hasPermission: ${hasPermission}`)
-})
-
-// Initialize recording parameters
-const path = `${AudioUtils.FilesDirectoryPath}/demo.m4a`
-AudioRecorder.prepareRecordingAtPath(path,{
-  SampleRate: 48000,
-  Channels: 2,
-  AudioQuality:'High',//only ios
-  AudioEncoding: 'aac',
-  AudioEncodingBitRate: 100000,
-  AudioSource: 1,
-  OutputFormat: 'm4a',
-  MeteringEnabled:false,//only ios
-  MeasurementMode:false,//only ios
-  IncludeBase64:false
-})
-
-// start recording
-AudioRecorder.start();
-
-// pause recording
-AudioRecorder.pause();
-
-// resume recording
-AudioRecorder.resume();
-
-// stop recording
-AudioRecorder.stop();
-
-// add function onProgress
-AudioRecorder.onProgress = (data) => {
-  console.log(data.currentTime)
+type FileType = {
+    base64: string;
+    duration: number;
+    status: string;
+    audioFileSize: number;
+    audioFileURL: string;
 }
 
-// add function onFinished
-AudioRecorder.onFinished = (data) => {
-  console.log(data.base64);//base64
-  console.log(data.duration);//audio duration
-  console.log(data.status);//OK/REEOR
-  console.log(data.audioFileSize);//audioFileSize
-  console.log(data.audioFileURL);//audio file url
-}
+export default () => {
+    const [second, setSecond] = useState<number>(0);
+    const [file, setFile] = useState<FileType>();
+
+    const initAudio = async () => {
+
+        // request microphone premission
+        await AudioRecorder.requestAuthorization()
+
+        // you check premission any time
+        await AudioRecorder.checkAuthorizationStatus();
+
+        // Initialize recording parameters
+        await AudioRecorder.prepareRecordingAtPath(
+            `${AudioUtils.FilesDirectoryPath}/audio_demo.m4a`,
+            {
+                SampleRate: 48000,
+                Channels: 2,
+                AudioQuality: 'High',//only ios
+                AudioEncoding: 'aac',
+                AudioEncodingBitRate: 100000,
+                AudioSource: 1,
+                OutputFormat: 'm4a',
+                MeteringEnabled: false,//only ios
+                MeasurementMode: false,//only ios
+                IncludeBase64: true
+            })
+        AudioRecorder.onProgress = (data) => {
+            setSecond(data.currentTime);
+        }
+        AudioRecorder.onFinished = (data) => {
+            const { duration, status, audioFileSize, audioFileURL } = data
+            let str = data.base64.slice(0, 20);
+            setFile({ base64: str + '...', duration, status, audioFileSize, audioFileURL })
+        }
+    }
+    const resetRecording = () => {
+        setFile({
+            base64: "",
+            duration: 0,
+            status: "",
+            audioFileSize: 0,
+            audioFileURL: ""
+        })
+        setSecond(0)
+        initAudio()
+    }
+    const renderFileLinesComp = () => {
+        if (!file?.base64) return false
+        return Object.keys(file).map(name => (
+            <View key={name} style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: 10 }}>
+                <Text style={{ fontSize: 12 }}>{name}:</Text>
+                <Text >{`${file[name]}`}</Text>
+            </View>))
+    }
+
+    useEffect(() => {
+        initAudio()
+        return () => { }
+    }, [])
+
+    return (
+        <SafeAreaView>
+            <View style={{ marginTop: 10, borderColor: '#aaa', borderWidth: 1, padding: 10 }}>
+                <View>
+                    <Text>{`currentTime: ${parseInt(`${second}`)}`}</Text>
+                </View>
+            </View>
+            <View style={{ marginTop: 10, display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                <View style={{ width: 80 }}>
+                    <Button
+                        title="start"
+                        onPress={async () => {
+                            await AudioRecorder.startRecording();
+                        }}
+                    />
+                </View>
+                <View style={{ width: 80 }}>
+                    <Button
+                        title="pause"
+                        onPress={async () => {
+                            await AudioRecorder.pauseRecording();
+                        }}
+                    />
+                </View>
+                <View style={{ width: 80 }}>
+                    <Button
+                        title="resume"
+                        onPress={async () => {
+                            await AudioRecorder.resumeRecording();
+                        }}
+                    />
+                </View>
+                <View style={{ width: 80 }}>
+                    <Button
+                        title="stop"
+                        onPress={async () => {
+                            await AudioRecorder.stopRecording();
+                            !AudioRecorder.onFinished && resetRecording()
+                        }}
+                    />
+                </View>
+            </View>
+
+            {!!file.base64 && <View style={{ marginTop: 10, borderColor: '#aaa', borderWidth: 1, padding: 10 }}>
+                <View style={{ marginTop: 10, display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <Text>录音文件：</Text>
+                    <Text style={{ fontSize: 12 }}>{`audio_demo.m4a`}</Text>
+                </View>
+                {renderFileLinesComp()}
+                <View style={{ marginTop: 10, display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <View style={{ width: 160 }}>
+                        <Button
+                            title="reset"
+                            onPress={resetRecording}
+                        />
+                    </View>
+                </View>
+            </View>}
+
+        </SafeAreaView >
+    )
+}    
 ```
 
 ## 2. Manual Link

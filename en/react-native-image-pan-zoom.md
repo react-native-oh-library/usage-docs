@@ -16,7 +16,7 @@ Template version: v0.2.2
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library: [@react-native-oh-library/react-native-image-zoom Releases](https://github.com/react-native-oh-library/react-native-image-zoom/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-image-pan-zoom Releases](https://github.com/react-native-oh-library/react-native-image-zoom/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 Go to the project directory and execute the following instruction:
 
@@ -27,13 +27,13 @@ Go to the project directory and execute the following instruction:
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-image-zoom
+npm install @react-native-oh-tpl/react-native-image-pan-zoom
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-image-zoom
+yarn add @react-native-oh-tpl/react-native-image-pan-zoom
 ```
 
 <!-- tabs:end -->

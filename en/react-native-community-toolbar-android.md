@@ -1,4 +1,4 @@
-> Template version: v0.2.2-rc.1
+> Template version: v0.3.0
 
 <p align="center">
   <h1 align="center"> <code>@react-native-community/toolbar-android</code> </h1>

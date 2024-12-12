@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2-rc.1
+> 模板版本：v0.3.0
 
 <p align="center">
   <h1 align="center"> <code>@react-native-community/toolbar-android</code> </h1>

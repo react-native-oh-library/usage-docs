@@ -204,14 +204,14 @@ target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 
 ```diff
 #include "RNOH/PackageProvider.h"
-#include "SamplePackage.h"
++ #include "generated/RNOHGeneratedPackage.h"
 + #include "GestureHandlerPackage.h"
 
 using namespace rnoh;
 
 std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
     return {
-      std::make_shared<SamplePackage>(ctx),
++     std::make_shared<RNOHGeneratedPackage>(ctx),
 +     std::make_shared<GestureHandlerPackage>(ctx)
     };
 }

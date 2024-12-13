@@ -1,25 +1,21 @@
-> 模板版本：v0.2.2
+> 模板版本：v0.3.0
 
 <p align="center">
   <h1 align="center"> <code>react-native-document-picker</code> </h1>
 </p>
-<p align="center">
-    <a href="https://github.com/react-native-documents/document-picker">
-        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
-    </a>
-    <a href="https://github.com/react-native-documents/document-picker/blob/master/LICENSE.md">
-        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
-        <!-- <img src="https://img.shields.io/badge/license-Apache-blue.svg" alt="License" /> -->
-    </a>
-</p>
 
 
+本项目基于 [react-native-document-picker@9.2.0](https://github.com/react-native-documents/document-picker) 开发。
 
-> [!TIP] [Github 地址](https://github.com/react-native-oh-library/document-picker)
+该第三方库的仓库已迁移至 Gitee，且支持直接从 npm 下载，新的包名为：`@react-native-ohos/react-native-document-picker`，具体版本所属关系如下：
 
-## 安装与使用
+| Version                        | Package Name                             | Repository                                                   | Release                                                      |
+| ------------------------------ | ---------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| <= 9.2.0@deprecated | @react-native-oh-library/react-native-document-picker  | [Github(deprecated)](https://github.com/react-native-oh-library/document-picker) | [Github Releases(deprecated)](https://github.com/react-native-oh-library/document-picker/releases) |
+| > 9.2.0                        | @react-native-ohos/react-native-document-picker | [Gitee](https://gitee.com/openharmony-sig/rntpc_react-native-document-picker) | [Gitee Releases](https://gitee.com/openharmony-sig/rntpc_react-native-document-picker/releases) |
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-library/react-native-document-picker Releases](https://github.com/react-native-oh-library/document-picker/releases) 。对于未发布到npm的旧版本，请参考[安装指南](/zh-cn/tgz-usage.md)安装tgz包。
+
+## 1. 安装与使用
 
 进入到工程目录并输入以下命令：
 
@@ -30,13 +26,13 @@
 ####  npm
 
 ```bash
-npm install @react-native-oh-tpl/react-native-document-picker
+npm install @react-native-ohos/react-native-document-picker
 ```
 
 #### yarn
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-document-picker
+yarn add @react-native-ohos/react-native-document-picker
 ```
 
 <!-- tabs:end -->
@@ -254,28 +250,30 @@ const styles = StyleSheet.create({
 
 ```
 
-## 使用 Codegen（如本库已适配了 Codegen ）
+## 2. Manual Link
 
-本库已经适配了 `Codegen` ，在使用前需要主动执行生成三方库桥接代码，详细请参考[ Codegen 使用文档](/zh-cn/codegen.md)。
+此步骤为手动配置原生依赖项的指导。
 
-## Link
+首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`。
 
-目前 HarmonyOS 暂不支持 AutoLink，所以 Link 步骤需要手动配置。
+### 2.1 Overrides RN SDK
 
-首先需要使用 DevEco Studio 打开项目里的 HarmonyOS 工程 `harmony`
+为了让工程依赖同一个版本的 RN SDK，需要在工程根目录的 `harmony/oh-package.json5` 添加 overrides 字段，指向工程需要使用的 RN SDK 版本。替换的版本既可以是一个具体的版本号，也可以是一个模糊版本，还可以是本地存在的 HAR 包或源码目录。
 
-### 1.在工程根目录的 `oh-package.json5` 添加 overrides字段
+关于该字段的作用请阅读[官方说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/ide-oh-package-json5-V5#zh-cn_topic_0000001792256137_overrides)
+
 
 ```json
 {
-  ...
   "overrides": {
-    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+    "@rnoh/react-native-openharmony": "^0.72.38" // ohpm 在线版本
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony.har" // 指向本地 har 包的路径
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony" // 指向源码路径
   }
 }
 ```
 
-### 2.引入原生端代码
+### 2.2 引入原生端代码
 
 目前有两种方法：
 
@@ -291,7 +289,7 @@ const styles = StyleSheet.create({
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/react-native-document-picker": "file:../../node_modules/@react-native-oh-tpl/react-native-document-picker/harmony/document_picker.har"
+    "@react-native-ohos/react-native-document-picker": "file:../../node_modules/@react-native-ohos/react-native-document-picker/harmony/document_picker.har"
   }
 ```
 
@@ -308,13 +306,46 @@ ohpm install
 
 > [!TIP] 如需使用直接链接源码，请参考[直接链接源码说明](/zh-cn/link-source-code.md)
 
-### 3.在 ArkTs 侧引入 DocumentPickerPackage
+### 2.3 配置 CMakeLists 和引入 DocumentPickerPackage
+
+> **[!TIP] 版本 v9.2.0 及以上需要.**
+
+打开 `entry/src/main/cpp/CMakeLists.txt`，添加：
+
+```diff
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+
+# RNOH_BEGIN: manual_package_linking_1
++ add_subdirectory("${OH_MODULES}/@react-native-ohos/react-native-document-picker/src/main/cpp" ./document_picker)
+# RNOH_END: manual_package_linking_1
+
+# RNOH_BEGIN: manual_package_linking_2
++ target_link_libraries(rnoh_app PUBLIC rnoh_document_picker)
+# RNOH_END: manual_package_linking_2
+```
+
+打开 `entry/src/main/cpp/PackageProvider.cpp`，添加：
+
+```diff
+#include "RNOH/PackageProvider.h"
+#include "generated/RNOHGeneratedPackage.h"
++ #include "DocumentPickerPackage.h"
+
+using namespace rnoh;
+
+std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
+    return {
+      std::make_shared<RNOHGeneratedPackage>(ctx),
++     std::make_shared<DocumentPickerPackage>(ctx)
+    };
+}
+```
 
 打开 `entry/src/main/ets/RNPackagesFactory.ts`，添加：
 
 ```diff
   ...
-+ import { DocumentPickerPackage } from '@react-native-oh-tpl/react-native-document-picker/ts';
++ import { DocumentPickerPackage } from '@react-native-ohos/react-native-document-picker/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
@@ -324,7 +355,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 4.运行
+### 2.4 运行
 
 点击右上角的 `sync` 按钮
 
@@ -337,22 +368,19 @@ ohpm install
 
 然后编译、运行即可。
 
-## 约束与限制
+## 3. 约束与限制
+### 3.1 兼容性
 
-### 兼容性
+请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-ohos/react-native-document-picker Releases](https://gitee.com/openharmony-sig/rntpc_react-native-document-picker/releases)
 
-要使用此库，需要使用正确的 React-Native 和 RNOH 版本。另外，还需要使用配套的 DevEco Studio 和 手机 ROM。
 
-请到三方库相应的 Releases 发布地址查看 Release 配套的版本信息：[@react-native-oh-library/react-native-document-picker Releases](https://github.com/react-native-oh-library/document-picker/releases)
-
-   
-## 属性
+## 4. 属性
 
 > [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
 > [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
 
-### option pick方法的传参选项
+ option pick方法的传参选项
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
@@ -363,7 +391,7 @@ ohpm install
 | transitionStyle  | Configure the transition style of the picker. Defaults to coverVertical.   | 'coverVertical' \| 'flipHorizontal' \| 'crossDissolve' \| 'partialCurl'  | no | IOS  | no |
 | mode  | Defaults to import. If mode is set to import the document picker imports the file from outside to inside the sandbox, otherwise if mode is set to open the document picker opens the file in-place.   | "import" \| "open"  | no | IOS  | no |
 
-## API
+## 5. API
 
 > [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
 
@@ -382,14 +410,14 @@ ohpm install
 | perPlatformTypes       | Different platforms, file type object map   | function | No       | IOS/Android | yes  |
 
 
-## 遗留问题
+## 6. 遗留问题
 
 - [ ]  HarmonyOS 端file picker selectMode设置选文件夹无效: [issue#1](https://github.com/react-native-oh-library/document-picker/issues/1) 
 - [ ] releaseSecureAccess选择沙箱路径外文件无法实现， HarmonyOS 暂无此能力接口: [issue#2](https://github.com/react-native-oh-library/document-picker/issues/2)
 
-## 其他
+## 7. 其他
 - 因权限问题无法读写图库资源，文件管理中从图库选择文件暂不支持。
 
-## 开源协议
+## 8. 开源协议
 
-本项目基于 [The MIT License (MIT)](https://github.com/react-native-documents/document-picker/blob/master/LICENSE.md) ，请自由地享受和参与开源。
+本项目基于 [The MIT License (MIT)](https://gitee.com/openharmony-sig/rntpc_react-native-document-picker/blob/master/LICENSE.md) ，请自由地享受和参与开源。

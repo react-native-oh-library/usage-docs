@@ -8,7 +8,7 @@
   <h1 align="center"> <code>原库 npm 包名</code> </h1>
 </p>
 
-This project is based on [原库 npm 名称@x.x.x](原库仓库连接)。
+This project is based on [原库 npm 名称@x.x.x](原库仓库连接).
 
 This third-party library has been migrated to Gitee and is now available for direct download from npm, the new package name is: `@react-native-ohos/react-native-linear-gradient`, The version correspondence details are as follows:
 

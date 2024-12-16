@@ -17,7 +17,7 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library：[@react-native-oh-tpl/react-material-ui Releases](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Freact-native-oh-library%2Freact-native-material-ui%2Freleases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+Find the matching version information in the release address of a third-party library：[@react-native-oh-tpl/react-native-material-ui Releases](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Freact-native-oh-library%2Freact-native-material-ui%2Freleases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 Go to the project directory and execute the following instruction:
 
@@ -26,13 +26,13 @@ Go to the project directory and execute the following instruction:
 #### **npm**
 
 ```bash
-npm install react-native-material-ui
+npm install @react-native-oh-tpl/react-native-material-ui
 ```
 
 #### **yarn**
 
 ```bash
-yarn add react-native-material-ui
+yarn add @react-native-oh-tpl/react-native-material-ui
 ```
 
 <!-- tabs:end -->

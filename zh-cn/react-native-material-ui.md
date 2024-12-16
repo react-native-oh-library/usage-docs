@@ -18,7 +18,7 @@
 ## 安装与使用
 
 请到三方库的 Releases
-发布地址查看配套的版本信息：[@react-native-oh-tpl/react-material-ui Releases](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Freact-native-oh-library%2Freact-native-material-ui%2Freleases) 。对于未发布到npm的旧版本，请参考[安装指南](/zh-cn/tgz-usage.md)安装tgz包。
+发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-material-ui Releases](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Freact-native-oh-library%2Freact-native-material-ui%2Freleases) 。对于未发布到npm的旧版本，请参考[安装指南](/zh-cn/tgz-usage.md)安装tgz包。
 
 进入到工程目录并输入以下命令：
 
@@ -27,13 +27,13 @@
 #### **npm**
 
 ```bash
-npm install react-native-material-ui
+npm install  @react-native-oh-tpl/react-native-material-ui
 ```
 
 #### **yarn**
 
 ```bash
-yarn add react-native-material-ui
+yarn add  @react-native-oh-tpl/react-native-material-ui
 ```
 
 <!-- tabs:end -->

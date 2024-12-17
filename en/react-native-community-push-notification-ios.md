@@ -1,40 +1,35 @@
-> Template version: v0.2.2
+> Template version: v0.3.0
 
 <p align="center">
   <h1 align="center"> <code>@react-native-community/push-notification-ios</code> </h1>
 </p>
 
-<p align="center">
-    <a href="https://github.com/react-native-push-notification/ios">
-        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
-    </a>
-    <a href="https://github.com/react-native-push-notification/ios/blob/master/LICENSE">
-        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
-    </a>
-</p>
 
-> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-push-notification-ios)
+This project is based on [@react-native-community/push-notification-ios@1.11.0](https://github.com/react-native-push-notification/ios)。
 
-## Installation and Usage
+This third-party library has been migrated to Gitee and is now available for direct download from npm, the new package name is: `@react-native-ohos/push-notification-ios`, The version correspondence details are as follows:
 
-Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/push-notification-ios Releases](https://github.com/react-native-oh-library/react-native-push-notification-ios/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+| Version                    | Package Name                                      | Repository         | Release                    |
+|----------------------------| ------------------------------------------------- | ------------------ | -------------------------- |
+| <= 1.11.0-0.1.3@deprecated | @react-native-oh-tpl/push-notification-ios | [Github(deprecated)](https://github.com/react-native-oh-library/react-native-push-notification-ios) | [Github Releases(deprecated)](https://github.com/react-native-oh-library/react-native-push-notification-ios/releases) |
+| > 1.11.0                   | @react-native-ohos/push-notification-ios   | [Gitee](https://gitee.com/openharmony-sig/rntpc_ios) | [Gitee Releases](https://gitee.com/openharmony-sig/rntpc_ios/releases) |
+
+## 1. Installation and Usage
 
 Go to the project directory and execute the following instruction:
-
-
 
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/push-notification-ios
+npm install @react-native-ohos/push-notification-ios
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/push-notification-ios
+yarn add @react-native-ohos/push-notification-ios
 ```
 
 <!-- tabs:end -->
@@ -167,26 +162,34 @@ export const App = () => {
 };
 ```
 
-## Link
+## 2. Manual Link
 
-Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
+This step provides guidance for manually configuring native dependencies.
 
 Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
+### 2.1. Overrides RN SDK
+
+To ensure the project relies on the same version of the RN SDK, you need to add an `overrides` field in the project's root `oh-package.json5` file, specifying the RN SDK version to be used. The replacement version can be a specific version number, a semver range, or a locally available HAR package or source directory.
+
+For more information about the purpose of this field, please refer to the [official documentation](https://developer.huawei.com/consumer/en/doc/harmonyos-guides-V5/ide-oh-package-json5-V5#en-us_topic_0000001792256137_overrides).
 
 ```json
 {
-  ...
   "overrides": {
-    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+    "@rnoh/react-native-openharmony": "^0.72.38" // ohpm version
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony.har" // a locally available HAR package
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony" // source code directory
   }
 }
 ```
 
-### 2. Introducing Native Code
+### 2.2. Introducing Native Code
 
 Currently, two methods are available:
+
+- Use the HAR file.
+- Directly link to the source code。
 
 Method 1 (recommended): Use the HAR file.
 
@@ -196,9 +199,7 @@ Open `entry/oh-package.json5` file and add the following dependencies:
 
 ```json
 "dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-
-    "@react-native-oh-tpl/push-notification-ios": "file:../../node_modules/@react-native-oh-tpl/push-notification-ios/harmony/push_notification.har"
+    "@react-native-ohos/push-notification-ios": "file:../../node_modules/@react-native-ohos/push-notification-ios/harmony/push_notification.har"
   }
 ```
 
@@ -215,42 +216,18 @@ Method 2: Directly link to the source code.
 
 > [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
-### 3. Configuring CMakeLists and Introducing PushNotificationPackage
+### 2.3. Configuring CMakeLists and Introducing PushNotificationPackage
 
 Open `entry/src/main/cpp/CMakeLists.txt` and add the following code:
 
 ```diff
-project(rnapp)
-cmake_minimum_required(VERSION 3.4.1)
-set(CMAKE_SKIP_BUILD_RPATH TRUE)
-set(RNOH_APP_DIR "${CMAKE_CURRENT_SOURCE_DIR}")
-set(NODE_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../node_modules")
 + set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
-set(RNOH_CPP_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../react-native-harmony/harmony/cpp")
-set(LOG_VERBOSITY_LEVEL 1)
-set(CMAKE_ASM_FLAGS "-Wno-error=unused-command-line-argument -Qunused-arguments")
-set(CMAKE_CXX_FLAGS "-fstack-protector-strong -Wl,-z,relro,-z,now,-z,noexecstack -s -fPIE -pie")
-set(WITH_HITRACE_SYSTRACE 1) # for other CMakeLists.txt files to use
-add_compile_definitions(WITH_HITRACE_SYSTRACE)
-
-add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
 # RNOH_BEGIN: manual_package_linking_1
-add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/push-notification-ios/src/main/cpp" ./push_notification)
++ add_subdirectory("${OH_MODULES}/@react-native-ohos/push-notification-ios/src/main/cpp" ./push_notification)
 # RNOH_END: manual_package_linking_1
 
-file(GLOB GENERATED_CPP_FILES "./generated/*.cpp")
-
-add_library(rnoh_app SHARED
-    ${GENERATED_CPP_FILES}
-    "./PackageProvider.cpp"
-    "${RNOH_CPP_DIR}/RNOHAppNapiBridge.cpp"
-)
-target_link_libraries(rnoh_app PUBLIC rnoh)
-
 # RNOH_BEGIN: manual_package_linking_2
-target_link_libraries(rnoh_app PUBLIC rnoh_sample_package)
 + target_link_libraries(rnoh_app PUBLIC rnoh_push_notification)
 # RNOH_END: manual_package_linking_2
 ```
@@ -272,13 +249,13 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 4.Introducing PushNotificationPackage to ArkTS
+### 2.4. Introducing PushNotificationPackage to ArkTS
 
 Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
 
 ```diff
   ...
-+ import { PushNotificationPackage } from '@react-native-oh-tpl/push-notification-ios/ts';
++ import { PushNotificationPackage } from '@react-native-ohos/push-notification-ios/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
@@ -288,7 +265,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 }
 ```
 
-### 5.Running
+### 2.5. Running
 
 Click the `sync` button in the upper right corner.
 
@@ -301,16 +278,14 @@ ohpm install
 
 Then build and run the code.
 
-## Constraints
+## 3. Constraints
 
-### Compatibility
+### 3.1. Compatibility
 
-To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
-
-Check the release version information in the release address of the third-party library: [@react-native-oh-tpl/push-notification-ios Releases](https://github.com/react-native-oh-library/react-native-push-notification-ios/releases)
+Check the release version information in the release address of the third-party library: [@react-native-ohos/push-notification-ios Releases](https://gitee.com/openharmony-sig/rntpc_ios/releases)
 
 
-## APIs
+## 4. APIs
 
 > [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
@@ -331,7 +306,7 @@ Check the release version information in the release address of the third-party 
 | getInitialNotification   | This method returns a promise. If the app was launched by a push notification, this promise resolves to an object of type PushNotificationIOS. Otherwise, it resolves to null.                                                         | function | no       | iOS           | no               |
 | getScheduledLocalNotifications   | Gets the local notifications that are currently scheduled                                                         | function | no       | iOS           | no               |
 
-## Properties
+## 5. Properties
 
 > [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
@@ -360,13 +335,13 @@ _NotificationRequest:_
 | `isTimeZoneAgnostic` | If true, fireDate adjusted automatically upon time zone changes (e.g. for an alarm clock)                 | boolean  | no       | All      | no               |
 | `interruptionLevel` | A string specifying the interruption level. Valid values are `'active'`, `'passive'`, `'timeSensitive'`, or `'critical'`                 | string  | no       | All      | no               |
 
-## Known Issues
+## 6. Known Issues
 
 - [ ] HarmonyOS 的 NotificationManager 的规格和 IOS 不一致，其 NotificationRequest 所含参数，在 HarmonyOS 上部分没有适配对应参数，问题: [issue#1](https://github.com/react-native-oh-library/react-native-push-notification-ios/issues/4)
 - [ ] 原库部分接口在 HarmonyOS 中没有对应接口处理相关逻辑，问题: [issue#2](https://github.com/react-native-oh-library/react-native-push-notification-ios/issues/3)
 
-## Others
+## 7. Others
 
-## License
+## 8. License
 
-This project is licensed under [The MIT License (MIT)](https://github.com/react-native-push-notification/ios/blob/master/LICENSE).
+This project is licensed under [The MIT License (MIT)](https://gitee.com/openharmony-sig/rntpc_ios/blob/master/LICENSE).

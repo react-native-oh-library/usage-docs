@@ -10,7 +10,7 @@ This project is based on [react-native-document-picker@9.2.0](https://github.com
 This third-party library has been migrated to Gitee and is now available for direct download from npm, the new package name is: `@react-native-ohos/react-native-document-picker`, The version correspondence details are as follows:
 | Version                        | Package Name                             | Repository                                                   | Release                                                      |
 | ------------------------------ | ---------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <= 9.2.0@deprecated | @react-native-oh-library/react-native-document-picker  | [Github(deprecated)](https://github.com/react-native-oh-library/document-picker) | [Github Releases(deprecated)](https://github.com/react-native-oh-library/document-picker/releases) |
+| <= 9.2.0@deprecated | @react-native-oh-tpl/react-native-document-picker  | [Github(deprecated)](https://github.com/react-native-oh-library/document-picker) | [Github Releases(deprecated)](https://github.com/react-native-oh-library/document-picker/releases) |
 | > 9.2.0                        | @react-native-ohos/react-native-document-picker | [Gitee](https://gitee.com/openharmony-sig/rntpc_react-native-document-picker) | [Gitee Releases](https://gitee.com/openharmony-sig/rntpc_react-native-document-picker/releases) |
 
 

@@ -1,39 +1,42 @@
-> Template version: V0.2.2
+> Template version: v0.3.0
 
 <p align="center">
   <h1 align="center"> <code>@react-native-community/image-editor</code> </h1>
 </p>
-<p align="center">
-    <a href="https://github.com/callstack/react-native-image-editor">
-        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
-    </a>
-    <a href="https://github.com/callstack/react-native-image-editor/blob/master/LICENSE">
-        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
-        <!-- <img src="https://img.shields.io/badge/license-Apache-blue.svg" alt="License" /> -->
-    </a>
-</p>
 
-> [Github address](https://github.com/react-native-oh-library/react-native-image-editor)
+This project is based on [@react-native-community/image-editor@3.2.0](https://github.com/callstack/react-native-image-editor).
 
-## Installation and Usage
+This third-party library has been migrated to Gitee and is now available for direct download from npm, the new package name is: `@react-native-ohos/image-editor`, The version correspondence details are as follows:
 
-Find the matching version information in the release address of a third-party library:[@react-native-oh-tpl/image-editor Releases](https://github.com/react-native-oh-library/react-native-image-editor/releases). For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+| Version                   | Package Name                                      | Repository         | Release                    |
+| ------------------------- | ------------------------------------------------- | ------------------ | -------------------------- |
+| <= 3.2.1@deprecated | @react-native-oh-tpl/image-editor | [Github(deprecated)](https://github.com/react-native-oh-library/react-native-image-editor) | [Github Releases(deprecated)](https://github.com/react-native-oh-library/react-native-image-editor/releases) |
+| > 3.2.1                   | @react-native-ohos/image-editor   | [Gitee](https://gitee.com/openharmony-sig/rntpc_react-native-image-editor) | [Gitee Releases](https://gitee.com/openharmony-sig/rntpc_react-native-image-editor/releases) |
+
+## 1. Installation and Usage
+
+Go to the project directory and execute the following instruction:
+
+<!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/image-editor
+npm install @react-native-ohos/image-editor
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/image-editor
+yarn add @react-native-ohos/image-editor
 ```
 
-@react-native-community/image-editor is used as an example.
+<!-- tabs:end -->
 
-> [!TIP] The library name imported during use remains unchanged.
+The following code shows the basic use scenario of the repository:
+
+> [!WARNING] The name of the imported repository remains unchanged.
+
 
 ```js
 import React, { Component } from "react";
@@ -180,33 +183,36 @@ const styles = StyleSheet.create({
 });
 ```
 
-## Use Codegen
+## 2. Manual Link
 
-If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/zh-cn/codegen.md).
-
-## Link
-
-Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
+This step provides guidance for manually configuring native dependencies.
 
 Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
+### 2.1 Overrides RN SDK
+
+To ensure the project relies on the same version of the RN SDK, you need to add an `overrides` field in the project's root `oh-package.json5` file, specifying the RN SDK version to be used. The replacement version can be a specific version number, a semver range, or a locally available HAR package or source directory.
+
+For more information about the purpose of this field, please refer to the [official documentation](https://developer.huawei.com/consumer/en/doc/harmonyos-guides-V5/ide-oh-package-json5-V5#en-us_topic_0000001792256137_overrides).
 
 ```json
 {
-  ...
   "overrides": {
-    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+    "@rnoh/react-native-openharmony": "^0.72.38" // ohpm version
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony.har" // a locally available HAR package
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony" // source code directory
   }
 }
 ```
 
-### 2. Introducing Native Code
+### 2.2 Introducing Native Code
 
 Currently, two methods are available:
 
-Method 1 (recommended): Use the HAR file.
+- Use the HAR file.
+- Directly link to the source code。
 
+Method 1 (recommended): Use the HAR file.
 
 > [!TIP] The HAR file is stored in the `harmony` directory in the installation path of the third-party library.
 
@@ -214,8 +220,7 @@ Open `entry/oh-package.json5` file and add the following dependencies:
 
 ```json
 "dependencies": {
-    "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/image-editor": "file:../../node_modules/@react-native-oh-tpl/image-editor/harmony/image_editor.har"
+    "@react-native-ohos/image-editor": "file:../../node_modules/@react-native-ohos/image-editor/harmony/image_editor.har"
   }
 ```
 
@@ -230,26 +235,59 @@ ohpm install
 
 Method 2: Directly link to the source code.
 
-> [!TIP] For details, see [Directly Linking Source Code](/zh-cn/link-source-code.md).
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
-### 3.Introducing ImageEditorPackage Component to ArkTS
+### 2.3 Configuring CMakeLists and Introducing ImageEditorPackage
 
+> [!TIP] Version v3.2.1-rc.1 and above requires.
+
+Open `entry/src/main/cpp/CMakeLists.txt` and add the following code:
+
+```diff
++ set(OH_MODULES "${CMAKE_CURRENT_SOURCE_DIR}/../../../oh_modules")
+
+# RNOH_BEGIN: manual_package_linking_1
++ add_subdirectory("${OH_MODULES}/@react-native-ohos/image-editor/src/main/cpp" ./image-editor)
+# RNOH_END: manual_package_linking_1
+
+# RNOH_BEGIN: manual_package_linking_2
++ target_link_libraries(rnoh_app PUBLIC rnoh_image_editor)
+# RNOH_END: manual_package_linking_2
+```
+
+Open `entry/src/main/cpp/PackageProvider.cpp` and add the following code:
+
+```diff
+#include "RNOH/PackageProvider.h"
+#include "generated/RNOHGeneratedPackage.h"
++ #include "ReactNativeOhosReactNativeImageEditorPackage.h"
+
+using namespace rnoh;
+
+std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Context ctx) {
+    return {
+        std::make_shared<RNOHGeneratedPackage>(ctx),
++       std::make_shared<ImageEditorPackage>(ctx),
+    };
+}
+```
+
+### 2.4 Introducing xxx Package to ArkTS
 
 Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following code:
 
 ```diff
   ...
-+ import {ImageEditorPackage} from "@react-native-oh-tpl/image-editor/ts";
++ import {ImageEditorPackage} from '@react-native-ohos/image-editor/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [
-    new SamplePackage(ctx),
 +   new ImageEditorPackage(ctx)
   ];
 }
 ```
 
-### 4.Running
+### 2.5 Running
 
 Click the `sync` button in the upper right corner.
 
@@ -262,46 +300,42 @@ ohpm install
 
 Then build and run the code.
 
-## Constraints
+## 3. Constraints
 
-### Compatibility
+### 3.1 Compatibility
 
-To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
+Check the release version information in the release address of the third-party library: [@react-native-ohos/image-editor Releases](https://gitee.com/openharmony-sig/rntpc_react-native-image-editor/releases)
 
-Check the release version information in the release address of the third-party library: [@react-native-oh-library/react-native-image-editor Releases](https://github.com/react-native-oh-library/react-native-image-editor/releases)
-
-
-## API
-
-> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
-
-> [!TIP]  If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
-
-| Name      | Type    | Description                                                  | Platform    | HarmonyOS Support |
-| --------- | -------- | ------------------------------------------------------------ | ----------- | ----------------- |
-| cropImage | function | Crop the image specified by the URI param. If URI points to a remote image, it will be downloaded automatically. If the image cannot be loaded/downloaded, the promise will be rejected.<br/><br/>If the cropping process is successful, the resultant cropped image will be stored in the cache path, and the CropResult returned in the promise will point to the image in the cache path. ⚠️ Remember to delete the cropped image from the cache path when you are done with it. | ios/Android | yes               |
-
-## Properties
+## 4. Properties 
 
 > [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-**cropData**
+| Name | Description | Type | Required | Platform | HarmonyOS Support  |
+| ---- | ----------- | ---- | -------- | -------- | ------------------ |
+| `offset`      | The top-left corner of the cropped image, specified in the original image's coordinate space                 | object | yes      | All      | yes               |
+| `size`        | Size (dimensions) of the cropped image  | object | yes      | All      | yes               |
+| `displaySize` | Size to which you want to scale the cropped image     | object | no       | All      | yes               |
+| `resizeMode`  | Resizing mode to use when scaling the image**Default value**: `'cover'` | string     | no       | All      | yes              |
+| `quality`     | A value in range `0.0` - `1.0` specifying compression level of the result image. `1` means no compression (highest quality) and `0` the highest compression (lowest quality)<br/>**Default value**: `0.9` | number | no       | All      | yes               |
+| `format`      | The format of the resulting image.<br/>**Default value**: based on the provided image;<br/>if value determination is not possible, `'jpeg'` will be used as a fallback.         | string | no       | All      | yes               |
 
-| Name          | Value                             | Type   | Description                                                                                                                                                                                               | Required | Platform | HarmonyOS Support |
-| ------------- | --------------------------------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------------- |
-| `offset`      | { x: number, y: number }          | object | The top-left corner of the cropped image, specified in the original image's coordinate space                                                                                                              | yes      | All      | yes               |
-| `size`        | { width: number, height: number } | object | Size (dimensions) of the cropped image                                                                                                                                                                    | yes      | All      | yes               |
-| `displaySize` | { width: number, height: number } | object | Size to which you want to scale the cropped image                                                                                                                                                         | no       | All      | yes               |
-| `resizeMode`  | 'contain' \| 'cover' \| 'stretch' | string | Resizing mode to use when scaling the image**Default value**: `'cover'`                                                                                                                                   | no       | All      | yes               |
-| `quality`     | 0.0 - 1.0                         | number | A value in range `0.0` - `1.0` specifying compression level of the result image. `1` means no compression (highest quality) and `0` the highest compression (lowest quality)<br/>**Default value**: `0.9` | no       | All      | yes               |
-| `format`      | 'jpeg' \| 'png' \| 'webp'         | string | The format of the resulting image.<br/>**Default value**: based on the provided image;<br/>if value determination is not possible, `'jpeg'` will be used as a fallback.                                   | no       | All      | yes               |
+## 5. APIs
 
-## Known Issues
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-## Others
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-## License
+| Name | Description | Type | Required | Platform | HarmonyOS Support  |
+| ---- | ----------- | ---- | -------- | -------- | ------------------ |
+| cropImage | Crop the image specified by the URI param. If URI points to a remote image, it will be downloaded automatically. If the image cannot be loaded/downloaded, the promise will be rejected.<br/><br/>If the cropping process is successful, the resultant cropped image will be stored in the cache path, and the CropResult returned in the promise will point to the image in the cache path. ⚠️ Remember to delete the cropped image from the cache path when you are done with it. | function | yes | ios/Android | yes               |
 
-This project is licensed under  [ [The MIT License (MIT)]](https://github.com/callstack/react-native-image-editor/blob/master/LICENSE), Please enjoy and participate freely in open source.
+## 6. Known Issues
+
+## 7. Others
+
+## 8. License
+
+This project is licensed under [The MIT License (MIT)](https://gitee.com/openharmony-sig/rntpc_react-native-image-editor/blob/master/LICENSE).
+

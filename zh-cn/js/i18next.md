@@ -34,7 +34,7 @@ yarn add i18next@23.7.16
 
 下面的代码展示了这个库的基本使用场景：
 
-> [!TIP] 在下面的 demo 中，本库需要与 react-i18next 一起使用，react-i18next 的使用方式请见[react-i18next 文档](/zh-cn/react-i18next.md)
+> [!TIP] 在下面的 demo 中，本库需要与 react-i18next 一起使用，react-i18next 的使用方式请见[react-i18next 文档](/zh-cn/js/react-i18next.md)
 
 ```js
 import React from 'react';  

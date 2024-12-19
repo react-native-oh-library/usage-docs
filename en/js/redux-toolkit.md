@@ -1,4 +1,4 @@
-> 模板版本：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>redux-toolkit</code> </h1>
@@ -12,14 +12,13 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/reduxjs/redux-toolkit)
+> [!TIP] [Github address](https://github.com/reduxjs/redux-toolkit)
 
-## 安装与使用
+## Installation and Usage
 
-> [!TIP] 该库依赖react-redux，可参考[react-redux文档](./react-redux.md)安装
+> [!TIP] This library depends on react-redux，Can be referred to[react-redux documentation](react-redux.md)install
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[redux-toolkit Releases](https://github.com/reduxjs/redux-toolkit/releases)，并下载适用版本的 tgz 包。
-进入到工程目录并输入以下命令：
+Go to the project directory and execute the following instruction:
 
 <!-- tabs:start -->
 
@@ -37,9 +36,9 @@ yarn add @reduxjs/toolkit@2.2.1
 
 <!-- tabs:end -->
 
-下面的代码展示了这个库的基本使用场景：
+The following code shows the basic use scenario of the repository:
 
-1.在index.js入口文件引入provider组件，并添加sotre属性
+1.Introduce the provider component into the index.js entry file and add the sotre attribute
 
 ```js
 // index.js
@@ -58,7 +57,7 @@ ReactDOM.render(
 );
 ```
 
-2.创建一个createSlice切片，并将reducer属性导出：
+2.Create a created Slice slice and export the reducer attribute:
 
 ```js
 // features/counter/counterSlice.js
@@ -94,7 +93,7 @@ export const { increment, decrement, incrementByAmount } = counterSlice.actions
 export default counterSlice.reducer
 ```
 
-3.创建store.js使用configureStore引入上面导出的reducer
+3.Create store.js and use configurationStore to import the reducer exported above
 
 ```js
 // app/store.js
@@ -112,7 +111,7 @@ export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
 ```
 
-4.编写conter组件实现简单的增加减少计数
+4.Write a conter component to implement simple counting increases and decreases
 
 ```js
 // features/counter/Counter.js
@@ -147,22 +146,21 @@ export function Counter() {
 }
 ```
 
-## 约束与限制
+## Constraints
 
-### 兼容性
+### Compatibility
 
-本文档内容基于以下版本验证通过：
+This document is verified based on the following versions:
 
 1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：205.0.0.18;
-2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
 
-## 方法和属性
+## Properties And Methods
 
-> [!TIP] "Platform"列表示该属性在原三方库上支持的平台。
+> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] "HarmonyOS Support"列为 yes 表示 HarmonyOS 平台支持该属性；no 则表示不支持；partially 表示部分支持。使用方法跨平台一致，效果对标 iOS 或 Android 的效果。
+> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 >
-> 详情见 [redux-toolkit 源库地址](https://github.com/reduxjs/redux-toolkit)
+> See details [redux-toolkit Source library address](https://github.com/reduxjs/redux-toolkit)
 
 | Name                     | Description                                       | Type     | Required | Platform | HarmonyOS Support |
 | ------------------------ | ------------------------------------------------- | -------- | -------- | -------- | ----------------- |
@@ -218,10 +216,10 @@ export function Counter() {
 | nanoid              | 生成随机字符串                 | Function | yes      | All      | yes               |
 | miniSerializeError  | 打印错误信息                   | Function | yes      | All      | yes               |
 
-## 遗留问题
+## Known Issues
 
-## 其他
+## Others
 
-## 开源协议
+## License
 
-本项目基于 [The MIT License (MIT)](https://github.com/reduxjs/redux-toolkit?tab=readme-ov-file)，请自由地享受和参与开源。
+This project is licensed under  [The MIT License (MIT)](https://github.com/reduxjs/redux-toolkit?tab=readme-ov-file), Please enjoy and participate freely in open source.

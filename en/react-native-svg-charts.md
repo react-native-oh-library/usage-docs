@@ -29,13 +29,13 @@ Go to the project directory and execute the following instruction:
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-naitve-svg-charts
+npm install @react-native-oh-tpl/react-native-svg-charts
 ```
 
 #### **yarn**
 
 ```bash
-yarn add  @react-native-oh-tpl/react-naitve-svg-charts
+yarn add  @react-native-oh-tpl/react-native-svg-charts
 ```
 
 <!-- tabs:end -->

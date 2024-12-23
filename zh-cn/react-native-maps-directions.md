@@ -19,22 +19,20 @@
 
 > [!TIP] 该库依赖react-native-maps，可参考[react-native-maps文档](./react-native-maps.md)安装
 
-请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-maps-directions Releases](https://github.com/react-native-oh-library/react-native-maps-directions/releases)，并下载适用版本的 tgz 包。
+请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-maps-directions Releases](https://github.com/react-native-oh-library/react-native-maps-directions/releases)，并下载适用版本的 tgz 。对于未发布到npm的旧版本，请参考[安装指南](/zh-cn/tgz-usage.md)安装tgz包。
 
 进入到工程目录并输入以下命令：
-
-> [!TIP] # 处替换为 tgz 包的路径
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-maps-directions@file:#
+npm install @react-native-oh-tpl/react-native-maps-directions
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-maps-directions@file:#
+yarn add @react-native-oh-tpl/react-native-maps-directions
 ```
 
 下面的代码展示了这个库的基本使用场景：

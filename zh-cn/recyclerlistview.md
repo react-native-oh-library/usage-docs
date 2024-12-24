@@ -1,7 +1,7 @@
 > 模板版本：v0.2.2
 
 <p align="center">
-  <h1 align="center"> <code>RecyclerListView</code> </h1>
+  <h1 align="center"> <code>recyclerlistview</code> </h1>
 </p>
 <p align="center">
     <a href="https://github.com/Flipkart/recyclerlistview">

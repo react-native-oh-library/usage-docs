@@ -16,7 +16,7 @@
 
 ## Installation and Usage
 
-[!TIP]This repository depends on [@react-native-oh-tpl/react-native-randombytes](./zh-cn/react-native-randombytes)
+[!TIP]This repository depends on [@react-native-oh-tpl/react-native-randombytes](./react-native-randombytes.md)
 
 <!-- tabs:start -->
 

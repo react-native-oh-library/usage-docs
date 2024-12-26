@@ -17,7 +17,7 @@
 
 ## 安装与使用
 
-[!TIP]本库依赖[@react-native-oh-tpl/react-native-randombytes](./zh-cn/react-native-randombytes)
+[!TIP]本库依赖[@react-native-oh-tpl/react-native-randombytes](./react-native-randombytes.md)
 
 <!-- tabs:start -->
 

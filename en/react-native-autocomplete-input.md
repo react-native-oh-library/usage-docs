@@ -188,6 +188,8 @@ RNOH：0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.25; IDE：DevEco Studio 5.0.3.400
 
 ## Known Issues
 
+- [ ] 源库5.5.2版本在 HarmonyOS NEXT 上打字时键盘会隐藏: [issue#1](https://github.com/byteburgers/react-native-autocomplete-input/issues/328)
+
 ## Others
 
 ## License

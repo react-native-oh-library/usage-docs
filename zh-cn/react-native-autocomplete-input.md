@@ -177,6 +177,8 @@ export default App;
 
 ## 遗留问题
 
+- [ ] 源库5.5.2版本在 HarmonyOS NEXT 上打字时键盘会隐藏: [issue#1](https://github.com/byteburgers/react-native-autocomplete-input/issues/328)
+
 ## 其他
 
 ## 开源协议

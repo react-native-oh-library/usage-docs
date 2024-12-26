@@ -1,22 +1,20 @@
-> Template version: v0.2.2
+> Template version: v0.3.0
 
 <p align="center">
   <h1 align="center"> <code>@react-native-community/progress-view</code> </h1>
 </p>
-<p align="center">
-    <a href="https://github.com/react-native-progress-view/progress-view">
-        <img src="https://img.shields.io/badge/platforms-android%20|%20ios%20|%20windows%20|%20macos%20|%20web%20|%20harmony%20-lightgrey.svg" alt="Supported platforms" />
-    </a>
-    <a href="https://github.com/react-native-progress-view/progress-view/blob/master/LICENSE">
-        <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License" />
-    </a>
-</p>
 
-> [!TIP] [GitHub address](https://github.com/react-native-oh-library/progress-view)
+This project is based on [react-native-community/progress-view@1.4.2](https://github.com/react-native-progress-view/progress-view).
+
+This third-party library has been migrated to Gitee and is now available for direct download from npm, the new package name is: `@react-native-ohos/react-native-progress-view`, The version correspondence details are as follows:
+
+| Version                        | Package Name                             | Repository                                                   | Release                                                      |
+| ------------------------------ | ---------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| <= 1.4.2@deprecated | @react-native-oh-tpl/progress-view  | [Github(deprecated)](https://github.com/react-native-oh-library/progress-view) | [Github Releases(deprecated)](https://github.com/react-native-oh-library/progress-view/releases) |
+| > 1.4.2                        | @react-native-ohos/progress-view | [Gitee](https://gitee.com/openharmony-sig/rntpc_progress-view) | [Gitee Releases](https://gitee.com/openharmony-sig/rntpc_progress-view/releases) |
+
 
 ## Installation and Usage
-
-Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/progress-view Releases](https://github.com/react-native-oh-library/progress-view/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 Go to the project directory and execute the following instruction:
 
@@ -27,13 +25,13 @@ Go to the project directory and execute the following instruction:
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/progress-view
+npm install @react-native-ohos/progress-view
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/progress-view
+yarn add @react-native-ohos/progress-view
 ```
 
 <!-- tabs:end -->
@@ -56,24 +54,29 @@ export default function ProgressViewExample() {
 }
 ```
 
-## Link
+## 2. Manual Link
 
-Currently, HarmonyOS does not support AutoLink. Therefore, you need to manually configure the linking.
+This step provides guidance for manually configuring native dependencies.
 
 Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
-### 1. Adding the overrides Field to oh-package.json5 File in the Root Directory of the Project
+### 2.1 Overrides RN SDK
+
+To ensure the project relies on the same version of the RN SDK, you need to add an `overrides` field in the project's root `oh-package.json5` file, specifying the RN SDK version to be used. The replacement version can be a specific version number, a semver range, or a locally available HAR package or source directory.
+
+For more information about the purpose of this field, please refer to the [official documentation](https://developer.huawei.com/consumer/en/doc/harmonyos-guides-V5/ide-oh-package-json5-V5#en-us_topic_0000001792256137_overrides).
 
 ```json
 {
-  ...
   "overrides": {
-    "@rnoh/react-native-openharmony" : "./react_native_openharmony"
+    "@rnoh/react-native-openharmony": "^0.72.38" // ohpm version
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony.har" // a locally available HAR package
+    // "@rnoh/react-native-openharmony" : "./react_native_openharmony" // source code directory
   }
 }
 ```
 
-### 2. Introducing Native Code
+### 2.2 Introducing Native Code
 
 Currently, two methods are available:
 
@@ -86,7 +89,7 @@ Open `entry/oh-package.json5` file and add the following dependencies:
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/progress-view": "file:../../node_modules/@react-native-oh-tpl/progress-view/harmony/progress_view.har"
+    "@react-native-ohos/progress-view": "file:../../node_modules/@react-native-ohos/progress-view/harmony/progress_view.har"
   }
 ```
 
@@ -103,7 +106,7 @@ Method 2: Directly link to the source code.
 
 > [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
-### 3. Configuring CMakeLists and Introducing ProgressViewPackage
+### 2.3 Configuring CMakeLists and Introducing ProgressViewPackage Package
 
 Open `entry/src/main/cpp/CMakeLists.txt` and add the following code:
 
@@ -118,7 +121,7 @@ add_subdirectory("${RNOH_CPP_DIR}" ./rn)
 
 # RNOH_BEGIN: manual_package_linking_1
 add_subdirectory("../../../../sample_package/src/main/cpp" ./sample-package)
-+ add_subdirectory("${OH_MODULES}/@react-native-oh-tpl/progress-view/src/main/cpp" ./progress-view)
++ add_subdirectory("${OH_MODULES}/@react-native-ohos/progress-view/src/main/cpp" ./progress-view)
 # RNOH_BEGIN: manual_package_linking_1
 
 add_library(rnoh_app SHARED
@@ -152,14 +155,12 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 }
 ```
 
-### 4. Introducing ProgressViewPackage Component to ArkTS
-
 Find `function buildCustomRNComponent()`, which is usually located in `entry/src/main/ets/pages/index.ets` or `entry/src/main/ets/rn/LoadBundle.ets`, and add the following code:
 
 ```diff
 ...
 import { SampleView, SAMPLE_VIEW_TYPE, PropsDisplayer } from "rnoh-sample-package"
-+ import { RNCProgressView, PROGRESS_VIEW_TYPE } from "@react-native-oh-tpl/progress-view"
++ import { RNCProgressView, PROGRESS_VIEW_TYPE } from "@react-native-ohos/progress-view"
 
 @Builder
 export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
@@ -188,7 +189,23 @@ const arkTsComponentNames: Array<string> = [
   ];
 ```
 
-### 5. Running
+ > **[!TIP] Version 1.4.3 and above requires.**
+
+Open the `entry/src/main/ets/RNPackagesFactory.ts`，file and add the following code:
+
+```diff
+  ...
++ import { ProgressViewPackage } from "@react-native-ohos/progress-view/ts";
+
+export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
+  return [
+    new SamplePackage(ctx),
++   new ProgressViewPackage(ctx), 
+  ];
+}
+```
+
+### 2.4 Running
 
 Click the `sync` button in the upper right corner.
 
@@ -201,15 +218,15 @@ ohpm install
 
 Then build and run the code.
 
-## Constraints
+## 3. Constraints
 
-### Compatibility
+### 3.1 Compatibility
 
 To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-Check the release version information in the release address of the third-party library: [@react-native-oh-library/progress-view Releases](https://github.com/react-native-oh-library/progress-view/releases)
+Check the release version information in the release address of the third-party library: [@react-native-ohos/react-native-progress-view Releases](https://gitee.com/openharmony-sig/rntpc_progress-view/releases)
 
-## Properties
+## 4. Properties
 
 > [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
@@ -225,12 +242,12 @@ Check the release version information in the release address of the third-party 
 | `progressViewStyle`    | The progress bar style. Network images only work on Windows.  | enum('default', 'bar') | No       | All      | No               |
 | `isIndeterminate`    | Turns progress bar into an indeterminate progress bar.  | bool | No       | Windows      | Partially               |
 
-## Known Issues
+## 5. Known Issues
 
 - [ ] 原库部分接口在 HarmonyOS 中没有对应属性及接口处理相关逻辑，问题: [issue#1](https://github.com/react-native-oh-library/progress-view/issues/5)
 
-## Others
+## 6. Others
 
-## License
+## 7. License
 
-This project is licensed under [The MIT License (MIT)](https://github.com/react-native-oh-library/progress-view/blob/harmony/LICENSE).
+This project is licensed under [The MIT License (MIT)](https://gitee.com/openharmony-sig/rntpc_progress-view/blob/master/LICENSE).

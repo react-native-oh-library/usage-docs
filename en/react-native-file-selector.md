@@ -1,5 +1,4 @@
-
-> Template version：v0.2.2
+> Template version: v0.2.2
 
 <p align="center">
   <h1 align="center"> <code>react-native-file-selector</code> </h1>
@@ -17,11 +16,11 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-file-selector Releases](https://github.com/react-native-oh-library/react-native-file-selector/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-file-selector Releases](https://github.com/react-native-oh-library/react-native-file-selector/releases).
 
 Go to the project directory and execute the following instruction:
 
-
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 
 #### **npm**
@@ -80,7 +79,7 @@ Open the harmony directory of the HarmonyOS project in DevEco Studio.
 
 Currently, two methods are available:
 
-1. Use the HAR file.（recommended）；
+1. (Recommended) Use the HAR file.
 2. Directly link to the source code.
 
 Method 1 (recommended): Use the HAR file.
@@ -152,26 +151,26 @@ Check the release version information in the release address of the third-party 
 
  FileSelector
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support  |
-| :--- | ----------- | ---- | -------- | -------- | ------------------ |
-| filter | Filter to sort the files | string | no | All | yes |
-| path | Path of directory | string | no | All | yes |
-| onDone | Function called when file is selected | func | no | All | yes |
-| onCancel | Function called when file selector is closed without selecting any file | func | no | All | yes |
-| title | Title on the toolbar | string | no | Android iOS | no |
-| closeMenu | Color of tint | string | no | Android iOS | no |
-| hiddenFiles | If true it shows hidden files as well | bool | no | Android | no |
-| filterDirectories | Filter should be applied on directories or not | bool | no | Android | no |
+| Name              | Description                                                  | Type   | Required | Platform    | HarmonyOS Support |
+| :---------------- | ------------------------------------------------------------ | ------ | -------- | ----------- | ----------------- |
+| filter            | Filter to sort the files                                     | string | no       | All         | yes               |
+| path              | Path of directory                                            | string | no       | All         | yes               |
+| onDone            | Function called when file is selected                        | func   | no       | All         | yes               |
+| onCancel          | Function called when file selector is closed without selecting any file | func   | no       | All         | yes               |
+| title             | Title on the toolbar                                         | string | no       | Android iOS | no                |
+| closeMenu         | Color of tint                                                | string | no       | Android iOS | no                |
+| hiddenFiles       | If true it shows hidden files as well                        | bool   | no       | Android     | no                |
+| filterDirectories | Filter should be applied on directories or not               | bool   | no       | Android     | no                |
 
 ## API
 
-> [!TIP] The Platform column indicates the platform where the properties are supported in the original third-party library.
+> [!tip] The Platform column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] If the value of HarmonyOS Support is yes, it means that the HarmonyOS platform supports this property; no means the opposite; partially means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!tip] If the value of HarmonyOS Support is yes, it means that the HarmonyOS platform supports this property; no means the opposite; partially means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support  |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| Show | present a fileselector  | function  | no | All      | yes |
+| Name | Description            | Type     | Required | Platform | HarmonyOS Support |
+| ---- | ---------------------- | -------- | -------- | -------- | ----------------- |
+| Show | present a fileselector | function | no       | All      | yes               |
 
  Show
 
@@ -179,29 +178,29 @@ Check the release version information in the release address of the third-party 
 Show(filter?: string, path?: string, onDone?: func, onCancel?: func, title?: string, closeMenu?: string, hiddenFiles?: bool, filterDirectories?: bool);
 ```
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support  |
-| :--- | ----------- | ---- | -------- | -------- | ------------------ |
-| filter | Filter to sort the files | string | no | All | yes |
-| path | Path of directory | string | no | All | yes |
-| onDone | Function called when file is selected | func | no | All | yes |
-| onCancel | Function called when file selector is closed without selecting any file | func | no | All | yes |
-| title | Title on the toolbar | string | no | Android iOS | no |
-| closeMenu | Color of tint | string | no | Android iOS | no |
-| hiddenFiles | If true it shows hidden files as well | bool | no | Android | no |
-| filterDirectories | Filter should be applied on directories or not | bool | no | Android | no |
+| Name              | Description                                                  | Type   | Required | Platform    | HarmonyOS Support |
+| :---------------- | ------------------------------------------------------------ | ------ | -------- | ----------- | ----------------- |
+| filter            | Filter to sort the files                                     | string | no       | All         | yes               |
+| path              | Path of directory                                            | string | no       | All         | yes               |
+| onDone            | Function called when file is selected                        | func   | no       | All         | yes               |
+| onCancel          | Function called when file selector is closed without selecting any file | func   | no       | All         | yes               |
+| title             | Title on the toolbar                                         | string | no       | Android iOS | no                |
+| closeMenu         | Color of tint                                                | string | no       | Android iOS | no                |
+| hiddenFiles       | If true it shows hidden files as well                        | bool   | no       | Android     | no                |
+| filterDirectories | Filter should be applied on directories or not               | bool   | no       | Android     | no                |
 
 ## Known Issues
 
 
-- [ ] FileSelector title：harmony issue: [issue#4](https://github.com/react-native-oh-library/react-native-file-selector/issues/4)
-- [ ] FileSelector closeMenu：harmony issue: [issue#5](https://github.com/react-native-oh-library/react-native-file-selector/issues/5)
-- [ ] FileSelector hiddenFiles：harmony issue: [issue#6](https://github.com/react-native-oh-library/react-native-file-selector/issues/6)
-- [ ] FileSelector filterDirectories：harmony issue: [issue#7](https://github.com/react-native-oh-library/react-native-file-selector/issues/7)
+- [ ] FileSelector title: Harmony issue: [issue#4](https://github.com/react-native-oh-library/react-native-file-selector/issues/4)
+- [ ] FileSelector closeMenu: Harmony issue: [issue#5](https://github.com/react-native-oh-library/react-native-file-selector/issues/5)
+- [ ] FileSelector hiddenFiles: Harmony issue: [issue#6](https://github.com/react-native-oh-library/react-native-file-selector/issues/6)
+- [ ] FileSelector filterDirectories: Harmony issue: [issue#7](https://github.com/react-native-oh-library/react-native-file-selector/issues/7)
 
-- [ ] Show title：harmony issue: [issue#4](https://github.com/react-native-oh-library/react-native-file-selector/issues/4)
-- [ ] Show closeMenu：harmony issue: [issue#5](https://github.com/react-native-oh-library/react-native-file-selector/issues/5)
-- [ ] Show hiddenFiles：harmony issue: [issue#6](https://github.com/react-native-oh-library/react-native-file-selector/issues/6)
-- [ ] Show filterDirectories：harmony issue: [issue#7](https://github.com/react-native-oh-library/react-native-file-selector/issues/7)
+- [ ] Show title: Harmony issue: [issue#4](https://github.com/react-native-oh-library/react-native-file-selector/issues/4)
+- [ ] Show closeMenu: Harmony issue: [issue#5](https://github.com/react-native-oh-library/react-native-file-selector/issues/5)
+- [ ] Show hiddenFiles: Harmony issue: [issue#6](https://github.com/react-native-oh-library/react-native-file-selector/issues/6)
+- [ ] Show filterDirectories: Harmony issue: [issue#7](https://github.com/react-native-oh-library/react-native-file-selector/issues/7)
 
 ## Others
 

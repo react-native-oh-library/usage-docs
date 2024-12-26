@@ -16,14 +16,14 @@
 
 ## Basic Usage
 
-在 React Native 应用程序的根目录中创建一个新`.env`文件
+Create an `.env` file in the root directory of the React Native application.
 
 ```bash
 API_URL=https://myapi.com
 GOOGLE_MAPS_API_KEY=abcdefgh
 ```
 
-然后从您的应用程序访问那里定义的变量:
+Access the variables defined in the file from your application.
 
 ```bash
 import Config from "react-native-config";
@@ -32,11 +32,11 @@ Config.API_URL; // 'https://myapi.com'
 Config.GOOGLE_MAPS_API_KEY; // 'abcdefgh'
 ```
 
-请记住，此模块不会混淆或加密机密以进行打包，因此请勿将敏感密钥存储在`.env`中[基本上不可能阻止用户对移动应用程序机密进行逆向工程](https://rammic.github.io/2015/07/28/hiding-secrets-in-android-apps/)，因此请在设计应用程序（和 API）时牢记这一点。
+Note that this module does not obfuscate or encrypt secrets for packaging, so do not store sensitive keys in the `.env` file because it is basically impossible to [prevent users from reverse engineering of mobile application secrets](https://rammic.github.io/2015/07/28/hiding-secrets-in-android-apps/). Keep this in mind when designing applications (and APIs).
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library: [@react-native-oh-library/react-native-config Releases](https://github.com/react-native-oh-library/react-native-config/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+Find the matching version information in the release address of a third-party library: [@react-native-oh-library/react-native-config Releases](https://github.com/react-native-oh-library/react-native-config/releases). For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 Go to the project directory and execute the following instruction:
 
@@ -112,17 +112,17 @@ Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 
 ### 2. Introducing Native Code
 
-该库仅支持源码形式引入
+This library can be imported only in the form of source code.
 
-#### 直接链接源码情况说明
+#### Description of Direct Linking to Source Code
 
-目前 DevEco Studio 不支持通过源码引入外部 module，请按照以下步骤操作，将源码通过操作改成 harmony 工程的内部模块。
+Currently, DevEco Studio does not support the introduction of external modules through source code. Perform the following steps to change the source code to an internal module of the **harmony** project.
 
-> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
+> [!TIP] The source code is stored in the **harmony** directory in the installation path of the third-party library.
 
-把`<RN工程>/node_modules/@react-native-oh-tpl/react-native-config/harmony/`目录下的源码`<config>`复制到`harmony`工程根目录下
+Copy the source code `<config>` in the `<RN project>/node_modules/@react-native-oh-tpl/react-native-config/harmony/` directory to the root directory of the `harmony` project.
 
-在`harmony`工程根目录的 `build-profile.template.json5`（若存在）和`build-profile.json5` 添加以下模块
+In the root directory of the `harmony` project, add the following modules to `build-profile.template.json5` (if any) and `build-profile.json5`:
 
 ```json
 modules:[
@@ -182,34 +182,34 @@ ohpm install
 
 Then build and run the code.
 
-### 多环境
+### Multi-environment Configuration
 
-将不同环境的配置保存在不同的文件中: `.env.staging`，`.env.production`等等。
-默认情况下，`react-native-config `将从`.env`中读取。最简单的方法是用环境变量告诉它读取什么文件，以命令行中使用 IDE 下的`hvigor.js`的方式（不推荐）。
+Save the configurations of different environments in different files, such as `.env.staging` and `.env.production`.
+By default, `react-native-config` is read from the `.env` file. The simplest way is to use an environment variable to specify the file to be read. It is not recommended to use `hvigor.js` in DevEco Studio to obtain the file.
 
-例如在`CMD`窗口下
+Example:
 
-首先从 RN 工程根目录 `cd harmony` 进入 harmony 目录
+Run the `cd harmony` command in the `CMD` window to enter the **harmony** directory from the the RN project root directory.
 
-然后先停止守护进程:
+Stop all daemons.
 
 ```bash
 "D:\DevEcoStudio\tools\node\node.exe" "D:\DevEcoStudio\tools\hvigor\bin\hvigorw.js" --stop-daemon-all
 ```
 
-\*注意，命令中`node.exe`与`hvigor.js`路径为`DevEco Studio`安装目录下的`tools`目录下，需根据实际情况更改。
+\*Note that the paths of `node.exe` and `hvigor.js` in the command are in the `tools` directory under the DevEco Studio installation directory. You can change them as required.
 
-然后设置环境变量`ENVFILE`为想要指定的配置文件名（注意: 文件名后不要加空格），并用`hvigor.js`构建工程，例如:
+Set the environment variable `ENVFILE` to the name of the configuration file to be specified (do not add spaces after the file name), and use `hvigor.js` to build a project. For example:
 
 ```bash
 set ENVFILE=.env.staging&&"D:\DevEcoStudio\tools\node\node.exe" "D:\DevEcoStudio\tools\hvigor\bin\hvigorw.js"  --mode module -p module=entry@default -p product=default -p requiredDeviceType=phone assembleHap --analyze=normal --parallel --increm
 ```
 
-之后可打开`DevEco Studio`构建运行，但此时为保证所设环境变量与工程构建在同一进程，不可在`DevEco Studio`的终端中以 hvigor 命令构建工程。
+Then, open `DevEco Studio` to build and run the project. To ensure that the configured environment variables and the project are built in the same process, do not run the **hvigor** command in `DevEco Studio` to build the project.
 
-#### 建立映射
+#### Creating a Mapping
 
-或者，您可以定义一个映射来将构建与环境文件关联起来，可以在`harmony`工程根目录的`build-profile.json5`中的`products`中的`buildOption`节点下的`arkOptions`子节点中通过增加`buildProfileFields`字段配置映射，字段中以键值对的方式配置，其中 key 值为小写的工程构建类型，value 为该构建类型下所要读取的文件名
+Alternatively, you can add the **buildProfileFields** field in `harmony` > `build-profile.json5` > `products` > `buildOption` > `arkOptions` to define a mapping to associate the build with the environment file. The field is configured in key-value pairs, where **key** indicates the project build type in lowercase and **value** indicates the name of the file to be read under the build type.
 
 ```json
 "products": [
@@ -246,7 +246,7 @@ Check the release version information in the release address of the third-party 
 
 | Name   | Description                                   | Type   | Required | Platform    | HarmonyOS Support |
 | ------ | --------------------------------------------- | ------ | -------- | ----------- | ----------------- |
-| Config | 类中属性名及其值对应.env 文件中所定义的键值对 | Object | no       | Android/iOS | yes               |
+| Config | The property name and value in the class correspond to the key-value pair defined in the **.env** file.| Object | no       | Android/iOS | yes               |
 
 ## Known Issues
 

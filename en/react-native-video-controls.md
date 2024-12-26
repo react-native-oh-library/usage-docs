@@ -96,7 +96,7 @@ export default App;
 
 The HarmonyOS implementation of this library depends on the native code from @react-native-oh-tpl/react-native-video. If this library is included into your HarmonyOS application, there is no need to include it again; you can skip the steps in this section and use it directly. If it is not included, follow the guide provided in @react-native-oh-tpl/react-native-video to add it to your project.
 
-If not introduce the library, please refer to [@react-native-oh-tpl/react-native-video document](https://gitee.com/react-native-oh-library/usage-docs/blob/master/en/react-native-video.md#link) and [lodash document](https://gitee.com/react-native-oh-library/usage-docs/blob/master/en/lodash.md) for introducing。After finished installation, please use command `npm list react-native-video` and `npm list lodash` in terminal, and check if the component video version and lodash tool version are correct.
+If the library has not been included, please refer to [@react-native-oh-tpl/react-native-video](https://gitee.com/react-native-oh-library/usage-docs/blob/master/en/react-native-video.md#link) and [lodash](https://gitee.com/react-native-oh-library/usage-docs/blob/master/en/lodash.md) for introducing.After finished installation, please use command `npm list react-native-video` and `npm list lodash` in terminal, and check if the component video version and lodash tool version are correct.
 
 ## Constraints
 
@@ -108,11 +108,11 @@ This document is verified based on the following versions:
 
 ## Properties
 
-> [!TIP] The Platform column indicates the platform where the properties are supported in the original third-party library.
+> [!tip] The Platform column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP]  If the value of HarmonyOS Support is yes, it means that the HarmonyOS platform supports this property; no means the opposite; partially means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!tip]  If the value of HarmonyOS Support is yes, it means that the HarmonyOS platform supports this property; no means the opposite; partially means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-> [!TIP] While Name column property navigator is in usage, please refer to this document's others.
+> [!tip] While Name column property navigator is in usage, please refer to this document's others.
 
 | Name                         | Description                                                  |     Type     | Required |  Platform   | HarmonyOS Support |
 | ---------------------------- | ------------------------------------------------------------ | :----------: | :------: | :---------: | :---------------: |

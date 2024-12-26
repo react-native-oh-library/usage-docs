@@ -16,11 +16,11 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-alipay Releases](https://github.com/react-native-oh-library/react-native-alipay/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-alipay Releases](https://github.com/react-native-oh-library/react-native-alipay/releases).
 
 Go to the project directory and execute the following instruction:
 
-
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 #### **npm**
 
@@ -47,7 +47,7 @@ import { AFAuthServiceResponse, } from '@alipay/afservicesdk';
 
 function App(): React.JSX.Element {
     const urlStr: string = 'https://authweb.alipay.com/auth?auth_type=PURE_OAUTH_SDK&app_id=2016051801417322&scope=auth_user&state=init';
-    const bundleName: string = "com.example.harmony"; // 包名
+    const bundleName: string = "com.example.harmony"; // Bundle name
     const moduleName: string = "entry";
     const abilityName: string = "EntryAbility";
     
@@ -58,7 +58,7 @@ function App(): React.JSX.Element {
             </Text>
 
             <Button
-                title="支付宝支付"
+                title="Alipay"
                 color="#841584"
                 accessibilityLabel="Learn more about this purple button"
                 onPress={ 
@@ -72,13 +72,13 @@ function App(): React.JSX.Element {
             />
 
             <Button
-                title="登录验证"
+                title="Login verification"
                 color="#841584"
                 accessibilityLabel="Learn more about this purple button"
                 onPress={async () => {
                     Alipay.setAlipayScheme('scheme:demo');
                     await Alipay.authInfo(urlStr, true, bundleName, moduleName, abilityName, (response: AFAuthServiceResponse) => {
-                        //授权返回值
+                        // Return value of the authorization request
                         console.info('========= response=' + JSON.stringify(response));
                     });
                 }}
@@ -186,7 +186,7 @@ Open entry/oh-package.json5 file and add the following dependencies:
   }
 ```
 
-Add association，open `entry/src/main/module.json5`，add querySchemes
+Open the `entry/src/main/module.json5` file and add **querySchemes**.
 
 ```
 {
@@ -198,7 +198,7 @@ Add association，open `entry/src/main/module.json5`，add querySchemes
 }
 ```
 
-Callback handle,open `entry\src\main\ets\entryability\EntryAbility.ets`，add onNewWant callback result handling.
+Open the `entry\src\main\ets\entryability\EntryAbility.ets` file and add **onNewWant** callback result handling:
 
 ```diff
 + import { AbilityConstant, Want } from '@kit.AbilityKit';
@@ -232,19 +232,19 @@ Check the release version information in the release address of the third-party 
 
 ## Static Methods
 
-> [!TIP] The Platform column indicates the platform where the properties are supported in the original third-party library.
+> [!tip] The Platform column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] If the value of HarmonyOS Support is yes, it means that the HarmonyOS platform supports this property; no means the opposite; partially means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!tip] If the value of HarmonyOS Support is yes, it means that the HarmonyOS platform supports this property; no means the opposite; partially means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support  |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-|  alipay  | alipay  | function  | no | Android/IOS | yes |
-|  authInfo  | login verify  | function  | no | Android/IOS | yes |
-|  setAlipayScheme  | scheme  | function  | no | IOS | yes |
-|  getVersion  | get sdk version  | function  | no | Android/IOS | no |
+| Name            | Description     | Type     | Required | Platform    | HarmonyOS Support |
+| --------------- | --------------- | -------- | -------- | ----------- | ----------------- |
+| alipay          | alipay          | function | no       | Android/IOS | yes               |
+| authInfo        | login verify    | function | no       | Android/IOS | yes               |
+| setAlipayScheme | scheme          | function | no       | IOS         | yes               |
+| getVersion      | get sdk version | function | no       | Android/IOS | no                |
 
 ## Known Issues
-- [ ]  get sdk version number，alipay harmony sdk unrealize[issue#3](https://github.com/react-native-oh-library/react-native-alipay/issues/3)
+- [ ] Alipay SDK for HarmonyOS currently does not support obtaining the SDK version number: [issue#3](https://github.com/react-native-oh-library/react-native-alipay/issues/3)
 
 ## Others
 

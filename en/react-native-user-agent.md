@@ -18,11 +18,11 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-user-agent Releases](https://github.com/react-native-oh-library/react-native-user-agent/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-user-agent Releases](https://github.com/react-native-oh-library/react-native-user-agent/releases).
 
 Go to the project directory and execute the following instruction:
 
-
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
@@ -49,13 +49,13 @@ import React, { useState, useEffect } from 'react';
 import { View, Text } from 'react-native';
 import UserAgent from 'react-native-user-agent';
 
-// sync method：
+// sync method:
 let userAgent: string = UserAgent.getUserAgent();
 
 export default function UserAgentExample() {
   const [webViewUserAgent, setWebViewUserAgent] = useState<string | null>(null);
   useEffect(() => {
-    // async method：
+    // async method:
     UserAgent.getWebViewUserAgent()
       .then(webViewUserAgent => {
         setWebViewUserAgent(webViewUserAgent);
@@ -73,7 +73,7 @@ export default function UserAgentExample() {
       <Text>Async method</Text>
       <Text>{webViewUserAgent}</Text>
 
-      <Text>Property：</Text>
+      <Text>Property: </Text>
       <Text>systemName: {UserAgent.systemName}</Text>
       <Text>systemVersion: {UserAgent.systemVersion}</Text>
       <Text>applicationName: {UserAgent.applicationName}</Text>
@@ -178,38 +178,38 @@ Check the release version information in the release address of the third-party 
 
 ## Properties
 
-> [!TIP] The Platform column indicates the platform where the properties are supported in the original third-party library.
+> [!tip] The Platform column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] If the value of HarmonyOS Support is yes, it means that the HarmonyOS platform supports this property; no means the opposite; partially means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!tip] If the value of HarmonyOS Support is yes, it means that the HarmonyOS platform supports this property; no means the opposite; partially means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support  |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| systemName  | System Name | string  | no | All | yes |
-| systemVersion  | System Version | string  | no | All | yes |
-| applicationName  | Application Name | string  | no | All | yes |
-| applicationVersion  | Application Version | string  | no | All | yes |
-| buildNumber  | Build Number | string  | no | All | yes |
-| darwinVersion  | Darwin Version | string  | no | iOS | no |
-| cfnetworkVersion  | Cfnetwork Version | string  | no | iOS | no |
-| modelName  | Model Name | string  | no | iOS | no |
-| deviceName  | Device Name | string  | no | iOS | no |
+| Name               | Description         | Type   | Required | Platform | HarmonyOS Support |
+| ------------------ | ------------------- | ------ | -------- | -------- | ----------------- |
+| systemName         | System Name         | string | no       | All      | yes               |
+| systemVersion      | System Version      | string | no       | All      | yes               |
+| applicationName    | Application Name    | string | no       | All      | yes               |
+| applicationVersion | Application Version | string | no       | All      | yes               |
+| buildNumber        | Build Number        | string | no       | All      | yes               |
+| darwinVersion      | Darwin Version      | string | no       | iOS      | no                |
+| cfnetworkVersion   | Cfnetwork Version   | string | no       | iOS      | no                |
+| modelName          | Model Name          | string | no       | iOS      | no                |
+| deviceName         | Device Name         | string | no       | iOS      | no                |
 
 ## API
 
-> [!TIP] The Platform column indicates the platform where the properties are supported in the original third-party library.
+> [!tip] The Platform column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] If the value of HarmonyOS Support is yes, it means that the HarmonyOS platform supports this property; no means the opposite; partially means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!tip] If the value of HarmonyOS Support is yes, it means that the HarmonyOS platform supports this property; no means the opposite; partially means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support  |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| getUserAgent | Get user agent synchronously | string | no | All | yes |
-| getWebViewUserAgent | Get user agent asynchronously  | Promise | no | All | yes |
+| Name                | Description                   | Type    | Required | Platform | HarmonyOS Support |
+| ------------------- | ----------------------------- | ------- | -------- | -------- | ----------------- |
+| getUserAgent        | Get user agent synchronously  | string  | no       | All      | yes               |
+| getWebViewUserAgent | Get user agent asynchronously | Promise | no       | All      | yes               |
 
 ## Known Issues
 
 ## Others
 
-Depending on HarmonyOS NEXT Developer Beta3 version default UserAgent definition，word ArkWeb VersionCode (ArkWeb version number) has no receive method currently，waiting for completion afterwards.
+Depending on HarmonyOS NEXT Developer Beta3 version default UserAgent definition, word ArkWeb VersionCode (ArkWeb version number) has no receive method currently, waiting for completion afterwards.
 
 ## License
 

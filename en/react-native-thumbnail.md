@@ -15,11 +15,11 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-thumbnail Releases](https://github.com/react-native-oh-library/react-native-thumbnail/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-thumbnail Releases](https://github.com/react-native-oh-library/react-native-thumbnail/releases).
 
 Go to the project directory and execute the following instruction:
 
-
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
@@ -39,8 +39,8 @@ yarn add @react-native-oh-tpl/react-native-thumbnail
 
 The following code shows the basic use scenario of the repository:
 
-> [!WARNING] The name of the imported repository remains unchanged.<br/>
-> [!TIP] the example depend on react-native-image-picker library，see [@react-native-oh-tpl/react-native-image-picker document](https://gitee.com/react-native-oh-library/usage-docs/blob/master/en/react-native-image-picker.md) to introduce.
+> [!WARNING] The name of the imported repository remains unchanged.<br>
+> [!TIP] The example depends on the react-native-image-picker library, see the [@react-native-oh-tpl/react-native-image-picker document](https://gitee.com/react-native-oh-library/usage-docs/blob/master/en/react-native-image-picker.md) for introducing.
 ```js
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
@@ -70,7 +70,7 @@ export default function ThumbnailExample() {
             } else if (result.errorCode === 'others') {
                 console.log(`Other error: ${result.errorMessage}`);
             } else {
-                // 检查是否成功获取到视频
+                // Check whether the video is successfully obtained.
                 if (result && result.assets && result.assets.length > 0) {
                     const asset = result.assets[0];
                     if (asset.type.includes('mp4')) {
@@ -93,7 +93,7 @@ export default function ThumbnailExample() {
     const openGallery = async () => {
         try {
             const options = {
-                mediaType: 'video', // 修改为只选择视频
+                mediaType: 'video', // Modify mediaType to video.
                 selectionLimit: 1,
                 includeExtra: false,
             };
@@ -246,13 +246,13 @@ Check the release version information in the release address of the third-party 
 
 ## API
 
-> [!TIP] The Platform column indicates the platform where the properties are supported in the original third-party library.
+> [!tip] The Platform column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] If the value of HarmonyOS Support is yes, it means that the HarmonyOS platform supports this property; no means the opposite; partially means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!tip] If the value of HarmonyOS Support is yes, it means that the HarmonyOS platform supports this property; no means the opposite; partially means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support  |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| get  | Generates a thumbnail for a video file. | function | no | All | yes |
+| Name | Description                             | Type     | Required | Platform | HarmonyOS Support |
+| ---- | --------------------------------------- | -------- | -------- | -------- | ----------------- |
+| get  | Generates a thumbnail for a video file. | function | no       | All      | yes               |
 
 ## Known Issues
 

@@ -160,7 +160,7 @@ Open the harmony directory of the HarmonyOS project in DevEco Studio.
 
 Currently, two methods are available:
 
-1. Use the HAR file；
+1. Use the HAR file.
 2. Directly link to the source code.
 
 Method 1 (recommended): Use the HAR file.
@@ -233,9 +233,9 @@ Check the release version information in the release address of the third-party 
 
 > [!TIP]If the value of HarmonyOS Support is yes, it means that the HarmonyOS platform supports this property; no means the opposite; partially means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-Name | Description | Type | Required | Platform | HarmonyOS   Support
--- | -- | -- | -- | -- | --
-rotateImage | rotate picture | Function | no | iOS/Android | yes
+| Name        | Description    | Type     | Required | Platform    | HarmonyOS   Support |
+| ----------- | -------------- | -------- | -------- | ----------- | ------------------- |
+| rotateImage | rotate picture | Function | no       | iOS/Android | yes                 |
 
 ## Known Issues
 

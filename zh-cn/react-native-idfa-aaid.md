@@ -306,8 +306,8 @@ ohpm install
   ]
 }
 ```
-当前版本上，向用户申请此权限时，系统不会有弹框，而是直接将该应用的获取OAID的权限置为禁止。如有需要应用可自行弹框引导用户到设置界面手动开启该权限。为避免后续系统功能变化引发兼容性问题，应用应严格按照user_grant权限的申请流程进行申请。
-[详情参考](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/permissions-for-all-V5#ohospermissionapp_tracking_consent)
+当前的 HarmonyOS 版本中，当用户请求 APP_TRACKING_CONSENT 权限时，系统并不会弹出授权提示框，而是默认禁止该应用获取 OAID 的权限.为了引导用户手动开启此权限，应用端可以自主设计并展示弹窗，指引用户前往设置界面进行相应的操作。此外，应用应严格按照 user_grant 权限的申请流程来提交请求，具体申请细节请参考：
+[user_grant （用户授权）权限列表](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/permissions-for-all-V5#user_grant%E7%94%A8%E6%88%B7%E6%8E%88%E6%9D%83%E6%9D%83%E9%99%90%E5%88%97%E8%A1%A8)
 
 ## 静态方法
 

@@ -225,11 +225,11 @@ ohpm install
 | save | 保存图片/视频 | function | no | iOS/Android | partially | 由于原库版本升级，该方法已弃用，可用saveAsset接口代替。 |
 | saveAsset | 保存图片/视频 | function | no | iOS/Android | partially |  |
 | saveToCameraRoll | 保存图片/视频 | function | no | iOS/Android | partially | 由于原库版本升级，该方法已弃用，调用会弹出警告，可用saveAsset接口代替。 |
-| getPhotos | 查找图片/视频 | function | no | iOS/Android | no | 由于Harmony OS安全策略调整，涉及到ohos.permission.READ_IMAGEVIDEO和ohos.permission.WRITE_IMAGEVIDEO权限的接口无法上架使用，因此该接口暂无法使用。 |
-| getAlbums | 查找相册 | function | no | iOS/Android | no | 由于Harmony OS安全策略调整，涉及到ohos.permission.READ_IMAGEVIDEO和ohos.permission.WRITE_IMAGEVIDEO权限的接口无法上架使用，因此该接口暂无法使用。 |
-| deletePhotos | 删除图片/视频 | function | no | iOS/Android | no | 由于Harmony OS安全策略调整，涉及到ohos.permission.READ_IMAGEVIDEO和ohos.permission.WRITE_IMAGEVIDEO权限的接口无法上架使用，因此该接口暂无法使用。 |
-| iosGetImageDataById | 获取图片数据 | function | no | iOS | no | 由于Harmony OS安全策略调整，涉及到ohos.permission.READ_IMAGEVIDEO和ohos.permission.WRITE_IMAGEVIDEO权限的接口无法上架使用，因此该接口暂无法使用。 |
-| getPhotoThumbnail | 获取缩略图 | function | no | iOS | no | 由于Harmony OS安全策略调整，涉及到ohos.permission.READ_IMAGEVIDEO和ohos.permission.WRITE_IMAGEVIDEO权限的接口无法上架使用，因此该接口暂无法使用。 |
+| getPhotos | 查找图片/视频 | function | no | iOS/Android | no | 由于 HarmonyOS 安全策略要求，该接口需要使用 ohos.permission.READ_IMAGEVIDEO 和 ohos.permission.WRITE_IMAGEVIDEO 权限，需应用方自行申请后，才可以正常使用 |
+| getAlbums | 查找相册 | function | no | iOS/Android | no | 由于 HarmonyOS 安全策略要求，该接口需要使用 ohos.permission.READ_IMAGEVIDEO 和 ohos.permission.WRITE_IMAGEVIDEO 权限，需应用方自行申请后，才可以正常使用 |
+| deletePhotos | 删除图片/视频 | function | no | iOS/Android | no | 由于 HarmonyOS 安全策略要求，该接口需要使用 ohos.permission.READ_IMAGEVIDEO 和 ohos.permission.WRITE_IMAGEVIDEO 权限，需应用方自行申请后，才可以正常使用 |
+| iosGetImageDataById | 获取图片数据 | function | no | iOS | no | 由于 HarmonyOS 安全策略要求，该接口需要使用 ohos.permission.READ_IMAGEVIDEO 和 ohos.permission.WRITE_IMAGEVIDEO 权限，需应用方自行申请后，才可以正常使用 |
+| getPhotoThumbnail | 获取缩略图 | function | no | iOS | no | 由于 HarmonyOS 安全策略要求，该接口需要使用 ohos.permission.READ_IMAGEVIDEO 和 ohos.permission.WRITE_IMAGEVIDEO 权限，需应用方自行申请后，才可以正常使用 |
 
 ## API
 
@@ -243,9 +243,9 @@ ohpm install
 | `iosRequestReadWriteGalleryPermission`     | 读写权限申请 | function | no       | iOS      | no                |                                                              |
 | `iosRequestAddOnlyGalleryPermission`       | 添加权限申请 | function | no       | iOS      | no                |                                                              |
 | `iosRefreshGallerySelection`               | 图片列表刷新 | function | no       | iOS      | no                |                                                              |
-| `harmonyReadGalleryPermission`             | 权限验证     | function | no       | harmony  | no                | 由于Harmony OS安全策略调整，涉及到ohos.permission.READ_IMAGEVIDEO和ohos.permission.WRITE_IMAGEVIDEO权限的接口无法上架使用，因此该接口暂无法使用。 |
-| `harmonyRequestReadWriteGalleryPermission` | 读写权限申请 | function | no       | harmony  | no                | 由于Harmony OS安全策略调整，涉及到ohos.permission.READ_IMAGEVIDEO和ohos.permission.WRITE_IMAGEVIDEO权限的接口无法上架使用，因此该接口暂无法使用。 |
-| `harmonyRequestAddOnlyGalleryPermission`   | 添加权限申请 | function | no       | harmony  | no                | 由于Harmony OS安全策略调整，涉及到ohos.permission.READ_IMAGEVIDEO和ohos.permission.WRITE_IMAGEVIDEO权限的接口无法上架使用，因此该接口暂无法使用。 |
+| `harmonyReadGalleryPermission`             | 权限验证     | function | no       | harmony  | no                | 由于 HarmonyOS 安全策略要求，该接口需要使用 ohos.permission.READ_IMAGEVIDEO 和 ohos.permission.WRITE_IMAGEVIDEO 权限，需应用方自行申请后，才可以正常使用 |
+| `harmonyRequestReadWriteGalleryPermission` | 读写权限申请 | function | no       | harmony  | no                | 由于 HarmonyOS 安全策略要求，该接口需要使用 ohos.permission.READ_IMAGEVIDEO 和 ohos.permission.WRITE_IMAGEVIDEO 权限，需应用方自行申请后，才可以正常使用 |
+| `harmonyRequestAddOnlyGalleryPermission`   | 添加权限申请 | function | no       | harmony  | no                | 由于 HarmonyOS 安全策略要求，该接口需要使用 ohos.permission.READ_IMAGEVIDEO 和 ohos.permission.WRITE_IMAGEVIDEO 权限，需应用方自行申请后，才可以正常使用 |
 | `harmonyRefreshGallerySelection`           | 图片列表刷新 | function | no       | harmony  | no                |                                                              |
 
 ## 遗留问题

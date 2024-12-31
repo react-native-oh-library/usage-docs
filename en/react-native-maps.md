@@ -319,7 +319,7 @@ Find `function buildCustomRNComponent()`, which is usually located in `entry/src
 +  AIR_WMSTILE_TYPE,
 +  AIR_OVERLAY_TYPE,
 +  AIRMapOverlay,
-+  AIR_MAP_CLUSTER_TYPE
++  AIR_MAP_CLUSTER_TYPE,
 +  AIRMapCluster,
 + } from "@react-native-oh-tpl/react-native-maps"
 

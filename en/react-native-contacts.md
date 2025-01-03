@@ -379,7 +379,7 @@ ohpm install
 
 Method 2: Directly link to the source code.
 
-> [!TIP] For details, see [Directly Linking Source Code](/zh-cn/link-source-code.md).
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
 ### 3. Introducing ContactsPackage to ArkTS
 
@@ -418,7 +418,7 @@ Check the release version information in the release address of the third-party 
 
 ### Permission Requirements
 
-[!TIP] "ohos.permission.READ_CONTACTS"，"ohos.permission.WRITE_CONTACTS"权限等级为<B>system_basic</B>，授权方式为<B>user_grant</B>，[使用 ACL 签名的配置指导](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/signing-0000001587684945-V3#section157591551175916)
+[!TIP] The permission level of "ohos.permission.READ_CONTACTS" and "ohos.permission.WRITE_CONTACTS" is **system_basic**, and the authorization mode is **user_grant**. For details, see [Requesting ACL Permissions](https://developer.huawei.com/consumer/en/doc/harmonyos-guides-V2/signing-0000001587684945-V2#section157591551175916)
 
 Open the `entry/src/main/module.json5` file and add the following code:
 
@@ -478,81 +478,81 @@ Open the `entry/src/main/module.json5` file and add the following code:
 **Contacts**
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| recordID | 联系人 id | string | no | Android,iOS | yes |
-| backTitle | 返回键标题 | string | no | Android,iOS | no |
-| company | 公司 | string|no | Android,iOS | yes |
-| emailAddresses | 电子邮箱地址 | EmailAddress[] | no | Android,iOS | yes |
-| displayName | 展示名 | string | no | Android,iOS | yes |
-| familyName | 姓氏 | string | no | Android,iOS | yes |
-| givenName | 名字 | string | no | Android,iOS | yes |
-| middleName | 中间名 | string | no | Android,iOS | yes |
-| jobTitle | 职位名称 | string | no | Android,iOS | yes |
-| phoneNumbers | 电话号码 | PhoneNumber[] | no | Android,iOS | yes |
-| hasThumbnail | 有头像 | boolean | no | Android,iOS | no |
-| thumbnailPath | 头像地址 | string | no | Android,iOS | no |
-| isStarred | 是否标记 | boolean | no | Android,iOS | yes |
-| postalAddresses | 邮件地址 | PostalAddress[] | no | Android,iOS | yes |
-| prefix | 前缀 | string | no | Android,iOS | yes |
-| suffix | 后缀 | string | no | Android,iOS | yes |
-| department | 部门 | string | no | Android,iOS | yes |
-| birthday | 生日 | Birthday | no | Android,iOS | yes |
-| imAddresses | 即时消息地址 | InstantMessageAddress[] | no | Android,iOS | yes |
-| urlAddresses | 图片地址 | UrlAddress[] | no | Android,iOS | no |
-| note | 备注 | string | no | Android,iOS | yes |
+| recordID | Contact ID| string | no | Android,iOS | yes |
+| backTitle | Back button title| string | no | Android,iOS | no |
+| company | Company| string|no | Android,iOS | yes |
+| emailAddresses | Email addresses.| EmailAddress[] | no | Android,iOS | yes |
+| displayName | Display name| string | no | Android,iOS | yes |
+| familyName | Family name| string | no | Android,iOS | yes |
+| givenName | Given name| string | no | Android,iOS | yes |
+| middleName | Middle name| string | no | Android,iOS | yes |
+| jobTitle | Job title| string | no | Android,iOS | yes |
+| phoneNumbers | Phone numbers.| PhoneNumber[] | no | Android,iOS | yes |
+| hasThumbnail | Whether a contact has a thumbnail.| boolean | no | Android,iOS | no |
+| thumbnailPath | Thumbnail path| string | no | Android,iOS | no |
+| isStarred | Whether a contact is starred.| boolean | no | Android,iOS | yes |
+| postalAddresses | Postal addresses.| PostalAddress[] | no | Android,iOS | yes |
+| prefix | Prefix| string | no | Android,iOS | yes |
+| suffix | Suffix| string | no | Android,iOS | yes |
+| department | Department| string | no | Android,iOS | yes |
+| birthday | Birthday| Birthday | no | Android,iOS | yes |
+| imAddresses | Instant message addresses.| InstantMessageAddress[] | no | Android,iOS | yes |
+| urlAddresses | Image addresses.| UrlAddress[] | no | Android,iOS | no |
+| note | Note| string | no | Android,iOS | yes |
 
 **EmailAddress**
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| label | 标题 | string | no | Android,iOS | yes |
-| email | 地址 | string | no | Android,iOS | yes |
+| label | Title| string | no | Android,iOS | yes |
+| email | Address| string | no | Android,iOS | yes |
 
 **PhoneNumber**
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| label | 标题 | string | no | Android,iOS | yes |
-| number | 号码 | string | no | Android,iOS | yes |
+| label | Title| string | no | Android,iOS | yes |
+| number | Number| string | no | Android,iOS | yes |
 
 **PostalAddress**
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| label | 标题 | string | no | Android,iOS | yes |
-| formattedAddress | 格式化地址 | string | no | Android,iOS | yes |
-| street | 街道 | string | no | Android,iOS | yes |
-| pobox | 信箱 | string | no | Android,iOS | yes |
-| neighborhood | 邻域 | string | no | Android,iOS | yes |
-| city | 城市 | string | no | Android,iOS | yes |
-| region | 区域 | string | no | Android,iOS | yes |
-| state | 州 | string | no | Android,iOS | yes |
-| postCode | 邮政编码 | string | no | Android,iOS | yes |
-| country | 国家/地区 | string | no | Android,iOS | yes |
+| label | Title| string | no | Android,iOS | yes |
+| formattedAddress | Formatted address| string | no | Android,iOS | yes |
+| street | Street| string | no | Android,iOS | yes |
+| pobox | Postal box| string | no | Android,iOS | yes |
+| neighborhood | Neighborhood| string | no | Android,iOS | yes |
+| city | City| string | no | Android,iOS | yes |
+| region | Region| string | no | Android,iOS | yes |
+| state | State| string | no | Android,iOS | yes |
+| postCode | Postal code| string | no | Android,iOS | yes |
+| country | Country/Region| string | no | Android,iOS | yes |
 
 **InstantMessageAddress**
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| username | 用户名 | string | no | Android,iOS | no |
-| service | 服务地址 | string | no | Android,iOS | no |
+| username | User name| string | no | Android,iOS | no |
+| service | Service address| string | no | Android,iOS | no |
 
 **Birthday**
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| day | 日 | number | no | Android,iOS | yes |
-| month | 月 | number | no | Android,iOS | yes |
-| year | 年 | number | no | Android,iOS | yes |
+| day | Day| number | no | Android,iOS | yes |
+| month | Month| number | no | Android,iOS | yes |
+| year | Year| number | no | Android,iOS | yes |
 
 **UrlAddress**
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| url | 路径 | string | no | Android,iOS | yes |
-| label | 标题 | string | no | Android,iOS | yes |
+| url | Path| string | no | Android,iOS | yes |
+| label | Title| string | no | Android,iOS | yes |
 
 ## Known Issues
 
-- [ ] openContactForm: 跳转到系统联系人界面只支持姓名和电话参数传递，需要系统联系人应用支持所有属性，另外创建成功之后无法返回联系人信息，联系人应用目前不支持。[issue#1](https://github.com/react-native-oh-library/react-native-contacts/issues/1)
-- [ ] openExistingContact: 联系人应用新增和编辑是同一个界面，目前参数只支持姓名和电话传递，编辑成功之后也无法拿到联系人信息[issue#1](https://github.com/react-native-oh-library/react-native-contacts/issues/1)
-- [ ] viewExistingContact: 查看界面只有姓名和电话信息，需要联系人应用补齐所有属性[issue#1](https://github.com/react-native-oh-library/react-native-contacts/issues/1)
-- [ ] editExistingContact: 没有单独的只支持编辑电话号码的页面，目前同编辑页面[issue#1](https://github.com/react-native-oh-library/react-native-contacts/issues/1)
-- [ ] writePhotoToPath: 系统联系人应用不支持[issue#1](https://github.com/react-native-oh-library/react-native-contacts/issues/1)
+- [ ] **openContactForm**: Currently, only the name and phone number parameters can be passed to the system contact page, and the contact information cannot be returned after a contact is created. The system contact application must support all properties.[issue#1](https://github.com/react-native-oh-library/react-native-contacts/issues/1)
+- [ ] **openExistingContact**: Currently, the same page is used for adding and editing contacts, and only the name and phone number can be passed. After the contact is edited, the contact information cannot be obtained. [issue#1](https://github.com/react-native-oh-library/react-native-contacts/issues/1)
+- [ ] **viewExistingContact**: Only the name and phone number are displayed on the viewing page. The contact application needs to support all properties. [issue#1](https://github.com/react-native-oh-library/react-native-contacts/issues/1)
+- [ ] **editExistingContact**: There is no independent page for editing only phone numbers. [issue#1](https://github.com/react-native-oh-library/react-native-contacts/issues/1)
+- [ ] **writePhotoToPath**: The system contact application does not support this API. [issue#1](https://github.com/react-native-oh-library/react-native-contacts/issues/1)
 
 ## Others
 

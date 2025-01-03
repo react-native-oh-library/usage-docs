@@ -32,9 +32,9 @@ yarn add react-native-feather@1.1.2
 
 The following code shows the basic use scenario of the repository:
 
-此库可以使用的[图标列表](https://feathericons.com/)
+This library can use the [icon list](https://feathericons.com/).
 
-> [!WARNING] The name of the imported repository remains unchanged.且该库强依赖[@react-native-oh-tpl/react-native-svg](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-svg.md)，请在使用前，安装 svg 库
+> [!WARNING] The name of the imported repository remains unchanged. In addition, this library strongly depends on [@react-native-oh-tpl/react-native-svg](https://gitee.com/react-native-oh-library/usage-docs/blob/master/en/react-native-svg.md), therefore, install the svg library first.
 
 ```js
 import React from "react";
@@ -46,21 +46,21 @@ const FeatherExample = () => {
   return (
     <ScrollView>
       <Text style={{ color: "blue" }}>
-        react-native-feather库只是对svg图进行处理的库,以下展示的demo,均只有图片,没有绑定点击事件
+        The react-native-feather library is only used to process SVG images. The following demos contain only images and are not bound to click events.
       </Text>
       <Text style={{ color: "blue" }}>
-        电池,边线红色,绿色填充,width=150,height=150
+        Battery icon. The stroke is red, the filling color is green, and the width and height are 150.
       </Text>
       <Icon.Battery stroke="red" width={150} height={150} fill="green" />
-      <Text style={{ color: "blue" }}>菜单栏,边线绿色,宽高默认为25</Text>
+      <Text style={{ color: "blue" }}> Menu bar. The stroke is green, and the default width and height are 25.</Text>
       <Icon.Menu stroke="green" />
       <Text style={{ color: "blue" }}>
-        播放图标,边线默认为当前颜色,填充色为蓝色,宽高为50
+        Playback icon. The default stroke color is the current color, the filling color is blue, and the width and height are 50.
       </Text>
       <Icon.Video fill="blue" width={50} height={50} />
 
       <Text style={{ color: "blue" }}>
-        第二种使用方法: 对号,颜色为红色,width和height为32
+        Check icon. The stroke color is red and the width and height are 32.
       </Text>
       <Check stroke="red" width={32} height={32} />
     </ScrollView>
@@ -81,15 +81,15 @@ If it is not included, follow the guide provided in [@react-native-oh-tpl/react-
 ### Compatibility
 
 1. RNOH: 0.72.13; SDK: HarmonyOS NEXT Developer Preview1; IDE: DevEco Studio 4.1.3.500; ROM: 204.1.0.59;
-2. RNOH: 0.72.20; SDK: HarmonyOS NEXT Developer Beta1 B.0.18、HarmonyOS NEXT Developer Preview0 B.0.60、HarmonyOS NEXT Developer Preview2 B.0.73; IDE: DevEco Studio 5.0.3.200; ROM: 2.0.0.18;
+2. RNOH: 0.72.20; SDK: HarmonyOS NEXT Developer Beta1 B.0.18, HarmonyOS NEXT Developer Preview0 B.0.60, HarmonyOS NEXT Developer Preview2 B.0.73; IDE: DevEco Studio 5.0.3.200; ROM: 2.0.0.18;
 
 ## Properties
 
-所有[SVG 属性](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-svg.md)均可使用
+This library receives all [SVG properties](https://gitee.com/react-native-oh-library/usage-docs/blob/master/en/react-native-svg.md).
 
 ### feather
 
-该库为 UI 组件库，通过配置属性标签，实现对应的功能。
+This library is a UI component library. You can configure properties to implement corresponding functionalities.
 
 | Prop        | Description                                                          | Default      | HarmonyOS Support |
 | ----------- | -------------------------------------------------------------------- | ------------ | ----------------- |
@@ -103,12 +103,12 @@ If it is not included, follow the guide provided in [@react-native-oh-tpl/react-
 
 ## Others
 
-以下事项与原库保持一致需注意遵循:
+The following items must be consistent with those in the original library:
 
-1. 在使用该库前，请保证按照上文"Link"的提示，已经安装 [`react-native-svg`](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-svg.md)。
-2. 此组件包含所有 [`react-native-svg`](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-svg.md) 兼容的所有 Feather 图标。
-3. 基于 Feather 图标库版本为 V4.28.0。
+1. Before using this library, ensure that [`react-native-svg`](https://gitee.com/react-native-oh-library/usage-docs/blob/master/en/react-native-svg.md) has been installed.
+2. This component contains all Feather icons that are compatible with [`react-native-svg`](https://gitee.com/react-native-oh-library/usage-docs/blob/master/en/react-native-svg.md).
+3. This library is based on Feather V4.28.0.
 
 ## License
 
-This project is licensed under [The MIT License (MIT)](https://www.mit-license.org).
+This project is licensed under [MIT License](https://www.mit-license.org).

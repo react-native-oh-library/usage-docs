@@ -88,7 +88,7 @@ export default class TestPage extends Component {
 This document is verified based on the following versions:
 
 1. RNOH: 0.72.29; SDK: HarmonyOS NEXT Developer Beta6; IDE: DevEco Studio 5.0.3.706; ROM: NEXT.0.0.65;
-2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
+2. RNOH: 0.72.33; SDK: OpenHarmony 5.0.0.71 (API Version 12 Release); IDE: DevEco Studio 5.0.3.900; ROM: NEXT.0.0.71;
 
 ## Properties
 
@@ -100,46 +100,46 @@ This document is verified based on the following versions:
 
 | Name             | Description                                       | Type           | Required | Platform    | HarmonyOS Support |
 | ---------------- | ------------------------------------------------- | -------------- | -------- | ----------- | ----------------- |
-| duration         | 执行完成整个动画所需要的时间(ms)不常用            | number         | yes      | iOS/Android | yes               |
-| speed            | 平均的滚动速度，跑马灯使用这个属性（建议传入 60） | number         | no       | iOS/Android | yes               |
-| textList         | 滚动的文字数组，具体数据格式请参照 textList.item  | array          | yes      | iOS/Android | yes               |
-| width            | 宽度，不能使用 flex                               | number         | yes      | iOS/Android | yes               |
-| height           | 高度，不能使用 flex                               | number         | yes      | iOS/Android | yes               |
-| direction        | 动画方向(向左向右滚动)`left` or `right`           | string         | yes      | iOS/Android | yes               |
-| reverse          | 是否将整个文本数据倒叙显示                        | boolean        | yes      | iOS/Android | yes               |
-| separator        | 两个 item 之间的间隙                              | number         | yes      | iOS/Android | yes               |
-| bgContainerStyle | 背景样式                                          | object         | no       | iOS/Android | yes               |
-| textStyle        | 文本样式                                          | object         | no       | iOS/Android | yes               |
-| onTextClick      | 点击事件回调                                      | (item) => void | yes      | iOS/Android | yes               |
+| duration         | Time (ms) required to complete the entire animation. It is not commonly used.           | number         | yes      | iOS/Android | yes               |
+| speed            | Average scrolling speed. This property is used for marquee (**60** is recommended).| number         | no       | iOS/Android | yes               |
+| textList         | Scrolling text array. For details about the data format, see textList.item. | array          | yes      | iOS/Android | yes               |
+| width            | Width. Flex is not allowed.                              | number         | yes      | iOS/Android | yes               |
+| height           | Height. Flex is not allowed.                              | number         | yes      | iOS/Android | yes               |
+| direction        | Animation scrolling direction, `left` or `right`.          | string         | yes      | iOS/Android | yes               |
+| reverse          | Whether to display the entire text data in reverse order.                       | boolean        | yes      | iOS/Android | yes               |
+| separator        | Separator between two items.                             | number         | yes      | iOS/Android | yes               |
+| bgContainerStyle | Background style.                                         | object         | no       | iOS/Android | yes               |
+| textStyle        | Text style.                                         | object         | no       | iOS/Android | yes               |
+| onTextClick      | Callback for the click event.                                     | (item) => void | yes      | iOS/Android | yes               |
 
 **MarqueeVertical props**
 
-| Name             | Description                                                                                          | Type           | Required | Platform    | HarmonyOS Support |
-| ---------------- | ---------------------------------------------------------------------------------------------------- | -------------- | -------- | ----------- | ----------------- |
-| duration         | 执行完成整个动画所需要的时间(ms)                                                                     | number         | yes      | iOS/Android | yes               |
-| textList         | 滚动的文字数组，具体数据格式请参照 textList.item                                                     | array          | yes      | iOS/Android | yes               |
-| width            | 宽度，不能使用 flex                                                                                  | number         | no       | iOS/Android | yes               |
-| height           | 高度，不能使用 flex                                                                                  | number         | no       | iOS/Android | yes               |
-| delay            | 文本停顿时间(ms)                                                                                     | number         | yes      | iOS/Android | yes               |
-| direction        | 动画方向(向上向下滚动)`up` or `down`                                                                 | string         | yes      | iOS/Android | yes               |
-| numberOfLines    | 同一个数据的文本行数                                                                                 | number         | yes      | iOS/Android | yes               |
-| headViews        | 在文本最前面加上一个自定义 view，效果如图例所示，用法请参照事例用法，length 长度与 textList 必须一致 | array          | no       | iOS/Android | yes               |
-| viewStyle        | 每一行文本的样式                                                                                     | object         | yes      | iOS/Android | yes               |
-| bgContainerStyle | 背景样式                                                                                             | object         | no       | iOS/Android | yes               |
-| textStyle        | 文本样式                                                                                             | object         | no       | iOS/Android | yes               |
-| onTextClick      | 点击事件回调                                                                                         | (item) => void | yes      | iOS/Android | yes               |
+| Name             | Description                                                  | Type           | Required | Platform    | HarmonyOS Support |
+| ---------------- | ------------------------------------------------------------ | -------------- | -------- | ----------- | ----------------- |
+| duration         | Time required to complete the entire animation (ms).                            | number         | yes      | iOS/Android | yes               |
+| textList         | Scrolling text array. For details about the data format, see textList.item.            | array          | yes      | iOS/Android | yes               |
+| width            | Width. Flex is not allowed.                                         | number         | no       | iOS/Android | yes               |
+| height           | Height. Flex is not allowed.                                         | number         | no       | iOS/Android | yes               |
+| delay            | Text delay (ms).                                            | number         | yes      | iOS/Android | yes               |
+| direction        | Animation scrolling direction, `up` or `down`.                        | string         | yes      | iOS/Android | yes               |
+| numberOfLines    | Number of text lines of the same data.                                        | number         | yes      | iOS/Android | yes               |
+| headViews        | Adds a custom view at the beginning of the text. The effect and usage are shown in the example. The length must be the same as that of textList.| array          | no       | iOS/Android | yes               |
+| viewStyle        | Style of each line of text.                                            | object         | yes      | iOS/Android | yes               |
+| bgContainerStyle | Background style.                                                    | object         | no       | iOS/Android | yes               |
+| textStyle        | Text style.                                                    | object         | no       | iOS/Android | yes               |
+| onTextClick      | Callback for the click event.                                                | (item) => void | yes      | iOS/Android | yes               |
 
 **textList.item props**
 
 | Name     | Description                      | Type     | Required | Platform    | HarmonyOS Support |
 | -------- | -------------------------------- | -------- | -------- | ----------- | ----------------- |
-| label    | 用作点击事件的回调               | string   | yes      | iOS/Android | yes               |
-| value    | 文本显示                         | string   | yes      | iOS/Android | yes               |
-| [object] | 可随意添加数据供自己特殊需求使用 | [object] | no       | iOS/Android | yes               |
+| label    | Callback for the click event.              | string   | yes      | iOS/Android | yes               |
+| value    | Text display.                        | string   | yes      | iOS/Android | yes               |
+| [object] | Data can be added for special use.| [object] | no       | iOS/Android | yes               |
 
 ## Known Issues
 
-- [ ] MarqueeHorizontal 的 reverse 属性在 HarmonyOS 上只有第一次修改会触发生效，而原库在 iOS 上该属性已经失效。未实现 HarmonyOS 化 问题[issue#58](https://github.com/ZhangTaoK/react-native-marquee-ab/issues/58)
+- [ ] The reverse property of MarqueeHorizontal takes effect only when it is modified for the first time in HarmonyOS. However, this property in the original third-party library is invalid in iOS and not compatible. [issue#58](https://github.com/ZhangTaoK/react-native-marquee-ab/issues/58).
 
 ## Others
 

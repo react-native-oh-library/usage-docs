@@ -165,44 +165,44 @@ const styles = StyleSheet.create({
 This document is verified based on the following versions:
 
 1. RNOH: 0.72.20; SDK: HarmonyOS NEXT Developer Beta1; IDE: DevEco Studio 5.0.3.200; ROM: 3.0.0.18;
-2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
+2. RNOH: 0.72.33; SDK: OpenHarmony 5.0.0.71 (API Version 12 Release); IDE: DevEco Studio 5.0.3.900; ROM: NEXT.0.0.71;
 
 ## Properties
 
-> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-该库为 UI 组件库，通过配置属性标签，实现对应的功能。
+This library is a UI component library. You can configure properties to implement corresponding functionalities.
 
-| Name                        | Description                                                                                                                      | Type       | Required | Platform | HarmonyOS Support |
-| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------- | ---------- | -------- | -------- | ----------------- |
-| **`activeProps`**           | 可选属性，在 lightbox 模式下应用于内容组件， 可用于应用自定义样式或更高分辨率的图源。                                            | `object`   | no       | all      | yes               |
-| **`renderHeader(close)`**   | 自定义 header，用于替换默认的 X 按钮                                                                                             | `function` | no       | all      | yes               |
-| **`renderContent`**         | 自定义 lightbox 内容，用于替换默认的子内容                                                                                       | `function` | no       | all      | yes               |
-| **`willClose`**             | lightbox 关闭前触发                                                                                                              | `function` | no       | all      | yes               |
-| **`onClose`**               | lightbox 关闭时触发                                                                                                              | `function` | no       | all      | yes               |
-| **`onOpen`**                | lightbox 打开时触发                                                                                                              | `function` | no       | all      | yes               |
-| **`didOpen`**               | lightbox 打开后触发                                                                                                              | `function` | no       | all      | yes               |
-| **`onLongPress`**           | lightbox 长按时触发                                                                                                              | `function` | no       | all      | yes               |
-| **`onLayout`**              | lightbox 布局完成后触发                                                                                                          | `function` | no       | all      | yes               |
-| **`doubleTapCallback`**     | lightbox 双击时触发                                                                                                              | `function` | no       | all      | yes               |
-| **`doubleTapZoomEnabled`**  | 开启双击缩放功能 , 默认为 `true`                                                                                                 | `boolean`  | no       | all      | yes               |
-| **`doubleTapGapTimer`**     | 确定双击的时间间隔，默认为 `500ms`                                                                                               | `number`   | no       | all      | yes               |
-| **`longPressGapTimer`**     | 确定长按的的时间间隔，默认为 `2000ms`                                                                                            | `number`   | no       | all      | yes               |
-| **`longPressCallback`**     | 内容长按后触发                                                                                                                   | `function` | no       | all      | yes               |
-| **`doubleTapZoomToCenter`** | 双击时缩放到中间                                                                                                                 | `boolean`  | no       | all      | yes               |
-| **`doubleTapMaxZoom`**      | 最大放大系数，默认为 `2`                                                                                                         | `number`   | no       | all      | yes               |
-| **`doubleTapZoomStep`**     | 每次双击的缩放比例，默认为 `0.5`                                                                                                 | `number`   | no       | all      | yes               |
-| **`underlayColor`**         | 可触摸背景的颜色，默认为 `black`                                                                                                 | `string`   | no       | all      | yes               |
-| **`backgroundColor`**       | lightbox 背景颜色，默认为 `black`                                                                                                | `string`   | no       | all      | yes               |
-| **`swipeToDismiss`**        | 启用手势以通过向上或向下轻扫来取消全屏模式，默认为 `true`                                                                        | `bool`     | no       | all      | yes               |
-| **`disabled`**              | 禁用 lightbox。默认为 `false`                                                                                                    | `bool`     | no       | all      | yes               |
-| **`style`**                 | lightbox 视图包装器的样式                                                                                                        | `object`   | no       | all      | yes               |
-| **`dragDismissThreshold`**  | 滑动退出的阈值距离，默认为 `150`                                                                                                 | `number`   | no       | all      | yes               |
-| **`modalProps`**            | 任何其他你需要的 modal 属性，默认为 `{}`                                                                                         | `object`   | no       | all      | yes               |
-| **`useNativeDriver`**       | 是否使用本机驱动程序，默认为 `false`                                                                                             | `bool`     | no       | all      | yes               |
-| **`springConfig`**          | [`Animated.spring`](https://facebook.github.io/react-native/docs/animations.html) 配置， 默认为 `{ tension: 30, friction: 7 }`。 | `object`   | no       | all      | yes               |
+| Name                        | Description                                                  | Type       | Required | Platform | HarmonyOS Support |
+| --------------------------- | ------------------------------------------------------------ | ---------- | -------- | -------- | ----------------- |
+| **`activeProps`**           | (Optional) Applies to the content component in lightbox mode. It can be used to apply a custom style or a higher-resolution image source.| `object`   | no       | all      | yes               |
+| **`renderHeader(close)`**   | Sets the custom header, which is used to replace the default X button.                        | `function` | no       | all      | yes               |
+| **`renderContent`**         | Sets the custom lightbox content, which is used to replace the default subcontent.                  | `function` | no       | all      | yes               |
+| **`willClose`**             | Triggered before the lightbox is closed.                                         | `function` | no       | all      | yes               |
+| **`onClose`**               | Triggered when the lightbox is closed.                                         | `function` | no       | all      | yes               |
+| **`onOpen`**                | Triggered when the lightbox is opened.                                         | `function` | no       | all      | yes               |
+| **`didOpen`**               | Triggered after the lightbox is opened.                                         | `function` | no       | all      | yes               |
+| **`onLongPress`**           | Triggered when the lightbox is long pressed.                                         | `function` | no       | all      | yes               |
+| **`onLayout`**              | Triggered after the lightbox layout is complete.                                     | `function` | no       | all      | yes               |
+| **`doubleTapCallback`**     | Triggered when the lightbox is double-tapped.                                         | `function` | no       | all      | yes               |
+| **`doubleTapZoomEnabled`**  | Sets whether to enable zooming through double-tap. The default value is `true`.                            | `boolean`  | no       | all      | yes               |
+| **`doubleTapGapTimer`**     | Sets the double-tap time gap. The default value is `500 ms`.                          | `number`   | no       | all      | yes               |
+| **`longPressGapTimer`**     | Sets the time gap for long press. The default value is `2000 ms`.                       | `number`   | no       | all      | yes               |
+| **`longPressCallback`**     | Triggered after the content is long pressed.                                              | `function` | no       | all      | yes               |
+| **`doubleTapZoomToCenter`** | Zooms in the view to the center through double-tap.                                            | `boolean`  | no       | all      | yes               |
+| **`doubleTapMaxZoom`**      | The maximum amplification coefficient. The default value is `2`.                                    | `number`   | no       | all      | yes               |
+| **`doubleTapZoomStep`**     | Zoom ratio of each double-tap. The default value is `0.5`.                            | `number`   | no       | all      | yes               |
+| **`underlayColor`**         | Touchable background color. The default value is `black`.                            | `string`   | no       | all      | yes               |
+| **`backgroundColor`**       | The lightbox background color. The default value is `black`.                           | `string`   | no       | all      | yes               |
+| **`swipeToDismiss`**        | Enables gestures to cancel full-screen mode by swiping up or down. The default value is `true`.   | `bool`     | no       | all      | yes               |
+| **`disabled`**              | Disables lightbox. The default value is `false`.                               | `bool`     | no       | all      | yes               |
+| **`style`**                 | Style of the lightbox view wrapper.                                   | `object`   | no       | all      | yes               |
+| **`dragDismissThreshold`**  | Threshold distance for swiping to exit. The default value is `150`.                            | `number`   | no       | all      | yes               |
+| **`modalProps`**            | Modal property. The default value is `{}`.                    | `object`   | no       | all      | yes               |
+| **`useNativeDriver`**       | Whether to use the local driver. The default value is `false`.                        | `bool`     | no       | all      | yes               |
+| **`springConfig`**          | [`Animated.spring`](https://facebook.github.io/react-native/docs/animations.html) configuration. The default value is `{ tension: 30, friction: 7 }`.| `object`   | no       | all      | yes               |
 
 ## Known Issues
 

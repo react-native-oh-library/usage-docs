@@ -16,7 +16,7 @@ Template version: v0.2.2
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-charts-wrapper/Releases](https://github.com/react-native-oh-library/react-native-charts-wrapper/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-charts-wrapper/Releases](https://github.com/react-native-oh-library/react-native-charts-wrapper/releases). For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 Go to the project directory and execute the following instruction:
 
@@ -75,7 +75,7 @@ export default BarChartDemo;
 
 ## Use Codegen
 
-If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/zh-cn/codegen.md).
+If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/en/codegen.md).
 
 ## Link
 
@@ -122,9 +122,9 @@ ohpm install
 
 Method 2: Directly link to the source code.
 
-> [!TIP] For details, see [Directly Linking Source Code](/zh-cn/link-source-code.md).
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
-### 3. Introducing BarCharts、LineCharts、HorizontalBarCharts 、BubbleCharts、PieCharts、RadarCharts、ScatterCharts、CandleStickCharts、CombinedCharts Component to ArkTS
+### 3. Introducing BarCharts, LineCharts, HorizontalBarCharts, BubbleCharts, PieCharts, RadarCharts, ScatterCharts, CandleStickCharts, and CombinedCharts Components to ArkTS
 
 Find `function buildCustomRNComponent()`, which is usually located in `entry/src/main/ets/pages/index.ets` or `entry/src/main/ets/rn/LoadBundle.ets`, and add the following code:
 
@@ -203,9 +203,9 @@ export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
 }
 ```
 
-> [!TIP] 本库使用了混合方案，需要添加组件名。
+> [!TIP] The repository uses a mixed solution, so the component name needs to be added.
 
-在`entry/src/main/ets/pages/index.ets` 或 `entry/src/main/ets/rn/LoadBundle.ets` 找到常量 `arkTsComponentNames` 在其数组里添加组件名
+Find the constant `arkTsComponentNames` in `entry/src/main/ets/pages/index.ets` or `entry/src/main/ets/rn/LoadBundle.ets` and add the component name to the array.
 
 ```diff
 const arkTsComponentNames: Array<string> = [
@@ -273,122 +273,122 @@ Check the release version information in the release address of the third-party 
 
 | Name      | Description                      | Type   | Required | Platform    | HarmonyOS Support |
 | --------- | -------------------------------- | ------ | -------- | ----------- | ----------------- |
-| text      | 设置要显示为说明的文本           | string | No       | iOS/Android | Yes               |
-| textColor | 设置用于标签的文本颜色           | number | No       | iOS/Android | Yes               |
-| textSize  | 设置标签文本的大小               | number | No       | iOS/Android | Yes               |
-| positionX | 设置说明文本在屏幕上的自定义位置 | number | No       | iOS/Android | Yes               |
-| positionY | 设置说明文本在屏幕上的自定义位置 | number | No       | iOS/Android | Yes               |
+| text      | Sets the description to be displayed.          | string | No       | iOS/Android | Yes               |
+| textColor | Sets the text color for labels.          | number | No       | iOS/Android | Yes               |
+| textSize  | Sets the text size for labels.              | number | No       | iOS/Android | Yes               |
+| positionX | Sets the custom position of the description on the screen.| number | No       | iOS/Android | Yes               |
+| positionY | Sets the custom position of the description on the screen.| number | No       | iOS/Android | Yes               |
 
 #### Legend
 
 | Name                | Description              | Type                                         | Required | Platform    | HarmonyOS Support |
 | ------------------- | ------------------------ | -------------------------------------------- | -------- | ----------- | ----------------- |
-| enabled             | 是否设置图表图例部件     | bool                                         | No       | iOS/Android | Yes               |
-| text                | 设置要显示为图例的文本   | string                                       | No       | iOS/Android | Yes               |
-| textColor           | 设置图例文本的颜色       | number                                       | No       | iOS/Android | NO                |
-| textSize            | 设置图例文本的大小       | number                                       | No       | iOS/Android | Yes               |
-| fontFamily          | 图例部件的字体           | string                                       | No       | iOS/Android | Yes               |
-| wordWrapEnabled     | 设置图例文字是否换行     | bool                                         | No       | iOS/Android | Yes               |
-| maxSizePercent      | 图例部件最大大小百分比   | number                                       | No       | iOS/Android | NO                |
-| horizontalAlignment | 图例部件水平对齐         | one of `'LEFT', 'CENTER', 'RIGHT'`           | No       | iOS/Android | Yes               |
-| verticalAlignment   | 图例部件垂直对齐         | one of `'TOP', 'CENTER', 'BOTTOM'`           | No       | iOS/Android | Yes               |
-| orientation         | 设置图例的方向           | one of `'HORIZONTAL', 'VERTICAL'`            | No       | iOS/Android | Yes               |
-| drawInside          | 图例部件是否在内部绘制   | bool                                         | No       | iOS/Android | Yes               |
-| direction           | 设置图例的文本方向       | one of `LEFT_TO_RIGHT', 'RIGHT_TO_LEFT`      | No       | iOS/Android | Yes               |
-| form                | 设置图例形式的形式/形状  | string                                       | No       | iOS/Android | Yes               |
-| formSize            | 设置图例格式的大小       | number                                       | No       | iOS/Android | Yes               |
-| xEntrySpace         | 设置横轴上图例条目的间距 | number                                       | No       | iOS/Android | Yes               |
-| yEntrySpace         | 设置竖轴上图例条目的间距 | number                                       | No       | iOS/Android | Yes               |
-| formToTextSpace     | 图例部件图标到文字的间距 | number                                       | No       | iOS/Android | Yes               |
-| custom              | 设置自定义图例的条目数组 | {` `colors: [number],` `labels: [string]` `} | No       | iOS/Android | NO                |
+| enabled             | Sets whether to enable Legend.    | bool                                         | No       | iOS/Android | Yes               |
+| text                | Sets the text to be displayed as a legend.  | string                                       | No       | iOS/Android | Yes               |
+| textColor           | Sets the color of the legend text.      | number                                       | No       | iOS/Android | NO                |
+| textSize            | Sets the size of the legend text.      | number                                       | No       | iOS/Android | Yes               |
+| fontFamily          | Sets the font family of Legend.          | string                                       | No       | iOS/Android | Yes               |
+| wordWrapEnabled     | Sets whether to wrap the legend text.    | bool                                         | No       | iOS/Android | Yes               |
+| maxSizePercent      | Sets the maximum size percentage of Legend.  | number                                       | No       | iOS/Android | NO                |
+| horizontalAlignment | Sets the horizontal alignment mode of Legend.        | one of `'LEFT', 'CENTER', 'RIGHT'`           | No       | iOS/Android | Yes               |
+| verticalAlignment   | Sets the vertical alignment mode of Legend.        | one of `'TOP', 'CENTER', 'BOTTOM'`           | No       | iOS/Android | Yes               |
+| orientation         | Sets the legend orientation.          | one of `'HORIZONTAL', 'VERTICAL'`            | No       | iOS/Android | Yes               |
+| drawInside          | Sets whether to draw Legend inside.  | bool                                         | No       | iOS/Android | Yes               |
+| direction           | Sets the text direction of the legend.      | one of `LEFT_TO_RIGHT', 'RIGHT_TO_LEFT`      | No       | iOS/Android | Yes               |
+| form                | Sets the legend form or shape. | string                                       | No       | iOS/Android | Yes               |
+| formSize            | Sets the form size of the legend.      | number                                       | No       | iOS/Android | Yes               |
+| xEntrySpace         | Sets the space between legends on the horizontal axis.| number                                       | No       | iOS/Android | Yes               |
+| yEntrySpace         | Sets the space between legends on the vertical axis.| number                                       | No       | iOS/Android | Yes               |
+| formToTextSpace     | Sets the space between Legend icon and text.| number                                       | No       | iOS/Android | Yes               |
+| custom              | Sets the item array of the custom legend.| {` `colors: [number],` `labels: [string]` `} | No       | iOS/Android | NO                |
 
 #### xAxis and yAxis
 
-| Name                     | Description                              | Type                                                                  | Required | Platform    | HarmonyOS Support |
-| ------------------------ | ---------------------------------------- | --------------------------------------------------------------------- | -------- | ----------- | ----------------- |
-| enabled                  | 是否绘制该组件                           | bool                                                                  | No       | iOS/Android | Yes               |
-| drawLabels               | 设置绘制此轴的标签                       | bool                                                                  | No       | iOS/Android | Yes               |
-| drawAxisLine             | 设置轴旁边的线                           | bool                                                                  | No       | iOS/Android | Yes               |
-| drawGridLines            | 是否启用此轴的网格线绘制                 | bool                                                                  | No       | iOS/Android | Yes               |
-| textColor                | 设置用于标签的文本颜色                   | number                                                                | No       | iOS/Android | Yes               |
-| textSize                 | 设置用于标签的文本大小                   | number                                                                | No       | iOS/Android | Yes               |
-| fontFamily               | X 轴 Y 轴标签的字体                      | string                                                                | No       | iOS/Android | Yes               |
-| gridColor                | 设置此坐标轴的网格线（水平线）的颜色     | bool                                                                  | No       | iOS/Android | Yes               |
-| gridLineWidth            | 设置远离每个轴绘制的栅格线的宽度         | bool                                                                  | No       | iOS/Android | Yes               |
-| axisLineColor            | 设置图表周围边框的颜色                   | bool                                                                  | No       | iOS/Android | Yes               |
-| axisLineWidth            | 设置图表周围边框的宽度                   | bool                                                                  | No       | iOS/Android | Yes               |
-| gridDashedLine           | 设置以虚线模式绘制网格线                 | {` `lineLength: number,` `spaceLength: number,` `phase: number` `}` ` | No       | iOS/Android | Yes               |
-| limitLines               | 设置限制线                               | array[]                                                               | No       | iOS/Android | Yes               |
-| drawLimitLinesBehindData | 设置在实际数据之后绘制限制线             | bool                                                                  | No       | iOS/Android | Yes               |
-| axisMaximum              | 设置轴的最大标签数                       | number                                                                | No       | iOS/Android | Yes               |
-| axisMinimum              | 设置轴的最小标签数                       | number                                                                | No       | iOS/Android | Yes               |
-| granularity              | 设置轴放大时的最小间隔                   | number                                                                | No       | iOS/Android | Yes               |
-| granularityEnabled       | 设置轴值间隔的粒度控制                   | bool                                                                  | No       | iOS/Android | Yes               |
-| labelCount               | 设置 y 轴的标签条目数                    | number                                                                | No       | iOS/Android | Yes               |
-| labelCountForce          | 设置 y 轴的标签条目数                    | bool                                                                  | No       | iOS/Android | Yes               |
-| centerAxisLabels         | 将轴标签居中，而不是在其原始位置绘制它们 | bool                                                                  | No       | iOS/Android | Yes               |
+| Name                     | Description                              | Type                                                         | Required | Platform    | HarmonyOS Support |
+| ------------------------ | ---------------------------------------- | ------------------------------------------------------------ | -------- | ----------- | ----------------- |
+| enabled                  | Sets whether to draw the component.                          | bool                                                         | No       | iOS/Android | Yes               |
+| drawLabels               | Sets the label to draw this axis.                      | bool                                                         | No       | iOS/Android | Yes               |
+| drawAxisLine             | Sets the line next to the axis.                          | bool                                                         | No       | iOS/Android | Yes               |
+| drawGridLines            | Sets whether to draw the grid line for this axis.                | bool                                                         | No       | iOS/Android | Yes               |
+| textColor                | Sets the text color for labels.                  | number                                                       | No       | iOS/Android | Yes               |
+| textSize                 | Sets the text size for labels.                  | number                                                       | No       | iOS/Android | Yes               |
+| fontFamily               | Sets the fonts of X-axis and Y-axis labels.                     | string                                                       | No       | iOS/Android | Yes               |
+| gridColor                | Sets the grid line (horizontal line) color of this axis.    | bool                                                         | No       | iOS/Android | Yes               |
+| gridLineWidth            | Sets the width of the grid line drawn away from each axis.        | bool                                                         | No       | iOS/Android | Yes               |
+| axisLineColor            | Sets the color of the chart border.                  | bool                                                         | No       | iOS/Android | Yes               |
+| axisLineWidth            | Sets the width of the chart border.                  | bool                                                         | No       | iOS/Android | Yes               |
+| gridDashedLine           | Sets to draw the grid with dashed lines.                | {` `lineLength: number,` `spaceLength: number,` `phase: number` `}` ` | No       | iOS/Android | Yes               |
+| limitLines               | Sets the limit line.                              | array[]                                                      | No       | iOS/Android | Yes               |
+| drawLimitLinesBehindData | Sets to draw the limit line behind data.            | bool                                                         | No       | iOS/Android | Yes               |
+| axisMaximum              | Sets the maximum number of labels for the axis.                      | number                                                       | No       | iOS/Android | Yes               |
+| axisMinimum              | Sets the minimum number of labels for the axis.                      | number                                                       | No       | iOS/Android | Yes               |
+| granularity              | Sets the minimum interval for axis zoom-in.                  | number                                                       | No       | iOS/Android | Yes               |
+| granularityEnabled       | Sets the granularity control of the axis value interval.                  | bool                                                         | No       | iOS/Android | Yes               |
+| labelCount               | Sets the number of labels on the Y axis.                   | number                                                       | No       | iOS/Android | Yes               |
+| labelCountForce          | Sets the number of labels on the Y axis.                   | bool                                                         | No       | iOS/Android | Yes               |
+| centerAxisLabels         | Sets axis labels as the center instead of drawing them in their original location.| bool                                                         | No       | iOS/Android | Yes               |
 
 ### xAxis
 
 | Name                   | Description                                         | Type   | Required | Platform    | HarmonyOS Support |
 | ---------------------- | --------------------------------------------------- | ------ | -------- | ----------- | ----------------- |
-| labelRotationAngle     | 设置绘制 X 轴标签的角度（以度为单位）               | number | No       | iOS/Android | Yes               |
-| avoidFirstLastClipping | 如果设置为 true，图表将避免第一个和最后一个标签条目 | bool   | No       | iOS/Android | Yes               |
-| position               | 设置 X 轴标签的位置                                 | string | No       | iOS/Android | Yes               |
-| yOffset                | 为该轴上的标签设置使用的 y 轴偏移量                 | string | No       | iOS/Android | Yes               |
+| labelRotationAngle     | Sets the angle (in degrees) at which the X-axis label is drawn.              | number | No       | iOS/Android | Yes               |
+| avoidFirstLastClipping | If it is set to **true**, the chart will avoid the first and last labels.| bool   | No       | iOS/Android | Yes               |
+| position               | Sets the position of the X-axis label.                                | string | No       | iOS/Android | Yes               |
+| yOffset                | Sets the Y-axis offset for the label on this axis.                | string | No       | iOS/Android | Yes               |
 
 ### yAxis
 
-| Name        | Description                                        | Type                                                            | Required | Platform    | HarmonyOS Support |
-| ----------- | -------------------------------------------------- | --------------------------------------------------------------- | -------- | ----------- | ----------------- |
-| inverted    | 设置为 true，则反转 y 轴，这意味着低值位于图表底部 | number                                                          | No       | iOS/Android | Yes               |
-| spaceTop    | 设置顶轴间距，以占满量程的百分比为单位             | bool                                                            | No       | iOS/Android | Yes               |
-| spaceBottom | 设置底轴间距，以占满量程的百分比为单位             | number                                                          | No       | iOS/Android | Yes               |
-| position    | 设置 y 标签的位置                                  | number                                                          | No       | iOS/Android | Yes               |
-| maxWidth    | 设置轴可以采用的最大宽度                           | bool                                                            | No       | iOS/Android | Yes               |
-| minWidth    | 设置轴可以采用的最小宽度                           | string                                                          | No       | iOS/Android | Yes               |
-| zeroLine    | 设置网格线                                         | {` `enabled: bool,` `lineWidth: number,` `lineColor: number` `} | No       | iOS/Android | Yes               |
+| Name        | Description                                        | Type                                                         | Required | Platform    | HarmonyOS Support |
+| ----------- | -------------------------------------------------- | ------------------------------------------------------------ | -------- | ----------- | ----------------- |
+| inverted    | If it is set to **true**, the Y axis is inverted, which means that the low value is at the bottom of the chart.| number                                                       | No       | iOS/Android | Yes               |
+| spaceTop    | Sets the top axis space, in percentage of the full scale.            | bool                                                         | No       | iOS/Android | Yes               |
+| spaceBottom | Sets the bottom axis space, in percentage of the full scale.            | number                                                       | No       | iOS/Android | Yes               |
+| position    | Sets the position of the Y label.                                 | number                                                       | No       | iOS/Android | Yes               |
+| maxWidth    | Sets the maximum width of the axis.                          | bool                                                         | No       | iOS/Android | Yes               |
+| minWidth    | Sets the minimum width of the axis.                          | string                                                       | No       | iOS/Android | Yes               |
+| zeroLine    | Sets the grid line.                                        | {` `enabled: bool,` `lineWidth: number,` `lineColor: number` `} | No       | iOS/Android | Yes               |
 
 ### Chart Base
 
 | Name                         | Description          | Type        | Required | Platform    | HarmonyOS Support |
 | ---------------------------- | -------------------- | ----------- | -------- | ----------- | ----------------- |
-| animation                    | 设置图表动画         | object      | No       | iOS/Android | Yes               |
-| chartBackgroundColor         | 设置图表背景颜色     | number      | No       | iOS/Android | NO                |
-| logEnabled                   | 启用日志             | bool        | No       | iOS/Android | NO                |
-| noDataText                   | 设置无数据文本       | string      | No       | iOS/Android | Yes               |
-| noDataTextColor              | 设置无数据文本颜色   | number      | No       | iOS/Android | Yes               |
-| touchEnabled                 | 设置触摸             | bool        | No       | iOS/Android | Yes               |
-| dragDecelerationEnabled      | 设置拖拽减速         | bool        | No       | iOS/Android | Yes               |
-| dragDecelerationFrictionCoef | 设置阻力减速摩擦系数 | function    | No       | iOS/Android | Yes               |
-| chartDescription             | 设置描述部件         | Description | No       | iOS/Android | Yes               |
-| legend                       | 设置图例             | Legend      | No       | iOS/Android | Yes               |
-| xAxis                        | 设置 X 轴            | Xaxis       | No       | iOS/Android | Yes               |
-| highlights                   | 设置高亮             | object      | No       | iOS/Android | NO                |
+| animation                    | Sets the chart animation.        | object      | No       | iOS/Android | Yes               |
+| chartBackgroundColor         | Sets the chart background color.    | number      | No       | iOS/Android | NO                |
+| logEnabled                   | Enables logs.            | bool        | No       | iOS/Android | NO                |
+| noDataText                   | Sets the text without data.      | string      | No       | iOS/Android | Yes               |
+| noDataTextColor              | Sets the color of the text without data.  | number      | No       | iOS/Android | Yes               |
+| touchEnabled                 | Enables touch.            | bool        | No       | iOS/Android | Yes               |
+| dragDecelerationEnabled      | Sets the drag deceleration.        | bool        | No       | iOS/Android | Yes               |
+| dragDecelerationFrictionCoef | Sets the friction coefficient of resistance deceleration.| function    | No       | iOS/Android | Yes               |
+| chartDescription             | Sets the description component.        | Description | No       | iOS/Android | Yes               |
+| legend                       | Sets the legend.            | Legend      | No       | iOS/Android | Yes               |
+| xAxis                        | Sets the X axis.           | Xaxis       | No       | iOS/Android | Yes               |
+| highlights                   | Sets the highlight.            | object      | No       | iOS/Android | NO                |
 
 ### BarLineChartBase
 
-| Name                   | Description                                                                                   | Type                          | Required | Platform    | HarmonyOS Support |
-| ---------------------- | --------------------------------------------------------------------------------------------- | ----------------------------- | -------- | ----------- | ----------------- |
-| drawGridBackground     | 是否设置网格背景颜色                                                                          | bool                          | No       | iOS/Android | Yes               |
-| gridBackgroundColor    | 设置网格背景颜色                                                                              | number                        | No       | iOS/Android | Yes               |
-| drawBorders            | 是否设置边框                                                                                  | bool                          | No       | iOS/Android | Yes               |
-| borderColor            | 设置边框颜色                                                                                  | number                        | No       | iOS/Android | Yes               |
-| borderWidth            | 设置边框宽度                                                                                  | number                        | No       | iOS/Android | Yes               |
-| minOffset              | 设置最小偏移                                                                                  | number                        | No       | iOS/Android | Yes               |
-| maxVisibleValueCount   | 设置最大条目数                                                                                | number                        | No       | iOS/Android | Yes               |
-| visibleRange           | 限制通过捏合和缩放可以看到的最大和最小 x 范围                                                 | object                        | No       | iOS/Android | NO                |
-| autoScaleMinMaxEnabled | 是否设置 Y 轴的自动缩放标记                                                                   | bool                          | No       | iOS/Android | Yes               |
-| keepPositionOnRotation | 设置图表在旋转（方向更改）后是否应保持其位置（缩放/滚动                                       | bool                          | No       | iOS/Android | NO                |
-| scaleEnabled           | 是否启用缩放                                                                                  | bool                          | No       | iOS/Android | Yes               |
-| scaleXEnabled          | 是否启用 X 轴缩放                                                                             | bool                          | No       | iOS/Android | Yes               |
-| scaleYEnabled          | 是否启用 Y 轴缩放                                                                             | bool                          | No       | iOS/Android | Yes               |
-| dragEnabled            | 是否设置拖动                                                                                  | bool                          | No       | iOS/Android | Yes               |
-| pinchZoom              | 如果设置为 true，则 x 和 y 轴都可以用 2 个手指同时缩放，如果为 false，x 轴和 y 轴可以单独缩放 | bool                          | No       | iOS/Android | Yes               |
-| doubleTapToZoomEnabled | 将此属性设置为 true 可通过双击图表启用放大功能                                                | bool                          | No       | iOS/Android | Yes               |
-| yAxis                  | 设置 Y 轴                                                                                     | { left: YAxis, right: YAxis } | No       | iOS/Android | Yes               |
-| zoom                   | 按给定的比例因子放大或缩小                                                                    | object                        | No       | iOS/Android | Yes               |
-| viewPortOffsets        | 设置当前 ViewPort 的自定义偏移（在视图两侧的偏移）                                            | object                        | No       | iOS/Android | Yes               |
+| Name                   | Description                                                  | Type                          | Required | Platform    | HarmonyOS Support |
+| ---------------------- | ------------------------------------------------------------ | ----------------------------- | -------- | ----------- | ----------------- |
+| drawGridBackground     | Sets whether to draw the grid background color.                                        | bool                          | No       | iOS/Android | Yes               |
+| gridBackgroundColor    | Sets the grid background color.                                            | number                        | No       | iOS/Android | Yes               |
+| drawBorders            | Sets whether to draw borders.                                                | bool                          | No       | iOS/Android | Yes               |
+| borderColor            | Sets the border color.                                                | number                        | No       | iOS/Android | Yes               |
+| borderWidth            | Sets the border width.                                                | number                        | No       | iOS/Android | Yes               |
+| minOffset              | Sets the minimum offset.                                                | number                        | No       | iOS/Android | Yes               |
+| maxVisibleValueCount   | Sets the maximum counts.                                              | number                        | No       | iOS/Android | Yes               |
+| visibleRange           | Limits the visible maximum and minimum x range through pinch zooming.               | object                        | No       | iOS/Android | NO                |
+| autoScaleMinMaxEnabled | Whether to set the autoscale label of the Y axis.                                 | bool                          | No       | iOS/Android | Yes               |
+| keepPositionOnRotation | Whether a chart should keep its position (zoom/scroll) after rotation (orientation change).     | bool                          | No       | iOS/Android | NO                |
+| scaleEnabled           | Whether to enable scaling.                                                | bool                          | No       | iOS/Android | Yes               |
+| scaleXEnabled          | Whether to enable X-axis scaling.                                           | bool                          | No       | iOS/Android | Yes               |
+| scaleYEnabled          | Whether to enable Y-axis scaling.                                           | bool                          | No       | iOS/Android | Yes               |
+| dragEnabled            | Whether to enable drag.                                                | bool                          | No       | iOS/Android | Yes               |
+| pinchZoom              | If it is set to **true**, the X and Y axes can be zoomed with two fingers at the same time. If it is set to **false**, the X and Y axes can be zoomed separately.| bool                          | No       | iOS/Android | Yes               |
+| doubleTapToZoomEnabled | If it is set to **true**, you can double-tap the chart to enable zooming.              | bool                          | No       | iOS/Android | Yes               |
+| yAxis                  | Sets the Y axis.                                                   | { left: YAxis, right: YAxis } | No       | iOS/Android | Yes               |
+| zoom                   | Zooms in or out based on a specified scale factor.                                  | object                        | No       | iOS/Android | Yes               |
+| viewPortOffsets        | Sets the custom offset of the current viewport (offset on both sides of the view).          | object                        | No       | iOS/Android | Yes               |
 
 ### Data Config Type
 
@@ -396,286 +396,286 @@ Check the release version information in the release address of the third-party 
 
 | Name             | Description                                 | Type     | Required | Platform    | HarmonyOS Support |
 | ---------------- | ------------------------------------------- | -------- | -------- | ----------- | ----------------- |
-| colors           | 设置应用于此数据集的颜色,由多个颜色组成     | number[] | No       | iOS/Android | Yes               |
-| highlightEnabled | 设置是否高亮                                | bool     | No       | iOS/Android | Yes               |
-| drawValues       | 设置绘制值                                  | bool     | No       | iOS/Android | Yes               |
-| valueTextSize    | 设置值的文本大小                            | number   | No       | iOS/Android | Yes               |
-| valueTextColor   | 设置值的文本颜色                            | number   | No       | iOS/Android | Yes               |
-| visible          | 设置值是否可见                              | bool     | No       | iOS/Android | Yes               |
-| valueFormatter   | 设置数据格式器                              | string   | No       | iOS/Android | NO                |
-| axisDependency   | 设置绘制此数据集所依据的 Y 轴（左轴或右轴） | string   | No       | iOS/Android | Yes               |
+| colors           | Sets the color applied to the dataset. It consists of multiple colors.    | number[] | No       | iOS/Android | Yes               |
+| highlightEnabled | Sets whether to enable highlight.                               | bool     | No       | iOS/Android | Yes               |
+| drawValues       | Sets the drawing value.                                 | bool     | No       | iOS/Android | Yes               |
+| valueTextSize    | Sets the text size of a value.                           | number   | No       | iOS/Android | Yes               |
+| valueTextColor   | Sets the text color of a value.                           | number   | No       | iOS/Android | Yes               |
+| visible          | Sets whether the value is visible.                             | bool     | No       | iOS/Android | Yes               |
+| valueFormatter   | Sets the data formatter.                             | string   | No       | iOS/Android | NO                |
+| axisDependency   | Sets the Y axis (left or right) on which the dataset is drawn.| string   | No       | iOS/Android | Yes               |
 
 #### barLineScatterCandleBubble
 
 | Name           | Description                      | Type   | Required | Platform    | HarmonyOS Support |
 | -------------- | -------------------------------- | ------ | -------- | ----------- | ----------------- |
-| highlightColor | 设置用于绘制突出显示指示器的颜色 | number | No       | iOS/Android | Yes               |
+| highlightColor | Sets the color used to draw the highlight indicator.| number | No       | iOS/Android | Yes               |
 
 #### lineScatterCandleRadar
 
 | Name                             | Description                                             | Type   | Required | Platform    | HarmonyOS Support |
 | -------------------------------- | ------------------------------------------------------- | ------ | -------- | ----------- | ----------------- |
-| drawVerticalHighlightIndicator   | 启用/禁用垂直突出显示指示器。如果禁用，则不绘制指示器。 | bool   | No       | iOS/Android | Yes               |
-| drawHorizontalHighlightIndicator | 启用/禁用水平突出显示指示器。如果禁用，则不绘制指示器   | bool   | No       | iOS/Android | Yes               |
-| highlightLineWidth               | 高亮线宽                                                | number | No       | iOS/Android | Yes               |
+| drawVerticalHighlightIndicator   | Whether to enable the vertical highlight indicator. If the value is **false**, the indicator is not drawn.| bool   | No       | iOS/Android | Yes               |
+| drawHorizontalHighlightIndicator | Whether to enable the horizontal highlight indicator. If the value is **false**, the indicator is not drawn.  | bool   | No       | iOS/Android | Yes               |
+| highlightLineWidth               | Highlights the line width.                                               | number | No       | iOS/Android | Yes               |
 
 #### lineRadar
 
 | Name       | Description | Type | Required | Platform    | HarmonyOS Support |
 | ---------- | ----------- | ---- | -------- | ----------- | ----------------- |
-| fillColor  | 填充颜色    | bool | No       | iOS/Android | Yes               |
-| fillAlpha  | 填充透明度  | bool | No       | iOS/Android | Yes               |
-| drawFilled | 是否填充    | bool | No       | iOS/Android | Yes               |
+| fillColor  | Fill color.   | bool | No       | iOS/Android | Yes               |
+| fillAlpha  | Sets the fill transparency. | bool | No       | iOS/Android | Yes               |
+| drawFilled | Sets whether to enable fill.   | bool | No       | iOS/Android | Yes               |
 
 #### PieRadarChartBase
 
 | Name            | Description                                  | Type   | Required | Platform    | HarmonyOS Support |
 | --------------- | -------------------------------------------- | ------ | -------- | ----------- | ----------------- |
-| minOffset       | 设置图表周围的最小偏移量（填充），默认值为 0 | number | No       | iOS/Android | Yes               |
-| rotationEnabled | 将此属性设置为 true 可通过触摸启用图表的旋转 | bool   | No       | iOS/Android | Yes               |
-| rotationAngle   | 为雷达图的旋转设置偏移量（以度为单位）       | number | No       | iOS/Android | Yes               |
+| minOffset       | Sets the minimum offset (fill) around the chart. The default value is **0**.| number | No       | iOS/Android | Yes               |
+| rotationEnabled | If it is set to **true**, you can enable the rotation gestures on the chart.| bool   | No       | iOS/Android | Yes               |
+| rotationAngle   | Sets the offset (in degrees) for the radar chart rotation.      | number | No       | iOS/Android | Yes               |
 
 ### BarChart
 
-| Name              | Description                                                           | Type    | Required | Platform    | HarmonyOS Support |
-| ----------------- | --------------------------------------------------------------------- | ------- | -------- | ----------- | ----------------- |
-| drawValueAboveBar | 如果设置为 true，则所有值都绘制在其条形上方，而不是绘制在其顶部下方。 | bool    | No       | iOS/Android | Yes               |
-| drawBarShadow     | 如果设置为 true，则在每个条形后面绘制一个灰色区域，表示最大值         | bool    | No       | iOS/Android | Yes               |
-| barWidth          | 设置每个条形在 x 轴上应具有的宽度                                     | number  | No       | iOS/Android | Yes               |
-| topRadius         | 设置顶部圆角半径                                                      | number  | No       | iOS/Android | Yes               |
-| group             | 所有 BarDataSet 对象组合在一起                                        | object  | No       | iOS/Android | Yes               |
-| data              | 柱状图数据                                                            | BarData | Yes      | iOS/Android | Yes               |
+| Name              | Description                                                  | Type    | Required | Platform    | HarmonyOS Support |
+| ----------------- | ------------------------------------------------------------ | ------- | -------- | ----------- | ----------------- |
+| drawValueAboveBar | If it is set to **true**, all values are drawn above the bars, not below the top.| bool    | No       | iOS/Android | Yes               |
+| drawBarShadow     | If it is set to **true**, a gray area is drawn after each bar, indicating the maximum value.| bool    | No       | iOS/Android | Yes               |
+| barWidth          | Sets the width of each bar on the X axis.                           | number  | No       | iOS/Android | Yes               |
+| topRadius         | Sets the top radius of the bar.                                            | number  | No       | iOS/Android | Yes               |
+| group             | Groups all BarDataSet objects.                              | object  | No       | iOS/Android | Yes               |
+| data              | Column chart data.                                                  | BarData | Yes      | iOS/Android | Yes               |
 
 #### BarData Config
 
 | Name                       | Description                                          | Type                                                         | Required | Platform    | HarmonyOS Support |
 | -------------------------- | ---------------------------------------------------- | ------------------------------------------------------------ | -------- | ----------- | ----------------- |
-| barShadowColor             | 设置用于绘制条形阴影的颜色                           | number                                                       | No       | iOS/Android | Yes               |
-| highlightAlpha             | 设置用于绘制高光的 alpha 值（透明度                  | number                                                       | No       | iOS/Android | Yes               |
-| stackLabels                | 为不同值的条形栈设置标签                             | string[]                                                     | No       | iOS/Android | NO                |
-| common                     | 公共数据数据                                         | Data Config Type.Common                                      | No       | iOS/Android | Yes               |
-| barLineScatterCandleBubble | 柱状图、条形图、散点图、气泡图、烛台图的公共基础数据 | Data Config Type.CommonConfigType.barLineScatterCandleBubble | No       | iOS/Android | Yes               |
+| barShadowColor             | Sets the color used to draw bar shadows.                          | number                                                       | No       | iOS/Android | Yes               |
+| highlightAlpha             | Sets the alpha value used to draw highlights (transparency).                 | number                                                       | No       | iOS/Android | Yes               |
+| stackLabels                | Sets labels for bar stacks with different values.                            | string[]                                                     | No       | iOS/Android | NO                |
+| common                     | Common data.                                        | Data Config Type.Common                                      | No       | iOS/Android | Yes               |
+| barLineScatterCandleBubble | Common basic data of column chart, bar chart, scatter chart, bubble chart, and candlestick chart.| Data Config Type.CommonConfigType.barLineScatterCandleBubble | No       | iOS/Android | Yes               |
 
 #### BarData Values
 
 | Name | Description | Type   | Required | Platform    | HarmonyOS Support |
 | ---- | ----------- | ------ | -------- | ----------- | ----------------- |
-| X    | X 轴数据    | number | Yes      | iOS/Android | Yes               |
-| Y    | Y 轴数据    | number | Yes      | iOS/Android | Yes               |
+| X    | X-axis data.   | number | Yes      | iOS/Android | Yes               |
+| Y    | Y-axis data.   | number | Yes      | iOS/Android | Yes               |
 
 ### HorizontalBarChart
 
 | Name | Description    | Type    | Required | Platform    | HarmonyOS Support |
 | ---- | -------------- | ------- | -------- | ----------- | ----------------- |
-| data | 水平柱状图数据 | BarData | Yes      | iOS/Android | Yes               |
+| data | Horizontal bar chart data.| BarData | Yes      | iOS/Android | Yes               |
 
 ### CandleStickChart
 
 | Name | Description | Type       | Required | Platform    | HarmonyOS Support |
 | ---- | ----------- | ---------- | -------- | ----------- | ----------------- |
-| data | 烛台图数据  | CandleData | Yes      | iOS/Android | Yes               |
+| data | Candlestick chart data. | CandleData | Yes      | iOS/Android | Yes               |
 
 #### CandleData Config
 
 | Name                       | Description                                                 | Type                                                         | Required | Platform    | HarmonyOS Support |
 | -------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- | ----------- | ----------------- |
-| common                     | 公共数据数据                                                | Data Config Type.Common                                      | No       | iOS/Android | Yes               |
-| barLineScatterCandleBubble | 柱状图、条形图、散点图、气泡图、烛台图的公共基础数据        | Data Config Type.CommonConfigType.barLineScatterCandleBubble | No       | iOS/Android | Yes               |
-| lineScatterCandleRadar     | 柱状图、烛台图、散点图、雷达图的公共基础数据                | Data Config Type.CommonConfigType.lineScatterCandleRadar     | No       | iOS/Android | Yes               |
-| barSpace                   | 设置在每个的左侧和右侧留出的空间 烛光                       | number                                                       | No       | iOS/Android | Yes               |
-| shadowWidth                | 以像素为单位设置蜡烛阴影线的宽度。                          | number                                                       | No       | iOS/Android | Yes               |
-| shadowColor                | 设置所有条目的阴影颜色                                      | number                                                       | No       | iOS/Android | Yes               |
-| shadowColorSameAsCandle    | 将阴影颜色设置为与蜡烛颜色相同的颜色                        | bool                                                         | No       | iOS/Android | Yes               |
-| neutralColor               | 设置在以下情况下应用于此数据集的唯一颜色 \*打开==关闭。     | number                                                       | No       | iOS/Android | Yes               |
-| decreasingColor            | 设置在以下情况下应用于此数据集的唯一颜色 \*打开>关闭。      | number                                                       | No       | iOS/Android | Yes               |
-| decreasingPaintStyle       | 设置打开>关闭时的绘制样式                                   | string                                                       | No       | iOS/Android | Yes               |
-| increasingColor            | 设置在以下情况下应用于此数据集的唯一颜色 \* open <= close。 | number                                                       | No       | iOS/Android | Yes               |
-| increasingPaintStyle       | 设置打开<关闭时的绘制样式                                   | string                                                       | No       | iOS/Android | Yes               |
+| common                     | Common data.                                               | Data Config Type.Common                                      | No       | iOS/Android | Yes               |
+| barLineScatterCandleBubble | Common basic data of column chart, bar chart, scatter chart, bubble chart, and candlestick chart.       | Data Config Type.CommonConfigType.barLineScatterCandleBubble | No       | iOS/Android | Yes               |
+| lineScatterCandleRadar     | Common basic data of column chart, candlestick chart, scatter chart, and radar chart.               | Data Config Type.CommonConfigType.lineScatterCandleRadar     | No       | iOS/Android | Yes               |
+| barSpace                   | Sets the space on the left and right sides of each bar.                      | number                                                       | No       | iOS/Android | Yes               |
+| shadowWidth                | Sets the width of the candle shadow line, in pixels.                         | number                                                       | No       | iOS/Android | Yes               |
+| shadowColor                | Sets the shadow color of all bars.                                     | number                                                       | No       | iOS/Android | Yes               |
+| shadowColorSameAsCandle    | Sets the shadow color the same as the candle color.                       | bool                                                         | No       | iOS/Android | Yes               |
+| neutralColor               | Sets the unique color applied to this dataset when \*open == close.    | number                                                       | No       | iOS/Android | Yes               |
+| decreasingColor            | Sets the unique color applied to this dataset when \*open > close.     | number                                                       | No       | iOS/Android | Yes               |
+| decreasingPaintStyle       | Sets the drawing style when open > close.                                  | string                                                       | No       | iOS/Android | Yes               |
+| increasingColor            | Sets the unique color applied to the dataset when \*open <= close.| number                                                       | No       | iOS/Android | Yes               |
+| increasingPaintStyle       | Sets the drawing style when open < close.                                  | string                                                       | No       | iOS/Android | Yes               |
 
 #### CandleData Values
 
 | Name    | Description | Type   | Required | Platform    | HarmonyOS Support |
 | ------- | ----------- | ------ | -------- | ----------- | ----------------- |
-| x       | X 轴数据    | number | No       | iOS/Android | Yes               |
-| shadowH | 阴影 H      | number | Yes      | iOS/Android | Yes               |
-| shadowL | 阴影 L      | number | Yes      | iOS/Android | Yes               |
-| open    | 打开的      | number | Yes      | iOS/Android | Yes               |
-| close   | 关闭的      | number | Yes      | iOS/Android | Yes               |
+| x       | X-axis data.   | number | No       | iOS/Android | Yes               |
+| shadowH | Shadow H.     | number | Yes      | iOS/Android | Yes               |
+| shadowL | Shadow L.     | number | Yes      | iOS/Android | Yes               |
+| open    | Opened.     | number | Yes      | iOS/Android | Yes               |
+| close   | Closed.     | number | Yes      | iOS/Android | Yes               |
 
 ### CombinedChart
 
 | Name | Description | Type         | Required | Platform    | HarmonyOS Support |
 | ---- | ----------- | ------------ | -------- | ----------- | ----------------- |
-| data | 组合图数据  | combinedData | Yes      | iOS/Android | Yes               |
+| data | Combined chart data. | combinedData | Yes      | iOS/Android | Yes               |
 
 #### combinedData
 
 | Name        | Description | Type        | Required | Platform    | HarmonyOS Support |
 | ----------- | ----------- | ----------- | -------- | ----------- | ----------------- |
-| lineData    | 折线图数据  | lineData    | No       | iOS/Android | Yes               |
-| barData     | 柱状图数据  | barData     | No       | iOS/Android | Yes               |
-| scatterData | 散点图数据  | scatterData | No       | iOS/Android | Yes               |
-| candleData  | 烛台图数据  | candleData  | No       | iOS/Android | Yes               |
-| bubbleData  | 气泡图数据  | bubbleData  | No       | iOS/Android | Yes               |
+| lineData    | Line chart data. | lineData    | No       | iOS/Android | Yes               |
+| barData     | Column chart data. | barData     | No       | iOS/Android | Yes               |
+| scatterData | Scatter chart data. | scatterData | No       | iOS/Android | Yes               |
+| candleData  | Candlestick chart data. | candleData  | No       | iOS/Android | Yes               |
+| bubbleData  | Bubble chart data. | bubbleData  | No       | iOS/Android | Yes               |
 
 ### BubbleChart
 
 | Name | Description | Type       | Required | Platform    | HarmonyOS Support |
 | ---- | ----------- | ---------- | -------- | ----------- | ----------------- |
-| data | 气泡图数据  | bubbleData | Yes      | iOS/Android | Yes               |
+| data | Bubble chart data. | bubbleData | Yes      | iOS/Android | Yes               |
 
 #### BubbleData Config
 
 | Name                       | Description                                          | Type                                                         | Required | Platform    | HarmonyOS Support |
 | -------------------------- | ---------------------------------------------------- | ------------------------------------------------------------ | -------- | ----------- | ----------------- |
-| common                     | 公共数据数据                                         | Data Config Type.Common                                      | No       | iOS/Android | Yes               |
-| barLineScatterCandleBubble | 柱状图、条形图、散点图、气泡图、烛台图的公共基础数据 | Data Config Type.CommonConfigType.barLineScatterCandleBubble | No       | iOS/Android | Yes               |
+| common                     | Common data.                                        | Data Config Type.Common                                      | No       | iOS/Android | Yes               |
+| barLineScatterCandleBubble | Common basic data of column chart, bar chart, scatter chart, bubble chart, and candlestick chart.| Data Config Type.CommonConfigType.barLineScatterCandleBubble | No       | iOS/Android | Yes               |
 
 #### BubbleData Values
 
 | Name | Description | Type   | Required | Platform    | HarmonyOS Support |
 | ---- | ----------- | ------ | -------- | ----------- | ----------------- |
-| x    | X 轴数据    | number | No       | iOS/Android | Yes               |
-| y    | Y 轴数据    | number | Yes      | iOS/Android | Yes               |
-| size | 大小        | number | Yes      | iOS/Android | Yes               |
+| x    | X-axis data.   | number | No       | iOS/Android | Yes               |
+| y    | Y-axis data.   | number | Yes      | iOS/Android | Yes               |
+| size | Size.       | number | Yes      | iOS/Android | Yes               |
 
 ### LineChart
 
 | Name | Description | Type     | Required | Platform    | HarmonyOS Support |
 | ---- | ----------- | -------- | -------- | ----------- | ----------------- |
-| data | 折线图数据  | LineData | Yes      | iOS/Android | Yes               |
+| data | Line chart data. | LineData | Yes      | iOS/Android | Yes               |
 
 #### LineData Config
 
-| Name                       | Description                                                     | Type                                                         | Required | Platform    | HarmonyOS Support |
-| -------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------ | -------- | ----------- | ----------------- |
-| common                     | 公共数据数据                                                    | Data Config Type.Common                                      | No       | iOS/Android | Yes               |
-| barLineScatterCandleBubble | 柱状图、条形图、散点图、气泡图、烛台图的公共基础数据            | Data Config Type.CommonConfigType.barLineScatterCandleBubble | No       | iOS/Android | Yes               |
-| lineScatterCandleRadar     | 柱状图、烛台图、散点图、雷达图的公共基础数据                    | Data Config Type.CommonConfigType.lineScatterCandleRadar     | No       | iOS/Android | Yes               |
-| lineRadar                  | 折线图、雷达图公共数据                                          | Data Config Type.lineRadar                                   | No       | iOS/Android | Yes               |
-| circleRadius               | 设置绘制的圆的半径                                              | number                                                       | No       | iOS/Android | Yes               |
-| drawCircles                | 将此值设置为 true 以启用此的圆圈指示器的绘制数据集，默认为 true | bool                                                         | No       | iOS/Android | Yes               |
-| mode                       | 设置 lineDataSet 的绘制模式                                     | object                                                       | No       | iOS/Android | Yes               |
-| lineWidth                  | 折线宽度                                                        | number                                                       | No       | iOS/Android | Yes               |
-| drawCubicIntensity         | 设置曲线弧度                                                    | number                                                       | No       | iOS/Android | NO                |
-| circleColor                | 设置应该用于此数据集的唯一颜色                                  | number                                                       | No       | iOS/Android | Yes               |
-| circleColors               | 设置应该用于此数据集的颜色集                                    | number[]                                                     | No       | iOS/Android | Yes               |
-| circleHoleColor            | 设置线条圆的内圆的颜色。                                        | number                                                       | No       | iOS/Android | Yes               |
-| drawCircleHole             | 许在每个数据圆圈中绘制一个孔                                    | bool                                                         | No       | iOS/Android | Yes               |
-| dashedLine                 | 折线设置为虚线                                                  | object                                                       | No       | iOS/Android | Yes               |
-| fillFormatter              | 设置填充                                                        | object                                                       | No       | iOS/Android | Yes               |
+| Name                       | Description                                                  | Type                                                         | Required | Platform    | HarmonyOS Support |
+| -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | -------- | ----------- | ----------------- |
+| common                     | Common data.                                                | Data Config Type.Common                                      | No       | iOS/Android | Yes               |
+| barLineScatterCandleBubble | Common basic data of column chart, bar chart, scatter chart, bubble chart, and candlestick chart.        | Data Config Type.CommonConfigType.barLineScatterCandleBubble | No       | iOS/Android | Yes               |
+| lineScatterCandleRadar     | Common basic data of column chart, candlestick chart, scatter chart, and radar chart.                | Data Config Type.CommonConfigType.lineScatterCandleRadar     | No       | iOS/Android | Yes               |
+| lineRadar                  | Common data of line chart and radar chart.                                      | Data Config Type.lineRadar                                   | No       | iOS/Android | Yes               |
+| circleRadius               | Sets the radius of the drawn circle.                                          | number                                                       | No       | iOS/Android | Yes               |
+| drawCircles                | Set to **true** to enable the drawing dataset of this circle indicator. The default value is **true**.| bool                                                         | No       | iOS/Android | Yes               |
+| mode                       | Sets the drawing mode of lineDataSet.                                 | object                                                       | No       | iOS/Android | Yes               |
+| lineWidth                  | Sets the line width.                                                    | number                                                       | No       | iOS/Android | Yes               |
+| drawCubicIntensity         | Sets the curve radian.                                                | number                                                       | No       | iOS/Android | NO                |
+| circleColor                | Sets the unique color applied for this dataset.                              | number                                                       | No       | iOS/Android | Yes               |
+| circleColors               | Sets the color set applied for this dataset.                                | number[]                                                     | No       | iOS/Android | Yes               |
+| circleHoleColor            | Sets the inner rounded circle color of the line.                                    | number                                                       | No       | iOS/Android | Yes               |
+| drawCircleHole             | Whether to draw a hole in each data circle.                                | bool                                                         | No       | iOS/Android | Yes               |
+| dashedLine                 | Sets the polyline to a dashed line.                                              | object                                                       | No       | iOS/Android | Yes               |
+| fillFormatter              | Sets filling.                                                    | object                                                       | No       | iOS/Android | Yes               |
 
 #### LineData Values
 
 | Name | Description | Type   | Required | Platform    | HarmonyOS Support |
 | ---- | ----------- | ------ | -------- | ----------- | ----------------- |
-| x    | X 轴数据    | number | No       | iOS/Android | Yes               |
-| y    | Y 轴数据    | number | Yes      | iOS/Android | Yes               |
+| x    | X-axis data.   | number | No       | iOS/Android | Yes               |
+| y    | Y-axis data.   | number | Yes      | iOS/Android | Yes               |
 
 ### ScatterChart
 
 | Name | Description | Type        | Required | Platform    | HarmonyOS Support |
 | ---- | ----------- | ----------- | -------- | ----------- | ----------------- |
-| data | 散点图数据  | ScatterData | Yes      | iOS/Android | Yes               |
+| data | Scatter chart data. | ScatterData | Yes      | iOS/Android | Yes               |
 
 #### ScatterData Config
 
 | Name                       | Description                                          | Type                                                         | Required | Platform    | HarmonyOS Support |
 | -------------------------- | ---------------------------------------------------- | ------------------------------------------------------------ | -------- | ----------- | ----------------- |
-| common                     | 公共数据数据                                         | Data Config Type.Common                                      | No       | iOS/Android | Yes               |
-| barLineScatterCandleBubble | 柱状图、条形图、散点图、气泡图、烛台图的公共基础数据 | Data Config Type.CommonConfigType.barLineScatterCandleBubble | No       | iOS/Android | Yes               |
-| lineScatterCandleRadar     | 柱状图、烛台图、散点图、雷达图的公共基础数据         | Data Config Type.CommonConfigType.lineScatterCandleRadar     | No       | iOS/Android | Yes               |
-| scatterShapeSize           | 设置绘制的 scattershape 将具有的大小                 | number                                                       | No       | iOS/Android | Yes               |
-| scatterShape               | 设置绘制此 DataSet 时应使用的散点形状                | string                                                       | No       | iOS/Android | Yes               |
-| scatterShapeHoleColor      | 设置形状中孔的颜色                                   | number                                                       | No       | iOS/Android | Yes               |
-| scatterShapeHoleRadius     | 设置形状中孔的半径（适用于正方形、圆形和三角形）     | number                                                       | No       | iOS/Android | Yes               |
+| common                     | Common data.                                        | Data Config Type.Common                                      | No       | iOS/Android | Yes               |
+| barLineScatterCandleBubble | Common basic data of column chart, bar chart, scatter chart, bubble chart, and candlestick chart.| Data Config Type.CommonConfigType.barLineScatterCandleBubble | No       | iOS/Android | Yes               |
+| lineScatterCandleRadar     | Common basic data of column chart, candlestick chart, scatter chart, and radar chart.        | Data Config Type.CommonConfigType.lineScatterCandleRadar     | No       | iOS/Android | Yes               |
+| scatterShapeSize           | Sets the size of the drawn scatter shape.                | number                                                       | No       | iOS/Android | Yes               |
+| scatterShape               | Sets the scatter shape used to draw DataSet.               | string                                                       | No       | iOS/Android | Yes               |
+| scatterShapeHoleColor      | Sets the hole color in a shape.                                  | number                                                       | No       | iOS/Android | Yes               |
+| scatterShapeHoleRadius     | Sets the hole radius in a shape (applicable to squares, circles, and triangles).    | number                                                       | No       | iOS/Android | Yes               |
 
 #### ScatterData Values
 
 | Name | Description | Type   | Required | Platform    | HarmonyOS Support |
 | ---- | ----------- | ------ | -------- | ----------- | ----------------- |
-| x    | X 轴数据    | number | No       | iOS/Android | Yes               |
-| y    | Y 轴数据    | number | Yes      | iOS/Android | Yes               |
+| x    | X-axis data.   | number | No       | iOS/Android | Yes               |
+| y    | Y-axis data.   | number | Yes      | iOS/Android | Yes               |
 
 ### PieChart
 
-| Name                    | Description                                                                       | Type    | Required | Platform    | HarmonyOS Support |
-| ----------------------- | --------------------------------------------------------------------------------- | ------- | -------- | ----------- | ----------------- |
-| extraOffsets            | 图数据                                                                            | object  | No       | iOS/Android | Yes               |
-| drawEntryLabels         | 将此属性设置为 true 可将条目标签绘制到饼图扇区中                                  | bool    | No       | iOS/Android | Yes               |
-| usePercentValues        | 如果启用此选项，则 PieChart 中的值将以百分比显示                                  | bool    | No       | iOS/Android | Yes               |
-| centerText              | 设置显示在 PieChart 中心的文本字符串。                                            | string  | No       | iOS/Android | Yes               |
-| styledCenterText        | 设置显示在 PieChart 中心的文本字符串的样式                                        | object  | No       | iOS/Android | Yes               |
-| centerTextRadiusPercent | 中心文本边界框的矩形半径,以饼图的百分比表示                                       | number  | No       | iOS/Android | Yes               |
-| holeRadius              | 设置饼图中心孔的半径，以百分比为单位 \*最大半径（max=整个图表的半径），默认为 50% | number  | No       | iOS/Android | Yes               |
-| holeColor               | 设置在饼图中心绘制的孔的颜色                                                      | number  | No       | iOS/Android | Yes               |
-| transparentCircleRadius | 设置在孔旁边绘制的透明圆的半径                                                    | number  | No       | iOS/Android | Yes               |
-| transparentCircleColor  | 设置在孔旁边绘制的透明圆的颜色                                                    | number  | No       | iOS/Android | Yes               |
-| entryLabelColor         | 设置绘制条目标签的颜色                                                            | number  | No       | iOS/Android | Yes               |
-| entryLabelTextSize      | 以 vp 为单位设置条目标签的大小。                                                  | number  | No       | iOS/Android | Yes               |
-| entryLabelFontFamily    | 为条目标签的绘制设置自定义字体                                                    | string  | No       | iOS/Android | Yes               |
-| maxAngle                | 设置用于计算饼图圆的最大角度                                                      | number  | No       | iOS/Android | Yes               |
-| data                    | 饼图数据                                                                          | PieData | Yes      | iOS/Android | Yes               |
+| Name                    | Description                                                  | Type    | Required | Platform    | HarmonyOS Support |
+| ----------------------- | ------------------------------------------------------------ | ------- | -------- | ----------- | ----------------- |
+| extraOffsets            | Sets the chart data.                                                      | object  | No       | iOS/Android | Yes               |
+| drawEntryLabels         | If it is set to **true**, labels can be drawn into the pie chart sector.            | bool    | No       | iOS/Android | Yes               |
+| usePercentValues        | If it is enabled, the values in the pie chart are displayed in percentage.            | bool    | No       | iOS/Android | Yes               |
+| centerText              | Sets the text string displayed in the center of the pie chart.                      | string  | No       | iOS/Android | Yes               |
+| styledCenterText        | Sets the style of the text string displayed in the center of the pie chart.                  | object  | No       | iOS/Android | Yes               |
+| centerTextRadiusPercent | Sets the rectangle radius of the center text bounding box, in percentage of the pie chart.                 | number  | No       | iOS/Android | Yes               |
+| holeRadius              | Sets the radius of the center hole of the pie chart, in percentage. \*The maximum radius (max = the radius of the chart) is **50%** by default.| number  | No       | iOS/Android | Yes               |
+| holeColor               | Sets the color of the hole drawn in the center of the pie chart.                                | number  | No       | iOS/Android | Yes               |
+| transparentCircleRadius | Sets the radius of the transparent circle drawn next to the hole.                              | number  | No       | iOS/Android | Yes               |
+| transparentCircleColor  | Sets the color of the transparent circle drawn next to the hole.                              | number  | No       | iOS/Android | Yes               |
+| entryLabelColor         | Sets the color of the label to be drawn.                                      | number  | No       | iOS/Android | Yes               |
+| entryLabelTextSize      | Sets the size of a label in vp.                            | number  | No       | iOS/Android | Yes               |
+| entryLabelFontFamily    | Sets custom fonts for the drawing of labels.                              | string  | No       | iOS/Android | Yes               |
+| maxAngle                | Sets the maximum angle for calculating the pie chart circle.                                | number  | No       | iOS/Android | Yes               |
+| data                    | Sets the pie chart data.                                                    | PieData | Yes      | iOS/Android | Yes               |
 
 #### PieData Config
 
 | Name              | Description                            | Type                               | Required | Platform    | HarmonyOS Support |
 | ----------------- | -------------------------------------- | ---------------------------------- | -------- | ----------- | ----------------- |
-| common            | 公共数据数据                           | Data Config Type.Common            | No       | iOS/Android | Yes               |
-| PieRadarChartBase | 饼图、雷达图数据                       | Data Config Type.PieRadarChartBase | No       | iOS/Android | Yes               |
-| sliceSpace        | 设置在 vp 中的饼图切片之间留出的空间。 | number                             | No       | iOS/Android | Yes               |
-| selectionShift    | 设置此数据集的突出显示饼图扇区的距离   | number                             | No       | iOS/Android | Yes               |
-| xValuePosition    | 标签显示在饼图里面还是外面             | string                             | No       | iOS/Android | Yes               |
-| yValuePosition    | 标签显示在饼图里面还是外面             | string                             | No       | iOS/Android | Yes               |
+| common            | Common data.                          | Data Config Type.Common            | No       | iOS/Android | Yes               |
+| PieRadarChartBase | Sets pie chart and radar chart data.                      | Data Config Type.PieRadarChartBase | No       | iOS/Android | Yes               |
+| sliceSpace        | Sets the space between pie chart slices in vp.| number                             | No       | iOS/Android | Yes               |
+| selectionShift    | Sets the distance of the highlighted pie chart sector of the dataset.  | number                             | No       | iOS/Android | Yes               |
+| xValuePosition    | Sets whether the label is displayed inside or outside the pie chart.            | string                             | No       | iOS/Android | Yes               |
+| yValuePosition    | Sets whether the label is displayed inside or outside the pie chart.            | string                             | No       | iOS/Android | Yes               |
 
 #### PieData Values
 
 | Name  | Description | Type   | Required | Platform    | HarmonyOS Support |
 | ----- | ----------- | ------ | -------- | ----------- | ----------------- |
-| value | 数据        | number | Yes      | iOS/Android | Yes               |
-| label | 标签        | number | No       | iOS/Android | Yes               |
+| value | Data       | number | Yes      | iOS/Android | Yes               |
+| label | Alpha tag.       | number | No       | iOS/Android | Yes               |
 
 ### RadarChart
 
 | Name              | Description                                          | Type                               | Required | Platform    | HarmonyOS Support |
 | ----------------- | ---------------------------------------------------- | ---------------------------------- | -------- | ----------- | ----------------- |
-| yAxis             | Y 轴                                                 | YAxis                              | No       | iOS/Android | Yes               |
-| drawWeb           | 饼图、雷达图数据                                     | Data Config Type.PieRadarChartBase | No       | iOS/Android | Yes               |
-| skipWebLineCount  | 设置在执行以下操作之前应在图表 Web 上跳过的 Web 行数 | number                             | No       | iOS/Android | Yes               |
-| webLineWidth      | 设置来自中心的腹板线的宽度                           | number                             | No       | iOS/Android | Yes               |
-| webLineWidthInner | 设置 Web 线的宽度，这些 Web 线位于来自 \*中心。      | number                             | No       | iOS/Android | Yes               |
-| webAlpha          | 设置所有 Web 线的透明度（alpha）值                   | number                             | No       | iOS/Android | Yes               |
-| webColor          | 设置来自中心的腹板线的颜色。                         | number                             | No       | iOS/Android | Yes               |
-| webColorInner     | 设置 Web 线之间的颜色，这些线来自\*中心。            | number                             | No       | iOS/Android | Yes               |
-| data              | 雷达图数据                                           | RadarData                          | Yes      | iOS/Android | Yes               |
+| yAxis             | Y axis.                                                | YAxis                              | No       | iOS/Android | Yes               |
+| drawWeb           | Sets pie chart and radar chart data.                                    | Data Config Type.PieRadarChartBase | No       | iOS/Android | Yes               |
+| skipWebLineCount  | Sets the number of web rows that should be skipped on the chart web before next operations.| number                             | No       | iOS/Android | Yes               |
+| webLineWidth      | Sets the web line width in the center.                          | number                             | No       | iOS/Android | Yes               |
+| webLineWidthInner | Sets the web line width in the \*center.     | number                             | No       | iOS/Android | Yes               |
+| webAlpha          | Sets the transparency (alpha) value for all web lines.                  | number                             | No       | iOS/Android | Yes               |
+| webColor          | Sets the web line color in the center.                        | number                             | No       | iOS/Android | Yes               |
+| webColorInner     | Sets the web lines color in the \*center.           | number                             | No       | iOS/Android | Yes               |
+| data              | Radar chart data.                                          | RadarData                          | Yes      | iOS/Android | Yes               |
 
 #### RadarData Config
 
 | Name                   | Description                                  | Type                                                     | Required | Platform    | HarmonyOS Support |
 | ---------------------- | -------------------------------------------- | -------------------------------------------------------- | -------- | ----------- | ----------------- |
-| common                 | 公共数据数据                                 | Data Config Type.Common                                  | No       | iOS/Android | Yes               |
-| lineScatterCandleRadar | 柱状图、烛台图、散点图、雷达图的公共基础数据 | Data Config Type.CommonConfigType.lineScatterCandleRadar | No       | iOS/Android | Yes               |
-| lineRadar              | 折线图、雷达图公共数据                       | Data Config Type.lineRadar                               | No       | iOS/Android | Yes               |
+| common                 | Common data.                                | Data Config Type.Common                                  | No       | iOS/Android | Yes               |
+| lineScatterCandleRadar | Common basic data of column chart, candlestick chart, scatter chart, and radar chart.| Data Config Type.CommonConfigType.lineScatterCandleRadar | No       | iOS/Android | Yes               |
+| lineRadar              | Common data of line chart and radar chart.                      | Data Config Type.lineRadar                               | No       | iOS/Android | Yes               |
 
 #### RadarData Values
 
 | Name  | Description | Type   | Required | Platform    | HarmonyOS Support |
 | ----- | ----------- | ------ | -------- | ----------- | ----------------- |
-| value | 数据        | number | Yes      | iOS/Android | Yes               |
+| value | Data       | number | Yes      | iOS/Android | Yes               |
 
 ## Known Issues
 
 ## Others
 
-- 图例的 maxSizePercent 最大百分比属性在 Android 和 iOS 不生效， HarmonyOS 与 Android,iOS 表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/995)
-- 图例的 custom 属性，设置后会覆盖原有的图例，但自定义图例也不显示在 Android 和 iOS 中，属性不生效， HarmonyOS 与 Android,iOS 表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/996)
-- logEnabled 会开启安卓特有的日志 logcat 和 highlights 属性在 Android 和 iOS 不生效， HarmonyOS 与 Android,iOS 表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/998)
-- stackLabels 堆叠条形图设置无效果和 drawCubicIntensity 曲线角度属性在 Android 和 iOS 不生效， HarmonyOS 与 Android,iOS 表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/997)
-- 在 Android 和 iOS visibleRange 最大大小百分比限制通过缩放和缩放可以看到的最大和最小 x 范围不起作用， HarmonyOS 与 Android,iOS 表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/999)
-- keepPositionOnRotation 旋转后保持图表原始位置属性在 Android 和 iOS 不生效， HarmonyOS 与 Android,iOS 表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/999)
-- valueFormatter 格式化数据属性在 Android 和 iOS 不生效， HarmonyOS 与 Android,iOS 表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/935)
-- chartBackgroundColor 图表背景颜色在原库中不生效，在原库中网格背景颜色与图表背景颜色设置的内容一样，则已不支持图表背景 HarmonyOS 与 Android,iOS 表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/1001)
-- Legend 中的 text 与 data 中 label 效果相同，原库中已不支持该属性。HarmonyOS 与 Android，ios 表现一致。[原库 issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/1003)
+- The **maxSizePercent** property does not take effect on Android and iOS. The performance on HarmonyOS is the same as that on Android and iOS. [Original issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/995)
+- The **custom** property will overwrite the original legend after being set. However, the custom legend is not displayed on Android and iOS, and the property does not take effect. The performance on HarmonyOS is the same as that on Android and iOS. [Original issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/996)
+- The **logEnabled** property enables the **logcat** and **highlights** properties specific to Android. The performance on HarmonyOS is the same as that on Android and iOS. [Original issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/998)
+- The **stackLabels** property setting does not take effect, and the **drawCubicIntensity** property setting does not take effect on Android and iOS. The performance on HarmonyOS is the same as that on Android and iOS. [Original issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/997)
+- After the **visibleRange** property is set on Android and iOS, the maximum and minimum x ranges that can be viewed through scaling do not take effect. The performance on HarmonyOS is the same as that on Android and iOS. [Original issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/999)
+- The **keepPositionOnRotation** property setting does not take effect on Android and iOS. The performance on HarmonyOS is the same as that on Android and iOS. [Original issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/999)
+- The **valueFormatter** property does not take effect on Android and iOS. The performance on HarmonyOS is the same as that on Android and iOS. [Original issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/935)
+- The **chartBackgroundColor** property setting does not take effect in the original library, because in the original library, the background color of the grid is the same as that of the chart. The performance on HarmonyOS is the same as that on Android and iOS. [Original issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/1001)
+- The text in Legend has the same effect with the label in data, therefore, they are not supported in the original library. The performance on HarmonyOS is the same as that on Android and iOS. [Original issue](https://github.com/wuxudong/react-native-charts-wrapper/issues/1003)
 
 ## License
 

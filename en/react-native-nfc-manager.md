@@ -84,7 +84,7 @@ export default App;
 
 ## Use Codegen
 
-If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/zh-cn/codegen.md).
+If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/en/codegen.md).
 
 ## Link
 
@@ -102,13 +102,13 @@ Adding the overrides Field to oh-package.json5 File in the Root Directory of the
 }
 ```
 
-## 配置 Entry
+## Configuring an Entry
 
-本库主要用于操作及管理 NFC Tag，提供后台读卡和前台应用优先分发两种读卡模式。后台读卡是指不需要打开应用程序，电子设备通过 NFC 读取标签卡片后，根据标签卡片的类型匹配到一个或多个应用程序。如果仅匹配到一个，则直接拉起应用程序的读卡页面；如果是多个则弹出应用选择器，让用户选择指定的读卡应用。前台读卡是指提前打开应用程序，并进入对应的 NFC 读卡页面后读卡，只会把读到的标签卡片信息分发给前台应用程序。
+The **tag** module provides APIs for operating and managing NFC tags. The following tag read modes are available: <br>Background mode: The device reads the tag by using NFC without starting any application, and then searches for applications based on the tag type. If only one application is matched, the card reading page of that application will be started. If multiple applications are matched, an application selector will be started, asking the user to select an application. <br>Foreground mode: A foreground application has priority to read the NFC tag discovered.
 
-### 后台读卡方式的声明
+### Declaring the NFC Tag Background Mode
 
-**1.应用程序需要支持后台读卡时，需要在应用的属性配置文件中，声明与 NFC 相关的属性值。比如，在 entry/src/main/module.json5 文件中，声明下面属性值: **
+*1. To enable NFC tags to be read without starting an application, declare NFC-related attributes in the **entry/src/main/module.json5** file: *
 
 ```
 {
@@ -149,7 +149,7 @@ Adding the overrides Field to oh-package.json5 File in the Root Directory of the
 }
 ```
 
-**2.在对相关 Tag 类型卡片进行读写之前，必须先获取 TagInfo 相关属性值，以确认设备读取到的 Tag 卡片支持哪些技术类型。可以将以下内容添加到 EntryAbility**
+2. Before a card with tags is read or written, **TagInfo** must be obtained to determine the tag technologies supported by the card. You can add the following content to **EntryAbility**:
 
 ```tsx
 import { RNAbility } from "rnoh";
@@ -215,7 +215,7 @@ ohpm install
 
 Method 2: Directly link to the source code.
 
-> [!TIP] For details, see [Directly Linking Source Code](/zh-cn/link-source-code.md).
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
 ### 3. Introducing RNNfcManagerPackage to ArkTS
 
@@ -271,204 +271,204 @@ Open the `entry/src/main/module.json5` file and add the following code:
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name             | Description                                                                                   | Type         | Required | Platform    | HarmonyOS Support |
-| ---------------- | --------------------------------------------------------------------------------------------- | ------------ | -------- | ----------- | ----------------- |
-| Ndef             | NFC A type Tag object, through which the Ndef technology type Tag can be accessed             | Technologies | no       | iOS/Android | yes               |
-| NfcA             | NFC A type Tag object, through which the NfcA technology type Tag can be accessed             | Technologies | no       | iOS/Android | yes               |
-| IsoDep           | NFC A type Tag object, through which the IsoDep technology type Tag can be accessed           | Technologies | no       | iOS/Android | yes               |
-| NfcF             | NFC A type Tag object, through which the NfcF technology type Tag can be accessed             | Technologies | no       | Android     | yes               |
-| NfcV             | NFC A type Tag object, through which the NfcV technology type Tag can be accessed             | Technologies | no       | Android     | yes               |
-| NfcB             | NFC A type Tag object, through which the NfcB technology type Tag can be accessed             | Technologies | no       | Android     | yes               |
-| MifareClassic    | NFC A type Tag object, through which the MifareClassic technology type Tag can be accessed    | Technologies | no       | Android     | yes               |
+| Name             | Description                                                  | Type         | Required | Platform    | HarmonyOS Support |
+| ---------------- | ------------------------------------------------------------ | ------------ | -------- | ----------- | ----------------- |
+| Ndef             | NFC A type Tag object, through which the Ndef technology type Tag can be accessed | Technologies | no       | iOS/Android | yes               |
+| NfcA             | NFC A type Tag object, through which the NfcA technology type Tag can be accessed | Technologies | no       | iOS/Android | yes               |
+| IsoDep           | NFC A type Tag object, through which the IsoDep technology type Tag can be accessed | Technologies | no       | iOS/Android | yes               |
+| NfcF             | NFC A type Tag object, through which the NfcF technology type Tag can be accessed | Technologies | no       | Android     | yes               |
+| NfcV             | NFC A type Tag object, through which the NfcV technology type Tag can be accessed | Technologies | no       | Android     | yes               |
+| NfcB             | NFC A type Tag object, through which the NfcB technology type Tag can be accessed | Technologies | no       | Android     | yes               |
+| MifareClassic    | NFC A type Tag object, through which the MifareClassic technology type Tag can be accessed | Technologies | no       | Android     | yes               |
 | MifareUltralight | NFC A type Tag object, through which the MifareUltralight technology type Tag can be accessed | Technologies | no       | Android     | yes               |
-| MifareIOS        | NFC A type Tag object, through which the MifareIOS technology type Tag can be accessed        | Technologies | no       | iOS         | no                |
-| iso15693         | NFC A type Tag object, through which the iso15693 technology type Tag can be accessed         | Technologies | no       | iOS         | no                |
-| felica           | NFC A type Tag object, through which the felica technology type Tag can be accessed           | Technologies | no       | iOS         | no                |
-| NdefFormatable   | NFC A type Tag object, through which the NdefFormatable technology type Tag can be accessed   | Technologies | no       | Android     | yes               |
+| MifareIOS        | NFC A type Tag object, through which the MifareIOS technology type Tag can be accessed | Technologies | no       | iOS         | no                |
+| iso15693         | NFC A type Tag object, through which the iso15693 technology type Tag can be accessed | Technologies | no       | iOS         | no                |
+| felica           | NFC A type Tag object, through which the felica technology type Tag can be accessed | Technologies | no       | iOS         | no                |
+| NdefFormatable   | NFC A type Tag object, through which the NdefFormatable technology type Tag can be accessed | Technologies | no       | Android     | yes               |
 
 ## API
 
-**common tech handler getters for both iOS / Android**
-| Name | Description | Type | Required | Platform | HarmonyOS Support |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| start | Start nfc scan | function | NO | iOS / Android | yes |
-| isSupported | Does the device support nfc | function | NO | iOS / Android | yes |
-| isEnabled | Is the nfc switch turned on | function | NO | iOS / Android | yes |
-| registerTagEvent | Register to monitor NFC Tag card reading events to achieve priority distribution of front-end applications. Set the supported card reading technology type through discTech, and obtain the TagInfo information of the read Tag through the Callback method. | function | NO | iOS / Android | yes |
-| unregisterTagEvent | Cancel monitoring of NFC Tag card reading events | function | NO | iOS / Android | yes |
-| setEventListener | Set up monitoring | function | NO | iOS / Android | yes |
-| getBackgroundTag | Start nfc in the background and obtain the Tag data object provided by the NFC service when the Tag is distributed. | function | NO | iOS / Android | yes |
-| clearBackgroundTag | After starting nfc in the background, clear Tag information of different technology types | function | NO | iOS / Android | yes |
-| requestTechnology | Start scanning | function | NO | iOS / Android | yes |
-| cancelTechnologyRequest | Cancel scan | function | NO | iOS / Android | yes |
-| getTag | Get the Tag data object provided by the NFC service when the Tag is distributed | function | NO | iOS / Android | yes |
+**Common tech handler getters for both iOS and Android**
+| Name                    | Description                                                  | Type     | Required | Platform      | HarmonyOS Support |
+| ----------------------- | ------------------------------------------------------------ | -------- | -------- | ------------- | ----------------- |
+| start                   | Start nfc scan                                               | function | NO       | iOS/Android| yes               |
+| isSupported             | Does the device support nfc                                  | function | NO       | iOS/Android| yes               |
+| isEnabled               | Is the nfc switch turned on                                  | function | NO       | iOS/Android| yes               |
+| registerTagEvent        | Register to monitor NFC Tag card reading events to achieve priority distribution of front-end applications. Set the supported card reading technology type through discTech, and obtain the TagInfo information of the read Tag through the Callback method. | function | NO       | iOS/Android| yes               |
+| unregisterTagEvent      | Cancel monitoring of NFC Tag card reading events             | function | NO       | iOS/Android| yes               |
+| setEventListener        | Set up monitoring                                            | function | NO       | iOS/Android| yes               |
+| getBackgroundTag        | Start nfc in the background and obtain the Tag data object provided by the NFC service when the Tag is distributed. | function | NO       | iOS/Android| yes               |
+| clearBackgroundTag      | After starting nfc in the background, clear Tag information of different technology types | function | NO       | iOS/Android| yes               |
+| requestTechnology       | Start scanning                                               | function | NO       | iOS/Android| yes               |
+| cancelTechnologyRequest | Cancel scan                                                  | function | NO       | iOS/Android| yes               |
+| getTag                  | Get the Tag data object provided by the NFC service when the Tag is distributed | function | NO       | iOS/Android| yes               |
 
 **NdefHandler**
-| Name | Description | Type | Required | Platform | HarmonyOS Support |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| writeNdefMessage| Write NDEF Message data object to label | function | NO | Android | yes |
-| getNdefMessage| Get the Message read from the tag when the NDEF tag is found | function | NO | iOS / Android | yes |
-| makeReadOnly| Set NDEF tag to read-only | function | NO | iOS / Android | yes |
-| getNdefStatus| Check if the NDEF tag can be set to read-only and get the maximum data length that can be sent to the tag | function | NO | iOS / Android | yes |
-| getCachedNdefMessageAndroid| Get the Tag data object provided by the NFC service when the Tag is distributed | function | NO | iOS / Android | yes |
+| Name                        | Description                                                  | Type     | Required | Platform      | HarmonyOS Support |
+| --------------------------- | ------------------------------------------------------------ | -------- | -------- | ------------- | ----------------- |
+| writeNdefMessage            | Write NDEF Message data object to label                      | function | NO       | Android       | yes               |
+| getNdefMessage              | Get the Message read from the tag when the NDEF tag is found | function | NO       | iOS/Android| yes               |
+| makeReadOnly                | Set NDEF tag to read-only                                    | function | NO       | iOS/Android| yes               |
+| getNdefStatus               | Check if the NDEF tag can be set to read-only and get the maximum data length that can be sent to the tag | function | NO       | iOS/Android| yes               |
+| getCachedNdefMessageAndroid | Get the Tag data object provided by the NFC service when the Tag is distributed | function | NO       | iOS/Android| yes               |
 
 **NfcAHandler**
-| Name | Description | Type | Required | Platform | HarmonyOS Support |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| transceive | Send instructions to Tag | function | NO | iOS / Android | yes |
+| Name       | Description              | Type     | Required | Platform      | HarmonyOS Support |
+| ---------- | ------------------------ | -------- | -------- | ------------- | ----------------- |
+| transceive | Send instructions to Tag | function | NO       | iOS/Android| yes               |
 
 **IsoDepHandler**
-| Name | Description | Type | Required | Platform | HarmonyOS Support |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| transceive | Send instructions to Tag | function | NO | iOS / Android | yes |
+| Name       | Description              | Type     | Required | Platform      | HarmonyOS Support |
+| ---------- | ------------------------ | -------- | -------- | ------------- | ----------------- |
+| transceive | Send instructions to Tag | function | NO       | iOS/Android| yes               |
 
 **iOS only**
-| Name | Description | Type | Required | Platform | HarmonyOS Support |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| setAlertMessage | Set a warning message for a certain session (possibly an NFC session or similar) | function | NO | iOS | NO |
-| getBackgroundNdef | Scan NFC tag from lock screen | function | NO | iOS | NO |
-| invalidateSessionIOS | Initialize tag session | function | NO | iOS | NO |
-| invalidateSessionWithErrorIOS | Initializing the tag session may throw an exception | function | NO | iOS | NO |
-| sendCommandAPDUIOS | Send specific APDU commands | function | NO | iOS | NO |
-| restartTechnologyRequestIOS | Restart NFC session | function | NO | iOS | NO |
+| Name                          | Description                                                  | Type     | Required | Platform | HarmonyOS Support |
+| ----------------------------- | ------------------------------------------------------------ | -------- | -------- | -------- | ----------------- |
+| setAlertMessage               | Set a warning message for a certain session (possibly an NFC session or similar) | function | NO       | iOS      | NO                |
+| getBackgroundNdef             | Scan NFC tag from lock screen                                | function | NO       | iOS      | NO                |
+| invalidateSessionIOS          | Initialize tag session                                       | function | NO       | iOS      | NO                |
+| invalidateSessionWithErrorIOS | Initializing the tag session may throw an exception          | function | NO       | iOS      | NO                |
+| sendCommandAPDUIOS            | Send specific APDU commands                                  | function | NO       | iOS      | NO                |
+| restartTechnologyRequestIOS   | Restart NFC session                                          | function | NO       | iOS      | NO                |
 
 **MifareIOS**
-| Name | Description | Type | Required | Platform | HarmonyOS Support |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| sendMifareCommandIOS | Send specific MIFARE commands | function | NO | iOS | NO |
+| Name                 | Description                   | Type     | Required | Platform | HarmonyOS Support |
+| -------------------- | ----------------------------- | -------- | -------- | -------- | ----------------- |
+| sendMifareCommandIOS | Send specific MIFARE commands | function | NO       | iOS      | NO                |
 
 **FelicaIOS**
-| Name | Description | Type | Required | Platform | HarmonyOS Support |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| sendFelicaCommandIOS | Send specific Felica commands | function | NO | iOS | NO |
+| Name                 | Description                   | Type     | Required | Platform | HarmonyOS Support |
+| -------------------- | ----------------------------- | -------- | -------- | -------- | ----------------- |
+| sendFelicaCommandIOS | Send specific Felica commands | function | NO       | iOS      | NO                |
 
 **Iso15693**
-| Name | Description | Type | Required | Platform | HarmonyOS Support |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| getSystemInfo | Obtain system information of RFID tags | function | NO | iOS | NO |
-| readSingleBlock | Read the content stored in a block of tags | function | NO | iOS | NO |
-| readMultipleBlocks | Read the content stored in multiple blocks of the tag | function | NO | iOS | NO |
-| writeSingleBlock | Write content to a block in the tag storage | function | NO | iOS | NO |
-| lockBlock | Lock specific data blocks on tags | function | NO | iOS | NO |
-| writeAFI | Write the specified AFI value into the RFID tag | function | NO | iOS | NO |
-| lockAFI | Used to lock the AFI field in RFID tags to prevent it from being altered | function | NO | iOS | NO |
-| writeDSFID | Write the specified DSFID value into the RFID tag | function | NO | iOS | NO |
-| lockDSFID | Used to lock the AFI field in DSFID tags to prevent it from being altered | function | NO | iOS | NO |
-| resetToReady | Reset the RFID tag from the current state to the ready state, ready to receive new commands | function | NO | iOS | NO |
-| select | Place specific RFID tags in the selected state | function | NO | iOS | NO |
-| stayQuite | Put the tag into a quiet state, in which the tag will not respond to any requests with inventory_flag, but will respond to requests with addressing flags | function | NO | iOS | NO |
-| customCommand | Send custom binary data to RFID tags | function | NO | iOS | NO |
-| sendRequest | Send one or more commands or data requests to RFID tags | function | NO | iOS | NO |
-| extendedReadSingleBlock | Read the content of a specified single data block from an RFID tag | function | NO | iOS | NO |
-| extendedWriteSingleBlock | Write the content of a specified single data block from an RFID tag | function | NO | iOS | NO |
-| extendedLockBlock | Lock one or more data blocks in the RFID tag to prevent them from being further written or modified | function | NO | iOS | NO |
+| Name                     | Description                                                  | Type     | Required | Platform | HarmonyOS Support |
+| ------------------------ | ------------------------------------------------------------ | -------- | -------- | -------- | ----------------- |
+| getSystemInfo            | Obtain system information of RFID tags                       | function | NO       | iOS      | NO                |
+| readSingleBlock          | Read the content stored in a block of tags                   | function | NO       | iOS      | NO                |
+| readMultipleBlocks       | Read the content stored in multiple blocks of the tag        | function | NO       | iOS      | NO                |
+| writeSingleBlock         | Write content to a block in the tag storage                  | function | NO       | iOS      | NO                |
+| lockBlock                | Lock specific data blocks on tags                            | function | NO       | iOS      | NO                |
+| writeAFI                 | Write the specified AFI value into the RFID tag              | function | NO       | iOS      | NO                |
+| lockAFI                  | Used to lock the AFI field in RFID tags to prevent it from being altered | function | NO       | iOS      | NO                |
+| writeDSFID               | Write the specified DSFID value into the RFID tag            | function | NO       | iOS      | NO                |
+| lockDSFID                | Used to lock the AFI field in DSFID tags to prevent it from being altered | function | NO       | iOS      | NO                |
+| resetToReady             | Reset the RFID tag from the current state to the ready state, ready to receive new commands | function | NO       | iOS      | NO                |
+| select                   | Place specific RFID tags in the selected state               | function | NO       | iOS      | NO                |
+| stayQuite                | Put the tag into a quiet state, in which the tag will not respond to any requests with inventory_flag, but will respond to requests with addressing flags | function | NO       | iOS      | NO                |
+| customCommand            | Send custom binary data to RFID tags                         | function | NO       | iOS      | NO                |
+| sendRequest              | Send one or more commands or data requests to RFID tags      | function | NO       | iOS      | NO                |
+| extendedReadSingleBlock  | Read the content of a specified single data block from an RFID tag | function | NO       | iOS      | NO                |
+| extendedWriteSingleBlock | Write the content of a specified single data block from an RFID tag | function | NO       | iOS      | NO                |
+| extendedLockBlock        | Lock one or more data blocks in the RFID tag to prevent them from being further written or modified | function | NO       | iOS      | NO                |
 
 **Android only**
-| Name | Description | Type | Required | Platform | HarmonyOS Support |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| goToNfcSetting | Guide users to the NFC settings interface of the device | function | NO | Android | yes |
-| getLaunchTagEvent | Retrieve events or data when an application is launched (or reactivated) due to NFC tag scanning | function | NO | Android | yes |
-| transceive | Send instructions to Tag | function | NO | Android | yes |
-| getMaxTransceiveLength | Query the maximum data length that can be sent to a label | function | NO | Android | yes |
-| setTimeout | Set the timeout for sending data to Tag | function | NO | Android | NO |
-| connect | Establish a connection with the tag | function | NO | Android | NO |
-| close | Close tag connection | function | NO | Android | NO |
+| Name                   | Description                                                  | Type     | Required | Platform | HarmonyOS Support |
+| ---------------------- | ------------------------------------------------------------ | -------- | -------- | -------- | ----------------- |
+| goToNfcSetting         | Guide users to the NFC settings interface of the device      | function | NO       | Android  | yes               |
+| getLaunchTagEvent      | Retrieve events or data when an application is launched (or reactivated) due to NFC tag scanning | function | NO       | Android  | yes               |
+| transceive             | Send instructions to Tag                                     | function | NO       | Android  | yes               |
+| getMaxTransceiveLength | Query the maximum data length that can be sent to a label    | function | NO       | Android  | yes               |
+| setTimeout             | Set the timeout for sending data to Tag                      | function | NO       | Android  | yes               |
+| connect                | Establish a connection with the tag                          | function | NO       | Android  | yes               |
+| close                  | Close tag connection                                         | function | NO       | Android  | yes               |
 
 **NfcVHandler**
-| Name | Description | Type | Required | Platform | HarmonyOS Support |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| transceive | Send instructions to Tag | function | NO | Android | yes |
+| Name       | Description              | Type     | Required | Platform | HarmonyOS Support |
+| ---------- | ------------------------ | -------- | -------- | -------- | ----------------- |
+| transceive | Send instructions to Tag | function | NO       | Android  | yes               |
 
 **MifareClassicHandlerAndroid**
-| Name | Description | Type | Required | Platform | HarmonyOS Support |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| mifareClassicSectorToBlock | Obtain the sequence number of the first block in a specific sector | function | NO | Android | yes |
-| mifareClassicReadBlock | Read the content stored in a block of tags, with a block size of 16 bytes | function | NO | Android | yes |
-| mifareClassicWriteBlock | Write content to a block in the tag, with a block size of 16 bytes | function | NO | Android | yes |
-| mifareClassicIncrementBlock | Add the specified value to the content of the specified block and store the result in the internal transmission buffer | function | NO | Android | yes |
-| mifareClassicDecrementBlock | Reduce the specified value for the content of the specified block and store the result in an internal transfer buffer | function | NO | Android | yes |
-| mifareClassicTransferBlock | Transfer the value of the temporary register to the specified block | function | NO | Android | yes |
-| mifareClassicGetSectorCount | Get the number of sectors in the MIFARE Classic tag | function | NO | Android | yes |
-| mifareClassicAuthenticateA | Use a key to authenticate sectors, only sectors that have been successfully authenticated can perform operations, and the key type is A | function | NO | Android | yes |
-| mifareClassicAuthenticateB | Use a key to authenticate sectors, only sectors that have been successfully authenticated can perform operations, and the key type is B | function | NO | Android | yes |
+| Name                        | Description                                                  | Type     | Required | Platform | HarmonyOS Support |
+| --------------------------- | ------------------------------------------------------------ | -------- | -------- | -------- | ----------------- |
+| mifareClassicSectorToBlock  | Obtain the sequence number of the first block in a specific sector | function | NO       | Android  | yes               |
+| mifareClassicReadBlock      | Read the content stored in a block of tags, with a block size of 16 bytes | function | NO       | Android  | yes               |
+| mifareClassicWriteBlock     | Write content to a block in the tag, with a block size of 16 bytes | function | NO       | Android  | yes               |
+| mifareClassicIncrementBlock | Add the specified value to the content of the specified block and store the result in the internal transmission buffer | function | NO       | Android  | yes               |
+| mifareClassicDecrementBlock | Reduce the specified value for the content of the specified block and store the result in an internal transfer buffer | function | NO       | Android  | yes               |
+| mifareClassicTransferBlock  | Transfer the value of the temporary register to the specified block | function | NO       | Android  | yes               |
+| mifareClassicGetSectorCount | Get the number of sectors in the MIFARE Classic tag          | function | NO       | Android  | yes               |
+| mifareClassicAuthenticateA  | Use a key to authenticate sectors, only sectors that have been successfully authenticated can perform operations, and the key type is A | function | NO       | Android  | yes               |
+| mifareClassicAuthenticateB  | Use a key to authenticate sectors, only sectors that have been successfully authenticated can perform operations, and the key type is B | function | NO       | Android  | yes               |
 
 **MifareUltralightHandlerAndroid**
-| Name | Description | Type | Required | Platform | HarmonyOS Support |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| mifareUltralightReadPages | Read 4 pages of data from the tag, totaling 16 bytes of data. Each page has a data size of 4 bytes | function | NO | Android | yes |
-| mifareUltralightWritePage | Write one page of data with a size of 4 bytes | function | NO | Android | yes |
+| Name                      | Description                                                  | Type     | Required | Platform | HarmonyOS Support |
+| ------------------------- | ------------------------------------------------------------ | -------- | -------- | -------- | ----------------- |
+| mifareUltralightReadPages | Read 4 pages of data from the tag, totaling 16 bytes of data. Each page has a data size of 4 bytes | function | NO       | Android  | yes               |
+| mifareUltralightWritePage | Write one page of data with a size of 4 bytes                | function | NO       | Android  | yes               |
 
 **NdefFormatableHandlerAndroid**
-| Name | Description | Type | Required | Platform | HarmonyOS Support |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| formatNdef | Format tags as NDEF tags and write NDEF messages into NDEF tags | function | NO | Android | yes |
+| Name       | Description                                                  | Type     | Required | Platform | HarmonyOS Support |
+| ---------- | ------------------------------------------------------------ | -------- | -------- | -------- | ----------------- |
+| formatNdef | Format tags as NDEF tags and write NDEF messages into NDEF tags | function | NO       | Android  | yes               |
 
 ## Properties
 
 **RegisterTagEventOpts**
-| Name | Description | Type | Required | Platform | HarmonyOS Support |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| alertMessage | Specify a warning or prompt message to be displayed when an NFC tag is read | string | NO | iOS | NO |
-| invalidateAfterFirstRead | NFC tags should be considered invalid after being read for the first time | boolean | NO | iOS | NO |
-| isReaderModeEnabled | This option is used to indicate whether NFC's' Reader Mode 'is enabled | boolean | NO | Android | yes |
-| readerModeFlags | This option allows you to specify the flag for the reader mode | number | NO | Android | yes |
-| readerModeDelay | This option allows you to specify how long to delay processing an NFC tag after it is detected | number | NO | Android | NO |
+| Name                     | Description                                                  | Type    | Required | Platform | HarmonyOS Support |
+| ------------------------ | ------------------------------------------------------------ | ------- | -------- | -------- | ----------------- |
+| alertMessage             | Specify a warning or prompt message to be displayed when an NFC tag is read | string  | NO       | iOS      | NO                |
+| invalidateAfterFirstRead | NFC tags should be considered invalid after being read for the first time | boolean | NO       | iOS      | NO                |
+| isReaderModeEnabled      | This option is used to indicate whether NFC's' Reader Mode 'is enabled | boolean | NO       | Android  | yes               |
+| readerModeFlags          | This option allows you to specify the flag for the reader mode | number  | NO       | Android  | yes               |
+| readerModeDelay          | This option allows you to specify how long to delay processing an NFC tag after it is detected | number  | NO       | Android  | NO                |
 
 **NfcEvents**
-| Name | Description | Type | Required | Platform | HarmonyOS Support |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| DiscoverTag | When the NFC Manager (NfcManager) detects and successfully reads an NFC tag, this event will be triggered | enum | NO | iOS/Android | yes |
-| DiscoverBackgroundTag | When the application is in the background, the NFC Manager (NfcManager) detects and successfully reads an NFC tag, triggering this event | enum | NO | iOS/Android | yes |
-| SessionClosed | Trigger this event when NFC session is closed | enum | NO | iOS | NO |
-| StateChanged | This event is triggered when the enabled state of NFC changes | enum | NO | iOS/Android | yes |
+| Name                  | Description                                                  | Type | Required | Platform    | HarmonyOS Support |
+| --------------------- | ------------------------------------------------------------ | ---- | -------- | ----------- | ----------------- |
+| DiscoverTag           | When the NFC Manager (NfcManager) detects and successfully reads an NFC tag, this event will be triggered | enum | NO       | iOS/Android | yes               |
+| DiscoverBackgroundTag | When the application is in the background, the NFC Manager (NfcManager) detects and successfully reads an NFC tag, triggering this event | enum | NO       | iOS/Android | yes               |
+| SessionClosed         | Trigger this event when NFC session is closed                | enum | NO       | iOS         | NO                |
+| StateChanged          | This event is triggered when the enabled state of NFC changes | enum | NO       | iOS/Android | yes               |
 
 **NfcTech**
-| Name | Description | Type | Required | Platform | HarmonyOS Support |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| Ndef | NDEF (NFC Data Exchange Format) is a standard format used for storing and exchanging data on NFC tags | enum | no | iOS/Android | yes |
-| NfcA | NfcA stands for ISO 14443-3 Type A technology, which is a widely used NFC tag type that supports fast data transmission and high security | enum | no | iOS/Android | yes |
-| IsoDep | IsoDep represents the ISO/IEC 7816-4 standard, which defines the communication protocol between smart cards and readers | enum | no | iOS/Android | yes |
-| NfcF | NfcF stands for ISO 14443-4 Type F technology, which supports high-speed data transmission and more complex encryption functions | enum | no | Android | yes |
-| NfcV | NfcV stands for ISO 15693 technology, also known as VICC (Vicinity Integrated Circuit Card), mainly used for low-frequency NFC tags with a longer reading distance. | enum | no | Android | yes |
-| NfcB | NfcB stands for ISO 14443-3 Type B technology, similar to NfcA but with different physical characteristics and communication protocols. | enum | no | Android | yes |
-| MifareClassic | Mifare Classic is a popular NFC tag type produced by NXP Semiconductors (now renamed NXP), widely used in fields such as access control systems, bus cards, and payment applications | enum | no | Android | yes |
-| MifareUltralight | Mifare Ultralight is a low-cost NFC tag in the Mifare series, suitable for applications that require fast reading and writing but do not require high security. | enum | no | Android | yes |
-| MifareIOS | NFC A type Tag object, through which the MifareIOS technology type Tag can be accessed | enum | no | iOS | no |
-| iso15693 | NFC A type Tag object, through which the iso15693 technology type Tag can be accessed | enum | no | iOS | no |
-| felica | NFC A type Tag object, through which the felica technology type Tag can be accessed | enum | no | iOS | no |
-| NdefFormatable | NdefFormatable represents an NFC tag that has not yet been formatted as NDEF | enum | no | Android | yes |
+| Name             | Description                                                  | Type | Required | Platform    | HarmonyOS Support |
+| ---------------- | ------------------------------------------------------------ | ---- | -------- | ----------- | ----------------- |
+| Ndef             | NDEF (NFC Data Exchange Format) is a standard format used for storing and exchanging data on NFC tags | enum | no       | iOS/Android | yes               |
+| NfcA             | NfcA stands for ISO 14443-3 Type A technology, which is a widely used NFC tag type that supports fast data transmission and high security | enum | no       | iOS/Android | yes               |
+| IsoDep           | IsoDep represents the ISO/IEC 7816-4 standard, which defines the communication protocol between smart cards and readers | enum | no       | iOS/Android | yes               |
+| NfcF             | NfcF stands for ISO 14443-4 Type F technology, which supports high-speed data transmission and more complex encryption functions | enum | no       | Android     | yes               |
+| NfcV             | NfcV stands for ISO 15693 technology, also known as VICC (Vicinity Integrated Circuit Card), mainly used for low-frequency NFC tags with a longer reading distance. | enum | no       | Android     | yes               |
+| NfcB             | NfcB stands for ISO 14443-3 Type B technology, similar to NfcA but with different physical characteristics and communication protocols. | enum | no       | Android     | yes               |
+| MifareClassic    | Mifare Classic is a popular NFC tag type produced by NXP Semiconductors (now renamed NXP), widely used in fields such as access control systems, bus cards, and payment applications | enum | no       | Android     | yes               |
+| MifareUltralight | Mifare Ultralight is a low-cost NFC tag in the Mifare series, suitable for applications that require fast reading and writing but do not require high security. | enum | no       | Android     | yes               |
+| MifareIOS        | NFC A type Tag object, through which the MifareIOS technology type Tag can be accessed | enum | no       | iOS         | no                |
+| iso15693         | NFC A type Tag object, through which the iso15693 technology type Tag can be accessed | enum | no       | iOS         | no                |
+| felica           | NFC A type Tag object, through which the felica technology type Tag can be accessed | enum | no       | iOS         | no                |
+| NdefFormatable   | NdefFormatable represents an NFC tag that has not yet been formatted as NDEF | enum | no       | Android     | yes               |
 
 ## Return value
 
 **NdefStatus**
-| Name | Description | Type | Required | Platform | HarmonyOS Support |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| NotSupported | When NFC tags do not support NDEF format, this status will be returned | enum | NO | iOS/Android | yes |
-| ReadWrite | When NFC tags support NDEF format and allow read and write operations, this status will be returned | enum | NO | iOS/Android | yes |
-| ReadOnly | When NFC tags support NDEF format but only allow read operations, this status will be returned | enum | NO | iOS/Android | yes |
+| Name         | Description                                                  | Type | Required | Platform    | HarmonyOS Support |
+| ------------ | ------------------------------------------------------------ | ---- | -------- | ----------- | ----------------- |
+| NotSupported | When NFC tags do not support NDEF format, this status will be returned | enum | NO       | iOS/Android | yes               |
+| ReadWrite    | When NFC tags support NDEF format and allow read and write operations, this status will be returned | enum | NO       | iOS/Android | yes               |
+| ReadOnly     | When NFC tags support NDEF format but only allow read operations, this status will be returned | enum | NO       | iOS/Android | yes               |
 
 **TagEvent**
-| Name | Description | Type | Required | Platform | HarmonyOS Support |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| ndefMessage | Retrieve all records from NDEF messages | NdefRecord[] | NO | iOS/Android | yes |
-| maxSize | This attribute represents the maximum number of bytes that can be stored on an NFC tag | number | NO | iOS/Android | yes |
-| type | The 'type' attribute may be used to identify the type or format of NFC tags | string | NO | iOS/Android | yes |
-| techTypes | This is an array containing strings used to identify the technology types supported by NFC tags | string[] | NO | iOS/Android | yes |
-| id | The id attribute represents the unique identifier of the NFC tag | string | NO | iOS/Android | yes |
+| Name        | Description                                                  | Type         | Required | Platform    | HarmonyOS Support |
+| ----------- | ------------------------------------------------------------ | ------------ | -------- | ----------- | ----------------- |
+| ndefMessage | Retrieve all records from NDEF messages                      | NdefRecord[] | NO       | iOS/Android | yes               |
+| maxSize     | This attribute represents the maximum number of bytes that can be stored on an NFC tag | number       | NO       | iOS/Android | yes               |
+| type        | The 'type' attribute may be used to identify the type or format of NFC tags | string       | NO       | iOS/Android | yes               |
+| techTypes   | This is an array containing strings used to identify the technology types supported by NFC tags | string[]     | NO       | iOS/Android | yes               |
+| id          | The id attribute represents the unique identifier of the NFC tag | string       | NO       | iOS/Android | yes               |
 
 **NdefRecord**
-| Name | Description | Type | Required | Platform | HarmonyOS Support |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| id | This is an optional byte array used as an identifier for NDEF records | number[] | NO | iOS/Android | yes |
-| tnf | TNF (Type Name Format) is an enumeration or type used to indicate the interpretation of the type field | number | NO | iOS/Android | yes |
-| type | This attribute can be a byte array (number []) or a string, depending on the value of the TNF field | number[] | NO | iOS/Android | yes |
-| payload | Payload is the actual data portion recorded by NDEF | number[] | NO | iOS/Android | yes |
+| Name    | Description                                                  | Type     | Required | Platform    | HarmonyOS Support |
+| ------- | ------------------------------------------------------------ | -------- | -------- | ----------- | ----------------- |
+| id      | This is an optional byte array used as an identifier for NDEF records | number[] | NO       | iOS/Android | yes               |
+| tnf     | TNF (Type Name Format) is an enumeration or type used to indicate the interpretation of the type field | number   | NO       | iOS/Android | yes               |
+| type    | This attribute can be a byte array (number []) or a string, depending on the value of the TNF field | number[] | NO       | iOS/Android | yes               |
+| payload | Payload is the actual data portion recorded by NDEF          | number[] | NO       | iOS/Android | yes               |
 
 ## Known Issues
 
 ## Others
 
-本库是一个为 React Native 开发者提供的 NFC（近场通信）管理库，它允许开发者在 React Native 应用中轻松集成 NFC 功能。这个库支持 iOS 、 Android 和 HarmonyOS NEXT 平台,使得开发者可以跨平台地实现 NFC 相关的功能，如读取和写入 NFC 标签、进行智能卡模拟等。因平台不同，iOS 、Android 和 HarmonyOS NEXT 在 NFC（近场通信）技术中对标签和协议类型存在兼容性。本库的设计考虑到了 Android 和 HarmonyOS NEXT 兼容性较高，核心功能在两个平台上都能实现，并且表现一致。该库提供了多种 NFC 技术的支持，包括但不限于 NDEF、NfcA、IsoDep 和 NfcV 等。
+You can integrate NFC functions into React Native applications in the NFC management library, and implement NFC-related functions, such as reading and writing NFC tags and performing smart card emulation, across iOS, Android, and HarmonyOS NEXT platforms. Due to differences in NFC tag and protocol support across platforms, there are compatibility considerations for iOS, Android, and HarmonyOS NEXT. The design of this library takes into account a high compatibility with Android and HarmonyOS NEXT, ensuring that the core functionalities are implemented and perform consistently on both platforms. NFC technologies include but are not limited to NDEF, NfcA, IsoDep, and NfcV.
 
 ## License
 

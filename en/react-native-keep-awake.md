@@ -17,7 +17,7 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-keep-awake Releases](https://github.com/react-native-oh-library/react-native-keep-awake/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-keep-awake Releases](https://github.com/react-native-oh-library/react-native-keep-awake/releases). For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 Go to the project directory and execute the following instruction:
 
@@ -155,7 +155,7 @@ ohpm install
 
 Method 2: Directly link to the source code.
 
-> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
+> [!TIP] The source code is stored in the `harmony` folder in the installation path of the third-party library.
 
 Open `entry/oh-package.json5` file and add the following dependencies:
 
@@ -212,24 +212,24 @@ Check the release version information in the release address of the third-party 
 
 This document is verified based on the following versions:
 
-1. RNOH: 0.72.20; SDK: HarmonyOS NEXT Developer Beta1 B.0.18、HarmonyOS NEXT Developer Preview0 B.0.60、HarmonyOS NEXT Developer Preview2 B.0.73; IDE: DevEco Studio 5.0.3.200; ROM: 2.0.0.18;
+1. RNOH: 0.72.20; SDK: HarmonyOS NEXT Developer Beta1 B.0.18, HarmonyOS NEXT Developer Preview0 B.0.60, HarmonyOS NEXT Developer Preview2 B.0.73; IDE: DevEco Studio 5.0.3.200; ROM: 2.0.0.18;
 
-## 使用方法
+## Usage
 
-> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] 功能函数形式使用下，新老接口均可使用。
+> [!tip] Both old and new APIs can be used in the form of functions.
 
-> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 | Name                   | Description                                    | Required | Platform | HarmonyOS Support |
 | ---------------------- | ---------------------------------------------- | -------- | -------- | ----------------- |
-| `<KeepAwake/>`         | 组件形式使用，开启当前屏幕常亮模式             | No       | All      | yes               |
-| KeepAwake.activate()   | 功能函数形式使用，开启当前屏幕常亮模式(老接口) | No       | All      | yes               |
-| KeepAwake.deactivate() | 功能函数形式使用，开启当前屏幕常亮模式(老接口) | No       | All      | yes               |
-| useKeepAwake()         | hooks 形式使用                                 | No       | All      | yes               |
-| activateKeepAwake()    | 功能函数形式使用，开启当前屏幕常亮模式(新接口) | No       | All      | yes               |
-| deactivateKeepAwake()  | 功能函数形式使用，关闭当前屏幕常亮模式(新接口) | No       | All      | yes               |
+| `<KeepAwake/>`         | Component that activates the current screen-on mode.            | No       | All      | yes               |
+| KeepAwake.activate()   | Function that deactivates the current screen-on mode (old API).| No       | All      | yes               |
+| KeepAwake.deactivate() | Function that deactivates the current screen-on mode (old API).| No       | All      | yes               |
+| useKeepAwake()         | Hook.                                | No       | All      | yes               |
+| activateKeepAwake()    | Function that activates the current screen-on mode (new API).| No       | All      | yes               |
+| deactivateKeepAwake()  | Function that deactivates the current screen-on mode (new API).| No       | All      | yes               |
 
 ## Known Issues
 

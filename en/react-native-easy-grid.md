@@ -71,18 +71,18 @@ RNOH: 0.72.27; SDK: HarmonyOS-NEXT Developer Beta1 5.0.0.25 ; IDE: DevEco Studio
 
 ## Properties
 
-Grid、Row、Col 组件接收所有 [React Native View](https://reactnative.dev/docs/view#props)组件的 Props
+The **Grid**, **Row**, and **Col** components receive the properties of all [React Native View](https://reactnative.dev/docs/view#props) components.
 
 > [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-**RowProps 和 ColProps 的公共属性: **
+**Common properties of RowProps and ColProps**
 
 | Name                | Description | Type     | Required | Platform    | HarmonyOS Support |
 | ------------------- | ----------- | -------- | -------- | ----------- | ----------------- |
-| size                | 布局占比    | number   | no       | iOS,Android | yes               |
-| onPress: () => void | 点击事件    | function | no       | iOS,Android | yes               |
+| size                | Layout size.   | number   | no       | iOS,Android | yes               |
+| onPress: () => void | Press event.   | function | no       | iOS,Android | yes               |
 
 ## Known Issues
 

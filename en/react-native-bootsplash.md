@@ -17,7 +17,7 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-bootsplash Releases](https://github.com/react-native-oh-library/react-native-bootsplash/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-bootsplash Releases](https://github.com/react-native-oh-library/react-native-bootsplash/releases). For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 Go to the project directory and execute the following instruction:
 
@@ -37,9 +37,9 @@ npm install @react-native-oh-tpl/react-native-bootsplash
 yarn add @react-native-oh-tpl/react-native-bootsplash
 ```
 
-#### 生成配置文件
+#### Generating a Configuration File
 
-为了加快设置速度，我们提供了一个 CLI 来自动生成配置、创建 Android Drawable XML 文件、iOS Storyboard 文件和 HarmonyOS Resources 文件
+To speed up the setup, a CLI is provided to automatically generate configurations and create Android Drawable XML files, iOS Storyboard files, and HarmonyOS Resources files.
 
 ```bash
 $ npx react-native generate-bootsplash --help
@@ -47,7 +47,7 @@ $ npx react-native generate-bootsplash --help
 $ yarn react-native generate-bootsplash --help
 ```
 
-该命令可以使用多个参数:
+This command can use multiple parameters:
 
 ```js
 Usage: react-native generate-bootsplash [options] <logo>
@@ -71,14 +71,14 @@ Options:
   -h, --help                  display help for command
 ```
 
-命令用法示例:
+Command example:
 
 ```bash
 # Without license key
 npx react-native generate-bootsplash svgs/light-logo.svg
 ```
 
-命令执行后将创建以下文件:
+After the command is executed, the following files are created:
 
 ```js
 # Without license key
@@ -114,7 +114,7 @@ assets/bootsplash/logo@3x.png
 assets/bootsplash/logo@4x.png
 ```
 
-编辑您的启动 Ability 文件, 它通常是配置在 entry 模块 module.json5 中 abilities 属性中配置的第一个 abilitie:
+Edit the startup ability file, which is usually the first ability configured in the **abilities** property in the **module.json5** file of the entry module.
 
 ```diff
 + import { window } from '@kit.ArkUI';
@@ -137,7 +137,7 @@ The following code shows the basic use scenario of the repository:
 
 > [!WARNING] The name of the imported repository remains unchanged.
 
-> [!TIP] 示例中 logo 参数使用了本地图片资源，可以到[react-native-boot-splash demo](https://github.com/react-native-oh-library/RNOHDCS/tree/main/react-native-boot-splash/source)获取该图片
+> [!TIP] The logo parameter is used to obtain local images from [react-native-boot-splash demo](https://github.com/react-native-oh-library/RNOHDCS/tree/main/react-native-boot-splash/source).
 
 ```js
 import { useState, useEffect } from "react";
@@ -257,7 +257,7 @@ export default App;
 
 ## Use Codegen
 
-If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/zh-cn/codegen.md).
+If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/en/codegen.md).
 
 ## Link
 
@@ -304,7 +304,7 @@ ohpm install
 
 Method 2: Directly link to the source code.
 
-> [!TIP] For details, see [Directly Linking Source Code](/zh-cn/link-source-code.md).
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
 ### 3. Introducing RNBootSplashPackage to ArkTS
 
@@ -345,15 +345,15 @@ Check the release version information in the release address of the third-party 
 
 ## API
 
-> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name             | Description                                                                                                                                                                                  | Type     | Required | Platform     | HarmonyOS Support |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ------------ | ----------------- |
-| hide             | Hide the splash screen.                                                                                                                                                                      | function | no       | Android、IOS | yes               |
-| isVisible        | Return the current visibility status of the native splash screen.                                                                                                                            | function | no       | Android、IOS | yes               |
-| useHideAnimation | A hook to easily create a custom hide animation by animating all splash screen elements using Animated, react-native-reanimated or else (similar as the video on top of this documentation). | function | no       | Android、IOS | yes               |
+| Name             | Description                                                  | Type     | Required | Platform     | HarmonyOS Support |
+| ---------------- | ------------------------------------------------------------ | -------- | -------- | ------------ | ----------------- |
+| hide             | Hide the splash screen.                                      | function | no       | Android/iOS| yes               |
+| isVisible        | Return the current visibility status of the native splash screen. | function | no       | Android/iOS| yes               |
+| useHideAnimation | A hook to easily create a custom hide animation by animating all splash screen elements using Animated, react-native-reanimated or else (similar as the video on top of this documentation). | function | no       | Android/iOS| yes               |
 
 ### hide
 
@@ -371,25 +371,25 @@ type hide = (config?: { fade?: boolean }) => Promise<void>;
 useHideAnimation(config: {UseHideAnimationConfig}) => {container: ContainerProps;logo: LogoProps;brand: BrandProps;};
 ```
 
-| Name                     | Description                                                   | Type               | Required | Platform    | HarmonyOS Support |
-| ------------------------ | ------------------------------------------------------------- | ------------------ | -------- | ----------- | ----------------- |
+| Name                     | Description                                                  | Type               | Required | Platform    | HarmonyOS Support |
+| ------------------------ | ------------------------------------------------------------ | ------------------ | -------- | ----------- | ----------------- |
 | ready                    | a boolean flag to delay the animate execution (default: true) | boolean            | No       | iOS/Android | partially         |
-| manifest                 | the manifest file is generated in your assets directory       | Manifest           | Yes      | iOS/Android | partially         |
-| logo                     | logo image in animation                                       | ImageRequireSource | No       | iOS/Android | partially         |
-| darkLogo                 | logo image in animation in dark mode                          | ImageRequireSource | No       | iOS/Android | partially         |
-| brand                    | brand image in animation                                      | ImageRequireSource | No       | iOS/Android | partially         |
-| darkBrand                | brand image in animation in dark mode                         | ImageRequireSource | No       | iOS/Android | partially         |
-| statusBarTranslucent     | sets whether the status bar is transparent                    | boolean            | No       | iOS/Android | partially         |
-| navigationBarTranslucent | sets whether the navigation bar is transparent                | boolean            | No       | iOS/Android | partially         |
-| animate                  | custom hide animation                                         | function           | Yes      | iOS/Android | partially         |
+| manifest                 | the manifest file is generated in your assets directory      | Manifest           | Yes      | iOS/Android | partially         |
+| logo                     | logo image in animation                                      | ImageRequireSource | No       | iOS/Android | partially         |
+| darkLogo                 | logo image in animation in dark mode                         | ImageRequireSource | No       | iOS/Android | partially         |
+| brand                    | brand image in animation                                     | ImageRequireSource | No       | iOS/Android | partially         |
+| darkBrand                | brand image in animation in dark mode                        | ImageRequireSource | No       | iOS/Android | partially         |
+| statusBarTranslucent     | sets whether the status bar is transparent                   | boolean            | No       | iOS/Android | partially         |
+| navigationBarTranslucent | sets whether the navigation bar is transparent               | boolean            | No       | iOS/Android | partially         |
+| animate                  | custom hide animation                                        | function           | Yes      | iOS/Android | partially         |
 
 ## Known Issues
 
-- [ ] HarmonyOS 的 window 窗口上不支持设置动画属性，hide 接口 fade 参数设置 true 没有效果 问题: [issue#13](https://github.com/react-native-oh-library/react-native-bootsplash/issues/13)
+- [ ] The animation property cannot be set in the HarmonyOS window, because setting the fade parameter of the hide API to true does not take effect. [issue#13](https://github.com/react-native-oh-library/react-native-bootsplash/issues/13)
 
 ## Others
 
-- 执行 generate-bootsplash 命令行时，由于 `--brand, --brand-width 和 --dark-*` 选项需要购买 license 才能使用，涉及功能未开源，HarmonyOS 平台不支持使用
+- When the **generate-bootsplash** command is executed, the `--brand, --brand-width, and --dark-*` options can be used only after a license is purchased. The involved functions are not open-source and are not supported by the HarmonyOS platform.
 
 ## License
 

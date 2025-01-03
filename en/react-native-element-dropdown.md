@@ -330,7 +330,7 @@ const styles = StyleSheet.create({
 This document is verified based on the following versions:
 
 1. RNOH: 0.72.27; SDK: HarmonyOS-Next-DB1 5.0.0.29(SP1); IDE: DevEco Studio 5.0.3.403; ROM: 3.0.0.25;
-2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
+2. RNOH: 0.72.33; SDK: OpenHarmony 5.0.0.71 (API Version 12 Release); IDE: DevEco Studio 5.0.3.900; ROM: NEXT.0.0.71;
 
 ## Properties
 
@@ -340,11 +340,11 @@ For details, see [react-native-element-dropdown](https://github.com/hoaphantn760
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-**Dropdown**: 单选组件
+**Dropdown**: a component for single selection.
 
 | Name                         | Description                                                                                                                                             | Type                                             | Required | Platform | HarmonyOS Support |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | -------- | -------- | ----------------- |
-| mode                         | Mode 'modal' is show the dropdown in the middle of the screen.                                                                                          | 'default' or 'modal' of 'auto'                   | No       | All      | Yes               |
+| mode                         | Mode 'modal' shows the dropdown in the middle of the screen.                                                                                         | 'default' or 'modal' of 'auto'                   | No       | All      | Yes               |
 | data                         | Data is a plain array                                                                                                                                   | Array                                            | Yes      | All      | Yes               |
 | labelField                   | Extract the label from the data item                                                                                                                    | String                                           | Yes      | All      | Yes               |
 | valueField                   | Extract the primary key from the data item                                                                                                              | String                                           | Yes      | All      | Yes               |
@@ -394,10 +394,10 @@ For details, see [react-native-element-dropdown](https://github.com/hoaphantn760
 | excludeItems                 | The array containing the items to be excluded.                                                                                                          | Item[]                                           | No       | All      | Yes               |
 | excludeSearchItems           | The array containing the items to be excluded.                                                                                                          | Item[]                                           | No       | All      | Yes               |
 
-**MultiSelect**: 多选组件
+**MultiSelect**: a component for multiple selections.
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | ------------------ | -----------------------------------------------------| --------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| mode | Mode 'modal' is show the dropdown in the middle of the screen. | 'default' or 'modal' of 'auto' | No | All | Yes |
+| mode | Mode 'modal' shows the dropdown in the middle of the screen.| 'default' or 'modal' of 'auto' | No | All | Yes |
 | data | Data is a plain array | Array | Yes | All | Yes |
 | labelField | Extract the label from the data item | String | Yes | All | Yes |
 | valueField | Extract the primary key from the data item | String | Yes | All | Yes |
@@ -452,7 +452,7 @@ For details, see [react-native-element-dropdown](https://github.com/hoaphantn760
 | excludeItems | The array containing the items to be excluded. | Item[] | No | All | |
 | excludeSearchItems | The array containing the items to be excluded. | Item[] | No | All | Yes |
 
-**SelectCountry**: 选择国家/地区组件，接收所有 Dropdown 的 props 并新增了以下 props
+**SelectCountry**: a component for selecting country/region. It receives all **Dropdown** properties and adds the following properties.
 
 | Name       | Description                          | Type       | Required | Platform | HarmonyOS Support |
 | ---------- | ------------------------------------ | ---------- | -------- | -------- | ----------------- |
@@ -472,4 +472,4 @@ For details, see [react-native-element-dropdown](https://github.com/hoaphantn760
 
 ## License
 
-This project is licensed under [The MIT License (MIT)](https://github.com/hoaphantn7604/react-native-element-dropdown/blob/master/LICENSE)，请自由地享受和参与开源。
+This project is licensed under [MIT License](https://github.com/hoaphantn7604/react-native-element-dropdown/blob/master/LICENSE).

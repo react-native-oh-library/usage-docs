@@ -18,7 +18,7 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library: [@react-native-oh-library/react-native-camera-kit Releases](https://github.com/react-native-oh-library/react-native-camera-kit/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+Find the matching version information in the release address of a third-party library: [@react-native-oh-library/react-native-camera-kit Releases](https://github.com/react-native-oh-library/react-native-camera-kit/releases). For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 Go to the project directory and execute the following instruction:
 
@@ -207,7 +207,7 @@ ohpm install
 
 Method 2: Directly link to the source code.
 
-> [!TIP] For details, see [Directly Linking Source Code](/zh-cn/link-source-code.md).
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
 ### 3. Configuring CMakeLists and Introducing xxx Package
 
@@ -233,7 +233,7 @@ export function buildCustomRNComponent(ctx: ComponentBuilderContext) {
 
 Find the constant `arkTsComponentNames` in `entry/src/main/ets/pages/index.ets` or `entry/src/main/ets/rn/LoadBundle.ets` and add the component name to the array.
 
-```diff
+​```diff
 const arkTsComponentNames: Array<string> = [
   SampleView.NAME,
   GeneratedSampleView.NAME,
@@ -277,11 +277,11 @@ Then build and run the code.
 
 To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-Check the release version information in the release address of the third-party library：[@react-native-oh-library/react-native-camera-kit Releases](https://github.com/react-native-oh-library/react-native-camera-kit/releases)
+Check the release version information in the release address of the third-party library: [@react-native-oh-library/react-native-camera-kit Releases](https://github.com/react-native-oh-library/react-native-camera-kit/releases)
 
 ### Permission Requirements
 
-The following permissions include the `system_basic` permission, but the default application permission is `normal`. Only the `normal` permission can be used. Therefore, the error * 9568289 * * * may be reported during the installation of the HAP package. For details, see [Document](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/bm-tool-V5#ZH-CN_TOPIC_0000001884757326__%E5%AE%89%E8%A3%85hap%E6%97%B6%E6%8F%90%E7%A4%BAcode9568289-error-install-failed-due-to-grant-request-permissions-failed) Change the application level to `system_basic`.
+The following permissions include the `system_basic` permission, but the default application permission is `normal`. Only the `normal` permission can be used. Therefore, the error * 9568289 * * * may be reported during the installation of the HAP package. For details, see [Document](https://developer.huawei.com/consumer/en/doc/harmonyos-guides-V5/bm-tool-V5#EN_TOPIC_0000001884757326__%E5%AE%89%E8%A3%85hap%E6%97%B6%E6%8F%90%E7%A4%BAcode9568289-error-install-failed-due-to-grant-request-permissions-failed) Change the application level to `system_basic`.
 
 #### Add permissions to the module.json5 file in the entry directory.
 
@@ -349,26 +349,26 @@ Open `entry/src/main/resources/base/element/string.json` and add the following i
 
 ## Properties
 
-> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-**Camera**：CameraComponent
+**Camera**: CameraComponent
 
-| Name            | Description          | Type     | Required | Platform    | HarmonyOS Support |
-|-----------------|----------------------|----------|----------|-------------|-------------------|
-| ref | Reference on the camera view     | Ref | no       | All | yes               |
-| style | Style to apply on the camera view | StyleProp\<ViewStyle> | no       | All | yes               |
-| flashMode  | Camera flash mode. Default: `auto` | 'on'`/`'off'`/`'auto' | no       | All | yes               |
-| focusMode  | Camera focus mode. Default: on     | 'on'`/`'off' | no       | All | yes               |
-| zoomMode  | Enable the pinch to zoom gesture. Default: on     | 'on'`/`'off' | no       | All | yes               |
-| zoom  | Control the zoom. Default: 1.0     | Number | no       | All | yes               |
-| maxZoom  | Maximum zoom allowed (but not beyond what camera allows). Default: undefined (camera default max)     | Number | no       | All | yes               |
-| onZoom  | Callback when user makes a pinch gesture, regardless of what the zoom prop was set to. Returned event contains zoom. Ex: onZoom={(e) => console.log(e.nativeEvent.zoom)}.     | Function | no       | All | yes               |
-| torchMode  | Toggle flash light when camera is active. Default: off     | 'on'`/`'off' | no       | All | yes               |
-| cameraType  | Choose what camera to use. Default: `CameraType. | 'front'/'back' | no       | All | yes               |
-| onOrientationChange  | Callback when physical device orientation changes. Returned event contains orientation. Ex: onOrientationChange={(event) => console.log(event.nativeEvent.orientation)}. Use import { Orientation } from 'react-native-camera-kit'; if (event.nativeEvent.orientation === Orientation.PORTRAIT) { ... } to understand the new value     | Function | no       | iOS | yes               |
-| onError  | Android only. Callback when camera fails to initialize. Ex: onError={(e) => console.log(e.nativeEvent.errorMessage)}.     | Function | no       | Android | yes               |
+| Name                | Description                                                  | Type                  | Required | Platform | HarmonyOS Support |
+| ------------------- | ------------------------------------------------------------ | --------------------- | -------- | -------- | ----------------- |
+| ref                 | Reference on the camera view                                 | Ref                   | no       | All      | yes               |
+| style               | Style to apply on the camera view                            | StyleProp\<ViewStyle> | no       | All      | yes               |
+| flashMode           | Camera flash mode. Default: `auto`                           | 'on'`/`'off'`/`'auto' | no       | All      | yes               |
+| focusMode           | Camera focus mode. Default: on                               | 'on'`/`'off'          | no       | All      | yes               |
+| zoomMode            | Enable the pinch to zoom gesture. Default: on                | 'on'`/`'off'          | no       | All      | yes               |
+| zoom                | Control the zoom. Default: 1.0                               | Number                | no       | All      | yes               |
+| maxZoom             | Maximum zoom allowed (but not beyond what camera allows). Default: undefined (camera default max) | Number                | no       | All      | yes               |
+| onZoom              | Callback when user makes a pinch gesture, regardless of what the zoom prop was set to. Returned event contains zoom. Ex: onZoom={(e) => console.log(e.nativeEvent.zoom)}. | Function              | no       | All      | yes               |
+| torchMode           | Toggle flash light when camera is active. Default: off       | 'on'`/`'off'          | no       | All      | yes               |
+| cameraType          | Choose what camera to use. Default: `CameraType.             | 'front'/'back'        | no       | All      | yes               |
+| onOrientationChange | Callback when physical device orientation changes. Returned event contains orientation. Ex: onOrientationChange={(event) => console.log(event.nativeEvent.orientation)}. Use import { Orientation } from 'react-native-camera-kit'; if (event.nativeEvent.orientation === Orientation.PORTRAIT) { ... } to understand the new value | Function              | no       | iOS      | yes               |
+| onError             | Android only. Callback when camera fails to initialize. Ex: onError={(e) => console.log(e.nativeEvent.errorMessage)}. | Function              | no       | Android  | yes               |
 | shutterPhotoSound  |Android only. Enable or disable the shutter sound when capturing a photo. Default: `true`     | Boolean | no       | Android | yes   
 | ratioOverlay  | Show a guiding overlay in the camera preview for the selected ratio. Does not crop image as of v9.0. Example: '16:9'     | String | no       | iOS | yes               |
 | ratioOverlayColor  | Any color with alpha. Default: '#ffffff77'     | String | no       | All | yes               |
@@ -378,36 +378,36 @@ Open `entry/src/main/resources/base/element/string.json` and add the following i
 | onCaptureButtonPressIn  | Callback when iPhone capture button is pressed in. Ex: onCaptureButtonPressIn={() => console.log("volume button pressed in")}    | Function | no       | iOS | yes          |
 | onCaptureButtonPressOut  | Callback when iPhone capture button is released. Ex: onCaptureButtonPressOut={() => console.log("volume button released")}     | Function | no       | iOS | no             |
 
-**ScanCode**：ScanCodeComponent
+**ScanCode**: ScanCodeComponent
 
-| Name            | Description          | Type     | Required | Platform    | HarmonyOS Support |
-|-----------------|----------------------|----------|----------|-------------|-------------------|
-| ref | Reference on the camera view     | Ref | no       | All      | yes               |
-| style | Style to apply on the camera view | StyleProp\<ViewStyle> | no       | All | yes               |
-| flashMode  | Get secret value     | 'on'`/`'off'`/`'auto' | no       | All | yes          |
-| zoomMode  | Enable the pinch to zoom gesture. Default: on     | 'on'`/`'off' | no       | All | yes               |
-| zoom  | Control the zoom. Default: 1.0     | Number | no       | All | yes               |
-| maxZoom  | Maximum zoom allowed (but not beyond what camera allows). Default: undefined (camera default max)     | Number | no       | All | yes               |
-| onZoom  | Callback when user makes a pinch gesture, regardless of what the zoom prop was set to. Returned event contains zoom. Ex: onZoom={(e) => console.log(e.nativeEvent.zoom)}.     | Function | no       | All | yes               |
-| torchMode  | Toggle flash light when camera is active. Default: off     | 'on'`/`'off' | no       | All | yes               |
-| cameraType                   | Choose what camera to use. Default: `CameraType.             | 'front'/'back'        | no       | All | no                |
-| onOrientationChange  | Callback when physical device orientation changes. Returned event contains orientation. Ex: onOrientationChange={(event) => console.log(event.nativeEvent.orientation)}. Use import { Orientation } from 'react-native-camera-kit'; if (event.nativeEvent.orientation === Orientation.PORTRAIT) { ... } to understand the new value     | Function | no       | iOS | no             |
-| onError  | Android only. Callback when camera fails to initialize. Ex: onError={(e) => console.log(e.nativeEvent.errorMessage)}.     | Function | no       | Android | yes               |
-| resetFocusTimeout  | Dismiss tap to focus after this many milliseconds. Default 0 (disabled). Example: 5000 is 5 seconds.     | Number | no       | All | yes               |
-| scanThrottleDelay  | Duration between scan detection in milliseconds. Default 2000 (2s)     | Number | no       | All | yes              |
-| scanBarcode  | Enable barcode scanner. Default: `false`     | boolean | no       | All | yes               |
-| showFrame  | Show frame in barcode scanner. Default: `false`     | boolean | no       | All | yes               |
-| laserColor  | Color of barcode scanner laser visualization. Default: `red`     | string | no       | All | yes               |
-| frameColor  | Color of barcode scanner frame visualization. Default: `yellow`     | string | no       | All | yes               |
-| onReadCode  | Callback when scanner successfully reads barcode. Returned event contains `codeStringValue`. Default: `null`. Ex: `onReadCode={(event) => console.log(event.nativeEvent.codeStringValue)}     | Function | no       | All | yes               |
+| Name                | Description                                                  | Type                  | Required | Platform | HarmonyOS Support |
+| ------------------- | ------------------------------------------------------------ | --------------------- | -------- | -------- | ----------------- |
+| ref                 | Reference on the camera view                                 | Ref                   | no       | All      | yes               |
+| style               | Style to apply on the camera view                            | StyleProp\<ViewStyle> | no       | All      | yes               |
+| flashMode           | Get secret value                                             | 'on'`/`'off'`/`'auto' | no       | All      | yes               |
+| zoomMode            | Enable the pinch to zoom gesture. Default: on                | 'on'`/`'off'          | no       | All      | yes               |
+| zoom                | Control the zoom. Default: 1.0                               | Number                | no       | All      | yes               |
+| maxZoom             | Maximum zoom allowed (but not beyond what camera allows). Default: undefined (camera default max) | Number                | no       | All      | yes               |
+| onZoom              | Callback when user makes a pinch gesture, regardless of what the zoom prop was set to. Returned event contains zoom. Ex: onZoom={(e) => console.log(e.nativeEvent.zoom)}. | Function              | no       | All      | yes               |
+| torchMode           | Toggle flash light when camera is active. Default: off       | 'on'`/`'off'          | no       | All      | yes               |
+| cameraType          | Choose what camera to use. Default: `CameraType.             | 'front'/'back'        | no       | All      | no                |
+| onOrientationChange | Callback when physical device orientation changes. Returned event contains orientation. Ex: onOrientationChange={(event) => console.log(event.nativeEvent.orientation)}. Use import { Orientation } from 'react-native-camera-kit'; if (event.nativeEvent.orientation === Orientation.PORTRAIT) { ... } to understand the new value | Function              | no       | iOS      | no                |
+| onError             | Android only. Callback when camera fails to initialize. Ex: onError={(e) => console.log(e.nativeEvent.errorMessage)}. | Function              | no       | Android  | yes               |
+| resetFocusTimeout   | Dismiss tap to focus after this many milliseconds. Default 0 (disabled). Example: 5000 is 5 seconds. | Number                | no       | All      | yes               |
+| scanThrottleDelay   | Duration between scan detection in milliseconds. Default 2000 (2s) | Number                | no       | All      | yes               |
+| scanBarcode         | Enable barcode scanner. Default: `false`                     | boolean               | no       | All      | yes               |
+| showFrame           | Show frame in barcode scanner. Default: `false`              | boolean               | no       | All      | yes               |
+| laserColor          | Color of barcode scanner laser visualization. Default: `red` | string                | no       | All      | yes               |
+| frameColor          | Color of barcode scanner frame visualization. Default: `yellow` | string                | no       | All      | yes               |
+| onReadCode          | Callback when scanner successfully reads barcode. Returned event contains `codeStringValue`. Default: `null`. Ex: `onReadCode={(event) => console.log(event.nativeEvent.codeStringValue)} | Function              | no       | All      | yes               |
 
 ## Methods
 
-| Name  | Description         | Type       | Required | Platform | HarmonyOS Support |
-| ----- | ------------------- | ---------- | -------- | -------- | ----------------- |
-| capture  | Capture image as JPEG.  | Promise<CaptureData> | No       | All      | Yes               |
-| requestDeviceCameraAuthorization  | `AVAuthorizationStatusAuthorized` returns `true` otherwise, returns `false` | Promise<boolean> | No       | All      | Yes               |
-| checkDeviceCameraAuthorizationStatus  | `AVAuthorizationStatusAuthorized` returns `true` otherwise, returns `false` | Promise<boolean> | All      | Yes               |Yes|
+| Name                                 | Description                                                  | Type                 | Required | Platform | HarmonyOS Support |
+| ------------------------------------ | ------------------------------------------------------------ | -------------------- | -------- | -------- | ----------------- |
+| capture                              | Capture image as JPEG.                                       | Promise<CaptureData> | No       | All      | Yes               |
+| requestDeviceCameraAuthorization     | `AVAuthorizationStatusAuthorized` returns `true` otherwise, returns `false` | Promise<boolean>     | No       | All      | Yes               |
+| checkDeviceCameraAuthorizationStatus | `AVAuthorizationStatusAuthorized` returns `true` otherwise, returns `false` | Promise<boolean>     | All      | Yes      | Yes               |
 
 
 ## Known Issues

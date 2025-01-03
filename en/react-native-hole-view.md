@@ -277,10 +277,10 @@ Check the release version information in the release address of the third-party 
 
 ## Known Issues
 
-- [ ] C API OH_ArkUI_PointerEvent_SetStopPropagation 方法阻止事件冒泡，无法控制 scrollView。导致 scrollView 在洞外也能滑动问题: [issue#1](https://github.com/react-native-oh-library/react-native-hole-view/issues/2)
+- [ ] Using C API OH_ArkUI_PointerEvent_SetStopPropagation to prevent the event from bubbling up causes scrollView out of control. This results in scrollView being able to scroll even outside the designated area: [issue#1](https://github.com/react-native-oh-library/react-native-hole-view/issues/2)
 
 ## Others
 
 ## License
 
-This project is licensed under [The MIT License (MIT)](https://mitlicense.org/)，请自由地享受和参与开源。
+This project is licensed under [The MIT License (MIT)](https://mitlicense.org/).

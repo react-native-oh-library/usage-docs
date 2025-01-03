@@ -253,14 +253,14 @@ export default Avatars;
 
 ## Link
 
-The HarmonyOS implementation of this library relies on the native code of @react-native-oh-tpl/react-native-safe-area-context , @react-native-oh-tpl/react-native-linear-gradient If the library has already been introduced in the HarmonyOS project, there is no need to introduce it again. You can skip the steps in this chapter and use it directly.
+The HarmonyOS implementation of this library relies on the native code of @react-native-oh-tpl/react-native-safe-area-context and @react-native-oh-tpl/react-native-linear-gradient. If the library has already been introduced in the HarmonyOS project, there is no need to introduce it again.You can skip the steps in this chapter and use it directly.
 
 If not introduced, please refer to Link section of @react-native-oh-tpl/react-native-safe-area-context documentation, Link section of @react-native-oh-tpl/react-native-linear-gradient documentation for introduction.
 
 ### Introduce and register font on the ArkTs side
 
 Step 1:
-Copy the font  to the 'entry/src/main/ets/assets/fonts' directory (if an external font file is used, the \ *. ttf file needs to be copied over)
+Copy the font to the 'entry/src/main/ets/assets/fonts' directory (if an external font file is used, the \ *. ttf file needs to be copied over)
 
 Step 2:
 Open the `entry/src/main/ets/pages/Index.ets` file and add the following code:
@@ -312,7 +312,7 @@ This document is verified based on the following versions:
 
 1. RNOH: 0.72.26; SDK: HarmonyOS NEXT Developer Beta1; IDE: DevEco Studio 5.0.3.300; ROM: 3.0.0.22;
 1. RNOH: 0.72.29; SDK: HarmonyOS NEXT Developer Beta6; IDE: DevEco Studio 5.0.3.700; ROM: 3.0.0.60;
-1. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
+1. RNOH: 0.72.33; SDK: OpenHarmony 5.0.0.71 (API Version 12 Release); IDE: DevEco Studio 5.0.3.900; ROM: NEXT.0.0.71;
 
 ## Components
 
@@ -330,7 +330,7 @@ The following component attributes are currently supported:
 | :------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------: | :------: | :------: | :---------------: |
 |        count         |                                                                  Total number of ratings to displayDefault is 5                                                                  |        number         |    No    |   All    |        Yes        |
 |    defaultRating     |                                                                     Initial value for the ratingDefault is 3                                                                     |        number         |    No    |   All    |        Yes        |
-|      isDisabled      |                                                         Whether the rating can be modiefied by the userDefault is false                                                          |        boolean        |    No    |   All    |        Yes        |
+|      isDisabled      |                                                         Whether the rating can be modified by the userDefault is false                                                          |        boolean        |    No    |   All    |        Yes        |
 |    onFinishRating    |                                        Callback method when the user finishes rating. Gives you the final rating value as a whole number                                         | (number: any) => void |    No    |   All    |        Yes        |
 | ratingContainerStyle |                                                                    Style for rating containerDefault is none                                                                     |      View Style       |    No    |   All    |        Yes        |
 |     reviewColor      |                                                                    Color value for review.Default is #f1c40f                                                                     |        string         |    No    |   All    |        Yes        |
@@ -473,7 +473,7 @@ The following component attributes are currently supported:
 
 **Card.Divider**: Card dividing line component, receiving all props of [Divider](https://reactnativeelements.com/docs/components/divider#props) 
 
-**Card.FeaturedSubtitle**: Card function subtitle component，receiving all props of [Text](https://reactnativeelements.com/docs/components/text#props)
+**Card.FeaturedSubtitle**: Card function subtitle component, receiving all props of [Text](https://reactnativeelements.com/docs/components/text#props)
 
 **Card.FeaturedTitle**: Card function title component, receiving all props of [Text](https://reactnativeelements.com/docs/components/text#props)
 
@@ -487,9 +487,9 @@ The following component attributes are currently supported:
 |   onPressOut   | Called when a touch is released before `onPress`. | GestureResponderEventHandler |    No    |   All    |        Yes        |
 | pressableProps |       PressableProps except click handlers        |        PressableProps        |    No    |   All    |        Yes        |
 
-**Card.Title**: Card Title Component，receiving all props of [Text](https://reactnativeelements.com/docs/components/text#props) 组件的 Props
+**Card.Title**: Card Title Component, Props of the receiving all props of [Text](https://reactnativeelements.com/docs/components/text#props) component
 
-**CheckBox**: Selection box component，receiving all props of [CheckBoxIcon](https://reactnativeelements.com/docs/components/checkboxicon#props), [View](https://reactnative.dev/docs/view#props) 
+**CheckBox**: Selection box component, receiving all props of [CheckBoxIcon](https://reactnativeelements.com/docs/components/checkboxicon#props), [View](https://reactnative.dev/docs/view#props)
 
 |        Name        |                   Description                   |                                 Type                                 | Required | Platform | HarmonyOS Support |
 | :----------------: | :---------------------------------------------: | :------------------------------------------------------------------: | :------: | :------: | :---------------: |
@@ -504,15 +504,15 @@ The following component attributes are currently supported:
 |     iconRight      |          Moves icon to right of text.           |                               boolean                                |    No    |   All    |        Yes        |
 |       right        |            Aligns checkbox to right.            |                               boolean                                |    No    |   All    |        Yes        |
 |     textStyle      |                 Style of text.                  |                              Text Style                              |    No    |   All    |        Yes        |
-|       title        |               Title of checkbox.                | `string` ，`ReactElement<{}, string` ，`JSXElementConstructor<any>>` |    No    |   All    |        Yes        |
+|       title        |               Title of checkbox.                | `string`, `ReactElement<{}, string`, `JSXElementConstructor<any>>`|    No    |   All    |        Yes        |
 |     titleProps     | Additional props for the title Text component.  |                              TextProps                               |    No    |   All    |        Yes        |
 |    wrapperStyle    |       Style for the wrapper of checkbox.        |                              View Style                              |    No    |   All    |        Yes        |
 
-**Chip**: Display touch area components，receiving all props of [Button](https://reactnativeelements.com/docs/components/button#props) 
+**Chip**: Display touch area components, receiving all props of [Button](https://reactnativeelements.com/docs/components/button#props)
 
 | Name |      Description       |        Type        | Required | Platform | HarmonyOS Support |
 | :--: | :--------------------: | :----------------: | :------: | :------: | :---------------: |
-| type | Outer container style. | `solid`，`outline` |    No    |   All    |        Yes        |
+| type | Outer container style. | `solid`, `outline`|    No    |   All    |        Yes        |
 
 **Dialog**: Dialog box component
 
@@ -531,7 +531,7 @@ The following component attributes are currently supported:
 | :------: | :-------------------------------------------------: | :-------: | :------: | :------: | :---------------: |
 | children | Add Enclosed components as an action to the dialog. | ReactNode |    No    |   All    |        Yes        |
 
-**Dialog.Button**: Define dialog box operation components，receiving all props of [Button](https://reactnativeelements.com/docs/components/button#props)
+**Dialog.Button**: Define dialog box operation components, receiving all props of [Button](https://reactnativeelements.com/docs/components/button#props)
 
 
 **Dialog.Loading**: Dialog box loading component
@@ -549,31 +549,31 @@ The following component attributes are currently supported:
 | titleProps |  Add additional props for Text component.   | TextProps  |    No    |   All    |        Yes        |
 | titleStyle | Add additional styling for title component. | Text Style |    No    |   All    |        Yes        |
 
-**Divider**: Split line component，receiving all props of  [View](https://reactnative.dev/docs/view#props) 
+**Divider**: Split line component, receiving all props of [View](https://reactnative.dev/docs/view#props)
 
 |      Name      |                      Description                      |            Type             | Required | Platform | HarmonyOS Support |
 | :------------: | :---------------------------------------------------: | :-------------------------: | :------: | :------: | :---------------: |
 |     color      |              The color of the component.              |           string            |    No    |   All    |        Yes        |
 |     inset      |             Applies inset to the divider.             |           boolean           |    No    |   All    |        Yes        |
-|   insetType    | Applies inset to a specific direction to the divider. |  `middle`，`left`，`right`  |    No    |   All    |        Yes        |
-|  orientation   |           Apply orientation to the divider.           |  `vertical` ，`horizontal`  |    No    |   All    |        Yes        |
+|   insetType    | Applies inset to a specific direction to the divider. |  `middle`, `left`, `right` |    No    |   All    |        Yes        |
+|  orientation   |           Apply orientation to the divider.           |  `vertical`, `horizontal` |    No    |   All    |        Yes        |
 |     style      |             Applies style to the divider.             |         View Style          |    No    |   All    |        Yes        |
 |   subHeader    |          Adds subHeader text to the divider.          |           string            |    No    |   All    |        Yes        |
 | subHeaderStyle |    Adds style to the subHeader text of the divider    |         Text Style          |    No    |   All    |        Yes        |
 |     width      |                        number                         | Apply width to the divider. |    No    |   All    |        Yes        |
 
-**FAB**: Floating operation button component，receiving all props of  [Button](https://reactnativeelements.com/docs/components/button#props) 
+**FAB**: Floating operation button component, receiving all props of [Button](https://reactnativeelements.com/docs/components/button#props)
 
 |   Name    |                                                                Description                                                                |       Type        | Required | Platform | HarmonyOS Support |
 | :-------: | :---------------------------------------------------------------------------------------------------------------------------------------: | :---------------: | :------: | :------: | :---------------: |
 |   color   |                                                       Change the color of the FAB.                                                        |      string       |    No    |   All    |        Yes        |
-| placement | FAB placement at bottom, (optional) use [`style`](https://reactnativeelements.com/docs/components/fab#style) in case of custom placement. | `left`， `right`  |    No    |   All    |        Yes        |
-|   size    |                                                            Change Size of FAB.                                                            | `small` ，`large` |    No    |   All    |        Yes        |
+| placement | FAB placement at bottom, (optional) use [`style`](https://reactnativeelements.com/docs/components/fab#style) in case of custom placement. | `left`, `right` |    No    |   All    |        Yes        |
+|   size    |                                                            Change Size of FAB.                                                            | `small`, `large`|    No    |   All    |        Yes        |
 |   style   |                                                               Style for FAB                                                               |    View Style     |    No    |   All    |        Yes        |
 | upperCase |                                                Transform Extended Label text to uppercase.                                                |      boolean      |    No    |   All    |        Yes        |
 |  visible  |                                                     Decide the visibility of the FAB.                                                     |      boolean      |    No    |   All    |        Yes        |
 
-**Header**: Head component，receiving all props of  [View](https://reactnative.dev/docs/view#props)
+**Header**: Head component, receiving all props of [View](https://reactnative.dev/docs/view#props)
 
 |                       Name                        |                                                      Description                                                      |                 Type                 | Required | Platform | HarmonyOS Support |
 | :-----------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------: | :----------------------------------: | :------: | :------: | :---------------: |
@@ -584,18 +584,18 @@ The following component attributes are currently supported:
 |                     barStyle                      |                                        Sets the color of the status bar text.                                         |            StatusBarStyle            |    No    |    No    |        No         |
 |                  centerComponent                  |                                          Define your center component here.                                           |          HeaderSubComponent          |    No    |   All    |        Yes        |
 |               centerContainerStyle                |                                   Styling for container around the centerComponent.                                   |              View Style              |    No    |   All    |        Yes        |
-| Styling for container around the centerComponent. |                                         Add children component to the header.                                         | `(Element`，`Element[]) & ReactNode` |    No    |   All    |        Yes        |
+| Styling for container around the centerComponent. |                                         Add children component to the header.                                         | `(Element`, `Element[]) & ReactNode`|    No    |   All    |        Yes        |
 |                  containerStyle                   |                                          Styling around the main container.                                           |              View Style              |    No    |   All    |        Yes        |
 |                     elevated                      |                                                 Elevation for header                                                  |               boolean                |    No    |    No    |        No         |
 |                   leftComponent                   |                                           Define your left component here.                                            |          HeaderSubComponent          |    No    |   All    |        Yes        |
 |                leftContainerStyle                 |                                    Styling for container around the leftComponent.                                    |              View Style              |    No    |   All    |        Yes        |
 |                linearGradientProps                | Displays a linear gradient. See [usage](https://reactnativeelements.com/docs/components/header#lineargradient-usage). |                Object                |    No    |    No    |        No         |
-|                     placement                     |                                                 Alignment for title.                                                  |      `center`，`left`，`right`       |    No    |   All    |        Yes        |
+|                     placement                     |                                                 Alignment for title.                                                  |      `center`, `left`, `right`      |    No    |   All    |        Yes        |
 |                  rightComponent                   |                                           Define your right component here.                                           |          HeaderSubComponent          |    No    |   All    |        Yes        |
 |                rightContainerStyle                |                                   Styling for container around the rightComponent.                                    |              View Style              |    No    |   All    |        Yes        |
 |                  statusBarProps                   |                                           Accepts all props for StatusBar.                                            |            StatusBarProps            |    No    |   All    |        Yes        |
 
-**Icon**: Font icon component，receiving all props of [Text](https://reactnative.dev/docs/text#props) 的 props.
+**Icon**: Font icon component, props of receiving all props of [Text](https://reactnative.dev/docs/text#props).
 
 |      Name      |                                                    Description                                                     |             Type             | Required | Platform | HarmonyOS Support |
 | :------------: | :----------------------------------------------------------------------------------------------------------------: | :--------------------------: | :------: | :------: | :---------------: |
@@ -617,13 +617,13 @@ The following component attributes are currently supported:
 |     testID     |                                                  Test ID of icon.                                                  |            string            |    No    |   All    |        Yes        |
 |      type      | Type of icon set. [Supported sets here](https://reactnativeelements.com/docs/components/icon#available-icon-sets). |            string            |    No    |   All    |        Yes        |
 
-**Image**: Image component，receiving all props of [React Native Image](https://reactnative.dev/docs/image#props)
+**Image**: Image component, receiving all props of [React Native Image](https://reactnative.dev/docs/image#props)
 
 |          Name          |                      Description                      |                           Type                            | Required | Platform | HarmonyOS Support |
 | :--------------------: | :---------------------------------------------------: | :-------------------------------------------------------: | :------: | :------: | :---------------: |
 |       Component        |         Define the component passed to image.         |                      React Component                      |    No    |   All    |        Yes        |
 |     ImageComponent     | Specify a different component as the Image component. |                     typeof Component                      |    No    |   All    |        Yes        |
-|   PlaceholderContent   |       Content to load when Image is rendering.        | `ReactElement<any, string`，`JSXElementConstructor<any>>` |    No    |   All    |        Yes        |
+|   PlaceholderContent   |       Content to load when Image is rendering.        | `ReactElement<any, string`, `JSXElementConstructor<any>>`|    No    |   All    |        Yes        |
 | childrenContainerStyle |    Additional styling for the children container.     |                        View Style                         |    No    |   All    |        Yes        |
 |     containerStyle     |         Additional styling for the container.         |                        View Style                         |    No    |   All    |        Yes        |
 |      onLongPress       |      Called when a long-tap gesture is detected.      |               GestureResponderEventHandler                |    No    |   All    |        Yes        |
@@ -635,12 +635,12 @@ The following component attributes are currently supported:
 |       transition       |        Perform fade transition on image load.         |                          boolean                          |    No    |   All    |        Yes        |
 |   transitionDuration   |        Perform fade transition on image load.         |                          number                           |    No    |   All    |        Yes        |
 
-**Input**: Form Component，receiving all props of  [React Native TextInput](https://reactnative.dev/docs/textinput#props), [View](https://reactnative.dev/docs/view#props)
+**Input**: Form Component, receiving all props of [React Native TextInput](https://reactnative.dev/docs/textinput#props), [View](https://reactnative.dev/docs/view#props)
 
 |          Name           |                                                                          Description                                                                           |      Type       | Required | Platform | HarmonyOS Support |
 | :---------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------: | :------: | :------: | :---------------: |
 |     InputComponent      |                                             component that will be rendered in place of the React Native TextInput                                             | React Component |    No    |   All    |        Yes        |
-|     containerStyle      |                                                                       Style for containe                                                                       |   View Style    |    No    |   All    |        Yes        |
+|     containerStyle      |                                                                       Style for container                                                                      |   View Style    |    No    |   All    |        Yes        |
 |        disabled         |                                                                  disables the input component                                                                  |     boolean     |    No    |   All    |        Yes        |
 |   disabledInputStyle    |                                      disabled styles that will be passed to the style props of the React Native TextInput                                      |   Text Style    |    No    |   All    |        Yes        |
 |      errorMessage       |                                                      Error message to be displayed under the input field                                                       |     string      |    No    |   All    |        Yes        |
@@ -658,7 +658,7 @@ The following component attributes are currently supported:
 | rightIconContainerStyle |                                                           styling for right Icon Component container                                                           |   View Style    |    No    |   All    |        Yes        |
 |          shake          |                                                                          Shake method                                                                          |    Function     |    No    |   All    |        Yes        |
 
-**LinearProgress**: Load Bar Component，receiving all props of [View](https://reactnative.dev/docs/view#props) 
+**LinearProgress**: Load Bar Component, receiving all props of [View](https://reactnative.dev/docs/view#props)
 
 |    Name    |                                       Description                                       |                 Type                 | Required | Platform | HarmonyOS Support |
 | :--------: | :-------------------------------------------------------------------------------------: | :----------------------------------: | :------: | :------: | :---------------: |
@@ -667,9 +667,9 @@ The following component attributes are currently supported:
 |   style    |                  Add additional styling for linear progress component.                  |              View Style              |    No    |   All    |        Yes        |
 | trackColor |                            Track color for linear progress.                             |                string                |    No    |   All    |        Yes        |
 |   value    | The value of the progress indicator for the determinate variant. Value between 0 and 1. |                number                |    No    |   All    |        Yes        |
-|  variant   |                                     Type of button.                                     |    `determinate`，`indeterminate`    |    No    |   All    |        Yes        |
+|  variant   |                                     Type of button.                                     |    `determinate`, `indeterminate`   |    No    |   All    |        Yes        |
 
-**ListItem**: List rendering component，receiving all props of  [View](https://reactnative.dev/docs/view#props)
+**ListItem**: List rendering component, receiving all props of [View](https://reactnative.dev/docs/view#props)
 
 |                          Name                           |                                  Description                                   |      Type       | Required | Platform | HarmonyOS Support |
 | :-----------------------------------------------------: | :----------------------------------------------------------------------------: | :-------------: | :------: | :------: | :---------------: |
@@ -683,7 +683,7 @@ The following component attributes are currently supported:
 |                           pad                           | Adds spacing between the leftComponent, the title component & right component. |     number      |    No    |   All    |        Yes        |
 |                       topDivider                        |                    Add divider at the top of the list item.                    |     boolean     |    No    |   All    |        Yes        |
 
-**ListItem.Accordion**: List rendering folding component，receiving all props of  [ListItem](https://reactnativeelements.com/docs/components/listitem#props)
+**ListItem.Accordion**: List rendering folding component, receiving all props of [ListItem](https://reactnativeelements.com/docs/components/listitem#props)
 
 |    Name    |                                   Description                                   |              Type              | Required | Platform | HarmonyOS Support |
 | :--------: | :-----------------------------------------------------------------------------: | :----------------------------: | :------: | :------: | :---------------: |
@@ -696,7 +696,7 @@ The following component attributes are currently supported:
 |   noIcon   |                           Don't show accordion icon.                            |            boolean             |    No    |   All    |        Yes        |
 | noRotation |                    Don't rotate when Accordion is expanded.                     |            boolean             |    No    |   All    |        Yes        |
 
-**ListItem.ButtonGroup**: List rendering button group component，receiving all props of  [ButtonGroup](https://reactnativeelements.com/docs/components/buttongroup#props) 
+**ListItem.ButtonGroup**: List rendering button group component, receiving all props of [ButtonGroup](https://reactnativeelements.com/docs/components/buttongroup#props)
 
 |      Name      |                    Description                    |             Type             | Required | Platform | HarmonyOS Support |
 | :------------: | :-----------------------------------------------: | :--------------------------: | :------: | :------: | :---------------: |
@@ -705,9 +705,9 @@ The following component attributes are currently supported:
 |   onPressOut   | Called when a touch is released before `onPress`. | GestureResponderEventHandler |    No    |   All    |        Yes        |
 | pressableProps |       PressableProps except click handlers        |        PressableProps        |    No    |   All    |        Yes        |
 
-**ListItem.CheckBox**: List rendering selection box component，receiving all props of  [CheckBox](https://reactnativeelements.com/docs/components/checkbox#props)
+**ListItem.CheckBox**: List rendering selection box component, receiving all props of [CheckBox](https://reactnativeelements.com/docs/components/checkbox#props)
 
-**ListItem.Chevron**: List rendering font icon component，receiving all props of [Icon](https://reactnativeelements.com/docs/components/icon#props)
+**ListItem.Chevron**: List rendering font icon component, receiving all props of [Icon](https://reactnativeelements.com/docs/components/icon#props)
 
 |      Name      |                    Description                    |             Type             | Required | Platform | HarmonyOS Support |
 | :------------: | :-----------------------------------------------: | :--------------------------: | :------: | :------: | :---------------: |
@@ -717,21 +717,21 @@ The following component attributes are currently supported:
 |   onPressOut   | Called when a touch is released before `onPress`. | GestureResponderEventHandler |    No    |   All    |        Yes        |
 | pressableProps |       PressableProps except click handlers        |        PressableProps        |    No    |   All    |        Yes        |
 
-**ListItem.Content**: List rendering content component，receiving all props of  [Text](https://reactnativeelements.com/docs/components/text#props)
+**ListItem.Content**: List rendering content component, receiving all props of [Text](https://reactnativeelements.com/docs/components/text#props)
 
 | Name  |          Description          |  Type   | Required | Platform | HarmonyOS Support |
 | :---: | :---------------------------: | :-----: | :------: | :------: | :---------------: |
 | right | Start content from the right. | boolean |    No    |   All    |        Yes        |
 
-**ListItem.Input**: List rendering form component，receiving all props of  [Input](https://reactnativeelements.com/docs/components/input#props)
+**ListItem.Input**: List rendering form component, receiving all props of [Input](https://reactnativeelements.com/docs/components/input#props)
 
-**ListItem.Subtitle**: List rendering subtitle component，receiving all props of  [Text](https://reactnative.dev/docs/text#props)
+**ListItem.Subtitle**: List rendering subtitle component, receiving all props of [Text](https://reactnative.dev/docs/text#props)
 
 | Name  |          Description          |  Type   | Required | Platform | HarmonyOS Support |
 | :---: | :---------------------------: | :-----: | :------: | :------: | :---------------: |
 | right | Start content from the right. | boolean |    No    |   All    |        Yes        |
 
-**ListItem.Swipeable**: List rendering slider component，receiving all props of [ListItem](https://reactnativeelements.com/docs/components/listitem#props)
+**ListItem.Swipeable**: List rendering slider component, receiving all props of [ListItem](https://reactnativeelements.com/docs/components/listitem#props)
 
 |     Name     |              Description              |                  Type                   | Required | Platform | HarmonyOS Support |
 | :----------: | :-----------------------------------: | :-------------------------------------: | :------: | :------: | :---------------: |
@@ -745,13 +745,13 @@ The following component attributes are currently supported:
 |  rightStyle  |       Style of right container.       |               View Style                |    No    |   All    |        Yes        |
 |  rightWidth  |    Width of swipe right container.    |                 number                  |    No    |   All    |        Yes        |
 
-**ListItem.Title**: List rendering title component，receiving all props of [View](https://reactnative.dev/docs/view#props)
+**ListItem.Title**: List rendering title component, receiving all props of [View](https://reactnative.dev/docs/view#props)
 
 | Name  |   Description    |  Type   | Required | Platform | HarmonyOS Support |
 | :---: | :--------------: | :-----: | :------: | :------: | :---------------: |
 | right | Add right title. | boolean |    No    |    No    |        No         |
 
-**Overlay**: Pop up component，receiving all props of [View](https://reactnative.dev/docs/view#props)
+**Overlay**: Pop up component, receiving all props of [View](https://reactnative.dev/docs/view#props)
 
 |      Name       |                                Description                                 |             Type             | Required | Platform | HarmonyOS Support |
 | :-------------: | :------------------------------------------------------------------------: | :--------------------------: | :------: | :------: | :---------------: |
@@ -770,13 +770,13 @@ The following component attributes are currently supported:
 
 |      Name      |                Description                 |                Type                | Required | Platform | HarmonyOS Support |
 | :------------: | :----------------------------------------: | :--------------------------------: | :------: | :------: | :---------------: |
-|     button     |            Button information.             | `ButtonProps`，`ButtonInformation` |    No    |   All    |        Yes        |
+|     button     |            Button information.             | `ButtonProps`, `ButtonInformation`|    No    |   All    |        Yes        |
 |     color      |      Color scheme for button & title.      |               string               |    No    |   All    |        Yes        |
 | containerStyle |          Outer component styling.          |             View Style             |    No    |   All    |        Yes        |
 |      info      |            Pricing information.            |              string[]              |    No    |   All    |        Yes        |
 |   infoStyle    |     Specify pricing information style.     |             Text Style             |    No    |   All    |        Yes        |
 | onButtonPress  | Function to be run when button is pressed. |              Function              |    No    |   All    |        Yes        |
-|     price      |    Price mentioned in the pricing card.    |         `string`，`number`         |    No    |   All    |        Yes        |
+|     price      |    Price mentioned in the pricing card.    |         `string`, `number`        |    No    |   All    |        Yes        |
 |  pricingStyle  |                 Text Style                 |    Specify pricing text style.     |    No    |   All    |        Yes        |
 |     title      |       Add title in the pricing card.       |               string               |    No    |   All    |        Yes        |
 |   titleStyle   |         Specify title text style.          |             Text Style             |    No    |   All    |        Yes        |
@@ -798,15 +798,15 @@ The following component attributes are currently supported:
 |      ratingCount      |                                       Number of rating images to displayDefault is 5                                       |        number         |    No    |    No    |        No         |
 |      ratingImage      |                        Pass in a custom image source; use this along with type='custom' prop above                         |       ReactNode       |    No    |    No    |        No         |
 |    ratingTextColor    |                                               Color used for the text labels                                               |        string         |    No    |    No    |        No         |
-|       readonly        |                              Whether the rating can be modiefied by the userDefault is false                               |        boolean        |    No    |    No    |        No         |
+|       readonly        |                              Whether the rating can be modified by the userDefault is false                               |        boolean        |    No    |    No    |        No         |
 |      showRating       |                   Displays the Built-in Rating UI to show the rating value in real-timeDefault is false                    |        boolean        |    No    |    No    |        No         |
 |   showReadOnlyText    |                                       Whether the text is read onlyDefault is false                                        |        boolean        |    No    |    No    |        No         |
 |     startingValue     |                                    The initial rating to renderDefault is ratingCount/2                                    |        number         |    No    |    No    |        No         |
-|         style         |                             Exposes style prop to add additonal styling to the container view                              |      View Style       |    No    |    No    |        No         |
+|         style         |                             Exposes style prop to add additional styling to the container view                              |      View Style       |    No    |    No    |        No         |
 |       tintColor       |                                               Color used for the background                                                |        string         |    No    |    No    |        No         |
 |         type          |                                    Graphic used for represent a ratingDefault is 'star'                                    |        string         |    No    |    No    |        No         |
 
-**SearchBar**: Search box component，receiving all props of [Input](https://reactnativeelements.com/docs/components/input#props)
+**SearchBar**: Search box component, receiving all props of [Input](https://reactnativeelements.com/docs/components/input#props)
 
 |          Name           |              Description               |            Type             | Required | Platform | HarmonyOS Support |
 | :---------------------: | :------------------------------------: | :-------------------------: | :------: | :------: | :---------------: |
@@ -822,7 +822,7 @@ The following component attributes are currently supported:
 |      loadingProps       |         ActivityIndicatorProps         |   ActivityIndicatorProps    |    No    |   All    |        Yes        |
 |        onCancel         | Callback Function on cancel icon press |        `(() => any)`        |    No    |    No    |        No         |
 |         onClear         | Callback Function on clear icon press  |          Function           |    No    |   All    |        Yes        |
-|        platform         |           Platform judgment            | `default`，`android`，`ios` |    No    |    No    |        No         |
+|        platform         |           Platform judgment            | `default`, `android`, `ios`|    No    |    No    |        No         |
 | rightIconContainerStyle |       Right Icon Container Style       |   rightIconContainerStyle   |    No    |   All    |        Yes        |
 |          round          |         Whether it is rounded          |           boolean           |    No    |   All    |        Yes        |
 |       searchIcon        |            Icon for search             |          IconNode           |    No    |   All    |        Yes        |
@@ -835,8 +835,8 @@ The following component attributes are currently supported:
 | :-------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------: | :------: | :------: | :---------------: |
 |    allowTouchTrack    |                                                                      If true, thumb will respond and jump to any touch along the track.                                                                       |                     boolean                      |    No    |   All    |        Yes        |
 |  animateTransitions   |                                                                        Set to true if you want to use the default 'spring' animation.                                                                         |                     boolean                      |    No    |   All    |        Yes        |
-|    animationConfig    |                              Used to configure the animation parameters. These are the same parameters in the [Animated library](https://reactnative.dev/docs/animations.html).                               | `TimingAnimationConfig`，`SpringAnimationConfig` |    No    |   All    |        Yes        |
-|     animationType     |                        Set to 'spring' or 'timing' to use one of those two types of animations with the default [animation properties](https://reactnative.dev/docs/animations.html).                         |                `spring`，`timing`                |    No    |   All    |        Yes        |
+|    animationConfig    |                              Used to configure the animation parameters. These are the same parameters in the [Animated library](https://reactnative.dev/docs/animations.html).                               | `TimingAnimationConfig`, `SpringAnimationConfig`|    No    |   All    |        Yes        |
+|     animationType     |                        Set to 'spring' or 'timing' to use one of those two types of animations with the default [animation properties](https://reactnative.dev/docs/animations.html).                         |                `spring`, `timing`               |    No    |   All    |        Yes        |
 |    containerStyle     |                                                                                  Apply style to the container of the slider.                                                                                  |                      Style                       |    No    |   All    |        Yes        |
 |    debugTouchArea     |                                                                        Set this to true to visually see the thumb touch rect in orange.                                                                        |                     boolean                      |    No    |   All    |        Yes        |
 |       disabled        |                                                                              If true the user won't be able to move the slider.                                                                               |                     boolean                      |    No    |   All    |        Yes        |
@@ -857,14 +857,14 @@ The following component attributes are currently supported:
 |      trackStyle       |                                                                                        The style applied to the track.                                                                                        |                    View Style                    |    No    |   All    |        Yes        |
 |         value         |                                                                                         Initial value of the slider.                                                                                          |                      number                      |    No    |   All    |        Yes        |
 
-**Skeleton**: Skeleton screen component，receiving all props of [View](https://reactnative.dev/docs/view#props)
+**Skeleton**: Skeleton screen component, receiving all props of [View](https://reactnative.dev/docs/view#props)
 
 |          Name           |            Description             |        Type        | Required | Platform | HarmonyOS Support |
 | :---------------------: | :--------------------------------: | :----------------: | :------: | :------: | :---------------: | --- | --- |
 | LinearGradientComponent |  Custom Linear Gradient Component  |  React Component   |    No    |   All    |        Yes        |
 |        animation        |         Type of animation          |       `none`       |  `wave`  | `pulse`  |        No         | No  | No  |
 |         circle          |       show circular variant        |      boolean       |    No    |   All    |        Yes        |
-|         height          |      Height of Skeleton View       | `string`，`number` |    No    |   All    |        Yes        |
+|         height          |      Height of Skeleton View       | `string`, `number`|    No    |   All    |        Yes        |
 |      skeletonStyle      | Custom style for skeleton gradient |     View Style     |    No    |   All    |        Yes        |
 |          width          |       Width of Skeleton View       | `string`,`number`  |    No    |   All    |        Yes        |
 
@@ -897,7 +897,7 @@ The following component attributes are currently supported:
 |          type          |                                                 Social media type.                                                 |       SocialMediaType        |    No    |   All    |        Yes        |
 |     underlayColor      |                                                Add Underlay color.                                                 |            string            |    No    |    No    |        No         |
 
-**SpeedDial**: Floating Quick Operation Button Component，receiving all props of [Button](https://reactnativeelements.com/docs/components/button#props), [FAB](https://reactnativeelements.com/docs/components/fab#props)
+**SpeedDial**: Floating Quick Operation Button Component, receiving all props of [Button](https://reactnativeelements.com/docs/components/button#props), [FAB](https://reactnativeelements.com/docs/components/fab#props)
 
 |          Name          |                       Description                        |       Type       | Required | Platform | HarmonyOS Support |
 | :--------------------: | :------------------------------------------------------: | :--------------: | :------: | :------: | :---------------: |
@@ -911,18 +911,18 @@ The following component attributes are currently supported:
 |      overlayColor      |           Add overlay color to the speed dial.           |      string      |    No    |   All    |        Yes        |
 |   transitionDuration   |    The duration for the transition, in milliseconds.     |      number      |    No    |   All    |        Yes        |
 
-**SpeedDial.Action**: Floating quick operation sub button component，receiving all props of  [FAB](https://reactnativeelements.com/docs/components/fab#props)
+**SpeedDial.Action**: Floating quick operation sub button component, receiving all props of [FAB](https://reactnativeelements.com/docs/components/fab#props)
 
 |      Name      |      Description       |  Type   | Required | Platform | HarmonyOS Support |
 | :------------: | :--------------------: | :-----: | :------: | :------: | :---------------: |
 | labelPressable | onPress on Label Press | boolean |    No    |   All    |        Yes        |
 
-**Switch**: Sliding switch component，receiving all props of [React Native Switch](https://reactnative.dev/docs/switch.html#props), [View](https://reactnative.dev/docs/view#props) 
+**Switch**: Sliding switch component, receiving all props of [React Native Switch](https://reactnative.dev/docs/switch.html#props), [View](https://reactnative.dev/docs/view#props)
 | Name  |            Description             |  Type  | Required | Platform | HarmonyOS Support |
 | :---: | :--------------------------------: | :----: | :------: | :------: | :---------------: |
 | color | The color of the Switch component. | string |    No    |   All    |        Yes        |
 
-**Tab**: Navigation bar component，receiving all props of [View](https://reactnative.dev/docs/view#props)
+**Tab**: Navigation bar component, receiving all props of [View](https://reactnative.dev/docs/view#props)
 
 |       Name       |               Description                |                     Type                      | Required | Platform | HarmonyOS Support |
 | :--------------: | :--------------------------------------: | :-------------------------------------------: | :------: | :------: | :---------------: |
@@ -930,15 +930,15 @@ The following component attributes are currently supported:
 |  containerStyle  | Additional Styling for button container. | `ViewStyle or (active: boolean) => ViewStyle` |    No    |    No    |        No         |
 |      dense       |              Dense Tab Item              |                    boolean                    |    No    |    No    |        No         |
 | disableIndicator |       Disable the indicator below.       |                    boolean                    |    No    |   All    |        Yes        |
-|   iconPosition   |              Icon Position               |       `left`，`right`，`top`，`bottom`        |    No    |   All    |        Yes        |
+|   iconPosition   |              Icon Position               |       `left`, `right`, `top`, `bottom`       |    No    |   All    |        Yes        |
 |  indicatorStyle  |  Additional styling for tab indicator.   |                  View Style                   |    No    |   All    |        Yes        |
 |     onChange     |        On Index Change Callback.         |            (value: number) => void            |    No    |   All    |        Yes        |
 |    scrollable    |           Makes Tab Scrolling            |                    boolean                    |    No    |    No    |        No         |
 |    titleStyle    |      Additional button title style       | `ViewStyle or (active: boolean) => ViewStyle` |    No    |    No    |        No         |
 |      value       |       Child position index value.        |                    number                     |    No    |   All    |        Yes        |
-|     variant      |      Define the background Variant.      |             `primary`，`default`              |    No    |   All    |        Yes        |
+|     variant      |      Define the background Variant.      |             `primary`, `default`             |    No    |   All    |        Yes        |
 
-**Tab.Item**: Navigation bar subcomponent，receiving all props of [Button](https://reactnativeelements.com/docs/components/button#props)
+**Tab.Item**: Navigation bar subcomponent, receiving all props of [Button](https://reactnativeelements.com/docs/components/button#props)
 
 |        Name        |                   Description                    |                     Type                      | Required | Platform | HarmonyOS Support |
 | :----------------: | :----------------------------------------------: | :-------------------------------------------: | :------: | :------: | :---------------: |
@@ -948,14 +948,14 @@ The following component attributes are currently supported:
 |       dense        |                  Dense Tab Item                  |                    boolean                    |    No    |    No    |        No         |
 | iconContainerStyle | Additional Styling for Icon Component container. | `ViewStyle or (active: boolean) => ViewStyle` |    No    |   All    |        Yes        |
 |     titleStyle     |          Additional button title style           | `ViewStyle or (active: boolean) => ViewStyle` |    No    |   All    |        Yes        |
-|      variant       |          Define the background Variant.          |             `primary`，`default`              |    No    |    No    |        No         |
+|      variant       |          Define the background Variant.          |             `primary`, `default`             |    No    |    No    |        No         |
 
 **TabView**: Sliding switch content component
 
 |         Name          |                                           Description                                            |          Type          | Required | Platform | HarmonyOS Support |
 | :-------------------: | :----------------------------------------------------------------------------------------------: | :--------------------: | :------: | :------: | :---------------: |
 |    animationConfig    |                               Define the animation configurations.                               |    AnimationConfig     |    No    |   All    |        Yes        |
-|     animationType     | Choose the animation type among `spring` and `timing`. This is visible when there is tab change. |   `spring`，`timing`   |    No    |   All    |        Yes        |
+|     animationType     | Choose the animation type among `spring` and `timing`. This is visible when there is tab change. |   `spring`, `timing`  |    No    |   All    |        Yes        |
 |    containerStyle     |                                 Styling for Component container.                                 |       View Style       |    No    |   All    |        Yes        |
 |     disableSwipe      |                                      Swipe disabled or not                                       |        Boolean         |    No    |   All    |        Yes        |
 |   disableTransition   |                                       Disables transition                                        |        Boolean         |    No    |   All    |        Yes        |
@@ -966,7 +966,7 @@ The following component attributes are currently supported:
 | tabItemContainerStyle |                          Styling for TabView.Item Component container.                           |       View Style       |    No    |   All    |        Yes        |
 |         value         |                                   Child position index value.                                    |         number         |    No    |   All    |        Yes        |
 
-**TabView.Item**: Slide switch content subcomponent，receiving all props of  [View](https://reactnative.dev/docs/view#props)
+**TabView.Item**: Slide switch content subcomponent, receiving all props of [View](https://reactnative.dev/docs/view#props)
 
 **Text**: Text Content Component Component
 
@@ -1021,7 +1021,7 @@ The following component attributes are currently supported:
 |       overlayColor       |                                                                                                      Color of overlay shadow when tooltip is open.                                                                                                      |                        ColorValue                        |    No    |   All    |        Yes        |
 |       pointerColor       |                                              Color of tooltip pointer, it defaults to the [`backgroundColor`](https://reactnativeelements.com/docs/components/tooltip#backgroundcolor) if none is passed.                                               |                        ColorValue                        |    No    |   All    |        Yes        |
 |       pointerStyle       |                                                                                                           Style to be applied on the pointer.                                                                                                           |                        View Style                        |    No    |   All    |        Yes        |
-|         popover          |                                                                                                   Component to be rendered as the display container.                                                                                                    | `ReactElement<{}, string`，`JSXElementConstructor<any>>` |    No    |   All    |        Yes        |
+|         popover          |                                                                                                   Component to be rendered as the display container.                                                                                                    | `ReactElement<{}, string`, `JSXElementConstructor<any>>`|    No    |   All    |        Yes        |
 |   skipAndroidStatusBar   |                                                             Force skip StatusBar height when calculating element position. Pass `true` if Tooltip used inside react-native Modal component.                                                             |                         boolean                          |    No    |   All    |        Yes        |
 |       toggleAction       |                                                                              Define type of action that should trigger tooltip. Available options _onPress_, _onLongPress_                                                                              |                          string                          |    No    |   All    |        Yes        |
 |      toggleOnPress       |                                                                                                Flag to determine to toggle or not the tooltip on press.                                                                                                 |                         boolean                          |    No    |   All    |        Yes        |
@@ -1034,29 +1034,29 @@ The following component attributes are currently supported:
 
 ## Others
 
--  Rating 组件的 readonly、onFinishRating 等属性无法生效，与 Android/iOS 一致: [issue#1](https://github.com/react-native-elements/react-native-elements/issues/3736)、[issue#2](https://github.com/react-native-elements/react-native-elements/issues/3718)。
--  AirbnbRatings 组件的 startImage 属性无法生效，与 Android/iOS 一致: [issue#3](https://github.com/react-native-elements/react-native-elements/issues/3718)。
--  ButtonGroups 组件的 activeOpacity、button 等属性无法生效，与 Android/iOS 一致: [issue#4](https://github.com/react-native-elements/react-native-elements/issues/3938)。
--  Dialog 组件的 onLongPress、onpressIn 等属性无法生效，与 Android/iOS 一致: [issue#5](https://github.com/react-native-elements/react-native-elements/issues/3931)。
--  Header 组件的 barStyle、elevated 等属性无法生效，与 Android、iOS 一致: [issue#6](https://github.com/react-native-elements/react-native-elements/issues/3935)。
--  Input 组件的 renderErrorMessage 属性无法生效，与 Android、iOS 一致: [issue#7](https://github.com/react-native-elements/react-native-elements/issues/3933)。
--  ListItem.Swipeable 组件的 minSlideWidth 属性无法生效，与 Android、iOS 一致: [issue#8](https://github.com/react-native-elements/react-native-elements/issues/3825)。
--  ListItem.Title 组件的 right 属性无法生效，与 Android、iOS 一致: [issue#9](https://github.com/react-native-elements/react-native-elements/issues/3934)。
--  SearchBar 组件的 cancelButtonProps、showCancel 等属性无法生效，与 Android、iOS 一致: [issue#10](https://github.com/react-native-elements/react-native-elements/issues/3939)。
--  SocialIcon 组件的 fontFamily、fontWeight 等属性无法生效，与 Android、iOS 一致: [issue#11](https://github.com/react-native-elements/react-native-elements/issues/3940)。
--  SpeedDial 组件的 backdropPressableProps 属性无法生效，与 Android、iOS 一致: [issue#12](https://github.com/react-native-elements/react-native-elements/issues/3937)。
--  Tab 组件的 containerStyle、dense 等属性无法生效，与 Android、iOS 一致: [issue#13](https://github.com/react-native-elements/react-native-elements/issues/3941)。
--  Tab.Item 组件的 active、dense 等属性无法生效，与 Android、iOS 一致: [issue#14](https://github.com/react-native-elements/react-native-elements/issues/3936)。
--  Tile 组件的 activeOpacity 等属性无法生效，与 Android、iOS 一致: [issue#15](https://github.com/react-native-elements/react-native-elements/issues/3932)。
--  Tooltip 组件的 closeOnlyOnBackdropPress 属性无法生效，与 Android、iOS 一致: [issue#16](https://github.com/react-native-elements/react-native-elements/issues/3811)。
--  Overlay组件接收View的所有属性无效，与Android/iOS一致：[issue#17](https://github.com/react-native-elements/react-native-elements/issues/3950)。
--  Slider组件的属性animateTransitions单独设置为true报错：[issue#18](https://github.com/react-native-elements/react-native-elements/issues/3928)。
--  ListItem.Subtitle组件的right属性设置无效，与Android、iOS一致：[issue#19](https://github.com/react-native-elements/react-native-elements/issues/3951)。
--  Icon组件的brand属性设置无效，与Android、iOS一致：[issue#20](https://github.com/react-native-elements/react-native-elements/issues/3952)。
--  Header组件的centerComponent属性设置上下无法居中：[issue#21](https://github.com/react-native-elements/react-native-elements/issues/3953)。
--  ToolTip组件的skipAndroidStatusBar属性设置无效，与Android、iOS一致：[issue#22](https://github.com/react-native-elements/react-native-elements/issues/3954)。
+-  The **readonly** and **onFinishRating** properties of the **Rating** component are invalid, which is the same as that on Android and iOS: [issue#1](https://github.com/react-native-elements/react-native-elements/issues/3736), [issue#2](https://github.com/react-native-elements/react-native-elements/issues/3718).
+-  The **startImage** property of the **AirbnbRatings** component is invalid, which is the same as that on Android and iOS: [issue#3](https://github.com/react-native-elements/react-native-elements/issues/3718).
+-  The **activeOpacity** and **button** properties of the **ButtonGroups** component are invalid, which is the same as that on Android and iOS: [issue#4](https://github.com/react-native-elements/react-native-elements/issues/3938).
+-  The **onLongPress** and **onPressIn** properties of the **Dialog** component are invalid, which is the same as that on Android and iOS: [issue#5](https://github.com/react-native-elements/react-native-elements/issues/3931).
+-  The **barStyle** and **elevated** properties of the **Header** component are invalid, which is the same as that on Android and iOS: [issue#6](https://github.com/react-native-elements/react-native-elements/issues/3935).
+-  The **renderErrorMessage** property of the **Input** component is invalid, which is the same as that on Android and iOS: [issue#7](https://github.com/react-native-elements/react-native-elements/issues/3933).
+-  The **minSlideWidth** property of the **ListItem.Swipeable** component is invalid, which is the same as that on Android and iOS: [issue#8](https://github.com/react-native-elements/react-native-elements/issues/3825).
+-  The **right** property of the **ListItem.Title** component is invalid, which is the same as that on Android and iOS: [issue#9](https://github.com/react-native-elements/react-native-elements/issues/3934).
+-  The **cancelButtonProps** and **showCancel** properties of the **SearchBar** component are invalid , which is the same as that on Android and iOS: [issue#10](https://github.com/react-native-elements/react-native-elements/issues/3939).
+-  The **fontFamily** and **fontWeight** properties of the **SocialIcon** component are invalid, which is the same as that on Android and iOS: [issue#11](https://github.com/react-native-elements/react-native-elements/issues/3940).
+-  The **backdropPressableProps** property of the **SpeedDial** component is invalid, which is the same as that on Android and iOS: [issue#12](https://github.com/react-native-elements/react-native-elements/issues/3937).
+-  The **containerStyle** and **dense** properties of the **Tab** component are invalid, which is the same as that on Android and iOS: ([issue#13](https://github.com/react-native-elements/react-native-elements/issues/3941).
+-  The **active** and **dense** properties of the **Tab.Item** component are invalid, which is the same as that on Android and iOS: [issue#14](https://github.com/react-native-elements/react-native-elements/issues/3936).
+-  The **activeOpacity** property of the **tile** component is invalid, which is the same as that on Android and iOS: [issue#15](https://github.com/react-native-elements/react-native-elements/issues/3932).
+-  The **closeOnlyOnBackdropPress** property of the **Tooltip** component is invalid, which is the same as that on Android and iOS: [issue#16](https://github.com/react-native-elements/react-native-elements/issues/3811).
+-  All properties of **View** received by the **Overlay** component are invalid, which is the same as that on Android and iOS: [issue#17](https://github.com/react-native-elements/react-native-elements/issues/3950).
+-  When the **animateTransitions** property of the **Slider** component is set to **true**, an error message is displayed: [issue#18](https://github.com/react-native-elements/react-native-elements/issues/3928).
+-  The **right** property of the **ListItem.Subtitle** component is invalid, which is the same as that on Android and iOS: [issue#19](https://github.com/react-native-elements/react-native-elements/issues/3951).
+-  The **brand** property of the **Icon** component is invalid, which is the same as that on Android and iOS: [issue#20](https://github.com/react-native-elements/react-native-elements/issues/3952).
+-  The **centerComponent** property of the **Header** component cannot be centered: [issue#21](https://github.com/react-native-elements/react-native-elements/issues/3953).
+-  The **skipAndroidStatusBar** property of the **ToolTip** component is invalid, which is the same as that on Android and iOS: [issue#22](https://github.com/react-native-elements/react-native-elements/issues/3954).
 
 
 ## License
 
-This project is licensed under [The MIT License (MIT)](https://github.com/react-native-elements/react-native-elements/blob/next/LICENSE)
+This project is licensed under [The MIT License (MIT)](https://github.com/react-native-elements/react-native-elements/blob/next/LICENSE).

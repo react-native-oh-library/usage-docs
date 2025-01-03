@@ -119,16 +119,16 @@ This document is verified based on the following versions:
 
 | Name                | Description                      | Type     | Required | Platform | HarmonyOS Support |
 | ------------------- | -------------------------------- | -------- | -------- | -------- | ----------------- |
-| phonecall           | 拨打电话                         | function | yes      | All      | yes               |
-| email               | 发送电子邮件                     | function | yes      | All      | no                |
-| text                | 发送文本消息                     | function | yes      | All      | yes               |
-| textWithoutEncoding | 发送文本消息，但是不进行编码处理 | function | yes      | All      | yes               |
-| web                 | 打开指定的网页 URL               | function | yes      | All      | yes               |
+| phonecall           | Initiates a call.                        | function | yes      | All      | yes               |
+| email               | Sends an email.                    | function | yes      | All      | no                |
+| text                | Sends a text message.                    | function | yes      | All      | yes               |
+| textWithoutEncoding | Send a text message without encoding it.| function | yes      | All      | yes               |
+| web                 | Opens a specified web page.              | function | yes      | All      | yes               |
 
 ## Known Issues
 
-- [ ] HarmonyOS 侧没有邮箱应用，导致 email 方法无法打开发送邮件界面。
-- [ ] text 添加 body 之后，没法在短信界面拆分进短信输入栏，框架侧接口 Linking.canOpenURL 不支持。
+- [ ] There is no email application on HarmonyOS. As a result, the email method cannot open the email sending page.
+- [ ] After body is added to text, the text input box cannot be split on the SMS page. This is not supported by the framework API **Linking.canOpenURL**.
 
 ## Others
 

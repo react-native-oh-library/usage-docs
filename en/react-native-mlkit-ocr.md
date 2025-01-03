@@ -16,7 +16,7 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-mlkit-ocr Releases](https://github.com/react-native-oh-library/react-native-mlkit-ocr/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-mlkit-ocr Releases](https://github.com/react-native-oh-library/react-native-mlkit-ocr/releases). For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 Go to the project directory and execute the following instruction:
 
@@ -260,7 +260,7 @@ export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
 
 ### 5. Permission Requirements
 
-> [!TIP] "ohos.permission.INTERNET"权限等级为<B>normal</B>，授权方式为<B>system_grant</B>，[使用 ACL 签名的配置指导](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/signing-0000001587684945-V3#section157591551175916)
+> [!TIP] The permission level of **ohos.permission.INTERNET** is **normal**, and the authorization mode is **system_grant**. For details, see [Requesting ACL Permissions](https://developer.huawei.com/consumer/en/doc/harmonyos-guides-V2/signing-0000001587684945-V2#section157591551175916).
 
 Add configuration to `YourProject/entry/src/main/module.json5`
 
@@ -310,8 +310,8 @@ Check the release version information in the release address of the third-party 
 
 | NAME                 | Description      | TYPE     | Required | Platform | HarmonyOS Support |
 | -------------------- | ---------------- | -------- | -------- | -------- | ----------------- |
-| detectFromUri(uri)   | 传入网络图片地址 | Function | Yes      | All      | Yes               |
-| detectFromFile(path) | 传入本地图片地址 | Function | Yes      | All      | Yes               |
+| detectFromUri(uri)   | Passes the address of an online image.| Function | Yes      | All      | Yes               |
+| detectFromFile(path) | Passes the path of a local image.| Function | Yes      | All      | Yes               |
 
 ## Known Issues
 
@@ -319,4 +319,4 @@ Check the release version information in the release address of the third-party 
 
 ## License
 
-This project is licensed under [The MIT License (MIT)](https://github.com/agoldis/react-native-mlkit-ocr/blob/main/LICENSE).
+This project is licensed under [MIT License](https://github.com/agoldis/react-native-mlkit-ocr/blob/main/LICENSE).

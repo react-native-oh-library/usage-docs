@@ -16,7 +16,7 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-context-menu-view Releases](https://github.com/react-native-oh-library/react-native-context-menu-view/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-context-menu-view Releases](https://github.com/react-native-oh-library/react-native-context-menu-view/releases). For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 Go to the project directory and execute the following instruction:
 
@@ -106,7 +106,7 @@ ohpm install
 
 Method 2: Directly link to the source code.
 
-> [!TIP] For details, see [Directly Linking Source Code](/zh-cn/link-source-code.md).
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
 ### 3. Configuring CMakeLists and Introducing ContextMenuPackage
 
@@ -244,15 +244,15 @@ Check the release version information in the release address of the third-party 
 
 ## Others
 
-1.previewBackgroundColor 属性，经过验证在 iOS 和 Android 均无效果。
+1. The **previewBackgroundColor** property does not take effect on iOS and Android devices.
 
-2.actions 属性是个结构体函数，所以包含其他上文列举属性，例如 previewBackgroundColor 等。所以，属于部分支持
+2. The **actions** property is a struct function and contains other properties listed above, such as **previewBackgroundColor**. Therefore, it is partially supported.
 
-3.该库的具体逻辑实现，在不同平台，均为调用平台对应的底层 Menu 接口进行相关操作。所以，不同平台上，动效展示等会有所不同。
+3. The specific logic implementation of the library is to call the corresponding bottom-layer **Menu** API of the OS to perform related operations. Therefore, the animation display varies depending on the OS.
 
-4.onPress 方法的 callback 参考: { nativeEvent: { index, indexPath, name } }.
+4. The **onPress** callback is as follows: **{ nativeEvent: { index, indexPath, name } }**.
 
-5.当 systemIcon 和 icon 同时配置的时候，在 Harmony Next 平台上，systemIcon 的优先级高于 icon
+5. When both **systemIcon** and **icon** are configured, **systemIcon** is at a higher priority than **icon** on Harmony Next.
 
 ## License
 

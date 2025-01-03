@@ -170,29 +170,29 @@ export default () => {
       style={{ height: "100%", marginBottom: 20, backgroundColor: "pink" }}
     >
       <View style={{ marginBottom: 20 }}>
-        <Text>要展示的 JSON 数据对象</Text>
+        <Text>Specify the JSON data object to be displayed</Text>
         <JSONTree data={data} />
       </View>
       <View style={{ marginBottom: 20 }}>
-        <Text>定制树状视图的主题样式</Text>
+        <Text>Customize the theme style of the tree view</Text>
         <JSONTree data={data1} theme={theme} />
       </View>
       <View style={{ marginBottom: 20 }}>
-        <Text>控制节点是否展开的函数</Text>
+        <Text>Specify whether to expand nodes</Text>
         <JSONTree data={data2} shouldExpandNode={shouldExpandNode} />
       </View>
       <View style={{ marginBottom: 20 }}>
-        <Text>是否隐藏树的根节点</Text>
+        <Text>Specify whether to hide the root node</Text>
         <JSONTree data={data2} hideRoot={true} />
         <JSONTree data={data2} hideRoot={false} />
       </View>
       <View style={{ marginBottom: 20 }}>
-        <Text>是否反转主题颜色</Text>
+        <Text>Specify whether to reverse the theme color</Text>
         <JSONTree data={data2} theme={theme} invertTheme={true} />
         <JSONTree data={data2} theme={theme} invertTheme={false} />
       </View>
       <View style={{ marginBottom: 20 }}>
-        <Text>自定义节点的显示文本</Text>
+        <Text>Customize the display text of a node</Text>
         <JSONTree
           data={data3}
           getItemString={(type, data, itemType, itemString) => {
@@ -205,7 +205,7 @@ export default () => {
         />
       </View>
       <View style={{ marginBottom: 20 }}>
-        <Text>自定义节点标签的渲染函数</Text>
+        <Text>Customize the rendering mode of a node label</Text>
         <JSONTree
           data={data3}
           labelRenderer={(raw: any) => (
@@ -214,7 +214,7 @@ export default () => {
         />
       </View>
       <View style={{ marginBottom: 20 }}>
-        <Text>自定义节点值的渲染函数</Text>
+        <Text>Customize the rendering mode of a node value</Text>
         <JSONTree
           data={data3}
           valueRenderer={(raw: any) => (
@@ -223,7 +223,7 @@ export default () => {
         />
       </View>
       <View style={{ marginBottom: 20 }}>
-        <Text>对 JSON 对象的键进行排序</Text>
+        <Text>Sort JSON objects by key</Text>
         <JSONTree
           data={data4}
           sortObjectKeys={(a: any, b: any) => {
@@ -232,19 +232,19 @@ export default () => {
         />
       </View>
       <View style={{ marginBottom: 20 }}>
-        <Text>用于在 JSON 树中标识和定制特定路径的数据节点</Text>
+        <Text>Identify and customize data nodes in a specified path in the JSON tree</Text>
         <JSONTree data={data5} keyPath={["information"]} />
       </View>
       <View style={{ marginBottom: 20 }}>
-        <Text>用于控制在 JSON 树中显示的集合的元素最大数量</Text>
+        <Text>Set the maximum number of elements that can be displayed in the JSON tree</Text>
         <JSONTree data={data6} collectionLimit={5} />
       </View>
       <View style={{ marginBottom: 20 }}>
-        <Text>用于在值渲染之前对其进行自定义处理</Text>
+        <Text>Perform custom processing on the value before it is rendered to the interface</Text>
         <JSONTree data={data7} postprocessValue={postprocessValue} />
       </View>
       <View>
-        <Text>指定哪些节点应使用自定义渲染的属性</Text>
+        <Text>Specify the nodes that use the custom rendering property</Text>
         <JSONTree data={data8} theme={theme} isCustomNode={isCustomNode} />
       </View>
     </ScrollView>
@@ -261,7 +261,7 @@ To use this repository, you need to use the correct React-Native and RNOH versio
 This document is verified based on the following versions:
 
 1. RNOH: 0.72.29; SDK: HarmonyOS NEXT Developer Beta6; IDE: DevEco Studio 5.0.3.706; ROM: NEXT.0.0.36;
-2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
+2. RNOH: 0.72.33; SDK: OpenHarmony 5.0.0.71 (API Version 12 Release); IDE: DevEco Studio 5.0.3.900; ROM: NEXT.0.0.71;
 
 ## Properties
 
@@ -271,21 +271,21 @@ For details, see [react-native-json-tree docs](https://github.com/Dean177/react-
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name               | Description                                                                               | Type         | Required | Platform | HarmonyOS Support |
-| ------------------ | ----------------------------------------------------------------------------------------- | ------------ | -------- | -------- | ----------------- |
-| `data`             | `JSON data object to be displayed`.                                                       | `Object`     | Yes      | All      | Yes               |
-| `theme`            | `Theme style of the tree view.`                                                           | `Object`     | No       | All      | Yes               |
-| `shouldExpandNode` | `Function that controls whether a node is expanded`.                                      | `() => bool` | No       | All      | Yes               |
-| `hideRoot`         | `Whether to hide the root node of the tree`.                                              | `bool`       | No       | All      | Yes               |
-| `invertTheme`      | `Indicates whether to reverse the theme color.`                                           | `bool`       | No       | All      | Yes               |
-| `getItemString`    | `Customize the display of arrays, objects, and iterable nodes.`                           | `()=>void`   | No       | All      | Yes               |
-| `labelRenderer`    | `Rendering function for custom node labels`.                                              | `()=>void`   | No       | All      | Yes               |
-| `valueRenderer`    | `Rendering function for custom node values`.                                              | `()=>void`   | No       | All      | Yes               |
-| `sortObjectKeys`   | `Sort the keys of JSON objects`.                                                          | `()=>void`   | No       | All      | Yes               |
-| `keyPath`          | `A data node used to identify and customize a specific path in a JSON tree`.              | `['']`       | No       | All      | Yes               |
+| Name               | Description                                                  | Type         | Required | Platform | HarmonyOS Support |
+| ------------------ | ------------------------------------------------------------ | ------------ | -------- | -------- | ----------------- |
+| `data`             | `JSON data object to be displayed`.                          | `Object`     | Yes      | All      | Yes               |
+| `theme`            | `Theme style of the tree view.`                              | `Object`     | No       | All      | Yes               |
+| `shouldExpandNode` | `Function that controls whether a node is expanded`.         | `() => bool` | No       | All      | Yes               |
+| `hideRoot`         | `Whether to hide the root node of the tree`.                 | `bool`       | No       | All      | Yes               |
+| `invertTheme`      | `Indicates whether to reverse the theme color.`              | `bool`       | No       | All      | Yes               |
+| `getItemString`    | `Customize the display of arrays, objects, and iterable nodes.` | `()=>void`   | No       | All      | Yes               |
+| `labelRenderer`    | `Rendering function for custom node labels`.                 | `()=>void`   | No       | All      | Yes               |
+| `valueRenderer`    | `Rendering function for custom node values`.                 | `()=>void`   | No       | All      | Yes               |
+| `sortObjectKeys`   | `Sort the keys of JSON objects`.                             | `()=>void`   | No       | All      | Yes               |
+| `keyPath`          | `A data node used to identify and customize a specific path in a JSON tree`. | `['']`       | No       | All      | Yes               |
 | `collectionLimit`  | `Use to control the maximum number of elements of a collection displayed in a JSON tree`. | `number`     | No       | All      | Yes               |
-| `postprocessValue` | `For customizing values before they are rendered`.                                        | `()=>void`   | No       | All      | Yes               |
-| `isCustomNode`     | `Specify which nodes should use custom rendered properties.`                              | `()=>bool`   | No       | All      | Yes               |
+| `postprocessValue` | `For customizing values before they are rendered`.           | `()=>void`   | No       | All      | Yes               |
+| `isCustomNode`     | `Specify which nodes should use custom rendered properties.` | `()=>bool`   | No       | All      | Yes               |
 
 ## Known Issues
 

@@ -17,7 +17,7 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-performance Releases](https://github.com/react-native-oh-library/react-native-performance/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-performance Releases](https://github.com/react-native-oh-library/react-native-performance/releases). For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 Go to the project directory and execute the following instruction:
 
@@ -248,7 +248,7 @@ ohpm install
 
 Method 2: Directly link to the source code.
 
-> [!TIP] For details, see [Directly Linking Source Code](/zh-cn/link-source-code.md).
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
 ### 3. Introducing RNPerformancePackage to ArkTS
 
@@ -289,7 +289,7 @@ Check the release version information in the release address of the third-party 
 
 ## Performance
 
-默认导出 Performance 对象
+Exports the **Performance** object by default.
 
 > [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
@@ -299,25 +299,25 @@ Check the release version information in the release address of the third-party 
 
 | Name       | Description                                             | Type   | Required | Platform    | HarmonyOS Support |
 | ---------- | ------------------------------------------------------- | ------ | -------- | ----------- | ----------------- |
-| timeOrigin | 返回 Performance 用作性能相关时间戳基线的高分辨率时间戳 | number | yes      | IOS/Android | yes               |
+| timeOrigin | Returns the high-resolution timestamp used by **Performance** as the performance-related baseline timestamp.| number | yes      | IOS/Android | yes               |
 
 #### Performance method
 
 | Name             | Description                                                                                                                                                                                                                                                                                                                        | Type     | Required | Platform    | HarmonyOS Support |
 | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------- | ----------------- |
-| now              | 返回一个高分辨率时间戳（以毫秒为单位）                                                                                                                                                                                                                                                                                             | function | yes      | IOS/Android | yes               |
-| mark             | 根据给出 markName 值，在性能输入缓冲区中创建一个 timestamp(时间戳)                                                                                                                                                                                                                                                                 | function | yes      | IOS/Android | yes               |
-| measure          | 性能记录缓存中使用 measure()创建一个新的测量记录如果仅指定了测量名称，则开始时间戳设置为零，结束时间戳（用于计算持续时间）是 Performance.now()返回的值。可以使用字符串将 PerformanceMark 对象标识为开始标记和结束标记。要只提供一个 endMark，您需要提供一个空的测量选项对象: performance.Measure（“myMeasure”，{}，“myEndMarker”） | function | yes      | IOS/Android | yes               |
-| metric           | 如果您希望收集不基于时间的自定义度量，此模块将提供名为.metric（）的 Performance API 扩展，该扩展将生成类型为 metric 的条目                                                                                                                                                                                                         | function | yes      | IOS/Android | yes               |
-| getEntries       | 对于给定的 filter，此方法返回 PerformanceEntry 对象数组，如果不带任何参数，返回全部 entries                                                                                                                                                                                                                                        | function | yes      | IOS/Android | yes               |
-| getEntriesByName | 返回一个给定名称和 name 和 type 属性的 PerformanceEntry 对象数组                                                                                                                                                                                                                                                                   | function | yes      | IOS/Android | yes               |
-| getEntriesByType | 返回一个给定 type 属性的 PerformanceEntry 对象数组                                                                                                                                                                                                                                                                                 | function | yes      | IOS/Android | yes               |
-| clearMarks       | 从缓存中移除声明的标记。如果调用这个方法时没有传递参数，则所有带有 entry type 这类标记的 performance entries 将从 performance entry 缓存区中被移除。                                                                                                                                                                               | function | yes      | IOS/Android | yes               |
-| clearMeasures    | 从缓存区中移除声明的测量记录。如果这个方法被调用时没有传入参数，则所有 entry type 标记值为"measure" 的性能实体将被从性能入口缓存区中移除。                                                                                                                                                                                         | function | yes      | IOS/Android | yes               |
+| now              | Returns a high-resolution timestamp, in milliseconds.                                                                                                                                                                                                                                                                                            | function | yes      | IOS/Android | yes               |
+| mark             | Creates a timestamp in the performance input buffer based on the given **markName** value.                                                                                                                                                                                                                                                                | function | yes      | IOS/Android | yes               |
+| measure          | Creates a measure record in the performance record cache. If only the measure name is specified, the start timestamp is set to zero, and the end timestamp (used to calculate the duration) is the value returned by **Performance.now()**. You can use a string to set the **PerformanceMark** object to a start tag and an end tag. If only the **endMark** is provided, you need to set an empty measure option object: **performance.Measure("myMeasure", {}, "myEndMarker")**.| function | yes      | IOS/Android | yes               |
+| metric           | Generates entries of the **metric** type if you want to collect custom metrics that are not time-based. This function is an extension of the Performance API.                                                                                                                                                                                                        | function | yes      | IOS/Android | yes               |
+| getEntries       | Returns a **PerformanceEntry** object array if a **filter** is specified; returns all entries if no parameter is specified.                                                                                                                                                                                                                                       | function | yes      | IOS/Android | yes               |
+| getEntriesByName | Returns an array of **PerformanceEntry** objects with the given **name** and **type**.                                                                                                                                                                                                                                                                  | function | yes      | IOS/Android | yes               |
+| getEntriesByType | Returns a **PerformanceEntry** object array with the given **type**.                                                                                                                                                                                                                                                                                | function | yes      | IOS/Android | yes               |
+| clearMarks       | Removes the declared marks from the cache. If no parameter is passed, all performance entries with the **entry type** mark are removed from the performance entry cache.                                                                                                                                                                              | function | yes      | IOS/Android | yes               |
+| clearMeasures    | Removes the declared measure records from the cache. If no parameter is passed, all performance entities whose **entry type** is **measure** are removed from the performance entry cache.                                                                                                                                                                                        | function | yes      | IOS/Android | yes               |
 
 ## PerformanceObserver
 
-给定的观察者 callback 生成一个新的 PerformanceObserver 对象。当通过 observe() 方法注册的 条目类型 的 性能条目事件 被记录下来时，调用该观察者回调。
+Generates a **PerformanceObserver** object based on the specified observer callback, which is called when the performance entry event of the **entry type** registered through **observe()** is recorded.
 
 > [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
@@ -327,7 +327,7 @@ Check the release version information in the release address of the third-party 
 
 | Name    | Description                                                                                                                           | Type     | Required | Platform    | HarmonyOS Support |
 | ------- | ------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------- | ----------------- |
-| observe | observe() 方法用于指定 PerformanceObserver 对象观察的性能条目类型。当记录一个指定类型的性能条目时，性能监测对象的回调函数将会被调用。 | function | yes      | IOS/Android | yes               |
+| observe | Specifies the performance entry type for the **PerformanceObserver** object. When a performance entry of a specified type is recorded, the callback of the performance observer object is called.| function | yes      | IOS/Android | yes               |
 
 ## API
 
@@ -337,7 +337,7 @@ Check the release version information in the release address of the third-party 
 
 | Name                      | Description                                                                         | Type     | Required | Platform    | HarmonyOS Support |
 | ------------------------- | ----------------------------------------------------------------------------------- | -------- | -------- | ----------- | ----------------- |
-| setResourceLoggingEnabled | 默认情况下禁用资源日志记录，并且当前仅 fetch/XMLHttpRequest 使用,使用时需设置开启。 | function | yes      | IOS/Android | yes               |
+| setResourceLoggingEnabled | Enables resource logging, which is disabled by default and is used only by **fetch** and **XMLHttpRequest**.| function | yes      | IOS/Android | yes               |
 
 ## Known Issues
 
@@ -345,4 +345,4 @@ Check the release version information in the release address of the third-party 
 
 ## License
 
-This project is licensed under [The MIT License (MIT)](https://github.com/oblador/react-native-performance/blob/master/LICENSE).
+This project is licensed under [MIT License](https://github.com/oblador/react-native-performance/blob/master/LICENSE).

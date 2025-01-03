@@ -8,10 +8,10 @@ This project is based on [react-native-background-timer@2.4.1](https://github.co
 
 This third-party library has been migrated to Gitee and is now available for direct download from npm, the new package name is: `@react-native-ohos/react-native-linear-gradient`, The version correspondence details are as follows:
 
-| Version                   | Package Name                                      | Repository         | Release                    |
-| ------------------------- | ------------------------------------------------- | ------------------ | -------------------------- |
+| Version                   | Package Name                                       | Repository                                                                                     | Release                                                                                                          |
+| ------------------------- | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
 | <= 2.4.1-0.0.2@deprecated | @react-native-oh-tpl/react-native-background-timer | [Github(deprecated)](https://github.com/react-native-oh-library/react-native-background-timer) | [Github Releases(deprecated)](https://github.com/react-native-oh-library/react-native-background-timer/releases) |
-| > 2.4.2                   | @react-native-ohos/react-native-background-timer   | [Gitee](https://gitee.com/openharmony-sig/rntpc_react-native-background-timer) | [Gitee Releases](https://gitee.com/openharmony-sig/rntpc_react-native-background-timer/releases) |
+| > 2.4.2                   | @react-native-ohos/react-native-background-timer   | [Gitee](https://gitee.com/openharmony-sig/rntpc_react-native-background-timer)                 | [Gitee Releases](https://gitee.com/openharmony-sig/rntpc_react-native-background-timer/releases)                 |
 
 ## 1. Installation and Usage
 
@@ -44,37 +44,34 @@ import BackgroundTimer from "react-native-background-timer";
 export function BackgroundTimerExample() {
   let [count, setCount] = useState(0);
   let [text, setText] = useState("");
-  // BackgroundTimer延时
   let [delay, setDelay] = useState("1000");
-  // setTimeout延时
   let [timeoutDelay, setTimeoutDelay] = useState("1000");
-  // setInterval延时
   let [intervalDelay, setIntervalDelay] = useState("1000");
   let timeoutList:number[] = []
   let [intervalList, setIntervalList] = useState<number[]>([]);
- 
+
   // runBackgroundTimer
   function onPressStart(){
-    setText("开启定时器...")
+    setText("Turn on the timer...")
     BackgroundTimer.runBackgroundTimer(()=>{
       setCount(count+=1)
     },parseInt(delay))
   }
   function onPressStop(){
-    setText("结束定时器")
+    setText("Turn off the timer")
     BackgroundTimer.stopBackgroundTimer()
   }
 
   // setTimeout
   function setTimeoutStart(){
-    setText("开启定时器...")
+    setText("Turn on the timer...")
     let timeoutId = BackgroundTimer.setTimeout(()=>{
       setCount(count+=1)
     },parseInt(timeoutDelay))
     timeoutList.push(timeoutId)
   }
   function setTimeoutStop(){
-    setText("结束定时器")
+    setText("Turn off the timer")
     if(timeoutList.length>0){
       BackgroundTimer.clearTimeout(timeoutList[0])
       timeoutList.shift()
@@ -83,14 +80,14 @@ export function BackgroundTimerExample() {
 
   // setInterval
   function setIntervalStart(){
-    setText("开启定时器...")
+    setText("Turn on the timer...")
     let intervalId = BackgroundTimer.setInterval(()=>{
       setCount(count+=1)
     },parseInt(intervalDelay))
     setIntervalList([...intervalList,intervalId])
   }
   function setIntervalStop(){
-    setText("结束定时器")
+    setText("Turn off the timer")
     if(intervalList.length>0){
       BackgroundTimer.clearInterval(intervalList[0])
       intervalList.shift()
@@ -110,7 +107,7 @@ export function BackgroundTimerExample() {
           />
           <TextInput
             style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-            placeholder="BackgroundTimer延时"
+            placeholder="BackgroundTimer delay"
             onChangeText={(value)=>{setDelay(value)}}
             value={delay}
           />
@@ -122,7 +119,7 @@ export function BackgroundTimerExample() {
           />
         </View>
       </View>
-      
+
       <View style={styles.container}>
         <View style={styles.viewStyle}>
           <Button
@@ -131,7 +128,7 @@ export function BackgroundTimerExample() {
           />
           <TextInput
             style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-            placeholder="setTimeout延时"
+            placeholder="setTimeout delay"
             onChangeText={(value)=>{setTimeoutDelay(value)}}
             value={timeoutDelay}
           />
@@ -143,7 +140,7 @@ export function BackgroundTimerExample() {
           />
         </View>
       </View>
-      
+
       <View style={styles.container}>
         <View style={styles.viewStyle}>
           <Button
@@ -152,7 +149,7 @@ export function BackgroundTimerExample() {
           />
           <TextInput
             style={{ height: 40, borderColor: 'gray', borderWidth: 1 }}
-            placeholder="setInterval延时"
+            placeholder="setInterval delay"
             onChangeText={(value)=>{setIntervalDelay(value)}}
             value={intervalDelay}
           />
@@ -164,7 +161,7 @@ export function BackgroundTimerExample() {
           />
         </View>
       </View>
-      
+
       <View style={[styles.viewStyle,styles.resetStyle]}>
         <Button
           onPress={resetNumber}
@@ -329,31 +326,29 @@ This document is verified based on the following versions:
 
 RNOH: 0.72.38; SDK: HarmonyOS-5.0.0(API12); ROM: 5.0.0.107;
 
-## 4. APIs 
+## 4. APIs
 
 > [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                | Description                                        | Required | Platform | HarmonyOS Support |
-| ------------------- | -------------------------------------------------- | -------- | -------- | ----------------- |
-| runBackgroundTimer  | 开启定时器，以固定的时间间隔重复执行指定代码       | no       | all      | yes               |
-| stopBackgroundTimer | 结束 runBackgroundTimer 开启的定时器               | no       | all      | yes               |
-| start               | 后台开启新任务                                     | no       | all      | no                |
-| stop                | 结束后台任务                                       | no       | all      | no                |
-| setTimeout          | 开启定时器，定时器到期会执行指定代码，只会执行一次 | no       | Android  | yes               |
-| clearTimeout        | 结束 setTimeout 开启的定时器                       | no       | Android  | yes               |
-| setInterval         | 开启定时器，以固定的时间间隔重复执行指定代码       | no       | Android  | yes               |
-| clearInterval       | 结束 setInterval 开启的定时器                      | no       | Android  | yes               |
+| Name                | Description                                                                    | Required | Platform | HarmonyOS Support |
+| ------------------- | ------------------------------------------------------------------------------ | -------- | -------- | ----------------- |
+| runBackgroundTimer  | Starts a timer to repeatedly execute specified code at a fixed interval.       | no       | all      | yes               |
+| stopBackgroundTimer | Stops the timer started by **runBackgroundTimer**.                             | no       | all      | yes               |
+| start               | Starts a new task in the background.                                           | no       | all      | no                |
+| stop                | Stops a background task.                                                       | no       | all      | no                |
+| setTimeout          | Starts a timer to execute the specified code only once when the timer expires. | no       | Android  | yes               |
+| clearTimeout        | Stops the timer started by **setTimeout**.                                     | no       | Android  | yes               |
+| setInterval         | Starts a timer to repeatedly execute specified code at a fixed interval.       | no       | Android  | yes               |
+| clearInterval       | Stops the timer started by **setInterval**.                                    | no       | Android  | yes               |
 
 ## 5. Known Issues
 
-- [ ] 使用 worker 开的新线程中不支持 RNOHContext 序列化传参，底层 OS 暂不支持，导致无法在新线程中发送事件，需要底层 OS 框架实现相关业务功能。不开线程的情况下，因 setTimeout 属于异步方法，定时器效果不受影响。[worker 线程 Known Issues:start 和 stop 接口， HarmonyOS RN 框架暂不支持](https://gitee.com/openharmony-sig/rntpc_react-native-background-timer/issues/IB8QGJ)
+- [ ] The underlying OS does not support RNOHContext serialized transfer in the new thread created by Worker. As a result, events cannot be sent in the new thread. The underlying OS framework needs to implement related service functionality. If no thread is started, the timer is not affected because **setTimeout** is an asynchronous method. The **start** and **stop** APIs of the Worker thread are not supported in HarmonyOS RN: [issue](https://github.com/react-native-oh-library/react-native-background-timer/issues/3).
 
 ## 6. Others
-
 
 ## 7. License
 
 This project is licensed under (https://gitee.com/openharmony-sig/rntpc_react-native-background-timer/blob/master/LICENSE).
-

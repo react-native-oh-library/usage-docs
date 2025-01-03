@@ -41,10 +41,10 @@ yarn add @react-native-oh-tpl/react-native-incall-manager@file:#
 
 <!-- tabs:end -->
 
-**关于音频文件放置**
+**Storing Audio Files**
 
-> [!WARNING] 由于 HarmonyOS 暂不支持普通应用获取系统铃声，需要手动导入音频文件.
-> 将音频文件至 HarmonyOS 工程 `harmony`，entry/src/main/resources/rawfile 文件夹下，音频文件命名如下：
+> [!WARNING] HarmonyOS does not allow common applications to obtain system ringtones. You need to import audio files
+> to the **/entry/src/main/resources/rawfile** folder of the HarmonyOS project. The audio files should be named as follows:
 > incallmanager_busytone.mp3  
 > incallmanager_ringback.mp3  
 > incallmanager_ringtone.mp3
@@ -382,14 +382,14 @@ export default function InCallManagerExample() {
                     onPress={() => {
                         turnScreenOn();
                     }}>
-                    <Text style={{ color: '#000' }}>turnScreenOn(iOS不支持)</Text>
+                    <Text style={{ color: '#000' }}>turnScreenOn (not supported by iOS)</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
                     onPress={() => {
                         turnScreenOff();
                     }}>
-                    <Text style={{ color: '#000' }}>turnScreenOff(iOS不支持)</Text>
+                    <Text style={{ color: '#000' }}>turnScreenOff (not supported by iOS)</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
@@ -630,8 +630,8 @@ Check the release version information in the release address of the third-party 
 
 ### Permission Requirements
 
-> [!TIP] "ohos.permission.RUNNING_LOCK"，"ohos.permission.KEEP_BACKGROUND_RUNNING"权限等级为<B>normal</B>,授权方式为<B>system_grant</B>
-> "ohos.permission.MICROPHONE"权限等级为<B>normal</B>，授权方式为<B>user_grant</B>，[使用 ACL 签名的配置指导](https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/signing-0000001587684945-V3#section157591551175916)
+> [!TIP]The permission level of **ohos.permission.RUNNING_LOCK** and **ohos.permission.KEEP_BACKGROUND_RUNNING** is **normal** and the authorization mode is **system_grant**.
+> The permission level of **ohos.permission.MICROPHONE** is **normal**, and the authorization mode is **user_grant**. For details, see [Requesting ACL Permissions](https://developer.huawei.com/consumer/en/doc/harmonyos-guides-V2/signing-0000001587684945-V2#section157591551175916).
 
 #### Include applicable permissions in the module.json5 file within the entry directory.
 
@@ -652,7 +652,7 @@ Add configuration to `YourProject/entry/src/main/module.json5`
 +       "reason": "$string:Access_micphone",
 +       "usedScene": {"when": "inuse"}
 +     },
-+     { "name": "ohos.permission.KEEP_BACKGROUND_RUNNING"，
++     { "name": "ohos.permission.KEEP_BACKGROUND_RUNNING",
 +       "usedScene": {
 +          "when": "always"
 +        }
@@ -666,7 +666,7 @@ Add configuration to `YourProject/entry/src/main/resources/base/element/string.j
 
 #### Apply the reasons for applicable permission in the entry directory.
 
-Open `entry/src/main/resources/base/element/string.json` file and add：
+Open `entry/src/main/resources/base/element/string.json` file and add:
 
 ```diff
 ...
@@ -727,14 +727,14 @@ Open `entry/src/main/resources/base/element/string.json` file and add：
 
 ## Known Issues
 
-- [ ] 打开关闭麦克风静音 setMicrophoneMute，未实现 HarmonyOS 化 问题: [issue#1](https://github.com/react-native-oh-library/react-native-incall-manager/issues/1)
-- [ ] 播放获取系统铃声，未实现 HarmonyOS 化 问题: [issue#2](https://github.com/react-native-oh-library/react-native-incall-manager/issues/2)
-- [ ] 手动切换输出设备扬声器与听筒切换 setSpeakerphoneOn、setForceSpeakerphoneOn，未实现 HarmonyOS 化 问题: [issue#3](https://github.com/react-native-oh-library/react-native-incall-manager/issues/3)
-- [ ] 手动切换音频输入输出设备 chooseAudioRoute，未实现 HarmonyOS 化 问题: [issue#4](https://github.com/react-native-oh-library/react-native-incall-manager/issues/4)
-- [ ] 监听MediaButton事件，未实现 HarmonyOS化  问题: [issue#18](https://github.com/react-native-oh-library/react-native-incall-manager/issues/18)
+- [ ] The **setMicrophoneMute** API is not supported on HarmonyOS: [issue#1](https://github.com/react-native-oh-library/react-native-incall-manager/issues/1).
+- [ ] The system ringtones cannot be played on HarmonyOS: [issue#2](https://github.com/react-native-oh-library/react-native-incall-manager/issues/2).
+- [ ] The **setSpeakerphoneOn** and **setForceSpeakerphoneOn** APIs are not supported on HarmonyOS: [issue#3](https://github.com/react-native-oh-library/react-native-incall-manager/issues/3).
+- [ ] The **chooseAudioRoute** API is not supported on HarmonyOS: [issue#4](https://github.com/react-native-oh-library/react-native-incall-manager/issues/4).
+- [ ] Listening for the **MediaButton** event is not supported on HarmonyOS: [issue#18](https://github.com/react-native-oh-library/react-native-incall-manager/issues/18).
 
 ## Others
 
 ## License
 
-This project is licensed under [The ISC License (ISC)](https://github.com/react-native-webrtc/react-native-incall-manager/blob/master/LICENSE).
+This project is licensed under [ISC License](https://github.com/react-native-webrtc/react-native-incall-manager/blob/master/LICENSE).

@@ -1,4 +1,3 @@
-
 > Template version: v0.2.2
 
 <p align="center">
@@ -18,24 +17,24 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library:[@react-native-oh-tpl/react-native-idle-timer Releases](https://github.com/react-native-oh-library/react-native-idle-timer/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package:[@react-native-oh-tpl/react-native-idle-timer Releases](https://github.com/react-native-oh-library/react-native-idle-timer/releases).
 
 Go to the project directory and execute the following instruction:
 
-
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-idle-timer
+npm install @react-native-oh-tpl/react-native-idle-timer@file:#
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-idle-timer
+yarn add @react-native-oh-tpl/react-native-idle-timer@file:#
 ```
 
 <!-- tabs:end -->
@@ -164,13 +163,13 @@ Check the release version information in the release address of the third-party 
 
 ## API
 
-> [!TIP] The Platform column indicates the platform where the properties are supported in the original third-party library.
+> [!tip] The Platform column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] If the value of HarmonyOS Support is yes, it means that the HarmonyOS platform supports this property; no means the opposite; partially means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!tip] If the value of HarmonyOS Support is yes, it means that the HarmonyOS platform supports this property; no means the opposite; partially means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name | Description | Type | Required | Platform | HarmonyOS Support  |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| setIdleTimerDisabled  | enable/forbidden screen idle timer | function  | no | All      | yes |
+| Name                 | Description                        | Type     | Required | Platform | HarmonyOS Support |
+| -------------------- | ---------------------------------- | -------- | -------- | -------- | ----------------- |
+| setIdleTimerDisabled | enable/forbidden screen idle timer | function | no       | All      | yes               |
 
 ## Known Issues
 

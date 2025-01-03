@@ -16,7 +16,7 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-view-pdf Releases](https://github.com/react-native-oh-library/react-native-PDFView/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-view-pdf Releases](https://github.com/react-native-oh-library/react-native-PDFView/releases). For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 Go to the project directory and execute the following instruction:
 
@@ -62,7 +62,7 @@ export function PdfViewExample() {
 
 ## Use Codegen
 
-If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/zh-cn/codegen.md).
+If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/en/codegen.md).
 
 ## Link
 
@@ -109,7 +109,7 @@ ohpm install
 
 Method 2: Directly link to the source code.
 
-> [!TIP] For details, see [Directly Linking Source Code](/zh-cn/link-source-code.md).
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
 ### 3. Introducing RNPDFView Component to ArkTS
 
@@ -187,19 +187,19 @@ Check the release version information in the release address of the third-party 
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name              | Description                                                                                                                                                                                                                                        | Type     | Required | Platform | HarmonyOS Support |
-| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | ----------------- |
-| resource          | A resource to render. It's possible to render PDF from file, url (should be encoded) or base64                                                                                                                                                     | string   | yes      | all      | yes               |
-| resourceType      | Should correspond to resource and can be: file, url or base64                                                                                                                                                                                      | string   | no       | all      | yes               |
+| Name              | Description                                                  | Type     | Required | Platform | HarmonyOS Support |
+| ----------------- | ------------------------------------------------------------ | -------- | -------- | -------- | ----------------- |
+| resource          | A resource to render. It's possible to render PDF from file, url (should be encoded) or base64 | string   | yes      | all      | yes               |
+| resourceType      | Should correspond to resource and can be: file, url or base64 | string   | no       | all      | yes               |
 | fileFrom          | iOS: In case if resourceType is set to file, there are different way to search for it on iOS file system. Currently documentsDirectory, libraryDirectory, cachesDirectory, tempDirectory and bundle are supported. <br>harmony: files, cache, temp | string   | no       | iOS      | yes               |
-| onLoad            | Callback that is triggered when loading is completed                                                                                                                                                                                               | function | no       | all      | yes               |
-| onError           | Callback that is triggered when loading has failed. And error is provided as a function parameter                                                                                                                                                  | style    | no       | all      | yes               |
-| style             | css style                                                                                                                                                                                                                                          | string   | no       | all      | yes               |
-| fadeInDuration    | Fade in duration (in ms, defaults to 0.0) to smoothly fade the webview into view when pdf loading is completed                                                                                                                                     | number   | no       | all      | yes               |
-| enableAnnotations | Android ONLY: Boolean to enable Android view annotations (default is false).                                                                                                                                                                       | boolean  | no       | Android  | no                |
-| urlProps          | Extended properties for url type that allows to specify HTTP Method, HTTP headers and HTTP body                                                                                                                                                    | map      | no       | all      | no                |
-| onPageChanged     | Callback that is invoked when page is changed. Provides active page and total pages information                                                                                                                                                    | function | no       | Android  | no                |
-| onScrolled        | Callback that is invoked when PDF is scrolled. Provides offset value in a range between 0 and 1. Currently only 0 and 1 are supported.                                                                                                             | function | no       | all      | no                |
+| onLoad            | Callback that is triggered when loading is completed         | function | no       | all      | yes               |
+| onError           | Callback that is triggered when loading has failed. And error is provided as a function parameter | style    | no       | all      | yes               |
+| style             | css style                                                    | string   | no       | all      | yes               |
+| fadeInDuration    | Fade in duration (in ms, defaults to 0.0) to smoothly fade the webview into view when pdf loading is completed | number   | no       | all      | yes               |
+| enableAnnotations | Android ONLY: Boolean to enable Android view annotations (default is false). | boolean  | no       | Android  | no                |
+| urlProps          | Extended properties for url type that allows to specify HTTP Method, HTTP headers and HTTP body | map      | no       | all      | no                |
+| onPageChanged     | Callback that is invoked when page is changed. Provides active page and total pages information | function | no       | Android  | no                |
+| onScrolled        | Callback that is invoked when PDF is scrolled. Provides offset value in a range between 0 and 1. Currently only 0 and 1 are supported. | function | no       | all      | no                |
 
 ### Static Methods
 
@@ -207,14 +207,14 @@ Check the release version information in the release address of the third-party 
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name   | Description                                                                                                                                                                     | Type     | Required | Platform | HarmonyOS Support |
-| ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | -------- | ----------------- |
+| Name   | Description                                                  | Type     | Required | Platform | HarmonyOS Support |
+| ------ | ------------------------------------------------------------ | -------- | -------- | -------- | ----------------- |
 | reload | Allows to reload the PDF document. This can be useful in such cases as network issues, document is expired, etc. To reload the document you will need a `ref` to the component: | function | yes      | all      | yes               |
 
 ## Known Issues
 
-- [ ] urlProps 属性不支持, HarmonyOS 原生组件 webview 不支持 urlProps。[issue: #5](https://github.com/react-native-oh-library/react-native-PDFView/issues/5)
-- [ ] onScrolled 属性不支持, HarmonyOS 原生组件 webview 加载 pdf 文件时 onScrolled 回调函数不执行。 [issue: #6](https://github.com/react-native-oh-library/react-native-PDFView/issues/6)
+- [ ] The urlProps property is not supported. The native HarmonyOS component WebView does not support urlProps.[issue: #5](https://github.com/react-native-oh-library/react-native-PDFView/issues/5)
+- [ ] The onScrolled property is not supported. The onScrolled callback function is not executed when the native HarmonyOS component webview loads a PDF file. [issue: #6](https://github.com/react-native-oh-library/react-native-PDFView/issues/6)
 
 ## Others
 

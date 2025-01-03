@@ -91,27 +91,27 @@ export default HtmlViewExample;
 This document is verified based on the following versions:
 
 1. RNOH: 0.72.20-CAPI; SDK: HarmonyOS NEXT Developer Preview2; IDE: DevEco Studio 4.1.3.700; ROM: 3.0.0.19;
-2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
+2. RNOH: 0.72.33; SDK: OpenHarmony 5.0.0.71 (API Version 12 Release); IDE: DevEco Studio 5.0.3.900; ROM: NEXT.0.0.71;
 
 ## Properties
 
-> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-> [!TIP] 该库为 UI 组件库，可以在该库的标签下，使原本无法在 RN 框架生效的 Html 写法，可以实现对应的功能。
+> [!tip] This library is a UI component library. You can use the label of this library to implement the corresponding functions in HTML format that cannot take effect in the RN framework.
 
-| Name            | Description                                                                                                              | Type   | Required | Platform | HarmonyOS Support |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------ | ------ | -------- | -------- | ----------------- |
-| value           | a string of HTML content to render                                                                                       | string | yes      | All      | yes               |
+| Name            | Description                                                  | Type   | Required | Platform | HarmonyOS Support |
+| --------------- | ------------------------------------------------------------ | ------ | -------- | -------- | ----------------- |
+| value           | a string of HTML content to render                           | string | yes      | All      | yes               |
 | onLinkPress     | a function which will be called with a url when a link is pressed. Passing this prop will override how links are handled | string | no       | All      | yes               |
-| onLinkLongPress | a function which will be called with a url when a link is long pressed. The default is                                   | string | no       | All      | yes               |
-| stylesheet      | a stylesheet object keyed by tag name, which will override the styles applied to those respective tags.                  | string | no       | All      | yes               |
-| renderNode      | a custom function to render HTML nodes however you see fit.                                                              | string | no       | All      | yes               |
-| bullet          | text which is rendered before every inside a ` li``ul `                                                                  | string | no       | All      | yes               |
-| paragraphBreak  | text which appears after every element`p`                                                                                | string | no       | All      | yes               |
-| lineBreak       | text which appears after text elements which create a new line                                                           | string | no       | All      | yes               |
-| addLineBreaks   | when explicitly , effectively sets                                                                                       | string | no       | All      | yes               |
+| onLinkLongPress | a function which will be called with a url when a link is long pressed. The default is | string | no       | All      | yes               |
+| stylesheet      | a stylesheet object keyed by tag name, which will override the styles applied to those respective tags. | string | no       | All      | yes               |
+| renderNode      | a custom function to render HTML nodes however you see fit.  | string | no       | All      | yes               |
+| bullet          | text which is rendered before every inside a ` li``ul `      | string | no       | All      | yes               |
+| paragraphBreak  | text which appears after every element`p`                    | string | no       | All      | yes               |
+| lineBreak       | text which appears after text elements which create a new line | string | no       | All      | yes               |
+| addLineBreaks   | when explicitly , effectively sets                           | string | no       | All      | yes               |
 
 ## License
 

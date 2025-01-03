@@ -130,7 +130,7 @@ const MultiSelect: React.FC<MultiSelectProps> = ({ onSelectValue }) => {
       >
         <View style={{ width: "100%" }}>
           <Text style={{ fontSize: 20, fontWeight: "600", margin: 6 }}>
-            picker 的文件类型
+            File type of the picker.
           </Text>
         </View>
         {typeUi.map((s) => (
@@ -215,7 +215,7 @@ export default function DocumentPickerDemo(): JSX.Element {
 
       <View style={{ width: "100%" }}>
         <Text style={{ fontSize: 20, fontWeight: "600", margin: 6 }}>
-          是否多选
+          Whether allow multiple selections.
         </Text>
       </View>
 
@@ -226,7 +226,7 @@ export default function DocumentPickerDemo(): JSX.Element {
 
       <View style={{ width: "100%" }}>
         <Text style={{ fontSize: 20, fontWeight: "600", margin: 6 }}>
-          copyTo文件夹
+          Copy a file to a folder.
         </Text>
       </View>
 
@@ -265,7 +265,7 @@ export default function DocumentPickerDemo(): JSX.Element {
       </TouchableOpacity>
       <View style={{ width: "100%" }}>
         <Text style={{ fontSize: 20, fontWeight: "600", margin: 6 }}>
-          选择结果
+          Pick result.
         </Text>
       </View>
       <Text>{pickResult}</Text>
@@ -437,7 +437,7 @@ Check the release version information in the release address of the third-party 
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-option pick 方法的传参选项
+Parameters of the option pick Method
 
 | Name                | Description                                                                                                                                                                                         | Type                                                                    | Required | Platform    | HarmonyOS Support |
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- | -------- | ----------- | ----------------- |
@@ -467,12 +467,12 @@ option pick 方法的传参选项
 
 ## 6. Known Issues
 
-- [ ] HarmonyOS 端 file picker selectMode 设置选文件夹无效: [issue#1](https://github.com/react-native-oh-library/document-picker/issues/1)
-- [ ] releaseSecureAccess 选择沙箱路径外文件无法实现， HarmonyOS 暂无此能力接口: [issue#2](https://github.com/react-native-oh-library/document-picker/issues/2)
+- [ ] The **pickerOpt. selectMode** API is invalid when it is set to **FOLDER** on HarmonyOS: [issue#1](https://github.com/react-native-oh-library/document-picker/issues/1).
+- [ ] **releaseSecureAccess** cannot be used to select files outside the sandbox path. This API is not supported on HarmonyOS: [issue#2](https://github.com/react-native-oh-library/document-picker/issues/2).
 
 ## 7. Others
 
-- 因权限问题无法读写图库资源，文件管理中从图库选择文件暂不支持。
+- The Gallery resources cannot be read or written due to permission issues. Selecting files from the Gallery is not supported in Files.
 
 ## 8. License
 

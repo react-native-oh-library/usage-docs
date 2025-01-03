@@ -16,7 +16,7 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library: [@react-native-oh-library/react-native-orientation-locker Releases](https://github.com/react-native-oh-library/react-native-orientation-locker/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+Find the matching version information in the release address of a third-party library: [@react-native-oh-library/react-native-orientation-locker Releases](https://github.com/react-native-oh-library/react-native-orientation-locker/releases). For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 Go to the project directory and execute the following instruction:
 
@@ -253,7 +253,7 @@ ohpm install
 
 Method 2: Directly link to the source code.
 
-> [!TIP] 源码位于三方库安装路径的 `harmony` 文件夹下。
+> [!TIP] The source code is stored in the `harmony` folder in the installation path of the third-party library.
 
 Open `entry/oh-package.json5` file and add the following dependencies:
 
@@ -310,43 +310,43 @@ Check the release version information in the release address of the third-party 
 This document is verified based on the following versions:
 
 1. RNOH: 0.72.20; SDK: HarmonyOS NEXT Developer Beta1; IDE: DevEco Studio 5.0.3.200; ROM: 3.0.0.18;
-2. RNOH: 0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
+2. RNOH: 0.72.33; SDK: OpenHarmony 5.0.0.71 (API Version 12 Release); IDE: DevEco Studio 5.0.3.900; ROM: NEXT.0.0.71;
 
 ## API
 
-> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 For details, see [react-native-orientation-locker](https://github.com/react-native-oh-library/react-native-orientation-locker)
 
-| Name                  | Description                                                              | Type     | Required | Platform    | HarmonyOS Support |
-| --------------------- | ------------------------------------------------------------------------ | -------- | -------- | ----------- | ----------------- |
-| lockToPortrait        | Lock the orientation of the application to portrait (portrait)           | function | No       | IOS/Android | yes               |
-| lockToLandscape       | Lock the orientation of the application to landscape (landscape)         | function | No       | IOS/Android | yes               |
-| lockToLandscapeLeft   | Lock the orientation of the app to landscape and rotated to the left     | function | No       | IOS/Android | yes               |
-| lockToLandscapeRight  | Lock the orientation of the app to landscape and rotated to the right    | function | No       | IOS/Android | yes               |
-| unlockAllOrientations | Unlocks the orientation of the app, allowing the device to rotate freely | function | No       | IOS/Android | yes               |
-| getOrientation        | Get the direction of the current device                                  | callback | No       | IOS/Android | yes               |
-| getDeviceOrientation  | Obtains the direction of the current device                              | callback | No       | IOS/Android | yes               |
+| Name                  | Description                                                  | Type     | Required | Platform    | HarmonyOS Support |
+| --------------------- | ------------------------------------------------------------ | -------- | -------- | ----------- | ----------------- |
+| lockToPortrait        | Lock the orientation of the application to portrait (portrait) | function | No       | iOS/Android| yes               |
+| lockToLandscape       | Lock the orientation of the application to landscape (landscape) | function | No       | iOS/Android| yes               |
+| lockToLandscapeLeft   | Lock the orientation of the app to landscape and rotated to the left | function | No       | iOS/Android| yes               |
+| lockToLandscapeRight  | Lock the orientation of the app to landscape and rotated to the right | function | No       | iOS/Android| yes               |
+| unlockAllOrientations | Unlocks the orientation of the app, allowing the device to rotate freely | function | No       | iOS/Android| yes               |
+| getOrientation        | Get the direction of the current device                      | callback | No       | iOS/Android| yes               |
+| getDeviceOrientation  | Obtains the direction of the current device                  | callback | No       | iOS/Android| yes               |
 
 ## Events
 
-> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
 For details, see [react-native-orientation-locker](https://github.com/react-native-oh-library/react-native-orientation-locker)
 
-| Name                            | Description                                                                                                                                                                                                                                                                                                                                      | Type     | Required | Platform    | HarmonyOS Support |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------- | -------- | ----------- | ----------------- |
-| addOrientationListener          | When UI orientation changed, callback function will be called. But if lockToXXX is called , callback function will be not called untill unlockAllOrientations. It can return either PORTRAIT LANDSCAPE-LEFT LANDSCAPE-RIGHT PORTRAIT-UPSIDEDOWN UNKNOWN When lockToXXX/unlockAllOrientations, it will force resend UI orientation changed event. | callback | No       | IOS/Android | yes               |
-| addDeviceOrientationListener    | When device orientation changed, callback function will be called. When lockToXXX is called, callback function also can be called. It can return either PORTRAIT LANDSCAPE-LEFT LANDSCAPE-RIGHT PORTRAIT-UPSIDEDOWN UNKNOWN                                                                                                                      | callback | No       | IOS/Android | yes               |
-| removeOrientationListener       |                                                                                                                                                                                                                                                                                                                                                  | callback | No       | IOS/Android | yes               |
-| removeDeviceOrientationListener |                                                                                                                                                                                                                                                                                                                                                  | callback | No       | IOS/Android | yes               |
-| addLockListener                 | When call lockToXXX/unlockAllOrientations, callback function will be called. It can return either PORTRAIT LANDSCAPE-LEFT LANDSCAPE-RIGHT UNKNOWN UNKNOWN means not be locked.                                                                                                                                                                   | callback | No       | IOS/Android | yes               |
-| removeLockListener              |                                                                                                                                                                                                                                                                                                                                                  | callback | No       | IOS/Android | yes               |
-| removeAllListeners              |                                                                                                                                                                                                                                                                                                                                                  | callback | No       | IOS/Android | yes               |
+| Name                            | Description                                                  | Type     | Required | Platform    | HarmonyOS Support |
+| ------------------------------- | ------------------------------------------------------------ | -------- | -------- | ----------- | ----------------- |
+| addOrientationListener          | When UI orientation changed, callback function will be called. But if lockToXXX is called , callback function will be not called untill unlockAllOrientations. It can return either PORTRAIT LANDSCAPE-LEFT LANDSCAPE-RIGHT PORTRAIT-UPSIDEDOWN UNKNOWN When lockToXXX/unlockAllOrientations, it will force resend UI orientation changed event. | callback | No       | iOS/Android| yes               |
+| addDeviceOrientationListener    | When device orientation changed, callback function will be called. When lockToXXX is called, callback function also can be called. It can return either PORTRAIT LANDSCAPE-LEFT LANDSCAPE-RIGHT PORTRAIT-UPSIDEDOWN UNKNOWN | callback | No       | iOS/Android| yes               |
+| removeOrientationListener       |                                                              | callback | No       | iOS/Android| yes               |
+| removeDeviceOrientationListener |                                                              | callback | No       | iOS/Android| yes               |
+| addLockListener                 | When call lockToXXX/unlockAllOrientations, callback function will be called. It can return either PORTRAIT LANDSCAPE-LEFT LANDSCAPE-RIGHT UNKNOWN UNKNOWN means not be locked. | callback | No       | iOS/Android| yes               |
+| removeLockListener              |                                                              | callback | No       | iOS/Android| yes               |
+| removeAllListeners              |                                                              | callback | No       | iOS/Android| yes               |
 
 ## Others
 

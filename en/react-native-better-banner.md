@@ -16,7 +16,7 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-better-banner Releases](https://github.com/react-native-oh-library/better-banner/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-better-banner Releases](https://github.com/react-native-oh-library/better-banner/releases). For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 Go to the project directory and execute the following instruction:
 
@@ -134,33 +134,33 @@ Check the release version information in the release address of the third-party 
 
 ## Properties
 
-> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                              | Description                                                                                                                                  | Type     | Default               | Platform | HarmonyOS Support |
-| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------------- | -------- | ----------------- |
-| bannerImages                      | 用于展示轮播图片, 与`bannerComponents`二选一                                                                                                 | Array    | []                    | All      | Yes               |
-| bannerComponents                  | 用于展示轮播自定义组件，与`bannerImages`二选一                                                                                               | Array    | []                    | All      | Yes               |
-| bannerHeight                      | banner 的默认高度                                                                                                                            | Number   | 250                   | All      | Yes               |
-| bannerTitles                      | 每张图片或组件对应的标题                                                                                                                     | Array    | []                    | All      | Yes               |
-| bannerTitleTextColor              | 每张图片或组件对应的标题的文字颜色                                                                                                           | String   | #fff                  | All      | Yes               |
-| bannerTitleTextSize               | 每张图片或组件对应的标题的文字大小                                                                                                           | Number   | 2000                  | All      | Yes               |
-| isAutoScroll                      | 是否开启自动轮播                                                                                                                             | Boolean  | true                  | All      | Yes               |
-| isSeamlessScroll                  | 是否开启无缝滚动(iOS 下正常，安卓某些机型可能出现滚动异常)                                                                                   | Boolean  | false                 | All      | Yes               |
-| adaptSeamlessScrollValue          | 如果开启无缝滚动在某些机型滚动异常，可针对这些机型设置`true` 或 `false`, 此值实际上是设置是否显示`ScrollView`的`scrollTo`的滚动动画          | Boolean  | false                 | All      | Yes               |
-| indicatorWidth                    | 指示器宽度                                                                                                                                   | Number   | 10                    | All      | Yes               |
-| indicatorHeight                   | 指示器高度                                                                                                                                   | Number   | 6                     | All      | Yes               |
-| indicatorColor                    | 指示器颜色                                                                                                                                   | String   | rgba(255,255,255,0.6) | All      | Yes               |
-| indicatorStyle                    | 指示器样式，您也可以直接使用此属性一次性设置指示器宽、高、颜色和圆角等，它会覆盖以上`indicatorWidth`,`indicatorHeight`，`indicatorColor`属性 | Object   | {}                    | All      | Yes               |
-| indicatorGap                      | 指示器之间的间隔                                                                                                                             | Number   | 6                     | All      | Yes               |
-| activeIndicatorColor              | 活动指示器颜色                                                                                                                               | String   | #fff                  | All      | Yes               |
-| indicatorGroupPosition            | 指示器组的位置，可设置`left`,`center`,`right`。如果您设置了`bannerTitles`,则此属性只能是`right`                                              | String   | right                 | All      | Yes               |
-| indicatorGroupSideOffset          | 指示器组的左右边距                                                                                                                           | Number   | 10                    | All      | Yes               |
-| indicatorContainerHeight          | 指示器容器高度                                                                                                                               | Number   | 32                    | All      | Yes               |
-| indicatorContainerBackgroundColor | 指示器容器背景色                                                                                                                             | String   | transparent           | All      | Yes               |
-| onPress()                         | 点击轮播图后的回调函数，会传回 banner 的`index`                                                                                              | Function | ()=>{}                | All      | Yes               |
-| onScrollEnd()                     | 滚动完每张轮播图的回调函数，等同于`ScrollView`的`onMomentumScrollEnd`                                                                        | Function | ()=>{}                | All      | Yes               |
+| Name                              | Description                                                  | Type     | Default               | Platform | HarmonyOS Support |
+| --------------------------------- | ------------------------------------------------------------ | -------- | --------------------- | -------- | ----------------- |
+| bannerImages                      | Displays banner images. Either this API or `bannerComponents` can be called.                | Array    | []                    | All      | Yes               |
+| bannerComponents                  | Displays custom banner components. Either this API or `bannerImages` can be called.              | Array    | []                    | All      | Yes               |
+| bannerHeight                      | Default height of the banner.                                           | Number   | 250                   | All      | Yes               |
+| bannerTitles                      | Title of each image or component.                                    | Array    | []                    | All      | Yes               |
+| bannerTitleTextColor              | Title text color of each image or component.                          | String   | #fff                  | All      | Yes               |
+| bannerTitleTextSize               | Title text size of each image or component.                          | Number   | 2000                  | All      | Yes               |
+| isAutoScroll                      | Whether to enable auto scroll.                                            | Boolean  | true                  | All      | Yes               |
+| isSeamlessScroll                  | Whether to enable seamless scroll. (This value is normal on iOS devices but abnormal on some Android devices.)  | Boolean  | false                 | All      | Yes               |
+| adaptSeamlessScrollValue          | If seamless scroll is abnormal on some models, you can set this value to `true` or `false`. This value specifies whether to display the scrolling animation through `scrollTo` of `ScrollView`.| Boolean  | false                 | All      | Yes               |
+| indicatorWidth                    | Indicator width.                                                  | Number   | 10                    | All      | Yes               |
+| indicatorHeight                   | Indicator height.                                                  | Number   | 6                     | All      | Yes               |
+| indicatorColor                    | Indicator color.                                                  | String   | rgba(255,255,255,0.6) | All      | Yes               |
+| indicatorStyle                    | Indicator style. You can also use this property to set the width, height, color, and rounded corner of the indicator at a time. This property covers `indicatorWidth`, `indicatorHeight`, and `indicatorColor`.| Object   | {}                    | All      | Yes               |
+| indicatorGap                      | Indicator gap.                                            | Number   | 6                     | All      | Yes               |
+| activeIndicatorColor              | Active indicator color.                                              | String   | #fff                  | All      | Yes               |
+| indicatorGroupPosition            | Position of the indicator group. It can be set to `left`, `center`, and `right`. If `bannerTitles` has been set, this property can only be `right`.| String   | right                 | All      | Yes               |
+| indicatorGroupSideOffset          | Side offset of the indicator group.                                          | Number   | 10                    | All      | Yes               |
+| indicatorContainerHeight          | Height of the indicator container.                                              | Number   | 32                    | All      | Yes               |
+| indicatorContainerBackgroundColor | Background color of the indicator container.                                            | String   | transparent           | All      | Yes               |
+| onPress()                         | Callback function called when the banner image is touched. It returns the banner `index`.             | Function | ()=>{}                | All      | Yes               |
+| onScrollEnd()                     | Callback function called when the scrolling of each banner image ends. It is equivalent to `onMomentumScrollEnd` of `ScrollView`.| Function | ()=>{}                | All      | Yes               |
 
 ## Known Issues
 

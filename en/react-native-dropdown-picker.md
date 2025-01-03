@@ -93,7 +93,7 @@ export default function App() {
 This document is verified based on the following versions:
 
 1. RNOH: 0.72.27; SDK: HarmonyOS-Next-DB1 5.0.0.25 (API Version 12 Canary4); IDE: DevEco Studio 5.0.3.400SP7; ROM: 3.0.0.29;
-2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
+2. RNOH: 0.72.33; SDK: OpenHarmony 5.0.0.71 (API Version 12 Release); IDE: DevEco Studio 5.0.3.900; ROM: NEXT.0.0.71;
 
 ## Properties
 
@@ -109,8 +109,8 @@ This document is verified based on the following versions:
 | props                      | Adds native props for the container TouchableOpacity.                                                            | object                                                             | no       | All      | yes               |
 | itemProps                  | Adds native props for the TouchableOpacity of each item.                                                         | object                                                             | no       | All      | yes               |
 | containerProps             | Adds native props for the container.                                                                             | object                                                             | no       | All      | yes               |
-| labelProps                 | Adds native props for the Text element of the selected item.                                                     | object                                                             | no       | All      | yes               |
-| multiple                   | You can select multiple items                                                                                    | boolean                                                            | no       | All      | yes               |
+| labelProps                 | Adds native props for the Text element of the selected item.                                                     | object                                                             | no       | All      | yes               |
+| multiple                   | You can select multiple items                                                                                    | boolean                                                            | no       | All      | yes               |
 | min                        | Specifies the minimum number of items.                                                                           | number                                                             | no       | All      | yes               |
 | max                        | Specifies the maximum number of items.                                                                           | number                                                             | no       | All      | yes               |
 | disabled                   | Disables the picker.                                                                                             | boolean                                                            | no       | All      | yes               |
@@ -122,10 +122,10 @@ This document is verified based on the following versions:
 | zIndex                     | Specifies the stack order.                                                                                       | number                                                             | no       | All      | yes               |
 | zIndexInverse              | Specifies the inverse stack order.                                                                               | number                                                             | no       | All      | yes               |
 | setOpen                    | State callback that is called when the user presses the picker.                                                  | (open: boolean) => void                                            | yes      | All      | yes               |
-| setItems                   | State callback that is called to modify or add new items.                                                        | (callback: SetStateAction[]) => void                               | no       | All      | yes               |
-| setValue                   | State callback that is called when the value changes.                                                            | (callback: SetStateAction) => void                                 | yes      | All      | yes               |
-| onChangeValue              | Callback that returns the current value.                                                                         | (value: ValueType) => void \| (value: ValueType[]) => void \| null | no       | All      | yes               |
-| onSelectItem               | Callback that returns the selected item / items.                                                                 | (item: ItemType) => void \| (items: ItemType[]) => void \| null    | no       | All      | yes               |
+| setItems                   | State callback that is called to modify or add new items.                                                        | (callback: SetStateAction[]) => void                               | no       | All      | yes               |
+| setValue                   | State callback that is called when the value changes.                                                            | (callback: SetStateAction) => void                                 | yes      | All      | yes               |
+| onChangeValue              | Callback that returns the current value.                                                                         | (value: ValueType) => void \| (value: ValueType[]) => void \| null | no       | All      | yes               |
+| onSelectItem               | Callback that returns the selected item / items.                                                                 | (item: ItemType) => void \| (items: ItemType[]) => void \| null    | no       | All      | yes               |
 | onPress                    | Callback that is called as soon as the user presses the picker.                                                  | (open: boolean) => void                                            | no       | All      | yes               |
 | onOpen                     | Callback that is called when the user opens the picker.                                                          | () => void                                                         | no       | All      | yes               |
 | onClose                    | Callback that is called when the user closes the picker.                                                         | () => void                                                         | no       | All      | yes               |
@@ -180,18 +180,18 @@ This document is verified based on the following versions:
 | badgeTextStyle             | Set badgeTextStyle                                                                                               | object                                                             | no       | All      | yes               |
 | badgeDotStyle              | Set badgeDotStyle                                                                                                | object                                                             | no       | All      | yes               |
 | badgeSeparatorStyle        | Set badgeSeparatorStyle                                                                                          | object                                                             | no       | All      | yes               |
-| badgeColors                | Gives background colors to badges based on the value.                                                            | object, string                                                     | no       | All      | yes               |
-| badgeDotColors             | Gives background colors to badge dots based on the value.                                                        | object, string                                                     | no       | All      | yes               |
+| badgeColors                | Gives background colors to badges based on the value.                                                            | object, string                                                     | no       | All      | yes               |
+| badgeDotColors             | Gives background colors to badge dots based on the value.                                                        | object, string                                                     | no       | All      | yes               |
 | dropDownDirection          | Specifies which direction the drop-down menu should open.                                                        | 'DEFAULT'\|'TOP'\|'BOTTOM'\|'AUTO'                                 | no       | All      | yes               |
-| bottomOffset               | Specifies the maximum bottom offset. To use this prop you need dropDownDirection="AUTO".                         | number                                                             | no       | All      | yes               |
+| bottomOffset               | Specifies the maximum bottom offset. To use this prop you need dropDownDirection="AUTO".                         | number                                                             | no       | All      | yes               |
 | onDirectionChanged         | Callback that is called when the direction changes.                                                              | function                                                           | no       | All      | yes               |
 | dropDownContainerStyle     | Set dropDownContainerStyle                                                                                       | object                                                             | no       | All      | yes               |
 | itemKey                    | Specifies which item key should be used as a key.                                                                | string                                                             | no       | All      | yes               |
 | closeAfterSelecting        | Closes the picker after selecting an item.                                                                       | boolean                                                            | no       | All      | yes               |
 | closeOnBackPressed         | Closes the picker after pressing the back button.                                                                | boolean                                                            | no       | All      | yes               |
 | itemSeparator              | Specifies if the item separater should be visible.                                                               | boolean                                                            | no       | All      | yes               |
-| renderListItem             | Customizes the renderListItem.                                                                                   | function                                                           | no       | All      | yes               |
-| ListEmptyComponent         | Changes the default ListEmptyComponent.                                                                          | function                                                           | no       | All      | yes               |
+| renderListItem             | Customizes the renderListItem.                                                                                   | function                                                           | no       | All      | yes               |
+| ListEmptyComponent         | Changes the default ListEmptyComponent.                                                                          | function                                                           | no       | All      | yes               |
 | listItemContainerStyle     | Set listItemContainerStyle                                                                                       | object                                                             | no       | All      | yes               |
 | listItemLabelStyle         | Set listItemLabelStyle                                                                                           | object                                                             | no       | All      | yes               |
 | selectedItemContainerStyle | Set selectedItemContainerStyle                                                                                   | object                                                             | no       | All      | yes               |
@@ -205,7 +205,7 @@ This document is verified based on the following versions:
 | flatListProps              | Adds native props for the FlatList.                                                                              | object                                                             | no       | All      | yes               |
 | scrollViewProps            | Adds native props for the ScrollView.                                                                            | object                                                             | no       | All      | yes               |
 | modalProps                 | Adds native props for the Modal.                                                                                 | object                                                             | no       | All      | yes               |
-| modalTitle                 | Sets modal title.listMode="MODAL" and searchable={false} are required.                                           | string                                                             | no       | All      | yes               |
+| modalTitle                 | Sets modal title.listMode="MODAL" and searchable={false} are required.                                           | string                                                             | no       | All      | yes               |
 | modalAnimationType         | This prop controls how the modal animates.                                                                       | 'slide'\|'fade'\|'none'                                            | no       | All      | yes               |
 | modalContentContainerStyle | Set modalContentContainerStyle                                                                                   | object                                                             | no       | All      | yes               |
 | modalTitleStyle            | Set modalTitleStyle                                                                                              | object                                                             | no       | All      | yes               |
@@ -227,7 +227,7 @@ This document is verified based on the following versions:
 
 ## Known Issues
 
-- [ ] 方法 String.prototype.normalize('NFD')在 RN 框架下有问题，导致属性 searchWithRegionalAccents 不生效。
+- [ ]There is a bug in **String.prototype.normalize('NFD')** under the RN framework. As a result, the **searchWithRegionalAccents** property does not take effect.
 
 ## Others
 

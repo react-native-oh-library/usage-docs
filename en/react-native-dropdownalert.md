@@ -16,22 +16,24 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-dropdownalert Releases](https://github.com/react-native-oh-library/react-native-dropdownalert/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+Find the matching version information in the release address of a third-party library and download an applicable .tgz package: [@react-native-oh-tpl/react-native-dropdownalert Releases](https://github.com/react-native-oh-library/react-native-dropdownalert/releases).
 
 Go to the project directory and execute the following instruction:
+
+> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
 
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-dropdownalert
+npm install @react-native-oh-tpl/react-native-dropdownalert@file:#
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-dropdownalert
+yarn add @react-native-oh-tpl/react-native-dropdownalert@file:#
 ```
 
 <!-- tabs:end -->
@@ -253,7 +255,7 @@ Check the release version information in the release address of the third-party 
 
 ### DropdownAlertType
 
-DropdownAlertType 是 DropdownAlert 库导出的一个枚举对象，列举了弹框的类型。
+**DropdownAlertType**, an enum object exported from the **DropdownAlert** library, enumerates the types of dialog boxes.
 
 #### DropdownAlertType Property
 
@@ -263,184 +265,184 @@ DropdownAlertType 是 DropdownAlert 库导出的一个枚举对象，列举了�
 
 | Name    | Description  | Type   | **Required** | Platform | HarmonyOS Support |
 | ------- | ------------ | ------ | ------------ | -------- | ----------------- |
-| Info    | 值为 info    | string | no           | All      | yes               |
-| Warn    | 值为 warn    | string | no           | All      | yes               |
-| Error   | 值为 error   | string | no           | All      | yes               |
-| Success | 值为 success | string | no           | All      | yes               |
+| Info    | The value is **info**.   | string | no           | All      | yes               |
+| Warn    | The value is **warn**.   | string | no           | All      | yes               |
+| Error   | The value is **error**.  | string | no           | All      | yes               |
+| Success | The value is **success**.| string | no           | All      | yes               |
 
 ### DropdownAlertDismissAction
 
-DropdownAlertDismissAction 是 DropdownAlert 库导出的一个枚举对象，列举了弹框消失的动作类型。
+**DropdownAlertDismissAction**, an enum object exported from the **DropdownAlert** library, enumerates the dismiss action types of dialog boxes.
 
 #### DropdownAlertDismissAction Property
 
 | Name         | Description       | Type   | **Required** | Platform | HarmonyOS Support |
 | ------------ | ----------------- | ------ | ------------ | -------- | ----------------- |
-| Automatic    | 值为 automatic    | string | no           | All      | yes               |
-| Cancel       | 值为 cancel       | string | no           | All      | yes               |
-| Pan          | 值为 pan          | string | no           | All      | yes               |
-| Programmatic | 值为 programmatic | string | no           | All      | yes               |
-| Press        | 值为 press        | string | no           | All      | yes               |
+| Automatic    | The value is **automatic**.   | string | no           | All      | yes               |
+| Cancel       | The value is **cancel**.      | string | no           | All      | yes               |
+| Pan          | The value is **pan**.         | string | no           | All      | yes               |
+| Programmatic | The value is **programmatic**.| string | no           | All      | yes               |
+| Press        | The value is **press**.       | string | no           | All      | yes               |
 
 ### DropdownAlertColor
 
-DropdownAlertColor 是 DropdownAlert 库导出的一个枚举对象，列举了弹框的颜色
+**DropdownAlertColor**, an enum object exported from the **DropdownAlert** library, enumerates the colors of dialog boxes.
 
 #### DropdownAlertColor Property
 
 | Name    | Description    | Type   | **Required** | Platform | HarmonyOS Support |
 | ------- | -------------- | ------ | ------------ | -------- | ----------------- |
-| Info    | 值为'#2b73b6'  | string | no           | All      | yes               |
-| Warn    | 值为'#cd853f'  | string | no           | All      | yes               |
-| Error   | 值为'#cc3232'  | string | no           | All      | yes               |
-| Success | 值为'#32a54a'  | string | no           | All      | yes               |
-| Default | 值为''#000000' | string | no           | All      | yes               |
+| Info    | The value is **'#2b73b6'**. | string | no           | All      | yes               |
+| Warn    | The value is **'#cd853f'**. | string | no           | All      | yes               |
+| Error   | The value is **'#cc3232'**. | string | no           | All      | yes               |
+| Success | The value is **'#32a54a'**. | string | no           | All      | yes               |
+| Default | The value is **'#000000'**.| string | no           | All      | yes               |
 
 ### DropDownAlertImage
 
-DropDownAlertImage 是 DropdownAlert 库导出的一个枚举对象，列举了弹框的图片资源。
+**DropDownAlertImage**, an enum object exported from the **DropdownAlert** library, enumerates the image resources of dialog boxes.
 
 #### DropDownAlertImage Property
 
 | Name    | Description                                                              | Type                | **Required** | Platform | HarmonyOS Support |
 | ------- | ------------------------------------------------------------------------ | ------------------- | ------------ | -------- | ----------------- |
-| Info    | Info 时使用的图片资源，使用源库的资源 require('./assets/info.png')       | ImageSourcePropType | no           | All      | yes               |
-| Warn    | Warn 时使用的图片资源，使用源库的资源 require('./assets/warn.png')       | ImageSourcePropType | no           | All      | yes               |
-| Error   | Error 时使用的图片资源，使用源库的资源 require('./assets/error.png')     | ImageSourcePropType | no           | All      | yes               |
-| Success | Success 时使用的图片资源，使用源库的资源 require('./assets/success.png') | ImageSourcePropType | no           | All      | yes               |
-| Cancel  | Cancel 时使用的图片资源，使用源库的资源 require('./assets/cancel.png')   | ImageSourcePropType | no           | All      | yes               |
+| Info    | Image resource used in the Info dialog box, which is obtained through **require('./assets/info.png')**.      | ImageSourcePropType | no           | All      | yes               |
+| Warn    | Image resource used in the Warn dialog box, which is obtained through **require('./assets/warn.png')**.      | ImageSourcePropType | no           | All      | yes               |
+| Error   | Image resource used in the Error dialog box, which is obtained through **require('./assets/error.png')**.    | ImageSourcePropType | no           | All      | yes               |
+| Success | Image resource used in the Success dialog box, which is obtained through **require('./assets/success.png')**.| ImageSourcePropType | no           | All      | yes               |
+| Cancel  | Image resource used in the Cancel dialog box, which is obtained through **require('./assets/cancel.png')**.  | ImageSourcePropType | no           | All      | yes               |
 
 ### DropdownAlertToValue
 
-DropdownAlertToValue 是 DropdownAlert 库导出的一个枚举对象，有两种值 Alert 和 Dismiss。
+**DropdownAlertToValue**, an enum object exported from the **DropdownAlert** library, has two members: **Alert** and **Dismiss**.
 
 #### DropdownAlertToValue Property
 
 | Name    | Description | Type   | **Required** | Platform | HarmonyOS Support |
 | ------- | ----------- | ------ | ------------ | -------- | ----------------- |
-| Alert   | 值为 1      | number | no           | All      | yes               |
-| Dismiss | 值为 0      | number | no           | All      | yes               |
+| Alert   | The value is **1**.     | number | no           | All      | yes               |
+| Dismiss | The value is **0**.     | number | no           | All      | yes               |
 
 ### DropDownAlertTestID
 
-DropDownAlertTestID 是 DropdownAlert 库导出的一个枚举对象，列举了弹框的测试 ID。
+**DropDownAlertTestID**, an enum object exported from the **DropdownAlert** library, enumerates the test IDs of dialog boxes.
 
 #### DropDownAlertTestID Property
 
 | Name         | Description       | Type   | **Required** | Platform | HarmonyOS Support |
 | ------------ | ----------------- | ------ | ------------ | -------- | ----------------- |
-| AnimatedView | 值为 animatedView | string | no           | All      | yes               |
-| SafeView     | 值为 safeView     | string | no           | All      | yes               |
-| TextView     | 值为 textView     | string | no           | All      | yes               |
-| Alert        | 值为 alert        | string | no           | All      | yes               |
-| Image        | 值为 image        | string | no           | All      | yes               |
-| Title        | 值为 title        | string | no           | All      | yes               |
-| Message      | 值为 message      | string | no           | All      | yes               |
-| Cancel       | 值为 cancel       | string | no           | All      | yes               |
-| CancelImage  | 值为 cancelImage  | string | no           | All      | yes               |
+| AnimatedView | The value is **animatedView**.| string | no           | All      | yes               |
+| SafeView     | The value is **safeView**.    | string | no           | All      | yes               |
+| TextView     | The value is **textView**.    | string | no           | All      | yes               |
+| Alert        | The value is **alert**.       | string | no           | All      | yes               |
+| Image        | The value is **image**.       | string | no           | All      | yes               |
+| Title        | The value is **title**.       | string | no           | All      | yes               |
+| Message      | The value is **message**.     | string | no           | All      | yes               |
+| Cancel       | The value is **cancel**.      | string | no           | All      | yes               |
+| CancelImage  | The value is **cancelImage**. | string | no           | All      | yes               |
 
 ### DropdownAlertData
 
-DropdownAlertData 是 DropdownAlert 库导出的一个 class 对象，定义了弹框的数据内容，如标题、提示信息等。
+**DropdownAlertData**, a class object exported from the **DropdownAlert** library, defines the data content of a dialog box, such as the title and prompt information.
 
 #### DropdownAlertData Property
 
 | Name     | Description                             | Type                | **Required** | Platform | HarmonyOS Support |
 | -------- | --------------------------------------- | ------------------- | ------------ | -------- | ----------------- |
-| type     | 弹窗类型，传入 DropdownAlertType 的枚举 | DropdownAlertType   | no           | All      | yes               |
-| title    | 弹窗的消息标题                          | string              | no           | All      | yes               |
-| message  | 弹窗的消息正文                          | string              | no           | All      | yes               |
-| source   | 弹窗的图片类型                          | ImageSourcePropType | no           | All      | yes               |
-| interval | 自动消失的时间，单位毫秒值              | number              | no           | All      | yes               |
-| resolve  | 弹窗被处理的触发的事件                  | function            | no           | All      | yes               |
+| type     | Type of the dialog box, which is an enumof **DropdownAlertType**.| DropdownAlertType   | no           | All      | yes               |
+| title    | Message title of the dialog box.                         | string              | no           | All      | yes               |
+| message  | Message body of the dialog box.                         | string              | no           | All      | yes               |
+| source   | Image type of the dialog box.                         | ImageSourcePropType | no           | All      | yes               |
+| interval | Interval for the dialog box to disappear automatically, in milliseconds.             | number              | no           | All      | yes               |
+| resolve  | Event triggered when a dialog box is processed.                 | function            | no           | All      | yes               |
 
 ### DropdownAlertPosition
 
-DropdownAlertData 是 DropdownAlert 库导出的一个 class 对象，定义了弹框弹出位置，有顶部弹出和底部弹出两种。
+**DropdownAlertData**, a class object exported from the **DropdownAlert** library, defines the display position of the dialog box, including top and bottom.
 
 #### DropdownAlertPosition Property
 
 | Name   | Description            | Type              | **Required** | Platform | HarmonyOS Support |
 | ------ | ---------------------- | ----------------- | ------------ | -------- | ----------------- |
-| Top    | 顶部弹出，值为'top'    | DropdownAlertType | no           | All      | yes               |
-| Bottom | 底部弹出，值为'bottom' | string            | no           | All      | yes               |
+| Top    | The dialog box is displayed on the top. The value is **top**.   | DropdownAlertType | no           | All      | yes               |
+| Bottom | The dialog box is displayed at the bottom. The value is **bottom**.| string            | no           | All      | yes               |
 
 ### DropdownAlert components
 
-DropdownAlert 是 DropdownAlert 库导出的核心组件，定义了弹框所有属性，与 DropdownAlertProps 属性一致。
+**DropdownAlert**, a core component exported from the **DropdownAlert** library, defines all properties of a dialog box. Its properties are the same as those of **DropdownAlertProps**.
 
 #### DropdownAlert Property
 
 | Name                             | Description                                                                                                                                                        | Type                           | **Required** | Platform | HarmonyOS Support |
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------ | ------------ | -------- | ----------------- |
-| imageSrc                         | 弹框未指定图片资源的时候使用的默认自定义图片                                                                                                                       | ImageSourcePropType            | no           | All      | yes               |
-| infoImageSrc                     | 弹框未指定类型为 Info 时，使用的自定义图片                                                                                                                         | ImageSourcePropType            | no           | All      | yes               |
-| warnImageSrc                     | 弹框未指定类型为 Warn 时，使用的自定义图片                                                                                                                         | ImageSourcePropType            | no           | All      | yes               |
-| errorImageSrc                    | 弹框未指定类型为 Error 时，使用的自定义图片                                                                                                                        | ImageSourcePropType            | no           | All      | yes               |
-| successImageSrc                  | 弹框未指定类型为 Success 时，使用的自定义图片                                                                                                                      | ImageSourcePropType            | no           | All      | yes               |
-| cancelImageSrc                   | 弹框未指定类型为 Cancel 时，使用的自定义图片                                                                                                                       | ImageSourcePropType            | no           | All      | yes               |
-| infoColor                        | 弹框未指定类型为 Info 时，使用的自定义颜色                                                                                                                         | ColorValue                     | no           | All      | yes               |
-| warnColor                        | 弹框未指定类型为 Warn 时，使用的自定义颜色                                                                                                                         | ColorValue                     | no           | All      | yes               |
-| errorColor                       | 弹框未指定类型为 Error 时，使用的自定义颜色                                                                                                                        | ColorValue                     | no           | All      | yes               |
-| successColor                     | 弹框未指定类型为 Success 时，使用的自定义颜色                                                                                                                      | ColorValue                     | no           | All      | yes               |
-| activeStatusBarBackgroundColor   | 弹框出现时，将状态栏置为设置的颜色，需要配合 updateStatusBar=true 才生效                                                                                           | ColorValue                     | no           | Android  | yes               |
-| inactiveStatusBarBackgroundColor | 弹框消失时，将状态栏置为设置的颜色，需要配合 updateStatusBar=true 才生效                                                                                           | ColorValue                     | no           | Android  | yes               |
-| dismissInterval                  | 弹窗自动消失的时间毫秒值                                                                                                                                           | number                         | no           | All      | yes               |
-| titleNumberOfLines               | 弹窗标题的最大行数，                                                                                                                                               | number                         | no           | All      | yes               |
-| messageNumberOfLines             | 弹窗正文的最大行数，超过则省略                                                                                                                                     | number                         | no           | All      | yes               |
-| elevation                        | 视图的高度，此属性可以为视图添加一个投影，并且会影响视图层叠的顺序。此属性仅支持 Android5.0 及以上版本。                                                           | number                         | no           | Android  | no                |
-| zIndex                           | z 轴的值                                                                                                                                                           | number                         | no           | All      | no                |
-| panResponderDismissDistance      | 下滑弹窗消失距离                                                                                                                                                   | number                         | no           | All      | yes               |
-| animatedViewStyle                | 此属性可接收一个 ViewStyle 对象，用于设置弹窗内部的 Animated.View 的样式。                                                                                         | ViewStyle                      | no           | All      | no                |
-| alertViewStyle                   | 此属性可接收一个 ViewStyle 对象，用于设置弹窗的样式。                                                                                                              | ViewStyle                      | no           | All      | yes               |
-| safeViewStyle                    | 此属性可接收一个 ViewStyle 对象，用于设置弹窗内部的 safeView 的样式。                                                                                              | ViewStyle                      | no           | All      | yes               |
-| textViewStyle                    | 此属性可接收一个 ViewStyle 对象，用于设置弹窗文字的样式。                                                                                                          | ViewStyle                      | no           | All      | yes               |
-| cancelViewStyle                  | 此属性可接收一个 ViewStyle 对象，用于设置弹窗内部取消按钮的样式。                                                                                                  | ViewStyle                      | no           | All      | yes               |
-| titleTextStyle                   | 此属性可接收一个 TextStyle 对象，用于设置弹窗标题的样式。                                                                                                          | TextStyle                      | no           | All      | yes               |
-| messageTextStyle                 | 此属性可接收一个 TextStyle 对象，用于设置弹窗正文的样式。                                                                                                          | TextStyle                      | no           | All      | yes               |
-| imageStyle                       | 此属性可接收一个 ImageStyle 对象，用于设置弹窗内图片的样式。                                                                                                       | ImageStyle                     | no           | All      | yes               |
-| cancelImageStyle                 | 此属性可接收一个 ImageStyle 对象，用于设置弹窗内取消按钮所用图片的样式。                                                                                           | ImageStyle                     | no           | All      | yes               |
-| onDismissAutomatic               | 弹窗关闭触发的函数，支持的关闭方式为自动关闭                                                                                                                       | function                       | no           | All      | yes               |
-| onDismissCancel                  | 弹窗关闭触发的函数，支持的关闭方式为点击 cancel                                                                                                                    | function                       | no           | All      | yes               |
-| onDismissPress                   | 弹窗关闭触发的函数，支持的关闭方式为点击弹窗                                                                                                                       | function                       | no           | All      | yes               |
-| onDismissPanResponder            | 弹窗关闭触发的函数，支持的关闭方式为向下滑动，仅在 alertPosition 为“bottom”时生效                                                                                  | function                       | no           | All      | yes               |
-| onDismissProgrammatic            | 弹窗关闭触发的函数，支持的关闭方式为程序式关闭，也是默认的值，如果非上面四种关闭方式，则默认触发此关闭函数。                                                       | function                       | no           | All      | no                |
-| showCancel                       | 是否显示弹窗的 cancel 模块                                                                                                                                         | boolean                        | no           | All      | yes               |
-| onDismissPressDisabled           | 是否允许通过点击关闭弹窗                                                                                                                                           | boolean                        | no           | All      | yes               |
-| panResponderEnabled              | 是否允许通过向下滑动关闭弹窗，仅在 alertPosition 为“bottom”时生效                                                                                                  | boolean                        | no           | All      | yes               |
-| translucent                      | 指定状态栏是否透明。设置为 true 时，应用会延伸到状态栏之下绘制（即所谓“沉浸式”——被状态栏遮住一部分）。常和带有半透明背景色的状态栏搭配使用，此属性仅支持 Android。 | boolean                        | no           | Android  | no                |
-| updateStatusBar                  | 是否更新状态栏                                                                                                                                                     | boolean                        | no           | All      | yes               |
-| activeStatusBarStyle             | 弹框出现时，将状态栏置为设置的样式，需要配合 updateStatusBar=true 才生效                                                                                           | StatusBarStyle                 | no           | Android  | yes               |
-| inactiveStatusBarStyle           | 弹框消失时，将状态栏置为设置的样式，需要配合 updateStatusBar=true 才生效                                                                                           | StatusBarStyle                 | no           | Android  | yes               |
-| renderImage                      | 函数式返回的图片                                                                                                                                                   | render function                | no           | All      | yes               |
-| renderCancel                     | 函数式返回的取消                                                                                                                                                   | render function                | no           | All      | yes               |
-| renderTitle                      | 函数式返回的弹窗消息标题                                                                                                                                           | render function                | no           | All      | yes               |
-| renderMessage                    | 函数式返回的弹窗消息正文                                                                                                                                           | render function                | no           | All      | yes               |
-| titleTextProps                   | 消息标题文字样式                                                                                                                                                   | TextProps                      | no           | All      | yes               |
-| messageTextProps                 | 消息正文文字样式                                                                                                                                                   | TextProps                      | no           | All      | yes               |
-| animatedViewProps                | 此属性可接收一个 ViewProps 对象，用于设置弹窗对象内部的 Animated.View 的属性。                                                                                     | ViewProps                      | no           | All      | yes               |
-| alertTouchableOpacityProps       | 弹窗透明度样式设置                                                                                                                                                 | TouchableOpacityProps          | no           | All      | yes               |
-| safeViewProps                    | 此属性可接收一个 ViewProps 对象，用于设置弹窗对象内部的 safeView 的属性。                                                                                          | ViewProps                      | no           | All      | yes               |
-| textViewProps                    | 此属性可接收一个 ViewProps 对象，用于设置弹窗对象内部的文本展示区域的属性。                                                                                        | ViewProps                      | no           | All      | yes               |
-| imageProps                       | 此属性可接收一个 ImageProps 对象，用于设置弹窗对象内部的图片的属性。                                                                                               | ImageProps                     | no           | All      | yes               |
-| cancelTouchableOpacityProps      | 此属性可接收一个 TouchableOpacityProps 对象，用于设置弹窗对象内部的取消按钮的属性。                                                                                | TouchableOpacityProps          | no           | All      | yes               |
-| cancelImageProps                 | 此属性可接收一个 ImageProps 对象，用于设置弹窗对象内部的取消按钮图片的属性。                                                                                       | ImageProps                     | no           | All      | yes               |
-| alert                            | 弹窗弹出触发事件                                                                                                                                                   | function                       | no           | All      | yes               |
-| dismiss                          | 弹窗消失触发事件                                                                                                                                                   | function                       | no           | All      | yes               |
-| springAnimationConfig            | 弹簧效果参数                                                                                                                                                       | Animated.SpringAnimationConfig | no           | All      | yes               |
-| children                         | 弹窗子元素                                                                                                                                                         | ReactNode                      | no           | All      | yes               |
-| alertPosition                    | 设置弹窗弹出的位置，top 从屏幕顶部弹出，或者设置为 bottom 从屏幕底部弹出。默认值为 top。                                                                           | string                         | no           | All      | yes               |
+| imageSrc                         | Default custom image used when no image resource is specified for a dialog box.                                                                                                                      | ImageSourcePropType            | no           | All      | yes               |
+| infoImageSrc                     | Custom image used when the dialog box type is not set to **Info**.                                                                                                                        | ImageSourcePropType            | no           | All      | yes               |
+| warnImageSrc                     | Custom image used when the dialog box type is not set to **Warn**.                                                                                                                        | ImageSourcePropType            | no           | All      | yes               |
+| errorImageSrc                    | Custom image used when the dialog box type is not set to **Error**.                                                                                                                       | ImageSourcePropType            | no           | All      | yes               |
+| successImageSrc                  | Custom image used when the dialog box type is not set to **Success**.                                                                                                                     | ImageSourcePropType            | no           | All      | yes               |
+| cancelImageSrc                   | Custom image used when the dialog box type is not set to **Cancel**.                                                                                                                      | ImageSourcePropType            | no           | All      | yes               |
+| infoColor                        | Custom color used when the dialog box type is not set to **Info**.                                                                                                                        | ColorValue                     | no           | All      | yes               |
+| warnColor                        | Custom color used when the dialog box type is not set to **Warn**.                                                                                                                        | ColorValue                     | no           | All      | yes               |
+| errorColor                       | Custom color used when the dialog box type is not set to **Error**.                                                                                                                       | ColorValue                     | no           | All      | yes               |
+| successColor                     | Custom color used when the dialog box type is not set to **Success**.                                                                                                                     | ColorValue                     | no           | All      | yes               |
+| activeStatusBarBackgroundColor   | Background color used for the status bar when a dialog box is displayed. This property is valid only when **updateStatusBar** is set to **true**.                                                                                          | ColorValue                     | no           | Android  | yes               |
+| inactiveStatusBarBackgroundColor | Background color used for the status bar when a dialog box is dismissed. This property is valid only when **updateStatusBar** is set to **true**.                                                                                          | ColorValue                     | no           | Android  | yes               |
+| dismissInterval                  | Interval for the dialog box to disappear automatically, in milliseconds.                                                                                                                                          | number                         | no           | All      | yes               |
+| titleNumberOfLines               | Maximum number of lines in the dialog box title.                                                                                                                                              | number                         | no           | All      | yes               |
+| messageNumberOfLines             | Maximum number of lines in the message body. If the number of lines exceeds the maximum, the excess lines are omitted.                                                                                                                                    | number                         | no           | All      | yes               |
+| elevation                        | Height of the view. This property can be used to add a projection to the view and affects the view cascading sequence. This property applies only to Android 5.0 and later versions.                                                          | number                         | no           | Android  | no                |
+| zIndex                           | Index of the z-axis.                                                                                                                                                          | number                         | no           | All      | no                |
+| panResponderDismissDistance      | Dismiss distance of the dialog box that can be dismissed by a swipe-down gesture.                                                                                                                                                  | number                         | no           | All      | yes               |
+| animatedViewStyle                | Receives a **ViewStyle** object to set the style of **Animated.View**.                                                                                        | ViewStyle                      | no           | All      | no                |
+| alertViewStyle                   | Receives a **ViewStyle** object to set the style of the dialog box.                                                                                                             | ViewStyle                      | no           | All      | yes               |
+| safeViewStyle                    | Receives a **ViewStyle** object to set the style of **safeView**.                                                                                             | ViewStyle                      | no           | All      | yes               |
+| textViewStyle                    | Receives a **ViewStyle** object to set the style of the text.                                                                                                         | ViewStyle                      | no           | All      | yes               |
+| cancelViewStyle                  | Receives a **ViewStyle** object to set the style of the cancel button.                                                                                                 | ViewStyle                      | no           | All      | yes               |
+| titleTextStyle                   | Receives a **TextStyle** object to set the style of the title.                                                                                                         | TextStyle                      | no           | All      | yes               |
+| messageTextStyle                 | Receives a **TextStyle** object to set the style of the message.                                                                                                         | TextStyle                      | no           | All      | yes               |
+| imageStyle                       | Receives an **ImageStyle** object to set the style of the image.                                                                                                      | ImageStyle                     | no           | All      | yes               |
+| cancelImageStyle                 | Receives an **ImageStyle** object to set the style of the cancel button image.                                                                                          | ImageStyle                     | no           | All      | yes               |
+| onDismissAutomatic               | Function triggered when a dialog box is dismissed automatically.                                                                                                                      | function                       | no           | All      | yes               |
+| onDismissCancel                  | Function triggered when a dialog box is dismissed by clicking **Cancel**.                                                                                                                   | function                       | no           | All      | yes               |
+| onDismissPress                   | Function triggered when a dialog box is dismissed by being pressed.                                                                                                                      | function                       | no           | All      | yes               |
+| onDismissPanResponder            | Function triggered when a dialog box is dismissed by a swipe-down gesture. This property is valid only when **alertPosition** is set to **bottom**.                                                                                 | function                       | no           | All      | yes               |
+| onDismissProgrammatic            | Function triggered when a dialog box is dismissed programmatically. This function is used by default.                                                      | function                       | no           | All      | no                |
+| showCancel                       | Whether to display the **Cancel** module in the dialog box.                                                                                                                                        | boolean                        | no           | All      | yes               |
+| onDismissPressDisabled           | Whether to allow a dialog box to be closed by pressing.                                                                                                                                          | boolean                        | no           | All      | yes               |
+| panResponderEnabled              | Whether to allow a dialog box to be closed by a swipe-down gesture. This property is valid only when **alertPosition** is set to **bottom**.                                                                                                 | boolean                        | no           | All      | yes               |
+| translucent                      | Whether the status bar is translucent. When this property is set to **true**, the application is drawn under the status bar, in other words, partially covered by the status bar. This property is often used with the status bar with a translucent background color, and is supported only by Android.| boolean                        | no           | Android  | no                |
+| updateStatusBar                  | Whether to update the status bar.                                                                                                                                                    | boolean                        | no           | All      | yes               |
+| activeStatusBarStyle             | Style used for the status bar when a dialog box is displayed. This property is valid only when **updateStatusBar** is set to **true**.                                                                                          | StatusBarStyle                 | no           | Android  | yes               |
+| inactiveStatusBarStyle           | Style used for the status bar when a dialog box is dismissed. This property is valid only when **updateStatusBar** is set to **true**.                                                                                          | StatusBarStyle                 | no           | Android  | yes               |
+| renderImage                      | Image returned by the function.                                                                                                                                                  | render function                | no           | All      | yes               |
+| renderCancel                     | Cancellation returned by the function.                                                                                                                                                  | render function                | no           | All      | yes               |
+| renderTitle                      | Message title of the dialog box returned by the function.                                                                                                                                          | render function                | no           | All      | yes               |
+| renderMessage                    | Message body of the dialog box returned by the function.                                                                                                                                          | render function                | no           | All      | yes               |
+| titleTextProps                   | Text style of the message title.                                                                                                                                                  | TextProps                      | no           | All      | yes               |
+| messageTextProps                 | Text style of the message body.                                                                                                                                                  | TextProps                      | no           | All      | yes               |
+| animatedViewProps                | Receives a **ViewProps** object to set properties in **Animated.View**.                                                                                    | ViewProps                      | no           | All      | yes               |
+| alertTouchableOpacityProps       | Properties of the opacity style of the dialog box.                                                                                                                                                | TouchableOpacityProps          | no           | All      | yes               |
+| safeViewProps                    | Receives a **ViewProps** object to set properties in **safeView**.                                                                                         | ViewProps                      | no           | All      | yes               |
+| textViewProps                    | Receives a **ViewProps** object to set properties in **textView**.                                                                                       | ViewProps                      | no           | All      | yes               |
+| imageProps                       | Receives an **ImageProps** object to set properties in **image**.                                                                                              | ImageProps                     | no           | All      | yes               |
+| cancelTouchableOpacityProps      | Receives a **TouchableOpacityProps** object to set the properties of the cancel button.                                                                               | TouchableOpacityProps          | no           | All      | yes               |
+| cancelImageProps                 | Receives an **ImageProps** object to set the properties of the cancel button image.                                                                                      | ImageProps                     | no           | All      | yes               |
+| alert                            | Event triggered when a dialog box is displayed.                                                                                                                                                  | function                       | no           | All      | yes               |
+| dismiss                          | Event triggered when a dialog box is dismissed.                                                                                                                                                  | function                       | no           | All      | yes               |
+| springAnimationConfig            | Parameters of the spring animation.                                                                                                                                                      | Animated.SpringAnimationConfig | no           | All      | yes               |
+| children                         | Child elements of the dialog box.                                                                                                                                                        | ReactNode                      | no           | All      | yes               |
+| alertPosition                    | Position of the dialog box. When this property is set to **top**, the dialog box is displayed from the top of the screen. When this property is set to **bottom**, the dialog box is displayed from the bottom of the screen. The default value is **top**.                                                                          | string                         | no           | All      | yes               |
 
 ## Known Issues
 
 ## Others
 
-- DropdownAlert 组件的 animatedViewStyle 属性不生效，设置之后弹窗变为黑色，与 iOS/Android 一致 [issue#314](https://github.com/testshallpass/react-native-dropdownalert/issues/314)
-- DropdownAlert 组件的 zindex 属性不生效，层级关系并未体现，与 iOS/Android 一致 [issue#315](https://github.com/testshallpass/react-native-dropdownalert/issues/315)
-- DropdownAlert 组件的 translucent 属性不生效，没有显示出状态栏半透明的效果，与 Android 一致 [issue#316](https://github.com/testshallpass/react-native-dropdownalert/issues/316)
-- DropdownAlert 组件绑定的 onDismissProgrammatic 函数无法触发，与 iOS/Android 一致 [issue#317](https://github.com/testshallpass/react-native-dropdownalert/issues/317)
-- DropdownAlertData 组件的 resolve 属性不生效，将弹窗关闭之后，所设置的函数并未被触发，与 iOS/Android 一致 [issue#318](https://github.com/testshallpass/react-native-dropdownalert/issues/318)
+- The **animatedViewStyle** property of the **DropdownAlert** component is invalid. After the property is set, the dialog box turns black, which is the same as that on iOS/Android: [issue#314](https://github.com/testshallpass/react-native-dropdownalert/issues/314).
+- The **zindex** property of the **DropdownAlert** component is invalid, and the hierarchical relationship is not displayed, which is the same as that on iOS/Android: [issue#315](https://github.com/testshallpass/react-native-dropdownalert/issues/315).
+- The **translucent** property of the **DropdownAlert** component is invalid, and the translucent effect of the status bar is not displayed, which is the same as that on Android: [issue#316](https://github.com/testshallpass/react-native-dropdownalert/issues/316).
+- The **onDismissProgrammatic** function bound to the **DropdownAlert** component cannot be triggered, which is the same as that on iOS/Android: [issue#317](https://github.com/testshallpass/react-native-dropdownalert/issues/317).
+- The **resolve** property of the **DropdownAlertData** component is invalid. After the dialog box is dismissed, the configured function is not triggered, which is the same as that on iOS/Android: [issue#318](https://github.com/testshallpass/react-native-dropdownalert/issues/318).
 
 ## License
 
-This project is licensed under [The MIT License (MIT)](https://github.com/react-native-oh-library/react-native-dropdownalert/blob/master/LICENSE).
+This project is licensed under [MIT License](https://github.com/react-native-oh-library/react-native-dropdownalert/blob/master/LICENSE).

@@ -16,7 +16,7 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-print Releases](https://github.com/react-native-oh-library/react-native-print/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-print Releases](https://github.com/react-native-oh-library/react-native-print/releases). For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 Go to the project directory and execute the following instruction:
 
@@ -42,7 +42,7 @@ The following code shows the basic use scenario of the repository:
 
 > [!WARNING] The name of the imported repository remains unchanged.
 
-> [!TIP] 本示例依赖 react-native-document-picker 库，参照[@react-native-oh-tpl/react-native-document-picker 文档](/zh-cn/react-native-document-picker.md)进行引入。
+> [!TIP] This example depends on the react-native-document-picker library. For details, see [@react-native-oh-tpl/react-native-document-picker document](/en/react-native-document-picker.md).
 
 ```js
 import React, {useState} from 'react';
@@ -159,7 +159,7 @@ ohpm install
 
 Method 2: Directly link to the source code.
 
-> [!TIP] For details, see [Directly Linking Source Code](/zh-cn/link-source-code.md).
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
 ### 3. Introducing RNPrintPackage to ArkTS
 
@@ -260,11 +260,11 @@ Open the `entry/src/main/resources/base/element/string.json` file and add the fo
 
 | Name          | Description                                                   | Type    | Required | Platform     | HarmonyOS Support |
 | ------------- | ------------------------------------------------------------- | ------- | -------- | ------------ | ----------------- |
-| `html`        | HTML string to print(The value must be html or filepath.)     | string  | no       | Android、iOS | no                |
-| `filePath`    | Local or remote file url(The value must be html or filepath.) | string  | no       | Android、iOS | yes               |
+| `html`        | HTML string to print(The value must be html or filepath.)     | string  | no       | Android, iOS| no                |
+| `filePath`    | Local or remote file url(The value must be html or filepath.) | string  | no       | Android, iOS| yes               |
 | `printerURL`  | **iOS Only:** URL returned from `selectPrinterMethod()`       | string  | no       | iOS          | no                |
-| `isLandscape` | Landscape print; default value is false                       | boolean | no       | Android、iOS | no                |
-| `jobName`     | Name of printing job; default value is "Document"             | string  | no       | Android、iOS | yes               |
+| `isLandscape` | Landscape print; default value is false                       | boolean | no       | Android, iOS| no                |
+| `jobName`     | Name of printing job; default value is "Document"             | string  | no       | Android, iOS| yes               |
 | `baseUrl`     | Used to resolve relative links in the HTML                    | string  | no       | Android      | no                |
 
 ### selectPrinter(options: Object)
@@ -276,11 +276,11 @@ Open the `entry/src/main/resources/base/element/string.json` file and add the fo
 
 ## Known Issues
 
-- [ ] HarmonyOS NEXT 上不支持 html、printerURL、isLandscape、baseUrl 等参数，并且不支持打印 word 文档: [issue#1](https://github.com/react-native-oh-library/react-native-print/issues/1)
-- [ ] HarmonyOS NEXT 上不支持 selectPrinter()方法 : [issue#2](https://github.com/react-native-oh-library/react-native-print/issues/4)
+- [ ] HarmonyOS NEXT does not support parameters such as **html**, **printerURL**, **isLandscape**, and **baseUrl**, and does not support printing of Word documents: [issue#1](https://github.com/react-native-oh-library/react-native-print/issues/1).
+- [ ] HarmonyOS NEXT does not support **selectPrinter()**: [issue#2](https://github.com/react-native-oh-library/react-native-print/issues/4).
 
 ## Others
 
 ## License
 
-This project is licensed under [The MIT License (MIT)](https://github.com/christopherdro/react-native-print/blob/master/LICENSE).
+This project is licensed under [MIT License](https://github.com/christopherdro/react-native-print/blob/master/LICENSE).

@@ -94,7 +94,7 @@ export const HapticFeedbackExample = () => {
 
 ## Use Codegen
 
-If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/zh-cn/codegen.md).
+If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/en/codegen.md).
 
 ## Link
 
@@ -142,7 +142,7 @@ ohpm install
 
 Method 2: Directly link to the source code.
 
-> [!TIP] For details, see [Directly Linking Source Code](/zh-cn/link-source-code.md).
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
 ### 3. Introducing RNHapticFeedbackPackage to ArkTS
 
@@ -184,7 +184,7 @@ Check the release version information in the release address of the third-party 
 
 ### Permission Requirements
 
-在 entry/src/main/module.json5 补上配置
+Add the configuration to the **entry/src/main/module.json5** file.
 
 ```js
 "requestPermissions": [ { "name": "ohos.permission.VIBRATE" }, ]
@@ -201,43 +201,43 @@ Check the release version information in the release address of the third-party 
 `trigger(method, options)`
 Use this method to trigger haptic feedback
 
-| Name                                  | Description                                                                                                                           | Type    | Required | Platform    | HarmonyOS Support |
-| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------- | -------- | ----------- | ----------------- |
-| `method`                              | Specifies the type of haptic feedback. See the list of available methods below.                                                       | string  | yes      | iOS/Android | yes               |
+| Name                                  | Description                                                  | Type    | Required | Platform    | HarmonyOS Support |
+| ------------------------------------- | ------------------------------------------------------------ | ------- | -------- | ----------- | ----------------- |
+| `method`                              | Specifies the type of haptic feedback. See the list of available methods below. | string  | yes      | iOS/Android | yes               |
 | `options.enableVibrateFallback`       | iOS only. If haptic feedback is unavailable (iOS < 10 OR Device < iPhone6s), vibrate with default method (heavy 1s) (default: false). | boolean | no       | iOS         | no                |
-| `options.ignoreAndroidSystemSettings` | Ignoreing phone mute mode setting and triggering haptic feedback. (default: false).                                                   | boolean | no       | Android     | yes               |
+| `options.ignoreAndroidSystemSettings` | Ignoreing phone mute mode setting and triggering haptic feedback. (default: false). | boolean | no       | Android     | yes               |
 
 ### method Overview
 
 Here's an overview of the available methods and their compatibility
-| Name | Description | Type |Required|Platform|HarmonyOS Support|
-| ---- | :-----: | :----: |:---: |:----: |:------: |
-| `impactLight` | impactLight feedback | string |no|iOS/Android|yes|
-| `impactMedium` | impactMedium feedback | string |no|iOS/Android|yes|
-| `impactHeavy` | impactHeavy feedback | string |no|iOS/Android|yes|
-| `rigid` | rigid feedback | string |no|iOS/Android|yes|
-| `soft` | soft feedback | string |no|iOS/Android|yes|
-| `notificationSuccess` | notificationSuccess feedback | string |no|iOS/Android|yes|
-| `notificationWarning` | notificationWarning feedback | string |no|iOS/Android|yes|
-| `notificationError` | notificationError feedback | string |no|iOS/Android|yes|
-| `selection` | selection feedback | string |no|iOS|yes|
-| `clockTick` | clockTick feedback | string |no|Android|yes|
-| `contextClick` | contextClick feedback | string |no|Android|yes|
-| `keyboardPress` | keyboardPress feedback | string |no|Android|yes|
-| `keyboardRelease` | keyboardRelease feedback | string |no|Android|yes|
-| `keyboardTap` | keyboardTap feedback | string |no|Android|yes|
-| `longPress` | longPress feedback | string |no|Android|yes|
-| `textHandleMove` | textHandleMove feedback | string |no|Android|yes|
-| `virtualKey` | virtualKey feedback | string |no|Android|yes|
-| `virtualKeyRelease` | virtualKeyRelease feedback | string |no|Android|yes|
-| `effectClick` | effectClick feedback | string |no|Android|yes|
-| `effectDoubleClick` | effectDoubleClick feedback | string |no|Android|yes|
-| `effectHeavyClick` | effectHeavyClick feedback | string |no|Android|yes|
-| `effectTick` | effectTick feedback | string |no|Android|yes|
+| Name                  |         Description          |  Type  | Required |  Platform   | HarmonyOS Support |
+| --------------------- | :--------------------------: | :----: | :------: | :---------: | :---------------: |
+| `impactLight`         |     impactLight feedback     | string |    no    | iOS/Android |        yes        |
+| `impactMedium`        |    impactMedium feedback     | string |    no    | iOS/Android |        yes        |
+| `impactHeavy`         |     impactHeavy feedback     | string |    no    | iOS/Android |        yes        |
+| `rigid`               |        rigid feedback        | string |    no    | iOS/Android |        yes        |
+| `soft`                |        soft feedback         | string |    no    | iOS/Android |        yes        |
+| `notificationSuccess` | notificationSuccess feedback | string |    no    | iOS/Android |        yes        |
+| `notificationWarning` | notificationWarning feedback | string |    no    | iOS/Android |        yes        |
+| `notificationError`   |  notificationError feedback  | string |    no    | iOS/Android |        yes        |
+| `selection`           |      selection feedback      | string |    no    |     iOS     |        yes        |
+| `clockTick`           |      clockTick feedback      | string |    no    |   Android   |        yes        |
+| `contextClick`        |    contextClick feedback     | string |    no    |   Android   |        yes        |
+| `keyboardPress`       |    keyboardPress feedback    | string |    no    |   Android   |        yes        |
+| `keyboardRelease`     |   keyboardRelease feedback   | string |    no    |   Android   |        yes        |
+| `keyboardTap`         |     keyboardTap feedback     | string |    no    |   Android   |        yes        |
+| `longPress`           |      longPress feedback      | string |    no    |   Android   |        yes        |
+| `textHandleMove`      |   textHandleMove feedback    | string |    no    |   Android   |        yes        |
+| `virtualKey`          |     virtualKey feedback      | string |    no    |   Android   |        yes        |
+| `virtualKeyRelease`   |  virtualKeyRelease feedback  | string |    no    |   Android   |        yes        |
+| `effectClick`         |     effectClick feedback     | string |    no    |   Android   |        yes        |
+| `effectDoubleClick`   |  effectDoubleClick feedback  | string |    no    |   Android   |        yes        |
+| `effectHeavyClick`    |  effectHeavyClick feedback   | string |    no    |   Android   |        yes        |
+| `effectTick`          |     effectTick feedback      | string |    no    |   Android   |        yes        |
 
 ## Known Issues
 
-- [ ] 自定义振动文件配置问题: [issue#6](https://github.com/react-native-oh-library/react-native-haptic-feedback/issues/6)
+- [ ] Custom vibration file configuration: [issue#6](https://github.com/react-native-oh-library/react-native-haptic-feedback/issues/6)
 
 ## Others
 

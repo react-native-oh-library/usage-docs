@@ -274,13 +274,13 @@ export const tryDeepLinking = async () => {
   } catch (error) {
     console.error(error);
   }
-  return "Something’s wrong with the app";
+  return "Something's wrong with the app";
 };
 ```
 
 ## Use Codegen
 
-If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/zh-cn/codegen.md).
+If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/en/codegen.md).
 
 ## Link
 
@@ -298,9 +298,9 @@ Adding the overrides Field to oh-package.json5 File in the Root Directory of the
 }
 ```
 
-### 1.配置 Entry
+### 1. Configuring Entry
 
-**1.在 entry/src/main/ets/entryability 下创建 BrowserManagerAbility.ets**
+1. Create **BrowserManagerAbility.ets** in **entry/src/main/ets/entryability**.
 
 ```
 import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';
@@ -348,7 +348,7 @@ export default class BrowserManagerAbility extends UIAbility {
 
 ```
 
-**2.在 entry/src/main/module.json5 注册 BrowserManagerAbility**
+2. Register **BrowserManagerAbility** in **entry/src/main/module.json5**.
 
 ```
 "abilities":[{
@@ -364,7 +364,7 @@ export default class BrowserManagerAbility extends UIAbility {
 ]
 ```
 
-**3.在 entry/src/main/ets/pages 下创建 BrowserManagerPage.ets**
+3. Create **BrowserManagerPage.ets** in **entry/src/main/ets/pages**.
 
 ```
 import { BrowserPage } from '@react-native-oh-tpl/react-native-inappbrowser-reborn/Index'
@@ -385,7 +385,7 @@ struct ChromeTabsManagerPage {
 }
 ```
 
-**4.在 entry/src/main/resources/base/profile/main_pages.json 添加配置**
+4. Add the following configuration to **entry/src/main/resources/base/profile/main_pages.json**:
 
 ```
 {
@@ -396,7 +396,7 @@ struct ChromeTabsManagerPage {
 }
 ```
 
-**5.如果需要预热应用内浏览器客户端，使其启动速度显著加快，可以将以下内容添加到 BrowserManagerAbility**
+5. If you want to warm up the browser client in your application to accelerate its startup, add the following content to **BrowserManagerAbility**:
 
 ```
 import { RNInAppBrowserModule } from '@react-native-oh-tpl/react-native-inappbrowser-reborn/ts';
@@ -438,7 +438,7 @@ ohpm install
 
 Method 2: Directly link to the source code.
 
-> [!TIP] For details, see [Directly Linking Source Code](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/link-source-code.md)
+> [!TIP] For details, see [Directly Linking Source Code](https://gitee.com/react-native-oh-library/usage-docs/blob/master/en/link-source-code.md).
 
 ### 3. Introducing RNInAppBrowserPackage to ArkTS
 
@@ -481,62 +481,62 @@ Check the release version information in the release address of the third-party 
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name         | Description                                                                                                                                                                                                                                                                                                                                                                             | Type     | Required | Platform    | HarmonyOS Support |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------- | ----------------- |
-| open         | Opens the url with Safari in a modal on iOS using SFSafariViewController, and Chrome in a new custom tab on Android. On iOS, the modal Safari will not share cookies with the system Safari.                                                                                                                                                                                            | function | no       | iOS/Android | yes               |
-| close        | Dismisses the system's presented web browser.                                                                                                                                                                                                                                                                                                                                           | function | no       | iOS/Android | yes               |
-| openAuth     | Opens the url with Safari in a modal on iOS using SFAuthenticationSession/ASWebAuthenticationSession, and Chrome in a new custom tab on Android. On iOS, the user will be asked whether to allow the app to authenticate using the given url (OAuth flow with deep linking redirection).                                                                                                | function | no       | iOS/Android | yes               |
-| closeAuth    | Dismisses the current authentication session.                                                                                                                                                                                                                                                                                                                                           | function | no       | iOS/Android | yes               |
-| isAvailable  | Detect if the device supports this plugin.                                                                                                                                                                                                                                                                                                                                              | function | no       | iOS/Android | yes               |
-| onStart      | Initialize a bound background service so the application can communicate its intention to the browser. After the service is connected, the client can be used to Warms up the browser to make navigation faster and indicates that a given URL may be loaded in the future. - Android Only.                                                                                             | function | no       | Android     | yes               |
-| warmup       | Warm up the browser process - Android Only.                                                                                                                                                                                                                                                                                                                                             | function | no       | Android     | yes               |
+| Name         | Description                                                  | Type     | Required | Platform    | HarmonyOS Support |
+| ------------ | ------------------------------------------------------------ | -------- | -------- | ----------- | ----------------- |
+| open         | Opens the url with Safari in a modal on iOS using SFSafariViewController, and Chrome in a new custom tab on Android. On iOS, the modal Safari will not share cookies with the system Safari. | function | no       | iOS/Android | yes               |
+| close        | Dismisses the system's presented web browser.                | function | no       | iOS/Android | yes               |
+| openAuth     | Opens the url with Safari in a modal on iOS using SFAuthenticationSession/ASWebAuthenticationSession, and Chrome in a new custom tab on Android. On iOS, the user will be asked whether to allow the app to authenticate using the given url (OAuth flow with deep linking redirection). | function | no       | iOS/Android | yes               |
+| closeAuth    | Dismisses the current authentication session.                | function | no       | iOS/Android | yes               |
+| isAvailable  | Detect if the device supports this plugin.                   | function | no       | iOS/Android | yes               |
+| onStart      | Initialize a bound background service so the application can communicate its intention to the browser. After the service is connected, the client can be used to Warms up the browser to make navigation faster and indicates that a given URL may be loaded in the future. - Android Only. | function | no       | Android     | yes               |
+| warmup       | Warm up the browser process - Android Only.                  | function | no       | Android     | yes               |
 | mayLaunchUrl | Tells the browser of a likely future navigation to a URL. The most likely URL has to be specified first. Optionally, a list of other likely URLs can be provided. They are treated as less likely than the first one, and have to be sorted in decreasing priority order. These additional URLs may be ignored. All previous calls to this method will be deprioritized - Android Only. | function | no       | Android     | yes               |
 
 ## Properties
 
 **iOS Options**
-| Name | Description | Type | Required | Platform | HarmonyOS Support |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| dismissButtonStyle | The style of the dismiss button. [done/close/cancel] | String | NO | iOS | yes |
-| preferredBarTintColor | The color to tint the background of the navigation bar and the toolbar. [white/#FFFFFF] | String | NO | iOS | yes |
-| preferredControlTintColor | The color to tint the control buttons on the navigation bar and the toolbar. [gray/#808080] | String | NO | iOS | yes |
-| readerMode | A value that specifies whether Safari should enter Reader mode, if it is available. [true/false] | Boolean | NO | iOS | NO |
-| animated | Animate the presentation. [true/false] | Boolean | NO | iOS | NO |
-| modalPresentationStyle | The presentation style for modally presented view controllers. [automatic/none/fullScreen/pageSheet/formSheet/currentContext/custom/overFullScreen/overCurrentContext/popover] | String | NO | iOS | NO |
-| modalTransitionStyle | The transition style to use when presenting the view controller. [coverVertical/flipHorizontal/crossDissolve/partialCurl] | String | NO | IOS | NO |
-| modalEnabled | Present the SafariViewController modally or as push instead. [true/false] | Boolean | NO | iOS | NO |
-| enableBarCollapsing | Determines whether the browser's tool bars will collapse or not. [true/false] | Boolean | NO | iOS | NO |
-| ephemeralWebSession | Prevent re-use cookies of previous session (openAuth only) [true/false] | Boolean | NO | iOS | NO |
-| formSheetPreferredContentSize | Custom size for iPad formSheet modals [{width: 400, height: 500}] | Boolean | NO | iOS | NO |
+| Name                          | Description                                                  | Type    | Required | Platform | HarmonyOS Support |
+| ----------------------------- | ------------------------------------------------------------ | ------- | -------- | -------- | ----------------- |
+| dismissButtonStyle            | The style of the dismiss button. [done/close/cancel]         | String  | NO       | iOS      | yes               |
+| preferredBarTintColor         | The color to tint the background of the navigation bar and the toolbar. [white/#FFFFFF] | String  | NO       | iOS      | yes               |
+| preferredControlTintColor     | The color to tint the control buttons on the navigation bar and the toolbar. [gray/#808080] | String  | NO       | iOS      | yes               |
+| readerMode                    | A value that specifies whether Safari should enter Reader mode, if it is available. [true/false] | Boolean | NO       | iOS      | NO                |
+| animated                      | Animate the presentation. [true/false]                       | Boolean | NO       | iOS      | NO                |
+| modalPresentationStyle        | The presentation style for modally presented view controllers. [automatic/none/fullScreen/pageSheet/formSheet/currentContext/custom/overFullScreen/overCurrentContext/popover] | String  | NO       | iOS      | NO                |
+| modalTransitionStyle          | The transition style to use when presenting the view controller. [coverVertical/flipHorizontal/crossDissolve/partialCurl] | String  | NO       | IOS      | NO                |
+| modalEnabled                  | Present the SafariViewController modally or as push instead. [true/false] | Boolean | NO       | iOS      | NO                |
+| enableBarCollapsing           | Determines whether the browser's tool bars will collapse or not. [true/false] | Boolean | NO       | iOS      | NO                |
+| ephemeralWebSession           | Prevent re-use cookies of previous session (openAuth only) [true/false] | Boolean | NO       | iOS      | NO                |
+| formSheetPreferredContentSize | Custom size for iPad formSheet modals [{width: 400, height: 500}] | Boolean | NO       | iOS      | NO                |
 
 **Android Options**
-| Name | Description | Type | Required | Platform | HarmonyOS Support |
-| ---- | ----------- | ---- | -------- | -------- | ------------------ |
-| showTitle | Sets whether the title should be shown in the custom tab. [true/false] | Boolean | NO | Android | NO |
-| toolbarColor | Sets the toolbar color. [gray/#808080] | String | NO | Android | NO |
-| secondaryToolbarColor | Sets the color of the secondary toolbar. [white/#FFFFFF] | String | NO | Android | NO |
-| navigationBarColor | Sets the navigation bar color. [gray/#808080] | String | NO | Android | NO |
-| navigationBarDividerColor | Sets the navigation bar divider color. [white/#FFFFFF] | String | NO | Android | NO |
-| enableUrlBarHiding | Enables the url bar to hide as the user scrolls down on the page. [true/false] | String | NO | Android | NO |
-| enableDefaultShare | Adds a default share item to the menu. [true/false] | String | NO | Android | NO |
-| animations | Sets the start and exit animations. [{ startEnter, startExit, endEnter, endExit }] | Object | NO | Android | NO |
-| headers | The data are key/value pairs, they will be sent in the HTTP request headers for the provided url. [{ 'Authorization': 'Bearer ...' }] | Object | NO | Android | NO |
-| forceCloseOnRedirection | Open Custom Tab in a new task to avoid issues redirecting back to app scheme. [true/false] | Boolean | NO | Android | NO |
-| hasBackButton | Sets a back arrow instead of the default X icon to close the custom tab. [true/false] | Boolean | NO | Android | NO |
-| browserPackage | Package name of a browser to be used to handle Custom Tabs. | Boolean | NO | Android | NO |
-| showInRecents | Determining whether browsed website should be shown as separate entry in Android recents/multitasking view. [true/false] | Boolean | NO | Android | NO |
-| includeReferrer | Determining whether to include your package name as referrer for the website to track. [true/false] | Boolean | NO | Android | NO |
+| Name                      | Description                                                  | Type    | Required | Platform | HarmonyOS Support |
+| ------------------------- | ------------------------------------------------------------ | ------- | -------- | -------- | ----------------- |
+| showTitle                 | Sets whether the title should be shown in the custom tab. [true/false] | Boolean | NO       | Android  | NO                |
+| toolbarColor              | Sets the toolbar color. [gray/#808080]                       | String  | NO       | Android  | NO                |
+| secondaryToolbarColor     | Sets the color of the secondary toolbar. [white/#FFFFFF]     | String  | NO       | Android  | NO                |
+| navigationBarColor        | Sets the navigation bar color. [gray/#808080]                | String  | NO       | Android  | NO                |
+| navigationBarDividerColor | Sets the navigation bar divider color. [white/#FFFFFF]       | String  | NO       | Android  | NO                |
+| enableUrlBarHiding        | Enables the url bar to hide as the user scrolls down on the page. [true/false] | String  | NO       | Android  | NO                |
+| enableDefaultShare        | Adds a default share item to the menu. [true/false]          | String  | NO       | Android  | NO                |
+| animations                | Sets the start and exit animations. [{ startEnter, startExit, endEnter, endExit }] | Object  | NO       | Android  | NO                |
+| headers                   | The data are key/value pairs, they will be sent in the HTTP request headers for the provided url. [{ 'Authorization': 'Bearer ...' }] | Object  | NO       | Android  | NO                |
+| forceCloseOnRedirection   | Open Custom Tab in a new task to avoid issues redirecting back to app scheme. [true/false] | Boolean | NO       | Android  | NO                |
+| hasBackButton             | Sets a back arrow instead of the default X icon to close the custom tab. [true/false] | Boolean | NO       | Android  | NO                |
+| browserPackage            | Package name of a browser to be used to handle Custom Tabs.  | Boolean | NO       | Android  | NO                |
+| showInRecents             | Determining whether browsed website should be shown as separate entry in Android recents/multitasking view. [true/false] | Boolean | NO       | Android  | NO                |
+| includeReferrer           | Determining whether to include your package name as referrer for the website to track. [true/false] | Boolean | NO       | Android  | NO                |
 
 ## Known Issues
 
-- [ ] 打开浏览器时，不能指定浏览器设置阅读模式 [#1](https://github.com/react-native-oh-library/react-native-inappbrowser/issues/1)
-- [ ] 打开浏览器，无法使文稿动起来 [#2](https://github.com/react-native-oh-library/react-native-inappbrowser/issues/2)
-- [ ] 无法设置浏览器的视图控制器的风格 [#3](https://github.com/react-native-oh-library/react-native-inappbrowser/issues/3)
-- [ ] 无法设置浏览器的过度风格 [#4](https://github.com/react-native-oh-library/react-native-inappbrowser/issues/4)
-- [ ] 无法设置浏览器的推送方式 [#5](https://github.com/react-native-oh-library/react-native-inappbrowser/issues/5)
-- [ ] 浏览器无法设置工具栏进行折叠 [#6](https://github.com/react-native-oh-library/react-native-inappbrowser/issues/6)
-- [ ] 浏览器设置是否重复使用前一次会话的 cookie [#7](https://github.com/react-native-oh-library/react-native-inappbrowser/issues/7)
-- [ ] 浏览器设置模态框的自定义尺寸 [#8](https://github.com/react-native-oh-library/react-native-inappbrowser/issues/8)
+- [ ] Failed to enable/disable the reading mode for the browser: [#1](https://github.com/react-native-oh-library/react-native-inappbrowser/issues/1)
+- [ ] Failed to make the browser window open with an animation: [#2](https://github.com/react-native-oh-library/react-native-inappbrowser/issues/2)
+- [ ] Failed to set the style of the web view controller for the browser: [#3](https://github.com/react-native-oh-library/react-native-inappbrowser/issues/3)
+- [ ] Failed to set the browser's transition style: [#4](https://github.com/react-native-oh-library/react-native-inappbrowser/issues/4)
+- [ ] Failed to set the browser's push mode: [#5](https://github.com/react-native-oh-library/react-native-inappbrowser/issues/5)
+- [ ] Failed to collapse the toolbar for the browser: [#6](https://github.com/react-native-oh-library/react-native-inappbrowser/issues/6)
+- [ ] Failed to specify whether to reuse the cookie of the previous session for the browser: [#7](https://github.com/react-native-oh-library/react-native-inappbrowser/issues/7)
+- [ ] Failed to customize the size of the modal box for the browser: [#8](https://github.com/react-native-oh-library/react-native-inappbrowser/issues/8)
 
 ## Others
 

@@ -186,9 +186,9 @@ RNOH: 0.72.27; SDK: HarmonyOS-Next-DB1 5.0.0.29(SP1); IDE: DevEco Studio 5.0.3.4
 ## Known Issues
 
 ## Others
--  输入框最大高 maxComposerHeight 设置无效果 maxComposerHeight为复杂数据类型,设置后在HarmonyOS侧效果偶发
--  输入工具栏最小高 minInputToolbarHeight 设置无效,与iOS一致
--  聊天与屏幕底部的距离 bottomOffset 设置无效,与iOS一致
+-  The **maxComposerHeight** setting is invalid. **maxComposerHeight** is a complex data type, and its effect is sporadic on HarmonyOS.
+-  The **minInputToolbarHeight** setting is invalid on HarmonyOS, which is consistent with that on iOS.
+-  The **bottomOffset** setting is invalid on HarmonyOS, which is consistent with that on iOS.
 
 ## License
 

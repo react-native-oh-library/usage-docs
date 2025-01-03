@@ -12,7 +12,7 @@
     </a>
 </p>
 
-> [!TIP] [GitHub address](https://github.com/react-native-oh-library/react-native-fingerprint-scanner)
+> [!tip] [GitHub address](https://github.com/react-native-oh-library/react-native-fingerprint-scanner)
 
 ## Installation and Usage
 
@@ -76,7 +76,7 @@ export default function App() {
 
 ## Use Codegen
 
-If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/zh-cn/codegen.md).
+If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/en/codegen.md).
 
 ## Link
 
@@ -123,7 +123,7 @@ ohpm install
 
 Method 2: Directly link to the source code.
 
-> [!TIP] For details, see [Directly Linking Source Code](/zh-cn/link-source-code.md).
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
 ### 3. Introducing FingerprintScannerPackage to ArkTS
 
@@ -165,8 +165,8 @@ Check the release version information in the release address of the third-party 
 
 ### Permission Requirements
 
-> [!TIP] "ohos.permission.ACCESS_BIOMETRIC"权限等级为<B>system_basic</B>
-> 在 `YourProject/entry/src/main/module.json5`补上配置
+> [!tip] The permission level of **ohos.permission.ACCESS_BIOMETRIC** is <B>system_basic</B>.
+> Add the configuration to the `YourProject/entry/src/main/module.json5` file.
 
 ```diff
 {
@@ -185,32 +185,32 @@ Check the release version information in the release address of the third-party 
 
 ## Static Methods
 
-> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                                                    | Description                                                                         | Type     | Required | Platform  | HarmonyOS Support |
-| ------------------------------------------------------- | ----------------------------------------------------------------------------------- | -------- | -------- | --------- | ----------------- |
-| `authenticate: (value: authenticate) => Promise<void>;` | Starts Fingerprint authentication                                                   | function | No       | All       | YES               |
-| `isSensorAvailable: () => Promise<string>`              | Checks if Fingerprint Scanner is able to be used by now.                            | function | No       | All       | YES               |
+| Name                                                    | Description                                                  | Type     | Required | Platform  | HarmonyOS Support |
+| ------------------------------------------------------- | ------------------------------------------------------------ | -------- | -------- | --------- | ----------------- |
+| `authenticate: (value: authenticate) => Promise<void>;` | Starts Fingerprint authentication                            | function | No       | All       | YES               |
+| `isSensorAvailable: () => Promise<string>`              | Checks if Fingerprint Scanner is able to be used by now.     | function | No       | All       | YES               |
 | `release: () => void`                                   | Stops fingerprint scanner listener, releases cache of internal state in native code | function | No       | All       | YES               |
-| `onAttempt: () => {message?: string}`                   | when users are trying to scan their fingerprint but failed                          | function | No       | HarmonyOS | YES               |
+| `onAttempt: () => {message?: string}`                   | when users are trying to scan their fingerprint but failed   | function | No       | HarmonyOS | YES               |
 
-###### authenticate 方法参数
+###### **Parameters of the authenticate API**
 
-| Name              | Description                                                                     | Type     | Required | Platform | HarmonyOS Support |
-| ----------------- | ------------------------------------------------------------------------------- | -------- | -------- | -------- | ----------------- |
-| `title`           | the title text to display in the native                                         | string   | no       | Android  | yes               |
-| `subTitle`        | the sub title text to display in the native                                     | string   | no       | Android  | no                |
-| `description`     | the description text to display in the native                                   | string   | no       | All      | no                |
-| `cancelButton`    | e cancel button text to display in the native                                   | string   | no       | Android  | no                |
+| Name              | Description                                                  | Type     | Required | Platform | HarmonyOS Support |
+| ----------------- | ------------------------------------------------------------ | -------- | -------- | -------- | ----------------- |
+| `title`           | the title text to display in the native                      | string   | no       | Android  | yes               |
+| `subTitle`        | the sub title text to display in the native                  | string   | no       | Android  | no                |
+| `description`     | the description text to display in the native                | string   | no       | All      | no                |
+| `cancelButton`    | e cancel button text to display in the native                | string   | no       | Android  | no                |
 | `onAttempt`       | a callback function when users are trying to scan their fingerprint but failed. | function | no       | Android  | no                |
-| `fallbackEnabled` | default to true, whether to display fallback button                             | boolean  | no       | IOS      | no                |
+| `fallbackEnabled` | default to true, whether to display fallback button          | boolean  | no       | IOS      | no                |
 
 ## Known Issues
 
-- [ ] Harmony 的指纹认证只支持 title 修改，并没有 subTitle，description，cancelButton，fallbackEnabled 参数， [issue#8](https://github.com/react-native-oh-library/react-native-fingerprint-scanner/issues/8)
-- [ ] authenticate 的参数不支持 onAttempt，authenticate 的参数 onAttempt 为回调方法，接口 type 形式不支持 function,所以将 onAttempt 方法单独抽离出来 [issue#7](https://github.com/react-native-oh-library/react-native-fingerprint-scanner/issues/7)
+- [ ] Only title can be modified for HarmonyOS fingerprint authentication. subTitle, description, cancelButton, fallbackEnabled are not supported: [issue#8](https://github.com/react-native-oh-library/react-native-fingerprint-scanner/issues/8)
+- [ ] The callback function onAttempt should be separated out and not passed as a parameter to the authenticate method because authenticate does not support parameters of the function type: [issue#7](https://github.com/react-native-oh-library/react-native-fingerprint-scanner/issues/7)
 
 ## Others
 

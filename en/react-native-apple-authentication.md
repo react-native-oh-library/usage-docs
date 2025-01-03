@@ -16,7 +16,7 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library: [@react-native-oh-library/react-native-apple-authentication Releases](https://github.com/react-native-oh-library/react-native-apple-authentication/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+Find the matching version information in the release address of a third-party library: [@react-native-oh-library/react-native-apple-authentication Releases](https://github.com/react-native-oh-library/react-native-apple-authentication/releases). For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 Go to the project directory and execute the following instruction:
 
@@ -36,13 +36,13 @@ npm install @react-native-oh-tpl/react-native-apple-authentication
 yarn add @react-native-oh-tpl/react-native-apple-authentication
 ```
 
-#### **配置用于 Web 的“通过 Apple 登录”**
+#### **Configuring Sign in with Apple for the Web**
 
-首先需要进行客户端 id 配置: [Initial Development Environment Setup](https://github.com/invertase/react-native-apple-authentication/blob/main/docs/INITIAL_SETUP.md)
+Configure the client ID: [Initial Development Environment Setup](https://github.com/invertase/react-native-apple-authentication/blob/main/docs/INITIAL_SETUP.md).
 
-然后需要进行服务设置: [Services setup](https://github.com/invertase/react-native-apple-authentication/blob/main/docs/ANDROID_EXTRA.md)
+Set the service: [Services setup](https://github.com/invertase/react-native-apple-authentication/blob/main/docs/ANDROID_EXTRA.md).
 
-Apple 官方配置说明: [Configure Sign in with Apple for the web](https://developer.apple.com/help/account/configure-app-capabilities/configure-sign-in-with-apple-for-the-web)
+Configure the official Apple description: [Configure Sign in with Apple for the web](https://developer.apple.com/help/account/configure-app-capabilities/configure-sign-in-with-apple-for-the-web)
 
 <!-- tabs:end -->
 
@@ -82,7 +82,7 @@ export default AppleAuthenticationDemo;
 
 ## Use Codegen
 
-If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/zh-cn/codegen.md).
+If this repository has been adapted to `Codegen`, generate the bridge code of the third-party library by using the `Codegen`. For details, see [Codegen Usage Guide](/en/codegen.md).
 
 ## Link
 
@@ -129,7 +129,7 @@ ohpm install
 
 Method 2: Directly link to the source code.
 
-> [!TIP] For details, see [Directly Linking Source Code](/zh-cn/link-source-code.md).
+> [!TIP] For details, see [Directly Linking Source Code](/en/link-source-code.md).
 
 ### 3. Introducing RNAppleAuthPackage to ArkTS
 
@@ -166,7 +166,7 @@ Then build and run the code.
 
 To use this repository, you need to use the correct React-Native and RNOH versions. In addition, you need to use DevEco Studio and the ROM on your phone.
 
-Check the release version information in the release address of the third-party library: [@react-native-oh-library/react-native-apple-authentication Releases](https://github.com/react-native-oh-library/react-native-apple-authentication/releases)。
+Check the release version information in the release address of the third-party library: [@react-native-oh-library/react-native-apple-authentication Releases](https://github.com/react-native-oh-library/react-native-apple-authentication/releases).
 
 ## Properties
 
@@ -174,18 +174,18 @@ Check the release version information in the release address of the third-party 
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-**AppleButton**: Apple 身份验证按钮组件。
+**AppleButton**: Apple authentication button
 
-| Name         | Description        | Type                                                                                                                                                                              | Required | Platform | HarmonyOS Support |
-| ------------ | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------------- |
-| style        | 按钮样式           | StyleProp< [ViewStyle](https://gitee.com/link?target=https%3A%2F%2Freactnative.dev%2Fdocs%2Fview%23props) >                                                                       | no       | all      | yes               |
-| textStyle    | 按钮内文字样式     | StyleProp< [TextStyle](https://gitee.com/link?target=https%3A%2F%2Freactnative.dev%2Fdocs%2Ftext%23props) >                                                                       | no       | all      | yes               |
-| cornerRadius | 按钮边框圆角弧度   | number                                                                                                                                                                            | no       | all      | yes               |
-| buttonStyle  | 按钮样式(预设枚举) | [AppleButtonStyle](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Finvertase%2Freact-native-apple-authentication%2Fblob%2Fmain%2Ftypedocs%2Fenums%2FAppleButtonStyle.md) | no       | all      | yes               |
-| buttonType   | 按钮类型(预设枚举) | [AppleButtonType](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Finvertase%2Freact-native-apple-authentication%2Fblob%2Fmain%2Ftypedocs%2Fenums%2FAppleButtonType.md)   | no       | all      | yes               |
-| onPress      | 按钮点击事件       | () => void                                                                                                                                                                        | yes      | all      | yes               |
-| leftView     | 按钮内左侧图标     | ReactNode                                                                                                                                                                         | no       | all      | yes               |
-| buttonText   | 按钮内文字内容     | string                                                                                                                                                                            | no       | all      | yes               |
+| Name         | Description        | Type                                                         | Required | Platform | HarmonyOS Support |
+| ------------ | ------------------ | ------------------------------------------------------------ | -------- | -------- | ----------------- |
+| style        | Button style.          | StyleProp< [ViewStyle](https://gitee.com/link?target=https%3A%2F%2Freactnative.dev%2Fdocs%2Fview%23props) > | no       | all      | yes               |
+| textStyle    | Text style.    | StyleProp< [TextStyle](https://gitee.com/link?target=https%3A%2F%2Freactnative.dev%2Fdocs%2Ftext%23props) > | no       | all      | yes               |
+| cornerRadius | Corner radius of the border.  | number                                                       | no       | all      | yes               |
+| buttonStyle  | Button style (preset enumeration).| [AppleButtonStyle](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Finvertase%2Freact-native-apple-authentication%2Fblob%2Fmain%2Ftypedocs%2Fenums%2FAppleButtonStyle.md) | no       | all      | yes               |
+| buttonType   | Button type (preset enumeration).| [AppleButtonType](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Finvertase%2Freact-native-apple-authentication%2Fblob%2Fmain%2Ftypedocs%2Fenums%2FAppleButtonType.md) | no       | all      | yes               |
+| onPress      | Touch event.      | () => void                                                   | yes      | all      | yes               |
+| leftView     | Left icon of the button.    | ReactNode                                                    | no       | all      | yes               |
+| buttonText   | Button text.    | string                                                       | no       | all      | yes               |
 
 ## API
 
@@ -193,18 +193,18 @@ Check the release version information in the release address of the third-party 
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-**appleAuthHarmony**: Apple 身份验证对象，包含 2 个方法。
+**appleAuthHarmony**: Apple authentication object, including two methods
 
-| Name      | Description                                             | Type                                                                                                                                                     | Required | Platform | HarmonyOS Support |
-| --------- | ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------------- |
-| configure | 配置 Apple 身份验证的信息，此接口必须在 signIn 之前调用 | ([Config](https://github.com/invertase/react-native-apple-authentication/blob/main/typedocs/interfaces/AndroidConfig.md)) => void                        | no       | all      | yes               |
-| signIn    | 弹出 webview 以进行 Apple 身份验证                      | () => Promise< [SigninResponse](https://github.com/invertase/react-native-apple-authentication/blob/main/typedocs/interfaces/AndroidSigninResponse.md) > | no       | all      | no                |
+| Name      | Description                                             | Type                                                         | Required | Platform | HarmonyOS Support |
+| --------- | ------------------------------------------------------- | ------------------------------------------------------------ | -------- | -------- | ----------------- |
+| configure | Configures Apple authentication information. This API must be called before **signIn**.| ([Config](https://github.com/invertase/react-native-apple-authentication/blob/main/typedocs/interfaces/AndroidConfig.md)) => void | no       | all      | yes               |
+| signIn    | Pops up the WebView for Apple authentication.                     | () => Promise< [SigninResponse](https://github.com/invertase/react-native-apple-authentication/blob/main/typedocs/interfaces/AndroidSigninResponse.md) > | no       | all      | no                |
 
 ## Others
 
 ## Known Issues
 
-- [ ] 由于 Apple 开发者账户验证问题，HarmonyOS 暂无法实现的接口: [issue#1](https://github.com/react-native-oh-library/react-native-apple-authentication/issues/1)
+- [ ] Due to Apple developer account authentication issues, the following API is not supported by HarmonyOS: [issue#1](https://github.com/react-native-oh-library/react-native-apple-authentication/issues/1).
 
 ## License
 

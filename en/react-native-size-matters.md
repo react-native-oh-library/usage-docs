@@ -38,7 +38,7 @@ The following code shows the basic use scenario of the repository:
 
 > [!WARNING] The name of the imported repository remains unchanged.
 
-**这里是该插件提供的基础用法**
+**Basic usage**:
 
 ```js
 <!---->
@@ -187,7 +187,7 @@ export default class sizeMattersDemo {
 
 ```
 
-**这里提供注解用法**
+**Annotation usage**:
 
 ```javascript
 import { Text, View } from "react-native";
@@ -221,8 +221,8 @@ export default class sizeMattersDemo {
 
 This document is verified based on the following versions:
 
-1. RNOH：0.72.27; SDK：HarmonyOS-Next-DB1 5.0.0.29(SP1); IDE：DevEco Studio 5.0.3.400; ROM：3.0.0.25;
-2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
+1. RNOH: 0.72.27; SDK: HarmonyOS-Next-DB1 5.0.0.29(SP1); IDE: DevEco Studio 5.0.3.400; ROM: 3.0.0.25;
+2. RNOH: 0.72.33; SDK: OpenHarmony 5.0.0.71 (API Version 12 Release); IDE: DevEco Studio 5.0.3.900; ROM: NEXT.0.0.71;
 
 ## API
 
@@ -232,14 +232,14 @@ This document is verified based on the following versions:
 
 | Name                  | Description                                                                                                                                                                            | Type     | Required | Platform     | HarmonyOS Support |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ------------ | ----------------- |
-| scale                 | 将根据您设备的屏幕宽度返回所提供尺寸的线性缩放结果。                                                                                                                                   | Function | No       | Android、iOS | Yes               |
-| verticalScale         | 将根据您设备的屏幕高度返回所提供尺寸的线性缩放结果。                                                                                                                                   | Function | No       | Android、iOS | Yes               |
-| moderateScale         | 有时您不想以线性方式缩放所有内容，这时可以使用 moderateScale。它的妙处在于您可以控制调整大小的因子（默认值为 0.5）。如果正常缩放会将您的尺寸增加 +2X，则 moderateScale 只会将其增加 +X | Function | No       | Android、iOS | Yes               |
-| moderateVerticalScale | 与 moderateScale 相同，但使用 verticalScale 而不是 scale。                                                                                                                             | Function | No       | Android、iOS | Yes               |
-| s                     | scale 方法的别名                                                                                                                                                                       | Function | No       | Android、iOS | Yes               |
-| vs                    | verticalScale 方法的别名                                                                                                                                                               | Function | No       | Android、iOS | Yes               |
-| ms                    | moderateScale 别名方法                                                                                                                                                                 | Function | No       | Android、iOS | Yes               |
-| mvs                   | moderateVerticalScale 的别名方法                                                                                                                                                       | Function | No       | Android、iOS | Yes               |
+| scale                 | Returns the linear scaling result of the provided size based on the screen width of the device.                                                                                                                                  | Function | No       | Android, iOS| Yes               |
+| verticalScale         | Returns the linear scaling result of the provided size based on the screen height of the device.                                                                                                                                  | Function | No       | Android, iOS| Yes               |
+| moderateScale         | Scales the content that you do not want to scale in a linear manner. You can control the resize factor, which is 0.5 by default, as required. If normal scaling increases the size by 2X, **moderateScale** will only increase it by X.| Function | No       | Android, iOS| Yes               |
+| moderateVerticalScale | Works in the same way as **moderateScale**, but uses **verticalScale** instead of **scale**.                                                                                                                            | Function | No       | Android, iOS| Yes               |
+| s                     | Alias of the **scale** API.                                                                                                                                                                      | Function | No       | Android, iOS| Yes               |
+| vs                    | Alias of the **verticalScale** API.                                                                                                                                                              | Function | No       | Android, iOS| Yes               |
+| ms                    | Alias of the **moderateScale** API.                                                                                                                                                                | Function | No       | Android, iOS| Yes               |
+| mvs                   | Alias of the **moderateVerticalScale** API.                                                                                                                                                      | Function | No       | Android, iOS| Yes               |
 
 ## Known Issues
 
@@ -247,4 +247,4 @@ This document is verified based on the following versions:
 
 ## License
 
-This project is licensed under [The MIT License(MIT)](https://github.com/nirsky/react-native-size-matters/blob/master/LICENSE).
+This project is licensed under [MIT License](https://github.com/nirsky/react-native-size-matters/blob/master/LICENSE).

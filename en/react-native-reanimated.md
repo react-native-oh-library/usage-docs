@@ -63,7 +63,7 @@ Clear the Metro cache (recommended):
 #### **npm**
 
 ```bash
-npm start -- --reset-cache
+npm start --reset-cache
 ```
 
 #### **yarn**

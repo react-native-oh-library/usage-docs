@@ -61,7 +61,7 @@ yarn add @react-native-oh-tpl/react-native-reanimated
 #### **npm**
 
 ```bash
-npm start -- --reset-cache
+npm start --reset-cache
 ```
 
 #### **yarn**

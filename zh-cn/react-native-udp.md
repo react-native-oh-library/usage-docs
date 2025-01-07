@@ -193,7 +193,7 @@ export default App;
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/react-native-udp": "file:../../node_modules/@react-native-oh-tpl/react-native-udp/harmony/react-native-udp.har"
+    "@react-native-oh-tpl/react-native-udp": "file:../../node_modules/@react-native-oh-tpl/react-native-udp/harmony/react_native_udp.har"
   }
 ```
 
@@ -261,6 +261,7 @@ ohpm install
 | Name           | Description                                                  | Type     | Required | Platform    | HarmonyOS Support |
 | -------------- | ------------------------------------------------------------ | -------- | -------- | ----------- | ----------------- |
 | createSocket   | Creates a Socket object.                                     | Function | false    | Android/iOS | yes               |
+| close          | Close the underlying socket and stop listening for data on it. If a callback is provided.                                     | Function | false    | Android/iOS | yes               |
 | bind           | For UDP sockets, causes the `UdpSocket` to listen for datagram messages on a named `port`. | Function | false    | Android/iOS | yes               |
 | send           | Broadcasts a datagram on the socket.                         | Function | false    | Android/iOS | yes               |
 | address        | Returns an object containing the address information for a socket. | Function | false    | Android/iOS | yes               |

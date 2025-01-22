@@ -18,7 +18,7 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library: [@react-native-oh-library/react-native-intersection-observer Releases](https://github.com/react-native-oh-library/react-native-intersection-observer/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-intersection-observer Releases](https://github.com/react-native-oh-library/react-native-intersection-observer/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 Go to the project directory and execute the following instruction:
 
@@ -29,13 +29,13 @@ Go to the project directory and execute the following instruction:
 #### **npm**
 
 ```bash
-npm install @react-native-oh-library/react-native-intersection-observer
+npm install @react-native-oh-tpl/react-native-intersection-observer
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-library/react-native-intersection-observer
+yarn add @react-native-oh-tpl/react-native-intersection-observer
 ```
 
 <!-- tabs:end -->

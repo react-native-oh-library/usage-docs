@@ -95,8 +95,8 @@ AppRegistry.registerComponent("myproject", () => SwiperComponent);
 
 This document is verified based on the following versions:
 
-1. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
-2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
+1. RNOH: 0.72.13; SDK: HarmonyOS NEXT Developer Preview1; IDE: DevEco Studio 4.1.3.500; ROM: 2.0.0.58;
+2. RNOH: 0.72.33; SDK: OpenHarmony 5.0.0.71 (API Version 12 Release); IDE: DevEco Studio 5.0.3.900; ROM: NEXT.0.0.71;
 
 ## Properties
 
@@ -123,7 +123,7 @@ This document is verified based on the following versions:
 | height            | If no specify default fullscreen mode by `flex: 1`.          | `number`  |            -            | All      | YES               |
 | style             | See default style in source.                                 |  `style`  |          {...}          | All      | YES               |
 | containerStyle    | See default container style in source.                       |  `style`  |          {...}          | All      | YES               |
-| loadMinimal       | Only load current index slide , `loadMinimalSize` slides before and after. |  `bool`   |          false          | All      | YES               |
+| loadMinimal       | Only load current index slide, `loadMinimalSize` slides before and after. |  `bool`   |          false          | All      | YES               |
 | loadMinimalSize   | see `loadMinimal`                                            | `number`  |            1            | All      | YES               |
 | loadMinimalLoader | Custom loader to display when slides aren't loaded           | `element` | `<ActivityIndicator />` | All      | YES               |
 
@@ -151,12 +151,12 @@ This document is verified based on the following versions:
 
 #### Control buttons
 
-| Prop               |                                                                                                   Default                                                                                                   |   Type    | Description                                 | platform | HarmonyOS Support | remark |
-| :----------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------: | :------------------------------------------ | -------- | ----------------- | ------ |
-| showsButtons       |                                                                                                    true                                                                                                     |  `bool`   | Set to `true` make control buttons visible. | All      | YES               | --     |
+| Prop               |                           Default                            |   Type    | Description                                 | platform | HarmonyOS Support | remark |
+| :----------------- | :----------------------------------------------------------: | :-------: | :------------------------------------------ | -------- | ----------------- | ------ |
+| showsButtons       |                             true                             |  `bool`   | Set to `true` make control buttons visible. | All      | YES               | --     |
 | buttonWrapperStyle | `{backgroundColor: 'transparent', flexDirection: 'row', position: 'absolute', top: 0, left: 0, flex: 1, paddingHorizontal: 10, paddingVertical: 10, justifyContent: 'space-between', alignItems: 'center'}` |  `style`  | Custom styles.                              | All      | YES               | --     |
-| nextButton         |                                                                                 `<Text style={styles.buttonText}>›</Text>`                                                                                  | `element` | Allow custom the next button.               | All      | YES               | --     |
-| prevButton         |                                                                                 `<Text style={styles.buttonText}>‹</Text>`                                                                                  | `element` | Allow custom the prev button.               | All      | YES               | --     |
+| nextButton         |          `<Text style={styles.buttonText}>›</Text>`          | `element` | Allow custom the next button.               | All      | YES               | --     |
+| prevButton         |          `<Text style={styles.buttonText}>‹</Text>`          | `element` | Allow custom the prev button.               | All      | YES               | --     |
 
 #### Props of Children
 
@@ -174,9 +174,9 @@ This document is verified based on the following versions:
 | showsHorizontalScrollIndicator   | Set to `true` if you want to show horizontal scroll bar.     | `bool` |  false  | All      | YES               | --                                                           |
 | showsVerticalScrollIndicator     | Set to `true` if you want to show vertical scroll bar.       | `bool` |  false  | All      | YES               | --                                                           |
 | bounces                          | If `true`, the scroll view bounces when it reaches the end of the content if the content is larger then the scroll view along the axis of the scroll direction. If `false`, it disables all bouncing even if the alwaysBounce\* props are true. | `bool` |  false  | All      | YES               | --                                                           |
-| scrollsToTop                     | If true, the scroll view scrolls to top when the status bar is tapped. | `bool` |  false  | All      | NO                | 组件属性继承RNOH scrollview,当前RNOH中的scrollsToTop暂时不支持 |
-| removeClippedSubviews            | If true, offscreen child views (whose overflow value is hidden) are removed from their native backing superview when offscreen. This canimprove scrolling performance on long lists. | `bool` |  true   | All      | NO                | 组件属性继承RNOH scrollview,当前RNOH中的removeClippedSubviews暂时不支持 |
-| automaticallyAdjustContentInsets | Set to `true` if you need adjust content insets automation.  | `bool` |  false  | All      | NO                | 组件属性继承RNOH scrollview,当前RNOH中的automaticallyAdjustContentInsets暂时不支持 |
+| scrollsToTop                     | If true, the scroll view scrolls to top when the status bar is tapped. | `bool` |  false  | All      | NO                | This component property is inherited from RNOH **scrollview**. Currently, **scrollsToTop** in RNOH is not supported. |
+| removeClippedSubviews            | If true, offscreen child views (whose overflow value is hidden) are removed from their native backing superview when offscreen. This canimprove scrolling performance on long lists. | `bool` |  true   | All      | NO                | This component property is inherited from RNOH **scrollview**. Currently, **removeClippedSubviews** in RNOH is not supported. |
+| automaticallyAdjustContentInsets | Set to `true` if you need adjust content insets automation.  | `bool` |  false  | All      | NO                | This component property is inherited from RNOH **scrollview**. Currently, **automaticallyAdjustContentInsets** in RNOH is not supported. |
 | scrollEnabled                    | Enables/Disables swiping                                     | `bool` |  true   | All      | YES               | --                                                           |
 
 > @see: http://facebook.github.io/react-native/docs/scrollview.html
@@ -221,10 +221,10 @@ var swiper = React.createClass({
 
 ### Known Issues
 
-- [ ] 组件属性继承RNOH scrollview,当前RNOH中的scrollsToTop暂时不支持
-- [ ] 组件属性继承RNOH scrollview,当前RNOH中的removeClippedSubviews暂时不支持
-- [ ] 组件属性继承RNOH scrollview,当前RNOH中的automaticallyAdjustContentInsets暂时不支持
-- [ ] 组件轮播图RNOH版本为0.72.13暂时有不居中问题，在RNOH版本为0.72.19上解决
+- [ ] The **scrollsToTop** property is inherited from RNOH **scrollview**. Currently, **scrollsToTop** in RNOH is not supported.
+- [ ] The **removeClippedSubviews** property is inherited from RNOH **scrollview**. Currently, **removeClippedSubviews** in RNOH is not supported.
+- [ ] The **automaticallyAdjustContentInsets** property is inherited from RNOH **scrollview**. Currently, **automaticallyAdjustContentInsets** in RNOH is not supported.
+- [ ] In the RNOH version 0.72.13, the swiper component cannot be centered. This problem is solved in the RNOH version 0.72.19.
 
 ### Others
 

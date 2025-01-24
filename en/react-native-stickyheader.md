@@ -18,7 +18,7 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-stickyheader Releases](https://github.com/react-native-oh-library/react-native-stickyheader/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+Find the matching version information in the release address of the third-party library: [@react-native-oh-tpl/react-native-stickyheader Releases](https://github.com/react-native-oh-library/react-native-stickyheader/releases). For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 Go to the project directory and execute the following instruction:
 
@@ -87,10 +87,10 @@ function App() {
         )}
         scrollEventThrottle={1}
       >
-        <Text>文字</Text>
-        <Text>文字</Text>
-        <Text>文字</Text>
-        <Text>文字</Text>
+        <Text>Text</Text>
+        <Text>Text</Text>
+        <Text>Text</Text>
+        <Text>Text</Text>
         <StickyHeader
           stickyHeaderY={60} 
           stickyScrollY={scrollY.current}
@@ -124,20 +124,20 @@ export default App;
 
 This document is verified based on the following versions:
 
-1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Preview2; IDE：DevEco Studio 5.0.3.200; ROM：205.0.0.18;
+1. RNOH: 0.72.20; SDK: HarmonyOS NEXT Developer Preview2; IDE: DevEco Studio 5.0.3.200; ROM: 205.0.0.18
 
 ## Properties
 
-> [!TIP] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
+> [!tip] The **Platform** column indicates the platform where the properties are supported in the original third-party library.
 
-> [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
+> [!tip] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-此组件有以下属性:
+Available properties:
 
-| Property      | Type   | Required | Description       | Platform         | HarmonyOS <br/>Support |
-| ------------- | ------ | -------- | ----------------- | ---------------- | ---------------------- |
-| StickyHeaderY | number | NO       | 滑动到多少悬浮    | Android <br/>IOS | YES                    |
-| StickyScrollY | any    | Yes      | 动画的ScrollY回调 | Android <br/>IOS | YES                    |
+| Property      | Type   | Required | Description                                            | Platform        | HarmonyOS <br>Support |
+| ------------- | ------ | -------- | ------------------------------------------------------ | --------------- | --------------------- |
+| StickyHeaderY | number | NO       | The scrolling distance where the sticky header is used | Android <br>IOS | YES                   |
+| StickyScrollY | any    | Yes      | Callback of the **ScrollY** animation                  | Android <br>IOS | YES                   |
 
 ## Known Issues
 
@@ -146,5 +146,3 @@ This document is verified based on the following versions:
 ## License
 
 This project is licensed under [The MIT License (MIT)](https://github.com/jiasongs/react-native-stickyheader/blob/master/LICENSE).
-
-

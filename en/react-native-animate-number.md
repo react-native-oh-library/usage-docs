@@ -51,15 +51,15 @@ const App = () => {
   const [finish, setFinish] = useState("");
   const [progress, setProgress] = useState("");
   const onProgress = () => {
-    setProgress("动画正在更新...");
+    setProgress ("Animation is being updated...");
   };
   const onFinish = () => {
-    setFinish("动画更新完成");
+    setFinish ("Animation update completed");
   };
   return (
     <View style={styles.container}>
       <View style={styles.button}>
-        <Button title={"点击开始动画"} onPress={onPress} />
+        <Button title={"Click to start animation"} onPress={onPress} />;
       </View>
       <Text style={styles.row}>
         <Text>linear:</Text>
@@ -148,21 +148,21 @@ export default App;
 
 This document is verified based on the following versions:
 
-1. RNOH：0.72.20; SDK：HarmonyOS NEXT Developer Beta1; IDE：DevEco Studio 5.0.3.200; ROM：3.0.0.18;
-2. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
+1. RNOH: 0.72.20; SDK: HarmonyOS NEXT Developer Beta1; IDE: DevEco Studio 5.0.3.200; ROM: 3.0.0.18;
+2. RNOH: 0.72.33; SDK: OpenHarmony 5.0.0.71 (API Version 12 Release); IDE: DevEco Studio 5.0.3.900; ROM: NEXT.0.0.71;
 
 ## Properties
 
-| Name         | Description                                                                                                                                                 | Type     | Required | Platform    | HarmonyOS Support |
-| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------- | ----------------- |
-| `value`      | The value of AnimateNumber component.                                                                                                                       | number   | yes      | Android IOS | YES               |
-| `countBy`    | Set this property to force the component's value increase/decrease by this number.                                                                          | number   | No       | Android IOS | YES               |
-| `interval`   | Base interval of each animation frame, in `ms`.                                                                                                             | number   | No       | Android IOS | YES               |
+| Name         | Description                                                  | Type     | Required | Platform    | HarmonyOS Support |
+| ------------ | ------------------------------------------------------------ | -------- | -------- | ----------- | ----------------- |
+| `value`      | The value of AnimateNumber component.                        | number   | yes      | Android IOS | YES               |
+| `countBy`    | Set this property to force the component's value increase/decrease by this number. | number   | No       | Android IOS | YES               |
+| `interval`   | Base interval of each animation frame, in `ms`.              | number   | No       | Android IOS | YES               |
 | `steps`      | Set total frame number of animation, say, if interval is 14 and steps is 30, the animation will take 14x30ms to finish when it uses linear timing function. | number   | No       | Android IOS | YES               |
-| `timing`     | A style object that allow you to customize the WebView style.                                                                                               | number   | No       | Android IOS | YES               |
-| `formatter`  | The custom css content will be added to the page's <head>.                                                                                                  | string   | No       | Android IOS | YES               |
-| `onProgress` | Either updated height or width will trigger onSizeUpdated.                                                                                                  | function | No       | Android IOS | YES               |
-| `onFinish`   | Boolean value that determines whether a horizontal scroll indicator is shown in the WebView.                                                                | function | No       | Android IOS | YES               |
+| `timing`     | A style object that allow you to customize the WebView style. | number   | No       | Android IOS | YES               |
+| `formatter`  | The custom css content will be added to the page's <head>.   | string   | No       | Android IOS | YES               |
+| `onProgress` | Either updated height or width will trigger onSizeUpdated.   | function | No       | Android IOS | YES               |
+| `onFinish`   | Boolean value that determines whether a horizontal scroll indicator is shown in the WebView. | function | No       | Android IOS | YES               |
 
 ## Known Issues
 

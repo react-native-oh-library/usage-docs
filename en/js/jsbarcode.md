@@ -41,9 +41,9 @@ import JsBarCode from 'jsbarcode';
 
 The following code shows the basic use scenario of the repository:
 
-### **With svg:**
+### **With svg**
 
-> [!TIP] [jsbarcode库依赖react-native-svg库进行条形码展示, svg 当前仅实现部分属性，其余还未实现 HarmonyOS 化] > [!TIP] [详见react-native-svg](https://gitee.com/react-native-oh-library/usage-docs/blob/master/zh-cn/react-native-svg.md)
+> [!TIP] The jsbarcode library depends on the react-native-svg library to display barcodes. Currently, only some properties of the svg library are supported on HarmonyOS. For details, see the [react-native-svg](https://gitee.com/react-native-oh-library/usage-docs/blob/master/en/react-native-svg.md) library.
 
 ```tsx
 import {ScrollView, StyleSheet, View, Text} from 'react-native';
@@ -169,9 +169,9 @@ const styles = StyleSheet.create({
 });
 ```
 
-### **With canvas:**
+### **With Canvas**
 
-> [!TIP] [react-native-canvas库暂未 HarmonyOS 化，当前无法使用canvas渲染，下面用法仅供参考]
+> [!TIP] The react-native-canvas library is not supported on HarmonyOS yet and cannot be rendered using **Canvas**. The following usage is for reference only.
 
 ```js
 var JsBarcode = require("jsbarcode");
@@ -290,35 +290,35 @@ This document is verified based on the following versions:
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name         | Description       | Type               | Required | HarmonyOS Support | Remark                                                                |
-| ------------ | ----------------- | ------------------ | -------- | ----------------- | --------------------------------------------------------------------- |
-| format       | "auto" (CODE128)  | String             | no       | yes               |                                                                       |
-| width        | 2                 | Number             | no       | yes               |                                                                       |
-| height       | 100               | Number             | no       | yes               |                                                                       |
-| displayValue | true              | Boolean            | no       | yes               |                                                                       |
-| text         | undefined         | String             | no       | yes               |                                                                       |
-| fontOptions  | ""                | String             | no       | yes               | react-native-svg目前不支持fontOptions: 'italic'，导致条形码效果不生效 |
-| font         | "monospace"       | String             | no       | yes               | react-native-svg目前不支持font设置，导致条形码效果不生效              |
-| textAlign    | "center"          | String             | no       | yes               |                                                                       |
-| textPosition | "bottom"          | String             | no       | yes               |                                                                       |
-| textMargin   | 2                 | Number             | no       | yes               |                                                                       |
-| fontSize     | 20                | Number             | no       | yes               |                                                                       |
-| background   | "#ffffff"         | String (CSS color) | no       | yes               |                                                                       |
-| lineColor    | "#000000"         | String (CSS color) | no       | yes               |                                                                       |
-| margin       | 10                | Number             | no       | yes               |                                                                       |
-| marginTop    | undefined         | Number             | no       | yes               |                                                                       |
-| marginBottom | undefined         | Number             | no       | yes               |                                                                       |
-| marginLeft   | undefined         | Number             | no       | yes               |                                                                       |
-| marginRight  | undefined         | Number             | no       | yes               |                                                                       |
-| flat         | false             | Boolean            | no       | yes               | 仅支持format：EAN8/EAN13                                              |
-| valid        | function(valid){} | Function           | no       | yes               |                                                                       |
+| Name         | Description       | Type               | Required | HarmonyOS Support | Remark                                                       |
+| ------------ | ----------------- | ------------------ | -------- | ----------------- | ------------------------------------------------------------ |
+| format       | "auto" (CODE128)  | String             | no       | yes               |                                                              |
+| width        | 2                 | Number             | no       | yes               |                                                              |
+| height       | 100               | Number             | no       | yes               |                                                              |
+| displayValue | true              | Boolean            | no       | yes               |                                                              |
+| text         | undefined         | String             | no       | yes               |                                                              |
+| fontOptions  | ""                | String             | no       | yes               | Currently, the react-native-svg library does not support **fontOptions: 'italic'**. As a result, the barcode effect does not take effect. |
+| font         | "monospace"       | String             | no       | yes               | Currently, the react-native-svg library does not support **font**. As a result, the barcode effect does not take effect. |
+| textAlign    | "center"          | String             | no       | yes               |                                                              |
+| textPosition | "bottom"          | String             | no       | yes               |                                                              |
+| textMargin   | 2                 | Number             | no       | yes               |                                                              |
+| fontSize     | 20                | Number             | no       | yes               |                                                              |
+| background   | "#ffffff"         | String (CSS color) | no       | yes               |                                                              |
+| lineColor    | "#000000"         | String (CSS color) | no       | yes               |                                                              |
+| margin       | 10                | Number             | no       | yes               |                                                              |
+| marginTop    | undefined         | Number             | no       | yes               |                                                              |
+| marginBottom | undefined         | Number             | no       | yes               |                                                              |
+| marginLeft   | undefined         | Number             | no       | yes               |                                                              |
+| marginRight  | undefined         | Number             | no       | yes               |                                                              |
+| flat         | false             | Boolean            | no       | yes               | Only the EAN8 or EAN13 format is supported.                  |
+| valid        | function(valid){} | Function           | no       | yes               |                                                              |
 
 ## Known Issues
 
-jsbarcode库依赖react-native-svg库进行条形码展示, 因svg 当前仅实现部分属性，其余还未实现 HarmonyOS 化，目前在HarmonyOS上条形码的文本位置效果不对，fontSize显示比较小。
+The jsbarcode library depends on the react-native-svg library to display barcodes. Currently, only some properties of the svg library are supported on HarmonyOS. Therefore, the barcode position displayed on HarmonyOS is incorrect, and the font size is small.
 
 ## Others
 
 ## License
 
-This project is licensed under [MIT License](https://github.com/lindell/JsBarcode/blob/master/MIT-LICENSE.txt), Please enjoy and participate freely in open source.
+This project is licensed under [MIT License](https://github.com/lindell/JsBarcode/blob/master/MIT-LICENSE.txt).

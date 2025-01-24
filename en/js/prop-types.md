@@ -86,32 +86,32 @@ export default App;
 
 This document is verified based on the following versions:
 
-1. RNOH：0.72.11; SDK：OpenHarmony(api11) 4.1.0.53; IDE：DevEco Studio 4.1.3.412; ROM：2.0.0.52;
-2. RNOH：0.72.13; SDK：HarmonyOS NEXT Developer Preview1; IDE：DevEco Studio 4.1.3.500; ROM：2.0.0.58;
-3. RNOH：0.72.33; SDK：OpenHarmony 5.0.0.71(API Version 12 Release); IDE：DevEco Studio 5.0.3.900; ROM：NEXT.0.0.71;
+1. RNOH: 0.72.11; SDK: OpenHarmony (api11) 4.1.0.53; IDE: DevEco Studio 4.1.3.412; ROM: 2.0.0.52;
+2. RNOH: 0.72.13; SDK: HarmonyOS NEXT Developer Preview1; IDE: DevEco Studio 4.1.3.500; ROM: 2.0.0.58;
+3. RNOH: 0.72.33; SDK: OpenHarmony 5.0.0.71 (API Version 12 Release); IDE: DevEco Studio 5.0.3.900; ROM: NEXT.0.0.71;
 
 #### Properties
 
-| Name        | Description                                                 | Type      | Required |  HarmonyOS Support |
-| ----------- | ---------------------------------------------------- | --------- | -------- | -------- |
-| any         | 约束属性为任意类型                                   | Attribute | NO       | yes      |
-| array       | 约束属性为数组类型                                   | Attribute | NO       | yes      |
-| bool        | 约束属性为布尔值类型                                 | Attribute | NO       | yes      |
-| func        | 约束属性为函数类型                                   | Attribute | NO       | yes      |
-| number      | 约束属性为数字类型                                   | Attribute | NO       | yes      |
-| object      | 约束属性为对象类型                                   | Attribute | NO       | yes      |
-| string      | 约束属性为字符串类型                                 | Attribute | NO       | yes      |
-| symbol      | 约束属性为 symbol 类型                               | Attribute | NO       | yes      |
-| element     | 约束属性为 react 元素                                | Attribute | NO       | yes      |
-| node        | 约束属性为可以渲染的任何内容数字 字符串 元素 或 数组 | Attribute | NO       | yes      |
-| elementType | 约束属性为 react 类型                                | Attribute | NO       | yes      |
-| instanceOf  | 约束属性为某个对象的实例                             | function  | NO       | yes      |
-| oneOf       | 约束属性为给定值中的任意一个                         | function  | NO       | yes      |
-| oneOfType   | 约束属性为给定类型中的任意一个                       | function  | NO       | yes      |
-| arrayOf     | 约束属性为指定类型的数组                             | function  | NO       | yes      |
-| objectOf    | 约束属性为具有指定类型属性值的对象                   | function  | NO       | yes      |
-| shape       | 约束属性为指定构成方式的对象                         | function  | NO       | yes      |
-| exact       | 约束属性包含指定属性                                 | function  | NO       | yes      |
+| Name        | Description                                                  | Type      | Required | HarmonyOS Support |
+| ----------- | ------------------------------------------------------------ | --------- | -------- | ----------------- |
+| any         | Any data type.                                               | Attribute | NO       | yes               |
+| array       | The array type.                                              | Attribute | NO       | yes               |
+| bool        | The Boolean type.                                            | Attribute | NO       | yes               |
+| func        | The function type.                                           | Attribute | NO       | yes               |
+| number      | The number type.                                             | Attribute | NO       | yes               |
+| object      | The object type.                                             | Attribute | NO       | yes               |
+| string      | The string type.                                             | Attribute | NO       | yes               |
+| symbol      | The symbol type.                                             | Attribute | NO       | yes               |
+| element     | The react element.                                           | Attribute | NO       | yes               |
+| node        | Any content that can be rendered, such as a numeric string element, or an array. | Attribute | NO       | yes               |
+| elementType | The react type.                                              | Attribute | NO       | yes               |
+| instanceOf  | An instance of an object.                                    | function  | NO       | yes               |
+| oneOf       | One of the given values.                                     | function  | NO       | yes               |
+| oneOfType   | One of the specified types.                                  | function  | NO       | yes               |
+| arrayOf     | An array of the specified type.                              | function  | NO       | yes               |
+| objectOf    | An object with the attribute value of the specified type.    | function  | NO       | yes               |
+| shape       | An object of the specified composition mode.                 | function  | NO       | yes               |
+| exact       | A specified attribute that is contained.                     | function  | NO       | yes               |
 
 ## Known Issues
 

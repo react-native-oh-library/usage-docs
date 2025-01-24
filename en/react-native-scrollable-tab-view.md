@@ -18,7 +18,7 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library：[@react-native-oh-tpl/react-native-scrollable-tab-view Releases](https://github.com/react-native-oh-library/react-native-scrollable-tab-view/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-scrollable-tab-view Releases](https://github.com/react-native-oh-library/react-native-scrollable-tab-view/releases). For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 Go to the project directory and execute the following instruction:
 
@@ -66,9 +66,9 @@ export default () => {
 ## Link
 
 
-The HarmonyOS implementation of this library relies on the native code of @react-native-oh-tpl/react-native-pager-view，If the library has already been introduced in the HarmonyOS project, there is no need to introduce it again. You can skip the steps in this chapter and use it directly.
+The HarmonyOS implementation of this library relies on the native code of @react-native-oh-tpl/react-native-pager-view. If the library has already been introduced in the HarmonyOS project, there is no need to introduce it again.You can skip the steps in this chapter and use it directly.
 
-If not introduced, please refer to the Link section of the document[@react-native-oh-tpl/react-native-pager-view](react-native-pager-view.md#link)for introduction.
+If not introduced, please refer to the Link section of the document [@react-native-oh-tpl/react-native-pager-view](react-native-pager-view.md#link) for introduction.
 
 ## Constraints
 
@@ -86,23 +86,23 @@ Check the release version information in the release address of the third-party 
 
 | Name                       | Description                                                  | Type                 | Required | Platform     | HarmonyOS Support |
 | -------------------------- | ------------------------------------------------------------ | -------------------- | -------- | ------------ | ----------------- |
-| renderTabBar               | 用于渲染TabBar。添加该属性，需要在引入组件之时加上它的子组件。系统提供两种方式，DefaultTabBar和ScrollableTabBar。DefaultTabBar表示Tab.item会平分水平方向上的空间，而ScrollableTabBar表示所有的tabBar.item的长度将会超过屏幕宽度，但是当滚动屏幕之时可以显示出来。当然也可以自定义它的模式。 | Function             | no       | ios，android | yes               |
-| tabBarPosition             | 表示TabBar的位置。一共有四个取值：top(放在界面上方)、bottom(放在界面底部)、overlayTop(有悬浮效果在上方)、overlayBottom(有悬浮效果在下方) | String               | no       | ios，android | yes               |
-| onChangeTab                | 切换界面的时候会调用该方法，该属性中包含一个参数，它是一个object对象，这个对象有两个参数，i表示被选中的下标，ref表示被选中的对象。 | Function             | no       | ios，android | yes               |
-| onScroll                   | 视图滑动时调用，该属性会传递一个Float类型的数字，范围是[0,tab的数量-1] | Function             | no       | ios，android | yes               |
-| locked                     | 手指是否能拖动，默认为false（可拖动）,如为true则表示只能通过点击tab来切换视图。 | Bool                 | no       | ios，android | yes               |
-| initialPage                | 初始化时被选中的下标，默认为0                                | Integer              | no       | ios，android | yes               |
-| page                       | 设置选中指定的tab(已废弃,详情请看 [#126](https://github.com/ptomasroos/react-native-scrollable-tab-view/issues/126)) | Integer              | no       | ios,android  | no                |
-| children                   | 每个顶级子组件都应该有一个tabLabel属性，选项卡栏组件可以使用它来呈现标签。默认是字符串，但也可以自定义内容。 | ReactComponents      | no       | ios，android | yes               |
-| tabBarUnderlineStyle       | 设置选项卡栏下划线的样式。注意，该属性只是在系统提供的ScrollableTabBarTab状态下才有效果。 | View.propTypes.style | no       | ios，android | yes               |
-| tabBarBackgroundColor      | 设置选项卡栏背景的颜色，默认为white。                        | String               | no       | ios，android | yes               |
-| tabBarActiveTextColor      | 设置选中的tabBar的文字颜色,默认navy。                        | String               | no       | ios，android | yes               |
-| tabBarInactiveTextColor    | 设置未选中的tabBar的文字颜色,默认black。                     | String               | no       | android,ios  | yes               |
-| tabBarTextStyle            | 选项卡栏文本的其他样式。例如：{fontFamily: 'Roboto', fontSize: 15} | Object               | no       | android,ios  | yes               |
-| style                      | view所拥有的属性                                             | View.propTypes.style | no       | android,ios  | yes               |
-| contentProps               | 应用于ScrollView/ViewPagerAndroid的属性。请注意，重写库设置的默认值可能会破坏功能； | Object               | no       | android,ios  | yes               |
-| scrollWithoutAnimation     | 设置点击Tab时，视图切换是否有动画，默认为false（即：有动画效果）。 | Bool                 | no       | android,ios  | yes               |
-| prerenderingSiblingsNumber | 预渲染附近的同级，Infinity===渲染所有同级，默认为0===渲染当前页面。 | Integer              | no       | android,ios  | yes               |
+| renderTabBar               | Renders the tab bar. To add this property, you need to add its subcomponents when introducing the component. The system provides two tab bar types: **DefaultTabBar** and **ScrollableTabBar**. **DefaultTabBar** indicates that tab items are evenly distributed in the horizontal space. **ScrollableTabBar** indicates that the length of all tab bar items exceeds the screen width, but they can be displayed when the screen is scrolled. You can also customize the mode. | Function             | no       | iOS, Android | yes               |
+| tabBarPosition             | Indicates the position of the tab bar. You can set this parameter to **top** (on the top of the UI), **bottom** (on the bottom of the UI), **overlayTop** (on the top with the floating effect), or **overlayBottom** (on the bottom with the floating effect). | String               | no       | iOS, Android | yes               |
+| onChangeTab                | Called when the tab is switched. This function contains a parameter, which is an object containing two parameters: **i** indicates the selected index of the tab, and **ref** indicates the selected tab. | Function             | no       | iOS, Android | yes               |
+| onScroll                   | Called when the view slides. This function contains a parameter, which is a number of the Float type. Value range: [0, number of tabs – 1]. | Function             | no       | iOS, Android | yes               |
+| locked                     | Indicates whether the tab can be dragged. The default value is **false**, indicating that the tab can be dragged. If the value is **true**, the view can be switched only by clicking the tab. | Bool                 | no       | iOS, Android | yes               |
+| initialPage                | Indicates the index of the selected tab during initialization. The default value is **0**. | Integer              | no       | iOS, Android | yes               |
+| page                       | Sets the selected tab. This property is deprecated. For details, see [#126](https://github.com/ptomasroos/react-native-scrollable-tab-view/issues/126). | Integer              | no       | iOS, Android | no                |
+| children                   | Each top-level child component should have a **tabLabel** property that can be used by the tab bar component to render out the labels. The default value of the tab bar is a string. You can also customize the value. | ReactComponents      | no       | iOS, Android | yes               |
+| tabBarUnderlineStyle       | Sets the underline style of the tab bar. Note that this property is valid only in the **ScrollableTabBarTab** state provided by the system. | View.propTypes.style | no       | iOS, Android | yes               |
+| tabBarBackgroundColor      | Sets the background color of the tab bar. The default color is **white**. | String               | no       | iOS, Android | yes               |
+| tabBarActiveTextColor      | Sets the text color of the selected tab bar. The default value is **navy**. | String               | no       | iOS, Android | yes               |
+| tabBarInactiveTextColor    | Sets the text color of the tab bar that is not selected. The default value is **black**. | String               | no       | Android, iOS | yes               |
+| tabBarTextStyle            | Sets other styles of the tab bar text. Example: {fontFamily: 'Roboto', fontSize: 15} | Object               | no       | Android, iOS | yes               |
+| style                      | Indicates a property of View.                                | View.propTypes.style | no       | Android, iOS | yes               |
+| contentProps               | Indicates a property applied to **ScrollView** and **ViewPagerAndroid**. Note that overriding the default values set by the library may damage the functionality. | Object               | no       | Android, iOS | yes               |
+| scrollWithoutAnimation     | Sets whether animation is displayed during view switching when a tab is clicked. The default value is **false**, indicating that animation is displayed. | Bool                 | no       | Android, iOS | yes               |
+| prerenderingSiblingsNumber | Pre-renders the nearby siblings. If this property is set to **Infinity**, all siblings are rendered. The default value is **0**, indicating that the current page is rendered. | Integer              | no       | Android, iOS | yes               |
 
 ## Known Issues
 

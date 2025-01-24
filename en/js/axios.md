@@ -9,7 +9,7 @@
     </a>
 </p>
 
-> [!TIP] [Github 地址](https://github.com/axios/axios)
+> [!TIP] [Github address](https://github.com/axios/axios)
 
 ## Installation and Usage
 
@@ -112,42 +112,42 @@ This document is verified based on the following versions:
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                               | Description                |   Type   | Required | HarmonyOS Support |
-| :--------------------------------- | -------------------------- | :------: | :------: | :---------------: |
-| axios.request(config)              | 别名发送request请求        | function |    /     |        yes        |
-| axios.get(url[, config])           | 别名发送get请求            | function |    /     |        yes        |
-| axios.delete(url[, config])        | 别名发送delete请求         | function |    /     |        yes        |
-| axios.head(url[, config])          | 别名发送head请求           | function |    /     |        yes        |
-| axios.options(url[, config])       | 别名发送options请求        | function |    /     |        yes        |
-| axios.post(url[, data[, config]])  | 别名发送post请求           | function |    /     |        yes        |
-| axios.put(url[, data[, config]])   | 别名发送put请求            | function |    /     |        yes        |
-| axios.patch(url[, data[, config]]) | 别名发送patch请求          | function |    /     |        yes        |
-| axios#request(config)              | 实例发送request请求        | function |    /     |        yes        |
-| axios#get(url[, config])           | 实例发送get请求            | function |    /     |        yes        |
-| axios#delete(url[, config])        | 实例发送delete请求         | function |    /     |        yes        |
-| axios#head(url[, config])          | 实例发送head请求           | function |    /     |        yes        |
-| axios#options(url[, config])       | 实例发送options请求        | function |    /     |        yes        |
-| axios#post(url[, data[, config]])  | 实例发送post请求           | function |    /     |        yes        |
-| axios#put(url[, data[, config]])   | 实例发送put请求            | function |    /     |        yes        |
-| axios#patch(url[, data[, config]]) | 实例发送patch请求          | function |    /     |        yes        |
-| url                                | 配置中请求的地址           | function |    /     |        yes        |
-| method                             | 配置中请求时使用的方法     | function |    /     |        yes        |
-| baseURL                            | 配置中自动加在url地址前    | function |    /     |        yes        |
-| headers                            | 配置中自定义请求头         | function |    /     |        yes        |
-| params                             | 配置中请求一起发送时的参数 | function |    /     |        yes        |
-| data                               | 配置中请求体发送的数据     | function |    /     |        yes        |
-| timeout                            | 配置中请求超时的毫秒数     | function |    /     |        yes        |
-| proxy                              | 配置中设置代理             | function |    /     |        yes        |
-| Response Schema                    | 响应类型                   | function |    /     |        yes        |
-| Config Defaults                    | 默认配置                   | function |    /     |        yes        |
-| requestInterceptors                | 请求拦截器                 | function |    /     |        yes        |
-| responseInterceptors               | 响应拦截器                 | function |    /     |        yes        |
-| Handling Errors                    | 错误处理                   | function |    /     |        yes        |
-| AbortController                    | 中止控制器                 | function |    /     |        yes        |
-| CancelToken                        | 取消令牌                   | function |    /     |        yes        |
+| Name                               | Description                                          |   Type   | Required | HarmonyOS Support |
+| :--------------------------------- | ---------------------------------------------------- | :------: | :------: | :---------------: |
+| axios.request(config)              | Alias method for sending a **request**.              | function |    /     |        yes        |
+| axios.get(url[, config])           | Alias method for sending a **get** request.          | function |    /     |        yes        |
+| axios.delete(url[, config])        | Alias method for sending a **delete** request.       | function |    /     |        yes        |
+| axios.head(url[, config])          | Alias method for sending a **head** request.         | function |    /     |        yes        |
+| axios.options(url[, config])       | Alias method for sending an **options** request.     | function |    /     |        yes        |
+| axios.post(url[, data[, config]])  | Alias method for sending a **post** request.         | function |    /     |        yes        |
+| axios.put(url[, data[, config]])   | Alias method for sending a **put** request.          | function |    /     |        yes        |
+| axios.patch(url[, data[, config]]) | Alias method for sending a **patch** request.        | function |    /     |        yes        |
+| axios#request(config)              | Instance method for sending a **request**.           | function |    /     |        yes        |
+| axios#get(url[, config])           | Instance method for sending a **get** request.       | function |    /     |        yes        |
+| axios#delete(url[, config])        | Instance method for sending a **delete** request.    | function |    /     |        yes        |
+| axios#head(url[, config])          | Instance method for sending a **head** request.      | function |    /     |        yes        |
+| axios#options(url[, config])       | Instance method for sending an **options** request.  | function |    /     |        yes        |
+| axios#post(url[, data[, config]])  | Instance method for sending a **post** request.      | function |    /     |        yes        |
+| axios#put(url[, data[, config]])   | Instance method for sending a **put** request.       | function |    /     |        yes        |
+| axios#patch(url[, data[, config]]) | Instance method for sending a **patch** request.     | function |    /     |        yes        |
+| url                                | URL requested.                                       | function |    /     |        yes        |
+| method                             | Method used to request.                              | function |    /     |        yes        |
+| baseURL                            | Base URL added automatically before the URL.         | function |    /     |        yes        |
+| headers                            | Custom header requested.                             | function |    /     |        yes        |
+| params                             | Parameters to be sent with the request.              | function |    /     |        yes        |
+| data                               | Data sent by the request body.                       | function |    /     |        yes        |
+| timeout                            | Number of milliseconds in which a request times out. | function |    /     |        yes        |
+| proxy                              | Proxy set in the configuration.                      | function |    /     |        yes        |
+| Response Schema                    | Response type.                                       | function |    /     |        yes        |
+| Config Defaults                    | Default configuration.                               | function |    /     |        yes        |
+| requestInterceptors                | Request interceptor.                                 | function |    /     |        yes        |
+| responseInterceptors               | Response interceptor.                                | function |    /     |        yes        |
+| Handling Errors                    | Error handling.                                      | function |    /     |        yes        |
+| AbortController                    | Abort controller.                                    | function |    /     |        yes        |
+| CancelToken                        | Cancel token.                                        | function |    /     |        yes        |
 
 ## Others
 
 ## License
 
-This project is licensed under  [The MIT License (MIT)](https://github.com/Kureev/react-native-blur/blob/master/LICENSE), Please enjoy and participate freely in open source.
+This project is licensed under [MIT License](https://github.com/Kureev/react-native-blur/blob/master/LICENSE).

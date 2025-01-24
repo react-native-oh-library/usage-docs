@@ -120,7 +120,7 @@ This document is verified based on the following versions:
 
 ## API List
 
-**以下 `C` 均为crypto-js导出的对象，即：**
+**The following `C` is an object exported by crypto-js:**
 
 ```typescript
 import C from "crypto-js";
@@ -132,19 +132,19 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name              | Description                      | Type     | Required | HarmonyOS Support |
-| ----------------- | -------------------------------- | -------- | -------- | ----------------- |
-| C.lib.Base.extend | 创建一个新对象并继承自指定对象。 | function | no       | yes               |
+| Name              | Description                                                  | Type     | Required | HarmonyOS Support |
+| ----------------- | ------------------------------------------------------------ | -------- | -------- | ----------------- |
+| C.lib.Base.extend | Creates an object and inherits it from the specified object. | function | no       | yes               |
 
 **API**
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name   | Description                    | Type     | Required | HarmonyOS Support |
-| ------ | ------------------------------ | -------- | -------- | ----------------- |
-| create | 创建对象的实例。               | function | no       | yes               |
-| mixIn  | 向对象中添加属性键值对。       | function | no       | yes               |
-| clone  | 创建一个对象的克隆版本的新对象 | function | no       | yes               |
+| Name   | Description                           | Type     | Required | HarmonyOS Support |
+| ------ | ------------------------------------- | -------- | -------- | ----------------- |
+| create | Creates an object instance.           | function | no       | yes               |
+| mixIn  | Adds a property KV pair to an object. | function | no       | yes               |
+| clone  | Creates a clone version of an object. | function | no       | yes               |
 
 #### WordArray
 
@@ -152,30 +152,30 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name     | Description              | Type     | Required | HarmonyOS Support |
-| -------- | ------------------------ | -------- | -------- | ----------------- |
-| words    | 32位的字节数组。         | number[] | no       | yes               |
-| sigBytes | 此字数组中的有效字节数。 | number   | no       | yes               |
+| Name     | Description                          | Type     | Required | HarmonyOS Support |
+| -------- | ------------------------------------ | -------- | -------- | ----------------- |
+| words    | A 32-bit byte array.                 | number[] | no       | yes               |
+| sigBytes | Number of valid bytes in this array. | number   | no       | yes               |
 
 **Static Methods**
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                   | Description                        | Type     | Required | HarmonyOS Support               |
-| ---------------------- | ---------------------------------- | -------- | -------- | ------------------------------- |
-| C.lib.WordArray.create | 初始化新创建的字节数组。           | function | no       | yes                             |
-| C.lib.WordArray.random | 创建一个用随机字节填充的字节数组。 | function | no       | no (与android和ios一致均不支持) |
+| Name                   | Description                                    | Type     | Required | HarmonyOS Support            |
+| ---------------------- | ---------------------------------------------- | -------- | -------- | ---------------------------- |
+| C.lib.WordArray.create | Initializes a newly created byte array.        | function | no       | yes                          |
+| C.lib.WordArray.random | Creates a byte array filled with random bytes. | function | no       | no (same as Android and iOS) |
 
 **API**
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name     | Description                        | Type     | Required | HarmonyOS Support |
-| -------- | ---------------------------------- | -------- | -------- | ----------------- |
-| toString | 字节数组转换为字符串。             | function | no       | yes               |
-| concat   | 将一个字节数组连接到这个字节数组。 | function | no       | yes               |
-| clamp    | 移除无效字节。                     | function | no       | yes               |
-| clone    | 复制数组，并创建新数组。           | function | no       | yes               |
+| Name     | Description                                   | Type     | Required | HarmonyOS Support |
+| -------- | --------------------------------------------- | -------- | -------- | ----------------- |
+| toString | Converts a byte array into a string.          | function | no       | yes               |
+| concat   | Concatenates a byte array to this byte array. | function | no       | yes               |
+| clamp    | Removes invalid bytes.                        | function | no       | yes               |
+| clone    | Clones and creates an array.                  | function | no       | yes               |
 
 #### CipherParams
 
@@ -183,33 +183,33 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name       | Description                                         | Type         | Required | HarmonyOS Support |
-| ---------- | --------------------------------------------------- | ------------ | -------- | ----------------- |
-| ciphertext | 原始密文。                                          | WordArray    | no       | yes               |
-| key        | 密文的Key。                                         | WordArray    | no       | yes               |
-| iv         | 在加密操作中使用的IV。                              | WordArray    | no       | yes               |
-| salt       | 与密钥推导函数一起使用的salt。                      | WordArray    | no       | yes               |
-| algorithm  | 密码算法。                                          | CipherStatic | no       | yes               |
-| mode       | 加密操作中使用的块模式。                            | Mode         | no       | yes               |
-| padding    | 加密操作中使用的填充方案。                          | Padding      | no       | yes               |
-| blockSize  | 密码的块大小。                                      | number       | no       | yes               |
-| formatter  | 将此cipher params对象转换为字符串的默认格式化策略。 | Format       | no       | yes               |
+| Name       | Description                                                  | Type         | Required | HarmonyOS Support |
+| ---------- | ------------------------------------------------------------ | ------------ | -------- | ----------------- |
+| ciphertext | Original ciphertext.                                         | WordArray    | no       | yes               |
+| key        | Key of the ciphertext.                                       | WordArray    | no       | yes               |
+| iv         | Initialization Vector (IV) used in the encryption.           | WordArray    | no       | yes               |
+| salt       | Salt used with the key derivation function.                  | WordArray    | no       | yes               |
+| algorithm  | Password algorithm.                                          | CipherStatic | no       | yes               |
+| mode       | Block mode used in the encryption.                           | Mode         | no       | yes               |
+| padding    | Padding used in the encryption.                              | Padding      | no       | yes               |
+| blockSize  | Block size of the password.                                  | number       | no       | yes               |
+| formatter  | Default formatting policy for converting the **cipher params** object to a string. | Format       | no       | yes               |
 
 **Static Methods**
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                      | Description                       | Type     | Required | HarmonyOS Support |
-| ------------------------- | --------------------------------- | -------- | -------- | ----------------- |
-| C.lib.CipherParams.create | 初始化新创建的cipher params对象。 | function | no       | yes               |
+| Name                      | Description                                             | Type     | Required | HarmonyOS Support |
+| ------------------------- | ------------------------------------------------------- | -------- | -------- | ----------------- |
+| C.lib.CipherParams.create | Initializes the newly created **cipher params** object. | function | no       | yes               |
 
 **API**
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name     | Description                         | Type     | Required | HarmonyOS Support |
-| -------- | ----------------------------------- | -------- | -------- | ----------------- |
-| toString | 将此cipher params对象转换为字符串。 | function | no       | yes               |
+| Name     | Description                                        | Type     | Required | HarmonyOS Support |
+| -------- | -------------------------------------------------- | -------- | -------- | ----------------- |
+| toString | Converts the **cipher params** object to a string. | function | no       | yes               |
 
 #### X64
 
@@ -217,9 +217,9 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name              | Description            | Type     | Required | HarmonyOS Support |
-| ----------------- | ---------------------- | -------- | -------- | ----------------- |
-| C.x64.Word.create | 初始化新创建的64位字。 | function | no       | yes               |
+| Name              | Description                              | Type     | Required | HarmonyOS Support |
+| ----------------- | ---------------------------------------- | -------- | -------- | ----------------- |
+| C.x64.Word.create | Initializes a newly created 64-bit word. | function | no       | yes               |
 
 #### X64WordArray
 
@@ -227,27 +227,27 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name     | Description                   | Type     | Required | HarmonyOS Support |
-| -------- | ----------------------------- | -------- | -------- | ----------------- |
-| words    | CryptoJS.x64.Word对象的数组。 | number[] | no       | yes               |
-| sigBytes | 此字数组中的有效字节数。      | number   | no       | yes               |
+| Name     | Description                                | Type     | Required | HarmonyOS Support |
+| -------- | ------------------------------------------ | -------- | -------- | ----------------- |
+| words    | Array of the **CryptoJS.x64.Word** object. | number[] | no       | yes               |
+| sigBytes | Number of valid bytes in this array.       | number   | no       | yes               |
 
 **Static Methods**
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                   | Description              | Type     | Required | HarmonyOS Support |
-| ---------------------- | ------------------------ | -------- | -------- | ----------------- |
-| C.x64.WordArray.create | 初始化新创建的单词数组。 | function | no       | yes               |
+| Name                   | Description                             | Type     | Required | HarmonyOS Support |
+| ---------------------- | --------------------------------------- | -------- | -------- | ----------------- |
+| C.x64.WordArray.create | Initializes a newly created word array. | function | no       | yes               |
 
 **API**
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name  | Description                      | Type     | Required | HarmonyOS Support |
-| ----- | -------------------------------- | -------- | -------- | ----------------- |
-| toX32 | 将此64位字数组转换为32位字数组。 | function | no       | yes               |
-| clone | 创建此字节数组的副本。           | function | no       | yes               |
+| Name  | Description                                          | Type     | Required | HarmonyOS Support |
+| ----- | ---------------------------------------------------- | -------- | -------- | ----------------- |
+| toX32 | Converts a 64-bit word array to a 32-bit word array. | function | no       | yes               |
+| clone | Creates a copy of this byte array.                   | function | no       | yes               |
 
 #### mode
 
@@ -255,13 +255,13 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name       | Description      | Type | Required | HarmonyOS Support |
-| ---------- | ---------------- | ---- | -------- | ----------------- |
-| C.mode.CBC | 密码块链模式。   | /    | no       | yes               |
-| C.mode.CFB | 密码反馈块模式。 | /    | no       | yes               |
-| C.mode.CTR | 计数器阻塞模式。 | /    | no       | yes               |
-| C.mode.OFB | 输出反馈块模式。 | /    | no       | yes               |
-| C.mode.ECB | 电子码本块模式。 | /    | no       | yes               |
+| Name       | Description            | Type | Required | HarmonyOS Support |
+| ---------- | ---------------------- | ---- | -------- | ----------------- |
+| C.mode.CBC | Cipher block chaining. | /    | no       | yes               |
+| C.mode.CFB | Cipher feedback block. | /    | no       | yes               |
+| C.mode.CTR | Counter mode.          | /    | no       | yes               |
+| C.mode.OFB | Output feedback block. | /    | no       | yes               |
+| C.mode.ECB | Electronic code book.  | /    | no       | yes               |
 
 #### pad.Pkcs7
 
@@ -269,10 +269,10 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name              | Description                                   | Type     | Required | HarmonyOS Support |
-| ----------------- | --------------------------------------------- | -------- | -------- | ----------------- |
-| C.pad.Pkcs7.pad   | 使用PKCS #5/7中定义的算法填充数据。           | function | no       | yes               |
-| C.pad.Pkcs7.unpad | 取消填充使用PKCS #5/7中定义的算法填充的数据。 | function | no       | yes               |
+| Name              | Description                                                  | Type     | Required | HarmonyOS Support |
+| ----------------- | ------------------------------------------------------------ | -------- | -------- | ----------------- |
+| C.pad.Pkcs7.pad   | Pads the data using the algorithm defined in PKCS #5 or PKCS #7. | function | no       | yes               |
+| C.pad.Pkcs7.unpad | Unpads the data using the algorithm defined in PKCS #5 or PKCS #7. | function | no       | yes               |
 
 #### pad.AnsiX923
 
@@ -280,10 +280,10 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                 | Description                                  | Type     | Required | HarmonyOS Support |
-| -------------------- | -------------------------------------------- | -------- | -------- | ----------------- |
-| C.pad.AnsiX923.pad   | 使用AnsiX923中定义的算法填充数据。           | function | no       | yes               |
-| C.pad.AnsiX923.unpad | 取消填充使用AnsiX923中定义的算法填充的数据。 | function | no       | yes               |
+| Name                 | Description                                              | Type     | Required | HarmonyOS Support |
+| -------------------- | -------------------------------------------------------- | -------- | -------- | ----------------- |
+| C.pad.AnsiX923.pad   | Pads the data using the algorithm defined in AnsiX923.   | function | no       | yes               |
+| C.pad.AnsiX923.unpad | Unpads the data using the algorithm defined in AnsiX923. | function | no       | yes               |
 
 #### pad.Iso10126
 
@@ -291,10 +291,10 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                 | Description                                  | Type     | Required | HarmonyOS Support               |
-| -------------------- | -------------------------------------------- | -------- | -------- | ------------------------------- |
-| C.pad.Iso10126.pad   | 使用Iso10126中定义的算法填充数据。           | function | no       | no (与android和ios一致均不支持) |
-| C.pad.Iso10126.unpad | 取消填充使用Iso10126中定义的算法填充的数据。 | function | no       | yes                             |
+| Name                 | Description                                              | Type     | Required | HarmonyOS Support            |
+| -------------------- | -------------------------------------------------------- | -------- | -------- | ---------------------------- |
+| C.pad.Iso10126.pad   | Pads the data using the algorithm defined in ISO10126.   | function | no       | no (same as Android and iOS) |
+| C.pad.Iso10126.unpad | Unpads the data using the algorithm defined in ISO10126. | function | no       | yes                          |
 
 #### pad.ZeroPadding
 
@@ -302,10 +302,10 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                    | Description                                     | Type     | Required | HarmonyOS Support |
-| ----------------------- | ----------------------------------------------- | -------- | -------- | ----------------- |
-| C.pad.ZeroPadding.pad   | 使用ZeroPadding中定义的算法填充数据。           | function | no       | yes               |
-| C.pad.ZeroPadding.unpad | 取消填充使用ZeroPadding中定义的算法填充的数据。 | function | no       | yes               |
+| Name                    | Description                                                 | Type     | Required | HarmonyOS Support |
+| ----------------------- | ----------------------------------------------------------- | -------- | -------- | ----------------- |
+| C.pad.ZeroPadding.pad   | Pads the data using the algorithm defined in ZeroPadding.   | function | no       | yes               |
+| C.pad.ZeroPadding.unpad | Unpads the data using the algorithm defined in ZeroPadding. | function | no       | yes               |
 
 #### pad.NoPadding
 
@@ -313,9 +313,9 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name            | Description      | Type | Required | HarmonyOS Support |
-| --------------- | ---------------- | ---- | -------- | ----------------- |
-| C.pad.NoPadding | 不使用填充规则。 | /    | no       | yes               |
+| Name            | Description               | Type | Required | HarmonyOS Support |
+| --------------- | ------------------------- | ---- | -------- | ----------------- |
+| C.pad.NoPadding | No padding rules is used. | /    | no       | yes               |
 
 #### algo
 
@@ -323,24 +323,24 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                    | Description                         | Type     | Required | HarmonyOS Support |
-| ----------------------- | ----------------------------------- | -------- | -------- | ----------------- |
-| C.algo.MD5.create       | 初始化MD5加密新创建的工具类。       | function | no       | yes               |
-| C.MD5                   | MD5加密。                           | function | no       | yes               |
-| C.algo.SHA1.create      | 初始化SHA1加密新创建的工具类。      | function | no       | yes               |
-| C.SHA1                  | SHA1加密。                          | function | no       | yes               |
-| C.algo.SHA256.create    | 初始化SHA256加密新创建的工具类。    | function | no       | yes               |
-| C.SHA256                | SHA256加密                          | function | no       | yes               |
-| C.algo.SHA224.create    | 初始化SHA224加密新创建的工具类。    | function | no       | yes               |
-| C.SHA224                | SHA224加密。                        | function | no       | yes               |
-| C.algo.SHA512.create    | 初始化SHA512加密新创建的工具类。    | function | no       | yes               |
-| C.SHA512                | SHA512加密。                        | function | no       | yes               |
-| C.algo.SHA3.create      | 初始化SHA3加密新创建的工具类。      | function | no       | yes               |
-| C.SHA3                  | SHA3加密。                          | function | no       | yes               |
-| C.algo.SHA384.create    | 初始化SHA384加密新创建的工具类。    | function | no       | yes               |
-| C.SHA384                | SHA384加密。                        | function | no       | yes               |
-| C.algo.RIPEMD160.create | 初始化RIPEMD160加密新创建的工具类。 | function | no       | yes               |
-| C.RIPEMD160             | RIPEMD160加密。                     | function | no       | yes               |
+| Name                    | Description                                                  | Type     | Required | HarmonyOS Support |
+| ----------------------- | ------------------------------------------------------------ | -------- | -------- | ----------------- |
+| C.algo.MD5.create       | Initializes the utility class created by MD5 encryption.     | function | no       | yes               |
+| C.MD5                   | Indicates the MD5 encryption.                                | function | no       | yes               |
+| C.algo.SHA1.create      | Initializes the utility class created by SHA1 encryption.    | function | no       | yes               |
+| C.SHA1                  | Indicates the SHA1 encryption.                               | function | no       | yes               |
+| C.algo.SHA256.create    | Initializes the utility class created by SHA256 encryption.  | function | no       | yes               |
+| C.SHA256                | Indicates the SHA256 encryption.                             | function | no       | yes               |
+| C.algo.SHA224.create    | Initializes the utility class created by SHA224 encryption.  | function | no       | yes               |
+| C.SHA224                | Indicates the SHA224 encryption.                             | function | no       | yes               |
+| C.algo.SHA512.create    | Initializes the utility class created by SHA512 encryption.  | function | no       | yes               |
+| C.SHA512                | Indicates the SHA512 encryption.                             | function | no       | yes               |
+| C.algo.SHA3.create      | Initializes the utility class created by SHA3 encryption.    | function | no       | yes               |
+| C.SHA3                  | Indicates the SHA3 encryption.                               | function | no       | yes               |
+| C.algo.SHA384.create    | Initializes the utility class created by SHA384 encryption.  | function | no       | yes               |
+| C.SHA384                | Indicates the SHA384 encryption.                             | function | no       | yes               |
+| C.algo.RIPEMD160.create | Initializes the utility class created by RIPEMD160 encryption. | function | no       | yes               |
+| C.RIPEMD160             | Indicates the RIPEMD160 encryption.                          | function | no       | yes               |
 
 #### Hasher
 
@@ -348,19 +348,19 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name      | Description                                            | Type   | Required | HarmonyOS Support |
-| --------- | ------------------------------------------------------ | ------ | -------- | ----------------- |
-| blockSize | 哈希运算的32位字节块大小。缺省值：16(32\*16=512bits)。 | number | no       | yes               |
+| Name      | Description                                                  | Type   | Required | HarmonyOS Support |
+| --------- | ------------------------------------------------------------ | ------ | -------- | ----------------- |
+| blockSize | Size of the 32-bit block for hashing. Default value: **16(32\*16=512 bits)**. | number | no       | yes               |
 
 **API**
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name     | Description            | Type     | Required | HarmonyOS Support |
-| -------- | ---------------------- | -------- | -------- | ----------------- |
-| reset    | 重置hasher为初始状态。 | function | no       | yes               |
-| update   | 更新hasher的信息。     | function | no       | yes               |
-| finalize | 结束hasher操作。       | function | no       | yes               |
+| Name     | Description                         | Type     | Required | HarmonyOS Support |
+| -------- | ----------------------------------- | -------- | -------- | ----------------- |
+| reset    | Resets Hasher to the initial state. | function | no       | yes               |
+| update   | Updates the Hasher information.     | function | no       | yes               |
+| finalize | Ends the Hasher operation.          | function | no       | yes               |
 
 #### HMAC
 
@@ -368,27 +368,27 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name               | Description          | Type     | Required | HarmonyOS Support |
-| :----------------- | -------------------- | -------- | -------- | ----------------- |
-| C.HmacMD5          | HmacMD5加密。        | function | no       | yes               |
-| C.HmacSHA1         | HmacSHA1加密。       | function | no       | yes               |
-| C.HmacSHA256       | HmacSHA256加密。     | function | no       | yes               |
-| C.HmacSHA224       | HmacSHA224加密。     | function | no       | yes               |
-| C.HmacSHA512       | HmacSHA512加密。     | function | no       | yes               |
-| C.HmacSHA384       | HmacSHA384加密。     | function | no       | yes               |
-| C.HmacSHA3         | HmacSHA3加密。       | function | no       | yes               |
-| C.HmacRIPEMD160    | HmacRIPEMD160加密。  | function | no       | yes               |
-| C.algo.HMAC.create | 初始化新创建的HMAC。 | function | no       | yes               |
+| Name               | Description                             | Type     | Required | HarmonyOS Support |
+| :----------------- | --------------------------------------- | -------- | -------- | ----------------- |
+| C.HmacMD5          | Indicates the HMAC-MD5 encryption.      | function | no       | yes               |
+| C.HmacSHA1         | Indicates the HMAC-SHA1 encryption.     | function | no       | yes               |
+| C.HmacSHA256       | Indicates the HMAC-SHA256 encryption.   | function | no       | yes               |
+| C.HmacSHA224       | Indicates the HMAC-SHA224 encryption.   | function | no       | yes               |
+| C.HmacSHA512       | Indicates the HMAC-SHA512 encryption.   | function | no       | yes               |
+| C.HmacSHA384       | Indicates the HMAC-SHA384 encryption.   | function | no       | yes               |
+| C.HmacSHA3         | Indicates the HMAC-SHA3 encryption.     | function | no       | yes               |
+| C.HmacRIPEMD160    | Indicates the HMACRIPEMD160 encryption. | function | no       | yes               |
+| C.algo.HMAC.create | Initializes newly created HMAC.         | function | no       | yes               |
 
 **API**
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name     | Description                                                                | Type     | Required | HarmonyOS Support |
-| :------- | -------------------------------------------------------------------------- | -------- | -------- | ----------------- |
-| reset    | 将此HMAC重置为其初始状态。                                                 | function | no       | yes               |
-| update   | 使用消息更新此HMAC。                                                       | function | no       | yes               |
-| finalize | 最终完成HMAC计算。 请注意，finally操作实际上是一个破坏性的、读一次的操作。 | function | no       | yes               |
+| Name     | Description                                                  | Type     | Required | HarmonyOS Support |
+| :------- | ------------------------------------------------------------ | -------- | -------- | ----------------- |
+| reset    | Resets this HMAC to its initial state.                       | function | no       | yes               |
+| update   | Updates this HMAC using a message.                           | function | no       | yes               |
+| finalize | Finalizes the HMAC calculation. Note that this is a destructive and read-once operation. | function | no       | yes               |
 
 #### AES
 
@@ -396,11 +396,11 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                       | Description                 | Type     | Required | HarmonyOS Support | Notes                                                                          |
-| :------------------------- | --------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------------------------ |
-| C.AES.encrypt              | AES算法加密。               | function | no       | partially         | 密码必须使用WordArray格式参数，不支持设置为string类型(与android/ios效果一致)。 |
-| C.AES.decrypt              | AES算法解密。               | function | no       | partially         | 密码必须使用WordArray格式参数，不支持设置为string类型(与android/ios效果一致)。 |
-| C.algo.AES.createEncryptor | 在AES加密模式下创建此密码。 | function | no       | yes               |                                                                                |
+| Name                       | Description                                | Type     | Required | HarmonyOS Support | Notes                                                        |
+| :------------------------- | ------------------------------------------ | -------- | -------- | ----------------- | ------------------------------------------------------------ |
+| C.AES.encrypt              | Encrypts using the AES algorithm.          | function | no       | partially         | The password must be in the **WordArray** format and cannot be set to the string type (same as Android and iOS). |
+| C.AES.decrypt              | Decrypts using the AES algorithm.          | function | no       | partially         | The password must be in the **WordArray** format and cannot be set to the string type (same as Android and iOS). |
+| C.algo.AES.createEncryptor | Creates a password in AES encryption mode. | function | no       | yes               |                                                              |
 
 #### DES
 
@@ -408,11 +408,11 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                       | Description                 | Type     | Required | HarmonyOS Support | Notes                                                                          |
-| :------------------------- | --------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------------------------ |
-| C.DES.encrypt              | DES算法加密。               | function | no       | partially         | 密码必须使用WordArray格式参数，不支持设置为string类型(与android/ios效果一致)。 |
-| C.DES.decrypt              | DES算法解密。               | function | no       | partially         | 密码必须使用WordArray格式参数，不支持设置为string类型(与android/ios效果一致)。 |
-| C.algo.DES.createEncryptor | 在DES加密模式下创建此密码。 | function | no       | yes               |                                                                                |
+| Name                       | Description                                | Type     | Required | HarmonyOS Support | Notes                                                        |
+| :------------------------- | ------------------------------------------ | -------- | -------- | ----------------- | ------------------------------------------------------------ |
+| C.DES.encrypt              | Encrypts using the DES algorithm.          | function | no       | partially         | The password must be in the **WordArray** format and cannot be set to the string type (same as Android and iOS). |
+| C.DES.decrypt              | Decrypts using the DES algorithm.          | function | no       | partially         | The password must be in the **WordArray** format and cannot be set to the string type (same as Android and iOS). |
+| C.algo.DES.createEncryptor | Creates a password in DES encryption mode. | function | no       | yes               |                                                              |
 
 #### TripleDES
 
@@ -420,11 +420,11 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                             | Description                       | Type     | Required | HarmonyOS Support | Notes                                                                          |
-| :------------------------------- | --------------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------------------------ |
-| C.TripleDES.encrypt              | TripleDES算法加密。               | function | no       | partially         | 密码必须使用WordArray格式参数，不支持设置为string类型(与android/ios效果一致)。 |
-| C.TripleDES.decrypt              | TripleDES算法解密。               | function | no       | partially         | 密码必须使用WordArray格式参数，不支持设置为string类型(与android/ios效果一致)。 |
-| C.algo.TripleDES.createEncryptor | 在TripleDES加密模式下创建此密码。 | function | no       | yes               |                                                                                |
+| Name                             | Description                                      | Type     | Required | HarmonyOS Support | Notes                                                        |
+| :------------------------------- | ------------------------------------------------ | -------- | -------- | ----------------- | ------------------------------------------------------------ |
+| C.TripleDES.encrypt              | Encrypts using the TripleDES algorithm.          | function | no       | partially         | The password must be in the **WordArray** format and cannot be set to the string type (same as Android and iOS). |
+| C.TripleDES.decrypt              | Decrypts using the TripleDES algorithm.          | function | no       | partially         | The password must be in the **WordArray** format and cannot be set to the string type (same as Android and iOS). |
+| C.algo.TripleDES.createEncryptor | Creates a password in TripleDES encryption mode. | function | no       | yes               |                                                              |
 
 #### RC4
 
@@ -432,11 +432,11 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                       | Description                 | Type     | Required | HarmonyOS Support | Notes                                                                          |
-| :------------------------- | --------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------------------------ |
-| C.RC4.encrypt              | RC4算法加密。               | function | no       | partially         | 密码必须使用WordArray格式参数，不支持设置为string类型(与android/ios效果一致)。 |
-| C.RC4.decrypt              | RC4算法解密。               | function | no       | partially         | 密码必须使用WordArray格式参数，不支持设置为string类型(与android/ios效果一致)。 |
-| C.algo.RC4.createEncryptor | 在RC4加密模式下创建此密码。 | function | no       | yes               |                                                                                |
+| Name                       | Description                                | Type     | Required | HarmonyOS Support | Notes                                                        |
+| :------------------------- | ------------------------------------------ | -------- | -------- | ----------------- | ------------------------------------------------------------ |
+| C.RC4.encrypt              | Encrypts using the RC4 algorithm.          | function | no       | partially         | The password must be in the **WordArray** format and cannot be set to the string type (same as Android and iOS). |
+| C.RC4.decrypt              | Decrypts using the RC4 algorithm.          | function | no       | partially         | The password must be in the **WordArray** format and cannot be set to the string type (same as Android and iOS). |
+| C.algo.RC4.createEncryptor | Creates a password in RC4 encryption mode. | function | no       | yes               |                                                              |
 
 #### RC4Drop
 
@@ -444,11 +444,11 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                          | Description                     | Type     | Required | HarmonyOS Support | Notes                                                                          |
-| :---------------------------- | ------------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------------------------ |
-| C.RC4Drop.encrypt             | RC4Drop算法加密。               | function | no       | partially         | 密码必须使用WordArray格式参数，不支持设置为string类型(与android/ios效果一致)。 |
-| C.RC4Drop.decrypt             | RC4Drop算法解密。               | function | no       | partially         | 密码必须使用WordArray格式参数，不支持设置为string类型(与android/ios效果一致)。 |
-| C.algo.RC4Drop.createEncrypto | 在RC4Drop加密模式下创建此密码。 | function | no       | yes               |                                                                                |
+| Name                          | Description                                    | Type     | Required | HarmonyOS Support | Notes                                                        |
+| :---------------------------- | ---------------------------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------ |
+| C.RC4Drop.encrypt             | Encrypts using the RC4Drop algorithm.          | function | no       | partially         | The password must be in the **WordArray** format and cannot be set to the string type (same as Android and iOS). |
+| C.RC4Drop.decrypt             | Decrypts using the RC4Drop algorithm.          | function | no       | partially         | The password must be in the **WordArray** format and cannot be set to the string type (same as Android and iOS). |
+| C.algo.RC4Drop.createEncrypto | Creates a password in RC4Drop encryption mode. | function | no       | yes               |                                                              |
 
 #### Rabbit
 
@@ -456,11 +456,11 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                          | Description                    | Type     | Required | HarmonyOS Support | Notes                                                                          |
-| :---------------------------- | ------------------------------ | -------- | -------- | ----------------- | ------------------------------------------------------------------------------ |
-| C.Rabbit.encrypt              | Rabbit算法加密。               | function | no       | partially         | 密码必须使用WordArray格式参数，不支持设置为string类型(与android/ios效果一致)。 |
-| C.Rabbit.decrypt              | Rabbit算法解密。               | function | no       | partially         | 密码必须使用WordArray格式参数，不支持设置为string类型(与android/ios效果一致)。 |
-| C.algo.Rabbit.createEncryptor | 在Rabbit加密模式下创建此密码。 | function | no       | yes               |                                                                                |
+| Name                          | Description                                   | Type     | Required | HarmonyOS Support | Notes                                                        |
+| :---------------------------- | --------------------------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------ |
+| C.Rabbit.encrypt              | Encrypts using the Rabbit algorithm.          | function | no       | partially         | The password must be in the **WordArray** format and cannot be set to the string type (same as Android and iOS). |
+| C.Rabbit.decrypt              | Decrypts using the Rabbit algorithm.          | function | no       | partially         | The password must be in the **WordArray** format and cannot be set to the string type (same as Android and iOS). |
+| C.algo.Rabbit.createEncryptor | Creates a password in Rabbit encryption mode. | function | no       | yes               |                                                              |
 
 #### RabbitLegacy
 
@@ -468,11 +468,11 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                                | Description                          | Type     | Required | HarmonyOS Support | Notes                                                                          |
-| :---------------------------------- | ------------------------------------ | -------- | -------- | ----------------- | ------------------------------------------------------------------------------ |
-| C.RabbitLegacy.encrypt              | RabbitLegacy算法加密。               | function | no       | partially         | 密码必须使用WordArray格式参数，不支持设置为string类型(与android/ios效果一致)。 |
-| C.RabbitLegacy.decrypt              | RabbitLegacy算法解密。               | function | no       | partially         | 密码必须使用WordArray格式参数，不支持设置为string类型(与android/ios效果一致)。 |
-| C.algo.RabbitLegacy.createEncryptor | 在RabbitLegacy加密模式下创建此密码。 | function | no       | yes               |                                                                                |
+| Name                                | Description                                         | Type     | Required | HarmonyOS Support | Notes                                                        |
+| :---------------------------------- | --------------------------------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------ |
+| C.RabbitLegacy.encrypt              | Encrypts using the RabbitLegacy algorithm.          | function | no       | partially         | The password must be in the **WordArray** format and cannot be set to the string type (same as Android and iOS). |
+| C.RabbitLegacy.decrypt              | Decrypts using the RabbitLegacy algorithm.          | function | no       | partially         | The password must be in the **WordArray** format and cannot be set to the string type (same as Android and iOS). |
+| C.algo.RabbitLegacy.createEncryptor | Creates a password in RabbitLegacy encryption mode. | function | no       | yes               |                                                              |
 
 #### Cipher
 
@@ -480,20 +480,20 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name    | Description                          | Type   | Required | HarmonyOS Support |
-| :------ | ------------------------------------ | ------ | -------- | ----------------- |
-| keySize | 此密码的密钥大小。缺省值：4（128位） | number | no       | yes               |
-| ivSize  | 此密码的Iv大小。缺省值：4（128位）   | number | no       | yes               |
+| Name    | Description                                               | Type   | Required | HarmonyOS Support |
+| :------ | --------------------------------------------------------- | ------ | -------- | ----------------- |
+| keySize | Key size of the password. Default value: **4 (128 bits)** | number | no       | yes               |
+| ivSize  | IV size of the password. Default value: **4 (128 bits)**  | number | no       | yes               |
 
 **API**
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name     | Description                                                                    | Type     | Required | HarmonyOS Support |
-| :------- | ------------------------------------------------------------------------------ | -------- | -------- | ----------------- |
-| reset    | 将此密码重置为其初始状态。                                                     | function | no       | yes               |
-| process  | 添加需要加解密的数据。                                                         | function | no       | yes               |
-| finalize | 完成加密或解密过程。 请注意，finally操作实际上是一个破坏性的、一次读取的操作。 | function | no       | yes               |
+| Name     | Description                                                  | Type     | Required | HarmonyOS Support |
+| :------- | ------------------------------------------------------------ | -------- | -------- | ----------------- |
+| reset    | Resets the password to the initial state.                    | function | no       | yes               |
+| process  | Adds data to be encrypted or decrypted.                      | function | no       | yes               |
+| finalize | Finalizes encryption or decryption. Note that this is a destructive and read-once operation. | function | no       | yes               |
 
 #### Blowfish
 
@@ -501,10 +501,10 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name               | Description    | Type     | Required | HarmonyOS Support |
-| :----------------- | -------------- | -------- | -------- | ----------------- |
-| C.Blowfish.encrypt | Blowfish加密。 | function | no       | yes               |
-| C.Blowfish.decrypt | Blowfish解密。 | function | no       | yes               |
+| Name               | Description                            | Type     | Required | HarmonyOS Support |
+| :----------------- | -------------------------------------- | -------- | -------- | ----------------- |
+| C.Blowfish.encrypt | Encrypts using the Blowfish algorithm. | function | no       | yes               |
+| C.Blowfish.decrypt | Decrypts using the Blowfish algorithm. | function | no       | yes               |
 
 #### SerializableCipher
 
@@ -512,10 +512,10 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                             | Description          | Type     | Required | HarmonyOS Support |
-| :------------------------------- | -------------------- | -------- | -------- | ----------------- |
-| C.lib.SerializableCipher.encrypt | 对信息进行加密。     | function | no       | yes               |
-| C.lib.SerializableCipher.decrypt | 对加密信息进行解密。 | function | no       | yes               |
+| Name                             | Description                         | Type     | Required | HarmonyOS Support |
+| :------------------------------- | ----------------------------------- | -------- | -------- | ----------------- |
+| C.lib.SerializableCipher.encrypt | Encrypts information.               | function | no       | yes               |
+| C.lib.SerializableCipher.decrypt | Decrypts the encrypted information. | function | no       | yes               |
 
 #### PasswordBasedCipher
 
@@ -523,10 +523,10 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                              | Description          | Type     | Required | HarmonyOS Support | Notes                                                                   |
-| :-------------------------------- | -------------------- | -------- | -------- | ----------------- | ----------------------------------------------------------------------- |
-| C.lib.PasswordBasedCipher.encrypt | 对信息进行加密。     | function | no       | partially         | 必须传入有效的salt参数，不传入salt参数时不支持(与android/ios效果一致)。 |
-| C.lib.PasswordBasedCipher.decrypt | 对加密信息进行解密。 | function | no       | partially         | 必须传入有效的salt参数，不传入salt参数时不支持(与android/ios效果一致)。 |
+| Name                              | Description                         | Type     | Required | HarmonyOS Support | Notes                                                        |
+| :-------------------------------- | ----------------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------ |
+| C.lib.PasswordBasedCipher.encrypt | Encrypts information.               | function | no       | partially         | A valid **salt** parameter must be passed in. Otherwise, the HarmonyOS platform does not support (same as Android and iOS). |
+| C.lib.PasswordBasedCipher.decrypt | Decrypts the encrypted information. | function | no       | partially         | A valid **salt** parameter must be passed in. Otherwise, the HarmonyOS platform does not support (same as Android and iOS). |
 
 #### kdf.OpenSSL
 
@@ -534,9 +534,9 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                  | Description          | Type     | Required | HarmonyOS Support | Notes                                                                   |
-| :-------------------- | -------------------- | -------- | -------- | ----------------- | ----------------------------------------------------------------------- |
-| C.kdf.OpenSSL.execute | 从密码派生密钥和IV。 | function | no       | partially         | 必须传入有效的salt参数，不传入salt参数时不支持(与android/ios效果一致)。 |
+| Name                  | Description                               | Type     | Required | HarmonyOS Support | Notes                                                        |
+| :-------------------- | ----------------------------------------- | -------- | -------- | ----------------- | ------------------------------------------------------------ |
+| C.kdf.OpenSSL.execute | Derives the key and IV from the password. | function | no       | partially         | A valid **salt** parameter must be passed in. Otherwise, the HarmonyOS platform does not support (same as Android and iOS). |
 
 #### kdf.PBKDF2
 
@@ -544,18 +544,18 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                 | Description                        | Type     | Required | HarmonyOS Support |
-| :------------------- | ---------------------------------- | -------- | -------- | ----------------- |
-| C.algo.PBKDF2.create | 初始化PBKDF2新创建的密钥推导函数。 | function | no       | yes               |
-| C.PBKDF2             | PBKDF2派生密钥。                   | function | no       | yes               |
+| Name                 | Description                                                | Type     | Required | HarmonyOS Support |
+| :------------------- | ---------------------------------------------------------- | -------- | -------- | ----------------- |
+| C.algo.PBKDF2.create | Initializes the key derivation function created by PBKDF2. | function | no       | yes               |
+| C.PBKDF2             | Derives key by PBKDF2.                                     | function | no       | yes               |
 
 **API**
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name    | Description                        | Type     | Required | HarmonyOS Support |
-| :------ | ---------------------------------- | -------- | -------- | ----------------- |
-| compute | 计算基于PBKDF2密码的密钥派生函数。 | function | no       | yes               |
+| Name    | Description                                                  | Type     | Required | HarmonyOS Support |
+| :------ | ------------------------------------------------------------ | -------- | -------- | ----------------- |
+| compute | Computes the key derivation function based on the PBKDF2 password. | function | no       | yes               |
 
 #### EvpKDF
 
@@ -563,19 +563,19 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                 | Description                        | Type     | Required | HarmonyOS Support |
-| :------------------- | ---------------------------------- | -------- | -------- | ----------------- |
-| C.algo.EvpKDF.create | 初始化EvpKDF新创建的密钥推导函数。 | function | no       | yes               |
-| C.EvpKDF             | EvpKDF派生密钥。                   | function | no       | yes               |
+| Name                 | Description                                                | Type     | Required | HarmonyOS Support |
+| :------------------- | ---------------------------------------------------------- | -------- | -------- | ----------------- |
+| C.algo.EvpKDF.create | Initializes the key derivation function created by EvpKDF. | function | no       | yes               |
+| C.EvpKDF             | Derives key by EvpKDF.                                     | function | no       | yes               |
 
 **API**
 
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name    | Description                        | Type     | Required | HarmonyOS Support |
-| :------ | ---------------------------------- | -------- | -------- | ----------------- |
-| compute | 计算基于EvpKDF密码的密钥派生函数。 | function | no       | yes               |
+| Name    | Description                                                  | Type     | Required | HarmonyOS Support |
+| :------ | ------------------------------------------------------------ | -------- | -------- | ----------------- |
+| compute | Computes the key derivation function based on the EvpKDF password. | function | no       | yes               |
 
 #### format
 
@@ -583,12 +583,12 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                       | Description                                 | Type     | Required | HarmonyOS Support |
-| :------------------------- | ------------------------------------------- | -------- | -------- | ----------------- |
-| C.format.OpenSSL.stringify | 将CipherParams对象转换为OpenSSL兼容字符串。 | function | no       | yes               |
-| C.format.OpenSSL.parse     | 将OpenSSL兼容字符串转换为CipherParams对象。 | function | no       | yes               |
-| C.format.Hex.stringify     | 将CipherParams对象转换为16进制字符串。      | function | no       | yes               |
-| C.format.Hex.parse         | 将16进制字符串转换为CipherParams对象。      | function | no       | yes               |
+| Name                       | Description                                                  | Type     | Required | HarmonyOS Support |
+| :------------------------- | ------------------------------------------------------------ | -------- | -------- | ----------------- |
+| C.format.OpenSSL.stringify | Converts the **CipherParams** object to an OpenSSL-compatible string. | function | no       | yes               |
+| C.format.OpenSSL.parse     | Converts an OpenSSL-compatible string to the **CipherParams** object. | function | no       | yes               |
+| C.format.Hex.stringify     | Converts the **CipherParams** object into a hexadecimal string. | function | no       | yes               |
+| C.format.Hex.parse         | Converts a hexadecimal string into the **CipherParams** object. | function | no       | yes               |
 
 #### enc/Encoder
 
@@ -596,24 +596,24 @@ import C from "crypto-js";
 
 > [!TIP] If the value of **HarmonyOS Support** is **yes**, it means that the HarmonyOS platform supports this property; **no** means the opposite; **partially** means some capabilities of this property are supported. The usage method is the same on different platforms and the effect is the same as that of iOS or Android.
 
-| Name                      | Description                           | Type     | Required | HarmonyOS Support |
-| :------------------------ | ------------------------------------- | -------- | -------- | ----------------- |
-| C.enc.Hex.stringify       | 将字节数组转换为十六进制字符串。      | function | no       | yes               |
-| C.enc.Hex.parse           | 将十六进制字符串转换为字节数组。      | function | no       | yes               |
-| C.enc.Latin1.stringify    | 将字节数组转换为Latin1格式字符串。    | function | no       | yes               |
-| C.enc.Latin1.parse        | 将Latin1格式字符串转换为字节数组。    | function | no       | yes               |
-| C.enc.Utf8.stringify      | 将字节数组转换为UTF-8格式字符串。     | function | no       | yes               |
-| C.enc.Utf8.parse          | 将UTF-8格式字符串转换为字节数组。     | function | no       | yes               |
-| C.enc.Utf16.stringify     | 将字节数组转换为UTF-16格式字符串。    | function | no       | yes               |
-| C.enc.Utf16.parse         | 将UTF-16格式字符串转换为字节数组。    | function | no       | yes               |
-| C.enc.Utf16BE.stringify   | 将字节数组转换为UTF-16 BE格式字符串。 | function | no       | yes               |
-| C.enc.Utf16BE.parse       | 将UTF-16 BE格式字符串转换为字节数组。 | function | no       | yes               |
-| C.enc.Utf16LE.stringify   | 将字节数组转换为UTF-16 LE格式字符串。 | function | no       | yes               |
-| C.enc.Utf16LE.parse       | 将UTF-16 LE格式字符串转换为字节数组。 | function | no       | yes               |
-| C.enc.Base64.stringify    | 将字节数组转换为Base64格式字符串。    | function | no       | yes               |
-| C.enc.Base64.parse        | 将Base64格式字符串转换为字节数组。    | function | no       | yes               |
-| C.enc.Base64url.stringify | 将字节数组转换为Base64url格式字符串。 | function | no       | yes               |
-| C.enc.Base64url.parse     | 将Base64url格式字符串转换为字节数组。 | function | no       | yes               |
+| Name                      | Description                                                | Type     | Required | HarmonyOS Support |
+| :------------------------ | ---------------------------------------------------------- | -------- | -------- | ----------------- |
+| C.enc.Hex.stringify       | Converts a byte array into a hexadecimal string.           | function | no       | yes               |
+| C.enc.Hex.parse           | Converts a hexadecimal string into a byte array.           | function | no       | yes               |
+| C.enc.Latin1.stringify    | Converts a byte array into an ISO-8859-1-encoded C string. | function | no       | yes               |
+| C.enc.Latin1.parse        | Converts an ISO-8859-1-encoded C string into a byte array. | function | no       | yes               |
+| C.enc.Utf8.stringify      | Converts a byte array into a UTF-8-encoded string.         | function | no       | yes               |
+| C.enc.Utf8.parse          | Converts a UTF-8-encoded string into a byte array.         | function | no       | yes               |
+| C.enc.Utf16.stringify     | Converts a byte array into a UTF-16-encoded string.        | function | no       | yes               |
+| C.enc.Utf16.parse         | Converts a UTF-16-encoded string into a byte array.        | function | no       | yes               |
+| C.enc.Utf16BE.stringify   | Converts a byte array into a UTF-16BE-encoded string.      | function | no       | yes               |
+| C.enc.Utf16BE.parse       | Converts a UTF-16BE-encoded string into a byte array.      | function | no       | yes               |
+| C.enc.Utf16LE.stringify   | Converts a byte array into a UTF-16LE-encoded string.      | function | no       | yes               |
+| C.enc.Utf16LE.parse       | Converts a UTF-16LE-encoded string into a byte array.      | function | no       | yes               |
+| C.enc.Base64.stringify    | Converts a byte array into a Base64-encoded string.        | function | no       | yes               |
+| C.enc.Base64.parse        | Converts a Base64-encoded string into a byte array.        | function | no       | yes               |
+| C.enc.Base64url.stringify | Converts a byte array into a Base64URL-encoded string.     | function | no       | yes               |
+| C.enc.Base64url.parse     | Converts a Base64URL-encoded string into a byte array.     | function | no       | yes               |
 
 ## Known Issues
 
@@ -621,4 +621,4 @@ import C from "crypto-js";
 
 ## License
 
-This project is licensed under [MIT License](https://github.com/brix/crypto-js/blob/4.2.0/LICENSE), Please enjoy and participate freely in open source.
+This project is licensed under [MIT License](https://github.com/brix/crypto-js/blob/4.2.0/LICENSE).

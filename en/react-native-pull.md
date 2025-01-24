@@ -18,7 +18,7 @@
 
 ## Installation and Usage
 
-Find the matching version information in the release address of a third-party library:[@react-native-oh-tpl/react-native-pull/releases](https://github.com/react-native-oh-library/react-native-pull/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
+Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-pull/releases](https://github.com/react-native-oh-library/react-native-pull/releases). For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
 Go to the project directory and execute the following instruction:
 
@@ -88,16 +88,16 @@ const onPullRelease = (resolve) => {
      }, 3000);
  };
  const onPushing = (gesturePosition) => {
-     testObj.pushing= 'x:' + gesturePosition.x + '------' + 'y：' + gesturePosition.y
+     testObj.pushing = 'x:' + gesturePosition.x + '------' + 'y: ' + gesturePosition.y
      setData(testObj)
  };
 	const topIndicatorRender = (pulling, pullok, pullrelease) => {
      if (pulling) {
-         setCount('下拉刷新pulling...')
+         setCount('Pull-to-refresh: pulling...')
      } else if (pullok) {
-         setCount('松开刷新pullok......')
+         setCount('Release-to-refresh: pullok...')
      } else if (pullrelease) {
-         setCount('玩命刷新中pullrelease......')
+         setCount('Refreshing: pullrelease...')
      }
 		return (
          <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: 60}}>
@@ -297,17 +297,17 @@ const PullListDemo = () => {
 
 
     const onPushing = (gesturePosition) => {
-        testObj.pushing= 'x:' + gesturePosition.x + '------' + 'y：' + gesturePosition.y
+        testObj.pushing = 'x:' + gesturePosition.x + '------' + 'y: ' + gesturePosition.y
         setData(testObj)
     };
 
     const topIndicatorRender = (pulling, pullok, pullrelease) => {
       if (pulling) {
-          setCount('当前PullList状态: pulling...')
+          setCount('Current PullList state: pulling...')
       } else if (pullok) {
-          setCount('当前PullList状态: pullok......')
+          setCount('Current PullList state: pullok...')
       } else if (pullrelease) {
-          setCount('当前PullList状态: pullrelease......')
+          setCount('Current PullList state: pullrelease...')
       }
 
   return (
@@ -447,18 +447,18 @@ Check the release version information in the release address of the third-party 
 
 **`PullView` & `PullList` Pull down effect attribute**
 
-| Name                 | Description                                                                                                                                                                | Type     | Required | Platform    | HarmonyOS Support |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ----------- | ----------------- |
-| `style`              | 设置组件样式，比如可以设置width/height/backgroudColor等                                                                                                                    | Style    | no       | android,ios | yes               |
-| `onPulling`          | 处于`pulling`状态时执行的方法                                                                                                                                              | function | no       | android,ios | yes               |
-| `onPullOk`           | 处于`pullok`状态时执行的方法                                                                                                                                               | function | no       | android,ios | yes               |
-| `onPullRelease`      | 处于`pullrelease`状态时执行的方法，接受一个参数：`resolve`，最后执行完操作后应该调用`resolve()`。                                                                          | function | no       | android,ios | yes               |
-| `onPushing`          | 当从下往上推时执行的方法，接受一个参数：`gesturePosition`。gesturePosition是json格式{x, y}对象，当从上往下拉时gesturePosition.y > 0，当从下往上推时gesturePosition.y < 0。 | function | no       | android,ios | yes               |
-| `topIndicatorRender` | 顶部刷新指示组件的渲染方法, 接受4个参数: `ispulling`, `ispullok`, `ispullrelease`，`gesturePosition`，你可以使用`gesturePosition`定义动画头部。                            | function | no       | android,ios | yes               |
-| `topIndicatorHeight` | 顶部刷新指示组件的高度, 若定义了topIndicatorRender则同时需要此属性                                                                                                         | number   | no       | android,ios | yes               |
-| `isPullEnd`          | 是否已经下拉结束，若为true则隐藏顶部刷新指示组件，非必须                                                                                                                   | boolean  | no       | android,ios | yes               |
-| `onRefresh`          | 开始刷新时调用的方法                                                                                                                                                       | function | no       | android,ios | yes               |
-| `refreshing`         | 指示是否正在刷新                                                                                                                                                           | function | no       | android,ios | yes               |
+| Name                 | Description                                                  | Type     | Required | Platform    | HarmonyOS Support |
+| -------------------- | ------------------------------------------------------------ | -------- | -------- | ----------- | ----------------- |
+| `style`              | Sets the component style, such as width, height, and background color. | Style    | no       | android,ios | yes               |
+| `onPulling`          | Called when the component is in the **pulling** state.       | function | no       | android,ios | yes               |
+| `onPullOk`           | Called when the component is in the **pullok** state.        | function | no       | android,ios | yes               |
+| `onPullRelease`      | Called when the component is in the **pullrelease** state. This function contains the **resolve **parameter. You should call **resolve()** at the end. | function | no       | android,ios | yes               |
+| `onPushing`          | Called when the component is in the **pushing** state. This function contains the **gesturePosition** parameter, which is a **{x, y}** object in JSON format. When the component is pulled from top to bottom, the value of **gesturePosition.y** is greater than 0. When the object is pushed from bottom to top, the value of **gesturePosition.y** is less than 0. | function | no       | android,ios | yes               |
+| `topIndicatorRender` | Renders the top indicator component. This function contains four parameters: **ispulling**, **ispullok**, **ispullrelease** and **gesturePosition**. You can use **gesturePosition** to define the animation header. | function | no       | android,ios | yes               |
+| `topIndicatorHeight` | Specifies the height of the top indicator component. This property is necessary when **topIndicatorRender** is defined. | number   | no       | android,ios | yes               |
+| `isPullEnd`          | Indicates whether the pull-down ends. If the value is **true**, the top indicator component is hidden. This parameter is optional. | boolean  | no       | android,ios | yes               |
+| `onRefresh`          | Called when the refresh starts.                              | function | no       | android,ios | yes               |
+| `refreshing`         | Indicates whether the component is being refreshed.          | function | no       | android,ios | yes               |
 
 ## Known Issues
 

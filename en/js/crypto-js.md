@@ -70,13 +70,13 @@ function CryptoJSDemo() {
   }
 
   function testAESEncrypt() {
-    let encrypted = CryptoJS.AES.encrypt(CryptoJS.enc.Hex.parse('48656c6c6f576f726c6421'), CryptoJS.enc.Hex.parse('000102030405060708090a0b0c0d0e0f'), { mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.NoPadding });
+    let encrypted = CryptoJS.AES.encrypt(CryptoJS.enc.Hex.parse('48656c6c6f576f726c6421'), CryptoJS.enc.Hex.parse('000102030405060708090a0b0c0d0e0f'), { mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.PKcs7 });
     setResult('testAESEncrypt result: ' + encrypted.toString());
   }
 
   function testAESDecrypt() {
-    let encrypted = CryptoJS.AES.encrypt(CryptoJS.enc.Hex.parse('48656c6c6f576f726c6421'), CryptoJS.enc.Hex.parse('000102030405060708090a0b0c0d0e0f'), { mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.NoPadding });
-    let decrypted = CryptoJS.AES.decrypt(encrypted, CryptoJS.enc.Hex.parse('000102030405060708090a0b0c0d0e0f'), { mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.NoPadding });
+    let encrypted = CryptoJS.AES.encrypt(CryptoJS.enc.Hex.parse('48656c6c6f576f726c6421'), CryptoJS.enc.Hex.parse('000102030405060708090a0b0c0d0e0f'), { mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.PKcs7 });
+    let decrypted = CryptoJS.AES.decrypt(encrypted, CryptoJS.enc.Hex.parse('000102030405060708090a0b0c0d0e0f'), { mode: CryptoJS.mode.ECB, padding: CryptoJS.pad.PKcs7 });
     setResult('testAESDecrypt result: ' + decrypted.toString());
   }
 

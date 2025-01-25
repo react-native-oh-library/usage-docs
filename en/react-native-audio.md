@@ -270,7 +270,7 @@ Open the `entry/src/main/ets/RNPackagesFactory.ts` file and add the following co
 
 ```diff
   ...
-+ import {AudioPackage} from '@react-native-oh-tpl/react-native-audio/ts';
++ import {AudioPackage} from '@react-native-ohos/react-native-audio/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [

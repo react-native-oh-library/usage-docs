@@ -270,7 +270,7 @@ std::vector<std::shared_ptr<Package>> PackageProvider::getPackages(Package::Cont
 
 ```diff
   ...
-+ import {AudioPackage} from '@react-native-oh-tpl/react-native-audio/ts';
++ import {AudioPackage} from '@react-native-ohos/react-native-audio/ts';
 
 export function createRNPackages(ctx: RNPackageContext): RNPackage[] {
   return [

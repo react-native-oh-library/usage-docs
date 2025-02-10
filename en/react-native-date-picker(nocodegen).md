@@ -289,6 +289,7 @@ Check the release version information in the release address of the third-party 
 - [ ] Property is24hourSource is not supported。[issue#30](https://github.com/react-native-oh-library/react-native-date-picker/issues/30)
 - [ ] Property minuteInterval is not supported。[issue#34](https://github.com/react-native-oh-library/react-native-date-picker/issues/34)
 ## Others
+- The third-party library encapsulates the ArkUI DatePicker component, and there are some anomalies. Please refer to the [Official Description]( https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V13/ts-basic-components-datepicker-V13#datepickeroptions%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E)， Dates that slide out of the set range will not bounce back until the trailing animation property ends.
 
 ## License
 

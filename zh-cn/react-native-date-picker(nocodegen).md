@@ -290,7 +290,7 @@ ohpm install
 - [ ]  不支持is24hourSource属性。[issue#30](https://github.com/react-native-oh-library/react-native-date-picker/issues/30)
 - [ ]  不支持minuteInterval属性。[issue#34](https://github.com/react-native-oh-library/react-native-date-picker/issues/34)
 ## 其他
-
+- 该三方库封装了 ArkUI DatePicker 组件，存在某些异常情形，请参考查阅[官方说明](https://developer.huawei.com/consumer/cn/doc/harmonyos-references-V13/ts-basic-components-datepicker-V13#datepickeroptions%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E)，滑出设置范围的日期需要等会有拖尾动画属性结束才会回弹。
 ## 开源协议
 
 本项目基于 [The MIT License (MIT)](https://github.com/henninghall/react-native-date-picker/blob/master/LICENSE) ，请自由地享受和参与开源。

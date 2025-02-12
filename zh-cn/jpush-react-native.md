@@ -180,8 +180,8 @@ ohpm install
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | -------------------- | ------------------- | ------ | ------ | ---------- | ----------- |
-|   setLoggerEnable(enable: boolean): void  |   设置调试模式，默认关闭状态，RN侧调用不起作用，请按照[极光推送SDK-HarmonyOS集成指南](https://docs.jiguang.cn/jpush/client/HarmonyOS/hmos_guide)调用    | function   | no | iOS,Android      | yes |
-|  init(params: {appKey: string;channel:string;production:string;}): void  |初始化极光推送，RN侧调用不起作用，请按照[极光推送SDK-HarmonyOS集成指南](https://docs.jiguang.cn/jpush/client/HarmonyOS/hmos_guide)文档中集成调用  |  function   | yes | iOS,Android      | yes |
+|   setLoggerEnable(enable: boolean): void  |   设置调试模式，默认关闭状态   | function   | no | iOS,Android      | yes |
+|  init(params: {appKey: string;channel:string;production:string;}): void  | 初始化极光推送  |  function   | yes | iOS,Android      | yes |
 |  getRegistrationID(callback: Callback<{ registerID: string }>): void  |  调用此 API 来取得应用程序对应的 RegistrationID。   | function   | no | iOS,Android      | yes |
 |  addTags(params: {"sequence":number,"tags":string[]}): void  |   新增标签   |function   | no | iOS,Android      | yes |
 |   updateTags(params: {"sequence":number,"tags":string[]}): void  | 覆盖标签  | function   | no | iOS,Android      |yes |

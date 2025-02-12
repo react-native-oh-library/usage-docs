@@ -177,8 +177,8 @@ Check the release version information in the release address of the third-party 
 
 | Name | Description | Type | Required | Platform | HarmonyOS Support  |
 | -------------------- | ------------------- | ------ | ------ | ---------- | ----------- |
-|   setLoggerEnable(enable: boolean): void  |   To set the debug mode, which is disabled by default, and if the RN (React Native) side configuration does not work, please follow the [ JPush SDK-HarmonyOS Integration Guide](https://docs.jiguang.cn/jpush/client/HarmonyOS/hmos_guide)for proper setup.    | function   | no | iOS,Android      | yes |
-|  init(params: {appKey: string;channel:string;production:string;}): void  |If the initialization of JPush on the RN (React Native) side is not working, please follow the integration instructions provided in the[JPush SDK-HarmonyOS Integration Guide](https://docs.jiguang.cn/jpush/client/HarmonyOS/hmos_guide)to properly set it up.  |  function   | yes | iOS,Android      | yes |
+|   setLoggerEnable(enable: boolean): void  |   To set the debug mode, which is disabled by default    | function   | no | iOS,Android      | yes |
+|  init(params: {appKey: string;channel:string;production:string;}): void  | Initialize push  |  function   | yes | iOS,Android      | yes |
 |  getRegistrationID(callback: Callback<{ registerID: string }>): void  |  Retrieve the RegistrationID corresponding to the application  | function   | no | iOS,Android      | yes |
 |  addTags(params: {"sequence":number,"tags":string[]}): void  |   Add a tag   |function   | no | iOS,Android      | yes |
 |   updateTags(params: {"sequence":number,"tags":string[]}): void  | Overwrite tags  | function   | no | iOS,Android      |yes |

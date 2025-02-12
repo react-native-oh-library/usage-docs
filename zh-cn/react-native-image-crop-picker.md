@@ -963,18 +963,19 @@ export default class ImageEditAbility extends UIAbility {
 
 **(2)在 entry/src/main/module.json5 注册 ImageEditAbility**
 
-```
-"abilities":[{
-        "name": "ImageEditAbility",
-        "srcEntry": "./ets/entryability/ImageEditAbility.ets",
-        "description": "$string:EntryAbility_desc",
-        "icon": "$media:icon",
-        "startWindowIcon": "$media:startIcon",
-        "startWindowBackground": "$color:start_window_background",
-        "removeMissionAfterTerminate": true,
+```diff
+"abilities":[
+    ...
++    {
++        "name": "ImageEditAbility",
++        "srcEntry": "./ets/entryability/ImageEditAbility.ets",
++        "description": "$string:EntryAbility_desc",
++        "icon": "$media:icon",
++        "startWindowIcon": "$media:startIcon",
++        "startWindowBackground": "$color:start_window_background",
++        "removeMissionAfterTerminate": true,
++ }
 
-}
-...
 ]
 
 ```

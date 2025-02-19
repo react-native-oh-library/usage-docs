@@ -18,6 +18,8 @@
 
 Find the matching version information in the release address of a third-party library: [@react-native-oh-tpl/react-native-fast-image Releases](https://github.com/react-native-oh-library/react-native-fast-image/releases).For older versions that are not published to npm, please refer to the [installation guide](/en/tgz-usage-en.md) to install the tgz package.
 
+>[! Warning] The react native fast image component will default to enabling app.setImangeCacheCount to request memory during runtime, which can be disabled by assigning the value IsSetImageRawDataCacheSize. If you want to set other values for app.setImangeCacheCount, you can also add memory requests for system.app in your own business logic.
+
 Go to the project directory and execute the following instruction:
 
 

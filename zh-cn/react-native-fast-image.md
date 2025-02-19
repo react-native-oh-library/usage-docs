@@ -18,6 +18,8 @@
 
 请到三方库的 Releases 发布地址查看配套的版本信息：[@react-native-oh-tpl/react-native-fast-image Releases](https://github.com/react-native-oh-library/react-native-fast-image/releases) 。对于未发布到npm的旧版本，请参考[安装指南](/zh-cn/tgz-usage.md)安装tgz包。
 
+> [!WARNING] react-native-fast-image组件在运行时会默认开启app.setImangeCacheCount 申请内存，可以通过IsSetImageRawDataCacheSize赋值进行关闭，如果想设置app.setImangeCacheCount其他值，也可以在自己的业务逻辑添加system.app的内存申请。
+
 进入到工程目录并输入以下命令：
 
 <!-- tabs:start -->

@@ -352,6 +352,8 @@ Open entry/src/main/module.json5 and add the following information:
 
 ## Others
 
+If certificate locking is used, the certificate needs to be built into the rawfile folder in the entry directory.
+
 ## License
 
 This project is licensed under [The MIT License (MIT)](https://github.com/MaxToyberman/react-native-ssl-pinning/blob/master/LICENSE)

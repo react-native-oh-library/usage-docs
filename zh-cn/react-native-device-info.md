@@ -209,6 +209,7 @@ ohpm install
 | getLastUpdateTime  | Gets the time at which the app was last updated, in milliseconds.        | Promise<number>  | yes | Android      | yes |
 | getMacAddress  | Gets the network adapter MAC address.        | Promise<string>  | yes | IOS/Android/visionOS      | no |
 | getManufacturer  | Gets the device manufacturer.        | Promise<string>  | yes | IOS/Android/visoinOS      | yes |
+| getManufacturerSync  | Gets the device manufacturer.        | string  | yes | IOS/Android/visoinOS      | yes |
 | getMaxMemory  | Returns the maximum amount of memory that the VM will attempt to use, in bytes.        | Promise<number>  | yes | Android/Windows/Web      | no |
 | getModel  | Gets the device model.     | string  | yes | IOS/Android      | yes |
 | getPowerState  | Gets the power state of the device including the battery level, whether it is plugged in, and if the system is currently operating in low power mode.    | Promise<object>  | yes | IOS/Android/Windows/Web/visionOS      | yes |

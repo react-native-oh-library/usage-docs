@@ -19,6 +19,7 @@
 - Codegen ：三方库大部分适配了 Codegen ，在使用前需要主动执行生成三方库桥接代码，详细请参考[Codegen 使用文档](/zh-cn/codegen.md)。
 - C-API 架构：三方库后续只基于 RN C-API 架构演进，详细介绍请参考 [C-API 架构](zh-cn/capi-architecture.md) 。
 - RN 三方库补丁化移植：为避免对三方库其他平台产生影响，移植使用了补丁化移植，详细介绍请参考 [RN 三方库补丁化移植](zh-cn/patch.md) 。
+- RN框架 release包：本文档针对RN框架源码包使用说明，使用react_native_openharmony-xxx-release.har包时，还需要额外配置`target_compile_options`，详细介绍请参考 [release包使用说明](https://gitcode.com/openharmony-sig/ohos_react_native/blob/master/docs/zh-cn/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.md#release%E5%8C%85%E4%BD%BF%E7%94%A8) 。
 
 ## RNOH 三方库总览
 

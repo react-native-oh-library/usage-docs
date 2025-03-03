@@ -19,6 +19,7 @@ You can evaluate existing documentation, make simple changes, report quality iss
 - Codegen: Most third-party libraries have adapted to Codegen, and you need to proactively execute the generation of bridging code for these libraries before use. For more details, refer to the [Codegen Documentation](/en/codegen.md).
 - C-API Architecture: Third-party libraries will evolve based solely on the RN C-API architecture. For a detailed introduction, please refer to [C-API Architecture](/en/capi-architecture.md).
 - RN Third-Party Library Patch Migration: To avoid impacting other platforms of the third-party libraries, migration is performed using patching. For more details, refer to [RN Third-Party Library Patch Migration](/en/patch.md).
+- RN framework release package: This document describes the use of the RN framework source package. When using the react_native_openharmony-xxx-release.har package, you also need to configure 'target_compile_options'. For details, please refer to [Release Package Instructions](https://gitcode.com/openharmony-sig/ohos_react_native/blob/master/docs/zh-cn/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.md#release%E5%8C%85%E4%BD%BF%E7%94%A8).
 
 ## Overview of RNOH Third-Party Libraries
 

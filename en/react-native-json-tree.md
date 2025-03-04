@@ -283,13 +283,15 @@ For details, see [react-native-json-tree docs](https://github.com/Dean177/react-
 | `valueRenderer`    | `Rendering function for custom node values`.                 | `()=>void`   | No       | All      | Yes               |
 | `sortObjectKeys`   | `Sort the keys of JSON objects`.                             | `()=>void`   | No       | All      | Yes               |
 | `keyPath`          | `A data node used to identify and customize a specific path in a JSON tree`. | `['']`       | No       | All      | Yes               |
-| `collectionLimit`  | `Use to control the maximum number of elements of a collection displayed in a JSON tree`. | `number`     | No       | All      | Yes               |
+| `collectionLimit`  | `Use to control the maximum number of elements of a collection displayed in a JSON tree`. | `number`     | No       | All      | No                |
 | `postprocessValue` | `For customizing values before they are rendered`.           | `()=>void`   | No       | All      | Yes               |
 | `isCustomNode`     | `Specify which nodes should use custom rendered properties.` | `()=>bool`   | No       | All      | Yes               |
 
 ## Known Issues
 
 ## Others
+
+-The collectionLimit attribute of JSONTree component does not take effect, which is consistent with iOS [issue # 163](https://github.com/Dean177/react-native-json-tree/issues/163)
 
 ## License
 

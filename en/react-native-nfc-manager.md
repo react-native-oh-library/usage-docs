@@ -20,18 +20,18 @@ Find the matching version information in the release address of a third-party li
 
 Go to the project directory and execute the following instruction:
 
-> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
+
 
 #### **npm**
 
 ```
-npm install @react-native-oh-tpl/react-native-nfc-manager@file:#
+npm install @react-native-oh-tpl/react-native-nfc-manager
 ```
 
 #### **yarn**
 
 ```
-yarn add @react-native-oh-tpl/react-native-nfc-manager@file:#
+yarn add @react-native-oh-tpl/react-native-nfc-manager
 ```
 
 The following code shows the basic use scenario of the repository:

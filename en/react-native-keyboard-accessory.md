@@ -21,18 +21,18 @@ Find the matching version information in the release address of a third-party li
 
 Go to the project directory and execute the following instruction:
 
-> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).。
+。
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-keyboard-accessory@file:#
+npm install @react-native-oh-tpl/react-native-keyboard-accessory
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-keyboard-accessory@file:#
+yarn add @react-native-oh-tpl/react-native-keyboard-accessory
 ```
 
 The following code shows the basic use scenario of the repository:

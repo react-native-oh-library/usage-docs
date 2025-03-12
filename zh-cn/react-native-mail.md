@@ -22,20 +22,20 @@
 
 进入到工程目录并输入以下命令：
 
-> [!TIP] # 处替换为 tgz 包的路径
+
 
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-mail@file:#
+npm install @react-native-oh-tpl/react-native-mail
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-mail@file:#
+yarn add @react-native-oh-tpl/react-native-mail
 ```
 
 <!-- tabs:end -->

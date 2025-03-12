@@ -20,20 +20,20 @@ Find the matching version information in the release address of a third-party li
 
 Go to the project directory and execute the following instruction:
 
-> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
+
 
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-sticky-parallax-header@file:#
+npm install @react-native-oh-tpl/react-native-sticky-parallax-header
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-sticky-parallax-header@file:#
+yarn add @react-native-oh-tpl/react-native-sticky-parallax-header
 ```
 
 <!-- tabs:end -->

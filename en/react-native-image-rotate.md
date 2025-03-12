@@ -21,7 +21,7 @@ Find the matching version information in the release address of a third-party li
 
 Go to the project directory and execute the following instruction:
 
-> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
+
 
 <!-- tabs:start -->
 
@@ -30,13 +30,13 @@ Go to the project directory and execute the following instruction:
 #### npm
 
 ```bash
-npm install @react-native-oh-tpl/react-native-image-rotate@file:#
+npm install @react-native-oh-tpl/react-native-image-rotate
 ```
 
 #### yarn
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-image-rotate@file:#
+yarn add @react-native-oh-tpl/react-native-image-rotate
 ```
 
 The following code shows the basic use scenario of the repository:

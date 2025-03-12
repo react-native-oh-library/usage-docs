@@ -30,13 +30,13 @@ Go to the project directory and execute the following instruction:
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-image-header-scroll-view@file:#
+npm install @react-native-oh-tpl/react-native-image-header-scroll-view
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-image-header-scroll-view@file:#
+yarn add @react-native-oh-tpl/react-native-image-header-scroll-view
 ```
 
 <!-- tabs:end -->

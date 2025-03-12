@@ -18,7 +18,7 @@
 
 Go to the project directory and execute the following instruction:
 
-> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
+
 
 <!-- tabs:start -->
 

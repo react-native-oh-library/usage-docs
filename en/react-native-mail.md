@@ -22,20 +22,20 @@ Find the matching version information in the release address of a third-party li
 
 Go to the project directory and execute the following instruction:
 
-> [!TIP] Replace the content with the path of the .tgz package at the comment sign (#).
+
 
 <!-- tabs:start -->
 
 #### **npm**
 
 ```bash
-npm install @react-native-oh-tpl/react-native-mail@file:#
+npm install @react-native-oh-tpl/react-native-mail
 ```
 
 #### **yarn**
 
 ```bash
-yarn add @react-native-oh-tpl/react-native-mail@file:#
+yarn add @react-native-oh-tpl/react-native-mail
 ```
 
 <!-- tabs:end -->

@@ -53,6 +53,7 @@ import DeviceInfo from 'react-native-device-info';
   DeviceInfo.getBrand();
   DeviceInfo.getModel();
   DeviceInfo.getDeviceType();
+  DeviceInfo.getDeviceNameSync();
 ```
 ## 使用 Codegen
 
@@ -192,6 +193,7 @@ ohpm install
 | getDeviceType  | TReturns the device's type as a string     | string  | yes | IOS/Android/visionOS      | yes |
 | getDisplay  | A build ID string meant for displaying to the user.     | Promise<string>  | yes | Android      | yes |
 | getDeviceName  | Gets the device name.        | Promise<string>  | yes | IOS/Android/Windows/visionOS      | yes |
+| getDeviceNameSync  | Gets the device name.      | string  | yes | IOS/Android/Windows/visionOS      | yes |
 | getDeviceToken  | Gets the device token (see DeviceCheck). Only available for iOS 11.0+ on real devices. This will reject the promise when getDeviceToken is not supported, be careful with exception handling.       | Promise<string>  | yes | IOS/visionOS      | no |
 | getFirstInstallTime  | Gets the time at which the app was first installed, in milliseconds.         | Promise<number>  | yes | IOS/Android/Windows/visionOS      | yes |
 | getFingerprint  | A string that uniquely identifies this build.         | Promise<string>  | yes | Windows      | no |

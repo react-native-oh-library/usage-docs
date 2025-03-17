@@ -237,7 +237,7 @@ Open `entry/oh-package.json5` file and add the following dependencies:
 ```json
 "dependencies": {
     "@rnoh/react-native-openharmony": "file:../react_native_openharmony",
-    "@react-native-oh-tpl/react-native-shared-element": "file:../../node_modules/@react-native-oh-tpl/react-native-shared-element/harmony/shared-element.har"
+    "@react-native-oh-tpl/react-native-shared-element": "file:../../node_modules/@react-native-oh-tpl/react-native-shared-element/harmony/shared_element.har"
   }
 ```
 

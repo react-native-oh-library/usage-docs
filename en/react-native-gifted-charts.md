@@ -767,10 +767,10 @@ For details, see [react-native-gifted-charts](https://github.com/Abhinandan-Kush
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
 | areaChart | If set true, renders area chart instead of line chart | boolean| no | all | yes
 | areaChart1 | If set true, renders area chart for 1st data set instead of line chart | boolean | no | no | no
-| areaChart2 | If set true, renders area chart for 2nd data set instead of line chartt | boolean | no | no | no
-| areaChart3 | If set true, renders area chart for 3rd data set instead of line chartt | boolean | no | no | no
-| areaChart4 | If set true, renders area chart for 4th data set instead of line chartt | boolean | no | no | no
-| areaChart5 | If set true, renders area chart for 5th data set instead of line chartt | boolean | no | no | no
+| areaChart2 | If set true, renders area chart for 2nd data set instead of line chart | boolean | no | no | no
+| areaChart3 | If set true, renders area chart for 3rd data set instead of line chart | boolean | no | no | no
+| areaChart4 | If set true, renders area chart for 4th data set instead of line chart | boolean | no | no | no
+| areaChart5 | If set true, renders area chart for 5th data set instead of line chart | boolean | no | no | no
 | startFillColor | Start gradient color for the area chart | ColorValue | no | all | yes
 | endFillColor | End gradient color for the area chart | ColorValue | no | all | yes
 | startOpacity | Start gradient opacity for the area chart | number | no | all | yes

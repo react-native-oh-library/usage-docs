@@ -354,7 +354,7 @@ Check the release version information in the release address of the third-party 
 | shareMusic(ShareMusicMetadata)                | Share Music           | Function | no       | Android/iOS | no                |
 | shareVideo(ShareVideoMetadata)                | Share Video           | Function | no       | Android/iOS | no                |
 | shareWebpage (ShareWebpageMetadata)           | Share Webpage           | Function | no       | Android/iOS | no                |
-| shareMiniProgram(ShareMiniProgramMetadata)    | Share MiniProgram         | Function | no       | Android/iOS | no                |
+| shareMiniProgram(ShareMiniProgramMetadata)    | Share MiniProgram         | Function | no       | Android/iOS | partially                |
 | launchMiniProgram (LaunchMiniProgramMetadata) | Launch MiniProgram         | Function | no       | Android/iOS | yes               |
 | chooseInvoice (ChooseInvoice)                 | Select invoice           | Function | no       | Android/iOS | no                |
 | pay(payload)                                  | pay               | Function | no       | Android/iOS | yes               |
@@ -365,8 +365,8 @@ One-time subscription to messages     | Function | no       | Android/iOS | no  
 
 ## Others
 
-- ShareText、ShareImage、ShareLocalImage: Only sharing is supported, collection is not supported, because the WeChat Open SDK currently does not support collection on the HarmonyOS platform.
-- isWXAppSupportApi、getApiVersion、ShareFile、ShareMusic、ShareVideo、ShareWebpage 、ShareMiniProgram、ChooseInvoice、subscribeMessage. These interfaces are currently not supported by HarmonyOS WeChat Open SDK.
+- ShareText、ShareImage、ShareLocalImage、ShareMiniProgram: Only sharing is supported, collection is not supported, because the WeChat Open SDK currently does not support collection on the HarmonyOS platform.
+- isWXAppSupportApi、getApiVersion、ShareFile、ShareMusic、ShareVideo、ShareWebpage、ChooseInvoice、subscribeMessage. These interfaces are currently not supported by HarmonyOS WeChat Open SDK.
 
 ## License
 

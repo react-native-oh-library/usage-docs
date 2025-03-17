@@ -357,7 +357,7 @@ ohpm install
 | shareMusic(ShareMusicMetadata)                | 分享音频           | Function | no       | Android/iOS | no                |
 | shareVideo(ShareVideoMetadata)                | 分享视频           | Function | no       | Android/iOS | no                |
 | shareWebpage (ShareWebpageMetadata)           | 分享网页           | Function | no       | Android/iOS | no                |
-| shareMiniProgram(ShareMiniProgramMetadata)    | 分享小程序         | Function | no       | Android/iOS | no                |
+| shareMiniProgram(ShareMiniProgramMetadata)    | 分享小程序         | Function | no       | Android/iOS | partially         |
 | launchMiniProgram (LaunchMiniProgramMetadata) | 跳到小程序         | Function | no       | Android/iOS | yes               |
 | chooseInvoice (ChooseInvoice)                 | 选择发票           | Function | no       | Android/iOS | no                |
 | pay(payload)                                  | 支付               | Function | no       | Android/iOS | yes               |
@@ -367,8 +367,8 @@ ohpm install
 
 ## 其他
 
-- ShareText、ShareImage、ShareLocalImage 只支持分享，不支持收藏，原因为目前微信 Open SDK 还不支持 HarmonyOS 平台的收藏
-- isWXAppSupportApi、getApiVersion、ShareFile、ShareMusic、ShareVideo、ShareWebpage 、ShareMiniProgram、ChooseInvoice、subscribeMessage 这些接口目前在 HarmonyOS 微信 Open SDK 还不支持
+- ShareText、ShareImage、ShareLocalImage、ShareMiniProgram 只支持分享，不支持收藏，原因为目前微信 Open SDK 还不支持 HarmonyOS 平台的收藏
+- isWXAppSupportApi、getApiVersion、ShareFile、ShareMusic、ShareVideo、ShareWebpage、ChooseInvoice、subscribeMessage 这些接口目前在 HarmonyOS 微信 Open SDK 还不支持
 
 ## 开源协议
 

@@ -102,6 +102,10 @@ Open the `harmony` directory of the HarmonyOS project in DevEco Studio.
 ```
 
 ### 2.Introducing Native Code
+> [!TIP] 引入原生代码之前请确认IDE版本，5.0.3.810及其之后的版本需要在harmony工程中的hvigor-config.json5文件中新增如下配置以解决路径过长导致的编译报错问题
+> "properties":{
+>      "ohos.nativeResolver":false
+> }
 
 Currently, two methods are available:
 

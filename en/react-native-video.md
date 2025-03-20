@@ -673,8 +673,8 @@ For details, see [React-Native-Video Official Document](https://github.com/react
 | Name                                            | Description                                                  | Type     | Required | Platform | HarmonyOS Support |
 | ----------------------------------------------- | ------------------------------------------------------------ | -------- | -------- | -------- | ----------------- |
 | `seek()`                                        | Seek to the specified position represented by seconds. seconds is a float value. | function | No       | All      | yes               |
-| `dismissFullscreenPlayer()`                     | Take the player out of fullscreen mode.                      | function | No       | All      | No                |
-| `presentFullscreenPlayer()`                     | Put the player in fullscreen mode.                           | function | No       | All      | No                |
+| `dismissFullscreenPlayer()`                     | Take the player out of fullscreen mode.                      | function | No       | All      | yes                |
+| `presentFullscreenPlayer()`                     | Put the player in fullscreen mode.                           | function | No       | All      | yes                |
 | `save()`                                        | Save video to your Photos with current filter prop. Returns promise. | function | No       | iOS      | No                |
 | `restoreUserInterfaceForPictureInPictureStop()` | This function corresponds to the completion handler in Apple's recovery user interface ForPictureInPictureStop. IMPORTANT: This function must be called after calling onRestoreUserInterfaceForPictureInPictureStop. | function | No       | iOS      | No                |
 

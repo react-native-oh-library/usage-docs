@@ -311,7 +311,7 @@ export default function () {
 | Name | Description | Type | Required | Platform | HarmonyOS Support |
 | ---- | ----------- | ---- | -------- | -------- | ------------------ |
 | isAnimated | To show animates BarChart. Animation occurs onLoad and on value change | boolean | no | all | yes
-| animationDuration | Duration of the animations | number | no | all | yes
+| animationDuration | Duration of the animations | number | no | all | no
 | animationEasing | Easing applied to the animation | Easing | no | all | yes
 
 **Pagination related props**
@@ -838,7 +838,7 @@ export default function () {
 | paddingHorizontal | horizontal padding in the chart svg component (useful to accomodate _"onBorder"_ labels) | number | no | all | yes
 | paddingVertical | vertical padding in the chart svg component (useful to accomodate _"onBorder"_ labels) | number | no | all | yes
 | isAnimated | To show animates PieProChart. Animation occurs onLoad and on value change | boolean | no | all | yes
-| animationDuration | Duration of the animations, only fro PieProChart | number| no | all | yes
+| animationDuration | Duration of the animations, only fro PieProChart | number| no | all | no
 | curvedStartEdges | Bend start edge, only fro PieProChart | boolean | no | all | yes
 | curvedEndEdges | Bend end edge, only fro PieProChart | boolean | no | all | yes
 | edgesRadius | Bend radius, only fro PieProChart | number | no | all | yes
